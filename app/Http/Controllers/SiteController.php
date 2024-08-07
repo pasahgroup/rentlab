@@ -13,6 +13,8 @@ use App\Models\SupportAttachment;
 use App\Models\SupportMessage;
 use App\Models\SupportTicket;
 use Carbon\Carbon;
+use App\Models\Vehicle;
+
 use Illuminate\Http\Request;
 
 
@@ -40,9 +42,11 @@ class SiteController extends Controller
             session()->put('reference', $reference);
         }
 
+
+$vehicles = Vehicle::active()->latest()->paginate(getPaginate());
         $pageTitle = 'Home';
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
-        return view($this->activeTemplate . 'home', compact('pageTitle','sections'));
+        return view($this->activeTemplate . 'home', compact('pageTitle','sections','vehicles'));
     }
 
     public function pages($slug)

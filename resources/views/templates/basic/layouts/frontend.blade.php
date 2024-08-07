@@ -20,6 +20,26 @@
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap-fileinput.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/custom.css')}}">
 
+
+
+
+<!-- Custom css -->
+
+ <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../../custom/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../../custom/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="../../custom/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="../../custom/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="../../custom/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="../../custom/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="../../custom/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="../../custom/css/style.css" type="text/css">
+
+<!--End of custom css -->
+
+
+
+
     @stack('style-lib')
     @stack('style')
 </head>
@@ -85,13 +105,14 @@
                 <li>
                     <a href="{{ route('home') }}">@lang('Home')</a>
                 </li>
-                @foreach($pages as $k => $data)
-                    <li><a href="{{route('pages',[$data->slug])}}">{{__($data->name)}}</a></li>
-                @endforeach
+             
                 <li><a href="{{ route('vehicles') }}">@lang('Vehicles')</a></li>
                 <li><a href="{{ route('plans') }}">@lang('Plan')</a></li>
                 <li><a href="{{ route('blogs') }}">@lang('Blog')</a></li>
                 <li><a href="{{ route('contact') }}">@lang('Contact')</a></li>
+                   @foreach($pages as $k => $data)
+                    <li><a href="{{route('pages',[$data->slug])}}">{{__($data->name)}}</a></li>
+                @endforeach
                 <li class="py-3">
                     <select class="langSel language-select ms-3">
                         @foreach($language as $item)
@@ -151,6 +172,18 @@
 <script src="{{asset($activeTemplateTrue.'js/magnific-popup.min.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/owl.min.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/main.js')}}"></script>
+
+
+<!-- custo jss -->
+  <script src="../../custom/js/jquery-3.3.1.min.js"></script>
+    <script src="../../custom/js/bootstrap.min.js"></script>
+    <script src="../../custom/js/jquery.nice-select.min.js"></script>
+    <script src="../../custom/js/jquery-ui.min.js"></script>
+    <script src="../../custom/js/jquery.magnific-popup.min.js"></script>
+    <script src="../../custom/js/mixitup.min.js"></script>
+    <script src="../../custom/js/jquery.slicknav.js"></script>
+    <script src="../../custom/js/owl.carousel.min.js"></script>
+    <script src="../../custom/js/main.js"></script>
 
 
 <script>

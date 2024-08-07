@@ -32,7 +32,7 @@ class GatewayCurrency extends Model
 
     public function scopeMethodImage()
     {
-        return ($this->image) ? getImage(imagePath()['gateway']['path'] .'/' . $this->image,'800x800') : (($this->method->image) ? getImage(imagePath()['gateway']['path'] . '/' . $this->method->image,'800x800'):  asset(imagePath()['image']['default']));
+        return ($this->image) ? getImage(imagePath()['gateway']['path'] .'/' . $this->image,'600x600') : (($this->method->image) ? getImage(imagePath()['gateway']['path'] . '/' . $this->method->image,'600x600'):  asset(imagePath()['image']['default']));
     }
 
 }

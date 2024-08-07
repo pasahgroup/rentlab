@@ -31,6 +31,9 @@ class VehicleController extends Controller
 
     public function store(Request $request)
     {
+       
+//dd();
+
         $request->validate([
             'name' => 'required|string',
             'brand' => 'required|integer|gt:0',
@@ -95,6 +98,8 @@ class VehicleController extends Controller
 
     public function update(Request $request,$id)
     {
+//dd(request('fuel_type'));
+
         $request->validate([
             'name' => 'required|string',
             'brand' => 'required|integer|gt:0',

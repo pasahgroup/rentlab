@@ -14,6 +14,7 @@
                                 <th scope="col">@lang('Price')</th>
                                 <th scope="col">@lang('Model')</th>
                                 <th scope="col">@lang('Transmission')</th>
+                                 <th scope="col">@lang('Fuel')</th>
                                 <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>
@@ -27,6 +28,7 @@
                                     <td data-label="@lang('Price')"><strong>{{ $general->cur_sym }}{{ __(showAmount($item->price)) }}</strong></td>
                                     <td data-label="@lang('Model')">{{ __($item->model) }}</td>
                                     <td data-label="@lang('Transmission')">{{ __($item->transmission) }}</td>
+                                    <td data-label="@lang('Fuel')">{{ __($item->fuel_type) }}</td>
                                     <td data-label="@lang('Status')">
                                         @if($item->status === 1)
                                             <span class="text--small badge font-weight-normal badge--success">@lang('Active')</span>

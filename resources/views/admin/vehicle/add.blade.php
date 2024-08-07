@@ -114,20 +114,34 @@
                                            autocomplete="off" name="doors" required>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                           
+                           <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="transmission">@lang('Transmission')</label>
-                                    <input type="text" class="form-control" id="transmission" value="{{ old('transmission') }}"
-                                           autocomplete="off" name="transmission" required="">
+                                    <label for="category">@lang('Transmission')</label>
+                                    <select class="form-control" id="transmission" name="transmission" required="">
+                                        <option value="">-- @lang('Select Transmission') --</option>
+                              
+                                            <option value="Automatic">@lang('Automatic')</option>
+                                            <option value="Semi-automatic">@lang('Semi-automatic')</option>
+                                             <option value="Manual">@lang('Manual')</option>
+                                                                        </select>
                                 </div>
                             </div>
+
+                            
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="fuel">@lang('Fuel Type')</label>
-                                    <input type="text" class="form-control" id="fuel" value="{{ old('fuel_type') }}"
-                                           autocomplete="off" name="fuel_type" required="">
+                                    <label for="category">@lang('Fuel Type')</label>
+                                    <select class="form-control" id="fuel" name="fuel_type" required="">
+                                        <option value="">-- @lang('Select Fuel Type') --</option>
+                              
+                                              <option value="Electric">@lang('Electric')</option>
+                                            <option value="Diesel">@lang('Diesel')</option>
+                                             <option value="Petrol">@lang('Petrol')</option>
+                                                                        </select>
                                 </div>
                             </div>
+
 
                             <div class="col-lg-12">
                                 <div class="card border--dark">

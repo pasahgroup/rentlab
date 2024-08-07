@@ -17,7 +17,4 @@
             </div><!-- bodywrapper__inner end -->
         </div><!-- body-wrapper end -->
     </div>
-
-
-
 @endsection

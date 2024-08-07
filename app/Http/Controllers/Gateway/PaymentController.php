@@ -200,11 +200,15 @@ class PaymentController extends Controller
 
         $track = session()->get('Track');
         $data = Deposit::with('gateway')->where('status', 0)->where('trx', $track)->first();
+       
+
+
         if (!$data) {
+
             return redirect()->route(gatewayRedirectUrl());
         }
         if ($data->method_code > 999) {
-
+//dd('print');
             $pageTitle = 'Payment Confirm';
             $method = $data->gatewayCurrency();
             return view($this->activeTemplate . 'user.manual_payment.manual_confirm', compact('data', 'pageTitle', 'method'));
@@ -221,10 +225,12 @@ class PaymentController extends Controller
         }
 
         $params = json_decode($data->gatewayCurrency()->gateway_parameter);
+   //dd('print2');
 
         $rules = [];
         $inputField = [];
         $verifyImages = [];
+//   dd('print2');
 
         if ($params != null) {
             foreach ($params as $key => $custom) {
@@ -246,6 +252,7 @@ class PaymentController extends Controller
             }
         }
         $this->validate($request, $rules);
+   //dd('print2');
 
 
         $directory = date("Y")."/".date("m")."/".date("d");
@@ -285,30 +292,36 @@ class PaymentController extends Controller
             $data->detail = null;
         }
 
-
+   //dd('print3');
 
         $data->status = 2; // pending
         $data->save();
 
 
+
         $adminNotification = new AdminNotification();
+       
         $adminNotification->user_id = $data->user->id;
         $adminNotification->title = 'Payment request from '.$data->user->username;
         $adminNotification->click_url = urlPath('admin.deposit.details',$data->id);
         $adminNotification->save();
 
-        $general = GeneralSetting::first();
-        notify($data->user, 'PAYMENT_REQUEST', [
-            'method_name' => $data->gatewayCurrency()->name,
-            'method_currency' => $data->method_currency,
-            'method_amount' => showAmount($data->final_amo),
-            'amount' => showAmount($data->amount),
-            'charge' => showAmount($data->charge),
-            'currency' => $general->cur_text,
-            'rate' => showAmount($data->rate),
-            'trx' => $data->trx
-        ]);
 
+        $general = GeneralSetting::first();
+        
+        // notify($data->user, 'PAYMENT_REQUEST', [
+        //     'method_name' => $data->gatewayCurrency()->name,
+        //     'method_currency' => $data->method_currency,
+        //     'method_amount' => showAmount($data->final_amo),
+        //     'amount' => showAmount($data->amount),
+        //     'charge' => showAmount($data->charge),
+        //     'currency' => $general->cur_text,
+        //     'rate' => showAmount($data->rate),
+        //     'trx' => $data->trx
+        // ]);
+
+
+//      dd('print2');
         //Forget session
         session()->forget(['rent_id', 'plan_id']);
 

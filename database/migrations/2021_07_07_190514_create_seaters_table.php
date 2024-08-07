@@ -14,7 +14,7 @@ class CreateSeatersTable extends Migration
     public function up()
     {
         Schema::create('seaters', function (Blueprint $table) {
-            $table->id();
+             $table->bigIncrements('id');
             $table->string('number', 40)->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();

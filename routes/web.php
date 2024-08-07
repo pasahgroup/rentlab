@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\PdfController;
 
 Route::get('/clear', function(){
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
@@ -54,6 +55,7 @@ Route::prefix('ticket')->group(function () {
 */
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+   
     Route::namespace('Auth')->group(function () {
         Route::get('/', 'LoginController@showLoginForm')->name('login');
         Route::post('/', 'LoginController@login')->name('login');
@@ -144,6 +146,16 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('vehicles/image/remove/{id}/{image}', 'VehicleController@deleteImage')->name('vehicles.image.delete');
         Route::post('vehicles/{id}/status', 'VehicleController@status')->name('vehicles.status');
 
+        //Car Body Type
+        Route::get('cartype', 'CartypeController@index')->name('cartype.index');
+        Route::get('cartype/add', 'CartypeController@add')->name('cartype.add');
+        Route::post('cartype/store', 'CartypeController@store')->name('cartype.store');
+        Route::get('cartype/{id}', 'CartypeController@edit')->name('cartype.edit');
+        Route::post('cartype/update/{id}', 'CartypeController@update')->name('cartype.update');
+        Route::post('cartype/image/remove/{id}/{image}', 'VehicleController@deleteImage')->name('cartype.image.delete');
+        Route::post('cartype/{id}/status', 'CartypeController@status')->name('cartype.status');
+
+        
         //Vehicle Booking Log
         Route::get('vehicles/booking/log', 'VehicleController@bookingLog')->name('vehicles.booking.log');
         Route::get('vehicles/booking/log/upcoming', 'VehicleController@upcomingBookingLog')->name('vehicles.booking.log.upcoming');
@@ -374,6 +386,7 @@ Route::name('user.')->prefix('user')->group(function () {
             Route::post('payment/insert', 'Gateway\PaymentController@depositInsert')->name('deposit.insert');
             Route::get('payment/preview', 'Gateway\PaymentController@depositPreview')->name('deposit.preview');
             Route::get('payment/confirm', 'Gateway\PaymentController@depositConfirm')->name('deposit.confirm');
+            
             Route::get('payment/manual', 'Gateway\PaymentController@manualDepositConfirm')->name('deposit.manual.confirm');
             Route::post('payment/manual', 'Gateway\PaymentController@manualDepositUpdate')->name('deposit.manual.update');
             Route::get('payment/history', 'UserController@depositHistory')->name('deposit.history');

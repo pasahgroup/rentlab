@@ -2695,7 +2695,8 @@ input[readonly].cmn--form--control:focus {
 }
 
 .car__rental-thumb {
-    width: 60%;
+/*    width: 60%;*/
+width: 40%;
     padding-right: 50px;
 }
 

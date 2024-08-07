@@ -48,9 +48,13 @@ class VehicleController extends Controller
 
     public function vehicleBookingConfirm(Request $request, $id)
     {
+//dd('ppd');
+
         $request->validate([
             'pick_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
-            'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()).'|not_in:'.$request->pick_location,
+            //'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()).'|not_in:'.$request->pick_location,
+
+             'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
             'pick_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:today',
             'drop_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:'. $request->pick_time,
         ],[
@@ -59,11 +63,17 @@ class VehicleController extends Controller
 
         $vehicle = Vehicle::active()->where('id', $id)->firstOrFail();
 
+
+
+
+//dd($vehicle);
         //Checking booked or not
         if ($vehicle->booked()){
             $notify[] = ['error', 'This vehicle is booked!'];
             return back()->withNotify($notify);
         }
+
+//dd('ppd');
 
         $pick_time = new Carbon($request->pick_time);
         $drop_time = new Carbon($request->drop_time);
@@ -78,6 +88,8 @@ class VehicleController extends Controller
         $rent->drop_location = $request->drop_location;
         $rent->pick_time = $pick_time;
         $rent->drop_time = $drop_time;
+       
+
         $rent->price = getAmount($total_price);
         $rent->save();
 

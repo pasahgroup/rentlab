@@ -19,14 +19,33 @@
                     </a>
                 </li>
 
-                <li class="sidebar-menu-item {{menuActive('admin.brand*')}}">
+     <li class="sidebar-menu-item sidebar-dropdown">
+                    <a href="javascript:void(0)" class="{{menuActive('admin.vehicles*',3)}}">
+                        <i class="menu-icon las la-car-side"></i>
+                        <span class="menu-title">@lang('Car Settings') </span>
+                    </a>
+                    <div class="sidebar-submenu {{menuActive('admin.vehicles*',2)}} ">
+                        <ul>
+                             <li class="sidebar-menu-item {{menuActive('admin.brand*')}}">
                     <a href="{{route('admin.brand.index')}}" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title">@lang('Brand')</span>
                     </a>
                 </li>
 
-                <li class="sidebar-menu-item {{menuActive('admin.location.index')}}">
+                 <li class="sidebar-menu-item {{menuActive('admin.brand*')}}">
+                    <a href="{{route('admin.cartype.index')}}" class="nav-link ">
+                        <i class="menu-icon las la-feather"></i>
+                        <span class="menu-title">@lang('Car body type')</span>
+                    </a>
+                </li>                       
+
+                        </ul>
+                    </div>
+                </li>
+
+
+            <li class="sidebar-menu-item {{menuActive('admin.location.index')}}">
                     <a href="{{route('admin.location.index')}}" class="nav-link ">
                         <i class="menu-icon las la-map-marked"></i>
                         <span class="menu-title">@lang('Location')</span>

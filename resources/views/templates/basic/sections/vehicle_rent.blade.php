@@ -1,6 +1,6 @@
 @php
     $rent_content = getContent('vehicle_rent.content', true);
-    $vehicles = \App\Models\Vehicle::active()->latest()->take(8)->with('seater')->get();
+    $vehicles = \App\Models\Vehicle::active()->latest()->take(10)->with('seater')->get();
 @endphp
 <!-- Rental Fleet Section -->
 <section class="rental-section pb-120 pt-120 bg--section position-relative overflow-hidden">
@@ -11,6 +11,7 @@
             <h2 class="section__title">{{ __(@$rent_content->data_values->heading) }}</h2>
         </div>
         <div class="sync1 owl-theme owl-carousel">
+           
             @forelse($vehicles as $vehicle)
                 <div class="car__rental">
                     <div class="car__rental-thumb">
@@ -36,7 +37,8 @@
                                 </li>
                             </ul>
                             <div class="btn__grp">
-                                <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn">@lang('Book Now')</a>
+                                <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn">@lang('More Details')</a>
+                                 <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn">@lang('Book Now')</a>
                             </div>
                         </div>
                     </div>

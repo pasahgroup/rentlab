@@ -50,7 +50,7 @@
                                     <select name="drop_location" id="drop-point" class="form-control form--control" required>
                                         <option value="">@lang('Drop of Point')</option>
                                         @forelse($locations as $location)
-                                            <option value="{{ $location->id }}">{{ @$location->name }}</option>
+             <option value="{{ $location->id }}" selected>{{ @$location->name }}</option>
                                         @empty
                                         @endforelse
                                     </select>
@@ -78,7 +78,7 @@
                                     {{ $vehicle->name }} @lang('for') <span class="total_days">1</span> @lang('days. Please confirm to book.')
                                 </div>
                                 <div class="form-group">
-                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit">@lang('Book Now')</button>
+                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit">@lang('Book Now nm')</button>
                                 </div>
                             </div>
                         </form>
