@@ -77,9 +77,9 @@
 
                 <li><a href="{{ route('vehicles') }}">Vehicles</a>
                   <ul class="dropdown">
-                    {{$cartypes}}
-                    <li><a href="about.html">Sedan</a></li>
-                    <li><a href="services.html">Hatchback</a></li>
+                   @foreach($cartypes as $cartype)
+                    <li><a href="about.html">{{$cartype->car_body_type}}</a></li>
+                   @endforeach
                    
                   </ul>
                 </li>

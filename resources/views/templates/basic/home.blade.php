@@ -331,12 +331,12 @@
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
-                                        <div class="label-date">2016</div>
+                                        <div class="label-date">{{ $general->cur_sym }}{{ showAmount($vehicle->price) }}<sub>/@lang('day')</sub></div>
                                         <h5><a href="#">Porsche cayenne turbo s</a></h5>
-                                        <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
+                                      
+                                          <ul class="d-flex car-info">
+                                            <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini">{{ __(@$vehicle->transmission) }}</span></li>
+                                            <li class="pr-3"><i class="las la-gas-pump"></i><span class="font-mini">{{ __(@$vehicle->fuel_type) }}</span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">

@@ -330,12 +330,12 @@
                                 </div>
                                 <div class="car__item__text">
                                     <div class="car__item__text__inner">
-                                        <div class="label-date">2016</div>
+                                        <div class="label-date"><?php echo e($general->cur_sym); ?><?php echo e(showAmount($vehicle->price)); ?><sub>/<?php echo app('translator')->get('day'); ?></sub></div>
                                         <h5><a href="#">Porsche cayenne turbo s</a></h5>
-                                        <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
+                                      
+                                          <ul class="d-flex car-info">
+                                            <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini"><?php echo e(__(@$vehicle->transmission)); ?></span></li>
+                                            <li class="pr-3"><i class="las la-gas-pump"></i><span class="font-mini"><?php echo e(__(@$vehicle->fuel_type)); ?></span></li>
                                         </ul>
                                     </div>
                                     <div class="car__item__price">

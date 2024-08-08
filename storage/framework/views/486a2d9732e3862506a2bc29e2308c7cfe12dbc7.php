@@ -77,10 +77,9 @@
 
                 <li><a href="<?php echo e(route('vehicles')); ?>">Vehicles</a>
                   <ul class="dropdown">
-                    <?php echo e($cartypes); ?>
-
-                    <li><a href="about.html">Sedan</a></li>
-                    <li><a href="services.html">Hatchback</a></li>
+                   <?php $__currentLoopData = $cartypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cartype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <li><a href="about.html"><?php echo e($cartype->car_body_type); ?></a></li>
+                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                    
                   </ul>
                 </li>
