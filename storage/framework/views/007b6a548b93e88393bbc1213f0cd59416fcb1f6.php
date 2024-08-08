@@ -84,10 +84,7 @@
 
 
 
-
-
     <!-- Banner Section -->
-
     <!-- Book Section -->
     <section class="book-section pb-120 bg--section">
         <div class="container">
@@ -180,10 +177,10 @@
                     <div class="row">
 
    <?php $__currentLoopData = $carbodytypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $carbodytype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="col-lg-2 col-md-2">
+                        <div class="col-lg-2 col-md-3">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="<?php echo e(URL::asset('/storage/cartypes/'.$carbodytype->images)); ?>" alt="No Image" style="width:100%;height:14vh;">
+                                    <img src="<?php echo e(URL::asset('/storage/cartypes/'.$carbodytype->images)); ?>" alt="No Image" style="width:400px;height:130px;">
                                 </div>
                                 <div class="car__item__text">
                                     <!-- <div class="car__item__text__inner">

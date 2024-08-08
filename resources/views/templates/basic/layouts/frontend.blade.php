@@ -59,62 +59,41 @@
 <header class="header">
     <div class="container">
       <div class="site-header clearfix">
-        <div class="col-lg-3 col-md-3 col-sm-12 title-area">
-          <div class="site-title" id="title">
-            <a href="index.html" title="">
-              <h4>MAXI<span>BIZ bb</span></h4>
-            </a>
+        <div class="col-lg-1 col-md-2 col-sm-12 title-area">
+      
+            <div class="logo">
+                <a href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo" style=""></a>
+            </div>
           </div>
-        </div>
+        
         <!-- title area -->
         <div class="col-lg-9 col-md-12 col-sm-12">
-          <div id="nav" class="right">
+          <div id="nav" class="float-right">
             <div class="container clearfix">
               <ul id="jetmenu" class="jetmenu blue">
-                <li class="active"><a href="index.html">Home</a>
+               
+                <li class="active"><a href="{{ route('home') }}">Home</a>
                 </li>
-                <li><a href="#">Pages</a>
+
+                <li><a href="{{ route('vehicles') }}">Vehicles</a>
                   <ul class="dropdown">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="team-members.html">Team Members</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
-                    <li><a href="404.html">404 Error</a></li>
-                    <li><a href="faq.html">FAQ Page</a></li>
-                    <li><a href="left-sidebar.html">Left Sidebar</a></li>
-                    <li><a href="right-sidebar.html">Right Sidebar</a></li>
-                    <li><a href="fullwidth.html">Full Width</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    {{$cartypes}}
+                    <li><a href="about.html">Sedan</a></li>
+                    <li><a href="services.html">Hatchback</a></li>
+                   
                   </ul>
                 </li>
-                <li><a href="#">Shop</a>
-                  <ul class="dropdown">
-                    <li><a href="digital-download.html">Products Page</a></li>
-                    <li><a href="single-product.html">Single Product</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
-                    <li><a href="account.html">Account Page</a></li>
-                    <li><a href="support.html">Support Center</a></li>
-                  </ul>
+                
+                         <li><a href="{{ route('plans') }}">Plan</a>
                 </li>
-                <li><a href="#">Portfolio</a>
-                  <ul class="dropdown">
-                    <li><a href="single-portfolio-1.html">Single Portfolio 1</a></li>
-                    <li><a href="single-portfolio-2.html">Single Portfolio 2</a></li>
-                    <li><a href="portfolio-2.html">Portfolio (2 Columns)</a></li>
-                    <li><a href="portfolio-3.html">Portfolio (3 Columns)</a></li>
-                    <li><a href="gallery-portfolio.html">Gallery</a></li>
-                    <li><a href="masonry-grid-portfolio.html">Masonry Grid Style</a></li>
-                  </ul>
+                              
+                  <li><a href="{{ route('blogs') }}">Blog</a>
                 </li>
-                <li><a href="#">Blog</a>
-                  <ul class="dropdown">
-                    <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                    <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                    <li><a href="single-with-sidebar.html">Single with Sidebar</a></li>
-                  </ul>
+                  <li><a href="{{ route('home') }}">About us</a>
                 </li>
+                  <li><a href="{{ route('contact') }}">Contact</a>
+                </li>
+
               </ul>
             </div>
           </div>
@@ -181,9 +160,7 @@
 <div class="header-bottom">
     <div class="container">
         <div class="header-wrapper">
-            <div class="logo">
-                <a href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo"></a>
-            </div>
+           
             <ul class="menu">
                 <li>
                     <a href="{{ route('home') }}">@lang('Home')</a>

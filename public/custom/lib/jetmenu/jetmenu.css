@@ -24,14 +24,14 @@
 
 .jetmenu > li > a {
     border-top: 3px solid #FFFFFF;
-    color: #777777;
+    color: #1b6c0f;
     display: inline-block;
     font-size: 12px;
 	font-weight:400;
     line-height: 1.273em;
     padding: 18px 20px;
     text-decoration: none;
-    text-transform: uppercase;
+/*    text-transform: lowercase;*/
 }
 
 .jetmenu > li:hover > a,

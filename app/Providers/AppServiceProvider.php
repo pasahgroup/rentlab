@@ -10,6 +10,8 @@ use App\Models\Language;
 use App\Models\Page;
 use App\Models\SupportTicket;
 use App\Models\User;
+use App\Models\Cartype;
+
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 
@@ -51,6 +53,8 @@ if ($this->app->isLocal()) {
         $viewShare['activeTemplateTrue'] = activeTemplate(true);
         $viewShare['language'] = Language::all();
         $viewShare['pages'] = Page::where('tempname',$activeTemplate)->where('slug','!=','home')->get();
+
+        $viewShare['cartypes'] = Cartype::orderBy('car_body_type')->get();
         view()->share($viewShare);
 
 
@@ -62,6 +66,7 @@ if ($this->app->isLocal()) {
                 'pending_ticket_count'         => SupportTicket::whereIN('status', [0,2])->count(),
                 'pending_deposits_count'    => Deposit::pending()->count(),
             ]);
+
         });
 
         view()->composer('admin.partials.topnav', function ($view) {
