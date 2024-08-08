@@ -17,6 +17,8 @@ class CreateVehiclesTable extends Migration
              $table->bigIncrements('id');
             $table->string('name')->nullable();
             $table->integer('brand_id')->default(0);
+             $table->integer('car_body_type_id')->default(0);
+
             $table->integer('seater_id')->default(0);
             $table->decimal('price',18,8)->default(0);
             $table->text('details')->nullable();

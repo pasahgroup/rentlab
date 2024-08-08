@@ -9,14 +9,14 @@
 
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">@lang('Name')</label>
                                     <input type="text" id="name" name="name" class="form-control"
                                            value="{{ $vehicle->name }}">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="category">@lang('Brand')</label>
                                     <select class="form-control" id="category" name="brand" required="">
@@ -24,6 +24,21 @@
                                         @forelse($brands as $item)
                                             <option
                                                 value="{{ $item->id }}" {{ $vehicle->brand_id == $item->id ? 'selected' : '' }}>{{ __(@$item->name) }}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
+
+                                <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="category">@lang('Car body type')</label>
+                                    <select class="form-control" id="car_body_type" name="car_body_type" required="">
+                                        <option value="">-- @lang('Select One') --</option>
+
+                                        @forelse($cartypes as $cartype)
+                                            <option
+                                                value="{{ $cartype->id }}" {{ $vehicle->car_body_type_id == $cartype->id ? 'selected' : '' }}>{{ __(@$cartype->car_body_type) }}</option>
                                         @empty
                                         @endforelse
                                     </select>

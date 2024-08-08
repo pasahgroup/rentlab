@@ -8,6 +8,8 @@ use App\Models\Location;
 use App\Models\Page;
 use App\Models\Plan;
 use App\Models\PlanLog;
+use App\Models\Cartype;
+
 use App\Models\Subscriber;
 use App\Models\SupportAttachment;
 use App\Models\SupportMessage;
@@ -43,10 +45,13 @@ class SiteController extends Controller
         }
 
 
+$carbodytypes = cartype::orderby('car_body_type')->get();
+//dd($carbodytypes);
+
 $vehicles = Vehicle::active()->latest()->paginate(getPaginate());
         $pageTitle = 'Home';
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
-        return view($this->activeTemplate . 'home', compact('pageTitle','sections','vehicles'));
+        return view($this->activeTemplate . 'home', compact('pageTitle','sections','vehicles','carbodytypes'));
     }
 
     public function pages($slug)

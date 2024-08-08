@@ -9,14 +9,14 @@
 
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name"><?php echo app('translator')->get('Name'); ?></label>
                                     <input type="text" id="name" name="name" class="form-control"
                                            value="<?php echo e($vehicle->name); ?>">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="category"><?php echo app('translator')->get('Brand'); ?></label>
                                     <select class="form-control" id="category" name="brand" required="">
@@ -24,6 +24,21 @@
                                         <?php $__empty_1 = true; $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                             <option
                                                 value="<?php echo e($item->id); ?>" <?php echo e($vehicle->brand_id == $item->id ? 'selected' : ''); ?>><?php echo e(__(@$item->name)); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                            </div>
+
+                                <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="category"><?php echo app('translator')->get('Car body type'); ?></label>
+                                    <select class="form-control" id="car_body_type" name="car_body_type" required="">
+                                        <option value="">-- <?php echo app('translator')->get('Select One'); ?> --</option>
+
+                                        <?php $__empty_1 = true; $__currentLoopData = $cartypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cartype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                            <option
+                                                value="<?php echo e($cartype->id); ?>" <?php echo e($vehicle->car_body_type_id == $cartype->id ? 'selected' : ''); ?>><?php echo e(__(@$cartype->car_body_type)); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <?php endif; ?>
                                     </select>

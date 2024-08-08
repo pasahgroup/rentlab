@@ -152,8 +152,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('cartype/store', 'CartypeController@store')->name('cartype.store');
         Route::get('cartype/{id}', 'CartypeController@edit')->name('cartype.edit');
         Route::post('cartype/update/{id}', 'CartypeController@update')->name('cartype.update');
-        Route::post('cartype/image/remove/{id}/{image}', 'VehicleController@deleteImage')->name('cartype.image.delete');
+        Route::post('cartype/image/remove/{id}', 'CartypeController@deleteImage')->name('cartype.image.delete');
         Route::post('cartype/{id}/status', 'CartypeController@status')->name('cartype.status');
+
+         Route::post('cartype/{id}/delete', 'CartypeController@recovery')->name('cartype.delete');
 
         
         //Vehicle Booking Log

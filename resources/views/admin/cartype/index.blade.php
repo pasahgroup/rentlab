@@ -8,12 +8,8 @@
                         <table class="table table--light tabstyle--two">
                             <thead>
                             <tr>
-                                <th scope="col">@lang('Name')</th>
-                                <th scope="col">@lang('Brand')</th>
-                                <th scope="col">@lang('Seat Type')</th>
-                                <th scope="col">@lang('Price')</th>
-                                <th scope="col">@lang('Model')</th>
-                                <th scope="col">@lang('Transmission')</th>
+                                <th scope="col">@lang('Car body type')</th>
+                                <th scope="col">@lang('Images')</th>
                                 <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>
@@ -21,12 +17,9 @@
                             <tbody>
                             @forelse ($vehicles as $item)
                                 <tr>
-                                    <td data-label="@lang('Name')"><strong>{{ __($item->name) }}</strong></td>
-                                    <td data-label="@lang('Brand')">{{ __($item->brand->name) }}</td>
-                                    <td data-label="@lang('Seat Type')">{{ __($item->seater->number) }} @lang('Seater')</td>
-                                    <td data-label="@lang('Price')"><strong>{{ $general->cur_sym }}{{ __(showAmount($item->price)) }}</strong></td>
-                                    <td data-label="@lang('Model')">{{ __($item->model) }}</td>
-                                    <td data-label="@lang('Transmission')">{{ __($item->transmission) }}</td>
+                                    <td data-label="@lang('Car body type')"><strong>{{ __($item->car_body_type) }}</strong></td>
+                                  
+                                    <td data-label="@lang('Images')">{{ __($item->images) }}</td>
                                     <td data-label="@lang('Status')">
                                         @if($item->status === 1)
                                             <span class="text--small badge font-weight-normal badge--success">@lang('Active')</span>
@@ -40,9 +33,12 @@
                                             <i class="la la-edit"></i>
                                         </a>
 
-                                        <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('admin.cartype.status', $item->id) }}">
+                                        <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--primary' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('admin.cartype.status', $item->id) }}">
                                             <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
                                         </a>
+
+                                      
+                                         <a href="{{ route('admin.cartype.delete',$item->id) }}" id="click-edit1" onclick="return confirm(id='Are you sure you want to delete this  {{$item->id}}')"><i class="la la-eye{{ $item->status ? '-slash' : null }}"></i></a>
                                     </td>
 
                                 </tr>

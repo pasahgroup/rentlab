@@ -8,12 +8,8 @@
                         <table class="table table--light tabstyle--two">
                             <thead>
                             <tr>
-                                <th scope="col"><?php echo app('translator')->get('Name'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Brand'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Seat Type'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Price'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Model'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Transmission'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Car body type'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Images'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Status'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Actions'); ?></th>
                             </tr>
@@ -21,12 +17,9 @@
                             <tbody>
                             <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                 <tr>
-                                    <td data-label="<?php echo app('translator')->get('Name'); ?>"><strong><?php echo e(__($item->name)); ?></strong></td>
-                                    <td data-label="<?php echo app('translator')->get('Brand'); ?>"><?php echo e(__($item->brand->name)); ?></td>
-                                    <td data-label="<?php echo app('translator')->get('Seat Type'); ?>"><?php echo e(__($item->seater->number)); ?> <?php echo app('translator')->get('Seater'); ?></td>
-                                    <td data-label="<?php echo app('translator')->get('Price'); ?>"><strong><?php echo e($general->cur_sym); ?><?php echo e(__(showAmount($item->price))); ?></strong></td>
-                                    <td data-label="<?php echo app('translator')->get('Model'); ?>"><?php echo e(__($item->model)); ?></td>
-                                    <td data-label="<?php echo app('translator')->get('Transmission'); ?>"><?php echo e(__($item->transmission)); ?></td>
+                                    <td data-label="<?php echo app('translator')->get('Car body type'); ?>"><strong><?php echo e(__($item->car_body_type)); ?></strong></td>
+                                  
+                                    <td data-label="<?php echo app('translator')->get('Images'); ?>"><?php echo e(__($item->images)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Status'); ?>">
                                         <?php if($item->status === 1): ?>
                                             <span class="text--small badge font-weight-normal badge--success"><?php echo app('translator')->get('Active'); ?></span>
@@ -40,9 +33,12 @@
                                             <i class="la la-edit"></i>
                                         </a>
 
-                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('admin.cartype.status', $item->id)); ?>">
+                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--primary' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('admin.cartype.status', $item->id)); ?>">
                                             <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
                                         </a>
+
+                                      
+                                         <a href="<?php echo e(route('admin.cartype.delete',$item->id)); ?>" id="click-edit1" onclick="return confirm(id='Are you sure you want to delete this  <?php echo e($item->id); ?>')"><i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i></a>
                                     </td>
 
                                 </tr>

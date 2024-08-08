@@ -7,7 +7,7 @@
                 <div class="col-lg-10">
                     <div class="account__wrapper bg--section">
                         <div class="logo">
-                            <a href="{{ route('home') }}" class="d-block"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo"></a>
+                                  <a href="{{ route('home') }}" class="d-block"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo" style="width:100%; height:100%;"></a>
                         </div>
                         <form class="account-form row g-4" action="{{ route('user.register') }}" method="POST" onsubmit="return submitUserForm();">
                             @csrf

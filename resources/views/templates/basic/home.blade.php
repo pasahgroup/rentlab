@@ -164,7 +164,6 @@
 
 
 
-
  <!-- Car Section Begin -->
     <section class="book-section pb-120 bg--section">
         <div class="container">
@@ -174,18 +173,18 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="car__filter__option__item">
-                                    <span>Car body type</span>
+                                    <span>Car type</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
 
-   @foreach($vehicles as $vehicle)
+   @foreach($carbodytypes as $carbodytype)
                         <div class="col-lg-2 col-md-2">
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" alt="">
+                                    <img src="{{ URL::asset('/storage/cartypes/'.$carbodytype->images) }}" alt="No Image" style="width:100%;height:14vh;">
                                 </div>
                                 <div class="car__item__text">
                                     <!-- <div class="car__item__text__inner">
@@ -199,18 +198,12 @@
                                     </div> -->
                                     <div class="car__item__price">
                                         <a href="#" class="cmn--btn form--control bg--base w-100 justify-content-center"
-                                    type="submit">@lang('Explore More')</a>
+                                    type="submit">{{$carbodytype->car_body_type}}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         @endforeach
-                    </div>
-                    <div class="pagination__option">
-                        <a href="#" class="active">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#"><span class="arrow_carrot-2right"></span></a>
                     </div>
                 </div>
             </div>
@@ -370,209 +363,7 @@
                             </div>
                         </div>
                         @endforeach
-
-                        <div class="col-lg-4 col-md-4">
-                            <div class="car__item">
-                                <div class="car__item__pic__slider owl-carousel">
-                                    <img src="img/cars/car-2.jpg" alt="">
-                                    <img src="img/cars/car-8.jpg" alt="">
-                                    <img src="img/cars/car-6.jpg" alt="">
-                                    <img src="img/cars/car-4.jpg" alt="">
-                                </div>
-                                <div class="car__item__text">
-                                    <div class="car__item__text__inner">
-                                        <div class="label-date">2020</div>
-                                        <h5><a href="#">Toyota camry asv50l-jeteku</a></h5>
-                                        <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
-                                        </ul>
-                                    </div>
-                                    <div class="car__item__price">
-                                        <span class="car-option sale">For Sale</span>
-                                        <h6>$73,900</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="car__item">
-                                <div class="car__item__pic__slider owl-carousel">
-                                    <img src="img/cars/car-3.jpg" alt="">
-                                    <img src="img/cars/car-8.jpg" alt="">
-                                    <img src="img/cars/car-6.jpg" alt="">
-                                    <img src="img/cars/car-5.jpg" alt="">
-                                </div>
-                                <div class="car__item__text">
-                                    <div class="car__item__text__inner">
-                                        <div class="label-date">2017</div>
-                                        <h5><a href="#">Bmw s1000rr 2019 m</a></h5>
-                                        <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
-                                        </ul>
-                                    </div>
-                                    <div class="car__item__price">
-                                        <span class="car-option">For Rent</span>
-                                        <h6>$299<span>/Month</span></h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="car__item">
-                                <div class="car__item__pic__slider owl-carousel">
-                                    <img src="img/cars/car-5.jpg" alt="">
-                                    <img src="img/cars/car-8.jpg" alt="">
-                                    <img src="img/cars/car-7.jpg" alt="">
-                                    <img src="img/cars/car-2.jpg" alt="">
-                                </div>
-                                <div class="car__item__text">
-                                    <div class="car__item__text__inner">
-                                        <div class="label-date">2018</div>
-                                        <h5><a href="#">Audi q8 2020</a></h5>
-                                        <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
-                                        </ul>
-                                    </div>
-                                    <div class="car__item__price">
-                                        <span class="car-option">For Rent</span>
-                                        <h6>$319<span>/Month</span></h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="car__item">
-                                <div class="car__item__pic__slider owl-carousel">
-                                    <img src="img/cars/car-6.jpg" alt="">
-                                    <img src="img/cars/car-8.jpg" alt="">
-                                    <img src="img/cars/car-3.jpg" alt="">
-                                    <img src="img/cars/car-1.jpg" alt="">
-                                </div>
-                                <div class="car__item__text">
-                                    <div class="car__item__text__inner">
-                                        <div class="label-date">2016</div>
-                                        <h5><a href="#">Mustang shelby gt500</a></h5>
-                                        <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
-                                        </ul>
-                                    </div>
-                                    <div class="car__item__price">
-                                        <span class="car-option sale">For Sale</span>
-                                        <h6>$730,900</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="car__item">
-                                <div class="car__item__pic__slider owl-carousel">
-                                    <img src="img/cars/car-4.jpg" alt="">
-                                    <img src="img/cars/car-8.jpg" alt="">
-                                    <img src="img/cars/car-2.jpg" alt="">
-                                    <img src="img/cars/car-1.jpg" alt="">
-                                </div>
-                                <div class="car__item__text">
-                                    <div class="car__item__text__inner">
-                                        <div class="label-date">2019</div>
-                                        <h5><a href="#">Lamborghini huracan evo</a></h5>
-                                        <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
-                                        </ul>
-                                    </div>
-                                    <div class="car__item__price">
-                                        <span class="car-option">For Rent</span>
-                                        <h6>$319<span>/Month</span></h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4">
-                            <div class="car__item">
-                                <div class="car__item__pic__slider owl-carousel">
-                                    <img src="img/cars/car-7.jpg" alt="">
-                                    <img src="img/cars/car-2.jpg" alt="">
-                                    <img src="img/cars/car-4.jpg" alt="">
-                                    <img src="img/cars/car-1.jpg" alt="">
-                                </div>
-                                <div class="car__item__text">
-                                    <div class="car__item__text__inner">
-                                        <div class="label-date">2020</div>
-                                        <h5><a href="#">Lamborghini huracan evo</a></h5>
-                                        <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
-                                        </ul>
-                                    </div>
-                                    <div class="car__item__price">
-                                        <span class="car-option sale">For Sale</span>
-                                        <h6>$120,000</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-4">
-                            <div class="car__item">
-                                <div class="car__item__pic__slider owl-carousel">
-                                    <img src="img/cars/car-8.jpg" alt="">
-                                    <img src="img/cars/car-3.jpg" alt="">
-                                    <img src="img/cars/car-5.jpg" alt="">
-                                    <img src="img/cars/car-2.jpg" alt="">
-                                </div>
-                                <div class="car__item__text">
-                                    <div class="car__item__text__inner">
-                                        <div class="label-date">2017</div>
-                                        <h5><a href="#">Porsche cayenne turbo s</a></h5>
-                                        <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
-                                        </ul>
-                                    </div>
-                                    <div class="car__item__price">
-                                        <span class="car-option">For Rent</span>
-                                        <h6>$319<span>/Month</span></h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="car__item">
-                                <div class="car__item__pic__slider owl-carousel">
-                                    <img src="img/cars/car-8.jpg" alt="">
-                                    <img src="img/cars/car-3.jpg" alt="">
-                                    <img src="img/cars/car-5.jpg" alt="">
-                                    <img src="img/cars/car-2.jpg" alt="">
-                                </div>
-                                <div class="car__item__text">
-                                    <div class="car__item__text__inner">
-                                        <div class="label-date">2020</div>
-                                        <h5><a href="#">Toyota camry asv50l-jeteku</a></h5>
-                                        <ul>
-                                            <li><span>35,000</span> mi</li>
-                                            <li>Auto</li>
-                                            <li><span>700</span> hp</li>
-                                        </ul>
-                                    </div>
-                                    <div class="car__item__price">
-                                        <span class="car-option sale">For sale</span>
-                                        <h6>$73,900</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                   
                     </div>
                     <div class="pagination__option">
                         <a href="#" class="active">1</a>

@@ -8,14 +8,14 @@
 
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">@lang('Name')</label>
                                     <input type="text" id="name" name="name" class="form-control"
                                            value="{{ old('name') }}">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="category">@lang('Brand')</label>
                                     <select class="form-control" id="category" name="brand" required="">
@@ -27,6 +27,20 @@
                                     </select>
                                 </div>
                             </div>
+                               <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="category">@lang('Car body type')</label>
+                                    <select class="form-control" id="car_body_type" name="car_body_type" required="">
+                                        <option value="">-- @lang('Select One') --</option>
+
+                                        @forelse($cartypes as $cartype)
+                                            <option value="{{ $cartype->id }}">{{ __(@$cartype->car_body_type) }}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
+                            
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="seater">@lang('Seat Type')</label>

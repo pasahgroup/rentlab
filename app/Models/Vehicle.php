@@ -23,6 +23,12 @@ class Vehicle extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+ 
+    public function cartype()
+    {
+        return $this->belongsTo(Cartype::class);
+    }
+
 
     public function seater()
     {

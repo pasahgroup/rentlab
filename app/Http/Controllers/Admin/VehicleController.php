@@ -7,6 +7,8 @@ use App\Models\Brand;
 use App\Models\RentLog;
 use App\Models\Seater;
 use App\Models\Vehicle;
+use App\Models\Cartype;
+
 use App\Rules\FileTypeValidate;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -16,6 +18,8 @@ class VehicleController extends Controller
     public function index()
     {
         $vehicles = Vehicle::with(['brand', 'seater'])->latest()->paginate(getPaginate());
+      //dd($vehicles );
+
         $pageTitle = 'Vehicles';
         $empty_message = 'No vehicle has been added.';
         return view('admin.vehicle.index', compact('pageTitle', 'empty_message', 'vehicles'));
@@ -25,15 +29,15 @@ class VehicleController extends Controller
     {
         $pageTitle = 'Add vehicle';
         $brands = Brand::active()->orderBy('name')->get();
+        $cartypes = Cartype::orderBy('car_body_type')->get();
+
         $seaters = Seater::active()->orderBy('number')->get();
-        return view('admin.vehicle.add', compact('pageTitle', 'brands', 'seaters'));
+        return view('admin.vehicle.add', compact('pageTitle', 'brands', 'seaters','cartypes'));
     }
 
     public function store(Request $request)
     {
-       
-//dd();
-
+      
         $request->validate([
             'name' => 'required|string',
             'brand' => 'required|integer|gt:0',
@@ -44,6 +48,8 @@ class VehicleController extends Controller
             'doors' => 'required|integer|gt:0',
             'transmission' => 'required|string',
             'fuel_type' => 'required|string',
+             'car_body_type' => 'required|string',
+
             'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
             'icon' => 'required|array',
             'icon.*' => 'required|string',
@@ -53,6 +59,7 @@ class VehicleController extends Controller
             'value.*' => 'required|string',
         ]);
 
+//dd($car_body_type);
         $vehicle = new Vehicle();
         $vehicle->name = $request->name;
         $vehicle->brand_id = $request->brand;
@@ -63,6 +70,7 @@ class VehicleController extends Controller
         $vehicle->doors = $request->doors;
         $vehicle->transmission = $request->transmission;
         $vehicle->fuel_type = $request->fuel_type;
+         $vehicle->car_body_type_id = $request->car_body_type;
 
         foreach ($request->label as $key => $item) {
             $specifications[$item] = [
@@ -92,8 +100,10 @@ class VehicleController extends Controller
         $vehicle = Vehicle::findOrFail($id);
         $pageTitle = 'Edit Vehicle';
         $brands = Brand::active()->orderBy('name')->get();
+        $cartypes = Cartype::orderBy('car_body_type')->get();
+
         $seaters = Seater::active()->orderBy('number')->get();
-        return view('admin.vehicle.edit', compact('pageTitle', 'brands', 'seaters', 'vehicle'));
+        return view('admin.vehicle.edit', compact('pageTitle', 'brands', 'seaters', 'vehicle','cartypes'));
     }
 
     public function update(Request $request,$id)
@@ -110,6 +120,8 @@ class VehicleController extends Controller
             'doors' => 'required|integer|gt:0',
             'transmission' => 'required|string',
             'fuel_type' => 'required|string',
+             'car_body_type' => 'required|string',
+
             'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
             'icon' => 'required|array',
             'icon.*' => 'required|string',
@@ -129,6 +141,7 @@ class VehicleController extends Controller
         $vehicle->doors = $request->doors;
         $vehicle->transmission = $request->transmission;
         $vehicle->fuel_type = $request->fuel_type;
+ $vehicle->car_body_type_id = $request->car_body_type;
 
         foreach ($request->label as $key => $item) {
             $specifications[$item] = [
@@ -158,6 +171,9 @@ class VehicleController extends Controller
 
     public function deleteImage($id, $image)
     {
+
+        //dd('pr');
+
         $vehicle = Vehicle::findOrFail($id);
 
         $images = $vehicle->images;

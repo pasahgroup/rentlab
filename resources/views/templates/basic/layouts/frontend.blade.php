@@ -21,7 +21,18 @@
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/custom.css')}}">
 
 
+<!-- Custom2 header menu css -->
+    <link rel="stylesheet" href="../../custom/ccss/style.css" type="text/css">
+    <link rel="stylesheet" href="../../custom/ccss/colors/blue.css" type="text/css">
 
+    <link href="../../custom/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../../custom/lib/prettyphoto/css/prettyphoto.css" rel="stylesheet">
+  <link href="../../custom/lib/hover/hoverex-all.css" rel="stylesheet">
+  <link href="../../custom/lib/jetmenu/jetmenu.css" rel="stylesheet">
+  <link href="../../custom/lib/owl-carousel/owl-carousel.css" rel="stylesheet">
+
+   <link href="../../custom/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Ruda:400,900,700" rel="stylesheet">
 
 <!-- Custom css -->
 
@@ -37,12 +48,84 @@
 
 <!--End of custom css -->
 
-
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script> -->
 
 
     @stack('style-lib')
     @stack('style')
 </head>
+
+<header class="header">
+    <div class="container">
+      <div class="site-header clearfix">
+        <div class="col-lg-3 col-md-3 col-sm-12 title-area">
+          <div class="site-title" id="title">
+            <a href="index.html" title="">
+              <h4>MAXI<span>BIZ bb</span></h4>
+            </a>
+          </div>
+        </div>
+        <!-- title area -->
+        <div class="col-lg-9 col-md-12 col-sm-12">
+          <div id="nav" class="right">
+            <div class="container clearfix">
+              <ul id="jetmenu" class="jetmenu blue">
+                <li class="active"><a href="index.html">Home</a>
+                </li>
+                <li><a href="#">Pages</a>
+                  <ul class="dropdown">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="team-members.html">Team Members</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="404.html">404 Error</a></li>
+                    <li><a href="faq.html">FAQ Page</a></li>
+                    <li><a href="left-sidebar.html">Left Sidebar</a></li>
+                    <li><a href="right-sidebar.html">Right Sidebar</a></li>
+                    <li><a href="fullwidth.html">Full Width</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Shop</a>
+                  <ul class="dropdown">
+                    <li><a href="digital-download.html">Products Page</a></li>
+                    <li><a href="single-product.html">Single Product</a></li>
+                    <li><a href="checkout.html">Checkout</a></li>
+                    <li><a href="account.html">Account Page</a></li>
+                    <li><a href="support.html">Support Center</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Portfolio</a>
+                  <ul class="dropdown">
+                    <li><a href="single-portfolio-1.html">Single Portfolio 1</a></li>
+                    <li><a href="single-portfolio-2.html">Single Portfolio 2</a></li>
+                    <li><a href="portfolio-2.html">Portfolio (2 Columns)</a></li>
+                    <li><a href="portfolio-3.html">Portfolio (3 Columns)</a></li>
+                    <li><a href="gallery-portfolio.html">Gallery</a></li>
+                    <li><a href="masonry-grid-portfolio.html">Masonry Grid Style</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Blog</a>
+                  <ul class="dropdown">
+                    <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                    <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                    <li><a href="single-with-sidebar.html">Single with Sidebar</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- nav -->
+        </div>
+        <!-- title area -->
+      </div>
+      <!-- site header -->
+    </div>
+    <!-- end container -->
+  </header>
 <body>
 
 @stack('fbComment')
@@ -106,7 +189,13 @@
                     <a href="{{ route('home') }}">@lang('Home')</a>
                 </li>
              
-                <li><a href="{{ route('vehicles') }}">@lang('Vehicles')</a></li>
+                <li>
+                   <ul class="langSel language-select ms-3">
+                   <li> <a href="{{ route('vehicles') }}">@lang('Vehicles')</a></li>
+                    <li> <a href="{{ route('vehicles') }}">@lang('Vehicles')</a></li>
+                     <li> <a href="{{ route('vehicles') }}">@lang('Vehicles')</a></li>
+                    </ul>
+                </li>
                 <li><a href="{{ route('plans') }}">@lang('Plan')</a></li>
                 <li><a href="{{ route('blogs') }}">@lang('Blog')</a></li>
                 <li><a href="{{ route('contact') }}">@lang('Contact')</a></li>
@@ -128,6 +217,8 @@
                 <span></span>
             </div>
         </div>
+
+
     </div>
 </div>
 <!-- Header Section -->
@@ -185,6 +276,22 @@
     <script src="../../custom/js/owl.carousel.min.js"></script>
     <script src="../../custom/js/main.js"></script>
 
+<!-- custom2 -->
+  <!-- JavaScript Libraries -->
+  <script src="../../custom/lib/jquery/jquery.min.js"></script>
+  <script src="../../custom/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../custom/lib/php-mail-form/validate.js"></script>
+  <script src="../../custom/lib/prettyphoto/js/prettyphoto.js"></script>
+  <script src="../../custom/lib/isotope/isotope.min.js"></script>
+  <script src="../../custom/lib/hover/hoverdir.js"></script>
+  <script src="../../custom/lib/hover/hoverex.min.js"></script>
+  <script src="../../custom/lib/unveil-effects/unveil-effects.js"></script>
+  <script src="../../custom/lib/owl-carousel/owl-carousel.js"></script>
+  <script src="../../custom/lib/jetmenu/jetmenu.js"></script>
+  <script src="../../custom/lib/animate-enhanced/animate-enhanced.min.js"></script>
+  <script src="../../custom/lib/jigowatt/jigowatt.js"></script>
+  <script src="../../custom/lib/easypiechart/easypiechart.min.js"></script>
+  <script src="../../custom/cjs/main.js"></script>
 
 <script>
     $( function() {

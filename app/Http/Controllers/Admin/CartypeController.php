@@ -17,9 +17,13 @@ class CartypeController extends Controller
 {
     public function index()
     {
-        $vehicles = Vehicle::with(['brand', 'seater'])->latest()->paginate(getPaginate());
-        $pageTitle = 'Vehicles';
-        $empty_message = 'No vehicle has been added.';
+     //   $vehicles = Vehicle::with(['brand', 'seater'])->latest()->paginate(getPaginate());
+
+        $vehicles = Cartype::latest()->paginate(getPaginate());
+       // dd($vehicles);
+
+        $pageTitle = 'Car body type';
+        $empty_message = 'No Car body type has been added.';
         return view('admin.cartype.index', compact('pageTitle', 'empty_message', 'vehicles'));
     }
 
@@ -31,46 +35,20 @@ class CartypeController extends Controller
         return view('admin.cartype.add', compact('pageTitle', 'brands', 'seaters'));
     }
 
+
+
     public function store(Request $request)
     {
-//dd('dd');
-
         $request->validate([
             'car_body_type' => 'required|string',
             'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
                   ]);
 
 
-        $cartype = new cartype();
+        $cartype = new Cartype();
         $cartype->car_body_type = $request->car_body_type;
         
        // dd($cartype);
-
-
-        // foreach ($request->label as $key => $item) {
-        //     $specifications[$item] = [
-        //         $request->icon[$key],
-        //         $request->label[$key],
-        //         $request->value[$key]
-        //     ];
-        // }
-        // $vehicle->specifications = $specifications;
-
- //dd($request->images);
-
-
-
-
-
-  // if ($request->images){
-  //           foreach ($request->images as $image) {
-  //               $path = imagePath()['cartypes']['path'];
-  //               $size = imagePath()['cartypes']['size'];
-
-  //               $images[] = uploadImage($image, $path, $size);
-  //           }
-  //           $cartype->images = array_merge($cartype->images, $images);
-  //       }
 
 
 
@@ -89,29 +67,13 @@ class CartypeController extends Controller
                      //upload the image
                      $path =$attached->storeAs('public/cartypes/', $imageToStore);
 
-                     // $comp = myCompany::where('status','Active')->first();
-                     //dd($comp);
-                    // if($comp == null)
-                    //   {
-
-// $insetqnsy = cartype::where('id','Active')
-//              ->update([
-//            'logo'=>$imageToStore            
-//             ]);
-                      
-
-            // }
 
          }
     }
 
 
-//dd('popo');
-
-
         $cartype->images = $imageToStore;
         $cartype->save();
-
 
         $notify[] = ['success', 'Car body type Added Successfully!'];
         return back()->withNotify($notify);
@@ -119,74 +81,69 @@ class CartypeController extends Controller
 
     public function edit($id)
     {
-        $vehicle = Vehicle::findOrFail($id);
-        $pageTitle = 'Edit Vehicle';
-        $brands = Brand::active()->orderBy('name')->get();
-        $seaters = Seater::active()->orderBy('number')->get();
-        return view('admin.cartype.edit', compact('pageTitle', 'brands', 'seaters', 'vehicle'));
+        $vehicle = Cartype::findOrFail($id);
+        $pageTitle = 'Edit Car body type';
+        // $brands = Brand::active()->orderBy('name')->get();
+        // $seaters = Seater::active()->orderBy('number')->get();
+
+        //dd($vehicle);
+        return view('admin.cartype.edit', compact('pageTitle', 'vehicle'));
     }
+
 
     public function update(Request $request,$id)
     {
         $request->validate([
-            'name' => 'required|string',
-            'brand' => 'required|integer|gt:0',
-            'seater' => 'required|integer|gt:0',
-            'price' => 'required|numeric|gt:0',
-            'details' => 'required|string',
-            'model' => 'required|string',
-            'doors' => 'required|integer|gt:0',
-            'transmission' => 'required|string',
-            'fuel_type' => 'required|string',
+            'car_body_type' => 'required|string',
             'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
-            'icon' => 'required|array',
-            'icon.*' => 'required|string',
-            'label' => 'required|array',
-            'label.*' => 'required|string',
-            'value' => 'required|array',
-            'value.*' => 'required|string',
         ]);
 
-        $vehicle = cartype::findOrFail($id);
-        $vehicle->name = $request->name;
-        $vehicle->brand_id = $request->brand;
-        $vehicle->seater_id = $request->seater;
-        $vehicle->price = $request->price;
-        $vehicle->details = $request->details;
-        $vehicle->model = $request->model;
-        $vehicle->doors = $request->doors;
-        $vehicle->transmission = $request->transmission;
-        $vehicle->fuel_type = $request->fuel_type;
+           $cartype = Cartype::findOrFail($id);
+           $cartype->car_body_type = $request->car_body_type;
 
-        foreach ($request->label as $key => $item) {
-            $specifications[$item] = [
-                $request->icon[$key],
-                $request->label[$key],
-                $request->value[$key]
-            ];
-        }
-        $vehicle->specifications = $specifications;
+       
 
+       // $vehicle->specifications = $specifications;
+ //dd('print');
         // Upload and Update image
-        if ($request->images){
-            foreach ($request->images as $image) {
-                $path = imagePath()['vehicles']['path'];
-                $size = imagePath()['vehicles']['size'];
+       if(request('images')){
+         //dd('print2');
+            $attach = request('images');
+            foreach($attach as $attached){
 
-                $images[] = uploadImage($image, $path, $size);
-            }
-            $vehicle->images = array_merge($vehicle->images, $images);
-        }
+  // Get filename with extension
+                     $fileNameWithExt =$attached->getClientOriginalName();
+                     // Just Filename
+                     $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+                     // Get just Extension
+                     $extension = $attached->getClientOriginalExtension();
+                     //Filename to store
+                     $imageToStore = $filename.'_'.time().'.'.$extension;
+                     //upload the image
+                     $path =$attached->storeAs('public/cartypes/', $imageToStore);
 
-        $vehicle->save();
 
-        $notify[] = ['success', 'Vehicle Updated Successfully!'];
+                     $cartype->images = $imageToStore;
+
+         }
+    }
+
+    //dd('print');
+
+
+$cartype->save();
+
+        $notify[] = ['success', 'Car body type Updated Successfully!'];
         return back()->withNotify($notify);
     }
 
-    public function deleteImage($id, $image)
+
+public function recovery($id)
     {
-        $vehicle = cartype::findOrFail($id);
+
+     //   dd('print');
+
+        $vehicle = Cartype::findOrFail($id);
 
         $images = $vehicle->images;
         $path = imagePath()['vehicles']['path'];
@@ -202,9 +159,54 @@ class CartypeController extends Controller
         return response()->json(['success' => true, 'message' => 'Car body type image deleted!']);
     }
 
+
+   public function deleteImage($id, $image)
+    {
+
+        dd($id);
+
+        $vehicle = Vehicle::findOrFail($id);
+
+        // $images = $vehicle->images;
+        // $path = imagePath()['vehicles']['path'];
+
+        // if (($old_image = array_search($image, $images)) !== false){
+        //     removeFile($path.'/' . $old_image);
+        //     unset($images[$old_image]);
+        // }
+
+        // $vehicle->images = $images;
+        // $vehicle->save();
+
+          return response()->json(['success' => true, 'message' => 'Car body type image deleted!']);
+        }
+
+    
+    public function deleteImagesd($id, $image)
+    {
+       // dd('print');
+
+        $vehicle = Cartype::findOrFail($id);
+
+        $images = $vehicle->images;
+        $path = imagePath()['vehicles']['path'];
+
+        if (($old_image = array_search($image, $images)) !== false){
+            removeFile($path.'/' . $old_image);
+            unset($images[$old_image]);
+        }
+
+        $vehicle->images = $images;
+        $vehicle->save();
+
+        return response()->json(['success' => true, 'message' => 'Car body type image deleted!']);
+    }
+
+  
     public function status($id)
     {
-        $vehicle = Vehicle::findOrFail($id);
+
+        $vehicle = Cartype::findOrFail($id);
         $vehicle->status = ($vehicle->status ? 0 : 1);
         $vehicle->save();
 
@@ -215,6 +217,8 @@ class CartypeController extends Controller
     //Booking Log
     public function bookingLog()
     {
+
+        //dd($id);
         $booking_logs = RentLog::active()->with(['vehicle', 'user', 'pick_up_location', 'drop_up_location'])->latest()->paginate(getPaginate());
         $pageTitle = 'Vehicle Booking Log';
         $empty_message = 'No data found.';
