@@ -157,7 +157,17 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
          Route::post('cartype/{id}/delete', 'CartypeController@recovery')->name('cartype.delete');
 
-        
+           //Tag
+        Route::get('tag', 'TagController@index')->name('tag.index');
+        Route::get('tag/add', 'TagController@add')->name('tag.add');
+        Route::post('tag/store', 'TagController@store')->name('tag.store');
+        Route::get('tag/{id}', 'TagController@edit')->name('tag.edit');
+        Route::post('tag/update/{id}', 'TagController@update')->name('tag.update');
+        Route::post('tag/image/remove/{id}', 'TagController@deleteImage')->name('tag.image.delete');
+        Route::post('tag/{id}/status', 'TagController@status')->name('tag.status');
+         Route::post('tag/{id}/delete', 'TagController@recovery')->name('tag.delete');
+
+
         //Vehicle Booking Log
         Route::get('vehicles/booking/log', 'VehicleController@bookingLog')->name('vehicles.booking.log');
         Route::get('vehicles/booking/log/upcoming', 'VehicleController@upcomingBookingLog')->name('vehicles.booking.log.upcoming');
@@ -412,6 +422,7 @@ Route::get('/cookie/accept', 'SiteController@cookieAccept')->name('cookie.accept
 Route::get('vehicles', 'VehicleController@vehicles')->name('vehicles');
 Route::get('vehicle/details/{id}/{slug}', 'VehicleController@vehicleDetails')->name('vehicle.details');
 Route::get('vehicle/booking/{id}/{slug}', 'VehicleController@vehicleBooking')->name('vehicle.booking');
+
 Route::post('vehicle/booking/confirm/{id}', 'VehicleController@vehicleBookingConfirm')->name('vehicle.booking.confirm');
 Route::get('vehicle/search', 'VehicleController@vehicleSearch')->name('vehicle.search');
 Route::get('vehicle/search/brand/{brand_id}/{slug}', 'VehicleController@brandVehicles')->name('vehicle.brand');
@@ -426,6 +437,8 @@ Route::get('policy/{id}/{slug}', 'SiteController@policyPages')->name('policy.pag
 
 Route::get('placeholder-image/{size}', 'SiteController@placeholderImage')->name('placeholder.image');
 
+
+Route::get('/cartype-page/{id}', 'SiteController@show')->name('cartype-page.show');
 
 Route::get('/{slug}', 'SiteController@pages')->name('pages');
 Route::get('/', 'SiteController@index')->name('home');

@@ -19,6 +19,7 @@ class CreatePlanLogsTable extends Migration
             $table->integer('plan_id')->default(0);
             $table->integer('pick_location')->default(0);
             $table->timestamp('pick_time')->nullable();
+             $table->timestamp('drop_time')->nullable();
             $table->decimal('price', 18,8)->default(0);
             $table->string('trx')->nullable();
             $table->boolean('status')->default(0);

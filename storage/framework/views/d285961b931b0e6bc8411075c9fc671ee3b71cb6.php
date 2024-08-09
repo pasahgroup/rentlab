@@ -33,12 +33,19 @@
                     </a>
                 </li>
 
-                 <li class="sidebar-menu-item <?php echo e(menuActive('admin.brand*')); ?>">
+                 <li class="sidebar-menu-item <?php echo e(menuActive('admin.cartype*')); ?>">
                     <a href="<?php echo e(route('admin.cartype.index')); ?>" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title"><?php echo app('translator')->get('Car body type'); ?></span>
                     </a>
-                </li>                       
+                </li>   
+
+                  <li class="sidebar-menu-item <?php echo e(menuActive('admin.tag*')); ?>">
+                    <a href="<?php echo e(route('admin.tag.index')); ?>" class="nav-link ">
+                        <i class="menu-icon las la-feather"></i>
+                        <span class="menu-title"><?php echo app('translator')->get('Tag'); ?></span>
+                    </a>
+                </li>                     
 
                         </ul>
                     </div>

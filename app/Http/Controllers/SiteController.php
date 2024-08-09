@@ -30,7 +30,7 @@ class SiteController extends Controller
     public function index(){
          //dd($this->activeTemplate);
         $count = Page::where('tempname',$this->activeTemplate)->where('slug','home')->count();
-      //  dd($count);
+      // dd($count);
         if($count == 0){
             $page = new Page();
             $page->tempname = $this->activeTemplate;
@@ -60,6 +60,25 @@ $vehicles = Vehicle::active()->latest()->paginate(getPaginate());
         $pageTitle = $page->name;
         $sections = $page->secs;
         return view($this->activeTemplate . 'pages', compact('pageTitle','sections'));
+    }
+
+
+
+
+public function show($id)
+    {
+        //dd($id);
+      $vehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+      ->where('car_body_type',$id)
+     ->select('vehicles.*','cartypes.car_body_type')
+      ->get();
+
+    $cartypes = Cartype::where('status','1')->get();
+     
+        $pageTitle = $id;
+    // dd($cartypes);
+
+        return view($this->activeTemplate . 'carbodytypes.carbodytype', compact('vehicles','cartypes','pageTitle'));
     }
 
 

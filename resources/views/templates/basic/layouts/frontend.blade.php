@@ -24,6 +24,7 @@
 <!-- Custom2 header menu css -->
     <link rel="stylesheet" href="../../custom/ccss/style.css" type="text/css">
     <link rel="stylesheet" href="../../custom/ccss/colors/blue.css" type="text/css">
+    <link rel="stylesheet" href="../../custom/ccss/bbpres.css" type="text/css">
 
     <link href="../../custom/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="../../custom/lib/prettyphoto/css/prettyphoto.css" rel="stylesheet">
@@ -78,7 +79,7 @@
                 <li><a href="{{ route('vehicles') }}">Vehicles</a>
                   <ul class="dropdown">
                    @foreach($cartypes as $cartype)
-                    <li><a href="about.html">{{$cartype->car_body_type}}</a></li>
+                    <li><a href="/cartype-page/{{$cartype->car_body_type}}">{{$cartype->car_body_type}}</a></li>
                    @endforeach
                    
                   </ul>
@@ -89,8 +90,10 @@
                               
                   <li><a href="{{ route('blogs') }}">Blog</a>
                 </li>
-                  <li><a href="{{ route('home') }}">About us</a>
-                </li>
+                
+                  @foreach($pages as $k => $data)
+                    <li><a href="{{route('pages',[$data->slug])}}">{{__($data->name)}}</a></li>
+                @endforeach
                   <li><a href="{{ route('contact') }}">Contact</a>
                 </li>
 
@@ -257,18 +260,24 @@
   <!-- JavaScript Libraries -->
   <script src="../../custom/lib/jquery/jquery.min.js"></script>
   <script src="../../custom/lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="../../custom/lib/php-mail-form/validate.js"></script>
+    <script src="../../custom/lib/jetmenu/jetmenu.js"></script>
+  <script src="../../custom/cjs/main.js"></script>
+
+
+ <!--  <script src="../../custom/lib/php-mail-form/validate.js"></script>
   <script src="../../custom/lib/prettyphoto/js/prettyphoto.js"></script>
   <script src="../../custom/lib/isotope/isotope.min.js"></script>
+
   <script src="../../custom/lib/hover/hoverdir.js"></script>
   <script src="../../custom/lib/hover/hoverex.min.js"></script>
+
   <script src="../../custom/lib/unveil-effects/unveil-effects.js"></script>
   <script src="../../custom/lib/owl-carousel/owl-carousel.js"></script>
-  <script src="../../custom/lib/jetmenu/jetmenu.js"></script>
+
   <script src="../../custom/lib/animate-enhanced/animate-enhanced.min.js"></script>
   <script src="../../custom/lib/jigowatt/jigowatt.js"></script>
-  <script src="../../custom/lib/easypiechart/easypiechart.min.js"></script>
-  <script src="../../custom/cjs/main.js"></script>
+  <script src="../../custom/lib/easypiechart/easypiechart.min.js"></script> -->
+
 
 <script>
     $( function() {
