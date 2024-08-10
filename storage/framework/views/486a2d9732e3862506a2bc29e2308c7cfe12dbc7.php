@@ -58,7 +58,7 @@
 
 
 <div class="header-top py-2">
-    <div class="container">
+    <div class="container-fluid">
         <div class="d-flex flex-wrap justify-content-between mx--10">
             <div class="header-top-item meta-list">
                 <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"><i class="lar la-envelope"></i><?php echo e(getContent('contact.content', true)->data_values->email); ?></a>
@@ -86,15 +86,16 @@
 
 <header class="header">
     <div class="container">
-        <div class="col-lg-1 col-md-2 col-sm-12 title-area">      
+        <div class="col-lg-4 col-md-2 col-sm-12 title-area">      
             <div class="logo">
-                <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style=""></a>
+                <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style="width:140px;"></a>
             </div>
           </div>
 
                 
         <!-- title area -->
-        <div class="col-lg-11 col-md-12 col-sm-12">
+        <div class="col-lg-8 col-md-12 col-sm-12">
+           
           <div id="nav" class="float-right">
             <div class="container clearfix">
               <ul id="jetmenu" class="jetmenu blue">
