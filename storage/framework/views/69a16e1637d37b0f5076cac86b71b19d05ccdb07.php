@@ -18,7 +18,7 @@
                         
                                       <?php $__currentLoopData = $cartypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cartype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <a href="/cartype-page/<?php echo e($cartype->car_body_type); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"
-                                    type="submit"><?php echo e($cartype->car_body_type); ?>:(<?php echo e($cartypes->where('car_body_type',$cartype)->count()); ?>)</a>
+                                    type="submit"><?php echo e($cartype->car_body_type); ?>:(<?php echo e($metaVehicles->where('car_body_type',$cartype->car_body_type)->count()); ?>)</a>
 
                                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               

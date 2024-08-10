@@ -7,7 +7,7 @@
 <section class="clients-section pt-120 pb-120 bg--section position-relative overflow-hidden">
     <div class="shape right-side"><?php echo e(__(@$testimonial_content->data_values->stylish_text_right)); ?></div>
     <div class="shape"><?php echo e(__(@$testimonial_content->data_values->stylish_text_left)); ?></div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="section__header section__header__center">
             <span class="section__category"><?php echo e(__(@$testimonial_content->data_values->sub_heading)); ?></span>
             <h2 class="section__title"><?php echo e(__(@$testimonial_content->data_values->heading)); ?></h2>

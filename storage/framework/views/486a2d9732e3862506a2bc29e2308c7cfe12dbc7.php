@@ -22,53 +22,80 @@
 
 
 <!-- Custom2 header menu css -->
-    <link rel="stylesheet" href="../../custom/ccss/style.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/ccss/colors/blue.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/ccss/bbpres.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'custom/ccss/style.css')); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'custom/ccss/colors/blue.css')); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'custom/ccss/bbpres.css')); ?>" type="text/css">
 
-    <link href="../../custom/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="../../custom/lib/prettyphoto/css/prettyphoto.css" rel="stylesheet">
-  <link href="../../custom/lib/hover/hoverex-all.css" rel="stylesheet">
-  <link href="../../custom/lib/jetmenu/jetmenu.css" rel="stylesheet">
-  <link href="../../custom/lib/owl-carousel/owl-carousel.css" rel="stylesheet">
+    <link href="<?php echo e(asset($activeTemplateTrue.'custom/lib/font-awesome/css/font-awesome.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset($activeTemplateTrue.'custom/lib/prettyphoto/css/prettyphoto.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset($activeTemplateTrue.'custom/lib/hover/hoverex-all.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.css')); ?>" rel="stylesheet">
+  <link href=".<?php echo e(asset($activeTemplateTrue.'custom/lib/owl-carousel/owl-carousel.css')); ?>" rel="stylesheet">
 
-   <link href="../../custom/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="<?php echo e(asset($activeTemplateTrue.'custom/lib/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css?family=Ruda:400,900,700" rel="stylesheet">
 
 <!-- Custom css -->
 
  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/style.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'custom/css/font-awesome.min.css')); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'custom/css/elegant-icons.css')); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'custom/css/nice-select.css')); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'custom/css/magnific-popup.css')); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'custom/css/jquery-ui.min.css')); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'custom/css/owl.carousel.min.css')); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'custom/css/slicknav.min.css')); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'custom/css/style.css')); ?>" type="text/css">
 
 <!--End of custom css -->
 
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script> -->
 
-
     <?php echo $__env->yieldPushContent('style-lib'); ?>
     <?php echo $__env->yieldPushContent('style'); ?>
 </head>
 
+
+<div class="header-top py-2">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between mx--10">
+            <div class="header-top-item meta-list">
+                <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"><i class="lar la-envelope"></i><?php echo e(getContent('contact.content', true)->data_values->email); ?></a>
+            </div>
+            <div class="d-flex flex-wrap meta-list">
+                <?php if(auth()->guard()->check()): ?>
+                    <div class="header-top-item ml-sm-auto">
+                        <a href="<?php echo e(route('user.home')); ?>"><i class="las la-tachometer-alt"></i><?php echo app('translator')->get('Dashboard'); ?></a>
+                    </div>
+                    <div class="header-top-item">
+                        <a href="<?php echo e(route('user.logout')); ?>"><i class="las la-sign-out-alt"></i><?php echo app('translator')->get('Logout'); ?></a>
+                    </div>
+                <?php else: ?>
+                    <div class="header-top-item ml-sm-auto">
+                        <a href="<?php echo e(route('user.login')); ?>"><i class="las la-user"></i><?php echo app('translator')->get('Login'); ?></a>
+                    </div>
+                    <div class="header-top-item">
+                        <a href="<?php echo e(route('user.register')); ?>"><i class="las la-user-plus"></i><?php echo app('translator')->get('Register'); ?></a>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+
 <header class="header">
     <div class="container">
       <div class="site-header clearfix">
-        <div class="col-lg-1 col-md-2 col-sm-12 title-area">
-      
+        <div class="col-lg-1 col-md-2 col-sm-12 title-area">      
             <div class="logo">
-                <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'] .'/logo.png')); ?>" alt="logo" style=""></a>
+                <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style=""></a>
             </div>
           </div>
-        
+
+                
         <!-- title area -->
-        <div class="col-lg-9 col-md-12 col-sm-12">
+        <div class="col-lg-11 col-md-12 col-sm-12">
           <div id="nav" class="float-right">
             <div class="container clearfix">
               <ul id="jetmenu" class="jetmenu blue">
@@ -95,6 +122,16 @@
                     <li><a href="<?php echo e(route('pages',[$data->slug])); ?>"><?php echo e(__($data->name)); ?></a></li>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   <li><a href="<?php echo e(route('contact')); ?>">Contact</a>
+                </li>
+
+
+                  <li class="py-3">
+                    <select class="langSel language-select ms-3">
+                        <?php $__currentLoopData = $language; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($item->code); ?>"
+                                    <?php if(session('lang') == $item->code): ?> selected <?php endif; ?>><?php echo e(__($item->name)); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
                 </li>
 
               </ul>
@@ -131,77 +168,6 @@
         </div>
     </figure>
 </div>
-<!-- Preloader -->
-
-<!-- Header Section -->
-<div class="header-top py-2">
-    <div class="container">
-        <div class="d-flex flex-wrap justify-content-between mx--10">
-            <div class="header-top-item meta-list">
-                <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"><i class="lar la-envelope"></i><?php echo e(getContent('contact.content', true)->data_values->email); ?></a>
-            </div>
-            <div class="d-flex flex-wrap meta-list">
-                <?php if(auth()->guard()->check()): ?>
-                    <div class="header-top-item ml-sm-auto">
-                        <a href="<?php echo e(route('user.home')); ?>"><i class="las la-tachometer-alt"></i><?php echo app('translator')->get('Dashboard'); ?></a>
-                    </div>
-                    <div class="header-top-item">
-                        <a href="<?php echo e(route('user.logout')); ?>"><i class="las la-sign-out-alt"></i><?php echo app('translator')->get('Logout'); ?></a>
-                    </div>
-                <?php else: ?>
-                    <div class="header-top-item ml-sm-auto">
-                        <a href="<?php echo e(route('user.login')); ?>"><i class="las la-user"></i><?php echo app('translator')->get('Login'); ?></a>
-                    </div>
-                    <div class="header-top-item">
-                        <a href="<?php echo e(route('user.register')); ?>"><i class="las la-user-plus"></i><?php echo app('translator')->get('Register'); ?></a>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="header-bottom">
-    <div class="container">
-        <div class="header-wrapper">
-           
-            <ul class="menu">
-                <li>
-                    <a href="<?php echo e(route('home')); ?>"><?php echo app('translator')->get('Home'); ?></a>
-                </li>
-             
-                <li>
-                   <ul class="langSel language-select ms-3">
-                   <li> <a href="<?php echo e(route('vehicles')); ?>"><?php echo app('translator')->get('Vehicles'); ?></a></li>
-                    <li> <a href="<?php echo e(route('vehicles')); ?>"><?php echo app('translator')->get('Vehicles'); ?></a></li>
-                     <li> <a href="<?php echo e(route('vehicles')); ?>"><?php echo app('translator')->get('Vehicles'); ?></a></li>
-                    </ul>
-                </li>
-                <li><a href="<?php echo e(route('plans')); ?>"><?php echo app('translator')->get('Plan'); ?></a></li>
-                <li><a href="<?php echo e(route('blogs')); ?>"><?php echo app('translator')->get('Blog'); ?></a></li>
-                <li><a href="<?php echo e(route('contact')); ?>"><?php echo app('translator')->get('Contact'); ?></a></li>
-                   <?php $__currentLoopData = $pages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <li><a href="<?php echo e(route('pages',[$data->slug])); ?>"><?php echo e(__($data->name)); ?></a></li>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                <li class="py-3">
-                    <select class="langSel language-select ms-3">
-                        <?php $__currentLoopData = $language; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($item->code); ?>"
-                                    <?php if(session('lang') == $item->code): ?> selected <?php endif; ?>><?php echo e(__($item->name)); ?></option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </select>
-                </li>
-            </ul>
-            <div class="header-bar">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-
-
-    </div>
-</div>
-<!-- Header Section -->
 
 <!-- Breadcrumb section start -->
 <?php if(!request()->routeIs('home')): ?>
@@ -246,22 +212,22 @@
 
 
 <!-- custo jss -->
-  <script src="../../custom/js/jquery-3.3.1.min.js"></script>
-    <script src="../../custom/js/bootstrap.min.js"></script>
-    <script src="../../custom/js/jquery.nice-select.min.js"></script>
-    <script src="../../custom/js/jquery-ui.min.js"></script>
-    <script src="../../custom/js/jquery.magnific-popup.min.js"></script>
-    <script src="../../custom/js/mixitup.min.js"></script>
-    <script src="../../custom/js/jquery.slicknav.js"></script>
-    <script src="../../custom/js/owl.carousel.min.js"></script>
-    <script src="../../custom/js/main.js"></script>
+  <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/jquery-3.3.1.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/bootstrap.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/jquery.nice-select.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/jquery-ui.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/jquery.magnific-popup.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/mixitup.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/jquery.slicknav.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/owl.carousel.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/main.js')); ?>"></script>
 
 <!-- custom2 -->
   <!-- JavaScript Libraries -->
-  <script src="../../custom/lib/jquery/jquery.min.js"></script>
-  <script src="../../custom/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../custom/lib/jetmenu/jetmenu.js"></script>
-  <script src="../../custom/cjs/main.js"></script>
+  <script src="<?php echo e(asset($activeTemplateTrue.'custom/lib/jquery/jquery.min.js')); ?>"></script>
+  <script src="<?php echo e(asset($activeTemplateTrue.'custom/lib/bootstrap/js/bootstrap.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.js')); ?>"></script>
+  <script src="<?php echo e(asset($activeTemplateTrue.'custom/cjs/main.js')); ?>"></script>
 
 
  <!--  <script src="../../custom/lib/php-mail-form/validate.js"></script>
@@ -345,5 +311,4 @@
 </script>
 
 </body>
-</html>
-<?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/layouts/frontend.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/layouts/frontend.blade.php ENDPATH**/ ?>

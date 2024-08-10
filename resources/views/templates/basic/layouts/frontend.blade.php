@@ -22,53 +22,80 @@
 
 
 <!-- Custom2 header menu css -->
-    <link rel="stylesheet" href="../../custom/ccss/style.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/ccss/colors/blue.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/ccss/bbpres.css" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/ccss/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/ccss/colors/blue.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/ccss/bbpres.css')}}" type="text/css">
 
-    <link href="../../custom/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="../../custom/lib/prettyphoto/css/prettyphoto.css" rel="stylesheet">
-  <link href="../../custom/lib/hover/hoverex-all.css" rel="stylesheet">
-  <link href="../../custom/lib/jetmenu/jetmenu.css" rel="stylesheet">
-  <link href="../../custom/lib/owl-carousel/owl-carousel.css" rel="stylesheet">
+    <link href="{{asset($activeTemplateTrue.'custom/lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+  <link href="{{asset($activeTemplateTrue.'custom/lib/prettyphoto/css/prettyphoto.css')}}" rel="stylesheet">
+  <link href="{{asset($activeTemplateTrue.'custom/lib/hover/hoverex-all.css')}}" rel="stylesheet">
+  <link href="{{asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.css')}}" rel="stylesheet">
+  <link href=".{{asset($activeTemplateTrue.'custom/lib/owl-carousel/owl-carousel.css')}}" rel="stylesheet">
 
-   <link href="../../custom/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="{{asset($activeTemplateTrue.'custom/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css?family=Ruda:400,900,700" rel="stylesheet">
 
 <!-- Custom css -->
 
  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="../../custom/css/style.css" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/font-awesome.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/elegant-icons.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/nice-select.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/magnific-popup.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/jquery-ui.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/owl.carousel.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/slicknav.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/style.css')}}" type="text/css">
 
 <!--End of custom css -->
 
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script> -->
 
-
     @stack('style-lib')
     @stack('style')
 </head>
 
+
+<div class="header-top py-2">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between mx--10">
+            <div class="header-top-item meta-list">
+                <a href="Mailto:{{ getContent('contact.content', true)->data_values->email }}"><i class="lar la-envelope"></i>{{ getContent('contact.content', true)->data_values->email }}</a>
+            </div>
+            <div class="d-flex flex-wrap meta-list">
+                @auth
+                    <div class="header-top-item ml-sm-auto">
+                        <a href="{{ route('user.home') }}"><i class="las la-tachometer-alt"></i>@lang('Dashboard')</a>
+                    </div>
+                    <div class="header-top-item">
+                        <a href="{{ route('user.logout') }}"><i class="las la-sign-out-alt"></i>@lang('Logout')</a>
+                    </div>
+                @else
+                    <div class="header-top-item ml-sm-auto">
+                        <a href="{{ route('user.login') }}"><i class="las la-user"></i>@lang('Login')</a>
+                    </div>
+                    <div class="header-top-item">
+                        <a href="{{ route('user.register') }}"><i class="las la-user-plus"></i>@lang('Register')</a>
+                    </div>
+                @endauth
+            </div>
+        </div>
+    </div>
+</div>
+
 <header class="header">
     <div class="container">
       <div class="site-header clearfix">
-        <div class="col-lg-1 col-md-2 col-sm-12 title-area">
-      
+        <div class="col-lg-1 col-md-2 col-sm-12 title-area">      
             <div class="logo">
-                <a href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo" style=""></a>
+                <a href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="logo" style=""></a>
             </div>
           </div>
-        
+
+                
         <!-- title area -->
-        <div class="col-lg-9 col-md-12 col-sm-12">
+        <div class="col-lg-11 col-md-12 col-sm-12">
           <div id="nav" class="float-right">
             <div class="container clearfix">
               <ul id="jetmenu" class="jetmenu blue">
@@ -95,6 +122,16 @@
                     <li><a href="{{route('pages',[$data->slug])}}">{{__($data->name)}}</a></li>
                 @endforeach
                   <li><a href="{{ route('contact') }}">Contact</a>
+                </li>
+
+
+                  <li class="py-3">
+                    <select class="langSel language-select ms-3">
+                        @foreach($language as $item)
+                            <option value="{{$item->code}}"
+                                    @if(session('lang') == $item->code) selected @endif>{{ __($item->name) }}</option>
+                        @endforeach
+                    </select>
                 </li>
 
               </ul>
@@ -131,77 +168,6 @@
         </div>
     </figure>
 </div>
-<!-- Preloader -->
-
-<!-- Header Section -->
-<div class="header-top py-2">
-    <div class="container">
-        <div class="d-flex flex-wrap justify-content-between mx--10">
-            <div class="header-top-item meta-list">
-                <a href="Mailto:{{ getContent('contact.content', true)->data_values->email }}"><i class="lar la-envelope"></i>{{ getContent('contact.content', true)->data_values->email }}</a>
-            </div>
-            <div class="d-flex flex-wrap meta-list">
-                @auth
-                    <div class="header-top-item ml-sm-auto">
-                        <a href="{{ route('user.home') }}"><i class="las la-tachometer-alt"></i>@lang('Dashboard')</a>
-                    </div>
-                    <div class="header-top-item">
-                        <a href="{{ route('user.logout') }}"><i class="las la-sign-out-alt"></i>@lang('Logout')</a>
-                    </div>
-                @else
-                    <div class="header-top-item ml-sm-auto">
-                        <a href="{{ route('user.login') }}"><i class="las la-user"></i>@lang('Login')</a>
-                    </div>
-                    <div class="header-top-item">
-                        <a href="{{ route('user.register') }}"><i class="las la-user-plus"></i>@lang('Register')</a>
-                    </div>
-                @endauth
-            </div>
-        </div>
-    </div>
-</div>
-<div class="header-bottom">
-    <div class="container">
-        <div class="header-wrapper">
-           
-            <ul class="menu">
-                <li>
-                    <a href="{{ route('home') }}">@lang('Home')</a>
-                </li>
-             
-                <li>
-                   <ul class="langSel language-select ms-3">
-                   <li> <a href="{{ route('vehicles') }}">@lang('Vehicles')</a></li>
-                    <li> <a href="{{ route('vehicles') }}">@lang('Vehicles')</a></li>
-                     <li> <a href="{{ route('vehicles') }}">@lang('Vehicles')</a></li>
-                    </ul>
-                </li>
-                <li><a href="{{ route('plans') }}">@lang('Plan')</a></li>
-                <li><a href="{{ route('blogs') }}">@lang('Blog')</a></li>
-                <li><a href="{{ route('contact') }}">@lang('Contact')</a></li>
-                   @foreach($pages as $k => $data)
-                    <li><a href="{{route('pages',[$data->slug])}}">{{__($data->name)}}</a></li>
-                @endforeach
-                <li class="py-3">
-                    <select class="langSel language-select ms-3">
-                        @foreach($language as $item)
-                            <option value="{{$item->code}}"
-                                    @if(session('lang') == $item->code) selected @endif>{{ __($item->name) }}</option>
-                        @endforeach
-                    </select>
-                </li>
-            </ul>
-            <div class="header-bar">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-
-
-    </div>
-</div>
-<!-- Header Section -->
 
 <!-- Breadcrumb section start -->
 @if(!request()->routeIs('home'))
@@ -246,22 +212,22 @@
 
 
 <!-- custo jss -->
-  <script src="../../custom/js/jquery-3.3.1.min.js"></script>
-    <script src="../../custom/js/bootstrap.min.js"></script>
-    <script src="../../custom/js/jquery.nice-select.min.js"></script>
-    <script src="../../custom/js/jquery-ui.min.js"></script>
-    <script src="../../custom/js/jquery.magnific-popup.min.js"></script>
-    <script src="../../custom/js/mixitup.min.js"></script>
-    <script src="../../custom/js/jquery.slicknav.js"></script>
-    <script src="../../custom/js/owl.carousel.min.js"></script>
-    <script src="../../custom/js/main.js"></script>
+  <script src="{{asset($activeTemplateTrue.'custom/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'custom/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'custom/js/jquery.nice-select.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'custom/js/jquery-ui.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'custom/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'custom/js/mixitup.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'custom/js/jquery.slicknav.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'custom/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'custom/js/main.js')}}"></script>
 
 <!-- custom2 -->
   <!-- JavaScript Libraries -->
-  <script src="../../custom/lib/jquery/jquery.min.js"></script>
-  <script src="../../custom/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../../custom/lib/jetmenu/jetmenu.js"></script>
-  <script src="../../custom/cjs/main.js"></script>
+  <script src="{{asset($activeTemplateTrue.'custom/lib/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset($activeTemplateTrue.'custom/lib/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.js')}}"></script>
+  <script src="{{asset($activeTemplateTrue.'custom/cjs/main.js')}}"></script>
 
 
  <!--  <script src="../../custom/lib/php-mail-form/validate.js"></script>

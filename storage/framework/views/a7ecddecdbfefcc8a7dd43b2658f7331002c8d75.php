@@ -20,7 +20,7 @@
                                             <span>0<?php echo e($loop->iteration); ?></span>
                                         </div>
                                         <div class="tab-menu-content">
-                                            <h5 class="title"><?php echo e(__(@$item->data_values->title)); ?></h5>
+                                            <h5 class="title"><?php echo e(__(@$item->data_values->title)); ?> nmmmm</h5>
                                             <p><?php echo e(__(@$item->data_values->content)); ?></p>
                                         </div>
                                     </li>

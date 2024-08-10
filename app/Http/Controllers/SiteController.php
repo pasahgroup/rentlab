@@ -73,12 +73,18 @@ public function show($id)
      ->select('vehicles.*','cartypes.car_body_type')
       ->get();
 
-    $cartypes = Cartype::where('status','1')->get();
-     
+          $metaVehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+      ->select('vehicles.*','cartypes.car_body_type')
+      ->get();
+
+    $metavehicles = collect($metaVehicles);
+   //dd($metavehicles->where('car_body_type','SUV')->count());
+
+    $cartypes = Cartype::where('status','1')->get();     
         $pageTitle = $id;
     // dd($cartypes);
 
-        return view($this->activeTemplate . 'carbodytypes.carbodytype', compact('vehicles','cartypes','pageTitle'));
+        return view($this->activeTemplate . 'carbodytypes.carbodytype', compact('vehicles','cartypes','metaVehicles','pageTitle'));
     }
 
 

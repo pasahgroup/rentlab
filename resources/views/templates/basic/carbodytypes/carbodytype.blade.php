@@ -19,7 +19,7 @@
                         
                                       @foreach($cartypes as $cartype)
                                       <a href="/cartype-page/{{$cartype->car_body_type}}" class="cmn--btn form--control bg--base w-100 justify-content-center"
-                                    type="submit">{{$cartype->car_body_type}}:({{$cartypes->where('car_body_type',$cartype)->count()}})</a>
+                                    type="submit">{{$cartype->car_body_type}}:({{$metaVehicles->where('car_body_type',$cartype->car_body_type)->count()}})</a>
 
                                       @endforeach
                               

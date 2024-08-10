@@ -7,7 +7,7 @@
 @endphp
 <!-- Footer Section -->
 <footer class="footer-section">
-    <div class="container">
+    <div class="container-fluid">
         <div class="newsletter-section">
             <div class="newsletter-wrapper">
                 <div class="footer-logo">
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer__top">
+        <div class="footer__top" style="background-color:#5c7763b0;">
             <div class="footer-wrapper">
                 <div class="footer__widget widget__about">
                     <h4 class="widget__title">@lang('About') @lang($general->sitename)</h4>

@@ -4,10 +4,10 @@
 ?>
 
 <!-- Pricing Section -->
-<section class="pricing-section bg--section pt-120 pb-120 position-relative overflow-hidden">
+<section class="pricing-section pt-120 pb-120 position-relative overflow-hidden" style="background-color:#5c7763b0;">
     <div class="shape right-side"><?php echo e(__(@$plan_content->data_values->stylish_text_right)); ?></div>
     <div class="shape"><?php echo e(__(@$plan_content->data_values->stylish_text_left)); ?></div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="section__header section__header__center">
             <span class="section__category"><?php echo e(__(@$plan_content->data_values->sub_heading)); ?></span>
             <h2 class="section__title"><?php echo e(__(@$plan_content->data_values->heading)); ?></h2>
@@ -15,7 +15,7 @@
         <div class="row g-4 justify-content-center">
 
             <?php $__empty_1 = true; $__currentLoopData = $plans; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $plan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                <div class="col-sm-10 col-md-6 col-xl-3">
+                <div class="col-sm-10 col-md-3 col-xl-3">
                     <div class="plan__item">
                         <div class="plan__header">
                             <h5 class="plan__title"><?php echo e(__(@$plan->name)); ?></h5>
