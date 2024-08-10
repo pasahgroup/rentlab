@@ -86,7 +86,6 @@
 
 <header class="header">
     <div class="container">
-      <div class="site-header clearfix">
         <div class="col-lg-1 col-md-2 col-sm-12 title-area">      
             <div class="logo">
                 <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style=""></a>
@@ -140,7 +139,7 @@
           <!-- nav -->
         </div>
         <!-- title area -->
-      </div>
+
       <!-- site header -->
     </div>
     <!-- end container -->

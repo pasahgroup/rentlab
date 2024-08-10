@@ -2,7 +2,7 @@
 <section class="hero-section">
     <div class="container">
         <div class="hero-content">
-            <h1 class="hero-title" data-value="@lang($pageTitle)">@lang($pageTitle)</h1>
+            <h3 class="hero-title" data-value="@lang($pageTitle)">@lang($pageTitle)</h3>
             <ul class="breadcrumb">
                 <li>
                     <a href="{{ route('home') }}">@lang('Home')</a>

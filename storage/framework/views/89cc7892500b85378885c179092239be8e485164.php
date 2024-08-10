@@ -2,7 +2,7 @@
 <section class="hero-section">
     <div class="container">
         <div class="hero-content">
-            <h1 class="hero-title" data-value="<?php echo app('translator')->get($pageTitle); ?>"><?php echo app('translator')->get($pageTitle); ?></h1>
+            <h3 class="hero-title" data-value="<?php echo app('translator')->get($pageTitle); ?>"><?php echo app('translator')->get($pageTitle); ?></h3>
             <ul class="breadcrumb">
                 <li>
                     <a href="<?php echo e(route('home')); ?>"><?php echo app('translator')->get('Home'); ?></a>
