@@ -115,7 +115,7 @@ public function recovery($id)
    public function deleteImage($id, $image)
     {
 
-        dd($id);
+        //dd($id);
 
         $vehicle = Vehicle::findOrFail($id);
 
@@ -134,24 +134,21 @@ public function recovery($id)
         }
 
     
-    public function deleteImagesd($id, $image)
+    public function delete($id)
     {
        // dd('print');
 
-        $vehicle = Tag::findOrFail($id);
-
-        $images = $vehicle->images;
-        $path = imagePath()['vehicles']['path'];
-
-        if (($old_image = array_search($image, $images)) !== false){
-            removeFile($path.'/' . $old_image);
-            unset($images[$old_image]);
+        //dd($id);
+         $color = Color::where('id',$id)->first();
+        if($color){
+            $color->delete();
+             $notify[] = ['success', 'Car color Removed Successfully!'];
+              return redirect()->route('admin.color.index')->withNotify($notify);
         }
-
-        $vehicle->images = $images;
-        $vehicle->save();
-
-        return response()->json(['success' => true, 'message' => 'Car body type image deleted!']);
+        else{
+            $notify[] = ['error', 'Car color added Successfully!'];
+        return back()->withNotify($notify);
+        }
     }
 
   

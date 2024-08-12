@@ -155,7 +155,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('cartype/image/remove/{id}', 'CartypeController@deleteImage')->name('cartype.image.delete');
         Route::post('cartype/{id}/status', 'CartypeController@status')->name('cartype.status');
 
-         Route::post('cartype/{id}/delete', 'CartypeController@recovery')->name('cartype.delete');
+            Route::post('cartype/{id}/recovery', 'CartypeController@recovery')->name('cartype.recovery');
+         Route::get('cartype/{id}/delete', 'CartypeController@delete')->name('cartype.delete');
 
            //Tag
         Route::get('tag', 'TagController@index')->name('tag.index');
@@ -165,8 +166,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('tag/update/{id}', 'TagController@update')->name('tag.update');
         Route::post('tag/image/remove/{id}', 'TagController@deleteImage')->name('tag.image.delete');
         Route::post('tag/{id}/status', 'TagController@status')->name('tag.status');
-         Route::post('tag/{id}/delete', 'TagController@recovery')->name('tag.delete');
-
+         
+          Route::post('tag/{id}/recovery', 'TagController@recovery')->name('tag.recovery');
+         Route::get('tag/{id}/delete', 'TagController@delete')->name('tag.delete');
 
   //Tag
         Route::get('color', 'ColorController@index')->name('color.index');
@@ -176,7 +178,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('color/update/{id}', 'ColorController@update')->name('color.update');
         Route::post('color/image/remove/{id}', 'ColorController@deleteImage')->name('color.image.delete');
         Route::post('color/{id}/status', 'ColorController@status')->name('color.status');
-         Route::post('color/{id}/delete', 'ColorController@recovery')->name('color.delete');
+         Route::post('color/{id}/recovery', 'ColorController@recovery')->name('color.recovery');
+         Route::get('color/{id}/delete', 'ColorController@delete')->name('color.delete');
 
         //Vehicle Booking Log
         Route::get('vehicles/booking/log', 'VehicleController@bookingLog')->name('vehicles.booking.log');

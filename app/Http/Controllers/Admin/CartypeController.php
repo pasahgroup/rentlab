@@ -164,7 +164,7 @@ public function recovery($id)
    public function deleteImage($id, $image)
     {
 
-        dd($id);
+        //dd($id);
 
         $vehicle = Vehicle::findOrFail($id);
 
@@ -183,24 +183,21 @@ public function recovery($id)
         }
 
     
-    public function deleteImagesd($id, $image)
+ public function delete($id)
     {
        // dd('print');
 
-        $vehicle = Cartype::findOrFail($id);
-
-        $images = $vehicle->images;
-        $path = imagePath()['vehicles']['path'];
-
-        if (($old_image = array_search($image, $images)) !== false){
-            removeFile($path.'/' . $old_image);
-            unset($images[$old_image]);
+        //dd($id);
+         $cartypes = Cartype::where('id',$id)->first();
+        if($cartypes){
+            $cartypes->delete();
+             $notify[] = ['success', 'Car Car type Removed Successfully!'];
+              return redirect()->route('admin.cartype.index')->withNotify($notify);
         }
-
-        $vehicle->images = $images;
-        $vehicle->save();
-
-        return response()->json(['success' => true, 'message' => 'Car body type image deleted!']);
+        else{
+            $notify[] = ['error', 'Car Car type added Successfully!'];
+        return back()->withNotify($notify);
+        }
     }
 
   
