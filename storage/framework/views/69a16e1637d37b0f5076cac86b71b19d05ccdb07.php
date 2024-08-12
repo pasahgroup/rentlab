@@ -13,8 +13,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="car__sidebar">                      
-                        <div class="car__filter">
-                           
+                        <div class="car__filter">                           
                         
                                       <?php $__currentLoopData = $cartypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cartype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <a href="/cartype-page/<?php echo e($cartype->car_body_type); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"

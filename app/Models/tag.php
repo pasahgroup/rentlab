@@ -10,6 +10,7 @@ class tag extends Model
     use HasFactory;
          protected $fillable  = [
         'tag',
+         'images' => 'object',
         'status'
     ];
 

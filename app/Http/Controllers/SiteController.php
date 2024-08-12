@@ -9,6 +9,7 @@ use App\Models\Page;
 use App\Models\Plan;
 use App\Models\PlanLog;
 use App\Models\Cartype;
+use App\Models\Tag;
 
 use App\Models\Subscriber;
 use App\Models\SupportAttachment;
@@ -45,13 +46,20 @@ class SiteController extends Controller
         }
 
 
-$carbodytypes = cartype::orderby('car_body_type')->get();
-//dd($carbodytypes);
+$carbodytypes = cartype::orderby('car_body_type')
+->groupBy('car_body_type')
+->get();
+
+$carTags = Tag::orderby('tag')
+->groupBy('tag')
+->get();
+
+//dd($carTags);
 
 $vehicles = Vehicle::active()->latest()->paginate(getPaginate());
         $pageTitle = 'Home';
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
-        return view($this->activeTemplate . 'home', compact('pageTitle','sections','vehicles','carbodytypes'));
+        return view($this->activeTemplate . 'home', compact('pageTitle','sections','vehicles','carbodytypes','carTags'));
     }
 
     public function pages($slug)
@@ -69,7 +77,7 @@ public function show($id)
     {
         //dd($id);
       $vehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
-      ->where('car_body_type',$id)
+      ->where('cartypes.car_body_type',$id)
      ->select('vehicles.*','cartypes.car_body_type')
       ->get();
 
@@ -85,6 +93,29 @@ public function show($id)
     // dd($cartypes);
 
         return view($this->activeTemplate . 'carbodytypes.carbodytype', compact('vehicles','cartypes','metaVehicles','pageTitle'));
+    }
+
+    public function carTag($id)
+    {
+        //dd($id);
+      $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
+      ->where('tags.tag',$id)
+     ->select('vehicles.*','tags.tag')
+      ->get();
+      //dd($vehicles);
+
+          $metaVehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
+      ->select('vehicles.*','tags.tag')
+      ->get();
+
+    $metavehicles = collect($metaVehicles);
+   //dd($metavehicles->where('car_body_type','SUV')->count());
+
+    $cartags = Tag::where('status','1')->get();     
+        $pageTitle = $id;
+    // dd($cartypes);
+
+        return view($this->activeTemplate . 'carbodytypes.cartag', compact('vehicles','cartags','metaVehicles','pageTitle'));
     }
 
 

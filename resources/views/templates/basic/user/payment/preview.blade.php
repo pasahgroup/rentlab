@@ -35,9 +35,9 @@
 
                         <div class="text-center w-100">
                             @if( 1000 >$data->method_code)
-                                <a href="{{route('user.deposit.confirm')}}" class="cmn--btn">@lang('Pay Now')</a>
+                                <a href="{{route('user.deposit.confirm')}}" class="cmn--btn">@lang('Pay Now not')</a>
                             @else
-                                <a href="{{route('user.deposit.manual.confirm')}}" class="cmn--btn">@lang('Pay Now')</a>
+                                <a href="{{route('user.deposit.manual.confirm')}}" class="cmn--btn">@lang('Pay Now-Manual')</a>
                             @endif
                         </div>
                     </div>

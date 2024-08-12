@@ -3,16 +3,16 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="{{ route('admin.cartype.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.tag.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="name">@lang('Car body type')</label>
-                                    <input type="text" id="car_body_type" name="car_body_type" class="form-control"
-                                           value="{{ old('car_body_type') }}">
+                                    <label for="name">@lang('Car Tag')</label>
+                                    <input type="text" id="tag" name="tag" class="form-control"
+                                           value="{{ old('tag') }}">
                                 </div>
                             </div>
                        

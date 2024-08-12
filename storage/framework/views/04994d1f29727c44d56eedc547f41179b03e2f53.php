@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer__top" style="background-color:#5c7763b0;">
+        <div class="footer__top" style="background-color:#274414b0;">
             <div class="footer-wrapper">
                 <div class="footer__widget widget__about">
                     <h4 class="widget__title"><?php echo app('translator')->get('About'); ?> <?php echo app('translator')->get($general->sitename); ?></h4>
@@ -95,7 +95,7 @@
             </div>
         </div>
     </div>
-    <div class="footer__bottom bg--section py-3 text-center"><?php echo e(__(@$footer_content->data_values->copyright)); ?></div>
+    <div class="footer__bottom bg--section py-3 text-center" style="color:#fff"><?php echo e(__(@$footer_content->data_values->copyright)); ?></div>
 </footer>
 <!-- Footer Section -->
 <?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/partials/footer.blade.php ENDPATH**/ ?>

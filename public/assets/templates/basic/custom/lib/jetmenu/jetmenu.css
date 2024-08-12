@@ -24,7 +24,7 @@
 
 .jetmenu > li > a {
     border-top: 3px solid #FFFFFF;
-    color: #1b6c0f;
+    color: #fff;
     display: inline-block;
     font-size: 12px;
 	font-weight:400;
@@ -76,7 +76,7 @@
 	font-weight:400;
 	color: #777777;
 	font-size: 12px;
-	line-height: 20px;
+	line-height: 10px;
 	text-decoration: none;
 	box-sizing:border-box;
 	-moz-box-sizing:border-box; 
@@ -350,7 +350,7 @@
 /* STYLES
 **********************************************************/
 /* blue */
-.blue > li:hover > a, .blue > li.active > a{border-top:3px solid #7fc04c; color: #777777; }
+.blue > li:hover > a, .blue > li.active > a{border-top:3px solid #7fc04c; color: #fbfb06; }
 .blue ul.dropdown li:hover > a{ background: #F9F9F9; }
 .blue li > .megamenu form input[type="text"]:focus, .blue li > .megamenu form textarea:focus{ border-color: #7fc04c; }
 .blue li > .megamenu form input[type="submit"]:hover{ background: #7fc04c; color: #fff; }
@@ -366,7 +366,7 @@
 		-webkit-box-sizing:border-box;
 	}
 	.jetmenu > li > a{
-		padding: 17px 25px;
+		padding: 8px 25px;
 	}
 	.jetmenu a{
 		width: 100%;

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\RentLog;
 use App\Models\Seater;
-use App\Models\cartype;
+// use App\Models\cartype;
 use App\Models\Vehicle;
 
 use App\Models\Tag;
@@ -21,17 +21,17 @@ class TagController extends Controller
     {
      //   $vehicles = Vehicle::with(['brand', 'seater'])->latest()->paginate(getPaginate());
 
-        $vehicles = Cartype::latest()->paginate(getPaginate());
-       // dd($vehicles);
+        $tags = Tag::latest()->paginate(getPaginate());
+        //dd($Tags);
 
-        $pageTitle = 'Car body type';
-        $empty_message = 'No Car body type has been added.';
-        return view('admin.tags.index', compact('pageTitle', 'empty_message', 'vehicles'));
+        $pageTitle = 'Car Tags';
+        $empty_message = 'No Car tag has been added.';
+        return view('admin.tags.index', compact('pageTitle', 'empty_message', 'tags'));
     }
 
     public function add()
     {
-        $pageTitle = 'Add car body type';
+        $pageTitle = 'Add car Tag';
         $brands = Brand::active()->orderBy('name')->get();
         $seaters = Seater::active()->orderBy('number')->get();
         return view('admin.tags.add', compact('pageTitle', 'brands', 'seaters'));
@@ -42,13 +42,13 @@ class TagController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'car_body_type' => 'required|string',
+            'tag' => 'required|string',
             'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
                   ]);
 
 
-        $cartype = new Cartype();
-        $cartype->car_body_type = $request->car_body_type;
+        $tag = new Tag();
+        $tag->tag = $request->tag;
         
        // dd($cartype);
 
@@ -69,15 +69,14 @@ class TagController extends Controller
                      //upload the image
                      $path =$attached->storeAs('public/cartypes/', $imageToStore);
 
-
          }
     }
 
 
-        $cartype->images = $imageToStore;
-        $cartype->save();
+        $tag->images = $imageToStore;
+        $tag->save();
 
-        $notify[] = ['success', 'Car body type Added Successfully!'];
+        $notify[] = ['success', 'Car Tag Added Successfully!'];
         return back()->withNotify($notify);
     }
 
@@ -96,12 +95,12 @@ class TagController extends Controller
     public function update(Request $request,$id)
     {
         $request->validate([
-            'car_body_type' => 'required|string',
+            'tag' => 'required|string',
             'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
         ]);
 
-           $cartype = Cartype::findOrFail($id);
-           $cartype->car_body_type = $request->car_body_type;
+           $tag = Cartype::findOrFail($id);
+           $tag->tag = $request->tag;
 
        
 
@@ -125,7 +124,7 @@ class TagController extends Controller
                      $path =$attached->storeAs('public/cartypes/', $imageToStore);
 
 
-                     $cartype->images = $imageToStore;
+                     $tag->images = $imageToStore;
 
          }
     }
@@ -133,7 +132,7 @@ class TagController extends Controller
     //dd('print');
 
 
-$cartype->save();
+$tag->save();
 
         $notify[] = ['success', 'Car body type Updated Successfully!'];
         return back()->withNotify($notify);
@@ -145,7 +144,7 @@ public function recovery($id)
 
      //   dd('print');
 
-        $vehicle = Cartype::findOrFail($id);
+        $vehicle = Tag::findOrFail($id);
 
         $images = $vehicle->images;
         $path = imagePath()['vehicles']['path'];
@@ -188,7 +187,7 @@ public function recovery($id)
     {
        // dd('print');
 
-        $vehicle = Cartype::findOrFail($id);
+        $vehicle = Tag::findOrFail($id);
 
         $images = $vehicle->images;
         $path = imagePath()['vehicles']['path'];
@@ -208,7 +207,7 @@ public function recovery($id)
     public function status($id)
     {
 
-        $vehicle = Cartype::findOrFail($id);
+        $vehicle = Tag::findOrFail($id);
         $vehicle->status = ($vehicle->status ? 0 : 1);
         $vehicle->save();
 

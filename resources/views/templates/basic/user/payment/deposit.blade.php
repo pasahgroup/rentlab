@@ -27,9 +27,13 @@
                                data-fix_charge="{{showAmount($data->fixed_charge)}}"
                                data-percent_charge="{{showAmount($data->percent_charge)}}" class="btn--sm d-block cmn--btn text-center custom-success deposit" data-bs-toggle="modal" data-bs-target="#depositModal">
                                 @lang('Pay Now')</a>
+
+                                 <!-- <a href="{{route('user.deposit.manual.confirm')}}" class="btn--sm d-block cmn--btn text-center custom-success deposit" >@lang('Pay Now-Manual')</a> -->
                         </div>
                     </div>
                 </div>
+
+
             @endforeach
 
         </div>

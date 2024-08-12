@@ -91,8 +91,8 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="row">
-
    @foreach($vehicles as $vehicle)
                         <div class="col-lg-3 col-md-3">
                             <div class="car__item">
@@ -101,6 +101,7 @@
 
                                     <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size']) }}" alt="">
                                    <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[2], imagePath()['vehicles']['size']) }}" alt="">
+                                   
                                    <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[3], imagePath()['vehicles']['size']) }}" alt="">
                                 </div>
                                 <div class="car__item__text">
@@ -140,9 +141,9 @@
                             </div>
 
                         </div>
-                        @endforeach
-                                   
+                        @endforeach                                   
                     </div>
+
                     <div class="pagination__option">
                         <a href="#" class="active">1</a>
                         <a href="#">2</a>

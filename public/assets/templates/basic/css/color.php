@@ -1,6 +1,7 @@
 <?php
 header("Content-Type:text/css");
-$color = "#f0f"; // Change your Color Here
+$color = "#f0f"; // Change your Color Here 
+$color2 = "#264f2e"; // Change your Color Here
 $secondColor = "#ff8"; // Change your Color Here
 
 function checkhexcolor($color){
@@ -66,7 +67,7 @@ background: <?php echo $color ?>;
 border-color: <?php echo $color ?>99;
 }
 .btn--base, .badge--base, .bg--base {
-background-color: <?php echo $color ?> !important;
+background-color: <?php echo $color2 ?> !important;
 }
 
 .section__header .section__category::before, .section__header .section__category::after {

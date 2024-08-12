@@ -23,6 +23,8 @@ class PaymentController extends Controller
 
     public function deposit()
     {
+//dd('deposit');
+
         if (!session()->has('rent_id') && !session()->has('plan_id')){
             $notify[] = ['error', 'Invalid request!'];
             return back()->withNotify($notify);
@@ -32,6 +34,9 @@ class PaymentController extends Controller
             $gate->where('status', 1);
         })->with('method')->orderby('method_code')->get();
         $pageTitle = 'Payment Methods';
+
+        //dd('print');
+        
         return view($this->activeTemplate . 'user.payment.deposit', compact('gatewayCurrency', 'pageTitle'));
     }
 
@@ -90,12 +95,17 @@ class PaymentController extends Controller
         $data->status = 0;
         $data->save();
         session()->put('Track', $data->trx);
-        return redirect()->route('user.deposit.preview');
+        //dd('preview');
+
+        return redirect()->route('user.deposit.manual.confirm');
+                // return redirect()->route('user.deposit.preview');
     }
 
 
     public function depositPreview()
     {
+        //dd('payment preview');
+
         if (!session()->has('rent_id') && !session()->has('plan_id')){
             $notify[] = ['error', 'Invalid request!'];
             return back()->withNotify($notify);
@@ -193,6 +203,9 @@ class PaymentController extends Controller
 
     public function manualDepositConfirm()
     {
+       
+//dd('payment Confirm');
+
         if (!session()->has('rent_id') && !session()->has('plan_id')){
             $notify[] = ['error', 'Invalid request!'];
             return back()->withNotify($notify);
@@ -218,6 +231,9 @@ class PaymentController extends Controller
 
     public function manualDepositUpdate(Request $request)
     {
+
+       // dd('payment update');
+
         $track = session()->get('Track');
         $data = Deposit::with('gateway')->where('status', 0)->where('trx', $track)->first();
         if (!$data) {
@@ -252,9 +268,7 @@ class PaymentController extends Controller
             }
         }
         $this->validate($request, $rules);
-   //dd('print2');
-
-
+  
         $directory = date("Y")."/".date("m")."/".date("d");
         $path = imagePath()['verify']['deposit']['path'].'/'.$directory;
         $collection = collect($request);

@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="{{ route('admin.cartype.update', $vehicle->id) }}" method="post"
+                <form action="{{ route('admin.tag.update', $vehicle->id) }}" method="post"
                       enctype="multipart/form-data">
                     @csrf
 
@@ -12,8 +12,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                       <label for="name">@lang('Car body type')</label>
-                                    <input type="text" id="car_body_type" name="car_body_type" class="form-control"
-                                           value="{{ $vehicle->car_body_type }}">
+                                    <input type="text" id="tag" name="tag" class="form-control"
+                                           value="{{ $vehicle->tag }}">
                                 </div>
                             </div>
                          

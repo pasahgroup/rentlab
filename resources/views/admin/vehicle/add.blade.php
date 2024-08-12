@@ -40,8 +40,22 @@
                                     </select>
                                 </div>
                             </div>
+
+                                 <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="category">@lang('Car Tag')</label>
+                                    <select class="form-control" id="tag" name="tag" required="">
+                                        <option value="">-- @lang('Select One') --</option>
+
+                                        @forelse($tags as $tag)
+                                            <option value="{{ $tag->id }}">{{ __(@$tag->tag) }}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
                             
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="seater">@lang('Seat Type')</label>
                                     <select class="form-control" id="seater" name="seater" required="">
@@ -53,7 +67,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="price">@lang('Price Per Day')</label>
                                     <div class="input-group">

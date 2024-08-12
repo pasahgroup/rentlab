@@ -172,6 +172,9 @@ class DepositController extends Controller
 
     public function approve(Request $request)
     {
+
+
+//dd($user);
         $request->validate(['id' => 'required|integer']);
         $deposit = Deposit::where('id',$request->id)->where('status',2)->firstOrFail();
         $deposit->status = 1;

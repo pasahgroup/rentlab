@@ -1,18 +1,59 @@
 @extends($activeTemplate.'layouts.master')
 
 @section('content')
-    <div class="pt-60 pb-60">
+ 
+     <div class="pb-60 pt-60">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card card-deposit custom--card">
-                    <div class="card-header pb-2">
-                        <h3>{{__($pageTitle)}}</h3>
+            <div class="col-xl-8">
+                <div class="deposit-preview bg--body">
+                    <div class="deposit-thumb">
+                        <img src="{{ $data->gatewayCurrency()->methodImage() }}" alt="payment">
                     </div>
-                    <div class="card-body  ">
-                        <form action="{{ route('user.deposit.manual.update') }}" method="POST" enctype="multipart/form-data">
+                    <div class="deposit-content">
+
+                        
+  <form action="{{ route('user.deposit.manual.update') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                        <ul>
+                            <li>
+                                @lang('Amount'):
+                                <span class="text--success">{{showAmount($data->amount)}} {{__($general->cur_text)}}</span>
+                            </li>
+                            <li>
+                                @lang('Charge'):
+                                <span class="text--danger">{{showAmount($data->charge)}} {{__($general->cur_text)}}</span>
+                            </li>
+                            <li>
+                                @lang('Payable'): <span class="text--warning"> {{showAmount($data->amount + $data->charge)}} {{__($general->cur_text)}}</span>
+                            </li>
+                            <li>
+                                @lang('In') {{$data->baseCurrency()}}:
+                                <span class="text--primary">{{showAmount($data->final_amo)}}</span>
+                            </li>
+
+                            @if($data->gateway->crypto==1)
+                                <li>
+                                    @lang('Conversion with')
+                                    <b> {{ __($data->method_currency) }}</b> @lang('and final value will Show on next step')
+                                </li>
+                            @endif
+                        </ul>
+<!-- 
+                        <div class="text-center w-100">
+                            @if( 1000 >$data->method_code)
+                                <a href="{{route('user.deposit.confirm')}}" class="cmn--btn">@lang('Pay Now')</a>
+                            @else
+                                <a href="{{route('user.deposit.manual.confirm')}}" class="cmn--btn">@lang('Pay Now')</a>
+                            @endif
+                        </div> -->
+
+
+
+
+
+
                             <div class="row">
-                                <div class="col-md-12 text-center">
+                             <!--    <div class="col-md-12 text-center">
                                     <p class="text-center mt-2">@lang('You have requested') <b class="text-success">{{ showAmount($data['amount'])  }} {{__($general->cur_text)}}</b> , @lang('Please pay')
                                         <b class="text-success">{{showAmount($data['final_amo']) .' '.$data['method_currency'] }} </b> @lang('for successful payment')
                                     </p>
@@ -20,10 +61,9 @@
 
                                     <p class="my-4 text-center text-white">@php echo  $data->gateway->description @endphp</p>
 
-                                </div>
+                                </div> -->
 
                                 @if($method->gateway_parameter)
-
                                     @foreach(json_decode($method->gateway_parameter) as $k => $v)
 
                                         @if($v->type == "text")
@@ -52,12 +92,17 @@
                                 @endif
                                 <div class="col-md-12">
                                     <div class="form-group mt-3">
-                                        <button type="submit" class="cmn--btn">@lang('Pay Now')</button>
+                                        <button type="submit" class="cmn--btn">@lang('Full payment')</button>
+                                    <!-- </div>
+                                     <div class="form-group mt-3"> -->
+                                        <button type="submit" class="cmn--btn">@lang('Advance payment')</button>
                                     </div>
                                 </div>
 
                             </div>
                         </form>
+
+
                     </div>
                 </div>
             </div>

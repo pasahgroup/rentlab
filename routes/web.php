@@ -439,6 +439,7 @@ Route::get('placeholder-image/{size}', 'SiteController@placeholderImage')->name(
 
 
 Route::get('/cartype-page/{id}', 'SiteController@show')->name('cartype-page.show');
+Route::get('/cartag-page/{id}', 'SiteController@carTag')->name('cartag-page.show');
 
 Route::get('/{slug}', 'SiteController@pages')->name('pages');
 Route::get('/', 'SiteController@index')->name('home');

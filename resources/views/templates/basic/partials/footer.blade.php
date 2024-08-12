@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer__top" style="background-color:#5c7763b0;">
+        <div class="footer__top" style="background-color:#274414b0;">
             <div class="footer-wrapper">
                 <div class="footer__widget widget__about">
                     <h4 class="widget__title">@lang('About') @lang($general->sitename)</h4>
@@ -95,6 +95,6 @@
             </div>
         </div>
     </div>
-    <div class="footer__bottom bg--section py-3 text-center">{{ __(@$footer_content->data_values->copyright) }}</div>
+    <div class="footer__bottom bg--section py-3 text-center" style="color:#fff">{{ __(@$footer_content->data_values->copyright) }}</div>
 </footer>
 <!-- Footer Section -->

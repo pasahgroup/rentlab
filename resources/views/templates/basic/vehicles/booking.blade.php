@@ -78,7 +78,7 @@
                                     {{ $vehicle->name }} @lang('for') <span class="total_days">1</span> @lang('days. Please confirm to book.')
                                 </div>
                                 <div class="form-group">
-                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit">@lang('Book Now nm')</button>
+                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit">@lang('Book Now')</button>
                                 </div>
                             </div>
                         </form>
@@ -123,7 +123,7 @@
                         const date1 = new Date(pick_time);
                         const date2 = new Date(drop_time);
                         const diffTime = Math.abs(date2 - date1);
-                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) +1;
 
 
                         $('.total_amount').text(price*diffDays);

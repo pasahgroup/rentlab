@@ -17,8 +17,8 @@ class CreateEmailLogsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('mail_sender',20)->nullable();
-            $table->string('from')->nullable();
-            $table->string('to')->nullable();
+            $table->string('email_from')->nullable();
+            $table->string('email_to')->nullable();
             $table->string('subject')->nullable();
             $table->text('message')->nullable();
             $table->timestamps();

@@ -38,7 +38,7 @@ class VehicleController extends Controller
             return back()->withNotify($notify);
         }
 
-// dd($this->activeTemplate);
+//dd($this->activeTemplate);
 
         $vehicle = Vehicle::active()->where('id', $id)->firstOrFail();
         $locations = Location::active()->orderBy('name')->get();
@@ -66,19 +66,19 @@ class VehicleController extends Controller
 
 
 
-//dd($vehicle);
+//dd($vehicle->booked());
         //Checking booked or not
-        if ($vehicle->booked()){
-            $notify[] = ['error', 'This vehicle is booked!'];
-            return back()->withNotify($notify);
-        }
+        // if ($vehicle->booked()){
+        //     $notify[] = ['error', 'This vehicle is booked!'];
+        //     return back()->withNotify($notify);
+        // }
 
-//dd('ppd');
+
 
         $pick_time = new Carbon($request->pick_time);
         $drop_time = new Carbon($request->drop_time);
 
-        $total_days = $pick_time->diffInDays($drop_time);
+        $total_days = $pick_time->diffInDays($drop_time) +1;
         $total_price = $vehicle->price*$total_days;
 
         $rent = new RentLog();

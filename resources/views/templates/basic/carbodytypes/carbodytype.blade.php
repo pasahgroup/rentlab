@@ -14,8 +14,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="car__sidebar">                      
-                        <div class="car__filter">
-                           
+                        <div class="car__filter">                           
                         
                                       @foreach($cartypes as $cartype)
                                       <a href="/cartype-page/{{$cartype->car_body_type}}" class="cmn--btn form--control bg--base w-100 justify-content-center"

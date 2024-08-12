@@ -11,7 +11,8 @@
                                 <th scope="col">@lang('Name')</th>
                                 <th scope="col">@lang('Brand')</th>
                                 <th scope="col">@lang('Car body type')</th>
-                                <th scope="col">@lang('Seat Type')</th>
+                                <th scope="col">@lang('Car tag')</th>
+                                <th scope="col">@lang('Seat type')</th>
                                 <th scope="col">@lang('Price')</th>
                                 <th scope="col">@lang('Model')</th>
                                 <th scope="col">@lang('Transmission')</th>
@@ -27,6 +28,7 @@
                                     <td data-label="@lang('Name')"><strong>{{ __($item->name) }}</strong></td>
                                     <td data-label="@lang('Brand')">{{ __($item->brand->name) }}</td>
                                     <td data-label="@lang('Car Body Type')">{{ __($item->car_body_type_id) }}</td>
+                                    <td data-label="@lang('Car Body Type')">{{ __($item->tag_id) }}</td>
 
                                     <td data-label="@lang('Seat Type')">{{ __($item->seater->number) }} @lang('Seater')</td>
                                     <td data-label="@lang('Price')"><strong>{{ $general->cur_sym }}{{ __(showAmount($item->price)) }}</strong></td>

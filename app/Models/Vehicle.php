@@ -10,6 +10,9 @@ class Vehicle extends Model
     use HasFactory;
 
     protected $casts = [
+
+          'car_body_type_id',
+          'tag_id',
         'images' => 'object',
         'specifications' => 'object',
     ];

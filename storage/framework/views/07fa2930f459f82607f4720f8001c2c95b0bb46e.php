@@ -91,8 +91,8 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="row">
-
    <?php $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-lg-3 col-md-3">
                             <div class="car__item">
@@ -101,6 +101,7 @@
 
                                     <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size'])); ?>" alt="">
                                    <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[2], imagePath()['vehicles']['size'])); ?>" alt="">
+                                   
                                    <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[3], imagePath()['vehicles']['size'])); ?>" alt="">
                                 </div>
                                 <div class="car__item__text">
@@ -140,9 +141,9 @@
                             </div>
 
                         </div>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                   
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                   
                     </div>
+
                     <div class="pagination__option">
                         <a href="#" class="active">1</a>
                         <a href="#">2</a>
