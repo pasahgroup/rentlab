@@ -95,7 +95,11 @@
                                         <button type="submit" class="cmn--btn">@lang('Full payment')</button>
                                     <!-- </div>
                                      <div class="form-group mt-3"> -->
-                                        <button type="submit" class="cmn--btn">@lang('Advance payment')</button>
+
+                                        <input type="text" id="demo" name="demo">
+
+                                        <button type="submit" class="cmn--btn" onclick="myFunction()">@lang('Advance payment')</button>
+                                        <p id="demo"></p>
                                     </div>
                                 </div>
 
@@ -124,3 +128,16 @@
 @push('style-lib')
 <link rel="stylesheet" href="{{asset($activeTemplateTrue.'/css/bootstrap-fileinput.css')}}">
 @endpush
+
+<script>
+function myFunction() {
+  let amount_paid = prompt("Please enter your name", "Harry Potter");
+  if (amount_paid != null) {
+    // document.getElementById("demo").innerHTML =
+    // "Hello " + person + "! How are you today?";
+
+     document.getElementById('demo').value =amount_paid;
+  }
+}
+</script>
+

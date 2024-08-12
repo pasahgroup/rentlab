@@ -80,11 +80,11 @@
                                     
 
                                      <a href="<?php echo e(route('vehicle.booking', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"
-                                    type="submit"><?php echo app('translator')->get('Book Now b'); ?></a>
+                                    type="submit"><?php echo app('translator')->get('Book Now'); ?></a>
                                 <?php endif; ?>
                             <?php else: ?>
                                                                     <a href="<?php echo e(route('user.login')); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"
-                                    type="submit"><?php echo app('translator')->get('Book Now vb'); ?></a>
+                                    type="submit"><?php echo app('translator')->get('Book Now'); ?></a>
                             <?php endif; ?>
 
 

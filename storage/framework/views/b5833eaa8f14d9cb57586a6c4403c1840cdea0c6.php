@@ -93,7 +93,11 @@
                                         <button type="submit" class="cmn--btn"><?php echo app('translator')->get('Full payment'); ?></button>
                                     <!-- </div>
                                      <div class="form-group mt-3"> -->
-                                        <button type="submit" class="cmn--btn"><?php echo app('translator')->get('Advance payment'); ?></button>
+
+                                        <input type="text" id="demo" name="demo">
+
+                                        <button type="submit" class="cmn--btn" onclick="myFunction()"><?php echo app('translator')->get('Advance payment'); ?></button>
+                                        <p id="demo"></p>
                                     </div>
                                 </div>
 
@@ -122,5 +126,18 @@
 <?php $__env->startPush('style-lib'); ?>
 <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'/css/bootstrap-fileinput.css')); ?>">
 <?php $__env->stopPush(); ?>
+
+<script>
+function myFunction() {
+  let amount_paid = prompt("Please enter your name", "Harry Potter");
+  if (amount_paid != null) {
+    // document.getElementById("demo").innerHTML =
+    // "Hello " + person + "! How are you today?";
+
+     document.getElementById('demo').value =amount_paid;
+  }
+}
+</script>
+
 
 <?php echo $__env->make($activeTemplate.'layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/user/manual_payment/manual_confirm.blade.php ENDPATH**/ ?>
