@@ -70,9 +70,22 @@
                                     </div>
                                 </div>
                                    <div class="col-lg-6 col-md-6">
-                                      <div class="car__item__price">
-                                        <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center"
-                                    type="submit">@lang('Book Now')</a>
+                                      <div class="car__item__price">                                                 
+
+
+
+                         @auth
+                                @if($vehicle->booked())
+                                    <a href="javascript:void(0)" class="cmn--btn">@lang('Booked')</a>
+                                @else
+                                    <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn">@lang('Book Now')</a>
+                                @endif
+                            @else
+                                <a href="{{ route('user.login') }}" class="cmn--btn">@lang('Book Now')</a>
+                            @endauth
+
+
+
                                     </div>
                                 </div>
 
