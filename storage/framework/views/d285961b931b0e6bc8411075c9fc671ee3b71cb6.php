@@ -33,19 +33,26 @@
                     </a>
                 </li>
 
-                 <li class="sidebar-menu-item <?php echo e(menuActive('admin.cartype*')); ?>">
+                 <li class="sidebar-menu-item <?php echo e(menuActive('admin.cartypes*')); ?>">
                     <a href="<?php echo e(route('admin.cartype.index')); ?>" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title"><?php echo app('translator')->get('Car body type'); ?></span>
                     </a>
                 </li>   
 
-                  <li class="sidebar-menu-item <?php echo e(menuActive('admin.tag*')); ?>">
+                  <li class="sidebar-menu-item <?php echo e(menuActive('admin.tags*')); ?>">
                     <a href="<?php echo e(route('admin.tag.index')); ?>" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title"><?php echo app('translator')->get('Tag'); ?></span>
                     </a>
-                </li>                     
+                </li>   
+
+                 <li class="sidebar-menu-item <?php echo e(menuActive('admin.colors*')); ?>">
+                    <a href="<?php echo e(route('admin.color.index')); ?>" class="nav-link ">
+                        <i class="menu-icon las la-feather"></i>
+                        <span class="menu-title"><?php echo app('translator')->get('Color'); ?></span>
+                    </a>
+                </li>                  
 
                         </ul>
                     </div>

@@ -8,18 +8,16 @@
                         <table class="table table--light tabstyle--two">
                             <thead>
                             <tr>
-                                <th scope="col"><?php echo app('translator')->get('Car Tag'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Images'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Color'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Status'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Actions'); ?></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php $__empty_1 = true; $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                            <?php $__empty_1 = true; $__currentLoopData = $colors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                 <tr>
-                                    <td data-label="<?php echo app('translator')->get('Car body type'); ?>"><strong><?php echo e(__($item->tag)); ?></strong></td>
+                                    <td data-label="<?php echo app('translator')->get('Car Color'); ?>"><strong><?php echo e(__($item->color)); ?></strong></td>
                                   
-                                    <td data-label="<?php echo app('translator')->get('Images'); ?>"><?php echo e(__($item->images)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Status'); ?>">
                                         <?php if($item->status === 1): ?>
                                             <span class="text--small badge font-weight-normal badge--success"><?php echo app('translator')->get('Active'); ?></span>
@@ -29,16 +27,16 @@
                                     </td>
 
                                     <td data-label="<?php echo app('translator')->get('Action'); ?>">
-                                        <a href="<?php echo e(route('admin.tag.edit', $item->id)); ?>" class="icon-btn ml-1" data-original-title="<?php echo app('translator')->get('Edit'); ?>">
+                                        <a href="<?php echo e(route('admin.color.edit', $item->id)); ?>" class="icon-btn ml-1" data-original-title="<?php echo app('translator')->get('Edit'); ?>">
                                             <i class="la la-edit"></i>
                                         </a>
 
-                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--primary' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('admin.tag.status', $item->id)); ?>">
+                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--primary' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('admin.color.status', $item->id)); ?>">
                                             <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
                                         </a>
 
                                       
-                                         <a href="<?php echo e(route('admin.tag.delete',$item->id)); ?>" id="click-edit1" onclick="return confirm(id='Are you sure you want to delete this  <?php echo e($item->id); ?>')"><i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i></a>
+                                         <a href="<?php echo e(route('admin.color.delete',$item->id)); ?>" id="click-edit1" onclick="return confirm(id='Are you sure you want to delete this  <?php echo e($item->id); ?>')"><i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i></a>
                                     </td>
 
                                 </tr>
@@ -52,7 +50,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <?php echo e($tags->links('admin.partials.paginate')); ?>
+                    <?php echo e($colors->links('admin.partials.paginate')); ?>
 
                 </div>
             </div><!-- card end -->
@@ -87,7 +85,7 @@
 
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
-    <a href="<?php echo e(route('admin.tag.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('Add car Tag'); ?></a>
+    <a href="<?php echo e(route('admin.color.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('Add car color'); ?></a>
 <?php $__env->stopPush(); ?>
 
 <?php $__env->startPush('script'); ?>
@@ -108,4 +106,4 @@
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/tags/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/colors/index.blade.php ENDPATH**/ ?>

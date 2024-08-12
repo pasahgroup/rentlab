@@ -168,6 +168,16 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
          Route::post('tag/{id}/delete', 'TagController@recovery')->name('tag.delete');
 
 
+  //Tag
+        Route::get('color', 'ColorController@index')->name('color.index');
+        Route::get('color/add', 'ColorController@add')->name('color.add');
+        Route::post('color/store', 'ColorController@store')->name('color.store');
+        Route::get('color/{id}', 'ColorController@edit')->name('color.edit');
+        Route::post('color/update/{id}', 'ColorController@update')->name('color.update');
+        Route::post('color/image/remove/{id}', 'ColorController@deleteImage')->name('color.image.delete');
+        Route::post('color/{id}/status', 'ColorController@status')->name('color.status');
+         Route::post('color/{id}/delete', 'ColorController@recovery')->name('color.delete');
+
         //Vehicle Booking Log
         Route::get('vehicles/booking/log', 'VehicleController@bookingLog')->name('vehicles.booking.log');
         Route::get('vehicles/booking/log/upcoming', 'VehicleController@upcomingBookingLog')->name('vehicles.booking.log.upcoming');

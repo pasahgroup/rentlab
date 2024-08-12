@@ -33,19 +33,26 @@
                     </a>
                 </li>
 
-                 <li class="sidebar-menu-item {{menuActive('admin.cartype*')}}">
+                 <li class="sidebar-menu-item {{menuActive('admin.cartypes*')}}">
                     <a href="{{route('admin.cartype.index')}}" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title">@lang('Car body type')</span>
                     </a>
                 </li>   
 
-                  <li class="sidebar-menu-item {{menuActive('admin.tag*')}}">
+                  <li class="sidebar-menu-item {{menuActive('admin.tags*')}}">
                     <a href="{{route('admin.tag.index')}}" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title">@lang('Tag')</span>
                     </a>
-                </li>                     
+                </li>   
+
+                 <li class="sidebar-menu-item {{menuActive('admin.colors*')}}">
+                    <a href="{{route('admin.color.index')}}" class="nav-link ">
+                        <i class="menu-icon las la-feather"></i>
+                        <span class="menu-title">@lang('Color')</span>
+                    </a>
+                </li>                  
 
                         </ul>
                     </div>

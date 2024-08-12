@@ -134,7 +134,8 @@ class CartypeController extends Controller
 $cartype->save();
 
         $notify[] = ['success', 'Car body type Updated Successfully!'];
-        return back()->withNotify($notify);
+        // return back()->withNotify($notify);
+        return redirect()->route('admin.cartype.index')->withNotify($notify);
     }
 
 

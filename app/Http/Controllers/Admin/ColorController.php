@@ -10,31 +10,32 @@ use App\Models\Seater;
 use App\Models\Vehicle;
 
 use App\Models\Tag;
+use App\Models\Color;
 
 use App\Rules\FileTypeValidate;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class TagController extends Controller
+class ColorController extends Controller
 {
     public function index()
     {
      //   $vehicles = Vehicle::with(['brand', 'seater'])->latest()->paginate(getPaginate());
 
-        $tags = Tag::latest()->paginate(getPaginate());
+        $colors = Color::latest()->paginate(getPaginate());
         //dd($Tags);
 
-        $pageTitle = 'Car Tags';
-        $empty_message = 'No Car tag has been added.';
-        return view('admin.tags.index', compact('pageTitle', 'empty_message', 'tags'));
+        $pageTitle = 'Colors';
+        $empty_message = 'No Car Color has been added.';
+        return view('admin.colors.index', compact('pageTitle', 'empty_message', 'colors'));
     }
 
     public function add()
     {
-        $pageTitle = 'Add car Tag';
+        $pageTitle = 'Add Car color';
         $brands = Brand::active()->orderBy('name')->get();
         $seaters = Seater::active()->orderBy('number')->get();
-        return view('admin.tags.add', compact('pageTitle', 'brands', 'seaters'));
+        return view('admin.colors.add', compact('pageTitle', 'brands', 'seaters'));
     }
 
 
@@ -42,101 +43,50 @@ class TagController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'tag' => 'required|string',
-            'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
+            'color' => 'required|string',
+            // 'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
                   ]);
 
 
-        $tag = new Tag();
-        $tag->tag = $request->tag;
+        $color = new Color();
+        $color->color = $request->color;
         
-       // dd($cartype);
+      // dd($color);
 
 
+        $color->save();
 
- if(request('images')){
-            $attach = request('images');
-            foreach($attach as $attached){
-
-  // Get filename with extension
-                     $fileNameWithExt =$attached->getClientOriginalName();
-                     // Just Filename
-                     $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-                     // Get just Extension
-                     $extension = $attached->getClientOriginalExtension();
-                     //Filename to store
-                     $imageToStore = $filename.'_'.time().'.'.$extension;
-                     //upload the image
-                     $path =$attached->storeAs('public/cartypes/', $imageToStore);
-
-         }
-    }
-
-
-        $tag->images = $imageToStore;
-        $tag->save();
-
-        $notify[] = ['success', 'Car Tag Added Successfully!'];
+        $notify[] = ['success', 'Car color added Successfully!'];
         return back()->withNotify($notify);
     }
 
     public function edit($id)
     {
-        $vehicle = Tag::findOrFail($id);
-        $pageTitle = 'Edit Car body type';
+        $vehicle = Color::findOrFail($id);
+        $pageTitle = 'Edit Car Color';
         // $brands = Brand::active()->orderBy('name')->get();
         // $seaters = Seater::active()->orderBy('number')->get();
 
         //dd($vehicle);
-        return view('admin.tags.edit', compact('pageTitle', 'vehicle'));
+        return view('admin.colors.edit', compact('pageTitle', 'vehicle'));
     }
 
 
     public function update(Request $request,$id)
     {
         $request->validate([
-            'tag' => 'required|string',
-            'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
+            'color' => 'required|string',
+            // 'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
         ]);
 
-           $tag = Tag::findOrFail($id);
-           $tag->tag = $request->tag;
-
-       
-
-       // $vehicle->specifications = $specifications;
- //dd('print');
-        // Upload and Update image
-       if(request('images')){
-         //dd('print2');
-            $attach = request('images');
-            foreach($attach as $attached){
-
-  // Get filename with extension
-                     $fileNameWithExt =$attached->getClientOriginalName();
-                     // Just Filename
-                     $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-                     // Get just Extension
-                     $extension = $attached->getClientOriginalExtension();
-                     //Filename to store
-                     $imageToStore = $filename.'_'.time().'.'.$extension;
-                     //upload the image
-                     $path =$attached->storeAs('public/cartypes/', $imageToStore);
-
-
-                     $tag->images = $imageToStore;
-
-         }
-    }
-
-    //dd('print');
-
-
-$tag->save();
+           $color = Color::findOrFail($id);
+           $color->color = $request->color;
+           $color->save();
 
         $notify[] = ['success', 'Car body type Updated Successfully!'];
         // return back()->withNotify($notify);
-        return redirect()->route('admin.tag.index')->withNotify($notify);
+        // return redirect()->back()->withNotify($notify);
+        return redirect()->route('admin.color.index')->withNotify($notify);
     }
 
 
