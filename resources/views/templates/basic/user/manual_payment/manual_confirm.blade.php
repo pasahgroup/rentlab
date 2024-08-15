@@ -80,8 +80,7 @@
                                 @endif
                                 <div class="col-md-12">
                                     <div class="form-group mt-3">
-                                        <button type="submit" class="cmn--btn">@lang('Confirm payment')</button>
-                                
+                                        <button type="submit" class="cmn--btn">@lang('Confirm payment')</button>                               
                                     </div>
                                 </div>
 
