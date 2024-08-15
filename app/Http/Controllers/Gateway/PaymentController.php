@@ -30,6 +30,16 @@ class PaymentController extends Controller
             return back()->withNotify($notify);
         }
 
+
+        if (session()->has('rent_id')){
+            $rent_log = RentLog::findOrFail(session('rent_id'));
+            $total_cost = $rent_log->price;
+        } elseif(session()->has('plan_id')) {
+            $plan_log = PlanLog::findOrFail(session('plan_id'));
+            $total_cost = $plan_log->price;
+        }
+
+
         $gatewayCurrency = GatewayCurrency::whereHas('method', function ($gate) {
             $gate->where('status', 1);
         })->with('method')->orderby('method_code')->get();
@@ -37,7 +47,7 @@ class PaymentController extends Controller
 
         //dd('print');
         
-        return view($this->activeTemplate . 'user.payment.deposit', compact('gatewayCurrency', 'pageTitle'));
+        return view($this->activeTemplate . 'user.payment.deposit', compact('gatewayCurrency', 'pageTitle','total_cost'));
     }
 
     public function depositInsert(Request $request)

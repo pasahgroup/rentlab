@@ -42,8 +42,6 @@ cursor: pointer;
                                data-max_amount="{{showAmount($data->max_amount)}}"
                                data-base_symbol="{{$data->baseSymbol()}}"
                                 
-                                 data-base_symbol="{{$data->baseSymbol()}}"
-
                                data-fix_charge="{{showAmount($data->fixed_charge)}}"
                                data-percent_charge="{{showAmount($data->percent_charge)}}" class="btn--sm d-block cmn--btn text-center custom-success deposit" data-bs-toggle="modal" data-bs-target="#depositModal" name="full_payment" id="full_payment" value="full_payment">
                                 @lang('Full Payment')</button>
@@ -87,7 +85,7 @@ cursor: pointer;
                         </div>
                          <div class="form-group">
                       <label> Down payment Amount: </label>
-                            <input type="text" name="down_payment" class="down_payment" id="down_payment">
+                            <input type="text" name="down_payment" class="down_payment" id="down_payment" value="{{$total_cost}}">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -128,9 +126,9 @@ cursor: pointer;
                 $('.currency-addon').text(baseSymbol);
                 $('.edit-currency').val(currency);
                 $('.edit-method-code').val(method_code);
-                $('.down_payment').val(method_code);
+                // $('.down_payment').val(method_code);
 
-                 document.getElementById('down_payment').value =333;
+                 //document.getElementById('down_payment').value =333;
                 // if(radios[i].value === 'Maintenance '){
                 //   $('.down_payment').val('');
                 // }

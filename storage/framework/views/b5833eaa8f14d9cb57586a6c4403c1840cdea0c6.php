@@ -78,14 +78,8 @@
                                 <?php endif; ?>
                                 <div class="col-md-12">
                                     <div class="form-group mt-3">
-                                        <button type="submit" class="cmn--btn"><?php echo app('translator')->get('Full payment'); ?></button>
-                                    <!-- </div>
-                                     <div class="form-group mt-3"> -->
-
-                                        <input type="text" id="demo" name="demo">
-
-                                        <button type="submit" class="cmn--btn" onclick="myFunction()"><?php echo app('translator')->get('Advance payment'); ?></button>
-                                        <p id="demo"></p>
+                                        <button type="submit" class="cmn--btn"><?php echo app('translator')->get('Confirm payment'); ?></button>
+                                
                                     </div>
                                 </div>
 
