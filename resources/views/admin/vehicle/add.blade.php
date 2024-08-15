@@ -41,7 +41,7 @@
                                 </div>
                             </div>
 
-                                 <div class="col-md-4">
+                                 <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="category">@lang('Car Tag')</label>
                                     <select class="form-control" id="tag" name="tag" required="">
@@ -54,8 +54,22 @@
                                     </select>
                                 </div>
                             </div>
+
+                                  <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="category">@lang('Color')</label>
+                                    <select class="form-control" id="color" name="color" required="">
+                                        <option value="">-- @lang('Select One') --</option>
+
+                                        @forelse($colors as $color)
+                                            <option value="{{ $color->id }}">{{ __(@$color->color) }}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
                             
-                            <div class="col-md-4">
+                              <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="seater">@lang('Seat Type')</label>
                                     <select class="form-control" id="seater" name="seater" required="">
@@ -67,7 +81,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="price">@lang('Price Per Day')</label>
                                     <div class="input-group">

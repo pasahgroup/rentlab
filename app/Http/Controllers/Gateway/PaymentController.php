@@ -42,6 +42,10 @@ class PaymentController extends Controller
 
     public function depositInsert(Request $request)
     {
+
+      //dd(request('down_payment'));
+
+
         $request->validate([
             'method_code' => 'required',
             'currency' => 'required',
@@ -74,6 +78,9 @@ class PaymentController extends Controller
             return back()->withNotify($notify);
         }
 
+       
+         $down_payment=request('down_payment');
+
         $charge = $gate->fixed_charge + ($amount * $gate->percent_charge / 100);
         $payable = $amount + $charge;
         $final_amo = $payable * $gate->rate;
@@ -88,6 +95,10 @@ class PaymentController extends Controller
         $data->charge = $charge;
         $data->rate = $gate->rate;
         $data->final_amo = $final_amo;
+  
+  $data->paid = $down_payment;
+  $data->remain_balance = $amount-$down_payment;
+
         $data->btc_amo = 0;
         $data->btc_wallet = "";
         $data->trx = getTrx();

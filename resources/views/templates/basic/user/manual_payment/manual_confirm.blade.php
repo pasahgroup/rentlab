@@ -38,18 +38,6 @@
                                 </li>
                             @endif
                         </ul>
-<!-- 
-                        <div class="text-center w-100">
-                            @if( 1000 >$data->method_code)
-                                <a href="{{route('user.deposit.confirm')}}" class="cmn--btn">@lang('Pay Now')</a>
-                            @else
-                                <a href="{{route('user.deposit.manual.confirm')}}" class="cmn--btn">@lang('Pay Now')</a>
-                            @endif
-                        </div> -->
-
-
-
-
 
 
                             <div class="row">

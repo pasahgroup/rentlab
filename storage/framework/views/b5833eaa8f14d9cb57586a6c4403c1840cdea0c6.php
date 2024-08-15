@@ -36,18 +36,6 @@
                                 </li>
                             <?php endif; ?>
                         </ul>
-<!-- 
-                        <div class="text-center w-100">
-                            <?php if( 1000 >$data->method_code): ?>
-                                <a href="<?php echo e(route('user.deposit.confirm')); ?>" class="cmn--btn"><?php echo app('translator')->get('Pay Now'); ?></a>
-                            <?php else: ?>
-                                <a href="<?php echo e(route('user.deposit.manual.confirm')); ?>" class="cmn--btn"><?php echo app('translator')->get('Pay Now'); ?></a>
-                            <?php endif; ?>
-                        </div> -->
-
-
-
-
 
 
                             <div class="row">

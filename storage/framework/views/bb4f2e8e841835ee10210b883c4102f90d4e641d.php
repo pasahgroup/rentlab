@@ -1,3 +1,20 @@
+<style type="text/css">
+    
+
+    css .basic-button { 
+background-color: #4CAF50; /* Green */ 
+border: none;
+color: white; 
+padding: 15px 32px; 
+text-align: center; 
+text-decoration: none; 
+display: inline-block; 
+font-size: 16px; 
+margin: 4px 2px; 
+cursor: pointer; 
+}
+</style>
+
 <?php $__env->startSection('content'); ?>
     <div class="pb-60 pt-60">
         <div class="row g-4">
@@ -13,8 +30,25 @@
                                 <img src="<?php echo e($data->methodImage()); ?>" alt="<?php echo e(__($data->name)); ?>">
                             </div>
                         </div>
+
                         <div class="card-footer">
-                            <a href="javascript:void(0)" data-id="<?php echo e($data->id); ?>"
+                              <div class="col-xl-12 col-lg-12 col-sm-12">
+                            <button href="javascript:void(0)" data-id="<?php echo e($data->id); ?>"
+                               data-name="<?php echo e($data->name); ?>"
+                               data-currency="<?php echo e($data->currency); ?>"
+                               data-method_code="<?php echo e($data->method_code); ?>"
+                               data-min_amount="<?php echo e(showAmount($data->min_amount)); ?>"
+                               data-max_amount="<?php echo e(showAmount($data->max_amount)); ?>"
+                               data-base_symbol="<?php echo e($data->baseSymbol()); ?>"
+                                
+                                 data-base_symbol="<?php echo e($data->baseSymbol()); ?>"
+
+                               data-fix_charge="<?php echo e(showAmount($data->fixed_charge)); ?>"
+                               data-percent_charge="<?php echo e(showAmount($data->percent_charge)); ?>" class="btn--sm d-block cmn--btn text-center custom-success deposit" data-bs-toggle="modal" data-bs-target="#depositModal" name="full_payment" id="full_payment" value="full_payment">
+                                <?php echo app('translator')->get('Full Payment'); ?></button>
+
+
+                              <button href="javascript:void(0)" data-id="<?php echo e($data->id); ?>"
                                data-name="<?php echo e($data->name); ?>"
                                data-currency="<?php echo e($data->currency); ?>"
                                data-method_code="<?php echo e($data->method_code); ?>"
@@ -22,17 +56,14 @@
                                data-max_amount="<?php echo e(showAmount($data->max_amount)); ?>"
                                data-base_symbol="<?php echo e($data->baseSymbol()); ?>"
                                data-fix_charge="<?php echo e(showAmount($data->fixed_charge)); ?>"
-                               data-percent_charge="<?php echo e(showAmount($data->percent_charge)); ?>" class="btn--sm d-block cmn--btn text-center custom-success deposit" data-bs-toggle="modal" data-bs-target="#depositModal">
-                                <?php echo app('translator')->get('Pay Now'); ?></a>
+                               data-percent_charge="<?php echo e(showAmount($data->percent_charge)); ?>" class="btn--sm d-block cmn--btn text-center custom-success deposit basic-button" data-bs-toggle="modal" data-bs-target="#depositModal"  name="down_payment" id="down_payment" value="down_payment">
+                                <?php echo app('translator')->get('Down Payment'); ?></button>                         
+                                   </div>
 
-                                 <!-- <a href="<?php echo e(route('user.deposit.manual.confirm')); ?>" class="btn--sm d-block cmn--btn text-center custom-success deposit" ><?php echo app('translator')->get('Pay Now-Manual'); ?></a> -->
-                        </div>
+                        </div>                     
                     </div>
                 </div>
-
-
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
         </div>
     </div>
 
@@ -52,6 +83,10 @@
                         <div class="form-group">
                             <input type="hidden" name="currency" class="edit-currency">
                             <input type="hidden" name="method_code" class="edit-method-code">
+                        </div>
+                         <div class="form-group">
+                      <label> Down payment Amount: </label>
+                            <input type="text" name="down_payment" class="down_payment" id="down_payment">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -82,6 +117,8 @@
                 var fixCharge = $(this).data('fix_charge');
                 var percentCharge = $(this).data('percent_charge');
 
+
+
                 var depositLimit = `<?php echo app('translator')->get('Payment Limit'); ?>: ${minAmount} - ${maxAmount}  ${baseSymbol}`;
                 $('.depositLimit').text(depositLimit);
                 var depositCharge = `<?php echo app('translator')->get('Charge'); ?>: ${fixCharge} ${baseSymbol}  ${(0 < percentCharge) ? ' + ' +percentCharge + ' % ' : ''}`;
@@ -90,6 +127,12 @@
                 $('.currency-addon').text(baseSymbol);
                 $('.edit-currency').val(currency);
                 $('.edit-method-code').val(method_code);
+                $('.down_payment').val(method_code);
+
+                 document.getElementById('down_payment').value =333;
+                // if(radios[i].value === 'Maintenance '){
+                //   $('.down_payment').val('');
+                // }
             });
         })(jQuery);
     </script>

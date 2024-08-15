@@ -54,12 +54,18 @@ $carTags = Tag::orderby('tag')
 ->groupBy('tag')
 ->get();
 
-//dd($carTags);
+$models = Vehicle::orderby('model')
+->select('model')
+->groupBy('model')
+->get();
+
+
+//dd($models);
 
 $vehicles = Vehicle::active()->latest()->paginate(getPaginate());
         $pageTitle = 'Home';
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
-        return view($this->activeTemplate . 'home', compact('pageTitle','sections','vehicles','carbodytypes','carTags'));
+        return view($this->activeTemplate . 'home', compact('pageTitle','sections','vehicles','carbodytypes','carTags','models'));
     }
 
     public function pages($slug)

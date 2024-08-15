@@ -1,5 +1,20 @@
 @extends($activeTemplate.'layouts.master')
+<style type="text/css">
+    
 
+    css .basic-button { 
+background-color: #4CAF50; /* Green */ 
+border: none;
+color: white; 
+padding: 15px 32px; 
+text-align: center; 
+text-decoration: none; 
+display: inline-block; 
+font-size: 16px; 
+margin: 4px 2px; 
+cursor: pointer; 
+}
+</style>
 
 @section('content')
     <div class="pb-60 pt-60">
@@ -16,8 +31,25 @@
                                 <img src="{{$data->methodImage()}}" alt="{{__($data->name)}}">
                             </div>
                         </div>
+
                         <div class="card-footer">
-                            <a href="javascript:void(0)" data-id="{{$data->id}}"
+                              <div class="col-xl-12 col-lg-12 col-sm-12">
+                            <button href="javascript:void(0)" data-id="{{$data->id}}"
+                               data-name="{{$data->name}}"
+                               data-currency="{{$data->currency}}"
+                               data-method_code="{{$data->method_code}}"
+                               data-min_amount="{{showAmount($data->min_amount)}}"
+                               data-max_amount="{{showAmount($data->max_amount)}}"
+                               data-base_symbol="{{$data->baseSymbol()}}"
+                                
+                                 data-base_symbol="{{$data->baseSymbol()}}"
+
+                               data-fix_charge="{{showAmount($data->fixed_charge)}}"
+                               data-percent_charge="{{showAmount($data->percent_charge)}}" class="btn--sm d-block cmn--btn text-center custom-success deposit" data-bs-toggle="modal" data-bs-target="#depositModal" name="full_payment" id="full_payment" value="full_payment">
+                                @lang('Full Payment')</button>
+
+
+                              <button href="javascript:void(0)" data-id="{{$data->id}}"
                                data-name="{{$data->name}}"
                                data-currency="{{$data->currency}}"
                                data-method_code="{{$data->method_code}}"
@@ -25,17 +57,14 @@
                                data-max_amount="{{showAmount($data->max_amount)}}"
                                data-base_symbol="{{$data->baseSymbol()}}"
                                data-fix_charge="{{showAmount($data->fixed_charge)}}"
-                               data-percent_charge="{{showAmount($data->percent_charge)}}" class="btn--sm d-block cmn--btn text-center custom-success deposit" data-bs-toggle="modal" data-bs-target="#depositModal">
-                                @lang('Pay Now')</a>
+                               data-percent_charge="{{showAmount($data->percent_charge)}}" class="btn--sm d-block cmn--btn text-center custom-success deposit basic-button" data-bs-toggle="modal" data-bs-target="#depositModal"  name="down_payment" id="down_payment" value="down_payment">
+                                @lang('Down Payment')</button>                         
+                                   </div>
 
-                                 <!-- <a href="{{route('user.deposit.manual.confirm')}}" class="btn--sm d-block cmn--btn text-center custom-success deposit" >@lang('Pay Now-Manual')</a> -->
-                        </div>
+                        </div>                     
                     </div>
                 </div>
-
-
             @endforeach
-
         </div>
     </div>
 
@@ -55,6 +84,10 @@
                         <div class="form-group">
                             <input type="hidden" name="currency" class="edit-currency">
                             <input type="hidden" name="method_code" class="edit-method-code">
+                        </div>
+                         <div class="form-group">
+                      <label> Down payment Amount: </label>
+                            <input type="text" name="down_payment" class="down_payment" id="down_payment">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -85,6 +118,8 @@
                 var fixCharge = $(this).data('fix_charge');
                 var percentCharge = $(this).data('percent_charge');
 
+
+
                 var depositLimit = `@lang('Payment Limit'): ${minAmount} - ${maxAmount}  ${baseSymbol}`;
                 $('.depositLimit').text(depositLimit);
                 var depositCharge = `@lang('Charge'): ${fixCharge} ${baseSymbol}  ${(0 < percentCharge) ? ' + ' +percentCharge + ' % ' : ''}`;
@@ -93,6 +128,12 @@
                 $('.currency-addon').text(baseSymbol);
                 $('.edit-currency').val(currency);
                 $('.edit-method-code').val(method_code);
+                $('.down_payment').val(method_code);
+
+                 document.getElementById('down_payment').value =333;
+                // if(radios[i].value === 'Maintenance '){
+                //   $('.down_payment').val('');
+                // }
             });
         })(jQuery);
     </script>

@@ -26,6 +26,12 @@ class Vehicle extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+    
+     public function color()
+    {
+        return $this->belongsTo(Color::class);
+    }
+
  
     public function cartype()
     {

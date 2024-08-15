@@ -1097,7 +1097,7 @@ ol {
 .car__item__text__inner ul li {
 	list-style: none;
 	font-size: 15px;
-	color: #8d8d8d;
+	color: #a6ee07;
 	font-weight: 700;
 	position: relative;
 	display: inline-block;
@@ -1202,7 +1202,7 @@ ol {
 }
 
 .car__sidebar {
-	background: #f7f7f7;
+	background: #5e8059;
 	padding: 30px;
 }
 

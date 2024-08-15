@@ -11,19 +11,31 @@
                     <div class="car__sidebar">
                        
                         <div class="car__filter">
+                           
+
                             <h5> @lang('Book a Car')</h5>
-                           <form class="book--form row gx-3 gy-4 g-md-4" action="{{ route('vehicle.search') }}" method="get">                       
-
-
-
+                           <form class="book--form row gx-3 gy-4 g-md-4" action="{{ route('vehicle.search') }}" method="get">                    
  <div class="form-group">
                             <label for="car-type" class="form--label">
-                                <i class="las la-car-side"></i> @lang('Select Brand')
+                                <i class="las la-car-side"></i> @lang('Brand')
                             </label>
                             <select name="brand" id="car-type" class="form-control form--control">
                                 <option value="">@lang('Select Option')</option>
                                 @forelse($brands as $brand)
                                     <option value="{{ $brand->id }}">{{ __(@$brand->name) }}</option>
+                                @empty
+                                @endforelse
+                            </select>
+                        </div>
+
+                       <div class="form-group">
+                            <label for="model" class="form--label">
+                                <i class="las la-car-side"></i> @lang('Model')
+                            </label>
+                            <select name="model" id="model" class="form-control form--control">
+                                <option value="">@lang('Select model')</option>
+                                @forelse($models as $model)
+                                    <option value="{{ $model->model}}">{{ __(@$model->model) }}</option>
                                 @empty
                                 @endforelse
                             </select>
@@ -70,9 +82,8 @@
                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center"
                                     type="submit">@lang('Search')</button>
                                 </div>
-
-
                             </form>
+                       
                         </div>
                     </div>
                 </div>
