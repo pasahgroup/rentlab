@@ -16,7 +16,7 @@
                             @csrf
                         <ul>
                             <li>
-                                @lang('Amount'):
+                                @lang('Costs'):
                                 <span class="text--success">{{showAmount($data->amount)}} {{__($general->cur_text)}}</span>
                             </li>
                             <li>
@@ -24,11 +24,11 @@
                                 <span class="text--danger">{{showAmount($data->charge)}} {{__($general->cur_text)}}</span>
                             </li>
                             <li>
-                                @lang('Payable'): <span class="text--warning"> {{showAmount($data->amount + $data->charge)}} {{__($general->cur_text)}}</span>
+                                @lang('Total payable amount'): <span class="text--warning"> {{showAmount($data->amount + $data->charge)}} {{__($general->cur_text)}}</span>
                             </li>
                             <li>
-                                @lang('In') {{$data->baseCurrency()}}:
-                                <span class="text--primary">{{showAmount($data->final_amo)}}</span>
+                                @lang('Amount to paid:') {{$data->baseCurrency()}}:
+                                <span class="text--primary">{{showAmount($data->paid)}}</span>
                             </li>
 
                             @if($data->gateway->crypto==1)
@@ -41,15 +41,11 @@
 
 
                             <div class="row">
-                             <!--    <div class="col-md-12 text-center">
+                              {{--  <div class="col-md-12 text-center">
                                     <p class="text-center mt-2">@lang('You have requested') <b class="text-success">{{ showAmount($data['amount'])  }} {{__($general->cur_text)}}</b> , @lang('Please pay')
                                         <b class="text-success">{{showAmount($data['final_amo']) .' '.$data['method_currency'] }} </b> @lang('for successful payment')
-                                    </p>
-                                    <h4 class="text-center mb-4">@lang('Please follow the instruction below')</h4>
-
-                                    <p class="my-4 text-center text-white">@php echo  $data->gateway->description @endphp</p>
-
-                                </div> -->
+                                    </p>                                   
+                                                                  </div> --}}
 
                                 @if($method->gateway_parameter)
                                     @foreach(json_decode($method->gateway_parameter) as $k => $v)

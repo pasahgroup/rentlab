@@ -14,7 +14,7 @@
                             <?php echo csrf_field(); ?>
                         <ul>
                             <li>
-                                <?php echo app('translator')->get('Amount'); ?>:
+                                <?php echo app('translator')->get('Costs'); ?>:
                                 <span class="text--success"><?php echo e(showAmount($data->amount)); ?> <?php echo e(__($general->cur_text)); ?></span>
                             </li>
                             <li>
@@ -22,11 +22,11 @@
                                 <span class="text--danger"><?php echo e(showAmount($data->charge)); ?> <?php echo e(__($general->cur_text)); ?></span>
                             </li>
                             <li>
-                                <?php echo app('translator')->get('Payable'); ?>: <span class="text--warning"> <?php echo e(showAmount($data->amount + $data->charge)); ?> <?php echo e(__($general->cur_text)); ?></span>
+                                <?php echo app('translator')->get('Total payable amount'); ?>: <span class="text--warning"> <?php echo e(showAmount($data->amount + $data->charge)); ?> <?php echo e(__($general->cur_text)); ?></span>
                             </li>
                             <li>
-                                <?php echo app('translator')->get('In'); ?> <?php echo e($data->baseCurrency()); ?>:
-                                <span class="text--primary"><?php echo e(showAmount($data->final_amo)); ?></span>
+                                <?php echo app('translator')->get('Amount to paid:'); ?> <?php echo e($data->baseCurrency()); ?>:
+                                <span class="text--primary"><?php echo e(showAmount($data->paid)); ?></span>
                             </li>
 
                             <?php if($data->gateway->crypto==1): ?>
@@ -39,15 +39,7 @@
 
 
                             <div class="row">
-                             <!--    <div class="col-md-12 text-center">
-                                    <p class="text-center mt-2"><?php echo app('translator')->get('You have requested'); ?> <b class="text-success"><?php echo e(showAmount($data['amount'])); ?> <?php echo e(__($general->cur_text)); ?></b> , <?php echo app('translator')->get('Please pay'); ?>
-                                        <b class="text-success"><?php echo e(showAmount($data['final_amo']) .' '.$data['method_currency']); ?> </b> <?php echo app('translator')->get('for successful payment'); ?>
-                                    </p>
-                                    <h4 class="text-center mb-4"><?php echo app('translator')->get('Please follow the instruction below'); ?></h4>
-
-                                    <p class="my-4 text-center text-white"><?php echo  $data->gateway->description ?></p>
-
-                                </div> -->
+                              
 
                                 <?php if($method->gateway_parameter): ?>
                                     <?php $__currentLoopData = json_decode($method->gateway_parameter); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k => $v): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -78,8 +70,7 @@
                                 <?php endif; ?>
                                 <div class="col-md-12">
                                     <div class="form-group mt-3">
-                                        <button type="submit" class="cmn--btn"><?php echo app('translator')->get('Confirm payment'); ?></button>
-                                
+                                        <button type="submit" class="cmn--btn"><?php echo app('translator')->get('Confirm payment'); ?></button>                               
                                     </div>
                                 </div>
 
