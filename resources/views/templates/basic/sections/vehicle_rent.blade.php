@@ -10,12 +10,11 @@
                 <div class="col-lg-2">
                     <div class="car__sidebar">
                        
-                        <div class="car__filter">
-                           
+                        <div class="car__filter">                          
 
                             <h5> @lang('Book a Car')</h5>
                            <form class="book--form row gx-3 gy-4 g-md-4" action="{{ route('vehicle.search') }}" method="get">                    
- <div class="form-group">
+                          <div class="form-group">
                             <label for="car-type" class="form--label">
                                 <i class="las la-car-side"></i> @lang('Brand')
                             </label>
@@ -54,13 +53,8 @@
                                 @endforelse
                             </select>
                         </div>
-                                <div class="form-group">
-                            <label for="drop-point" class="form--label">
-                                <i class="las la-street-view"></i> @lang('Model')
-                            </label>
-                            <input type="text" name="model" class="form-control form--control"
-                                   placeholder="@lang('Sedan, SUV ...')">
-                        </div>
+                              
+
                              <div class="form-group">
                             <label for="start-datse" class="form--label">
                                 <i class="las la-dollar-sign"></i> @lang('Min Price')
@@ -141,8 +135,21 @@
                                 </div>
                                    <div class="col-lg-6 col-md-4">
                                       <div class="car__item__price">
-                                        <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center"
-                                    type="submit">@lang('Book Now')</a>
+
+                                           <div class="btn__grp">              
+                                             @auth
+                                @if($vehicle->booked())
+                                    <a href="javascript:void(0)" class="cmn--btn">@lang('Booked')</a>
+                                @else
+                                    <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
+                                @endif
+                            @else
+                                <a href="{{ route('user.login') }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
+                            @endauth
+                        </div>
+
+
+
                                     </div>
                                 </div>
 

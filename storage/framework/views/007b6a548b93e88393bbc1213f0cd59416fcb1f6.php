@@ -108,9 +108,8 @@
                     </div>
                     </div>
                     </div>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          
-                                         
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                       
+                             
                 
 
                     

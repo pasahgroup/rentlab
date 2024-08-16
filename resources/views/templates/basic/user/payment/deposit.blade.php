@@ -34,7 +34,7 @@ cursor: pointer;
 
                         <div class="card-footer">
                               <div class="col-xl-12 col-lg-12 col-sm-12">
-                            <button href="javascript:void(0)" data-id="{{$data->id}}"
+                         <!--    <button href="javascript:void(0)" data-id="{{$data->id}}"
                                data-name="{{$data->name}}"
                                data-currency="{{$data->currency}}"
                                data-method_code="{{$data->method_code}}"
@@ -44,10 +44,10 @@ cursor: pointer;
                                 
                                data-fix_charge="{{showAmount($data->fixed_charge)}}"
                                data-percent_charge="{{showAmount($data->percent_charge)}}" class="btn--sm d-block cmn--btn text-center custom-success deposit" data-bs-toggle="modal" data-bs-target="#depositModal" name="full_payment" id="full_payment" value="full_payment">
-                                @lang('Full Payment')</button>
+                                @lang('Full Payment')</button> -->
 
 
-                              <button href="javascript:void(0)" data-id="{{$data->id}}"
+                              <a href="javascript:void(0)" data-id="{{$data->id}}"
                                data-name="{{$data->name}}"
                                data-currency="{{$data->currency}}"
                                data-method_code="{{$data->method_code}}"
@@ -56,7 +56,7 @@ cursor: pointer;
                                data-base_symbol="{{$data->baseSymbol()}}"
                                data-fix_charge="{{showAmount($data->fixed_charge)}}"
                                data-percent_charge="{{showAmount($data->percent_charge)}}" class="btn--sm d-block cmn--btn text-center custom-success deposit basic-button" data-bs-toggle="modal" data-bs-target="#depositModal"  name="down_payment" id="down_payment" value="down_payment">
-                                @lang('Down Payment')</button>                         
+                                @lang('Pay Now')</a>                         
                                    </div>
 
                         </div>                     

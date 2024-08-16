@@ -33,7 +33,7 @@ cursor: pointer;
 
                         <div class="card-footer">
                               <div class="col-xl-12 col-lg-12 col-sm-12">
-                            <button href="javascript:void(0)" data-id="<?php echo e($data->id); ?>"
+                         <!--    <button href="javascript:void(0)" data-id="<?php echo e($data->id); ?>"
                                data-name="<?php echo e($data->name); ?>"
                                data-currency="<?php echo e($data->currency); ?>"
                                data-method_code="<?php echo e($data->method_code); ?>"
@@ -43,10 +43,10 @@ cursor: pointer;
                                 
                                data-fix_charge="<?php echo e(showAmount($data->fixed_charge)); ?>"
                                data-percent_charge="<?php echo e(showAmount($data->percent_charge)); ?>" class="btn--sm d-block cmn--btn text-center custom-success deposit" data-bs-toggle="modal" data-bs-target="#depositModal" name="full_payment" id="full_payment" value="full_payment">
-                                <?php echo app('translator')->get('Full Payment'); ?></button>
+                                <?php echo app('translator')->get('Full Payment'); ?></button> -->
 
 
-                              <button href="javascript:void(0)" data-id="<?php echo e($data->id); ?>"
+                              <a href="javascript:void(0)" data-id="<?php echo e($data->id); ?>"
                                data-name="<?php echo e($data->name); ?>"
                                data-currency="<?php echo e($data->currency); ?>"
                                data-method_code="<?php echo e($data->method_code); ?>"
@@ -55,7 +55,7 @@ cursor: pointer;
                                data-base_symbol="<?php echo e($data->baseSymbol()); ?>"
                                data-fix_charge="<?php echo e(showAmount($data->fixed_charge)); ?>"
                                data-percent_charge="<?php echo e(showAmount($data->percent_charge)); ?>" class="btn--sm d-block cmn--btn text-center custom-success deposit basic-button" data-bs-toggle="modal" data-bs-target="#depositModal"  name="down_payment" id="down_payment" value="down_payment">
-                                <?php echo app('translator')->get('Down Payment'); ?></button>                         
+                                <?php echo app('translator')->get('Pay Now'); ?></a>                         
                                    </div>
 
                         </div>                     

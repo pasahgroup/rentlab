@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2024 at 07:12 PM
+-- Generation Time: Aug 16, 2024 at 02:09 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -62,44 +62,37 @@ CREATE TABLE `admin_notifications` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `admin_notifications2`
+-- Dumping data for table `admin_notifications`
 --
 
-CREATE TABLE `admin_notifications2` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL DEFAULT 0,
-  `title` varchar(255) DEFAULT NULL,
-  `read_status` tinyint(1) NOT NULL DEFAULT 0,
-  `click_url` text DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `admin_notifications2`
---
-
-INSERT INTO `admin_notifications2` (`id`, `user_id`, `title`, `read_status`, `click_url`, `created_at`, `updated_at`) VALUES
-(1, 1, 'New member registered', 0, '/admin/user/detail/1', '2024-07-26 09:58:19', '2024-07-26 09:58:19'),
-(2, 0, 'A new support ticket has opened ', 0, '/admin/tickets/view/1', '2024-07-28 03:28:32', '2024-07-28 03:28:32'),
-(3, 0, 'A new support ticket has opened ', 0, '/admin/tickets/view/2', '2024-08-01 08:48:53', '2024-08-01 08:48:53'),
-(4, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/2', '2024-08-02 10:22:48', '2024-08-02 10:22:48'),
-(5, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/3', '2024-08-02 10:26:03', '2024-08-02 10:26:03'),
-(6, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/4', '2024-08-02 15:28:49', '2024-08-02 15:28:49'),
-(7, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/5', '2024-08-02 15:56:14', '2024-08-02 15:56:14'),
-(8, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/6', '2024-08-02 15:57:08', '2024-08-02 15:57:08'),
-(9, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/7', '2024-08-03 05:45:58', '2024-08-03 05:45:58'),
-(10, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/8', '2024-08-03 06:04:17', '2024-08-03 06:04:17'),
-(11, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/9', '2024-08-03 06:56:06', '2024-08-03 06:56:06'),
-(12, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/10', '2024-08-03 07:02:14', '2024-08-03 07:02:14'),
-(13, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/13', '2024-08-03 07:03:42', '2024-08-03 07:03:42'),
-(14, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/14', '2024-08-03 07:04:11', '2024-08-03 07:04:11'),
-(15, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/15', '2024-08-03 07:04:41', '2024-08-03 07:04:41'),
-(16, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/16', '2024-08-03 07:06:09', '2024-08-03 07:06:09'),
-(17, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/17', '2024-08-03 09:14:34', '2024-08-03 09:14:34');
+INSERT INTO `admin_notifications` (`id`, `user_id`, `title`, `read_status`, `click_url`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/18', '2024-08-10 16:53:19', '2024-08-10 16:53:19'),
+(2, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/34', '2024-08-11 08:09:28', '2024-08-11 08:09:28'),
+(3, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/39', '2024-08-11 09:13:16', '2024-08-11 09:13:16'),
+(4, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/40', '2024-08-11 09:37:46', '2024-08-11 09:37:46'),
+(5, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/41', '2024-08-11 17:49:50', '2024-08-11 17:49:50'),
+(6, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/3', '2024-08-11 18:18:43', '2024-08-11 18:18:43'),
+(7, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/4', '2024-08-11 18:23:38', '2024-08-11 18:23:38'),
+(8, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/5', '2024-08-11 18:24:07', '2024-08-11 18:24:07'),
+(9, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/6', '2024-08-11 18:30:46', '2024-08-11 18:30:46'),
+(10, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/7', '2024-08-12 10:17:35', '2024-08-12 10:17:35'),
+(11, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/8', '2024-08-12 10:43:03', '2024-08-12 10:43:03'),
+(12, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/9', '2024-08-12 10:44:35', '2024-08-12 10:44:35'),
+(13, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/10', '2024-08-15 03:34:26', '2024-08-15 03:34:26'),
+(14, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/13', '2024-08-15 05:42:23', '2024-08-15 05:42:23'),
+(15, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/15', '2024-08-15 05:55:46', '2024-08-15 05:55:46'),
+(16, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/16', '2024-08-15 06:06:07', '2024-08-15 06:06:07'),
+(17, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/18', '2024-08-15 06:46:39', '2024-08-15 06:46:39'),
+(18, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/19', '2024-08-15 06:52:26', '2024-08-15 06:52:26'),
+(19, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/20', '2024-08-15 07:17:04', '2024-08-15 07:17:04'),
+(20, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/3', '2024-08-15 08:55:26', '2024-08-15 08:55:26'),
+(21, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/4', '2024-08-15 08:58:38', '2024-08-15 08:58:38'),
+(22, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/5', '2024-08-15 09:00:56', '2024-08-15 09:00:56'),
+(23, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/6', '2024-08-15 09:08:03', '2024-08-15 09:08:03'),
+(24, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/7', '2024-08-15 09:30:48', '2024-08-15 09:30:48'),
+(25, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/8', '2024-08-15 09:31:40', '2024-08-15 09:31:40'),
+(26, 1, 'Payment request from buruwawa12345', 0, '/admin/deposit/details/9', '2024-08-16 08:20:56', '2024-08-16 08:20:56');
 
 -- --------------------------------------------------------
 
@@ -130,30 +123,41 @@ CREATE TABLE `brands` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `brands`
+--
+
+INSERT INTO `brands` (`id`, `name`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Range', 1, '2024-08-09 09:37:51', '2024-08-09 09:37:51');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `brands2`
+-- Table structure for table `carmodels`
 --
 
-CREATE TABLE `brands2` (
+CREATE TABLE `carmodels` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(40) DEFAULT NULL,
+  `brand_id` int(11) DEFAULT NULL,
+  `car_model` varchar(40) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `brands2`
+-- Dumping data for table `carmodels`
 --
 
-INSERT INTO `brands2` (`id`, `name`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Toyota', 1, '2024-07-26 10:37:31', '2024-07-26 10:37:31'),
-(2, 'Benz', 1, '2024-07-26 10:37:40', '2024-07-26 10:37:40'),
-(3, 'BMW', 1, '2024-08-02 15:46:01', '2024-08-02 15:46:01'),
-(4, 'Nissan', 1, '2024-08-06 06:05:46', '2024-08-06 06:05:46'),
-(5, 'Subaru', 1, '2024-08-06 06:06:02', '2024-08-06 06:06:02');
+INSERT INTO `carmodels` (`id`, `brand_id`, `car_model`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'model1', 1, '2024-08-07 08:32:23', '2024-08-08 06:23:39'),
+(2, 2, 'model2', 1, '2024-08-07 10:04:15', '2024-08-08 06:22:44'),
+(3, 1, 'N1', 1, '2024-08-08 04:35:10', '2024-08-08 06:14:53'),
+(4, 3, 'model5', 1, '2024-08-08 06:26:05', '2024-08-08 06:26:05'),
+(5, 1, 'model1', 1, '2024-08-08 06:26:26', '2024-08-08 06:26:26'),
+(6, 3, 'dc1', 1, '2024-08-08 06:32:05', '2024-08-08 06:32:05'),
+(8, 3, 'm1', 1, '2024-08-09 16:21:45', '2024-08-09 16:21:45'),
+(9, 1, 'model4', 1, '2024-08-09 16:22:02', '2024-08-09 16:22:02');
 
 -- --------------------------------------------------------
 
@@ -180,7 +184,38 @@ INSERT INTO `cartypes` (`id`, `car_body_type`, `images`, `status`, `created_at`,
 (3, 'Sedan', 'sedan4_1723108493.jpeg', 1, '2024-08-08 04:35:10', '2024-08-08 06:14:53'),
 (4, 'Coaster', 'coaster1_1723109165.jpeg', 1, '2024-08-08 06:26:05', '2024-08-08 06:26:05'),
 (5, 'Min bus', 'minbus1_1723109186.jpeg', 1, '2024-08-08 06:26:26', '2024-08-08 06:26:26'),
-(6, 'Truck', 'truck1_1723109525.jpeg', 1, '2024-08-08 06:32:05', '2024-08-08 06:32:05');
+(6, 'Truck', 'truck1_1723109525.jpeg', 1, '2024-08-08 06:32:05', '2024-08-08 06:32:05'),
+(8, 'Sports Car', 'R2_1723231305.jpeg', 1, '2024-08-09 16:21:45', '2024-08-09 16:21:45'),
+(9, 'Tours Car', 'R3_1723231322.jpeg', 1, '2024-08-09 16:22:02', '2024-08-09 16:22:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `colors`
+--
+
+CREATE TABLE `colors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `color` varchar(40) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `colors`
+--
+
+INSERT INTO `colors` (`id`, `color`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'SUV', 1, '2024-08-07 08:32:23', '2024-08-08 06:23:39'),
+(3, 'Sedan', 1, '2024-08-08 04:35:10', '2024-08-08 06:14:53'),
+(4, 'Coaster', 1, '2024-08-08 06:26:05', '2024-08-08 06:26:05'),
+(6, 'Truck', 1, '2024-08-08 06:32:05', '2024-08-08 06:32:05'),
+(7, 'Cargo', 1, '2024-08-09 16:19:39', '2024-08-09 16:19:39'),
+(8, 'Sports Car', 1, '2024-08-09 16:21:45', '2024-08-09 16:21:45'),
+(9, 'Tours Car', 1, '2024-08-09 16:22:02', '2024-08-09 16:22:02'),
+(10, 'Sports Car', 1, '2024-08-11 06:12:48', '2024-08-11 06:12:48'),
+(13, 'Black', 1, '2024-08-12 15:12:12', '2024-08-12 15:12:12');
 
 -- --------------------------------------------------------
 
@@ -194,11 +229,13 @@ CREATE TABLE `deposits` (
   `rent_id` int(11) NOT NULL DEFAULT 0,
   `plan_id` int(11) NOT NULL DEFAULT 0,
   `method_code` int(10) UNSIGNED NOT NULL,
-  `amount` decimal(28,8) NOT NULL DEFAULT 0.00000000,
+  `amount` decimal(28,2) NOT NULL DEFAULT 0.00,
   `method_currency` varchar(40) NOT NULL,
-  `charge` decimal(28,8) NOT NULL DEFAULT 0.00000000,
-  `rate` decimal(28,8) NOT NULL DEFAULT 0.00000000,
-  `final_amo` decimal(28,8) NOT NULL DEFAULT 0.00000000,
+  `charge` decimal(28,2) NOT NULL DEFAULT 0.00,
+  `rate` decimal(28,2) NOT NULL DEFAULT 0.00,
+  `final_amo` decimal(28,2) NOT NULL DEFAULT 0.00,
+  `paid` decimal(12,2) NOT NULL DEFAULT 0.00,
+  `remain_balance` decimal(12,2) NOT NULL DEFAULT 0.00,
   `detail` text DEFAULT NULL,
   `btc_amo` varchar(255) DEFAULT NULL,
   `btc_wallet` varchar(255) DEFAULT NULL,
@@ -215,24 +252,16 @@ CREATE TABLE `deposits` (
 -- Dumping data for table `deposits`
 --
 
-INSERT INTO `deposits` (`id`, `user_id`, `rent_id`, `plan_id`, `method_code`, `amount`, `method_currency`, `charge`, `rate`, `final_amo`, `detail`, `btc_amo`, `btc_wallet`, `trx`, `try`, `status`, `from_api`, `admin_feedback`, `created_at`, `updated_at`) VALUES
-(1, 1, 22, 0, 501, 1380.00000000, 'BTC', 15.80000000, 2000.00000000, 2791600.00000000, NULL, '0', '', 'E9PGA5VDZMA4', 0, 0, 0, NULL, '2024-08-02 10:16:57', '2024-08-02 10:16:57'),
-(2, 1, 23, 0, 1000, 1260.00000000, 'TZS', 1037.80000000, 1.00000000, 2297.80000000, '{\"name\":{\"field_name\":\"Buruhani Wawa\",\"type\":\"text\"},\"amount\":{\"field_name\":\"20000\",\"type\":\"text\"}}', '0', '', 'GK6EQ94YBX8Q', 0, 1, 0, NULL, '2024-08-02 10:22:18', '2024-08-02 15:26:20'),
-(3, 1, 24, 0, 1000, 1800.00000000, 'TZS', 1036.00000000, 1.00000000, 2836.00000000, NULL, '0', '', 'OMGH8SZY7UO5', 0, 1, 0, NULL, '2024-08-02 10:25:23', '2024-08-02 15:13:52'),
-(4, 1, 0, 6, 1000, 200000.00000000, 'TZS', 5000.00000000, 1.00000000, 205000.00000000, NULL, '0', '', 'OFQS4O2PBK8G', 0, 2, 0, NULL, '2024-08-02 15:28:32', '2024-08-02 15:28:49'),
-(5, 1, 25, 7, 1000, 150000.00000000, 'TZS', 4000.00000000, 1.00000000, 154000.00000000, NULL, '0', '', 'VKU461786GAG', 0, 2, 0, NULL, '2024-08-02 15:55:55', '2024-08-02 15:56:14'),
-(6, 1, 26, 7, 1000, 1200000.00000000, 'TZS', 25000.00000000, 1.00000000, 1225000.00000000, NULL, '0', '', 'Q9BHEUEEH4UO', 0, 2, 0, NULL, '2024-08-02 15:56:48', '2024-08-02 15:57:08'),
-(7, 1, 27, 0, 1000, 300000.00000000, 'TZS', 7000.00000000, 1.00000000, 307000.00000000, NULL, '0', '', 'C5H298CHD2RN', 0, 2, 0, NULL, '2024-08-03 05:43:25', '2024-08-03 05:45:58'),
-(8, 1, 27, 0, 1000, 300000.00000000, 'TZS', 7000.00000000, 1.00000000, 307000.00000000, NULL, '0', '', 'NCO5RWQKTTKG', 0, 2, 0, NULL, '2024-08-03 05:46:15', '2024-08-03 06:04:17'),
-(9, 1, 27, 0, 1000, 300000.00000000, 'TZS', 7000.00000000, 1.00000000, 307000.00000000, NULL, '0', '', 'PFJGVJODD2R4', 0, 2, 0, NULL, '2024-08-03 06:04:35', '2024-08-03 06:56:06'),
-(10, 1, 27, 0, 1000, 300000.00000000, 'TZS', 7000.00000000, 1.00000000, 307000.00000000, NULL, '0', '', '1GWZJJ9PBQRR', 0, 2, 0, NULL, '2024-08-03 07:00:38', '2024-08-03 07:02:14'),
-(11, 1, 27, 0, 1000, 300000.00000000, 'TZS', 7000.00000000, 1.00000000, 307000.00000000, NULL, '0', '', 'E7QZD7VYF2FC', 0, 2, 0, NULL, '2024-08-03 07:02:39', '2024-08-03 07:02:46'),
-(12, 1, 27, 0, 1000, 300000.00000000, 'TZS', 7000.00000000, 1.00000000, 307000.00000000, NULL, '0', '', '7BMV2KBA4M9Y', 0, 2, 0, NULL, '2024-08-03 07:03:08', '2024-08-03 07:03:15'),
-(13, 1, 27, 0, 1000, 300000.00000000, 'TZS', 7000.00000000, 1.00000000, 307000.00000000, NULL, '0', '', 'KUKURH26H326', 0, 2, 0, NULL, '2024-08-03 07:03:34', '2024-08-03 07:03:42'),
-(14, 1, 27, 0, 1000, 300000.00000000, 'TZS', 7000.00000000, 1.00000000, 307000.00000000, NULL, '0', '', 'OO81WKT35ZTE', 0, 1, 0, NULL, '2024-08-03 07:04:03', '2024-08-05 06:09:31'),
-(15, 1, 27, 0, 1000, 300000.00000000, 'TZS', 7000.00000000, 1.00000000, 307000.00000000, NULL, '0', '', 'S6QBZHQB5CTX', 0, 2, 0, NULL, '2024-08-03 07:04:33', '2024-08-03 07:04:41'),
-(16, 1, 27, 0, 1000, 300000.00000000, 'TZS', 7000.00000000, 1.00000000, 307000.00000000, NULL, '0', '', 'M2XXVTPFKWRJ', 0, 2, 0, NULL, '2024-08-03 07:06:01', '2024-08-03 07:06:09'),
-(17, 1, 29, 0, 1000, 150.00000000, 'TZS', 1003.00000000, 1.00000000, 1153.00000000, NULL, '0', '', 'NK9QFODBUMVC', 0, 1, 0, NULL, '2024-08-03 09:00:05', '2024-08-03 09:26:41');
+INSERT INTO `deposits` (`id`, `user_id`, `rent_id`, `plan_id`, `method_code`, `amount`, `method_currency`, `charge`, `rate`, `final_amo`, `paid`, `remain_balance`, `detail`, `btc_amo`, `btc_wallet`, `trx`, `try`, `status`, `from_api`, `admin_feedback`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 0, 1000, 510000.00, 'TZS', 11200.00, 1.00, 521200.00, 510000.00, 0.00, NULL, '0', '', '4HZ6WOQ821R4', 0, 0, 0, NULL, '2024-08-15 08:43:38', '2024-08-15 08:43:38'),
+(2, 1, 1, 0, 1000, 510000.00, 'TZS', 11200.00, 1.00, 521200.00, 510000.00, 0.00, NULL, '0', '', 'A5UXJA7JJKOF', 0, 0, 0, NULL, '2024-08-15 08:44:26', '2024-08-15 08:44:26'),
+(3, 1, 1, 0, 1000, 510000.00, 'TZS', 11200.00, 1.00, 521200.00, 510000.00, 0.00, NULL, '0', '', 'XNXYNJYW4PHO', 0, 2, 0, NULL, '2024-08-15 08:47:03', '2024-08-15 08:55:26'),
+(4, 1, 2, 0, 1000, 1020000.00, 'TZS', 21400.00, 1.00, 1041400.00, 1020000.00, 0.00, NULL, '0', '', 'RWK6U3OYFDNA', 0, 2, 0, NULL, '2024-08-15 08:58:32', '2024-08-15 08:58:38'),
+(5, 1, 3, 0, 1000, 15000.00, 'TZS', 1300.00, 1.00, 16300.00, 2000.00, 13000.00, NULL, '0', '', 'NCSMG59YFEQ8', 0, 2, 0, NULL, '2024-08-15 09:00:19', '2024-08-15 09:00:56'),
+(6, 1, 4, 0, 1000, 15000.00, 'TZS', 1300.00, 1.00, 16300.00, 15000.00, 0.00, NULL, '0', '', 'TKZT8N2OQRO2', 0, 2, 0, NULL, '2024-08-15 09:03:18', '2024-08-15 09:08:03'),
+(7, 1, 5, 0, 1000, 25000.00, 'TZS', 1500.00, 1.00, 26500.00, 15000.00, 10000.00, NULL, '0', '', 'XWY54JV7KYHF', 0, 2, 0, NULL, '2024-08-15 09:08:40', '2024-08-15 09:30:47'),
+(8, 1, 6, 0, 1000, 510000.00, 'TZS', 11200.00, 1.00, 521200.00, 310000.00, 200000.00, NULL, '0', '', '332RBDMXSN8X', 0, 2, 0, NULL, '2024-08-15 09:31:33', '2024-08-15 09:31:40'),
+(9, 1, 7, 0, 1000, 15000.00, 'TZS', 1300.00, 1.00, 16300.00, 15000.00, 0.00, NULL, '0', '', 'WPZNXK14K4C3', 0, 2, 0, NULL, '2024-08-16 08:20:49', '2024-08-16 08:20:56');
 
 -- --------------------------------------------------------
 
@@ -251,46 +280,6 @@ CREATE TABLE `email_logs` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `email_logs2`
---
-
-CREATE TABLE `email_logs2` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `mail_sender` varchar(40) DEFAULT NULL,
-  `email_from` varchar(40) DEFAULT NULL,
-  `email_to` varchar(40) DEFAULT NULL,
-  `subject` varchar(255) DEFAULT NULL,
-  `message` text DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `email_logs2`
---
-
-INSERT INTO `email_logs2` (`id`, `user_id`, `mail_sender`, `email_from`, `email_to`, `subject`, `message`, `created_at`, `updated_at`) VALUES
-(1, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Payment Request Submitted Successfully', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>1,260.00 Tzs</b> is via&nbsp; <b>M-pesa </b>submitted successfully<b> .<br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 1,260.00 Tzs</div><div>Charge: <font color=\"#FF0000\">1,037.80 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total : 2,297.80 TZS <br></div><div>Pay via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : GK6EQ94YBX8Q</div><div><br></div><div><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-02 10:22:48', '2024-08-02 10:22:48'),
-(2, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Payment Request Submitted Successfully', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>1,800.00 Tzs</b> is via&nbsp; <b>M-pesa </b>submitted successfully<b> .<br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 1,800.00 Tzs</div><div>Charge: <font color=\"#FF0000\">1,036.00 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total : 2,836.00 TZS <br></div><div>Pay via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : OMGH8SZY7UO5</div><div><br></div><div><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-02 10:26:04', '2024-08-02 10:26:04'),
-(3, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Your Payment is Approved', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>1,800.00 Tzs</b> is via&nbsp; <b>M-pesa </b>is Approved .<b><br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 1,800.00 Tzs</div><div>Charge: <font color=\"#FF0000\">1,036.00 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total: 2,836.00 TZS <br></div><div>Paid via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : OMGH8SZY7UO5</div><div><br><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-02 15:13:52', '2024-08-02 15:13:52'),
-(4, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Your Payment is Approved', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>1,260.00 Tzs</b> is via&nbsp; <b>M-pesa </b>is Approved .<b><br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 1,260.00 Tzs</div><div>Charge: <font color=\"#FF0000\">1,037.80 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total: 2,297.80 TZS <br></div><div>Paid via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : GK6EQ94YBX8Q</div><div><br><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-02 15:26:20', '2024-08-02 15:26:20'),
-(5, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Payment Request Submitted Successfully', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>200,000.00 Tzs</b> is via&nbsp; <b>M-pesa </b>submitted successfully<b> .<br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 200,000.00 Tzs</div><div>Charge: <font color=\"#FF0000\">5,000.00 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total : 205,000.00 TZS <br></div><div>Pay via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : OFQS4O2PBK8G</div><div><br></div><div><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-02 15:28:49', '2024-08-02 15:28:49'),
-(6, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Payment Request Submitted Successfully', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>150,000.00 Tzs</b> is via&nbsp; <b>M-pesa </b>submitted successfully<b> .<br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 150,000.00 Tzs</div><div>Charge: <font color=\"#FF0000\">4,000.00 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total : 154,000.00 TZS <br></div><div>Pay via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : VKU461786GAG</div><div><br></div><div><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-02 15:56:15', '2024-08-02 15:56:15');
-INSERT INTO `email_logs2` (`id`, `user_id`, `mail_sender`, `email_from`, `email_to`, `subject`, `message`, `created_at`, `updated_at`) VALUES
-(7, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Payment Request Submitted Successfully', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>1,200,000.00 Tzs</b> is via&nbsp; <b>M-pesa </b>submitted successfully<b> .<br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 1,200,000.00 Tzs</div><div>Charge: <font color=\"#FF0000\">25,000.00 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total : 1,225,000.00 TZS <br></div><div>Pay via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : Q9BHEUEEH4UO</div><div><br></div><div><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-02 15:57:08', '2024-08-02 15:57:08'),
-(8, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Payment Request Submitted Successfully', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>300,000.00 Tzs</b> is via&nbsp; <b>M-pesa </b>submitted successfully<b> .<br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 300,000.00 Tzs</div><div>Charge: <font color=\"#FF0000\">7,000.00 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total : 307,000.00 TZS <br></div><div>Pay via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : C5H298CHD2RN</div><div><br></div><div><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-03 05:45:58', '2024-08-03 05:45:58'),
-(9, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Payment Request Submitted Successfully', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>300,000.00 Tzs</b> is via&nbsp; <b>M-pesa </b>submitted successfully<b> .<br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 300,000.00 Tzs</div><div>Charge: <font color=\"#FF0000\">7,000.00 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total : 307,000.00 TZS <br></div><div>Pay via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : NCO5RWQKTTKG</div><div><br></div><div><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-03 06:04:17', '2024-08-03 06:04:17'),
-(10, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Payment Request Submitted Successfully', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>300,000.00 Tzs</b> is via&nbsp; <b>M-pesa </b>submitted successfully<b> .<br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 300,000.00 Tzs</div><div>Charge: <font color=\"#FF0000\">7,000.00 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total : 307,000.00 TZS <br></div><div>Pay via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : PFJGVJODD2R4</div><div><br></div><div><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-03 06:56:06', '2024-08-03 06:56:06'),
-(11, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Payment Request Submitted Successfully', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>300,000.00 Tzs</b> is via&nbsp; <b>M-pesa </b>submitted successfully<b> .<br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 300,000.00 Tzs</div><div>Charge: <font color=\"#FF0000\">7,000.00 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total : 307,000.00 TZS <br></div><div>Pay via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : 1GWZJJ9PBQRR</div><div><br></div><div><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-03 07:02:14', '2024-08-03 07:02:14'),
-(12, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Payment Request Submitted Successfully', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>300,000.00 Tzs</b> is via&nbsp; <b>M-pesa </b>submitted successfully<b> .<br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 300,000.00 Tzs</div><div>Charge: <font color=\"#FF0000\">7,000.00 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total : 307,000.00 TZS <br></div><div>Pay via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : S6QBZHQB5CTX</div><div><br></div><div><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-03 07:04:41', '2024-08-03 07:04:41');
-INSERT INTO `email_logs2` (`id`, `user_id`, `mail_sender`, `email_from`, `email_to`, `subject`, `message`, `created_at`, `updated_at`) VALUES
-(13, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Your Payment is Approved', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>150.00 Tzs</b> is via&nbsp; <b>M-pesa </b>is Approved .<b><br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 150.00 Tzs</div><div>Charge: <font color=\"#FF0000\">1,003.00 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total: 1,153.00 TZS <br></div><div>Paid via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : NK9QFODBUMVC</div><div><br><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-03 09:26:41', '2024-08-03 09:26:41'),
-(14, 1, 'php', 'Rhond\'s Company Ltd do-not-reply@viserla', 'buruwawa@gmail.com', 'Your Payment is Approved', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello Buruhani Wawa (buruwawa12345)</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\"><div>Your payment request of <b>300,000.00 Tzs</b> is via&nbsp; <b>M-pesa </b>is Approved .<b><br></b></div><div><b><br></b></div><div><b>Details of your </b><font color=\"#212529\"><b>Payment</b></font><b>:</b><br></div><div><br></div><div>Amount : 300,000.00 Tzs</div><div>Charge: <font color=\"#FF0000\">7,000.00 Tzs</font></div><div><br></div><div>Conversion Rate : 1 Tzs = 1.00 TZS</div><div>Total: 307,000.00 TZS <br></div><div>Paid via :&nbsp; M-pesa</div><div><br></div><div>Transaction Number : OO81WKT35ZTE</div><div><br><br></div></td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', '2024-08-05 06:09:31', '2024-08-05 06:09:31');
 
 -- --------------------------------------------------------
 
@@ -358,7 +347,7 @@ INSERT INTO `extensions` (`id`, `act`, `name`, `description`, `image`, `script`,
 (1, 'tawk-chat', 'Tawk.to', 'Key location is shown bellow', 'tawky_big.png', '<script>\r\n                        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();\r\n                        (function(){\r\n                        var s1=document.createElement(\"script\"),s0=document.getElementsByTagName(\"script\")[0];\r\n                        s1.async=true;\r\n                        s1.src=\"https://embed.tawk.to/{{app_key}}\";\r\n                        s1.charset=\"UTF-8\";\r\n                        s1.setAttribute(\"crossorigin\",\"*\");\r\n                        s0.parentNode.insertBefore(s1,s0);\r\n                        })();\r\n                    </script>', '{\"app_key\":{\"title\":\"App Key\",\"value\":\"------\"}}', 'twak.png', 0, NULL, '2019-10-18 23:16:05', '2021-05-18 05:37:12'),
 (2, 'google-recaptcha2', 'Google Recaptcha 2', 'Key location is shown bellow', 'recaptcha3.png', '\r\n<script src=\"https://www.google.com/recaptcha/api.js\"></script>\r\n<div class=\"g-recaptcha\" data-sitekey=\"{{sitekey}}\" data-callback=\"verifyCaptcha\"></div>\r\n<div id=\"g-recaptcha-error\"></div>', '{\"sitekey\":{\"title\":\"Site Key\",\"value\":\"6Lfpm3cUAAAAAGIjbEJKhJNKS4X1Gns9ANjh8MfH\"}}', 'recaptcha.png', 0, NULL, '2019-10-18 23:16:05', '2021-08-10 06:52:17'),
 (3, 'custom-captcha', 'Custom Captcha', 'Just Put Any Random String', 'customcaptcha.png', NULL, '{\"random_key\":{\"title\":\"Random String\",\"value\":\"SecureString\"}}', 'na', 1, NULL, '2019-10-18 23:16:05', '2021-08-10 06:12:48'),
-(4, 'google-analytics', 'Google Analytics', 'Key location is shown bellow', 'google_analytics.png', '<script async src=\"https://www.googletagmanager.com/gtag/js?id={{app_key}}\"></script>\r\n                <script>\r\n                  window.dataLayer = window.dataLayer || [];\r\n                  function gtag(){dataLayer.push(arguments);}\r\n                  gtag(\"js\", new Date());\r\n                \r\n                  gtag(\"config\", \"{{app_key}}\");\r\n                </script>', '{\"app_key\":{\"title\":\"App Key\",\"value\":\"------\"}}', 'ganalytics.png', 0, NULL, NULL, '2021-05-04 10:19:12'),
+(4, 'google-analytics', 'Google Analytics', 'Key location is shown bellow', 'google_analytics.png', '<script async src=\"https://www.googletagmanager.com/gtag/js?id={{app_key}}\"></script>\r\n                <script>\r\n                  window.dataLayer = window.dataLayer || [];\r\n                  function gtag(){dataLayer.push(arguments);}\r\n                  gtag(\"js\", new Date());\r\n                \r\n                  gtag(\"config\", \"{{app_key}}\");\r\n                </script>', '{\"app_key\":{\"title\":\"App Key\",\"value\":\"------\"}}', 'ganalytics.png', 1, NULL, NULL, '2024-08-12 14:50:28'),
 (5, 'fb-comment', 'Facebook Comment ', 'Key location is shown bellow', 'Facebook.png', '<div id=\"fb-root\"></div><script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v4.0&appId={{app_key}}&autoLogAppEvents=1\"></script>', '{\"app_key\":{\"title\":\"App Key\",\"value\":\"----\"}}', 'fb_com.PNG', 0, NULL, NULL, '2021-08-22 05:56:44');
 
 -- --------------------------------------------------------
@@ -396,7 +385,7 @@ INSERT INTO `frontends` (`id`, `data_keys`, `data_values`, `views`, `created_at`
 (52, 'blog.element', '{\"has_image\":[\"1\"],\"title\":\"Given void great you\'re good appear have i also fifth\",\"description\":\"<div class=\\\"post__header\\\" style=\\\"margin-bottom:40px;color:rgb(121,150,169);font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\"><h3 class=\\\"post__title\\\" style=\\\"margin-top:-16px;margin-bottom:25px;font-weight:600;line-height:46px;font-size:36px;color:rgb(220,243,255);font-family:\'Josefin Sans\', sans-serif;\\\">Aspernatur tempore quisquam tempora eius incidunt dignissimos maxime<\\/h3><p style=\\\"margin-top:-12px;margin-bottom:30px;\\\">Asperiores nisi voluptates enim numquam vel recusandae consequatur libero, laboriosam possimus hic officiis voluptatum reprehenderit placeat voluptatibus aspernatur tempore quisquam tempora eius incidunt dignissimos maxime praesentium veniam. Veniam, sapiente.<\\/p><p style=\\\"margin-top:-12px;margin-bottom:30px;\\\">Vitae optio minima nulla iusto, praesentium, natus exercitationem maiores qui temporibus consequatur, fuga repudiandae. Rem mollitia suscipit blanditiis, at porro recusandae vitae.<\\/p><\\/div><blockquote class=\\\"post__quote\\\" style=\\\"margin-bottom:30px;font-size:24px;line-height:1.5;font-family:\'Josefin Sans\', sans-serif;color:rgb(220,243,255);font-style:italic;text-align:center;padding:0px 30px;border-left:3px solid rgb(0,174,235);background-color:rgb(38,53,62);\\\">\\u201c Works together with striker consulting firms active in USA. Globally we work with more than 150 leading consulting firms and with a select number of partners. \\u201d<\\/blockquote><p style=\\\"margin-top:-12px;margin-bottom:30px;color:rgb(121,150,169);font-family:\'Open Sans\', sans-serif;font-size:16px;background-color:rgb(38,53,62);\\\">Architecto quis nobis repudiandae porro perferendis quisquam, ut exercitationem quae aliquid eveniet. Recusandae officia alias sapiente ullam quae veniam optio exercitationem incidunt nisi totam reiciendis expedita harum vel debitis ad quam ut rem porro ratione voluptatem quod, laboriosam ducimus magni. Molestias, distinctio!<\\/p><p style=\\\"margin-top:-12px;margin-bottom:30px;color:rgb(121,150,169);font-family:\'Open Sans\', sans-serif;font-size:16px;background-color:rgb(38,53,62);\\\">Explicabo nobis dolorum, voluptates provident quasi harum optio nesciunt est accusantium eos soluta fugit illo vitae error numquam, sit ipsa quas nihil.<\\/p>\",\"image\":\"6110ec511cc531628499025.jpg\"}', 5, '2021-08-09 08:20:25', '2024-07-28 04:16:30'),
 (53, 'blog.element', '{\"has_image\":[\"1\"],\"title\":\"Given void great you\'re good appear have i also fifth\",\"description\":\"<div class=\\\"post__header\\\" style=\\\"margin-bottom:40px;color:rgb(121,150,169);font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\"><h3 class=\\\"post__title\\\" style=\\\"margin-top:-16px;margin-bottom:25px;font-weight:600;line-height:46px;font-size:36px;color:rgb(220,243,255);font-family:\'Josefin Sans\', sans-serif;\\\">Aspernatur tempore quisquam tempora eius incidunt dignissimos maxime<\\/h3><p style=\\\"margin-top:-12px;margin-bottom:30px;\\\">Asperiores nisi voluptates enim numquam vel recusandae consequatur libero, laboriosam possimus hic officiis voluptatum reprehenderit placeat voluptatibus aspernatur tempore quisquam tempora eius incidunt dignissimos maxime praesentium veniam. Veniam, sapiente.<\\/p><p style=\\\"margin-top:-12px;margin-bottom:30px;\\\">Vitae optio minima nulla iusto, praesentium, natus exercitationem maiores qui temporibus consequatur, fuga repudiandae. Rem mollitia suscipit blanditiis, at porro recusandae vitae.<\\/p><\\/div><blockquote class=\\\"post__quote\\\" style=\\\"margin-bottom:30px;font-size:24px;line-height:1.5;font-family:\'Josefin Sans\', sans-serif;color:rgb(220,243,255);font-style:italic;text-align:center;padding:0px 30px;border-left:3px solid rgb(0,174,235);background-color:rgb(38,53,62);\\\">\\u201c Works together with striker consulting firms active in USA. Globally we work with more than 150 leading consulting firms and with a select number of partners. \\u201d<\\/blockquote><p style=\\\"margin-top:-12px;margin-bottom:30px;color:rgb(121,150,169);font-size:16px;font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\">Architecto quis nobis repudiandae porro perferendis quisquam, ut exercitationem quae aliquid eveniet. Recusandae officia alias sapiente ullam quae veniam optio exercitationem incidunt nisi totam reiciendis expedita harum vel debitis ad quam ut rem porro ratione voluptatem quod, laboriosam ducimus magni. Molestias, distinctio!<\\/p><p style=\\\"margin-top:-12px;margin-bottom:30px;color:rgb(121,150,169);font-size:16px;font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\">Explicabo nobis dolorum, voluptates provident quasi harum optio nesciunt est accusantium eos soluta fugit illo vitae error numquam, sit ipsa quas nihil.<\\/p>\",\"image\":\"6110ec5c124211628499036.jpg\"}', 4, '2021-08-09 08:20:36', '2024-08-03 14:55:10'),
 (54, 'blog.element', '{\"has_image\":[\"1\"],\"title\":\"Given void great you\'re good appear have i also fifth\",\"description\":\"<div class=\\\"post__header\\\" style=\\\"margin-bottom:40px;color:rgb(121,150,169);font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\"><h3 class=\\\"post__title\\\" style=\\\"margin-top:-16px;margin-bottom:25px;font-weight:600;line-height:46px;font-size:36px;color:rgb(220,243,255);font-family:\'Josefin Sans\', sans-serif;\\\">Aspernatur tempore quisquam tempora eius incidunt dignissimos maxime<\\/h3><p style=\\\"margin-top:-12px;margin-bottom:30px;\\\">Asperiores nisi voluptates enim numquam vel recusandae consequatur libero, laboriosam possimus hic officiis voluptatum reprehenderit placeat voluptatibus aspernatur tempore quisquam tempora eius incidunt dignissimos maxime praesentium veniam. Veniam, sapiente.<\\/p><p style=\\\"margin-top:-12px;margin-bottom:30px;\\\">Vitae optio minima nulla iusto, praesentium, natus exercitationem maiores qui temporibus consequatur, fuga repudiandae. Rem mollitia suscipit blanditiis, at porro recusandae vitae.<\\/p><\\/div><blockquote class=\\\"post__quote\\\" style=\\\"margin-bottom:30px;font-size:24px;line-height:1.5;font-family:\'Josefin Sans\', sans-serif;color:rgb(220,243,255);font-style:italic;text-align:center;padding:0px 30px;border-left:3px solid rgb(0,174,235);background-color:rgb(38,53,62);\\\">\\u201c Works together with striker consulting firms active in USA. Globally we work with more than 150 leading consulting firms and with a select number of partners. \\u201d<\\/blockquote><p style=\\\"margin-top:-12px;margin-bottom:30px;color:rgb(121,150,169);font-size:16px;font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\">Architecto quis nobis repudiandae porro perferendis quisquam, ut exercitationem quae aliquid eveniet. Recusandae officia alias sapiente ullam quae veniam optio exercitationem incidunt nisi totam reiciendis expedita harum vel debitis ad quam ut rem porro ratione voluptatem quod, laboriosam ducimus magni. Molestias, distinctio!<\\/p><p style=\\\"margin-top:-12px;margin-bottom:30px;color:rgb(121,150,169);font-size:16px;font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\">Explicabo nobis dolorum, voluptates provident quasi harum optio nesciunt est accusantium eos soluta fugit illo vitae error numquam, sit ipsa quas nihil.<\\/p>\",\"image\":\"6110ec68dd4a81628499048.jpg\"}', 24, '2021-08-09 08:20:48', '2021-08-09 08:46:45'),
-(55, 'blog.element', '{\"has_image\":[\"1\"],\"title\":\"Given void great you\'re good appear have i also fifth\",\"description\":\"<div class=\\\"post__header\\\" style=\\\"margin-bottom:40px;color:rgb(121,150,169);font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\"><h3 class=\\\"post__title\\\" style=\\\"margin-top:-16px;margin-bottom:25px;font-weight:600;line-height:46px;font-size:36px;color:rgb(220,243,255);font-family:\'Josefin Sans\', sans-serif;\\\">Aspernatur tempore quisquam tempora eius incidunt dignissimos maxime<\\/h3><p style=\\\"margin-top:-12px;margin-bottom:30px;\\\">Asperiores nisi voluptates enim numquam vel recusandae consequatur libero, laboriosam possimus hic officiis voluptatum reprehenderit placeat voluptatibus aspernatur tempore quisquam tempora eius incidunt dignissimos maxime praesentium veniam. Veniam, sapiente.<\\/p><p style=\\\"margin-top:-12px;margin-bottom:30px;\\\">Vitae optio minima nulla iusto, praesentium, natus exercitationem maiores qui temporibus consequatur, fuga repudiandae. Rem mollitia suscipit blanditiis, at porro recusandae vitae.<\\/p><\\/div><blockquote class=\\\"post__quote\\\" style=\\\"margin-bottom:30px;font-size:24px;line-height:1.5;font-family:\'Josefin Sans\', sans-serif;color:rgb(220,243,255);font-style:italic;text-align:center;padding:0px 30px;border-left:3px solid rgb(0,174,235);background-color:rgb(38,53,62);\\\">\\u201c Works together with striker consulting firms active in USA. Globally we work with more than 150 leading consulting firms and with a select number of partners. \\u201d<\\/blockquote><p style=\\\"margin-top:-12px;margin-bottom:30px;color:rgb(121,150,169);font-size:16px;font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\">Architecto quis nobis repudiandae porro perferendis quisquam, ut exercitationem quae aliquid eveniet. Recusandae officia alias sapiente ullam quae veniam optio exercitationem incidunt nisi totam reiciendis expedita harum vel debitis ad quam ut rem porro ratione voluptatem quod, laboriosam ducimus magni. Molestias, distinctio!<\\/p><p style=\\\"margin-top:-12px;margin-bottom:30px;color:rgb(121,150,169);font-size:16px;font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\">Explicabo nobis dolorum, voluptates provident quasi harum optio nesciunt est accusantium eos soluta fugit illo vitae error numquam, sit ipsa quas nihil.<\\/p>\",\"image\":\"6110ec74c42781628499060.jpg\"}', 5, '2021-08-09 08:21:00', '2024-08-08 10:04:08'),
+(55, 'blog.element', '{\"has_image\":[\"1\"],\"title\":\"Given void great you\'re good appear have i also fifth\",\"description\":\"<div class=\\\"post__header\\\" style=\\\"margin-bottom:40px;color:rgb(121,150,169);font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\"><h3 class=\\\"post__title\\\" style=\\\"margin-top:-16px;margin-bottom:25px;font-weight:600;line-height:46px;font-size:36px;color:rgb(220,243,255);font-family:\'Josefin Sans\', sans-serif;\\\">Aspernatur tempore quisquam tempora eius incidunt dignissimos maxime<\\/h3><p style=\\\"margin-top:-12px;margin-bottom:30px;\\\">Asperiores nisi voluptates enim numquam vel recusandae consequatur libero, laboriosam possimus hic officiis voluptatum reprehenderit placeat voluptatibus aspernatur tempore quisquam tempora eius incidunt dignissimos maxime praesentium veniam. Veniam, sapiente.<\\/p><p style=\\\"margin-top:-12px;margin-bottom:30px;\\\">Vitae optio minima nulla iusto, praesentium, natus exercitationem maiores qui temporibus consequatur, fuga repudiandae. Rem mollitia suscipit blanditiis, at porro recusandae vitae.<\\/p><\\/div><blockquote class=\\\"post__quote\\\" style=\\\"margin-bottom:30px;font-size:24px;line-height:1.5;font-family:\'Josefin Sans\', sans-serif;color:rgb(220,243,255);font-style:italic;text-align:center;padding:0px 30px;border-left:3px solid rgb(0,174,235);background-color:rgb(38,53,62);\\\">\\u201c Works together with striker consulting firms active in USA. Globally we work with more than 150 leading consulting firms and with a select number of partners. \\u201d<\\/blockquote><p style=\\\"margin-top:-12px;margin-bottom:30px;color:rgb(121,150,169);font-size:16px;font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\">Architecto quis nobis repudiandae porro perferendis quisquam, ut exercitationem quae aliquid eveniet. Recusandae officia alias sapiente ullam quae veniam optio exercitationem incidunt nisi totam reiciendis expedita harum vel debitis ad quam ut rem porro ratione voluptatem quod, laboriosam ducimus magni. Molestias, distinctio!<\\/p><p style=\\\"margin-top:-12px;margin-bottom:30px;color:rgb(121,150,169);font-size:16px;font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\">Explicabo nobis dolorum, voluptates provident quasi harum optio nesciunt est accusantium eos soluta fugit illo vitae error numquam, sit ipsa quas nihil.<\\/p>\",\"image\":\"6110ec74c42781628499060.jpg\"}', 7, '2021-08-09 08:21:00', '2024-08-11 16:09:04'),
 (56, 'blog.element', '{\"has_image\":[\"1\"],\"title\":\"Given void great you\'re good appear have i also fifth\",\"description\":\"<div class=\\\"post__header\\\" style=\\\"margin-bottom:40px;color:rgb(121,150,169);font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\"><h3 class=\\\"post__title\\\" style=\\\"margin-top:-16px;margin-bottom:25px;font-weight:600;line-height:46px;font-size:36px;color:rgb(220,243,255);font-family:\'Josefin Sans\', sans-serif;\\\">Aspernatur tempore quisquam tempora eius incidunt dignissimos maxime<\\/h3><p style=\\\"margin-top:-12px;margin-bottom:30px;\\\">Asperiores nisi voluptates enim numquam vel recusandae consequatur libero, laboriosam possimus hic officiis voluptatum reprehenderit placeat voluptatibus aspernatur tempore quisquam tempora eius incidunt dignissimos maxime praesentium veniam. Veniam, sapiente.<\\/p><p style=\\\"margin-top:-12px;margin-bottom:30px;\\\">Vitae optio minima nulla iusto, praesentium, natus exercitationem maiores qui temporibus consequatur, fuga repudiandae. Rem mollitia suscipit blanditiis, at porro recusandae vitae.<\\/p><\\/div><blockquote class=\\\"post__quote\\\" style=\\\"margin-bottom:30px;font-size:24px;line-height:1.5;font-family:\'Josefin Sans\', sans-serif;color:rgb(220,243,255);font-style:italic;text-align:center;padding:0px 30px;border-left:3px solid rgb(0,174,235);background-color:rgb(38,53,62);\\\">\\u201c Works together with striker consulting firms active in USA. Globally we work with more than 150 leading consulting firms and with a select number of partners. \\u201d<\\/blockquote><p style=\\\"margin-top:-12px;margin-bottom:30px;color:rgb(121,150,169);font-size:16px;font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\">Architecto quis nobis repudiandae porro perferendis quisquam, ut exercitationem quae aliquid eveniet. Recusandae officia alias sapiente ullam quae veniam optio exercitationem incidunt nisi totam reiciendis expedita harum vel debitis ad quam ut rem porro ratione voluptatem quod, laboriosam ducimus magni. Molestias, distinctio!<\\/p><p style=\\\"margin-top:-12px;margin-bottom:30px;color:rgb(121,150,169);font-size:16px;font-family:\'Open Sans\', sans-serif;background-color:rgb(38,53,62);\\\">Explicabo nobis dolorum, voluptates provident quasi harum optio nesciunt est accusantium eos soluta fugit illo vitae error numquam, sit ipsa quas nihil.<\\/p>\",\"image\":\"6110ec82e2b3c1628499074.jpg\"}', 3, '2021-08-09 08:21:14', '2024-07-26 11:01:15'),
 (57, 'banner.element', '{\"has_image\":[\"1\"],\"subtitle\":\"Plan your trip now\",\"title\":\"Luxury Car Rent From $19 Only\",\"content\":\"Repudiandae optio impedit molestiae! Magni nihil expedita impedit atque incidunt? Dolores ea sit doloribus temporibus tenetur deserunt iure, amet culpa doloremque voluptatibus!\",\"button_1_name\":\"Book Ride\",\"button_1_url\":\"blog\",\"button_2_name\":\"Learn More\",\"button_2_url\":\"contact\",\"background_image\":\"6110f5a7a5d281628501415.png\"}', 0, '2021-08-09 08:59:43', '2021-08-09 09:00:16'),
 (58, 'banner.element', '{\"has_image\":[\"1\"],\"subtitle\":\"Plan your trip now\",\"title\":\"Luxury Car Rent From $19 Only\",\"content\":\"Repudiandae optio impedit molestiae! Magni nihil expedita impedit atque incidunt? Dolores ea sit doloribus temporibus tenetur deserunt iure, amet culpa doloremque voluptatibus!\",\"button_1_name\":\"Book Ride\",\"button_1_url\":\"blog\",\"button_2_name\":\"Learn More\",\"button_2_url\":\"contact\",\"background_image\":\"6110f5ce67b5d1628501454.png\"}', 0, '2021-08-09 09:00:54', '2021-08-09 09:00:54'),
@@ -461,14 +450,14 @@ INSERT INTO `gateways` (`id`, `code`, `name`, `alias`, `image`, `status`, `gatew
 (3, 103, 'Stripe Hosted', 'Stripe', '5f6f1d4bc69e71601117515.jpg', 1, '{\"secret_key\":{\"title\":\"Secret Key\",\"global\":true,\"value\":\"sk_test_51I6GGiCGv1sRiQlEi5v1or9eR0HVbuzdMd2rW4n3DxC8UKfz66R4X6n4yYkzvI2LeAIuRU9H99ZpY7XCNFC9xMs500vBjZGkKG\"},\"publishable_key\":{\"title\":\"PUBLISHABLE KEY\",\"global\":true,\"value\":\"pk_test_51I6GGiCGv1sRiQlEOisPKrjBqQqqcFsw8mXNaZ2H2baN6R01NulFS7dKFji1NRRxuchoUTEDdB7ujKcyKYSVc0z500eth7otOM\"}}', '{\"USD\":\"USD\",\"AUD\":\"AUD\",\"BRL\":\"BRL\",\"CAD\":\"CAD\",\"CHF\":\"CHF\",\"DKK\":\"DKK\",\"EUR\":\"EUR\",\"GBP\":\"GBP\",\"HKD\":\"HKD\",\"INR\":\"INR\",\"JPY\":\"JPY\",\"MXN\":\"MXN\",\"MYR\":\"MYR\",\"NOK\":\"NOK\",\"NZD\":\"NZD\",\"PLN\":\"PLN\",\"SEK\":\"SEK\",\"SGD\":\"SGD\"}', 0, NULL, NULL, NULL, '2019-09-14 13:14:22', '2021-05-21 00:48:36'),
 (4, 104, 'Skrill', 'Skrill', '5f6f1d41257181601117505.jpg', 1, '{\"pay_to_email\":{\"title\":\"Skrill Email\",\"global\":true,\"value\":\"merchant@skrill.com\"},\"secret_key\":{\"title\":\"Secret Key\",\"global\":true,\"value\":\"---\"}}', '{\"AED\":\"AED\",\"AUD\":\"AUD\",\"BGN\":\"BGN\",\"BHD\":\"BHD\",\"CAD\":\"CAD\",\"CHF\":\"CHF\",\"CZK\":\"CZK\",\"DKK\":\"DKK\",\"EUR\":\"EUR\",\"GBP\":\"GBP\",\"HKD\":\"HKD\",\"HRK\":\"HRK\",\"HUF\":\"HUF\",\"ILS\":\"ILS\",\"INR\":\"INR\",\"ISK\":\"ISK\",\"JOD\":\"JOD\",\"JPY\":\"JPY\",\"KRW\":\"KRW\",\"KWD\":\"KWD\",\"MAD\":\"MAD\",\"MYR\":\"MYR\",\"NOK\":\"NOK\",\"NZD\":\"NZD\",\"OMR\":\"OMR\",\"PLN\":\"PLN\",\"QAR\":\"QAR\",\"RON\":\"RON\",\"RSD\":\"RSD\",\"SAR\":\"SAR\",\"SEK\":\"SEK\",\"SGD\":\"SGD\",\"THB\":\"THB\",\"TND\":\"TND\",\"TRY\":\"TRY\",\"TWD\":\"TWD\",\"USD\":\"USD\",\"ZAR\":\"ZAR\",\"COP\":\"COP\"}', 0, NULL, NULL, NULL, '2019-09-14 13:14:22', '2021-05-21 01:30:16'),
 (5, 105, 'PayTM', 'Paytm', '5f6f1d1d3ec731601117469.jpg', 1, '{\"MID\":{\"title\":\"Merchant ID\",\"global\":true,\"value\":\"DIY12386817555501617\"},\"merchant_key\":{\"title\":\"Merchant Key\",\"global\":true,\"value\":\"bKMfNxPPf_QdZppa\"},\"WEBSITE\":{\"title\":\"Paytm Website\",\"global\":true,\"value\":\"DIYtestingweb\"},\"INDUSTRY_TYPE_ID\":{\"title\":\"Industry Type\",\"global\":true,\"value\":\"Retail\"},\"CHANNEL_ID\":{\"title\":\"CHANNEL ID\",\"global\":true,\"value\":\"WEB\"},\"transaction_url\":{\"title\":\"Transaction URL\",\"global\":true,\"value\":\"https:\\/\\/pguat.paytm.com\\/oltp-web\\/processTransaction\"},\"transaction_status_url\":{\"title\":\"Transaction STATUS URL\",\"global\":true,\"value\":\"https:\\/\\/pguat.paytm.com\\/paytmchecksum\\/paytmCallback.jsp\"}}', '{\"AUD\":\"AUD\",\"ARS\":\"ARS\",\"BDT\":\"BDT\",\"BRL\":\"BRL\",\"BGN\":\"BGN\",\"CAD\":\"CAD\",\"CLP\":\"CLP\",\"CNY\":\"CNY\",\"COP\":\"COP\",\"HRK\":\"HRK\",\"CZK\":\"CZK\",\"DKK\":\"DKK\",\"EGP\":\"EGP\",\"EUR\":\"EUR\",\"GEL\":\"GEL\",\"GHS\":\"GHS\",\"HKD\":\"HKD\",\"HUF\":\"HUF\",\"INR\":\"INR\",\"IDR\":\"IDR\",\"ILS\":\"ILS\",\"JPY\":\"JPY\",\"KES\":\"KES\",\"MYR\":\"MYR\",\"MXN\":\"MXN\",\"MAD\":\"MAD\",\"NPR\":\"NPR\",\"NZD\":\"NZD\",\"NGN\":\"NGN\",\"NOK\":\"NOK\",\"PKR\":\"PKR\",\"PEN\":\"PEN\",\"PHP\":\"PHP\",\"PLN\":\"PLN\",\"RON\":\"RON\",\"RUB\":\"RUB\",\"SGD\":\"SGD\",\"ZAR\":\"ZAR\",\"KRW\":\"KRW\",\"LKR\":\"LKR\",\"SEK\":\"SEK\",\"CHF\":\"CHF\",\"THB\":\"THB\",\"TRY\":\"TRY\",\"UGX\":\"UGX\",\"UAH\":\"UAH\",\"AED\":\"AED\",\"GBP\":\"GBP\",\"USD\":\"USD\",\"VND\":\"VND\",\"XOF\":\"XOF\"}', 0, NULL, NULL, NULL, '2019-09-14 13:14:22', '2021-05-21 03:00:44'),
-(6, 106, 'Payeer', 'Payeer', '5f6f1bc61518b1601117126.jpg', 0, '{\"merchant_id\":{\"title\":\"Merchant ID\",\"global\":true,\"value\":\"866989763\"},\"secret_key\":{\"title\":\"Secret key\",\"global\":true,\"value\":\"7575\"}}', '{\"USD\":\"USD\",\"EUR\":\"EUR\",\"RUB\":\"RUB\"}', 0, '{\"status\":{\"title\": \"Status URL\",\"value\":\"ipn.Payeer\"}}', NULL, NULL, '2019-09-14 13:14:22', '2020-12-28 01:26:58'),
+(6, 106, 'Payeer', 'Payeer', '5f6f1bc61518b1601117126.jpg', 1, '{\"merchant_id\":{\"title\":\"Merchant ID\",\"global\":true,\"value\":\"866989763\"},\"secret_key\":{\"title\":\"Secret key\",\"global\":true,\"value\":\"7575\"}}', '{\"USD\":\"USD\",\"EUR\":\"EUR\",\"RUB\":\"RUB\"}', 0, '{\"status\":{\"title\": \"Status URL\",\"value\":\"ipn.Payeer\"}}', NULL, NULL, '2019-09-14 13:14:22', '2024-08-12 14:53:54'),
 (7, 107, 'PayStack', 'Paystack', '5f7096563dfb71601214038.jpg', 1, '{\"public_key\":{\"title\":\"Public key\",\"global\":true,\"value\":\"pk_test_cd330608eb47970889bca397ced55c1dd5ad3783\"},\"secret_key\":{\"title\":\"Secret key\",\"global\":true,\"value\":\"sk_test_8a0b1f199362d7acc9c390bff72c4e81f74e2ac3\"}}', '{\"USD\":\"USD\",\"NGN\":\"NGN\"}', 0, '{\"callback\":{\"title\": \"Callback URL\",\"value\":\"ipn.Paystack\"},\"webhook\":{\"title\": \"Webhook URL\",\"value\":\"ipn.Paystack\"}}\r\n', NULL, NULL, '2019-09-14 13:14:22', '2021-05-21 01:49:51'),
 (8, 108, 'VoguePay', 'Voguepay', '5f6f1d5951a111601117529.jpg', 1, '{\"merchant_id\":{\"title\":\"MERCHANT ID\",\"global\":true,\"value\":\"demo\"}}', '{\"USD\":\"USD\",\"GBP\":\"GBP\",\"EUR\":\"EUR\",\"GHS\":\"GHS\",\"NGN\":\"NGN\",\"ZAR\":\"ZAR\"}', 0, NULL, NULL, NULL, '2019-09-14 13:14:22', '2021-05-21 01:22:38'),
 (9, 109, 'Flutterwave', 'Flutterwave', '5f6f1b9e4bb961601117086.jpg', 1, '{\"public_key\":{\"title\":\"Public Key\",\"global\":true,\"value\":\"----------------\"},\"secret_key\":{\"title\":\"Secret Key\",\"global\":true,\"value\":\"-----------------------\"},\"encryption_key\":{\"title\":\"Encryption Key\",\"global\":true,\"value\":\"------------------\"}}', '{\"BIF\":\"BIF\",\"CAD\":\"CAD\",\"CDF\":\"CDF\",\"CVE\":\"CVE\",\"EUR\":\"EUR\",\"GBP\":\"GBP\",\"GHS\":\"GHS\",\"GMD\":\"GMD\",\"GNF\":\"GNF\",\"KES\":\"KES\",\"LRD\":\"LRD\",\"MWK\":\"MWK\",\"MZN\":\"MZN\",\"NGN\":\"NGN\",\"RWF\":\"RWF\",\"SLL\":\"SLL\",\"STD\":\"STD\",\"TZS\":\"TZS\",\"UGX\":\"UGX\",\"USD\":\"USD\",\"XAF\":\"XAF\",\"XOF\":\"XOF\",\"ZMK\":\"ZMK\",\"ZMW\":\"ZMW\",\"ZWD\":\"ZWD\"}', 0, NULL, NULL, NULL, '2019-09-14 13:14:22', '2021-06-05 11:37:45'),
 (10, 110, 'RazorPay', 'Razorpay', '5f6f1d3672dd61601117494.jpg', 1, '{\"key_id\":{\"title\":\"Key Id\",\"global\":true,\"value\":\"rzp_test_kiOtejPbRZU90E\"},\"key_secret\":{\"title\":\"Key Secret \",\"global\":true,\"value\":\"osRDebzEqbsE1kbyQJ4y0re7\"}}', '{\"INR\":\"INR\"}', 0, NULL, NULL, NULL, '2019-09-14 13:14:22', '2021-05-21 02:51:32'),
 (11, 111, 'Stripe Storefront', 'StripeJs', '5f7096a31ed9a1601214115.jpg', 1, '{\"secret_key\":{\"title\":\"Secret Key\",\"global\":true,\"value\":\"sk_test_51I6GGiCGv1sRiQlEi5v1or9eR0HVbuzdMd2rW4n3DxC8UKfz66R4X6n4yYkzvI2LeAIuRU9H99ZpY7XCNFC9xMs500vBjZGkKG\"},\"publishable_key\":{\"title\":\"PUBLISHABLE KEY\",\"global\":true,\"value\":\"pk_test_51I6GGiCGv1sRiQlEOisPKrjBqQqqcFsw8mXNaZ2H2baN6R01NulFS7dKFji1NRRxuchoUTEDdB7ujKcyKYSVc0z500eth7otOM\"}}', '{\"USD\":\"USD\",\"AUD\":\"AUD\",\"BRL\":\"BRL\",\"CAD\":\"CAD\",\"CHF\":\"CHF\",\"DKK\":\"DKK\",\"EUR\":\"EUR\",\"GBP\":\"GBP\",\"HKD\":\"HKD\",\"INR\":\"INR\",\"JPY\":\"JPY\",\"MXN\":\"MXN\",\"MYR\":\"MYR\",\"NOK\":\"NOK\",\"NZD\":\"NZD\",\"PLN\":\"PLN\",\"SEK\":\"SEK\",\"SGD\":\"SGD\"}', 0, NULL, NULL, NULL, '2019-09-14 13:14:22', '2021-05-21 00:53:10'),
 (12, 112, 'Instamojo', 'Instamojo', '5f6f1babbdbb31601117099.jpg', 1, '{\"api_key\":{\"title\":\"API KEY\",\"global\":true,\"value\":\"test_2241633c3bc44a3de84a3b33969\"},\"auth_token\":{\"title\":\"Auth Token\",\"global\":true,\"value\":\"test_279f083f7bebefd35217feef22d\"},\"salt\":{\"title\":\"Salt\",\"global\":true,\"value\":\"19d38908eeff4f58b2ddda2c6d86ca25\"}}', '{\"INR\":\"INR\"}', 0, NULL, NULL, NULL, '2019-09-14 13:14:22', '2021-05-21 02:56:20'),
-(13, 501, 'Blockchain', 'Blockchain', '5f6f1b2b20c6f1601116971.jpg', 1, '{\"api_key\":{\"title\":\"API Key\",\"global\":true,\"value\":\"55529946-05ca-48ff-8710-f279d86b1cc5\"},\"xpub_code\":{\"title\":\"XPUB CODE\",\"global\":true,\"value\":\"xpub6CKQ3xxWyBoFAF83izZCSFUorptEU9AF8TezhtWeMU5oefjX3sFSBw62Lr9iHXPkXmDQJJiHZeTRtD9Vzt8grAYRhvbz4nEvBu3QKELVzFK\"}}', '{\"BTC\":\"BTC\"}', 1, NULL, NULL, NULL, '2019-09-14 13:14:22', '2021-05-21 02:25:00'),
+(13, 501, 'Blockchain', 'Blockchain', '5f6f1b2b20c6f1601116971.jpg', 1, '{\"api_key\":{\"title\":\"API Key\",\"global\":true,\"value\":\"55529946-05ca-48ff-8710-f279d86b1cc5\"},\"xpub_code\":{\"title\":\"XPUB CODE\",\"global\":true,\"value\":\"xpub6CKQ3xxWyBoFAF83izZCSFUorptEU9AF8TezhtWeMU5oefjX3sFSBw62Lr9iHXPkXmDQJJiHZeTRtD9Vzt8grAYRhvbz4nEvBu3QKELVzFK\"}}', '{\"BTC\":\"BTC\"}', 1, NULL, NULL, NULL, '2019-09-14 13:14:22', '2024-08-12 14:54:19'),
 (14, 502, 'Block.io', 'Blockio', '5f6f19432bedf1601116483.jpg', 1, '{\"api_key\":{\"title\":\"API Key\",\"global\":false,\"value\":\"1658-8015-2e5e-9afb\"},\"api_pin\":{\"title\":\"API PIN\",\"global\":true,\"value\":\"75757575\"}}', '{\"BTC\":\"BTC\",\"LTC\":\"LTC\"}', 1, '{\"cron\":{\"title\": \"Cron URL\",\"value\":\"ipn.Blockio\"}}', NULL, NULL, '2019-09-14 13:14:22', '2021-05-21 02:31:09'),
 (15, 503, 'CoinPayments', 'Coinpayments', '5f6f1b6c02ecd1601117036.jpg', 1, '{\"public_key\":{\"title\":\"Public Key\",\"global\":true,\"value\":\"---------------\"},\"private_key\":{\"title\":\"Private Key\",\"global\":true,\"value\":\"------------\"},\"merchant_id\":{\"title\":\"Merchant ID\",\"global\":true,\"value\":\"93a1e014c4ad60a7980b4a7239673cb4\"}}', '{\"BTC\":\"Bitcoin\",\"BTC.LN\":\"Bitcoin (Lightning Network)\",\"LTC\":\"Litecoin\",\"CPS\":\"CPS Coin\",\"VLX\":\"Velas\",\"APL\":\"Apollo\",\"AYA\":\"Aryacoin\",\"BAD\":\"Badcoin\",\"BCD\":\"Bitcoin Diamond\",\"BCH\":\"Bitcoin Cash\",\"BCN\":\"Bytecoin\",\"BEAM\":\"BEAM\",\"BITB\":\"Bean Cash\",\"BLK\":\"BlackCoin\",\"BSV\":\"Bitcoin SV\",\"BTAD\":\"Bitcoin Adult\",\"BTG\":\"Bitcoin Gold\",\"BTT\":\"BitTorrent\",\"CLOAK\":\"CloakCoin\",\"CLUB\":\"ClubCoin\",\"CRW\":\"Crown\",\"CRYP\":\"CrypticCoin\",\"CRYT\":\"CryTrExCoin\",\"CURE\":\"CureCoin\",\"DASH\":\"DASH\",\"DCR\":\"Decred\",\"DEV\":\"DeviantCoin\",\"DGB\":\"DigiByte\",\"DOGE\":\"Dogecoin\",\"EBST\":\"eBoost\",\"EOS\":\"EOS\",\"ETC\":\"Ether Classic\",\"ETH\":\"Ethereum\",\"ETN\":\"Electroneum\",\"EUNO\":\"EUNO\",\"EXP\":\"EXP\",\"Expanse\":\"Expanse\",\"FLASH\":\"FLASH\",\"GAME\":\"GameCredits\",\"GLC\":\"Goldcoin\",\"GRS\":\"Groestlcoin\",\"KMD\":\"Komodo\",\"LOKI\":\"LOKI\",\"LSK\":\"LSK\",\"MAID\":\"MaidSafeCoin\",\"MUE\":\"MonetaryUnit\",\"NAV\":\"NAV Coin\",\"NEO\":\"NEO\",\"NMC\":\"Namecoin\",\"NVST\":\"NVO Token\",\"NXT\":\"NXT\",\"OMNI\":\"OMNI\",\"PINK\":\"PinkCoin\",\"PIVX\":\"PIVX\",\"POT\":\"PotCoin\",\"PPC\":\"Peercoin\",\"PROC\":\"ProCurrency\",\"PURA\":\"PURA\",\"QTUM\":\"QTUM\",\"RES\":\"Resistance\",\"RVN\":\"Ravencoin\",\"RVR\":\"RevolutionVR\",\"SBD\":\"Steem Dollars\",\"SMART\":\"SmartCash\",\"SOXAX\":\"SOXAX\",\"STEEM\":\"STEEM\",\"STRAT\":\"STRAT\",\"SYS\":\"Syscoin\",\"TPAY\":\"TokenPay\",\"TRIGGERS\":\"Triggers\",\"TRX\":\" TRON\",\"UBQ\":\"Ubiq\",\"UNIT\":\"UniversalCurrency\",\"USDT\":\"Tether USD (Omni Layer)\",\"VTC\":\"Vertcoin\",\"WAVES\":\"Waves\",\"XCP\":\"Counterparty\",\"XEM\":\"NEM\",\"XMR\":\"Monero\",\"XSN\":\"Stakenet\",\"XSR\":\"SucreCoin\",\"XVG\":\"VERGE\",\"XZC\":\"ZCoin\",\"ZEC\":\"ZCash\",\"ZEN\":\"Horizen\"}', 1, NULL, NULL, NULL, '2019-09-14 13:14:22', '2021-05-21 02:07:14'),
 (16, 504, 'CoinPayments Fiat', 'CoinpaymentsFiat', '5f6f1b94e9b2b1601117076.jpg', 1, '{\"merchant_id\":{\"title\":\"Merchant ID\",\"global\":true,\"value\":\"6515561\"}}', '{\"USD\":\"USD\",\"AUD\":\"AUD\",\"BRL\":\"BRL\",\"CAD\":\"CAD\",\"CHF\":\"CHF\",\"CLP\":\"CLP\",\"CNY\":\"CNY\",\"DKK\":\"DKK\",\"EUR\":\"EUR\",\"GBP\":\"GBP\",\"HKD\":\"HKD\",\"INR\":\"INR\",\"ISK\":\"ISK\",\"JPY\":\"JPY\",\"KRW\":\"KRW\",\"NZD\":\"NZD\",\"PLN\":\"PLN\",\"RUB\":\"RUB\",\"SEK\":\"SEK\",\"SGD\":\"SGD\",\"THB\":\"THB\",\"TWD\":\"TWD\"}', 0, NULL, NULL, NULL, '2019-09-14 13:14:22', '2021-05-21 02:07:44'),
@@ -549,7 +538,7 @@ CREATE TABLE `general_settings` (
 --
 
 INSERT INTO `general_settings` (`id`, `sitename`, `cur_text`, `cur_sym`, `email_from`, `email_template`, `sms_api`, `base_color`, `secondary_color`, `mail_config`, `sms_config`, `ev`, `en`, `sv`, `sn`, `force_ssl`, `secure_password`, `agree`, `registration`, `active_template`, `sys_version`, `created_at`, `updated_at`) VALUES
-(1, 'Rhond\'s Company Ltd', 'Tzs', 'Tzs', 'do-not-reply@viserlab.com', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello {{fullname}} ({{username}})</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\">{{message}}</td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', 'hi {{name}}, {{message}}', '4e7252', NULL, '{\"name\":\"php\"}', '{\"clickatell_api_key\":\"----------------------------\",\"infobip_username\":\"--------------\",\"infobip_password\":\"----------------------\",\"message_bird_api_key\":\"-------------------\",\"nexmo_api_key\":\"----------------------\",\"nexmo_api_secret\":\"----------------------\",\"sms_broadcast_username\":\"----------------------\",\"sms_broadcast_password\":\"-----------------------------\",\"account_sid\":\"-----------------------\",\"auth_token\":\"---------------------------\",\"from\":\"----------------------\",\"text_magic_username\":\"-----------------------\",\"apiv2_key\":\"-------------------------------\",\"name\":\"textMagic\"}', 0, 1, 0, 1, 0, 0, 0, 1, 'basic', NULL, NULL, '2024-08-08 14:11:03');
+(1, 'Rhond\'s Company Ltd', 'Tzs', 'Tzs', 'do-not-reply@viserlab.com', '<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n  <!--[if !mso]><!-->\r\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n  <!--<![endif]-->\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title></title>\r\n  <style type=\"text/css\">\r\n.ReadMsgBody { width: 100%; background-color: #ffffff; }\r\n.ExternalClass { width: 100%; background-color: #ffffff; }\r\n.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }\r\nhtml { width: 100%; }\r\nbody { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }\r\ntable { border-spacing: 0; table-layout: fixed; margin: 0 auto;border-collapse: collapse; }\r\ntable table table { table-layout: auto; }\r\n.yshortcuts a { border-bottom: none !important; }\r\nimg:hover { opacity: 0.9 !important; }\r\na { color: #0087ff; text-decoration: none; }\r\n.textbutton a { font-family: \'open sans\', arial, sans-serif !important;}\r\n.btn-link a { color:#FFFFFF !important;}\r\n\r\n@media only screen and (max-width: 480px) {\r\nbody { width: auto !important; }\r\n*[class=\"table-inner\"] { width: 90% !important; text-align: center !important; }\r\n*[class=\"table-full\"] { width: 100% !important; text-align: center !important; }\r\n/* image */\r\nimg[class=\"img1\"] { width: 100% !important; height: auto !important; }\r\n}\r\n</style>\r\n\r\n\r\n\r\n  <table bgcolor=\"#414a51\" width=\"100%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tbody><tr>\r\n      <td height=\"50\"></td>\r\n    </tr>\r\n    <tr>\r\n      <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n          <tbody><tr>\r\n            <td align=\"center\" width=\"600\">\r\n              <!--header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#0087ff\" style=\"border-top-left-radius:6px; border-top-right-radius:6px;text-align:center;vertical-align:top;font-size:0;\" align=\"center\">\r\n                    <table width=\"90%\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#FFFFFF; font-size:16px; font-weight: bold;\">This is a System Generated Email</td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n              <!--end header-->\r\n              <table class=\"table-inner\" width=\"95%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                <tbody><tr>\r\n                  <td bgcolor=\"#FFFFFF\" align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"35\"></td>\r\n                      </tr>\r\n                      <!--logo-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"vertical-align:top;font-size:0;\">\r\n                          <a href=\"#\">\r\n                            <img style=\"display:block; line-height:0px; font-size:0px; border:0px;\" src=\"https://i.imgur.com/Z1qtvtV.png\" alt=\"img\">\r\n                          </a>\r\n                        </td>\r\n                      </tr>\r\n                      <!--end logo-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n                      <!--headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 22px;color:#414a51;font-weight: bold;\">Hello {{fullname}} ({{username}})</td>\r\n                      </tr>\r\n                      <!--end headline-->\r\n                      <tr>\r\n                        <td align=\"center\" style=\"text-align:center;vertical-align:top;font-size:0;\">\r\n                          <table width=\"40\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n                            <tbody><tr>\r\n                              <td height=\"20\" style=\" border-bottom:3px solid #0087ff;\"></td>\r\n                            </tr>\r\n                          </tbody></table>\r\n                        </td>\r\n                      </tr>\r\n                      <tr>\r\n                        <td height=\"20\"></td>\r\n                      </tr>\r\n                      <!--content-->\r\n                      <tr>\r\n                        <td align=\"left\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#7f8c8d; font-size:16px; line-height: 28px;\">{{message}}</td>\r\n                      </tr>\r\n                      <!--end content-->\r\n                      <tr>\r\n                        <td height=\"40\"></td>\r\n                      </tr>\r\n              \r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n                <tr>\r\n                  <td height=\"45\" align=\"center\" bgcolor=\"#f4f4f4\" style=\"border-bottom-left-radius:6px;border-bottom-right-radius:6px;\">\r\n                    <table align=\"center\" width=\"90%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n                      <tbody><tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                      <!--preference-->\r\n                      <tr>\r\n                        <td class=\"preference-link\" align=\"center\" style=\"font-family: \'Open sans\', Arial, sans-serif; color:#95a5a6; font-size:14px;\">\r\n                          © 2021 <a href=\"#\">Website Name</a> . All Rights Reserved. \r\n                        </td>\r\n                      </tr>\r\n                      <!--end preference-->\r\n                      <tr>\r\n                        <td height=\"10\"></td>\r\n                      </tr>\r\n                    </tbody></table>\r\n                  </td>\r\n                </tr>\r\n              </tbody></table>\r\n            </td>\r\n          </tr>\r\n        </tbody></table>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td height=\"60\"></td>\r\n    </tr>\r\n  </tbody></table>', 'hi {{name}}, {{message}}', '4e7252', NULL, '{\"name\":\"php\"}', '{\"clickatell_api_key\":\"----------------------------\",\"infobip_username\":\"--------------\",\"infobip_password\":\"----------------------\",\"message_bird_api_key\":\"-------------------\",\"nexmo_api_key\":\"----------------------\",\"nexmo_api_secret\":\"----------------------\",\"sms_broadcast_username\":\"----------------------\",\"sms_broadcast_password\":\"-----------------------------\",\"account_sid\":\"-----------------------\",\"auth_token\":\"---------------------------\",\"from\":\"----------------------\",\"text_magic_username\":\"-----------------------\",\"apiv2_key\":\"-------------------------------\",\"name\":\"textMagic\"}', 0, 1, 0, 1, 0, 0, 0, 1, 'basic', '{\"version\":\"2.0\",\"details\":\"\"}', NULL, '2024-08-15 03:21:47');
 
 -- --------------------------------------------------------
 
@@ -591,29 +580,13 @@ CREATE TABLE `locations` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `locations2`
+-- Dumping data for table `locations`
 --
 
-CREATE TABLE `locations2` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(40) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `locations2`
---
-
-INSERT INTO `locations2` (`id`, `name`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Arusha', 1, '2024-07-26 10:37:51', '2024-07-26 10:37:51'),
-(2, 'Dar es salaam', 1, '2024-07-26 10:38:02', '2024-07-26 10:38:02'),
-(3, 'Mwanza', 1, '2024-07-26 10:38:13', '2024-07-26 10:38:13'),
-(4, 'Dodoma', 1, '2024-08-02 15:46:29', '2024-08-02 15:46:29');
+INSERT INTO `locations` (`id`, `name`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Arusha', 1, '2024-08-10 16:07:59', '2024-08-10 16:07:59'),
+(2, 'Dar es salaam', 1, '2024-08-10 16:08:12', '2024-08-10 16:08:12');
 
 -- --------------------------------------------------------
 
@@ -622,9 +595,9 @@ INSERT INTO `locations2` (`id`, `name`, `status`, `created_at`, `updated_at`) VA
 --
 
 CREATE TABLE `migrations` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
   `migration` varchar(255) NOT NULL,
-  `batch` int(10) NOT NULL
+  `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -633,17 +606,17 @@ CREATE TABLE `migrations` (
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(2, '2021_03_15_084721_create_admin_notifications_table', 2),
-(3, '2021_05_08_103925_create_sms_gateways_table', 2),
-(4, '2021_05_23_111859_create_email_logs_table', 3),
-(5, '2021_07_07_181653_create_brands_table', 4),
-(6, '2021_07_07_190418_create_locations_table', 5),
-(7, '2021_07_07_190514_create_seaters_table', 6),
-(8, '2021_07_08_105409_create_vehicles_table', 7),
-(9, '2021_07_08_161237_create_plans_table', 8),
-(10, '2021_08_11_104730_create_ratings_table', 9),
-(11, '2021_08_11_133934_create_rent_logs_table', 10),
-(12, '2021_08_11_185516_create_plan_logs_table', 11);
+(2, '2021_03_15_084721_create_admin_notifications_table', 1),
+(3, '2021_05_08_103925_create_sms_gateways_table', 1),
+(4, '2021_05_23_111859_create_email_logs_table', 1),
+(5, '2021_07_07_181653_create_brands_table', 1),
+(6, '2021_07_07_190418_create_locations_table', 1),
+(7, '2021_07_07_190514_create_seaters_table', 1),
+(8, '2021_07_08_105409_create_vehicles_table', 1),
+(9, '2021_07_08_161237_create_plans_table', 1),
+(10, '2021_08_11_104730_create_ratings_table', 1),
+(11, '2021_08_11_133934_create_rent_logs_table', 1),
+(12, '2021_08_11_185516_create_plan_logs_table', 1);
 
 -- --------------------------------------------------------
 
@@ -667,7 +640,7 @@ CREATE TABLE `pages` (
 --
 
 INSERT INTO `pages` (`id`, `name`, `slug`, `tempname`, `secs`, `is_default`, `created_at`, `updated_at`) VALUES
-(1, 'Home', 'home', 'templates.basic.', '[\"vehicle_rent\",\"choose_us\",\"how_work\",\"app\",\"plan\",\"faq\",\"testimonial\"]', 1, '2020-07-11 06:23:58', '2021-08-09 13:45:19'),
+(1, 'Home', 'home', 'templates.basic.', '[\"vehicle_rent\",\"plan\",\"choose_us\",\"how_work\",\"app\",\"faq\",\"testimonial\"]', 1, '2020-07-11 06:23:58', '2021-08-09 13:45:19'),
 (12, 'About', 'about', 'templates.basic.', '[\"about\",\"choose_us\",\"testimonial\",\"blog\"]', 0, '2021-08-10 04:47:33', '2021-08-10 05:02:43');
 
 -- --------------------------------------------------------
@@ -703,49 +676,14 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personal_access_tokens2`
---
-
-CREATE TABLE `personal_access_tokens2` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) NOT NULL,
-  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `abilities` text DEFAULT NULL,
-  `last_used_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `plans`
 --
 
 CREATE TABLE `plans` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `price` decimal(18,8) NOT NULL DEFAULT 0.00000000,
-  `included` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`included`)),
-  `excluded` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`excluded`)),
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `plans2`
---
-
-CREATE TABLE `plans2` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `price` decimal(18,8) NOT NULL DEFAULT 0.00000000,
-  `days` int(11) NOT NULL DEFAULT 0,
+  `price` decimal(18,2) NOT NULL DEFAULT 0.00,
+  `days` int(11) DEFAULT NULL,
   `included` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`included`)),
   `excluded` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`excluded`)),
   `status` tinyint(1) NOT NULL DEFAULT 1,
@@ -754,12 +692,11 @@ CREATE TABLE `plans2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `plans2`
+-- Dumping data for table `plans`
 --
 
-INSERT INTO `plans2` (`id`, `name`, `price`, `days`, `included`, `excluded`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'HM', 60.00000000, 2, '[\"Include1\",\"Include2\"]', '[\"Fuel\",\"Lunch\"]', 1, '2024-07-26 16:39:50', '2024-07-26 16:39:50'),
-(2, 'Diamond', 200000.00000000, 5, '[\"Fuel\"]', '[\"Food\"]', 1, '2024-07-26 16:44:46', '2024-07-26 16:44:46');
+INSERT INTO `plans` (`id`, `name`, `price`, `days`, `included`, `excluded`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Rhods Diamond plan', 120000.00, 3, '[\"Fuel\",\"Driver\"]', '[\"Barake down\"]', 1, '2024-08-09 15:54:44', '2024-08-09 15:54:44');
 
 -- --------------------------------------------------------
 
@@ -773,25 +710,6 @@ CREATE TABLE `plan_logs` (
   `plan_id` int(11) NOT NULL DEFAULT 0,
   `pick_location` int(11) NOT NULL DEFAULT 0,
   `pick_time` timestamp NULL DEFAULT NULL,
-  `price` decimal(18,8) NOT NULL DEFAULT 0.00000000,
-  `trx` varchar(255) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 0,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `plan_logs2`
---
-
-CREATE TABLE `plan_logs2` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` int(11) NOT NULL DEFAULT 0,
-  `plan_id` int(11) NOT NULL DEFAULT 0,
-  `pick_location` int(11) NOT NULL DEFAULT 0,
-  `pick_time` timestamp NULL DEFAULT NULL,
   `drop_time` timestamp NULL DEFAULT NULL,
   `price` decimal(18,8) NOT NULL DEFAULT 0.00000000,
   `trx` varchar(255) DEFAULT NULL,
@@ -799,19 +717,6 @@ CREATE TABLE `plan_logs2` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `plan_logs2`
---
-
-INSERT INTO `plan_logs2` (`id`, `user_id`, `plan_id`, `pick_location`, `pick_time`, `drop_time`, `price`, `trx`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 2, 1, '2024-07-30 20:44:00', '2024-08-04 20:44:00', 200000.00000000, NULL, 0, '2024-07-26 17:44:56', '2024-07-26 17:44:56'),
-(2, 1, 2, 1, '2024-07-31 20:59:00', '2024-08-05 20:59:00', 200000.00000000, NULL, 0, '2024-07-26 17:59:47', '2024-07-26 17:59:47'),
-(3, 1, 1, 2, '2024-08-20 12:12:00', '2024-08-22 12:12:00', 60.00000000, NULL, 0, '2024-08-01 09:12:33', '2024-08-01 09:12:33'),
-(4, 1, 1, 2, '2024-08-20 12:12:00', '2024-08-22 12:12:00', 60.00000000, NULL, 0, '2024-08-01 09:39:21', '2024-08-01 09:39:21'),
-(5, 1, 1, 1, '2024-08-27 13:07:00', '2024-08-29 13:07:00', 60.00000000, NULL, 0, '2024-08-01 10:07:23', '2024-08-01 10:07:23'),
-(6, 1, 2, 1, '2024-08-31 18:28:00', '2024-09-05 18:28:00', 200000.00000000, NULL, 0, '2024-08-02 15:28:22', '2024-08-02 15:28:22'),
-(7, 1, 2, 1, '2024-09-30 18:28:00', '2024-10-05 18:28:00', 200000.00000000, NULL, 0, '2024-08-02 15:33:15', '2024-08-02 15:33:15');
 
 -- --------------------------------------------------------
 
@@ -832,29 +737,6 @@ CREATE TABLE `ratings` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ratings2`
---
-
-CREATE TABLE `ratings2` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` int(11) NOT NULL DEFAULT 0,
-  `vehicle_id` int(11) NOT NULL DEFAULT 0,
-  `rating` int(11) NOT NULL DEFAULT 0,
-  `comment` text DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `ratings2`
---
-
-INSERT INTO `ratings2` (`id`, `user_id`, `vehicle_id`, `rating`, `comment`, `created_at`, `updated_at`) VALUES
-(1, 1, 3, 4, 'Good Car', '2024-08-03 14:53:27', '2024-08-03 14:53:27');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `rent_logs`
 --
 
@@ -866,30 +748,7 @@ CREATE TABLE `rent_logs` (
   `drop_location` int(11) NOT NULL DEFAULT 0,
   `pick_time` timestamp NULL DEFAULT NULL,
   `drop_time` timestamp NULL DEFAULT NULL,
-  `price` decimal(18,8) NOT NULL DEFAULT 0.00000000,
-  `trx` varchar(255) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 0,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rent_logs2`
---
-
-CREATE TABLE `rent_logs2` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` int(11) NOT NULL DEFAULT 0,
-  `vehicle_id` int(11) NOT NULL DEFAULT 0,
-  `pick_location` int(11) NOT NULL DEFAULT 0,
-  `drop_location` int(11) NOT NULL DEFAULT 0,
-  `pick_time` timestamp NULL DEFAULT NULL,
-  `drop_time` timestamp NULL DEFAULT NULL,
   `price` decimal(18,2) NOT NULL DEFAULT 0.00,
-  `paid` decimal(18,2) NOT NULL DEFAULT 0.00,
-  `remain_balance` decimal(18,2) NOT NULL DEFAULT 0.00,
   `trx` varchar(255) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -897,39 +756,18 @@ CREATE TABLE `rent_logs2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `rent_logs2`
+-- Dumping data for table `rent_logs`
 --
 
-INSERT INTO `rent_logs2` (`id`, `user_id`, `vehicle_id`, `pick_location`, `drop_location`, `pick_time`, `drop_time`, `price`, `paid`, `remain_balance`, `trx`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 2, '2024-07-30 13:47:00', '2024-07-31 13:47:00', 30.00, 0.00, 0.00, NULL, 0, '2024-07-26 10:48:13', '2024-07-26 10:48:13'),
-(2, 1, 1, 3, 1, '2024-07-30 13:57:00', '2024-07-31 13:57:00', 30.00, 0.00, 0.00, NULL, 0, '2024-07-26 10:57:47', '2024-07-26 10:57:47'),
-(3, 1, 1, 3, 1, '2024-07-30 13:57:00', '2024-07-31 13:57:00', 30.00, 0.00, 0.00, NULL, 0, '2024-07-26 10:58:19', '2024-07-26 10:58:19'),
-(4, 1, 1, 1, 2, '2024-07-29 20:53:00', '2024-08-31 08:53:00', 960.00, 0.00, 0.00, NULL, 0, '2024-07-26 17:54:38', '2024-07-26 17:54:38'),
-(5, 1, 2, 1, 2, '2024-07-28 20:58:00', '2024-07-31 20:58:00', 180.00, 0.00, 0.00, NULL, 0, '2024-07-26 17:58:52', '2024-07-26 17:58:52'),
-(6, 1, 2, 1, 2, '2024-07-28 20:58:00', '2024-07-31 20:58:00', 180.00, 0.00, 0.00, NULL, 0, '2024-07-26 17:59:30', '2024-07-26 17:59:30'),
-(7, 1, 2, 1, 2, '2024-07-30 09:46:00', '2024-07-30 09:46:00', 0.00, 0.00, 0.00, NULL, 0, '2024-07-27 06:47:12', '2024-07-27 06:47:12'),
-(8, 1, 1, 1, 2, '2024-08-27 13:07:00', '2024-08-27 13:07:00', 0.00, 0.00, 0.00, NULL, 0, '2024-08-01 10:08:11', '2024-08-01 10:08:11'),
-(9, 1, 1, 1, 2, '2024-08-27 13:07:00', '2024-08-27 13:07:00', 0.00, 0.00, 0.00, NULL, 0, '2024-08-01 10:11:30', '2024-08-01 10:11:30'),
-(10, 1, 2, 2, 1, '2024-08-31 13:14:00', '2024-09-30 13:14:00', 1800.00, 0.00, 0.00, NULL, 0, '2024-08-01 10:14:31', '2024-08-01 10:14:31'),
-(11, 1, 1, 1, 2, '2024-08-27 13:37:00', '2024-08-30 13:37:00', 90.00, 0.00, 0.00, NULL, 0, '2024-08-01 10:37:46', '2024-08-01 10:37:46'),
-(12, 1, 2, 1, 2, '2024-08-30 18:29:00', '2024-09-24 18:29:00', 1500.00, 0.00, 0.00, NULL, 0, '2024-08-01 15:29:43', '2024-08-01 15:29:43'),
-(13, 1, 2, 2, 3, '2024-08-31 18:34:00', '2024-09-30 18:34:00', 1800.00, 0.00, 0.00, NULL, 0, '2024-08-01 15:34:50', '2024-08-01 15:34:50'),
-(14, 1, 2, 2, 3, '2024-08-31 18:34:00', '2024-09-30 18:34:00', 1800.00, 0.00, 0.00, NULL, 0, '2024-08-01 15:45:44', '2024-08-01 15:45:44'),
-(15, 1, 2, 2, 3, '2024-08-31 18:34:00', '2024-09-30 18:34:00', 1800.00, 0.00, 0.00, NULL, 0, '2024-08-01 15:45:47', '2024-08-01 15:45:47'),
-(16, 1, 2, 2, 3, '2024-08-31 18:34:00', '2024-09-30 18:34:00', 1800.00, 0.00, 0.00, NULL, 0, '2024-08-01 15:48:12', '2024-08-01 15:48:12'),
-(17, 1, 2, 1, 3, '2024-08-21 18:48:00', '2024-08-31 18:48:00', 600.00, 0.00, 0.00, NULL, 0, '2024-08-01 15:48:23', '2024-08-01 15:48:23'),
-(18, 1, 2, 1, 3, '2024-08-21 18:48:00', '2024-08-31 18:48:00', 600.00, 0.00, 0.00, NULL, 0, '2024-08-01 15:52:19', '2024-08-01 15:52:19'),
-(19, 1, 2, 1, 2, '2024-08-29 11:34:00', '2024-08-31 11:34:00', 120.00, 0.00, 0.00, NULL, 0, '2024-08-02 08:34:09', '2024-08-02 08:34:09'),
-(20, 1, 2, 1, 2, '2024-08-29 11:59:00', '2024-08-31 11:59:00', 120.00, 0.00, 0.00, NULL, 0, '2024-08-02 09:02:18', '2024-08-02 09:02:18'),
-(21, 1, 2, 1, 2, '2024-08-31 12:11:00', '2024-09-23 12:11:00', 1380.00, 0.00, 0.00, NULL, 0, '2024-08-02 09:11:54', '2024-08-02 09:11:54'),
-(22, 1, 2, 1, 2, '2024-08-31 12:11:00', '2024-09-23 12:11:00', 1380.00, 0.00, 0.00, NULL, 0, '2024-08-02 09:23:44', '2024-08-02 09:23:44'),
-(23, 1, 2, 1, 2, '2024-08-31 13:21:00', '2024-09-21 13:21:00', 1260.00, 0.00, 0.00, 'GK6EQ94YBX8Q', 1, '2024-08-02 10:21:55', '2024-08-02 15:26:20'),
-(24, 1, 2, 1, 2, '2024-08-31 13:24:00', '2024-09-30 13:24:00', 1800.00, 0.00, 0.00, 'OMGH8SZY7UO5', 1, '2024-08-02 10:25:06', '2024-08-02 15:13:52'),
-(25, 1, 3, 1, 2, '2024-08-31 18:54:00', '2024-09-01 18:54:00', 150000.00, 0.00, 0.00, NULL, 0, '2024-08-02 15:55:41', '2024-08-02 15:55:41'),
-(26, 1, 3, 1, 2, '2024-08-31 18:54:00', '2024-09-08 18:54:00', 1200000.00, 0.00, 0.00, NULL, 0, '2024-08-02 15:56:38', '2024-08-02 15:56:38'),
-(27, 1, 3, 1, 2, '2024-08-03 08:42:00', '2024-08-05 08:42:00', 300000.00, 0.00, 0.00, 'OO81WKT35ZTE', 1, '2024-08-03 05:43:01', '2024-08-05 06:09:31'),
-(28, 1, 1, 2, 4, '2024-08-03 11:51:00', '2024-08-06 11:51:00', 90.00, 0.00, 0.00, NULL, 0, '2024-08-03 08:57:52', '2024-08-03 08:57:52'),
-(29, 1, 1, 2, 4, '2024-08-03 11:51:00', '2024-08-08 11:51:00', 150.00, 0.00, 0.00, 'NK9QFODBUMVC', 1, '2024-08-03 08:59:58', '2024-08-03 09:26:41');
+INSERT INTO `rent_logs` (`id`, `user_id`, `vehicle_id`, `pick_location`, `drop_location`, `pick_time`, `drop_time`, `price`, `trx`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 4, 1, 2, '2024-08-28 11:35:00', '2024-08-30 11:35:00', 510000.00, NULL, 0, '2024-08-15 08:35:52', '2024-08-15 08:35:52'),
+(2, 1, 3, 1, 2, '2024-08-26 11:56:00', '2024-08-31 11:56:00', 1020000.00, NULL, 0, '2024-08-15 08:56:25', '2024-08-15 08:56:25'),
+(3, 1, 2, 1, 1, '2024-08-29 11:59:00', '2024-08-31 11:59:00', 15000.00, NULL, 0, '2024-08-15 08:59:24', '2024-08-15 08:59:24'),
+(4, 1, 2, 1, 1, '2024-08-27 12:03:00', '2024-08-29 12:03:00', 15000.00, NULL, 0, '2024-08-15 09:03:11', '2024-08-15 09:03:11'),
+(5, 1, 2, 1, 2, '2024-08-26 12:08:00', '2024-08-30 12:08:00', 25000.00, NULL, 0, '2024-08-15 09:08:30', '2024-08-15 09:08:30'),
+(6, 1, 3, 1, 2, '2024-08-29 12:31:00', '2024-08-31 12:31:00', 510000.00, NULL, 0, '2024-08-15 09:31:22', '2024-08-15 09:31:22'),
+(7, 1, 2, 1, 2, '2024-08-28 09:31:00', '2024-08-30 09:31:00', 15000.00, NULL, 0, '2024-08-16 06:31:54', '2024-08-16 06:31:54'),
+(8, 1, 3, 1, 2, '2024-08-27 11:24:00', '2024-08-31 11:24:00', 850000.00, NULL, 0, '2024-08-16 08:24:14', '2024-08-16 08:24:14');
 
 -- --------------------------------------------------------
 
@@ -945,30 +783,14 @@ CREATE TABLE `seaters` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `seaters2`
+-- Dumping data for table `seaters`
 --
 
-CREATE TABLE `seaters2` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `number` varchar(40) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `seaters2`
---
-
-INSERT INTO `seaters2` (`id`, `number`, `status`, `created_at`, `updated_at`) VALUES
-(1, '2', 1, '2024-07-26 10:38:22', '2024-07-26 10:38:22'),
-(2, '3', 1, '2024-07-26 10:38:26', '2024-07-26 10:38:26'),
-(3, '4', 1, '2024-07-26 10:38:32', '2024-07-26 10:38:32'),
-(4, '5', 1, '2024-07-26 10:38:37', '2024-07-26 10:38:37'),
-(5, '6', 1, '2024-07-26 10:38:43', '2024-07-26 10:38:43');
+INSERT INTO `seaters` (`id`, `number`, `status`, `created_at`, `updated_at`) VALUES
+(1, '3', 1, '2024-08-09 09:38:22', '2024-08-09 09:38:22'),
+(2, '2', 1, '2024-08-09 09:38:29', '2024-08-09 09:38:29'),
+(3, '4', 1, '2024-08-09 09:38:37', '2024-08-09 09:38:37');
 
 -- --------------------------------------------------------
 
@@ -1083,6 +905,35 @@ INSERT INTO `support_tickets` (`id`, `user_id`, `name`, `email`, `ticket`, `subj
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tags`
+--
+
+CREATE TABLE `tags` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tag` varchar(40) DEFAULT NULL,
+  `images` longtext DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tags`
+--
+
+INSERT INTO `tags` (`id`, `tag`, `images`, `status`, `created_at`, `updated_at`) VALUES
+(2, 'Hatchback', 'hatchback2_1723108964.jpeg', 1, '2024-08-07 10:04:15', '2024-08-08 06:22:44'),
+(3, 'Sedan', 'sedan4_1723108493.jpeg', 1, '2024-08-08 04:35:10', '2024-08-08 06:14:53'),
+(4, 'Coaster', 'coaster1_1723109165.jpeg', 1, '2024-08-08 06:26:05', '2024-08-08 06:26:05'),
+(5, 'Min bus', 'minbus1_1723109186.jpeg', 1, '2024-08-08 06:26:26', '2024-08-08 06:26:26'),
+(6, 'Truck', 'truck1_1723109525.jpeg', 1, '2024-08-08 06:32:05', '2024-08-08 06:32:05'),
+(7, 'Cargo', 'R3_1723231179.jpeg', 1, '2024-08-09 16:19:39', '2024-08-09 16:19:39'),
+(9, 'Tours Car', 'R3_1723231322.jpeg', 1, '2024-08-09 16:22:02', '2024-08-12 15:58:17'),
+(10, 'Sports car', 'R3_1723360841.jpeg', 1, '2024-08-11 06:20:41', '2024-08-11 06:20:41');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -1117,7 +968,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `email`, `country_code`, `mobile`, `ref_by`, `balance`, `password`, `image`, `address`, `status`, `ev`, `sv`, `ver_code`, `ver_code_send_at`, `ts`, `tv`, `tsc`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Buruhani', 'Wawa', 'buruwawa12345', 'buruwawa@gmail.com', 'TZ', '255764706227', 0, 0.00000000, '$2y$10$mqz9SmbincbcjHsXZFtHW.zA05dfdsTbWhklf7bxwp.cpJHhxFm/.', NULL, '{\"address\":\"\",\"state\":\"\",\"zip\":\"\",\"country\":\"Tanzania\",\"city\":\"\"}', 1, 1, 1, NULL, NULL, 0, 1, NULL, 'y4eA0Mz16wOwzYXaeXzFu14gQUH0P55dRZKwPuyQeAxChSmzOkgvR8lv4CgO', '2024-07-26 09:58:19', '2024-07-26 09:58:19');
+(1, 'Buruhani', 'Wawa', 'buruwawa12345', 'buruwawa@gmail.com', 'TZ', '255764706227', 0, 0.00000000, '$2y$10$mqz9SmbincbcjHsXZFtHW.zA05dfdsTbWhklf7bxwp.cpJHhxFm/.', NULL, '{\"address\":\"\",\"state\":\"\",\"zip\":\"\",\"country\":\"Tanzania\",\"city\":\"\"}', 1, 1, 1, NULL, NULL, 0, 1, NULL, 'Kf48ZtJ5gM89fjCT7np7sLzcVWYuHu2YrcVjYvg0pDe7tfRMevSiwzmDZqug', '2024-07-26 09:58:19', '2024-07-26 09:58:19');
 
 -- --------------------------------------------------------
 
@@ -1165,7 +1016,19 @@ INSERT INTO `user_logins` (`id`, `user_id`, `user_ip`, `city`, `country`, `count
 (18, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-05 04:52:10', '2024-08-05 04:52:10'),
 (19, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-05 14:44:47', '2024-08-05 14:44:47'),
 (20, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-06 07:01:15', '2024-08-06 07:01:15'),
-(21, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-07 13:20:20', '2024-08-07 13:20:20');
+(21, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-07 13:20:20', '2024-08-07 13:20:20'),
+(22, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-09 09:40:56', '2024-08-09 09:40:56'),
+(23, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-10 03:21:03', '2024-08-10 03:21:03'),
+(24, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-10 16:01:59', '2024-08-10 16:01:59'),
+(25, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-11 07:02:06', '2024-08-11 07:02:06'),
+(26, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-11 09:10:44', '2024-08-11 09:10:44'),
+(27, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-11 15:53:51', '2024-08-11 15:53:51'),
+(28, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-11 16:13:33', '2024-08-11 16:13:33'),
+(29, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-12 08:54:36', '2024-08-12 08:54:36'),
+(30, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-12 09:18:23', '2024-08-12 09:18:23'),
+(31, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-12 09:57:15', '2024-08-12 09:57:15'),
+(32, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-15 03:23:06', '2024-08-15 03:23:06'),
+(33, 1, '127.0.0.1', '', '', '', '', '', 'Firefox', 'Windows 10', '2024-08-16 06:16:12', '2024-08-16 06:16:12');
 
 -- --------------------------------------------------------
 
@@ -1177,32 +1040,9 @@ CREATE TABLE `vehicles` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `brand_id` int(11) NOT NULL DEFAULT 0,
+  `color_id` int(11) DEFAULT NULL,
   `car_body_type_id` int(11) NOT NULL DEFAULT 0,
-  `seater_id` int(11) NOT NULL DEFAULT 0,
-  `price` decimal(18,8) NOT NULL DEFAULT 0.00000000,
-  `details` text DEFAULT NULL,
-  `images` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`images`)),
-  `model` varchar(255) DEFAULT NULL,
-  `doors` int(11) NOT NULL DEFAULT 0,
-  `transmission` varchar(40) DEFAULT NULL,
-  `fuel_type` varchar(40) DEFAULT NULL,
-  `specifications` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`specifications`)),
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `vehicles2`
---
-
-CREATE TABLE `vehicles2` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `brand_id` int(11) NOT NULL DEFAULT 0,
-  `car_body_type_id` int(11) NOT NULL DEFAULT 0,
+  `tag_id` int(11) DEFAULT NULL,
   `seater_id` int(11) NOT NULL DEFAULT 0,
   `price` decimal(18,2) NOT NULL DEFAULT 0.00,
   `details` text DEFAULT NULL,
@@ -1218,19 +1058,14 @@ CREATE TABLE `vehicles2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `vehicles2`
+-- Dumping data for table `vehicles`
 --
 
-INSERT INTO `vehicles2` (`id`, `name`, `brand_id`, `car_body_type_id`, `seater_id`, `price`, `details`, `images`, `model`, `doors`, `transmission`, `fuel_type`, `specifications`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'T 675 BJM', 1, 2, 4, 120000.00, 'Leather seat,etc<br>', '[\"66a3a7ddcfcbb1722001373.jpeg\",\"66ae259feb36b1722688927.jpeg\",\"66ae25a0c1f5d1722688928.png\"]', 'Toyota Opa', 4, 'AT', 'Diesel', '{\"About Quality security service\":[\"<i class=\\\"las la-headphones-alt\\\"><\\/i>\",\"About Quality security service\",\"10\"]}', 0, '2024-07-26 10:42:54', '2024-08-07 15:16:14'),
-(2, 'T 367 BTZ', 1, 0, 4, 60.00, 'Leather seat,Music system,Radios<br>', '[\"66a408d5596771722026197.jpeg\"]', 'Toyota Opa', 4, 'Atomatic', 'Petrol', '{\"About Quality security service\":[\"<i class=\\\"las la-headset\\\"><\\/i>\",\"About Quality security service\",\"90\"]}', 1, '2024-07-26 17:36:37', '2024-07-26 17:36:37'),
-(3, 'T DNB 567', 3, 0, 4, 150000.00, 'Leather seat, Air condition', '[\"66ad2abe150181722624702.png\",\"66ad2abfa73b61722624703.png\"]', 'GLC', 6, 'AT', 'Diesel', '{\"Seat cover\":[\"<i class=\\\"las la-headset\\\"><\\/i>\",\"Seat cover\",\"90\"]}', 1, '2024-08-02 15:51:45', '2024-08-06 15:50:37'),
-(4, 'T 567 BNM', 5, 0, 4, 170000.00, 'T 567 bnm', '[\"66b21e4f910131722949199.jpeg\",\"66b21e4fbe12b1722949199.jpeg\"]', 'Subaru TGT', 4, 'Manual', 'Petrol', '{\"Sff\":[\"<i class=\\\"las la-headset\\\"><\\/i>\",\"Sff\",\"678\"]}', 1, '2024-08-06 09:59:59', '2024-08-06 15:50:06'),
-(5, 'T 575 BNM', 5, 0, 4, 150000.00, 'T Haji', '[\"66b22defea72c1722953199.jpeg\"]', 'Haga', 4, 'Automatic', 'Electric', '{\"44\":[\"<i class=\\\"las la-headset\\\"><\\/i>\",\"44\",\"44\"]}', 1, '2024-08-06 11:06:40', '2024-08-06 15:50:23'),
-(6, 'admin nmb', 3, 0, 2, 170000.00, 'kjl', '[\"66b271a9d638c1722970537.jpeg\"]', '90', 8, 'Semi-automatic', 'Diesel', '{\"po\":[\"<i class=\\\"las la-heart\\\"><\\/i>\",\"po\",\"90\"]}', 1, '2024-08-06 15:55:38', '2024-08-06 15:55:38'),
-(7, 'T 56p BNM', 3, 1, 3, 170000.00, 'hhh', '[\"66b3a8ab4b9cd1723050155.jpeg\"]', 'tt', 4, 'Automatic', 'Diesel', '{\"pop\":[\"<i class=\\\"las la-headset\\\"><\\/i>\",\"pop\",\"89\"]}', 1, '2024-08-07 14:02:35', '2024-08-07 14:02:35'),
-(8, 'T 597 BNM', 3, 1, 3, 150000.00, 'jkl', '[\"66b4755ac415c1723102554.jpeg\"]', 'T hg', 3, 'Manual', 'Petrol', '{\"ee\":[\"<i class=\\\"las la-heart\\\"><\\/i>\",\"ee\",\"3\"]}', 1, '2024-08-07 14:03:29', '2024-08-08 04:35:55'),
-(9, 'adminc', 5, 2, 1, 150000.00, 'dff', '[\"66b3a94ac8fdd1723050314.jpeg\"]', '33', 2, 'Semi-automatic', 'Diesel', '{\"e\":[\"<i class=\\\"las la-headphones-alt\\\"><\\/i>\",\"e\",\"3\"]}', 1, '2024-08-07 14:05:14', '2024-08-07 14:25:50');
+INSERT INTO `vehicles` (`id`, `name`, `brand_id`, `color_id`, `car_body_type_id`, `tag_id`, `seater_id`, `price`, `details`, `images`, `model`, `doors`, `transmission`, `fuel_type`, `specifications`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'T 567 BNM', 1, NULL, 1, 1, 3, 170000.00, 'Confotable', '[\"66b60e1b3481e1723207195.jpeg\",\"66b60e1bf39411723207195.jpeg\",\"66b60e1c0fdd01723207196.jpeg\"]', 'Range xcv', 4, 'Automatic', 'Diesel', '{\"rt\":[\"<i class=\\\"las la-home\\\"><\\/i>\",\"rt\",\"344\"]}', 1, '2024-08-09 09:39:56', '2024-08-11 06:59:05'),
+(2, 'T 567 BNM', 1, NULL, 1, 2, 3, 5000.00, 'rtrt', '[\"66b86c1501ee61723362325.jpeg\"]', 'tt', 5, 'Manual', 'Electric', '{\"ghh\":[\"<i class=\\\"las la-headset\\\"><\\/i>\",\"ghh\",\"545\"]}', 1, '2024-08-11 06:45:25', '2024-08-11 06:56:37'),
+(3, 'T 367 BNM', 1, NULL, 2, 10, 3, 170000.00, 'dd', '[\"66b86c5c9911b1723362396.jpeg\"]', '4', 3, 'Automatic', 'Petrol', '{\"44\":[\"<i class=\\\"las la-headset\\\"><\\/i>\",\"44\",\"33\"]}', 1, '2024-08-11 06:46:36', '2024-08-11 06:46:36'),
+(4, 'T 567 DNM', 1, 7, 3, 10, 2, 170000.00, 'ff', '[\"66bcf54c8f1e71723659596.jpeg\"]', 'Range xcv vbnm', 4, 'Automatic', 'Petrol', '{\"4\":[\"<i class=\\\"las la-heart\\\"><\\/i>\",\"4\",\"567\"]}', 1, '2024-08-14 15:19:57', '2024-08-14 15:33:24');
 
 --
 -- Indexes for dumped tables
@@ -1250,12 +1085,6 @@ ALTER TABLE `admin_notifications`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `admin_notifications2`
---
-ALTER TABLE `admin_notifications2`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `admin_password_resets`
 --
 ALTER TABLE `admin_password_resets`
@@ -1268,15 +1097,21 @@ ALTER TABLE `brands`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `brands2`
+-- Indexes for table `carmodels`
 --
-ALTER TABLE `brands2`
+ALTER TABLE `carmodels`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `cartypes`
 --
 ALTER TABLE `cartypes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `colors`
+--
+ALTER TABLE `colors`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1289,12 +1124,6 @@ ALTER TABLE `deposits`
 -- Indexes for table `email_logs`
 --
 ALTER TABLE `email_logs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `email_logs2`
---
-ALTER TABLE `email_logs2`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1346,12 +1175,6 @@ ALTER TABLE `locations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `locations2`
---
-ALTER TABLE `locations2`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -1372,23 +1195,9 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexes for table `personal_access_tokens2`
---
-ALTER TABLE `personal_access_tokens2`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
-  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
-
---
 -- Indexes for table `plans`
 --
 ALTER TABLE `plans`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `plans2`
---
-ALTER TABLE `plans2`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1398,21 +1207,9 @@ ALTER TABLE `plan_logs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `plan_logs2`
---
-ALTER TABLE `plan_logs2`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `ratings`
 --
 ALTER TABLE `ratings`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ratings2`
---
-ALTER TABLE `ratings2`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1422,21 +1219,9 @@ ALTER TABLE `rent_logs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `rent_logs2`
---
-ALTER TABLE `rent_logs2`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `seaters`
 --
 ALTER TABLE `seaters`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `seaters2`
---
-ALTER TABLE `seaters2`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1470,6 +1255,12 @@ ALTER TABLE `support_tickets`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tags`
+--
+ALTER TABLE `tags`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -1489,12 +1280,6 @@ ALTER TABLE `vehicles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `vehicles2`
---
-ALTER TABLE `vehicles2`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -1508,13 +1293,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `admin_notifications`
 --
 ALTER TABLE `admin_notifications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `admin_notifications2`
---
-ALTER TABLE `admin_notifications2`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `admin_password_resets`
@@ -1526,37 +1305,37 @@ ALTER TABLE `admin_password_resets`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `brands2`
+-- AUTO_INCREMENT for table `carmodels`
 --
-ALTER TABLE `brands2`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `carmodels`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `cartypes`
 --
 ALTER TABLE `cartypes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `colors`
+--
+ALTER TABLE `colors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `deposits`
 --
 ALTER TABLE `deposits`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `email_logs`
 --
 ALTER TABLE `email_logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `email_logs2`
---
-ALTER TABLE `email_logs2`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `email_sms_templates`
@@ -1604,19 +1383,13 @@ ALTER TABLE `languages`
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `locations2`
---
-ALTER TABLE `locations2`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -1631,22 +1404,10 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `personal_access_tokens2`
---
-ALTER TABLE `personal_access_tokens2`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `plans`
 --
 ALTER TABLE `plans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `plans2`
---
-ALTER TABLE `plans2`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `plan_logs`
@@ -1655,46 +1416,22 @@ ALTER TABLE `plan_logs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `plan_logs2`
---
-ALTER TABLE `plan_logs2`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `ratings2`
---
-ALTER TABLE `ratings2`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `rent_logs`
 --
 ALTER TABLE `rent_logs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `rent_logs2`
---
-ALTER TABLE `rent_logs2`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `seaters`
 --
 ALTER TABLE `seaters`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `seaters2`
---
-ALTER TABLE `seaters2`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sms_gateways`
@@ -1727,6 +1464,12 @@ ALTER TABLE `support_tickets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `tags`
+--
+ALTER TABLE `tags`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -1736,19 +1479,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_logins`
 --
 ALTER TABLE `user_logins`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `vehicles`
 --
 ALTER TABLE `vehicles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vehicles2`
---
-ALTER TABLE `vehicles2`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
