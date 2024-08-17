@@ -38,12 +38,8 @@
                             @php echo @$vehicle->details @endphp
                         </div>
                         <div class="btn__grp">
-                            @auth
-                                @if($vehicle->booked())
-                                    <a href="javascript:void(0)" class="cmn--btn">@lang('Booked')</a>
-                                @else
-                                    <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn">@lang('Book Your Ride')</a>
-                                @endif
+                            @auth                             
+                                 <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn">@lang('Book Your Ride')</a>
                             @else
                                 <a href="{{ route('user.login') }}" class="cmn--btn">@lang('Book Your Ride')</a>
                             @endauth

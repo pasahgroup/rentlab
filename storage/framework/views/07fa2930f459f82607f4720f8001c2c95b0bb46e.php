@@ -143,6 +143,8 @@
                                 <?php else: ?>
                                     <a href="<?php echo e(route('vehicle.booking', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"><?php echo app('translator')->get('Book Now'); ?></a>
                                 <?php endif; ?>
+
+                                 <a href="<?php echo e(route('vehicle.booking', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"><?php echo app('translator')->get('Book Now'); ?></a>
                             <?php else: ?>
                                 <a href="<?php echo e(route('user.login')); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"><?php echo app('translator')->get('Book Now'); ?></a>
                             <?php endif; ?>
