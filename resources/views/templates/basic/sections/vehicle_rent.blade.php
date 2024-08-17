@@ -138,11 +138,13 @@
 
                                            <div class="btn__grp">              
                                              @auth
-                                @if($vehicle->booked())
+                             {{--   @if($vehicle->booked())
                                     <a href="javascript:void(0)" class="cmn--btn">@lang('Booked')</a>
-                                @else
-                                    <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
-                                @endif
+                                @else 
+                                    
+                                @endif --}}
+
+                              
 
                                  <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
                             @else
