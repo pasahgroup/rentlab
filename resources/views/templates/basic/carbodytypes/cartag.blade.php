@@ -19,7 +19,6 @@
                                       @foreach($cartags as $cartag)
                                       <a href="/cartag-page/{{$cartag->tag}}" class="cmn--btn form--control bg--base w-100 justify-content-center"
                                     type="submit">{{$cartag->tag}}:({{$metaVehicles->where('tag',$cartag->tag)->count()}})</a>
-
                                       @endforeach
                               
                         </div>
@@ -62,7 +61,7 @@
 
 
                                     <div class="car__item__price">
-<div class="row">
+       <div class="row">
        <div class="col-lg-6 col-md-6">
                                           <div class="car__item__price">
                                         <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center"

@@ -73,15 +73,10 @@
                                         
 
 
- <?php if(auth()->guard()->check()): ?>
-                                <?php if($vehicle->booked()): ?>
-                                    <a href="javascript:void(0)" class="cmn--btn"><?php echo app('translator')->get('Booked'); ?></a>
-                                <?php else: ?>
-                                    
+ <?php if(auth()->guard()->check()): ?>                             
 
-                                     <a href="<?php echo e(route('vehicle.booking', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"
+                                 <a href="<?php echo e(route('vehicle.booking', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"
                                     type="submit"><?php echo app('translator')->get('Book Now'); ?></a>
-                                <?php endif; ?>
                             <?php else: ?>
                                                                     <a href="<?php echo e(route('user.login')); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"
                                     type="submit"><?php echo app('translator')->get('Book Now'); ?></a>

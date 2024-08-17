@@ -121,7 +121,7 @@ public function show($id)
         $pageTitle = $id;
     // dd($cartypes);
 
-        return view($this->activeTemplate . 'carbodytypes.cartag', compact('vehicles','cartags','metaVehicles','pageTitle'));
+        return view($this->activeTemplate.'carbodytypes.cartag', compact('vehicles','cartags','metaVehicles','pageTitle'));
     }
 
 

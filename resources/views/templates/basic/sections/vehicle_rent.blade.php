@@ -143,6 +143,8 @@
                                 @else
                                     <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
                                 @endif
+
+                                 <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
                             @else
                                 <a href="{{ route('user.login') }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
                             @endauth

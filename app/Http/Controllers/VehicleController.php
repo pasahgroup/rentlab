@@ -132,8 +132,9 @@ class VehicleController extends Controller
             $vehicles->where('price', '<=', $request->max_price);
         }
 
-        $vehicles = $vehicles->latest()->paginate(6)->withQueryString();
+        $vehicles = $vehicles->latest()->paginate(10)->withQueryString();
 
+      //dd($vehicles);
         return view($this->activeTemplate.'vehicles.index',compact('vehicles','pageTitle', 'brands', 'seats'));
     }
 

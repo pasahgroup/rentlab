@@ -38,7 +38,13 @@
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title">@lang('Car body type')</span>
                     </a>
-                </li>   
+                </li>  
+                <li class="sidebar-menu-item {{menuActive('admin.modelb*')}}">
+                    <a href="{{route('admin.modelb.index')}}" class="nav-link ">
+                        <i class="menu-icon las la-feather"></i>
+                        <span class="menu-title">@lang('Car Model')</span>
+                    </a>
+                </li>    
 
                   <li class="sidebar-menu-item {{menuActive('admin.tags*')}}">
                     <a href="{{route('admin.tag.index')}}" class="nav-link ">
@@ -52,7 +58,14 @@
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title">@lang('Color')</span>
                     </a>
-                </li>                  
+                </li>     
+
+                 <li class="sidebar-menu-item {{menuActive('admin.seater.index')}}">
+                    <a href="{{route('admin.seater.index')}}" class="nav-link ">
+                        <i class="menu-icon las la-feather"></i>
+                        <span class="menu-title">@lang('Seat')</span>
+                    </a>
+                </li>                
 
                         </ul>
                     </div>
@@ -66,13 +79,13 @@
                     </a>
                 </li>
 
-                <li class="sidebar-menu-item {{menuActive('admin.seater.index')}}">
+               <!--  <li class="sidebar-menu-item {{menuActive('admin.seater.index')}}">
                     <a href="{{route('admin.seater.index')}}" class="nav-link ">
                         <i class="menu-icon las la-couch"></i>
                         <span class="menu-title">@lang('Seat Type')</span>
                     </a>
                 </li>
-
+ -->
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.vehicles*',3)}}">
                         <i class="menu-icon las la-car-side"></i>

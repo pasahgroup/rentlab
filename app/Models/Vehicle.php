@@ -44,6 +44,11 @@ class Vehicle extends Model
         return $this->belongsTo(Seater::class);
     }
 
+public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
+
     public function ratings()
     {
         return $this->hasMany(Rating::class)->with('user');

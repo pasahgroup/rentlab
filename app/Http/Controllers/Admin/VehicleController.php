@@ -10,7 +10,7 @@ use App\Models\Vehicle;
 use App\Models\Cartype;
 use App\Models\Tag;
 use App\Models\Color;
-
+use App\Models\Location;
 
 use App\Rules\FileTypeValidate;
 use Carbon\Carbon;
@@ -35,11 +35,12 @@ class VehicleController extends Controller
         $brands = Brand::active()->orderBy('name')->get();
         $cartypes = Cartype::orderBy('car_body_type')->get();
          $colors = Color::orderBy('color')->get();
-
-          $tags = Tag::where('status',1)->get();    
+ //dd($colors );
+          $tags = Tag::where('status',1)->get(); 
+           $locations = Location::where('status',1)->get();   
 
         $seaters = Seater::active()->orderBy('number')->get();
-        return view('admin.vehicle.add', compact('pageTitle', 'brands', 'seaters','cartypes','tags','colors'));
+        return view('admin.vehicle.add', compact('pageTitle', 'brands', 'seaters','cartypes','tags','colors','locations'));
     }
 
     public function store(Request $request)
@@ -58,6 +59,7 @@ class VehicleController extends Controller
              'car_body_type' => 'required|string',
              'tag' => 'required|string',
              'color' => 'required|string',
+             'location' => 'required|string',
 
             'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
             'icon' => 'required|array',
@@ -82,6 +84,7 @@ class VehicleController extends Controller
          $vehicle->car_body_type_id = $request->car_body_type;
           $vehicle->tag_id = $request->tag;
            $vehicle->color_id = $request->color;
+            $vehicle->location_id = $request->location;
 
 
         foreach ($request->label as $key => $item) {
@@ -116,10 +119,11 @@ class VehicleController extends Controller
         $cartypes = Cartype::orderBy('car_body_type')->where('status',1)->get();
          $tags = Tag::where('status',1)->get();
           $colors = Color::orderBy('color')->get();
+          $locations = Location::where('status',1)->get(); 
 
 // dd($colors);
         $seaters = Seater::active()->orderBy('number')->get();
-        return view('admin.vehicle.edit', compact('pageTitle', 'brands', 'seaters', 'vehicle','cartypes','tags','colors'));
+        return view('admin.vehicle.edit', compact('pageTitle', 'brands', 'seaters', 'vehicle','cartypes','tags','colors','locations'));
     }
 
     public function update(Request $request,$id)
@@ -139,6 +143,7 @@ class VehicleController extends Controller
              'car_body_type' => 'required|string',
               'tag' => 'required|string',
                 'color' => 'required|string',
+                'location' => 'required|string',
 
 
             'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
@@ -163,6 +168,7 @@ class VehicleController extends Controller
  $vehicle->car_body_type_id = $request->car_body_type;
  $vehicle->tag_id = $request->tag;
   $vehicle->color_id = $request->color;
+    $vehicle->location_id = $request->location;
 
         foreach ($request->label as $key => $item) {
             $specifications[$item] = [

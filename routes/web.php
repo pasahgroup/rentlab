@@ -158,6 +158,18 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
             Route::post('cartype/{id}/recovery', 'CartypeController@recovery')->name('cartype.recovery');
          Route::get('cartype/{id}/delete', 'CartypeController@delete')->name('cartype.delete');
 
+        //Car Model
+        Route::get('modelb', 'ModelbController@index')->name('modelb.index');
+        Route::get('modelb/add', 'ModelbController@add')->name('modelb.add');
+        Route::post('modelb/store', 'ModelbController@store')->name('modelb.store');
+        Route::get('modelb/{id}', 'ModelbController@edit')->name('modelb.edit');
+        Route::post('modelb/update/{id}', 'ModelbController@update')->name('modelb.update');
+        Route::post('modelb/image/remove/{id}', 'ModelbController@deleteImage')->name('modelb.image.delete');
+        Route::post('modelb/{id}/status', 'ModelbController@status')->name('modelbmodelb.status');
+
+            Route::post('modelb/{id}/recovery', 'ModelbController@recovery')->name('modelb.recovery');
+         Route::get('modelb/{id}/delete', 'ModelbController@delete')->name('modelb.delete');
+
            //Tag
         Route::get('tag', 'TagController@index')->name('tag.index');
         Route::get('tag/add', 'TagController@add')->name('tag.add');
@@ -245,7 +257,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
             Route::get('via/{method}/{type?}', 'DepositController@depositViaMethod')->name('method');
             Route::get('/{scope}/search', 'DepositController@search')->name('search');
             Route::get('date-search/{scope}', 'DepositController@dateSearch')->name('dateSearch');
-
         });
 
         // Report

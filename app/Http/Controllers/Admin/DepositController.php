@@ -162,6 +162,7 @@ class DepositController extends Controller
 
     public function details($id)
     {
+        //dd('dddd');
         $general = GeneralSetting::first();
         $deposit = Deposit::where('id', $id)->with(['user', 'gateway'])->firstOrFail();
         $pageTitle = $deposit->user->username.' requested ' . showAmount($deposit->amount) . ' '.$general->cur_text;
@@ -173,8 +174,7 @@ class DepositController extends Controller
     public function approve(Request $request)
     {
 
-
-//dd($user);
+//dd('print');
         $request->validate(['id' => 'required|integer']);
         $deposit = Deposit::where('id',$request->id)->where('status',2)->firstOrFail();
         $deposit->status = 1;
@@ -195,6 +195,8 @@ class DepositController extends Controller
             $plan_log->save();
         }
 
+
+
         $general = GeneralSetting::first();
         notify($user, 'PAYMENT_APPROVE', [
             'method_name' => $deposit->gatewayCurrency()->name,
@@ -208,6 +210,7 @@ class DepositController extends Controller
         ]);
         $notify[] = ['success', 'Payment request has been approved.'];
 
+dd('print2');
         return redirect()->route('admin.deposit.pending')->withNotify($notify);
     }
 

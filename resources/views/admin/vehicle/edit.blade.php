@@ -45,7 +45,7 @@
                                 </div>
                             </div>
 
-                               <div class="col-md-3">
+                               <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="category">@lang('Car Tag')</label>
                                     <select class="form-control" id="tag" name="tag" required="">
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
 
-                               <div class="col-md-3">
+                               <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="category">@lang('Color')</label>
                                     <select class="form-control" id="color" name="color" required="">
@@ -75,7 +75,7 @@
                                 </div>
                                </div>
 
-                           <div class="col-md-3">
+                           <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="seater">@lang('Seat Type')</label>
                                     <select class="form-control" id="seater" name="seater" required="">
@@ -88,7 +88,21 @@
                                     </select>
                                 </div>
                             </div>
-                           <div class="col-md-3">
+
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="seater">@lang('Location')</label>
+                                    <select class="form-control" id="location" name="location" required="">
+                                        <option value="">-- @lang('Select One') --</option>
+                                        @forelse($locations as $location)
+                                            <option
+                                                value="{{ $location->id }}" {{ $vehicle->location_id == $location->id ? 'selected' : '' }}>{{ __(@$location->name) }}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
+                           <div class="col-md-8">
                                 <div class="form-group">
                                     <label for="price">@lang('Price Per Day')</label>
                                     <div class="input-group">

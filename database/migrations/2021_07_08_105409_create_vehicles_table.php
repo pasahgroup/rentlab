@@ -20,7 +20,8 @@ class CreateVehiclesTable extends Migration
              $table->integer('car_body_type_id')->default(0);
               $table->integer('tag_id')->default(0);
 
-            $table->integer('seater_id')->default(0);
+            $table->integer('seater_id')->nullable();
+             $table->integer('location_id')->nullable();
             $table->decimal('price',18,8)->default(0);
             $table->text('details')->nullable();
             $table->json('images')->nullable();
