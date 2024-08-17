@@ -12,12 +12,40 @@
 
         <div class="sidebar__menu-wrapper" id="sidebar__menuWrapper">
             <ul class="sidebar__menu">
-                <li class="sidebar-menu-item <?php echo e(menuActive('admin.dashboard')); ?>">
+              <!--   <li class="sidebar-menu-item <?php echo e(menuActive('admin.dashboard')); ?>">
                     <a href="<?php echo e(route('admin.dashboard')); ?>" class="nav-link ">
                         <i class="menu-icon las la-home"></i>
                         <span class="menu-title"><?php echo app('translator')->get('Dashboard'); ?></span>
                     </a>
+                </li> -->
+
+    <li class="sidebar-menu-item sidebar-dropdown">
+                    <a href="javascript:void(0)" class="<?php echo e(menuActive('admin.dashboard')); ?>">
+                        <i class="menu-icon las la-home"></i>
+                        <span class="menu-title"><?php echo app('translator')->get('Dashboard'); ?> </span>
+                    </a>
+                    <div class="sidebar-submenu <?php echo e(menuActive('admin.vehicles*',2)); ?> ">
+                        <ul>
+                             
+                             <li class="sidebar-menu-item <?php echo e(menuActive('admin.brand*')); ?>">
+                    <a href="<?php echo e(route('admin.dashboard')); ?>" class="nav-link ">
+                        <i class="menu-icon las la-feather"></i>
+                        <span class="menu-title"><?php echo app('translator')->get('Main Dashboard'); ?></span>
+                    </a>
                 </li>
+
+                <li class="sidebar-menu-item <?php echo e(menuActive('admin.brand*')); ?>">
+                    <a href="<?php echo e(route('admin.dashboard')); ?>" class="nav-link ">
+                        <i class="menu-icon las la-feather"></i>
+                        <span class="menu-title"><?php echo app('translator')->get('Pending Customers'); ?></span>
+                    </a>
+                </li>
+                             
+
+                        </ul>
+                    </div>
+                </li>
+
 
      <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="<?php echo e(menuActive('admin.vehicles*',3)); ?>">

@@ -12,12 +12,40 @@
 
         <div class="sidebar__menu-wrapper" id="sidebar__menuWrapper">
             <ul class="sidebar__menu">
-                <li class="sidebar-menu-item {{menuActive('admin.dashboard')}}">
+              <!--   <li class="sidebar-menu-item {{menuActive('admin.dashboard')}}">
                     <a href="{{route('admin.dashboard')}}" class="nav-link ">
                         <i class="menu-icon las la-home"></i>
                         <span class="menu-title">@lang('Dashboard')</span>
                     </a>
+                </li> -->
+
+    <li class="sidebar-menu-item sidebar-dropdown">
+                    <a href="javascript:void(0)" class="{{menuActive('admin.dashboard')}}">
+                        <i class="menu-icon las la-home"></i>
+                        <span class="menu-title">@lang('Dashboard') </span>
+                    </a>
+                    <div class="sidebar-submenu {{menuActive('admin.vehicles*',2)}} ">
+                        <ul>
+                             
+                             <li class="sidebar-menu-item {{menuActive('admin.brand*')}}">
+                    <a href="{{route('admin.dashboard')}}" class="nav-link ">
+                        <i class="menu-icon las la-feather"></i>
+                        <span class="menu-title">@lang('Main Dashboard')</span>
+                    </a>
                 </li>
+
+                <li class="sidebar-menu-item {{menuActive('admin.brand*')}}">
+                    <a href="{{route('admin.dashboard')}}" class="nav-link ">
+                        <i class="menu-icon las la-feather"></i>
+                        <span class="menu-title">@lang('Pending Customers')</span>
+                    </a>
+                </li>
+                             
+
+                        </ul>
+                    </div>
+                </li>
+
 
      <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.vehicles*',3)}}">

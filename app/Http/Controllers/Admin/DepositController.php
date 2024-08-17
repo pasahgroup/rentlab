@@ -196,8 +196,9 @@ class DepositController extends Controller
         }
 
 
-
         $general = GeneralSetting::first();
+     //dd($general);
+        // Email lodge
         notify($user, 'PAYMENT_APPROVE', [
             'method_name' => $deposit->gatewayCurrency()->name,
             'method_currency' => $deposit->method_currency,
@@ -208,9 +209,11 @@ class DepositController extends Controller
             'rate' => showAmount($deposit->rate),
             'trx' => $deposit->trx
         ]);
+
+        // dd('print3');
+
         $notify[] = ['success', 'Payment request has been approved.'];
 
-dd('print2');
         return redirect()->route('admin.deposit.pending')->withNotify($notify);
     }
 
