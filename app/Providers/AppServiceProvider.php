@@ -54,7 +54,7 @@ if ($this->app->isLocal()) {
         $viewShare['language'] = Language::all();
         $viewShare['pages'] = Page::where('tempname',$activeTemplate)->where('slug','!=','home')->get();
 
-        $viewShare['cartypes'] = Cartype::orderBy('car_body_type')->get();
+        $viewShare['cartypes'] = cartype::orderBy('car_body_type')->get();
         view()->share($viewShare);
 
 
