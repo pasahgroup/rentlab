@@ -15,6 +15,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+//use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -110,6 +112,141 @@ class AdminController extends Controller
         return view('admin.dashboard', compact('pageTitle', 'widget', 'report', 'chart','payment','depositsMonth','months','deposits','data'));
     }
 
+
+
+
+   public function pendingCustomer()
+    {
+        //dd('dddd');
+
+        $pageTitle = 'Pending cash customer dashboard';
+        // User Info
+        $widget['total_users'] = User::count();
+        $widget['verified_users'] = User::where('status', 1)->count();
+        $widget['email_unverified_users'] = User::where('ev', 0)->count();
+        $widget['sms_unverified_users'] = User::where('sv', 0)->count();
+
+        // Monthly Deposit & Withdraw Report Graph
+        $report['months'] = collect([]);
+        $report['deposit_month_amount'] = collect([]);
+
+        //Vehicle booking
+        $data['total_vehicle_booking'] = RentLog::active()->count();
+        $data['upcoming_vehicle_booking'] = RentLog::active()->upcoming()->count();
+        $data['running_vehicle_booking'] = RentLog::active()->running()->count();
+        $data['completed_vehicle_booking'] = RentLog::active()->completed()->count();
+
+        //Plan booking
+        $data['total_plan_booking'] = PlanLog::active()->count();
+        $data['upcoming_plan_booking'] = PlanLog::active()->upcoming()->count();
+        $data['running_plan_booking'] = PlanLog::active()->running()->count();
+        $data['completed_plan_booking'] = PlanLog::active()->completed()->count();
+
+        $depositsMonth = Deposit::where('created_at', '>=', Carbon::now()->subYear())
+            ->where('status', 1)
+            ->selectRaw("SUM( CASE WHEN status = 1 THEN amount END) as depositAmount")
+            ->selectRaw("DATE_FORMAT(created_at,'%M-%Y') as months")
+            ->orderBy('created_at')
+            ->groupBy('months')->get();
+
+        $depositsMonth->map(function ($depositData) use ($report) {
+            $report['months']->push($depositData->months);
+            $report['deposit_month_amount']->push(showAmount($depositData->depositAmount));
+        });
+
+        $months = $report['months'];
+
+        for($i = 0; $i < $months->count(); ++$i) {
+            $monthVal      = Carbon::parse($months[$i]);
+            if(isset($months[$i+1])){
+                $monthValNext = Carbon::parse($months[$i+1]);
+                if($monthValNext < $monthVal){
+                    $temp = $months[$i];
+                    $months[$i]   = Carbon::parse($months[$i+1])->format('F-Y');
+                    $months[$i+1] = Carbon::parse($temp)->format('F-Y');
+                }else{
+                    $months[$i]   = Carbon::parse($months[$i])->format('F-Y');
+                }
+            }
+        }
+
+
+        // Deposit Graph
+        $deposit = Deposit::where('created_at', '>=', \Carbon\Carbon::now()->subDays(30))->where('status', 1)
+            ->selectRaw('sum(amount) as totalAmount')
+            ->selectRaw('DATE(created_at) day')
+            ->groupBy('day')->get();
+        $deposits['per_day'] = collect([]);
+        $deposits['per_day_amount'] = collect([]);
+        $deposit->map(function ($depositItem) use ($deposits) {
+            $deposits['per_day']->push(date('d M', strtotime($depositItem->day)));
+            $deposits['per_day_amount']->push($depositItem->totalAmount + 0);
+        });
+
+
+        // user Browsing, Country, Operating Log
+        $userLoginData = UserLogin::where('created_at', '>=', \Carbon\Carbon::now()->subDay(30))->get(['browser', 'os', 'country']);
+
+        $chart['user_browser_counter'] = $userLoginData->groupBy('browser')->map(function ($item, $key) {
+            return collect($item)->count();
+        });
+        $chart['user_os_counter'] = $userLoginData->groupBy('os')->map(function ($item, $key) {
+            return collect($item)->count();
+        });
+        $chart['user_country_counter'] = $userLoginData->groupBy('country')->map(function ($item, $key) {
+            return collect($item)->count();
+        })->sort()->reverse()->take(5);
+
+
+        $payment['total_deposit_amount_count'] = Deposit::where('status',1)->count();
+        $payment['total_deposit_amount'] = Deposit::where('status',1)->sum('amount');
+        $payment['total_deposit_charge'] = Deposit::where('status',1)->sum('charge');
+       
+        $payment['total_deposit_pending'] = Deposit::where('status',2)->count();
+        $payment['total_deposit_pending_sum'] = Deposit::where('status',2)->sum('amount');
+       
+
+//        $cancelledInvoicesData=DB::select('select a.property_id,a.metaname_id,m.metaname_name,a.indicator_id,a.asset_id, a.opt_answer_id,a.answer,o.answer_classification from answers a,optional_answers o,metanames m where a.indicator_id=o.indicator_id and a.metaname_id=m.id and a.opt_answer_id=o.id and month(a.datex)=month(NOW())');
+// $date = new Carbon\Carbon;
+  
+
+$todayPendingInvoices=DB::select('select * from deposits where status=2 and date_format(date(created_at),"%Y-%m-%d")=CURDATE()');
+$todayPendingInvoices=collect($todayPendingInvoices);
+$tomorrowPendingInvoices=DB::select('select * from deposits where status=2 and date_format(date(created_at),"%Y-%m-%d")=date_add(CURDATE(),interval 1 day)');
+$tomorrowPendingInvoices=collect($tomorrowPendingInvoices);
+
+$weekPendingInvoices = Deposit::wherebetween('created_at',[Carbon::now()->startOfWeek()->toDateString(),Carbon::now()->endOfWeek()->toDateString()])
+        ->where('status', 2)
+    ->get();
+// $weekPendingInvoices=DB::select('select * from deposits where status=2 and month(created_at)=month(NOW())');
+$weekPendingInvoices=collect($weekPendingInvoices);
+
+$monthPendingInvoices=DB::select('select * from deposits where status=2 and month(created_at)=month(NOW())');
+$monthPendingInvoices=collect($monthPendingInvoices);
+
+
+
+//dd($todayPendingInvoices->sum('amount'));
+//$payment['cancelledInvoicesDataxx']=$gg;
+//dd($payment['cancelledInvoicesDataxx']);
+
+//$weekCancelledInvoicesx=DB::select('select * from deposits where status=3 and Week(created_at)=Week(NOW())');
+
+
+ $weekCancelledInvoices = Deposit::wherebetween('created_at',[Carbon::now()->startOfWeek()->toDateString(),Carbon::now()->endOfWeek()->toDateString()])
+        ->where('status', 3)
+    ->get();
+  $weekCancelledInvoices=collect($weekCancelledInvoices);  
+
+$monthCancelledInvoices=DB::select('select * from deposits where status=3 and Month(created_at)=Month(NOW())');
+$monthCancelledInvoices=collect($monthCancelledInvoices);
+
+         $payment['cancelledInvoicesData'] = Deposit::where('status',3)->count();
+        $payment['cancelledInvoicesDataSum'] = Deposit::where('status',3)->sum('amount');
+
+//dd($weekCancelledInvoices);
+        return view('admin.customers.customer', compact('pageTitle', 'widget', 'report', 'chart','payment','depositsMonth','months','deposits','data','weekCancelledInvoices','monthCancelledInvoices','todayPendingInvoices','tomorrowPendingInvoices','weekPendingInvoices','monthPendingInvoices'));
+    }
 
     public function profile()
     {

@@ -1,6 +1,5 @@
 <?php $__env->startSection('panel'); ?>
-   
-        <?php if(@json_decode($general->sys_version)->message): ?>
+           <?php if(@json_decode($general->sys_version)->message): ?>
         <div class="row">
             <?php $__currentLoopData = json_decode($general->sys_version)->message; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $msg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <div class="col-md-12">
@@ -16,277 +15,75 @@
         </div>
         <?php endif; ?>
 
-    <div class="row mb-none-30">
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--primary b-radius--10 box-shadow">
-                <div class="icon">
-                    <i class="fa fa-users"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount"><?php echo e($widget['total_users']); ?></span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small"><?php echo app('translator')->get('Total Users'); ?></span>
-                    </div>
-                    <a href="<?php echo e(route('admin.users.all')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                </div>
-            </div>
-        </div><!-- dashboard-w1 end -->
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--cyan b-radius--10 box-shadow">
-                <div class="icon">
-                    <i class="fa fa-users"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount"><?php echo e($widget['verified_users']); ?></span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small"><?php echo app('translator')->get('Total Verified Users'); ?></span>
-                    </div>
-                    <a href="<?php echo e(route('admin.users.active')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--orange b-radius--10 box-shadow ">
-                <div class="icon">
-                    <i class="la la-envelope"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount"><?php echo e($widget['email_unverified_users']); ?></span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small"><?php echo app('translator')->get('Total Email Unverified Users'); ?></span>
-                    </div>
-
-                    <a href="<?php echo e(route('admin.users.email.unverified')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                </div>
-            </div>
-        </div><!-- dashboard-w1 end -->
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--pink b-radius--10 box-shadow ">
-                <div class="icon">
-                    <i class="fa fa-shopping-cart"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount"><?php echo e($widget['sms_unverified_users']); ?></span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small"><?php echo app('translator')->get('Total SMS Unverified Users'); ?></span>
-                    </div>
-
-                    <a href="<?php echo e(route('admin.users.sms.unverified')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                </div>
-            </div>
-        </div><!-- dashboard-w1 end -->
-    </div><!-- row end-->
-
-
-      <div class="row mt-50 mb-none-30">
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--19 b-radius--10 box-shadow" >
-                  <div class="icon">
-                      <i class="las la-car-side"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['total_vehicle_booking']); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Total Vehicle Booking'); ?></span>
-                      </div>
-                      <a href="<?php echo e(route('admin.vehicles.booking.log')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--3 b-radius--10 box-shadow" >
-                  <div class="icon">
-                      <i class="las la-hourglass-half"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['upcoming_vehicle_booking']); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Upcoming Vehicle Booking'); ?></span>
-                      </div>
-                      <a href="<?php echo e(route('admin.vehicles.booking.log.upcoming')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--12 b-radius--10 box-shadow" >
-                  <div class="icon">
-                      <i class="las la-spinner"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['running_vehicle_booking']); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Running Vehicle Booking'); ?></span>
-                      </div>
-
-                      <a href="<?php echo e(route('admin.vehicles.booking.log.running')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--success b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-check-circle"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['completed_vehicle_booking']); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Completed Vehicle Booking'); ?></span>
-                      </div>
-
-                      <a href="<?php echo e(route('admin.vehicles.booking.log.completed')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--1 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="lab la-product-hunt"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['total_plan_booking']); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Total Plan Booking'); ?></span>
-                      </div>
-
-                      <a href="<?php echo e(route('admin.plans.booking.log')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--2 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-hourglass-half"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['upcoming_plan_booking']); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Total Plan Booking'); ?></span>
-                      </div>
-
-                      <a href="<?php echo e(route('admin.plans.booking.log.upcoming')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--3 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-spinner"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['running_plan_booking']); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Running Plan Booking'); ?></span>
-                      </div>
-
-                      <a href="<?php echo e(route('admin.plans.booking.log.running')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--10 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-check-circle"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount"><?php echo e(@$data['completed_plan_booking']); ?></span>
-                      </div>
-                      <div class="desciption">
-                          <span><?php echo app('translator')->get('Completed Plan Booking'); ?></span>
-                      </div>
-
-                      <a href="<?php echo e(route('admin.plans.booking.log.completed')); ?>" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3"><?php echo app('translator')->get('View All'); ?></a>
-                  </div>
-              </div>
-          </div>
-
-      </div>
-
-    <div class="row mt-50 mb-none-30">
-        <div class="col-xl-6 mb-30">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo app('translator')->get('Last 30 days Payment History'); ?></h5>
-                    <div id="deposit-line"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-6 mb-30">
+            <div class="row mt-50 mb-none-30">      
+        <div class="col-xl-12 mb-30">
             <div class="row mb-none-30">
-                <div class="col-lg-6 col-sm-6 mb-30">
+                <div class="col-lg-3 col-sm-6 mb-30">
                     <div class="widget-three box--shadow2 b-radius--5 bg--white">
                         <div class="widget-three__icon b-radius--rounded bg--success  box--shadow2">
                             <i class="la la-bank"></i>
                         </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers"><?php echo e(showAmount($payment['total_deposit_amount'])); ?> <?php echo e($general->cur_text); ?></h2>
-                            <p class="text--small"><?php echo app('translator')->get('Total Payment'); ?></p>
+                         <div class="widget-three__content">
+                         <a href="<?php echo e(route('admin.deposit.rejected')); ?>">
+                                <strong class="numbers"><?php echo e(showAmount($todayPendingInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($todayPendingInvoices->count()); ?>)</strong>
+                            <p class="text--small"><?php echo app('translator')->get('Today'); ?></p>
+                        </a>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
 
-                <div class="col-lg-6 col-sm-6 mb-30">
+                <div class="col-lg-2 col-sm-6 mb-30">
                     <div class="widget-three box--shadow2 b-radius--5 bg--white">
                         <div class="widget-three__icon b-radius--rounded bg--primary  box--shadow2">
                             <i class="las la-money-bill"></i>
                         </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers"><?php echo e($payment['total_deposit_amount_count']); ?></h2>
-                            <p class="text--small"><a href="<?php echo e(route('admin.deposit.approved')); ?>"><?php echo app('translator')->get('Total Payment'); ?></a></p>
+                          <div class="widget-three__content">
+                         <a href="<?php echo e(route('admin.deposit.rejected')); ?>">
+                            <strong class="numbers"><?php echo e(showAmount($tomorrowPendingInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($tomorrowPendingInvoices->count()); ?>)</strong>
+                            <p class="text--small"><?php echo app('translator')->get('Tomorrow'); ?></p>
+                        </a>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
 
-                <div class="col-lg-6 col-sm-6 mb-30">
+                <div class="col-lg-2 col-sm-6 mb-30">
                     <div class="widget-three box--shadow2 b-radius--5 bg--white">
                         <div class="widget-three__icon b-radius--rounded bg--info  box--shadow2">
                             <i class="las la-credit-card"></i>
                         </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers"><?php echo e(showAmount($payment['total_deposit_charge'])); ?></h2>
-                            <p class="text--small"><?php echo app('translator')->get('Total Payment Charge'); ?></p>
+                          <div class="widget-three__content">
+                         <a href="<?php echo e(route('admin.deposit.rejected')); ?>">
+                             <strong class="numbers"><?php echo e(showAmount($weekPendingInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($weekPendingInvoices->count()); ?>)</strong>
+                            <p class="text--small"><?php echo app('translator')->get('Week'); ?></p>
+                        </a>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
 
-                <div class="col-lg-6 col-sm-6 mb-30">
+                   <div class="col-lg-2 col-sm-6 mb-30">
+                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
+                        <div class="widget-three__icon b-radius--rounded bg--info  box--shadow2">
+                            <i class="las la-credit-card"></i>
+                        </div>
+                         <div class="widget-three__content">
+                         <a href="<?php echo e(route('admin.deposit.rejected')); ?>">
+                             <strong class="numbers"><?php echo e(showAmount($monthPendingInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($monthPendingInvoices->count()); ?>)</strong>
+                            <p class="text--small"><?php echo app('translator')->get('Month'); ?></p>
+                        </a>
+                        </div>
+                    </div><!-- widget-two end -->
+                </div>
+
+                <div class="col-lg-3 col-sm-6 mb-30">
                     <div class="widget-three box--shadow2 b-radius--5 bg--white">
                         <div class="widget-three__icon b-radius--rounded bg--primary  box--shadow2">
                             <i class="las la-cloud-download-alt"></i>
                         </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers"><?php echo e($payment['total_deposit_pending']); ?></h2>
-                            <p class="text--small"><a href="<?php echo e(route('admin.deposit.pending')); ?>"><?php echo app('translator')->get('Pending Payment'); ?></a></p>
+                          <div class="widget-three__content">
+                         <a href="<?php echo e(route('admin.deposit.pending')); ?>">
+                             <strong class="numbers"><?php echo e(showAmount($payment['total_deposit_pending_sum'])); ?><?php echo e($general->cur_text); ?> (<?php echo e($payment['total_deposit_pending']); ?>)</strong>
+                            <p class="text--small"><?php echo app('translator')->get('All'); ?></p>
+                        </a>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
@@ -294,33 +91,61 @@
         </div>
     </div><!-- row end -->
 
+    <div class="row mt-50 mb-none-30">
+     
+        <div class="col-xl-12 mb-30">
+              <strong class="numbers">Cancelled Invoices</strong> 
+            <div class="row mb-none-30">
+           
+      <div class="col-lg-3 col-sm-6 mb-30">
+                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
+                        <div class="widget-three__icon b-radius--rounded bg--secondary box--shadow2">
+                            <i class="la la-bank"></i>
+                        </div>
+                        <div class="widget-three__content">
+                            <form  method="get"  action="<?php echo e(route('admin.deposit.rejected')); ?>" enctype="multipart/form-data">
+                      <?php echo csrf_field(); ?>
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="weekcancellation" value="weekcancellation"> <strong class="numbers"><?php echo e(showAmount($weekCancelledInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($weekCancelledInvoices->count()); ?>)</strong>
+                            <p class="text--small"><?php echo app('translator')->get('This Week Cancelled invoices'); ?></p></button>
+                            
+                    </form>
+                        </div>
+                    </div><!-- widget-two end -->
+                </div>
+                        <div class="col-lg-3 col-sm-6 mb-30">
+                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
+                        <div class="widget-three__icon b-radius--rounded bg--secondary box--shadow2">
+                            <i class="la la-bank"></i>
+                        </div>
+                        <div class="widget-three__content">
+                            <form  method="get"  action="<?php echo e(route('admin.deposit.rejected')); ?>" enctype="multipart/form-data">
+                      <?php echo csrf_field(); ?>
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="monthcancellation" value="monthcancellation"> <strong class="numbers"><?php echo e(showAmount($monthCancelledInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($monthCancelledInvoices->count()); ?>)</strong>
+                            <p class="text--small"><?php echo app('translator')->get('This Month Cancelled invoices'); ?></p></button>
+                            
+                    </form>
+                        </div>
+                    </div><!-- widget-two end -->
+                </div>  
 
-    <div class="row mb-none-30 mt-5">
-        <div class="col-xl-4 col-lg-6 mb-30">
-            <div class="card overflow-hidden">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo app('translator')->get('Login By Browser'); ?></h5>
-                    <canvas id="userBrowserChart"></canvas>
-                </div>
+                 <div class="col-lg-3 col-sm-6 mb-30">
+                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
+                        <div class="widget-three__icon b-radius--rounded bg--secondary box--shadow2">
+                            <i class="la la-bank"></i>
+                        </div>
+                        <div class="widget-three__content">
+                         <a href="<?php echo e(route('admin.deposit.rejected')); ?>">
+                             <strong class="numbers"><?php echo e(showAmount($payment['cancelledInvoicesDataSum'])); ?><?php echo e($general->cur_text); ?> (<?php echo e($payment['cancelledInvoicesData']); ?>)</strong>
+                            <p class="text--small"><?php echo app('translator')->get('All Cancelled invoices'); ?></p>
+                        </a>
+                        </div>
+                    </div><!-- widget-two end -->
+                </div>                            
             </div>
         </div>
-        <div class="col-xl-4 col-lg-6 mb-30">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo app('translator')->get('Login By OS'); ?></h5>
-                    <canvas id="userOsChart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 mb-30">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo app('translator')->get('Login By Country'); ?></h5>
-                    <canvas id="userCountryChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div><!-- row end -->
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startPush('script'); ?>
@@ -723,4 +548,4 @@
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/customers/customer.blade.php ENDPATH**/ ?>

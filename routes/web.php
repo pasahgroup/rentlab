@@ -70,6 +70,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
     Route::middleware('admin')->group(function () {
         Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
+        Route::get('pending-customer', 'AdminController@pendingCustomer')->name('pending-customer');
+
         Route::get('profile', 'AdminController@profile')->name('profile');
         Route::post('profile', 'AdminController@profileUpdate')->name('profile.update');
         Route::get('password', 'AdminController@password')->name('password');

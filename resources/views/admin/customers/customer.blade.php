@@ -1,23 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('panel')
-   {{--   @if(@json_decode($general->sys_version)->version > systemDetails()['version'])
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card text-white bg-warning mb-3">
-                    <div class="card-header">
-                        <h3 class="card-title"> @lang('New Version Available') <button class="btn btn--dark float-right">@lang('Version') {{json_decode($general->sys_version)->version}}</button> </h3>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-dark">@lang('What is the Update ?')</h5>
-                        <p><pre  class="f-size--24">{{json_decode($general->sys_version)->details}}</pre></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endif
-        --}}
-        @if(@json_decode($general->sys_version)->message)
+           @if(@json_decode($general->sys_version)->message)
         <div class="row">
             @foreach(json_decode($general->sys_version)->message as $msg)
               <div class="col-md-12">
@@ -33,277 +17,75 @@
         </div>
         @endif
 
-    <div class="row mb-none-30">
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--primary b-radius--10 box-shadow">
-                <div class="icon">
-                    <i class="fa fa-users"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount">{{$widget['total_users']}}</span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small">@lang('Total Users')</span>
-                    </div>
-                    <a href="{{route('admin.users.all')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                </div>
-            </div>
-        </div><!-- dashboard-w1 end -->
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--cyan b-radius--10 box-shadow">
-                <div class="icon">
-                    <i class="fa fa-users"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount">{{$widget['verified_users']}}</span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small">@lang('Total Verified Users')</span>
-                    </div>
-                    <a href="{{route('admin.users.active')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--orange b-radius--10 box-shadow ">
-                <div class="icon">
-                    <i class="la la-envelope"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount">{{$widget['email_unverified_users']}}</span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small">@lang('Total Email Unverified Users')</span>
-                    </div>
-
-                    <a href="{{route('admin.users.email.unverified')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                </div>
-            </div>
-        </div><!-- dashboard-w1 end -->
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div class="dashboard-w1 bg--pink b-radius--10 box-shadow ">
-                <div class="icon">
-                    <i class="fa fa-shopping-cart"></i>
-                </div>
-                <div class="details">
-                    <div class="numbers">
-                        <span class="amount">{{$widget['sms_unverified_users']}}</span>
-                    </div>
-                    <div class="desciption">
-                        <span class="text--small">@lang('Total SMS Unverified Users')</span>
-                    </div>
-
-                    <a href="{{route('admin.users.sms.unverified')}}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                </div>
-            </div>
-        </div><!-- dashboard-w1 end -->
-    </div><!-- row end-->
-
-
-      <div class="row mt-50 mb-none-30">
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--19 b-radius--10 box-shadow" >
-                  <div class="icon">
-                      <i class="las la-car-side"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount">{{ @$data['total_vehicle_booking'] }}</span>
-                      </div>
-                      <div class="desciption">
-                          <span>@lang('Total Vehicle Booking')</span>
-                      </div>
-                      <a href="{{ route('admin.vehicles.booking.log') }}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                  </div>
-              </div>
-          </div>
-
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--3 b-radius--10 box-shadow" >
-                  <div class="icon">
-                      <i class="las la-hourglass-half"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount">{{ @$data['upcoming_vehicle_booking'] }}</span>
-                      </div>
-                      <div class="desciption">
-                          <span>@lang('Upcoming Vehicle Booking')</span>
-                      </div>
-                      <a href="{{ route('admin.vehicles.booking.log.upcoming') }}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--12 b-radius--10 box-shadow" >
-                  <div class="icon">
-                      <i class="las la-spinner"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount">{{ @$data['running_vehicle_booking'] }}</span>
-                      </div>
-                      <div class="desciption">
-                          <span>@lang('Running Vehicle Booking')</span>
-                      </div>
-
-                      <a href="{{ route('admin.vehicles.booking.log.running') }}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--success b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-check-circle"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount">{{ @$data['completed_vehicle_booking'] }}</span>
-                      </div>
-                      <div class="desciption">
-                          <span>@lang('Completed Vehicle Booking')</span>
-                      </div>
-
-                      <a href="{{ route('admin.vehicles.booking.log.completed') }}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--1 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="lab la-product-hunt"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount">{{ @$data['total_plan_booking'] }}</span>
-                      </div>
-                      <div class="desciption">
-                          <span>@lang('Total Plan Booking')</span>
-                      </div>
-
-                      <a href="{{ route('admin.plans.booking.log') }}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--2 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-hourglass-half"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount">{{ @$data['upcoming_plan_booking'] }}</span>
-                      </div>
-                      <div class="desciption">
-                          <span>@lang('Total Plan Booking')</span>
-                      </div>
-
-                      <a href="{{ route('admin.plans.booking.log.upcoming') }}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--3 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-spinner"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount">{{ @$data['running_plan_booking'] }}</span>
-                      </div>
-                      <div class="desciption">
-                          <span>@lang('Running Plan Booking')</span>
-                      </div>
-
-                      <a href="{{ route('admin.plans.booking.log.running') }}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="col-xl-3 col-lg-6 col-sm-6 mb-30">
-              <div class="dashboard-w1 bg--10 b-radius--10 box-shadow">
-                  <div class="icon">
-                      <i class="las la-check-circle"></i>
-                  </div>
-                  <div class="details">
-                      <div class="numbers">
-                          <span class="amount">{{ @$data['completed_plan_booking'] }}</span>
-                      </div>
-                      <div class="desciption">
-                          <span>@lang('Completed Plan Booking')</span>
-                      </div>
-
-                      <a href="{{ route('admin.plans.booking.log.completed') }}" class="btn btn-sm text--small bg--white text--black box--shadow3 mt-3">@lang('View All')</a>
-                  </div>
-              </div>
-          </div>
-
-      </div>
-
-    <div class="row mt-50 mb-none-30">
-        <div class="col-xl-6 mb-30">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@lang('Last 30 days Payment History')</h5>
-                    <div id="deposit-line"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-6 mb-30">
+            <div class="row mt-50 mb-none-30">      
+        <div class="col-xl-12 mb-30">
             <div class="row mb-none-30">
-                <div class="col-lg-6 col-sm-6 mb-30">
+                <div class="col-lg-3 col-sm-6 mb-30">
                     <div class="widget-three box--shadow2 b-radius--5 bg--white">
                         <div class="widget-three__icon b-radius--rounded bg--success  box--shadow2">
                             <i class="la la-bank"></i>
                         </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers">{{showAmount($payment['total_deposit_amount'])}} {{$general->cur_text}}</h2>
-                            <p class="text--small">@lang('Total Payment')</p>
+                         <div class="widget-three__content">
+                         <a href="{{route('admin.deposit.rejected')}}">
+                                <strong class="numbers">{{showAmount($todayPendingInvoices->sum('amount'))}}{{$general->cur_text}} ({{$todayPendingInvoices->count()}})</strong>
+                            <p class="text--small">@lang('Today')</p>
+                        </a>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
 
-                <div class="col-lg-6 col-sm-6 mb-30">
+                <div class="col-lg-2 col-sm-6 mb-30">
                     <div class="widget-three box--shadow2 b-radius--5 bg--white">
                         <div class="widget-three__icon b-radius--rounded bg--primary  box--shadow2">
                             <i class="las la-money-bill"></i>
                         </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers">{{$payment['total_deposit_amount_count']}}</h2>
-                            <p class="text--small"><a href="{{route('admin.deposit.approved')}}">@lang('Total Payment')</a></p>
+                          <div class="widget-three__content">
+                         <a href="{{route('admin.deposit.rejected')}}">
+                            <strong class="numbers">{{showAmount($tomorrowPendingInvoices->sum('amount'))}}{{$general->cur_text}} ({{$tomorrowPendingInvoices->count()}})</strong>
+                            <p class="text--small">@lang('Tomorrow')</p>
+                        </a>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
 
-                <div class="col-lg-6 col-sm-6 mb-30">
+                <div class="col-lg-2 col-sm-6 mb-30">
                     <div class="widget-three box--shadow2 b-radius--5 bg--white">
                         <div class="widget-three__icon b-radius--rounded bg--info  box--shadow2">
                             <i class="las la-credit-card"></i>
                         </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers">{{showAmount($payment['total_deposit_charge'])}}</h2>
-                            <p class="text--small">@lang('Total Payment Charge')</p>
+                          <div class="widget-three__content">
+                         <a href="{{route('admin.deposit.rejected')}}">
+                             <strong class="numbers">{{showAmount($weekPendingInvoices->sum('amount'))}}{{$general->cur_text}} ({{$weekPendingInvoices->count()}})</strong>
+                            <p class="text--small">@lang('Week')</p>
+                        </a>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
 
-                <div class="col-lg-6 col-sm-6 mb-30">
+                   <div class="col-lg-2 col-sm-6 mb-30">
+                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
+                        <div class="widget-three__icon b-radius--rounded bg--info  box--shadow2">
+                            <i class="las la-credit-card"></i>
+                        </div>
+                         <div class="widget-three__content">
+                         <a href="{{route('admin.deposit.rejected')}}">
+                             <strong class="numbers">{{showAmount($monthPendingInvoices->sum('amount'))}}{{$general->cur_text}} ({{$monthPendingInvoices->count()}})</strong>
+                            <p class="text--small">@lang('Month')</p>
+                        </a>
+                        </div>
+                    </div><!-- widget-two end -->
+                </div>
+
+                <div class="col-lg-3 col-sm-6 mb-30">
                     <div class="widget-three box--shadow2 b-radius--5 bg--white">
                         <div class="widget-three__icon b-radius--rounded bg--primary  box--shadow2">
                             <i class="las la-cloud-download-alt"></i>
                         </div>
-                        <div class="widget-three__content">
-                            <h2 class="numbers">{{$payment['total_deposit_pending']}}</h2>
-                            <p class="text--small"><a href="{{route('admin.deposit.pending')}}">@lang('Pending Payment')</a></p>
+                          <div class="widget-three__content">
+                         <a href="{{route('admin.deposit.pending')}}">
+                             <strong class="numbers">{{showAmount($payment['total_deposit_pending_sum'])}}{{$general->cur_text}} ({{$payment['total_deposit_pending']}})</strong>
+                            <p class="text--small">@lang('All')</p>
+                        </a>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
@@ -311,33 +93,61 @@
         </div>
     </div><!-- row end -->
 
+    <div class="row mt-50 mb-none-30">
+     
+        <div class="col-xl-12 mb-30">
+              <strong class="numbers">Cancelled Invoices</strong> 
+            <div class="row mb-none-30">
+           
+      <div class="col-lg-3 col-sm-6 mb-30">
+                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
+                        <div class="widget-three__icon b-radius--rounded bg--secondary box--shadow2">
+                            <i class="la la-bank"></i>
+                        </div>
+                        <div class="widget-three__content">
+                            <form  method="get"  action="{{route('admin.deposit.rejected')}}" enctype="multipart/form-data">
+                      @csrf
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="weekcancellation" value="weekcancellation"> <strong class="numbers">{{showAmount($weekCancelledInvoices->sum('amount'))}}{{$general->cur_text}} ({{$weekCancelledInvoices->count()}})</strong>
+                            <p class="text--small">@lang('This Week Cancelled invoices')</p></button>
+                            
+                    </form>
+                        </div>
+                    </div><!-- widget-two end -->
+                </div>
+                        <div class="col-lg-3 col-sm-6 mb-30">
+                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
+                        <div class="widget-three__icon b-radius--rounded bg--secondary box--shadow2">
+                            <i class="la la-bank"></i>
+                        </div>
+                        <div class="widget-three__content">
+                            <form  method="get"  action="{{route('admin.deposit.rejected')}}" enctype="multipart/form-data">
+                      @csrf
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="monthcancellation" value="monthcancellation"> <strong class="numbers">{{showAmount($monthCancelledInvoices->sum('amount'))}}{{$general->cur_text}} ({{$monthCancelledInvoices->count()}})</strong>
+                            <p class="text--small">@lang('This Month Cancelled invoices')</p></button>
+                            
+                    </form>
+                        </div>
+                    </div><!-- widget-two end -->
+                </div>  
 
-    <div class="row mb-none-30 mt-5">
-        <div class="col-xl-4 col-lg-6 mb-30">
-            <div class="card overflow-hidden">
-                <div class="card-body">
-                    <h5 class="card-title">@lang('Login By Browser')</h5>
-                    <canvas id="userBrowserChart"></canvas>
-                </div>
+                 <div class="col-lg-3 col-sm-6 mb-30">
+                    <div class="widget-three box--shadow2 b-radius--5 bg--white">
+                        <div class="widget-three__icon b-radius--rounded bg--secondary box--shadow2">
+                            <i class="la la-bank"></i>
+                        </div>
+                        <div class="widget-three__content">
+                         <a href="{{route('admin.deposit.rejected')}}">
+                             <strong class="numbers">{{showAmount($payment['cancelledInvoicesDataSum'])}}{{$general->cur_text}} ({{$payment['cancelledInvoicesData']}})</strong>
+                            <p class="text--small">@lang('All Cancelled invoices')</p>
+                        </a>
+                        </div>
+                    </div><!-- widget-two end -->
+                </div>                            
             </div>
         </div>
-        <div class="col-xl-4 col-lg-6 mb-30">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@lang('Login By OS')</h5>
-                    <canvas id="userOsChart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 mb-30">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">@lang('Login By Country')</h5>
-                    <canvas id="userCountryChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div><!-- row end -->
 @endsection
 
 @push('script')

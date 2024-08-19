@@ -1496,7 +1496,7 @@ p, li, span {
 
 .b-radius--5 {
     border-radius: 5px !important;
-    -webkit-border-radius: 5px !important;
+    -webkit-border-radius: 35px !important;
     -moz-border-radius: 5px !important;
     -ms-border-radius: 5px !important;
     -o-border-radius: 5px !important;
@@ -4312,7 +4312,7 @@ th.w-85 {
 }
 
 .widget-three {
-    padding: 30px 30px;
+    padding: 10px 3px;
     text-align: center;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -4327,7 +4327,7 @@ th.w-85 {
 
 .widget-three__icon {
     width: 90px;
-    height: 90px;
+    height: 46px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -4344,11 +4344,11 @@ th.w-85 {
 }
 
 .widget-three__content {
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
 .widget-three__content .numbers {
-    font-size: 24px;
+    font-size: 15px;
     font-weight: 600;
 }
 

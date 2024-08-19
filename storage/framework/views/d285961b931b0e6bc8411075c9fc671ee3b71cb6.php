@@ -11,20 +11,13 @@
         </div>
 
         <div class="sidebar__menu-wrapper" id="sidebar__menuWrapper">
-            <ul class="sidebar__menu">
-              <!--   <li class="sidebar-menu-item <?php echo e(menuActive('admin.dashboard')); ?>">
-                    <a href="<?php echo e(route('admin.dashboard')); ?>" class="nav-link ">
-                        <i class="menu-icon las la-home"></i>
-                        <span class="menu-title"><?php echo app('translator')->get('Dashboard'); ?></span>
-                    </a>
-                </li> -->
-
+            <ul class="sidebar__menu">            
     <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="<?php echo e(menuActive('admin.dashboard')); ?>">
                         <i class="menu-icon las la-home"></i>
                         <span class="menu-title"><?php echo app('translator')->get('Dashboard'); ?> </span>
                     </a>
-                    <div class="sidebar-submenu <?php echo e(menuActive('admin.vehicles*',2)); ?> ">
+                    <div class="sidebar-submenu <?php echo e(menuActive('admin.dashboard')); ?> ">
                         <ul>
                              
                              <li class="sidebar-menu-item <?php echo e(menuActive('admin.brand*')); ?>">
@@ -35,12 +28,11 @@
                 </li>
 
                 <li class="sidebar-menu-item <?php echo e(menuActive('admin.brand*')); ?>">
-                    <a href="<?php echo e(route('admin.dashboard')); ?>" class="nav-link ">
+                    <a href="<?php echo e(route('admin.pending-customer')); ?>" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title"><?php echo app('translator')->get('Pending Customers'); ?></span>
                     </a>
-                </li>
-                             
+                </li>                             
 
                         </ul>
                     </div>

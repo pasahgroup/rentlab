@@ -12,6 +12,7 @@ use App\Models\Transaction;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DepositController extends Controller
 {
@@ -41,11 +42,55 @@ class DepositController extends Controller
         return view('admin.deposit.log', compact('pageTitle', 'emptyMessage', 'deposits'));
     }
 
-    public function rejected()
+    public function rejected(Request $request)
     {
-        $pageTitle = 'Rejected Payments';
+
+          $pageTitle = 'Rejected Payments';
         $emptyMessage = 'No rejected payments.';
+       
+          if(request('weekcancellation')){
+
+           $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfWeek()->toDateString(),Carbon::now()->endOfWeek()->toDateString()])
+    ->where('method_code', '>=', 1000)
+        ->where('status', 3)
+       ->with(['user', 'gateway'])
+      ->orderBy('id','desc')
+    ->paginate(getPaginate());
+
+          }elseif(request('monthcancellation')){
+    
+      // $deposits=DB::select('select * from deposits where status=3 and Week(created_at)=Week(NOW())');
+      // $deposits=collect($deposits);
+// $dt = Carbon::now();
+//dd($dt);
+ // $depositsx = Deposit::where('method_code', '>=', 1000)
+ //            ->where('status', 3)
+ //           // ->whereWeek('created_at', $dt->week)
+ //              //->where('Week(created_at)','==','Week(NOW())')
+ //            ->with(['user', 'gateway'])
+ //            // ->selectRaw("SUM( CASE WHEN status = 1 THEN amount END) as depositAmount")
+ //        ->selectRaw("Week(created_at)=Week(NOW())")
+ //            ->orderBy('id','desc')
+ //           ->paginate(getPaginate());
+
+ $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfMonth()->toDateString(),Carbon::now()->endOfMonth()->toDateString()])
+    ->where('method_code', '>=', 1000)
+        ->where('status', 3)
+       ->with(['user', 'gateway'])
+      ->orderBy('id','desc')
+    ->paginate(getPaginate());
+
+// $depositsc = DB::table('deposits')
+//             ->select('id')
+//             ->get();
+      //dd($deposits);
+          }
+
+          else{            
         $deposits = Deposit::where('method_code', '>=', 1000)->where('status', 3)->with(['user', 'gateway'])->orderBy('id','desc')->paginate(getPaginate());
+          }
+
+     
         return view('admin.deposit.log', compact('pageTitle', 'emptyMessage', 'deposits'));
     }
 
