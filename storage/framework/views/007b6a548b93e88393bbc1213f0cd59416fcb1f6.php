@@ -7,7 +7,7 @@
     ?>
  
 
-  <section class="book-section pb-120 bg--section">
+
         <div class="container-fluid">
             <div class="row">
               <div class="col-lg-9">
@@ -119,7 +119,7 @@
                 </div>
             </div>
         </div>
-    </section>
+   
 
 
 
