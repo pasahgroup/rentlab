@@ -129,8 +129,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-9">
-                    <div class="car__sidebar">
-                       
+                    <div class="car__sidebar">                       
                         <div class="car__filter">                         
 
                             <h5> @lang('Book a Car')</h5>
@@ -207,14 +206,13 @@
                 <div class="col-lg-3">
                     <div class="car__filter__option">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6">
+                            <div class="col-lg-12 col-md-12">
                                                               <div class="section__header section__header__center">
             <span class="section__category">Select Car by Tag</span>
             <!-- <h6 class="section__title">Car List</h6> -->
         </div>
                             </div>
-                            <div class="col-lg-6 col-md-6">                                
-                            </div>
+                            
                         </div>
                     </div>
                     
