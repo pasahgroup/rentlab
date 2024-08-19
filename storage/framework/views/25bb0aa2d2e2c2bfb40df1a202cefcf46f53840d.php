@@ -27,6 +27,7 @@
         </div>
     <?php endif; ?>
 
+
     <div class="col-md-12">
         <div class="card b-radius--10">
             <div class="card-body p-0">
@@ -116,13 +117,41 @@
         </div><!-- card end -->
     </div>
 </div>
-
-
 <?php $__env->stopSection(); ?>
 
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
     <?php if(!request()->routeIs('admin.users.deposits') && !request()->routeIs('admin.users.deposits.method')): ?>
+
+          
+    <div class="col-md-12 col-sm-12">
+            <div class="row">
+                          <form  method="get"  action="<?php echo e(route('admin.deposit.rejected')); ?>" enctype="multipart/form-data">
+                      <?php echo csrf_field(); ?>
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="weekcancellation" value="weekcancellation" class="badge--success">
+                            <p class="text--small"><?php echo app('translator')->get('Week'); ?></p></button>
+                            
+                    </form>
+
+                                    
+                            <form  method="get"  action="<?php echo e(route('admin.deposit.rejected')); ?>" enctype="multipart/form-data">
+                      <?php echo csrf_field(); ?>
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="monthcancellation" value="monthcancellation" class="badge--danger">
+                            <p class="text--small"><?php echo app('translator')->get('Month'); ?></p></button>
+                            
+                    </form>
+             
+                        
+                        <div class="widget-three__content">
+                         <a href="<?php echo e(route('admin.deposit.rejected')); ?>" class="badge--warning">
+                            <p class="text--small"><?php echo app('translator')->get('All'); ?></p>
+                        </a>
+                        </div>
+                    
+        
+
         <form action="<?php echo e(route('admin.deposit.search', $scope ?? str_replace('admin.deposit.', '', request()->route()->getName()))); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
             <div class="input-group has_append  ">
                 <input type="text" name="search" class="form-control" placeholder="<?php echo app('translator')->get('Trx number/Username'); ?>" value="<?php echo e($search ?? ''); ?>">
@@ -141,6 +170,10 @@
                 </div>
             </div>
         </form>
+
+ </div>  
+        </div>
+
 
     <?php endif; ?>
 <?php $__env->stopPush(); ?>
