@@ -131,7 +131,7 @@
                 <div class="col-lg-2">
                     <div class="car__sidebar">
                        
-                        <div class="car__filter">                          
+                        <div class="car__filter">                         
 
                             <h5> @lang('Book a Car')</h5>
                            <form class="book--form row gx-3 gy-4 g-md-4" action="{{ route('vehicle.search') }}" method="get">                    
@@ -209,7 +209,7 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                                               <div class="section__header section__header__center">
-            <span class="section__category">Car List</span>
+            <span class="section__category">Select Car by Tag</span>
             <!-- <h6 class="section__title">Car List</h6> -->
         </div>
                             </div>
@@ -219,72 +219,39 @@
                     </div>
                     
                     <div class="row">
-   @foreach($vehicles as $vehicle)
-                        <div class="col-lg-3 col-md-3">
+
+    @foreach($carTags as $carTag)
+     
+         <div class="col-lg-6 col-md-3" style="background-color:#918a67">
+        <div class="row">
+              <div class="car__item__text">
+      <div class="car__item__text__inner">
+                       
                             <div class="car__item">
                                 <div class="car__item__pic__slider owl-carousel">
-                                    <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" alt="">
-
-                                    <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size']) }}" alt="">
-                                   <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[2], imagePath()['vehicles']['size']) }}" alt="">
-                                   
-                                   <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[3], imagePath()['vehicles']['size']) }}" alt="">
+                                    <img src="{{ URL::asset('/storage/cartypes/'.$carTag->images) }}" alt="No Image" style="width:250px;height:100px;">
                                 </div>
                                 <div class="car__item__text">
-                                    <div class="car__item__text__inner">
-                                        <div class="label-date">{{ $general->cur_sym }}{{ showAmount($vehicle->price) }}<sub>/@lang('day')</sub></div>
-                                        <h5><a href="#"><span>Model:</span> {{ __(@$vehicle->model) }}</a></h5>
-                                      
-                                          <ul class="d-flex car-info">
-                                            <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini">{{ __(@$vehicle->transmission) }}</span></li>
-                                            <li class="pr-3"><i class="las la-gas-pump"></i><span class="font-mini">{{ __(@$vehicle->fuel_type) }}</span></li>
+                                    <!-- <div class="car__item__text__inner">
+                                        <div class="label-date">2016</div>
+                                        <h5><a href="#">Porsche cayenne turbo s</a></h5>
+                                        <ul>
+                                            <li><span>35,000</span> mi</li>
+                                            <li>Auto</li>
+                                            <li><span>700</span> hp</li>
                                         </ul>
-                                    </div>
-
-<hr style="margin-top:1px;margin-bottom:1px;">
-
-
-
-
+                                    </div> -->
                                     <div class="car__item__price">
-<div class="row">
-       <div class="col-lg-6 col-md-4">
-                                          <div class="car__item__price">
-                                        <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center"
-                                    type="submit">@lang('More Details')</a>
-                                    </div>
-                                </div>
-                                   <div class="col-lg-6 col-md-4">
-                                      <div class="car__item__price">
-
-                                           <div class="btn__grp">              
-                                             @auth
-                             {{--   @if($vehicle->booked())
-                                    <a href="javascript:void(0)" class="cmn--btn">@lang('Booked')</a>
-                                @else 
-                                    
-                                @endif --}}
-
-                              
-
-                                 <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
-                            @else
-                                <a href="{{ route('user.login') }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
-                            @endauth
-                        </div>
-
-
-
-                                    </div>
-                                </div>
-
-                               </div>     
+                                        <a href="/cartag-page/{{$carTag->tag}}" class="cmn--btn form--control bg--base w-100 justify-content-center"
+                                    type="submit">{{$carTag->tag}}</a>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-                        @endforeach                                   
+                    </div>
+                    </div>
+                    </div>
+                        @endforeach                                    
                     </div>
 
                     <div class="pagination__option">
