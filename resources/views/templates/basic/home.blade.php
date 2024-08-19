@@ -129,77 +129,54 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-9">
-                    <div class="car__sidebar">                       
-                        <div class="car__filter">                         
-
-                            <h5> @lang('Book a Car')</h5>
-                           <form class="book--form row gx-3 gy-4 g-md-4" action="{{ route('vehicle.search') }}" method="get">                    
-                          <div class="form-group">
-                            <label for="car-type" class="form--label">
-                                <i class="las la-car-side"></i> @lang('Brand')
-                            </label>
-                            <select name="brand" id="car-type" class="form-control form--control">
-                                <option value="">@lang('Select Option')</option>
-                                @forelse($brands as $brand)
-                                    <option value="{{ $brand->id }}">{{ __(@$brand->name) }}</option>
-                                @empty
-                                @endforelse
-                            </select>
-                        </div>
-
-                       <div class="form-group">
-                            <label for="model" class="form--label">
-                                <i class="las la-car-side"></i> @lang('Model')
-                            </label>
-                            <select name="model" id="model" class="form-control form--control">
-                                <option value="">@lang('Select model')</option>
-                                @forelse($models as $model)
-                                    <option value="{{ $model->model}}">{{ __(@$model->model) }}</option>
-                                @empty
-                                @endforelse
-                            </select>
-                        </div>
-
-
-  <div class="form-group">
-                            <label for="pick-point" class="form--label">
-                                <i class="las la-chair"></i> @lang('Number Of Seats')
-                            </label>
-                            <select name="seats" id="pick-point" class="form-control form--control">
-                                <option value="">@lang('Select Option')</option>
-                                @forelse($seats as $seat)
-                                    <option value="{{ $seat->id }}">{{ __(@$seat->number) }} {{ __('Seater') }}</option>
-                                @empty
-                                @endforelse
-                            </select>
-                        </div>
-                              
-
-                             <div class="form-group">
-                            <label for="start-datse" class="form--label">
-                                <i class="las la-dollar-sign"></i> @lang('Min Price')
-                            </label>
-                            <input type="text" placeholder="@lang('Min Price')" name="min_price" id="start-datse"
-                                   autocomplete="off" class="form-control form--control">
-                        </div>
-                       
-                        <div class="form-group">
-                            <label for="end-date" class="form--label">
-                                <i class="las la-dollar-sign"></i> @lang('Max Price')
-                            </label>
-                            <input type="text" placeholder="@lang('Max Price')" name="max_price" autocomplete="off"
-                                   class="form-control form--control">
-                        </div>
-                 
-                               
-                                <div class="car__filter__btn">
-                                   <button class="cmn--btn form--control bg--base w-100 justify-content-center"
-                                    type="submit">@lang('Search')</button>
-                                </div>
-                            </form>
-                       
+                  
+                     <div class="car__filter__option">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                                              <div class="section__header section__header__center">
+            <span class="section__category">Select Car by Tag</span>
+            <!-- <h6 class="section__title">Car List</h6> -->
+        </div>
+                            </div>
+                            
                         </div>
                     </div>
+                    
+                    <div class="row">
+
+    @foreach($carbodytypes as $carbodytype)
+                       
+
+                        <div class="col-lg-3 col-md-3" style="background-color:#305129">
+
+  <div class="row">
+              <div class="car__item__text">
+      <div class="car__item__text__inner">
+
+
+                                <div class="car__item__text">
+                                    <div class="car__item__text__inner">
+                                <div class="car__item__pic__slider owl-carousel">
+                                    <img src="{{ URL::asset('/storage/cartypes/'.$carbodytype->images) }}" alt="No Image" style="width:280px;height:120px;">
+                                </div>
+                                
+                                    </div>
+                                    <div class="car__item__price">
+                                        <a href="/cartype-page/{{$carbodytype->car_body_type}}" class="cmn--btn form--control bg--base w-100 justify-content-center"
+                                    type="submit">{{$carbodytype->car_body_type}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                       
+
+
+</div>
+</div>
+</div>
+                        @endforeach                                   
+                    </div>
+
+                    
                 </div>
 
 
