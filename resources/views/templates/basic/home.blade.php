@@ -134,7 +134,7 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12">
                                                               <div class="section__header section__header__center">
-            <span class="section__category">Select Car by Tag</span>
+            <span class="section__category">Select Car by Car Body Type</span>
             <!-- <h6 class="section__title">Car List</h6> -->
         </div>
                             </div>
@@ -144,11 +144,9 @@
                     
                     <div class="row">
 
-    @foreach($carbodytypes as $carbodytype)
-                       
+    @foreach($carbodytypes as $carbodytype)                       
 
                         <div class="col-lg-3 col-md-3" style="background-color:#305129">
-
   <div class="row">
               <div class="car__item__text">
       <div class="car__item__text__inner">
@@ -176,7 +174,7 @@
                         @endforeach                                   
                     </div>
 
-                    
+
                 </div>
 
 
