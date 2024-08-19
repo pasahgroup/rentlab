@@ -10,7 +10,7 @@ use App\Models\Language;
 use App\Models\Page;
 use App\Models\SupportTicket;
 use App\Models\User;
-use App\Models\Cartype;
+use App\Models\cartype;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
