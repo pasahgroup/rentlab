@@ -153,6 +153,7 @@
 <a href="#" class="scrollToTop"><i class="las la-angle-up"></i></a>
 
 <!-- Preloader -->
+{{--
 <div class="preloader">
     <figure class="loader">
         <div class="car">
@@ -168,7 +169,7 @@
         </div>
     </figure>
 </div>
-
+--}}
 <!-- Breadcrumb section start -->
 @if(!request()->routeIs('home'))
     @include($activeTemplate.'partials.breadcrumb')

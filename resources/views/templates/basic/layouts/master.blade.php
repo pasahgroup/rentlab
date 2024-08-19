@@ -30,6 +30,7 @@
 <a href="#" class="scrollToTop"><i class="las la-angle-up"></i></a>
 
 <!-- Preloader -->
+{{--
 <div class="preloader">
     <figure class="loader">
         <div class="car">
@@ -44,7 +45,7 @@
             <span></span>
         </div>
     </figure>
-</div>
+</div> --}}
 <!-- Preloader -->
 
 <!-- Header Section -->

@@ -26,6 +26,7 @@
 <body>
 
 <!-- Preloader -->
+{{--
 <div class="preloader">
     <figure class="loader">
         <div class="car">
@@ -41,6 +42,7 @@
         </div>
     </figure>
 </div>
+--}}
 <!-- Preloader -->
 
 @yield('content')
