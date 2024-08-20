@@ -7,31 +7,25 @@
         $seats = \App\Models\Seater::active()->orderBy('number')->get();
     @endphp
  
-     
-<!-- Rental Fleet Section -->
-  <!-- Car Section Begin -->
-    <section class="book-section pb-120 bg--section">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-8">
-                  
-                     <div class="car__filter__option">
+              <div class="col-lg-9">
+                    <div class="car__filter__option">
                         <div class="row">
-                            <div class="col-lg-12 col-md-12">
-                                                              <div class="section__header section__header__center">
+                            <div class="col-lg-6 col-md-6">
             <span class="section__category">Select Car by Car Body Type</span>
-            <!-- <h6 class="section__title">Car List</h6> -->
-        </div>
+                     </div>
+                            <div class="col-lg-6 col-md-6">                                
                             </div>
-                            
                         </div>
                     </div>
-                    
                     <div class="row">
 
-    @foreach($carbodytypes as $carbodytype)                       
+    @foreach($carbodytypes as $carbodytype)
+                       
 
                         <div class="col-lg-3 col-md-3" style="background-color:#305129">
+
   <div class="row">
               <div class="car__item__text">
       <div class="car__item__text__inner">
@@ -56,29 +50,32 @@
 </div>
 </div>
 </div>
-                        @endforeach                                   
+                        @endforeach
+                                   
                     </div>
-
-
+                    <div class="pagination__option">
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#"><span class="arrow_carrot-2right"></span></a>
+                    </div>
                 </div>
- <div class="col-lg-1">
-</div>
+
 
                 <div class="col-lg-3">
                     <div class="car__filter__option">
                         <div class="row">
-                            <div class="col-lg-12 col-md-12">
-                                                              <div class="section__header section__header__center">
-            <span class="section__category">Select Car by Tag</span>
-            <!-- <h6 class="section__title">Car List</h6> -->
-        </div>
+                            <div class="col-lg-6 col-md-6">
+            <span class="section__category">Select Car by Tags</span>
+                 </div>
+                            <div class="col-lg-6 col-md-6">                                
                             </div>
-                            
                         </div>
                     </div>
-                    
-                    <div class="row">
-
+                   
+                       
+       
+            
     @foreach($carTags as $carTag)
      
          <div class="col-lg-6 col-md-3" style="background-color:#918a67">
@@ -110,19 +107,17 @@
                     </div>
                     </div>
                     </div>
-                        @endforeach                                    
-                    </div>
+                        @endforeach                       
+                             
+                
 
-                    <div class="pagination__option">
-                        <a href="#" class="active">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#"><span class="arrow_carrot-2right"></span></a>
+                    
+                    <div class="">
+                        <a href="#"><span class="">See More</span></a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
     <!-- Book Section -->
     @if($sections->secs != null)
