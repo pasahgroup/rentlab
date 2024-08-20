@@ -7,11 +7,11 @@
         $seats = \App\Models\Seater::active()->orderBy('number')->get();
     @endphp
  
-        <div class="container-fluid">
+       <section class="book-section pb-120 bg--section">
             <div class="row">
          
             </div>
-        </div>
+        </section>
    
 
 
