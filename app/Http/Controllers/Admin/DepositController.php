@@ -19,9 +19,49 @@ class DepositController extends Controller
 
     public function pending()
     {
+        //dd('pp');
         $pageTitle = 'Pending Payments';
         $emptyMessage = 'No pending payments.';
+
+ if(request('today')){
+
+           $deposits = Deposit::where('created_at',[Carbon::now()])
+    ->where('method_code', '>=', 1000)
+        ->where('status',2)
+       ->with(['user', 'gateway'])
+      ->orderBy('id','desc')
+    ->paginate(getPaginate());
+
+          }elseif(request('tomorrow')){
+                    $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfWeek()->toDateString(),Carbon::now()->endOfWeek()->toDateString()])
+    ->where('method_code', '>=', 1000)
+        ->where('status',2)
+       ->with(['user', 'gateway'])
+      ->orderBy('id','desc')
+    ->paginate(getPaginate());
+          }
+          elseif(request('week')){
+                    $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfWeek()->toDateString(),Carbon::now()->endOfWeek()->toDateString()])
+    ->where('method_code', '>=', 1000)
+        ->where('status',2)
+       ->with(['user', 'gateway'])
+      ->orderBy('id','desc')
+    ->paginate(getPaginate());
+}
+elseif(request('month')){
+                    $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfMonth()->toDateString(),Carbon::now()->endOfMonth()->toDateString()])
+    ->where('method_code', '>=', 1000)
+        ->where('status',2)
+       ->with(['user', 'gateway'])
+      ->orderBy('id','desc')
+    ->paginate(getPaginate());}
+
+          else
+          {
+
         $deposits = Deposit::where('method_code', '>=', 1000)->where('status', 2)->with(['user', 'gateway'])->orderBy('id','desc')->paginate(getPaginate());
+    }
+
         return view('admin.deposit.log', compact('pageTitle', 'emptyMessage', 'deposits'));
     }
 

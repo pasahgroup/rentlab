@@ -7,8 +7,6 @@
         $seats = \App\Models\Seater::active()->orderBy('number')->get();
     @endphp
  
-
-
         <div class="container-fluid">
             <div class="row">
               <div class="col-lg-9">
@@ -128,7 +126,7 @@
     <section class="book-section pb-120 bg--section">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-9">
+                <div class="col-lg-8">
                   
                      <div class="car__filter__option">
                         <div class="row">
@@ -176,7 +174,8 @@
 
 
                 </div>
-
+ <div class="col-lg-1">
+</div>
 
                 <div class="col-lg-3">
                     <div class="car__filter__option">

@@ -24,10 +24,13 @@
                             <i class="la la-bank"></i>
                         </div>
                          <div class="widget-three__content">
-                         <a href="<?php echo e(route('admin.deposit.rejected')); ?>">
-                                <strong class="numbers"><?php echo e(showAmount($todayPendingInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($todayPendingInvoices->count()); ?>)</strong>
-                            <p class="text--small"><?php echo app('translator')->get('Today'); ?></p>
-                        </a>
+                         <form  method="get"  action="<?php echo e(route('admin.deposit.pending')); ?>" enctype="multipart/form-data">
+                      <?php echo csrf_field(); ?>
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="today" value="today"> <strong class="numbers"><?php echo e(showAmount($todayPendingInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($todayPendingInvoices->count()); ?>)</strong>
+                            <p class="text--small"><?php echo app('translator')->get('Today'); ?></p></button>
+                            
+                    </form>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
@@ -38,10 +41,13 @@
                             <i class="las la-money-bill"></i>
                         </div>
                           <div class="widget-three__content">
-                         <a href="<?php echo e(route('admin.deposit.rejected')); ?>">
-                            <strong class="numbers"><?php echo e(showAmount($tomorrowPendingInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($tomorrowPendingInvoices->count()); ?>)</strong>
-                            <p class="text--small"><?php echo app('translator')->get('Tomorrow'); ?></p>
-                        </a>
+                                  <form  method="get"  action="<?php echo e(route('admin.deposit.pending')); ?>" enctype="multipart/form-data">
+                      <?php echo csrf_field(); ?>
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="tomorrow" value="tomorrow"> <strong class="numbers"><?php echo e(showAmount($tomorrowPendingInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($tomorrowPendingInvoices->count()); ?>)</strong>
+                            <p class="text--small"><?php echo app('translator')->get('Tomorrow2'); ?></p></button>
+                            
+                    </form>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
@@ -52,10 +58,13 @@
                             <i class="las la-credit-card"></i>
                         </div>
                           <div class="widget-three__content">
-                         <a href="<?php echo e(route('admin.deposit.rejected')); ?>">
-                             <strong class="numbers"><?php echo e(showAmount($weekPendingInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($weekPendingInvoices->count()); ?>)</strong>
-                            <p class="text--small"><?php echo app('translator')->get('Week'); ?></p>
-                        </a>
+                                     <form  method="get"  action="<?php echo e(route('admin.deposit.pending')); ?>" enctype="multipart/form-data">
+                      <?php echo csrf_field(); ?>
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="week" value="week">   <strong class="numbers"><?php echo e(showAmount($weekPendingInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($weekPendingInvoices->count()); ?>)</strong>
+                            <p class="text--small"><?php echo app('translator')->get('Week'); ?></p></button>
+                            
+                    </form>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
@@ -66,10 +75,14 @@
                             <i class="las la-credit-card"></i>
                         </div>
                          <div class="widget-three__content">
-                         <a href="<?php echo e(route('admin.deposit.rejected')); ?>">
-                             <strong class="numbers"><?php echo e(showAmount($monthPendingInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($monthPendingInvoices->count()); ?>)</strong>
-                            <p class="text--small"><?php echo app('translator')->get('Month'); ?></p>
-                        </a>
+                       
+                                <form  method="get"  action="<?php echo e(route('admin.deposit.pending')); ?>" enctype="multipart/form-data">
+                      <?php echo csrf_field(); ?>
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="month" value="month">  <strong class="numbers"><?php echo e(showAmount($monthPendingInvoices->sum('amount'))); ?><?php echo e($general->cur_text); ?> (<?php echo e($monthPendingInvoices->count()); ?>)</strong>
+                            <p class="text--small"><?php echo app('translator')->get('Month'); ?></p></button>
+                            
+                    </form>
                         </div>
                     </div><!-- widget-two end -->
                 </div>

@@ -127,13 +127,13 @@
     <section class="book-section pb-120 bg--section">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-9">
+                <div class="col-lg-8">
                   
                      <div class="car__filter__option">
                         <div class="row">
                             <div class="col-lg-12 col-md-12">
                                                               <div class="section__header section__header__center">
-            <span class="section__category">Select Car by Tag</span>
+            <span class="section__category">Select Car by Car Body Type</span>
             <!-- <h6 class="section__title">Car List</h6> -->
         </div>
                             </div>
@@ -143,11 +143,9 @@
                     
                     <div class="row">
 
-    <?php $__currentLoopData = $carbodytypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $carbodytype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                       
+    <?php $__currentLoopData = $carbodytypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $carbodytype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>                       
 
                         <div class="col-lg-3 col-md-3" style="background-color:#305129">
-
   <div class="row">
               <div class="car__item__text">
       <div class="car__item__text__inner">
@@ -175,9 +173,10 @@
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                                   
                     </div>
 
-                    
-                </div>
 
+                </div>
+ <div class="col-lg-1">
+</div>
 
                 <div class="col-lg-3">
                     <div class="car__filter__option">

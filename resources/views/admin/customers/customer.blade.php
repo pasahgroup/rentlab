@@ -26,10 +26,13 @@
                             <i class="la la-bank"></i>
                         </div>
                          <div class="widget-three__content">
-                         <a href="{{route('admin.deposit.rejected')}}">
-                                <strong class="numbers">{{showAmount($todayPendingInvoices->sum('amount'))}}{{$general->cur_text}} ({{$todayPendingInvoices->count()}})</strong>
-                            <p class="text--small">@lang('Today')</p>
-                        </a>
+                         <form  method="get"  action="{{route('admin.deposit.pending')}}" enctype="multipart/form-data">
+                      @csrf
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="today" value="today"> <strong class="numbers">{{showAmount($todayPendingInvoices->sum('amount'))}}{{$general->cur_text}} ({{$todayPendingInvoices->count()}})</strong>
+                            <p class="text--small">@lang('Today')</p></button>
+                            
+                    </form>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
@@ -40,10 +43,13 @@
                             <i class="las la-money-bill"></i>
                         </div>
                           <div class="widget-three__content">
-                         <a href="{{route('admin.deposit.rejected')}}">
-                            <strong class="numbers">{{showAmount($tomorrowPendingInvoices->sum('amount'))}}{{$general->cur_text}} ({{$tomorrowPendingInvoices->count()}})</strong>
-                            <p class="text--small">@lang('Tomorrow')</p>
-                        </a>
+                                  <form  method="get"  action="{{route('admin.deposit.pending')}}" enctype="multipart/form-data">
+                      @csrf
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="tomorrow" value="tomorrow"> <strong class="numbers">{{showAmount($tomorrowPendingInvoices->sum('amount'))}}{{$general->cur_text}} ({{$tomorrowPendingInvoices->count()}})</strong>
+                            <p class="text--small">@lang('Tomorrow2')</p></button>
+                            
+                    </form>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
@@ -54,10 +60,13 @@
                             <i class="las la-credit-card"></i>
                         </div>
                           <div class="widget-three__content">
-                         <a href="{{route('admin.deposit.rejected')}}">
-                             <strong class="numbers">{{showAmount($weekPendingInvoices->sum('amount'))}}{{$general->cur_text}} ({{$weekPendingInvoices->count()}})</strong>
-                            <p class="text--small">@lang('Week')</p>
-                        </a>
+                                     <form  method="get"  action="{{route('admin.deposit.pending')}}" enctype="multipart/form-data">
+                      @csrf
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="week" value="week">   <strong class="numbers">{{showAmount($weekPendingInvoices->sum('amount'))}}{{$general->cur_text}} ({{$weekPendingInvoices->count()}})</strong>
+                            <p class="text--small">@lang('Week')</p></button>
+                            
+                    </form>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
@@ -68,10 +77,14 @@
                             <i class="las la-credit-card"></i>
                         </div>
                          <div class="widget-three__content">
-                         <a href="{{route('admin.deposit.rejected')}}">
-                             <strong class="numbers">{{showAmount($monthPendingInvoices->sum('amount'))}}{{$general->cur_text}} ({{$monthPendingInvoices->count()}})</strong>
-                            <p class="text--small">@lang('Month')</p>
-                        </a>
+                       
+                                <form  method="get"  action="{{route('admin.deposit.pending')}}" enctype="multipart/form-data">
+                      @csrf
+<input type="hidden" name="_method" value="get">                       
+                        <button type="submit" name="month" value="month">  <strong class="numbers">{{showAmount($monthPendingInvoices->sum('amount'))}}{{$general->cur_text}} ({{$monthPendingInvoices->count()}})</strong>
+                            <p class="text--small">@lang('Month')</p></button>
+                            
+                    </form>
                         </div>
                     </div><!-- widget-two end -->
                 </div>
