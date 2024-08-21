@@ -46,7 +46,7 @@
 
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('admin.cartype.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+    <a href="{{ route('admin.modelb.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward"></i>@lang('Go Back')</a>
 @endpush
 

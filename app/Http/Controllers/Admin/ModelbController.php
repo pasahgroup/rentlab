@@ -48,40 +48,14 @@ class ModelbController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'car_body_type' => 'required|string',
-            'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
+            'brand' => 'required|string',
+         'modelb' => 'required|string',
                   ]);
 
-
-        $cartype = new Cartype();
-        $cartype->car_body_type = $request->car_body_type;
-        
-       // dd($cartype);
-
-
-
- if(request('images')){
-            $attach = request('images');
-            foreach($attach as $attached){
-
-  // Get filename with extension
-                     $fileNameWithExt =$attached->getClientOriginalName();
-                     // Just Filename
-                     $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-                     // Get just Extension
-                     $extension = $attached->getClientOriginalExtension();
-                     //Filename to store
-                     $imageToStore = $filename.'_'.time().'.'.$extension;
-                     //upload the image
-                     $path =$attached->storeAs('public/cartypes/', $imageToStore);
-
-
-         }
-    }
-
-
-        $cartype->images = $imageToStore;
-        $cartype->save();
+        $car_modelb = new modelb();
+        $car_modelb->brand_id = $request->brand;
+          $car_modelb->car_model = $request->modelb;
+        $car_modelb->save();
 
         $notify[] = ['success', 'Car body type Added Successfully!'];
         return back()->withNotify($notify);

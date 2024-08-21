@@ -3,60 +3,21 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="{{ route('admin.cartype.update', $vehicle->id) }}" method="post"
+                <form action="{{ route('admin.modelb.update', $vehicle->id) }}" method="post"
                       enctype="multipart/form-data">
                     @csrf
 
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
+                        <div class="row">                      
+
+                               <div class="col-md-6">
                                 <div class="form-group">
-                                      <label for="name">@lang('Car body type')</label>
-                                    <input type="text" id="car_body_type" name="car_body_type" class="form-control"
-                                           value="{{ $vehicle->car_body_type }}">
+                                    <label for="name">@lang('Car model')</label>
+                                    <input type="text" id="modelb" name="modelb" class="form-control"
+                                         value="{{ $vehicle->car_body_type }}">
                                 </div>
-                            </div>
-                         
-                            <div class="col-md-12">
-                                <div class="card border--dark mb-4">
-                                    <div class="card-header bg--dark d-flex justify-content-between">
-                                        <h5 class="text-white">@lang('Images')</h5>
-                                        <button type="button" class="btn btn-sm btn-outline-light addBtn"><i
-                                                class="fa fa-fw fa-plus"></i>@lang('Add New')
-                                        </button>
-                                    </div>
-                                    <div class="card-body">
-                                        <p><small class="text-facebook">@lang('Images will be resize into')
-                                                </small></p>
-                                        <div class="row element">                                        
-                                                <div class="col-md-2 imageItem" id="ddd">
-                                                    <div class="payment-method-item">
-                                                        <div class="payment-method-header d-flex flex-wrap">
-                                                            <div class="thumb" style="position: relative;">
-                                                                <div class="avatar-preview">
-                                                                    <div class="profilePicPreview"
-                                                                         style="background-image: url('{{ URL::asset('/storage/cartypes/'.$vehicle->images) }}')">
-
-                                                                    </div>
-                                                                </div>
-
-                                                                 <div class="avatar-remove">
-                                                                        <i class="la la-close">
-                                                                            <a href="{{ route('admin.cartype.image.delete',$vehicle->id) }}" class="btn btn--danger btn-lg removeInfoBtn w-100" type="button">nnn</a>
-                                                                        </i>
-                                                                        
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            </div> 
+                       
                         </div>
                     </div>
                     <div class="card-footer">

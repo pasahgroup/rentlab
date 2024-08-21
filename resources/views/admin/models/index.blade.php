@@ -86,7 +86,7 @@
 
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('admin.modelb.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('Add model bnm')</a>
+    <a href="{{ route('admin.modelb.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('Add model')</a>
 @endpush
 
 @push('script')
