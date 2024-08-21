@@ -116,8 +116,8 @@ p a:hover {
     }
 
     h3 {
-        font-size: 36px;
-        line-height: 46px;
+        font-size: 24px;
+        line-height: 40px;
         margin-top: -16px;
     }
 
@@ -1162,7 +1162,7 @@ strong, b {
 }
 
 .header-top-item a {
-    color: #204553;
+    color: #fff;
     display: flex;
     align-items: center;
 }
@@ -2081,7 +2081,7 @@ select.form--control {
 }
 
 .dashboard__item .dashboard__content {
-    padding: 30px;
+    padding: 3px;
     width: calc(100% - 90px);
 }
 

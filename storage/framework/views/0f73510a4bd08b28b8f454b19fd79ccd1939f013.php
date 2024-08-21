@@ -26,21 +26,7 @@
 <body>
 
 <!-- Preloader -->
-<div class="preloader">
-    <figure class="loader">
-        <div class="car">
-            <span class="car-body"></span>
-            <span class="wheels"></span>
-        </div>
-        <div class="strikes">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </figure>
-</div>
+
 <!-- Preloader -->
 
 <?php echo $__env->yieldContent('content'); ?>

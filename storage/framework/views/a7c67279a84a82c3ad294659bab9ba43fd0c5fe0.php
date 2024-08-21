@@ -30,21 +30,7 @@
 <a href="#" class="scrollToTop"><i class="las la-angle-up"></i></a>
 
 <!-- Preloader -->
-<div class="preloader">
-    <figure class="loader">
-        <div class="car">
-            <span class="car-body"></span>
-            <span class="wheels"></span>
-        </div>
-        <div class="strikes">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </figure>
-</div>
+
 <!-- Preloader -->
 
 <!-- Header Section -->
@@ -68,7 +54,7 @@
         </div>
     </div>
 </div>
-<div class="header-bottom">
+<div class="header-bottomx" style="background-color:#5e8059;">
     <div class="container">
         <div class="header-wrapper">
             <div class="logo">

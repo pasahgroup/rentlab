@@ -69,7 +69,7 @@
         </div>
     </div>
 </div>
-<div class="header-bottom">
+<div class="header-bottomx" style="background-color:#5e8059;">
     <div class="container">
         <div class="header-wrapper">
             <div class="logo">

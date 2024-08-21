@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer__top" style="background-color:#274414b0;">
+        <div class="footer__top" style="background-color:#57554c;">
             <div class="footer-wrapper">
                 <div class="footer__widget widget__about">
                     <h4 class="widget__title"><?php echo app('translator')->get('About'); ?> <?php echo app('translator')->get($general->sitename); ?></h4>

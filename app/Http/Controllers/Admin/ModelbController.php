@@ -8,6 +8,7 @@ use App\Models\RentLog;
 use App\Models\Seater;
 use App\Models\cartype;
 use App\Models\Vehicle;
+use App\Models\modelb;
 
 use App\Rules\FileTypeValidate;
 use Carbon\Carbon;
@@ -19,20 +20,27 @@ class ModelbController extends Controller
     {
      //   $vehicles = Vehicle::with(['brand', 'seater'])->latest()->paginate(getPaginate());
 
-        $vehicles = Cartype::latest()->paginate(getPaginate());
+        $vehicles = modelb::join('brands','brands.id','modelbs.brand_id')
+        ->select('brands.name','modelbs.*')
+        ->latest()->paginate(getPaginate());
        // dd($vehicles);
 
-        $pageTitle = 'Car body type';
-        $empty_message = 'No Car body type has been added.';
-        return view('admin.cartype.index', compact('pageTitle', 'empty_message', 'vehicles'));
+        $pageTitle = 'Car Models';
+        $empty_message = 'No Car model has been added.';
+        return view('admin.models.index', compact('pageTitle', 'empty_message', 'vehicles'));
     }
 
     public function add()
     {
-        $pageTitle = 'Add car body type';
+        $pageTitle = 'Add car model';
         $brands = Brand::active()->orderBy('name')->get();
+        $vehicles = modelb::join('brands','brands.id','modelbs.brand_id')
+        ->select('brands.name','modelbs.*')
+        ->latest()->paginate(getPaginate());
+
+       // dd($vehicles);
         $seaters = Seater::active()->orderBy('number')->get();
-        return view('admin.cartype.add', compact('pageTitle', 'brands', 'seaters'));
+        return view('admin.models.add', compact('pageTitle', 'brands', 'seaters','vehicles'));
     }
 
 
