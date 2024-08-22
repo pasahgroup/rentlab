@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="<?php echo e(route('admin.tag.update', $vehicle->id)); ?>" method="post"
+                <form action="<?php echo e(route('admin.cartype.update', $vehicle->id)); ?>" method="post"
                       enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
 
@@ -12,8 +12,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                       <label for="name"><?php echo app('translator')->get('Car body type'); ?></label>
-                                    <input type="text" id="tag" name="tag" class="form-control"
-                                           value="<?php echo e($vehicle->tag); ?>">
+                                    <input type="text" id="car_body_type" name="car_body_type" class="form-control"
+                                           value="<?php echo e($vehicle->car_body_type); ?>">
                                 </div>
                             </div>
                          
@@ -69,7 +69,7 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
-    <a href="<?php echo e(route('admin.tag.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+    <a href="<?php echo e(route('admin.cartype.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward"></i><?php echo app('translator')->get('Go Back'); ?></a>
 <?php $__env->stopPush(); ?>
 <?php $__env->startPush('style'); ?>
@@ -270,4 +270,4 @@
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/tags/edit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/cartype/edit.blade.php ENDPATH**/ ?>

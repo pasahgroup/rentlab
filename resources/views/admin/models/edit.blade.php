@@ -3,21 +3,38 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="{{ route('admin.modelb.update', $vehicle->id) }}" method="post"
-                      enctype="multipart/form-data">
+                               <form action="{{ route('admin.modelb.update',3) }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="card-body">
-                        <div class="row">                      
+                        <div class="row">
+                            
+                       
+                            
+                            <div class="col-xl-3 col-md-6">
+                                <div class="form-group ">
+                                    <label class="form-control-label font-weight-bold">@lang('Brand') </label>
+            
 
-                               <div class="col-md-6">
+ <select class="form-control" id="brand" name="brand" required="">
+                                        <option value="">-- @lang('--Select brand--') --</option>
+                                        @forelse($brands as $brand)
+                                            <option
+                                                value="{{ $brand->id }}" {{ $modelbs->brand_id == $brand->id ? 'selected' : '' }}>{{ __(@$brand->name) }}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="name">@lang('Car model')</label>
                                     <input type="text" id="modelb" name="modelb" class="form-control"
-                                         value="{{ $vehicle->car_body_type }}">
+                                         value="{{ $modelbs->car_model }}">
                                 </div>
-                            </div> 
-                       
+                            </div>                         
+
                         </div>
                     </div>
                     <div class="card-footer">
@@ -30,7 +47,7 @@
 @endsection
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('admin.cartype.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+    <a href="{{ route('admin.modelb.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward"></i>@lang('Go Back')</a>
 @endpush
 @push('style')

@@ -167,7 +167,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('modelb/{id}', 'ModelbController@edit')->name('modelb.edit');
         Route::post('modelb/update/{id}', 'ModelbController@update')->name('modelb.update');
         Route::post('modelb/image/remove/{id}', 'ModelbController@deleteImage')->name('modelb.image.delete');
-        Route::post('modelb/{id}/status', 'ModelbController@status')->name('modelbmodelb.status');
+        Route::post('modelb/{id}/status', 'ModelbController@status')->name('modelb.status');
 
             Route::post('modelb/{id}/recovery', 'ModelbController@recovery')->name('modelb.recovery');
          Route::get('modelb/{id}/delete', 'ModelbController@delete')->name('modelb.delete');

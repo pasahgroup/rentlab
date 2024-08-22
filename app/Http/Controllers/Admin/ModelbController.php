@@ -63,59 +63,30 @@ class ModelbController extends Controller
 
     public function edit($id)
     {
-        $vehicle = Cartype::findOrFail($id);
-        $pageTitle = 'Edit Car body type';
-        // $brands = Brand::active()->orderBy('name')->get();
-        // $seaters = Seater::active()->orderBy('number')->get();
+        $modelbs = modelb::findOrFail($id);
+        $pageTitle = 'Edit Car model';
+         $brands = Brand::active()->orderBy('name')->get();
+        $seaters = Seater::active()->orderBy('number')->get();
 
-        //dd($vehicle);
-        return view('admin.cartype.edit', compact('pageTitle', 'vehicle'));
+        //dd($modelbs);
+        return view('admin.models.edit', compact('pageTitle','brands','modelbs'));
     }
 
 
     public function update(Request $request,$id)
     {
-        $request->validate([
-            'car_body_type' => 'required|string',
-            'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
-        ]);
+          $request->validate([
+            'brand' => 'required|string',
+         'modelb' => 'required|string',
+                  ]);
 
-           $cartype = Cartype::findOrFail($id);
-           $cartype->car_body_type = $request->car_body_type;
+           $car_modelb = modelb::findOrFail($id);
+         
+        $car_modelb->brand_id = $request->brand;
+          $car_modelb->car_model = $request->modelb;
+        $car_modelb->save();
 
-       
-
-       // $vehicle->specifications = $specifications;
- //dd('print');
-        // Upload and Update image
-       if(request('images')){
-         //dd('print2');
-            $attach = request('images');
-            foreach($attach as $attached){
-
-  // Get filename with extension
-                     $fileNameWithExt =$attached->getClientOriginalName();
-                     // Just Filename
-                     $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-                     // Get just Extension
-                     $extension = $attached->getClientOriginalExtension();
-                     //Filename to store
-                     $imageToStore = $filename.'_'.time().'.'.$extension;
-                     //upload the image
-                     $path =$attached->storeAs('public/cartypes/', $imageToStore);
-
-
-                     $cartype->images = $imageToStore;
-
-         }
-    }
-
-    //dd('print');
-
-
-$cartype->save();
-
-        $notify[] = ['success', 'Car body type Updated Successfully!'];
+        $notify[] = ['success', 'Car model Updated Successfully!'];
         // return back()->withNotify($notify);
         return redirect()->route('admin.cartype.index')->withNotify($notify);
     }
