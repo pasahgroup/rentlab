@@ -29,6 +29,19 @@
                                     </select>
                                 </div>
                             </div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="category">@lang('Model')</label>
+                                    <select class="form-control" id="model" name="model" required="">
+                                        <option value="">-- @lang('Select One') --</option>
+                                        @forelse($brands as $item)
+                                            <option
+                                                value="{{ $item->id }}" {{ $vehicle->brand_id == $item->id ? 'selected' : '' }}>{{ __(@$item->name) }}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
 
                                 <div class="col-md-4">
                                 <div class="form-group">
@@ -102,7 +115,7 @@
                                     </select>
                                 </div>
                             </div>
-                           <div class="col-md-8">
+                           <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="price">@lang('Price Per Day')</label>
                                     <div class="input-group">
@@ -166,23 +179,16 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3">
+
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="model">@lang('Model')</label>
-                                    <input type="text" id="model" class="form-control" value="{{ $vehicle->model }}"
-                                           autocomplete="off" name="model" required>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="doors">@lang('Doors')</label>
+                                    <label for="doors">@lang('No of Doors')</label>
                                     <input type="text" id="doors" class="form-control" value="{{ $vehicle->doors }}"
                                            autocomplete="off" name="doors" required>
                                 </div>
-                            </div>
-                          
+                            </div>                          
                          
-                           <div class="col-md-3">
+                           <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="category">@lang('Transmission')</label>
                                     <select class="form-control" id="transmission" name="transmission" required="">

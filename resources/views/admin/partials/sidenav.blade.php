@@ -531,18 +531,28 @@
 
                 <li class="sidebar__menu-header">@lang('Frontend Manager')</li>
 
-                <li class="sidebar-menu-item {{menuActive('admin.frontend.templates')}}">
-                    <a href="{{route('admin.frontend.templates')}}" class="nav-link ">
-                        <i class="menu-icon la la-html5"></i>
-                        <span class="menu-title">@lang('Manage Templates')</span>
-                    </a>
-                </li>
 
-                <li class="sidebar-menu-item {{menuActive('admin.frontend.manage.pages')}}">
-                    <a href="{{route('admin.frontend.manage.pages')}}" class="nav-link ">
-                        <i class="menu-icon la la-list"></i>
+                     <li class="sidebar-menu-item sidebar-dropdown">
+                    <a href="javascript:void(0)" class="{{menuActive('admin.sms.template*',3)}}">
+                        <i class="menu-icon la la-mobile"></i>
                         <span class="menu-title">@lang('Manage Pages')</span>
                     </a>
+                    <div class="sidebar-submenu {{menuActive('admin.sms.template*',2)}} ">
+                        <ul>
+                            <li class="sidebar-menu-item {{menuActive('admin.sms.template.global')}} ">
+                                <a href="{{route('admin.frontend.templates')}}" class="nav-link">
+                                    <i class="menu-icon las la-dot-circle"></i>
+                                    <span class="menu-title">@lang('Manage Templates')</span>
+                                </a>
+                            </li>
+                             <li class="sidebar-menu-item {{menuActive('admin.sms.template.global')}} ">
+                                <a href="{{route('admin.frontend.manage.pages')}}" class="nav-link">
+                                    <i class="menu-icon las la-dot-circle"></i>
+                                    <span class="menu-title">@lang('Manage Pages')</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
 
                 <li class="sidebar-menu-item sidebar-dropdown">

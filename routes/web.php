@@ -172,6 +172,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
             Route::post('modelb/{id}/recovery', 'ModelbController@recovery')->name('modelb.recovery');
          Route::get('modelb/{id}/delete', 'ModelbController@delete')->name('modelb.delete');
 
+
            //Tag
         Route::get('tag', 'TagController@index')->name('tag.index');
         Route::get('tag/add', 'TagController@add')->name('tag.add');
@@ -204,6 +205,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('vehicles/booking/log/{id}/upcoming', 'VehicleController@userUpcomingBookingLog')->name('user.vehicles.booking.log.upcoming');
         Route::get('vehicles/booking/log/{id}/running', 'VehicleController@userRunningBookingLog')->name('user.vehicles.booking.log.running');
         Route::get('vehicles/booking/log/{id}/completed', 'VehicleController@userCompletedBookingLog')->name('user.vehicles.booking.log.completed');
+         Route::get('/getA/{p}', [VehicleController::class,'getModel']);
+         // Route::get('getA/{id}', 'VehicleController@getModel')->name('getA.popo');
 
         // Plans
         Route::get('plans', 'PlanController@index')->name('plans.index');

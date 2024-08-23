@@ -4698,7 +4698,7 @@ th.w-85 {
 
 .sidebar.capsule--rounded .sidebar__menu > .sidebar-menu-item .sidebar-submenu .sidebar-menu-item > a {
     margin-right: 15px;
-    margin-top: 2px;
+    margin-top: 1px;
     border-radius: 0 999px 999px 0;
     -webkit-border-radius: 0 999px 999px 0;
     -moz-border-radius: 0 999px 999px 0;
@@ -4828,7 +4828,7 @@ th.w-85 {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     align-items: center;
-    padding: 12px 25px;
+    padding: 6px 15px;
     transition: all 0.3s;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -4935,7 +4935,7 @@ th.w-85 {
 }
 
 .sidebar__menu .sidebar-submenu .sidebar-menu-item a {
-    padding: 10px 20px 10px 35px;
+    padding: 2px 20px 5px 40px;
     transition: all 0.3s;
 }
 

@@ -8,3 +8,4 @@
         <?php echo $__env->yieldPushContent('breadcrumb-plugins'); ?>
     </div>
 </div>
+<?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/partials/breadcrumb.blade.php ENDPATH**/ ?>

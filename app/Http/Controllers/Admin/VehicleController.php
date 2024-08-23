@@ -43,6 +43,15 @@ class VehicleController extends Controller
         return view('admin.vehicle.add', compact('pageTitle', 'brands', 'seaters','cartypes','tags','colors','locations'));
     }
 
+
+   public function getModel($p){
+       // Fetch Employees by Departmentid
+       $aData['dataA'] = vehicle::getModel($p);
+       echo json_encode($aData);
+       exit;
+     }
+
+
     public function store(Request $request)
     {
       

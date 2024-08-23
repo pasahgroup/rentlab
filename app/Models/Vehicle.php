@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Vehicle extends Model
 {
@@ -62,5 +63,10 @@ public function location()
     public function booked()
     {
         return $this->rents()->where('drop_time', '>', now())->where('status', 1)->exists();
+    }
+
+      public static function getModel($n){   
+      $value = DB::select('select * from modelbs where brand_id=2 order by car_model');
+      return $value;
     }
 }

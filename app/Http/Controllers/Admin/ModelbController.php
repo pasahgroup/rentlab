@@ -57,7 +57,7 @@ class ModelbController extends Controller
           $car_modelb->car_model = $request->modelb;
         $car_modelb->save();
 
-        $notify[] = ['success', 'Car body type Added Successfully!'];
+        $notify[] = ['success', 'Car model Added Successfully!'];
         return back()->withNotify($notify);
     }
 
@@ -80,24 +80,27 @@ class ModelbController extends Controller
          'modelb' => 'required|string',
                   ]);
 
-           $car_modelb = modelb::findOrFail($id);
+
+ $car_modelb = modelb::where('brand_id',$id)->first();
+  //dd($car_modelb);
+        //   $car_modelb = modelb::findOrFail($id);
          
+       
         $car_modelb->brand_id = $request->brand;
           $car_modelb->car_model = $request->modelb;
+        
         $car_modelb->save();
 
         $notify[] = ['success', 'Car model Updated Successfully!'];
         // return back()->withNotify($notify);
-        return redirect()->route('admin.cartype.index')->withNotify($notify);
+        return redirect()->route('admin.modelb.index')->withNotify($notify);
     }
 
 
 public function recovery($id)
     {
 
-     //   dd('print');
-
-        $vehicle = Cartype::findOrFail($id);
+        $vehicle = modelb::findOrFail($id);
 
         $images = $vehicle->images;
         $path = imagePath()['vehicles']['path'];
@@ -119,7 +122,7 @@ public function recovery($id)
 
         //dd($id);
 
-        $vehicle = Vehicle::findOrFail($id);
+        $vehicle = modelb::findOrFail($id);
 
         // $images = $vehicle->images;
         // $path = imagePath()['vehicles']['path'];
@@ -141,11 +144,11 @@ public function recovery($id)
        // dd('print');
 
         //dd($id);
-         $cartypes = Cartype::where('id',$id)->first();
+         $cartypes = modelb::where('id',$id)->first();
         if($cartypes){
             $cartypes->delete();
-             $notify[] = ['success', 'Car Car type Removed Successfully!'];
-              return redirect()->route('admin.cartype.index')->withNotify($notify);
+             $notify[] = ['success', 'Car model Removed Successfully!'];
+              return redirect()->route('admin.modelb.index')->withNotify($notify);
         }
         else{
             $notify[] = ['error', 'Car Car type added Successfully!'];
@@ -157,7 +160,7 @@ public function recovery($id)
     public function status($id)
     {
 
-        $vehicle = Cartype::findOrFail($id);
+        $vehicle = modelb::findOrFail($id);
         $vehicle->status = ($vehicle->status ? 0 : 1);
         $vehicle->save();
 
