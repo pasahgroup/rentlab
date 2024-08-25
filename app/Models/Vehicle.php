@@ -65,7 +65,7 @@ public function location()
         return $this->rents()->where('drop_time', '>', now())->where('status', 1)->exists();
     }
 
-      public static function getModel($n){   
+      public static function getModell($n){   
       $value = DB::select('select * from modelbs where brand_id=2 order by car_model');
       return $value;
     }

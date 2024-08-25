@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\PdfController;
+use App\Http\Controllers\Admin\VehicleController;
 
 Route::get('/clear', function(){
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
@@ -437,6 +438,18 @@ Route::name('user.')->prefix('user')->group(function () {
             //Vehicle booking log
             Route::get('vehicle/booking/log', 'UserController@vehicleBookingLog')->name('vehicle.booking.log');
             Route::get('plan/booking/log', 'UserController@planBookingLog')->name('plan.booking.log');
+
+            //Multi-booking section
+                Route::get('/multibooking', 'MultibookingController@index')->name('multibooking.index');
+
+        Route::get('multibooking/add', 'MultibookingController@add')->name('multibooking.add');
+        Route::post('multibooking/store', 'MultibookingController@store')->name('multibooking.store');
+        Route::get('multibooking/{id}', 'MultibookingController@edit')->name('multibooking.edit');
+        Route::post('multibooking/update/{id}', 'MultibookingController@update')->name('multibooking.update');
+        Route::post('multibooking/{id}/status', 'MultibookingController@status')->name('multibooking.status');
+         
+          Route::post('multibooking/{id}/recovery', 'MultibookingController@recovery')->name('multibooking.recovery');
+         Route::get('multibooking/{id}/delete', 'MultibookingController@delete')->name('multibooking.delete');
         });
     });
 });

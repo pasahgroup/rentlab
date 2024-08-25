@@ -49,6 +49,41 @@
 
 <!--End of custom css -->
 
+
+
+<link rel="stylesheet" href="{{ asset('assets/admin/css/vendor/bootstrap.min.css') }}">
+    <!-- bootstrap toggle css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/bootstrap-toggle.min.css')}}">
+    <!-- fontawesome 5  -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/all.min.css')}}">
+    <!-- line-awesome webfont -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/line-awesome.min.css')}}">
+
+    @stack('style-lib')
+
+    <!-- custom select box css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/nice-select.css')}}">
+    <!-- code preview css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/prism.css')}}">
+    <!-- select 2 css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/select2.min.css')}}">
+    <!-- jvectormap css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/jquery-jvectormap-2.0.5.css')}}">
+    <!-- datepicker css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/datepicker.min.css')}}">
+    <!-- timepicky for time picker css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/jquery-timepicky.css')}}">
+    <!-- bootstrap-clockpicker css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/bootstrap-clockpicker.min.css')}}">
+    <!-- bootstrap-pincode css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/bootstrap-pincode-input.css')}}">
+    <!-- dashdoard main css -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/app.css')}}">
+
+
+    @stack('style')
+
+
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script> -->
 
@@ -232,21 +267,7 @@
     <script src="{{asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.js')}}"></script>
   <script src="{{asset($activeTemplateTrue.'custom/cjs/main.js')}}"></script>
 
-
- <!--  <script src="../../custom/lib/php-mail-form/validate.js"></script>
-  <script src="../../custom/lib/prettyphoto/js/prettyphoto.js"></script>
-  <script src="../../custom/lib/isotope/isotope.min.js"></script>
-
-  <script src="../../custom/lib/hover/hoverdir.js"></script>
-  <script src="../../custom/lib/hover/hoverex.min.js"></script>
-
-  <script src="../../custom/lib/unveil-effects/unveil-effects.js"></script>
-  <script src="../../custom/lib/owl-carousel/owl-carousel.js"></script>
-
-  <script src="../../custom/lib/animate-enhanced/animate-enhanced.min.js"></script>
-  <script src="../../custom/lib/jigowatt/jigowatt.js"></script>
-  <script src="../../custom/lib/easypiechart/easypiechart.min.js"></script> -->
-
+  
 
 <script>
     $( function() {

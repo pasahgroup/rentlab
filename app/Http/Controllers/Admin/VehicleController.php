@@ -46,7 +46,7 @@ class VehicleController extends Controller
 
    public function getModel($p){
        // Fetch Employees by Departmentid
-       $aData['dataA'] = vehicle::getModel($p);
+       $aData['dataA'] = vehicle::getModell($p);
        echo json_encode($aData);
        exit;
      }

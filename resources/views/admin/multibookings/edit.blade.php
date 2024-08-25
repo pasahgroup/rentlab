@@ -1,13 +1,11 @@
-@extends('admin.layouts.app')
+@extends($activeTemplate.'layouts.frontendm')
+@extends('admin.layouts.appm')
 @section('panel')
-<!--   <script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/jquery311.min.js"></script>
-<script type="text/javascript" src="../js/jquery321.min.js"></script>
- -->
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="{{ route('admin.vehicles.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.vehicles.update', $vehicle->id) }}" method="post"
+                      enctype="multipart/form-data">
                     @csrf
 
                     <div class="card-body">
@@ -16,117 +14,125 @@
                                 <div class="form-group">
                                     <label for="name">@lang('Name')</label>
                                     <input type="text" id="name" name="name" class="form-control"
-                                           value="{{ old('name') }}">
+                                           value="{{ $vehicle->name }}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="category">@lang('Brand')</label>
-                                    <select class="form-control" id="brand" name="brand">
+                                    <select class="form-control" id="category" name="brand" required="">
                                         <option value="">-- @lang('Select One') --</option>
                                         @forelse($brands as $item)
-                                            <option value="{{ $item->id }}">{{ __(@$item->name) }}</option>
+                                            <option
+                                                value="{{ $item->id }}" {{ $vehicle->brand_id == $item->id ? 'selected' : '' }}>{{ __(@$item->name) }}</option>
                                         @empty
                                         @endforelse
                                     </select>
                                 </div>
                             </div>
-                               <div class="col-md-4">
+                              <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="category">@lang('Model')</label>
                                     <select class="form-control" id="model" name="model" required="">
-                                      
-                                        @forelse($cartypes as $cartype)
-                                            <option value="{{ $cartype->id }}">{{ __(@$cartype->car_body_type) }}</option>
+                                        <option value="">-- @lang('Select One') --</option>
+                                        @forelse($brands as $item)
+                                            <option
+                                                value="{{ $item->id }}" {{ $vehicle->brand_id == $item->id ? 'selected' : '' }}>{{ __(@$item->name) }}</option>
                                         @empty
                                         @endforelse
                                     </select>
                                 </div>
                             </div>
-                               <div class="col-md-4">
+
+                                <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="category">@lang('Car body type')</label>
                                     <select class="form-control" id="car_body_type" name="car_body_type" required="">
                                         <option value="">-- @lang('Select One') --</option>
 
                                         @forelse($cartypes as $cartype)
-                                            <option value="{{ $cartype->id }}">{{ __(@$cartype->car_body_type) }}</option>
+                                            <option
+                                                value="{{ $cartype->id }}" {{ $vehicle->car_body_type_id == $cartype->id ? 'selected' : '' }}>{{ __(@$cartype->car_body_type) }}</option>
                                         @empty
                                         @endforelse
                                     </select>
                                 </div>
                             </div>
 
-                                 <div class="col-md-4">
+                               <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="category">@lang('Car Tag')</label>
                                     <select class="form-control" id="tag" name="tag" required="">
                                         <option value="">-- @lang('Select One') --</option>
 
                                         @forelse($tags as $tag)
-                                            <option value="{{ $tag->id }}">{{ __(@$tag->tag) }}</option>
+                                            <option
+                                                value="{{ $tag->id }}" {{ $vehicle->tag_id == $tag->id ? 'selected' : '' }}>{{ __(@$tag->tag) }}</option>
                                         @empty
                                         @endforelse
                                     </select>
                                 </div>
                             </div>
 
-                                  <div class="col-md-4">
+                               <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="category">@lang('Color')</label>
                                     <select class="form-control" id="color" name="color" required="">
                                         <option value="">-- @lang('Select One') --</option>
 
                                         @forelse($colors as $color)
-                                            <option value="{{ $color->id }}">{{ __(@$color->color) }}</option>
+                                            <option
+                                                value="{{ $color->id }}" {{ $vehicle->color_id == $color->id ? 'selected' : '' }}>{{ __(@$color->color) }}</option>
                                         @empty
                                         @endforelse
                                     </select>
                                 </div>
-                            </div>
-                            
-                              <div class="col-md-4">
+                               </div>
+
+                           <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="seater">@lang('Seat Type')</label>
                                     <select class="form-control" id="seater" name="seater" required="">
                                         <option value="">-- @lang('Select One') --</option>
                                         @forelse($seaters as $item)
-                                            <option value="{{ $item->id }}">{{ __(@$item->number) }} @lang('Seater')</option>
+                                            <option
+                                                value="{{ $item->id }}" {{ $vehicle->seater_id == $item->id ? 'selected' : '' }}>{{ __(@$item->number) }} @lang('Seater')</option>
                                         @empty
                                         @endforelse
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="seater">@lang('Location')</label>
+                                    <select class="form-control" id="location" name="location" required="">
+                                        <option value="">-- @lang('Select One') --</option>
+                                        @forelse($locations as $location)
+                                            <option
+                                                value="{{ $location->id }}" {{ $vehicle->location_id == $location->id ? 'selected' : '' }}>{{ __(@$location->name) }}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
+                           <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="price">@lang('Price Per Day')</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="price" name="price"
-                                               value="{{ old('price') }}" required>
+                                               value="{{ getAmount($vehicle->price) }}" required>
                                         <div class="input-group-append">
                                             <div class="input-group-text">{{ $general->cur_text }}</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                             <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="seater">@lang('Location')</label>
-                                    <select class="form-control" id="location" name="location" required="">
-                                        <option value="">-- @lang('Select One') --</option>
-                                        @forelse($locations as $location)
-                                            <option value="{{ $location->id }}">{{ __(@$location->name) }}</option>
-                                        @empty
-                                        @endforelse
-                                    </select>
-                                </div>
-                            </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label for="nicEditor0">@lang('Details')</label>
                                     <textarea rows="10" name="details" class="form-control nicEdit"
-                                              id="nicEditor0">{{ old('details') }}</textarea>
+                                              id="nicEditor0">{{ $vehicle->details }}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -142,50 +148,54 @@
                                                 {{ imagePath()['vehicles']['size'] }}px</small></p>
                                         <div class="row element">
 
-                                            <div class="col-md-2 imageItem">
-                                                <div class="payment-method-item">
-                                                    <div class="payment-method-header d-flex flex-wrap">
-                                                        <div class="thumb" style="position: relative;">
-                                                            <div class="avatar-preview">
-                                                                <div class="profilePicPreview"
-                                                                     style="background-image: url('{{asset('assets/images/default.png')}}')">
+                                            @forelse($vehicle->images as $image)
+                                                <div class="col-md-2 imageItem" id="imageItem{{ $loop->iteration }}">
+                                                    <div class="payment-method-item">
+                                                        <div class="payment-method-header d-flex flex-wrap">
+                                                            <div class="thumb" style="position: relative;">
+                                                                <div class="avatar-preview">
+                                                                    <div class="profilePicPreview"
+                                                                         style="background-image: url('{{ getImage(imagePath()["vehicles"]["path"] . "/" . $image) }}')">
 
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="avatar-edit">
-                                                                <input type="file" name="images[]"
-                                                                       class="profilePicUpload" id="0"
-                                                                       accept=".png, .jpg, .jpeg" required>
-                                                                <label for="0" class="bg-primary">
-                                                                    <i class="la la-pencil"></i>
-                                                                </label>
-                                                            </div>
 
+                                                                <div class="avatar-remove">
+                                                                    <button class="bg-danger deleteOldImage"
+                                                                            onclick="return false"
+                                                                            data-removeindex="imageItem{{ $loop->iteration }}"
+                                                                            data-deletelink="{{ route('admin.vehicles.image.delete', [$vehicle->id, $image]) }}">
+                                                                        <i class="la la-close"></i></button>
+                                                                </div>
+
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @empty
+                                            @endforelse
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                           
+
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="doors">@lang('No of Doors')</label>
-                                    <input type="text" id="doors" class="form-control" value="{{ old('doors') }}"
+                                    <input type="text" id="doors" class="form-control" value="{{ $vehicle->doors }}"
                                            autocomplete="off" name="doors" required>
                                 </div>
-                            </div>
-                           
+                            </div>                          
+                         
                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="category">@lang('Transmission')</label>
                                     <select class="form-control" id="transmission" name="transmission" required="">
-                                        <option value="">-- @lang('Select Transmission') --</option>
-                              
+                                                                               
+                               <option
+                                                value="{{ $vehicle->transmission }}" {{ $vehicle->transmission ? 'selected' : '' }}>{{ $vehicle->transmission }}</option>
                                             <option value="Automatic">@lang('Automatic')</option>
                                             <option value="Semi-automatic">@lang('Semi-automatic')</option>
                                              <option value="Manual">@lang('Manual')</option>
@@ -193,14 +203,15 @@
                                 </div>
                             </div>
 
-                            
-                            <div class="col-md-4">
+
+                         <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="category">@lang('Fuel Type')</label>
-                                    <select class="form-control" id="fuel" name="fuel_type" required="">
-                                        <option value="">-- @lang('Select Fuel Type') --</option>
-                              
-                                              <option value="Electric">@lang('Electric')</option>
+                                    <label for="category">@lang('Fuel Type gg')</label>
+                                    <select class="form-control" id="fuel_type" name="fuel_type" required="">
+                                                                     
+                               <option
+                                                value="{{ $vehicle->fuel_type }}" {{ $vehicle->fuel_type ? 'selected' : '' }}>{{ $vehicle->fuel_type }}</option>
+                                            <option value="Electric">@lang('Electric')</option>
                                             <option value="Diesel">@lang('Diesel')</option>
                                              <option value="Petrol">@lang('Petrol')</option>
                                                                         </select>
@@ -212,7 +223,8 @@
                                 <div class="card border--dark">
                                     <h5 class="card-header bg--dark">@lang('More Specifications')
                                         <button type="button"
-                                                class="btn btn-sm btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">
+                                                class="btn btn-sm btn-outline-light float-right" data-toggle="modal"
+                                                data-target="#exampleModal">
                                             <i class="la la-fw la-plus"></i>@lang('Add New')
                                         </button>
                                     </h5>
@@ -220,16 +232,49 @@
                                     <div class="card-body">
                                         <div class="row addedField">
 
+                                            @forelse($vehicle->specifications as $key => $spec)
+                                                <div class="col-md-12 other-info-data">
+                                                    <div class="form-group">
+                                                        <div class="input-group mb-md-0 mb-4">
+                                                            <div class="col-md-4">
+                                                                <div class="input-group has_append">
+                                                                    <input name="icon[]" type="text" class="form-control icon" value='{{ $spec[0] }}' required>
+                                                                    <div class="input-group-append">
+                                                                        <button class="btn btn-outline-secondary iconPicker" data-icon="{{ explode('"',$spec[0])[1] }}" role="iconpicker"></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <input name="label[]" class="form-control" type="text"
+                                                                       value="{{ $spec[1] }}" required
+                                                                       placeholder="@lang('Label')">
+                                                            </div>
+                                                            <div class="col-md-3 mt-md-0 mt-2">
+                                                                <input name="value[]" class="form-control"
+                                                                       value="{{ $spec[2] }}" type="text" required
+                                                                       placeholder="@lang('Value')">
+                                                            </div>
+                                                            <div class="col-md-1 mt-md-0 mt-2 text-right">
+                                                                <span class="input-group-btn">
+                                                                    <button class="btn btn--danger btn-lg removeInfoBtn w-100" type="button">
+                                                                        <i class="fa fa-times"></i>
+                                                                    </button>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @empty
+                                            @endforelse
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn--primary w-100">@lang('Create')</button>
+                        <button class="btn btn--primary w-100">@lang('Update')</button>
                     </div>
                 </form>
             </div><!-- card end -->
@@ -274,12 +319,10 @@
     </div>
 @endsection
 
-
 @push('breadcrumb-plugins')
     <a href="{{ route('admin.vehicles.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward"></i>@lang('Go Back')</a>
 @endpush
-
 @push('style')
     <style>
         .avatar-remove {
@@ -297,6 +340,17 @@
             font-size: 15px;
             cursor: pointer;
         }
+
+        .avatar-remove button {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 15px;
+            font-size: 15px;
+            cursor: pointer;
+            padding-left: 6px;
+        }
     </style>
 @endpush
 
@@ -312,6 +366,40 @@
         (function ($) {
             "use strict";
 
+            $(document).ready(function () {
+                $(window).keydown(function (event) {
+                    if (event.keyCode == 13) {
+                        event.preventDefault();
+                        return false;
+                    }
+                });
+            });
+
+            //Delete Old Image
+            $('.deleteOldImage').on('click', function () {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                var url = $(this).data('deletelink');
+                var removeindex = $(this).data('removeindex');
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    success: function (data) {
+                        if (data.success) {
+                            $('#' + removeindex).remove();
+                            notify('success', data.message);
+                        } else {
+                            notify('error', 'Failed to delete the image!')
+                        }
+                    }
+                });
+            });
+
             var counter = 0;
             $('.addBtn').click(function () {
                 counter++;
@@ -325,13 +413,6 @@
                 remove()
                 upload()
             });
-
-            function scrol() {
-                var bottom = $(document).height() - $(window).height();
-                $('html, body').animate({
-                    scrollTop: bottom
-                }, 200);
-            }
 
             function remove() {
                 $('.removeBtn').on('click', function () {
@@ -356,12 +437,6 @@
 
                 $(".profilePicUpload").on('change', function () {
                     proPicURL(this);
-                });
-
-                $(".remove-image").on('click', function () {
-                    $(this).parents(".profilePicPreview").css('background-image', 'none');
-                    $(this).parents(".profilePicPreview").removeClass('has-image');
-                    $(this).parents(".thumb").find('input[type=file]').val('');
                 });
             }
 
@@ -413,9 +488,12 @@
                 $(this).closest('.other-info-data').remove();
             });
 
-
-            $('select[name=brand]').val('{{old('brand')}}');
-            $('select[name=seater]').val('{{old('seater')}}');
+            function scrol() {
+                var bottom = $(document).height() - $(window).height();
+                $('html, body').animate({
+                    scrollTop: bottom
+                }, 200);
+            }
 
             // Icon picker
             $('.iconPicker').iconpicker({
@@ -441,58 +519,4 @@
             });
         })(jQuery);
     </script>
-
-
-      <script type="text/javascript">
-       $(document).ready(function(){
-      // Department Change
-      $('#brand').change(function(){
-         // ward
-
-  //alert('changed');
-
-         var v = $(this).val();
-             // alert(v);
-           // Empty the dropdown
-         // $('#model').find('option').not(':first').remove();
-            // document.getElementById("classgf").value =v;
-         // $('#village').find('option').not(':first').remove();
-         // $('#project_name').find('option').not(':first').remove();
-         // $('#project_activities').find('option').not(':first').remove();
-
-
-         // AJAX request
-
-         $.ajax({
-          url: 'getA/'+v,            
-           type: 'get',
-           dataType: 'json',
-           success: function(response){
-      //alet('fffff');
-
-             var len = 0;
-            
-             if(response['dataA'] != null){
-               len = response['dataA'].length;
-             }
-         //alet(len);
-
-                       if(len > 0){
-               // Read data and create <option >
-               for(var i=0; i<len; i++){
-
-                 var id = response['dataA'][i].id;
-                 var name = response['dataA'][i].car_model;
-                 var option = "<option value='"+id+"'>"+name+"</option>";
-                 $("#model").append(option);
-               }
-             }
-             //DAta are here
-
-           }
-        });
-      });
-    });
-     </script>
-
 @endpush
