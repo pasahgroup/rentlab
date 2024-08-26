@@ -39,7 +39,7 @@
                                 <div class="form-group">
                                     <label for="price"><?php echo app('translator')->get('Price Per Day'); ?></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="price" name="price"
+                                        <input type="number" class="form-control" id="price" name="price"
                                                value="<?php echo e(old('price')); ?>" required>
                                         <div class="input-group-append">
                                             <div class="input-group-text"><?php echo e($general->cur_text); ?></div>
@@ -60,7 +60,7 @@
                                 <div class="form-group">
                                     <label for="price"><?php echo app('translator')->get('Total costs'); ?></label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="total_costs" name="total_costs"
+                                        <input type="number" class="form-control" id="total_costs" name="total_costs"
                                                value="<?php echo e(old('total_costs')); ?>" required>
                                         <div class="input-group-append">
                                             <div class="input-group-text"><?php echo e($general->cur_text); ?></div>
@@ -115,12 +115,11 @@
                                     <label for="start-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Pick Up Date & Time'); ?>
                                     </label>
-                                    <input type="date" name="pick_time" placeholder="<?php echo app('translator')->get('Pick Up Date & Time'); ?>" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
+                                    <input type="date" name="drop_time" placeholder="<?php echo app('translator')->get('Pick Up Date & Time'); ?>" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
                                    
                                 </div>
-                                <div class="card-footer">
                         <button class="btn btn--primary w-100"><?php echo app('translator')->get('Confirm Order'); ?></button>
-                    </div>
+                  
                             </div>
                         </div>
                     </div>

@@ -86,40 +86,22 @@ class MultibookingController extends Controller
             'drop_time' => 'required|string',
         ]);
 
-dd('print');
-
+//dd('print');
         $multibooking = new multibooking();
-        $multibooking->name = $request->name;
-        $multibooking->brand_id = $request->brand;
-        $multibooking->seater_id = $request->seater;
+        $multibooking->name =auth()->id();
+        $multibooking->brand_id = $request->brand_id;
+        $multibooking->model_id = $request->model_id;
         $multibooking->price = $request->price;
-        $multibooking->details = $request->details;
-        $multibooking->model = $request->model;
-        $multibooking->doors = $request->doors;
-        $multibooking->transmission = $request->transmission;
-        $multibooking->fuel_type = $request->fuel_type;
-         $multibooking->car_body_type_id = $request->car_body_type;
-          $multibooking->tag_id = $request->tag;
-           $multibooking->color_id = $request->color;
-            $multibooking->location_id = $request->location;
+        $multibooking->no_days = $request->no_days;
+        $multibooking->booked_by = $request->booked_by;
+        $multibooking->total_costs = $request->total_costs;
+        // $multibooking->transmission = $request->transmission;
+        // $multibooking->fuel_type = $request->fuel_type;
+        //  $multibooking->car_body_type_id = $request->car_body_type;
+        //   $multibooking->tag_id = $request->tag;
+        //    $multibooking->color_id = $request->color;
+        //     $multibooking->location_id = $request->location;
 
-
-        // foreach ($request->label as $key => $item) {
-        //     $specifications[$item] = [
-        //         $request->icon[$key],
-        //         $request->label[$key],
-        //         $request->value[$key]
-        //     ];
-        // }
-        // $vehicle->specifications = $specifications;
-
-        // Upload image
-        // foreach ($request->images as $image) {
-        //     $path = imagePath()['vehicles']['path'];
-        //     $size = imagePath()['vehicles']['size'];
-        //     $images[] = uploadImage($image, $path, $size);
-        // }
-        // $vehicle->images = $images;
 
         $multbooking->save();
 
