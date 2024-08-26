@@ -118,7 +118,7 @@
                                     <input type="date" name="drop_time" placeholder="<?php echo app('translator')->get('Pick Up Date & Time'); ?>" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
                                    
                                 </div>
-                        <button class="btn btn--primary w-100"><?php echo app('translator')->get('Confirm Order'); ?></button>
+                        <button class="btn btn--primary w-100" style="padding: 1.4rem 1.75rem;"><?php echo app('translator')->get('Add car'); ?></button>
                   
                             </div>
                         </div>
@@ -170,7 +170,7 @@
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
     <a href="<?php echo e(route('admin.vehicles.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
-            class="fa fa-fw fa-backward"></i><?php echo app('translator')->get('Go Back'); ?></a>
+            class="fa fa-fw fa-backward" style="padding: 1.4rem 1.75rem;"></i><?php echo app('translator')->get('Go Back'); ?></a>
 <?php $__env->stopPush(); ?>
 
 <?php $__env->startPush('style'); ?>

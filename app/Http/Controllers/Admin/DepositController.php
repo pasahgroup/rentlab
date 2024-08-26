@@ -67,7 +67,7 @@ class DepositController extends Controller
       ->orderBy('id','desc')
     ->paginate(getPaginate());
 
-    dd($deposits);
+    //dd($deposits);
 }
 elseif(request('month')){
                     $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfMonth()->toDateString(),Carbon::now()->endOfMonth()->toDateString()])
@@ -117,6 +117,8 @@ elseif(request('month')){
        ->with(['user', 'gateway'])
       ->orderBy('id','desc')
     ->paginate(getPaginate());
+
+    //dd($deposits);
 
           }elseif(request('monthcancellation')){
     

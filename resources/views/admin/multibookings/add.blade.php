@@ -118,7 +118,7 @@
                                     <input type="date" name="drop_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
                                    
                                 </div>
-                        <button class="btn btn--primary w-100">@lang('Confirm Order')</button>
+                        <button class="btn btn--primary w-100" style="padding: 1.4rem 1.75rem;">@lang('Add car')</button>
                   
                             </div>
                         </div>
@@ -170,7 +170,7 @@
 
 @push('breadcrumb-plugins')
     <a href="{{ route('admin.vehicles.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
-            class="fa fa-fw fa-backward"></i>@lang('Go Back')</a>
+            class="fa fa-fw fa-backward" style="padding: 1.4rem 1.75rem;"></i>@lang('Go Back')</a>
 @endpush
 
 @push('style')

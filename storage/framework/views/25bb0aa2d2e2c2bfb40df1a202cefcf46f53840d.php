@@ -126,38 +126,47 @@
           
   
             <div class="row">
-             <div class="col-md-3 col-sm-12">
-             
+             <div class="col-md-12 col-sm-12">             
 
                           <form  method="get"  action="<?php echo e(route('admin.deposit.rejected')); ?>" enctype="multipart/form-data">
                       <?php echo csrf_field(); ?>
 <input type="hidden" name="_method" value="get">                       
                         <button type="submit" name="weekcancellation" value="weekcancellation" class="badge--success">
                             <p class="text--small"><?php echo app('translator')->get('Week'); ?></p></button>
+                        </form>
                            
           
 
-                                  
-                            <form  method="get"  action="<?php echo e(route('admin.deposit.rejected')); ?>" enctype="multipart/form-data">
-                      <?php echo csrf_field(); ?>
-<input type="hidden" name="_method" value="get">                       
-                        <button type="submit" name="monthcancellation" value="monthcancellation" class="badge--danger">
-                            <p class="text--small"><?php echo app('translator')->get('Month'); ?></p></button>
-                            
-                    </form>
-            
-                        
-                        <div class="widget-three__content">
-                         <button href="<?php echo e(route('admin.deposit.rejected')); ?>" class="badge--warning">
+
+                         <form action="<?php echo e(route('admin.deposit.rejected')); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
+            <div class="input-group has_append  ">
+                  <button type="submit" class="badge--warning" name="weekcancellation" value="weekcancellation">
+                            <p class="text--small"><?php echo app('translator')->get('Week2'); ?></p>
+                        </button>
+            </div>
+        </form>
+
+                     <form action="<?php echo e(route('admin.deposit.rejected')); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
+            <div class="input-group has_append  ">
+                  <button type="submit" class="badge--success" name="monthcancellation" value="monthcancellation">
+                            <p class="text--small"><?php echo app('translator')->get('Month'); ?></p>
+                        </button>
+            </div>
+        </form>
+
+             <form action="<?php echo e(route('admin.deposit.rejected')); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
+            <div class="input-group has_append  ">
+                  <button type="submit" class="badge--success" name="weekcancellation" value="weekcancellation">
                             <p class="text--small"><?php echo app('translator')->get('All'); ?></p>
                         </button>
-                        </div>
-                    
+            </div>
+        </form>
+         
         
-</div> 
+<!-- </div> 
 
   
- <div class="col-md-9 col-sm-12">
+ <div class="col-md-9 col-sm-12"> -->
         <form action="<?php echo e(route('admin.deposit.search', $scope ?? str_replace('admin.deposit.', '', request()->route()->getName()))); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
             <div class="input-group has_append  ">
                 <input type="text" name="search" class="form-control" placeholder="<?php echo app('translator')->get('Trx number/Username'); ?>" value="<?php echo e($search ?? ''); ?>">
