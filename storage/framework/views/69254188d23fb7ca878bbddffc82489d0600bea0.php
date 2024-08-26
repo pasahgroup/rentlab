@@ -101,7 +101,7 @@
 
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
-    <a href="<?php echo e(route('admin.vehicles.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('Add New'); ?></a>
+    <a href="<?php echo e(route('user.multibooking.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('Add New'); ?></a>
 <?php $__env->stopPush(); ?>
 
 <?php $__env->startPush('script'); ?>

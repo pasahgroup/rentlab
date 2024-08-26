@@ -9,6 +9,7 @@ class multbooking extends Model
 {
     use HasFactory;
      protected $fillable = [
+         'name',
           'brand_id',
           'model_id',
           'price',
@@ -16,7 +17,8 @@ class multbooking extends Model
           'total_costs'
           'pick_location',
           'drop_location',
-        'start_date',
-        'end_date',
+          'booked_by', 
+        'pick_time',
+        'drop_time'
     ];
 }

@@ -1,48 +1,48 @@
-@extends($activeTemplate.'layouts.frontendm')
-@extends('admin.layouts.appm')
-@section('panel')
+
+
+<?php $__env->startSection('panel'); ?>
 
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="{{ route('user.multibooking.store') }}" method="post" enctype="multipart/form-data">
-                    @csrf
+                <form action="<?php echo e(route('user.multibooking.store')); ?>" method="post" enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
 
                     <div class="card-body">
                         <div class="row">                          
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="category">@lang('Brand')</label>
+                                    <label for="category"><?php echo app('translator')->get('Brand'); ?></label>
                                     <select class="form-control" id="brand_id" name="brand_id">
-                                        <option value="">-- @lang('Select One') --</option>
-                                        @forelse($brands as $item)
-                                            <option value="{{ $item->id }}">{{ __(@$item->name) }}</option>
-                                        @empty
-                                        @endforelse
+                                        <option value="">-- <?php echo app('translator')->get('Select One'); ?> --</option>
+                                        <?php $__empty_1 = true; $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                            <option value="<?php echo e($item->id); ?>"><?php echo e(__(@$item->name)); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                        <?php endif; ?>
                                     </select>
                                 </div>
                             </div>
                                <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="category">@lang('Model')</label>
+                                    <label for="category"><?php echo app('translator')->get('Model'); ?></label>
                                     <select class="form-control" id="model_id" name="model_id" required="">
                                       
-                                        @forelse($cartypes as $cartype)
-                                            <option value="{{ $cartype->id }}">{{ __(@$cartype->car_body_type) }}</option>
-                                        @empty
-                                        @endforelse
+                                        <?php $__empty_1 = true; $__currentLoopData = $cartypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cartype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                            <option value="<?php echo e($cartype->id); ?>"><?php echo e(__(@$cartype->car_body_type)); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                        <?php endif; ?>
                                     </select>
                                 </div>
                             </div>
                           
                            <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="price">@lang('Price Per Day')</label>
+                                    <label for="price"><?php echo app('translator')->get('Price Per Day'); ?></label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="price" name="price"
-                                               value="{{ old('price') }}" required>
+                                               value="<?php echo e(old('price')); ?>" required>
                                         <div class="input-group-append">
-                                            <div class="input-group-text">{{ $general->cur_text }}</div>
+                                            <div class="input-group-text"><?php echo e($general->cur_text); ?></div>
                                         </div>
                                     </div>
                                 </div>
@@ -50,20 +50,20 @@
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="doors">@lang('No of Days')</label>
-                                    <input type="number" id="no_days" class="form-control" value="{{ old('doors') }}"
+                                    <label for="doors"><?php echo app('translator')->get('No of Days'); ?></label>
+                                    <input type="number" id="no_days" class="form-control" value="<?php echo e(old('doors')); ?>"
                                            autocomplete="off" name="no_days" min="1" required>
                                 </div>
                             </div>
 
                              <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="price">@lang('Total costs')</label>
+                                    <label for="price"><?php echo app('translator')->get('Total costs'); ?></label>
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="total_costs" name="total_costs"
-                                               value="{{ old('total_costs') }}" required>
+                                               value="<?php echo e(old('total_costs')); ?>" required>
                                         <div class="input-group-append">
-                                            <div class="input-group-text">{{ $general->cur_text }}</div>
+                                            <div class="input-group-text"><?php echo e($general->cur_text); ?></div>
                                         </div>
                                     </div>
                                 </div>
@@ -74,13 +74,13 @@
 
                              <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="seater">@lang('Pick Location')</label>
+                                    <label for="seater"><?php echo app('translator')->get('Pick Location'); ?></label>
                                     <select class="form-control" id="pick_location" name="pick_location" required="">
-                                        <option value="">-- @lang('Select One') --</option>
-                                        @forelse($locations as $location)
-                                            <option value="{{ $location->id }}">{{ __(@$location->name) }}</option>
-                                        @empty
-                                        @endforelse
+                                        <option value="">-- <?php echo app('translator')->get('Select One'); ?> --</option>
+                                        <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                            <option value="<?php echo e($location->id); ?>"><?php echo e(__(@$location->name)); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                        <?php endif; ?>
                                     </select>
                                 </div>
                             </div>
@@ -88,13 +88,13 @@
 
                              <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="seater">@lang('Drop location')</label>
+                                    <label for="seater"><?php echo app('translator')->get('Drop location'); ?></label>
                                     <select class="form-control" id="drop_location" name="drop_location" required="">
-                                        <option value="">-- @lang('Select One') --</option>
-                                        @forelse($locations as $location)
-                                            <option value="{{ $location->id }}">{{ __(@$location->name) }}</option>
-                                        @empty
-                                        @endforelse
+                                        <option value="">-- <?php echo app('translator')->get('Select One'); ?> --</option>
+                                        <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                            <option value="<?php echo e($location->id); ?>"><?php echo e(__(@$location->name)); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                        <?php endif; ?>
                                     </select>
                                 </div>
                             </div>
@@ -103,9 +103,9 @@
                             <div class="col-md-3 col-sm-3">
                                 <div class="form-group">
                                     <label for="start-date" class="form--label">
-                                        <i class="las la-calendar-alt"></i> @lang('Pick Up Date & Time')
+                                        <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Pick Up Date & Time'); ?>
                                     </label>
-                                    <input type="date" name="pick_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
+                                    <input type="date" name="pick_time" placeholder="<?php echo app('translator')->get('Pick Up Date & Time'); ?>" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
                                 </div>
                             </div>
 
@@ -113,13 +113,13 @@
                               <div class="col-md-3 col-sm-3">
                                 <div class="form-group">
                                     <label for="start-date" class="form--label">
-                                        <i class="las la-calendar-alt"></i> @lang('Pick Up Date & Time')
+                                        <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Pick Up Date & Time'); ?>
                                     </label>
-                                    <input type="date" name="drop_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
+                                    <input type="date" name="pick_time" placeholder="<?php echo app('translator')->get('Pick Up Date & Time'); ?>" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
                                    
                                 </div>
                                 <div class="card-footer">
-                        <button class="btn btn--primary w-100">@lang('Confirm Order')</button>
+                        <button class="btn btn--primary w-100"><?php echo app('translator')->get('Confirm Order'); ?></button>
                     </div>
                             </div>
                         </div>
@@ -135,14 +135,14 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">@lang('Add New Specification')</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><?php echo app('translator')->get('Add New Specification'); ?></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body specification">
                     <div class="form-group">
-                        <label for="icon" class="font-weight-bold">@lang('Select Icon')</label>
+                        <label for="icon" class="font-weight-bold"><?php echo app('translator')->get('Select Icon'); ?></label>
                         <div class="input-group has_append">
                             <input type="text" class="form-control icon" id="icon" required>
                             <div class="input-group-append">
@@ -151,30 +151,30 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="label" class="font-weight-bold">@lang('Label')</label>
-                        <input class="form-control" id="label" type="text" required placeholder="@lang('Label')">
+                        <label for="label" class="font-weight-bold"><?php echo app('translator')->get('Label'); ?></label>
+                        <input class="form-control" id="label" type="text" required placeholder="<?php echo app('translator')->get('Label'); ?>">
                     </div>
                     <div class="form-group">
-                        <label for="label" class="font-weight-bold">@lang('Value')</label>
-                        <input class="form-control" id="value" type="text" required placeholder="@lang('Value')">
+                        <label for="label" class="font-weight-bold"><?php echo app('translator')->get('Value'); ?></label>
+                        <input class="form-control" id="value" type="text" required placeholder="<?php echo app('translator')->get('Value'); ?>">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn--secondary" data-dismiss="modal">@lang('Close')</button>
-                    <button type="button" class="btn btn--primary addNewInformation">@lang('Add')</button>
+                    <button type="button" class="btn btn--secondary" data-dismiss="modal"><?php echo app('translator')->get('Close'); ?></button>
+                    <button type="button" class="btn btn--primary addNewInformation"><?php echo app('translator')->get('Add'); ?></button>
                 </div>
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@push('breadcrumb-plugins')
-    <a href="{{ route('admin.vehicles.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
-            class="fa fa-fw fa-backward"></i>@lang('Go Back')</a>
-@endpush
+<?php $__env->startPush('breadcrumb-plugins'); ?>
+    <a href="<?php echo e(route('admin.vehicles.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+            class="fa fa-fw fa-backward"></i><?php echo app('translator')->get('Go Back'); ?></a>
+<?php $__env->stopPush(); ?>
 
-@push('style')
+<?php $__env->startPush('style'); ?>
     <style>
         .avatar-remove {
             position: absolute;
@@ -192,16 +192,16 @@
             cursor: pointer;
         }
     </style>
-@endpush
+<?php $__env->stopPush(); ?>
 
-@push('style-lib')
-    <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-iconpicker.min.css') }}">
-@endpush
-@push('script-lib')
-    <script src="{{ asset('assets/admin/js/bootstrap-iconpicker.bundle.min.js') }}"></script>
-@endpush
+<?php $__env->startPush('style-lib'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/bootstrap-iconpicker.min.css')); ?>">
+<?php $__env->stopPush(); ?>
+<?php $__env->startPush('script-lib'); ?>
+    <script src="<?php echo e(asset('assets/admin/js/bootstrap-iconpicker.bundle.min.js')); ?>"></script>
+<?php $__env->stopPush(); ?>
 
-@push('script')
+<?php $__env->startPush('script'); ?>
     <script>
         (function ($) {
             "use strict";
@@ -209,7 +209,7 @@
             var counter = 0;
             $('.addBtn').click(function () {
                 counter++;
-                $('.element').append(`<div class="col-md-2 imageItem"><div class="payment-method-item"><div class="payment-method-header d-flex flex-wrap"><div class="thumb" style="position: relative;"><div class="avatar-preview"><div class="profilePicPreview" style="background-image: url('{{asset('assets/images/default.png')}}')"></div></div><div class="avatar-edit"><input type="file" name="images[]" class="profilePicUpload" required id="image${counter}" accept=".png, .jpg, .jpeg" /><label for="image${counter}" class="bg-primary"><i class="la la-pencil"></i></label></div>
+                $('.element').append(`<div class="col-md-2 imageItem"><div class="payment-method-item"><div class="payment-method-header d-flex flex-wrap"><div class="thumb" style="position: relative;"><div class="avatar-preview"><div class="profilePicPreview" style="background-image: url('<?php echo e(asset('assets/images/default.png')); ?>')"></div></div><div class="avatar-edit"><input type="file" name="images[]" class="profilePicUpload" required id="image${counter}" accept=".png, .jpg, .jpeg" /><label for="image${counter}" class="bg-primary"><i class="la la-pencil"></i></label></div>
                 <div class="avatar-remove">
                     <label class="bg-danger removeBtn">
                         <i class="la la-close"></i>
@@ -278,10 +278,10 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <input name="label[]" class="form-control" type="text" value="${label}" required placeholder="@lang('Label')" readonly>
+                                <input name="label[]" class="form-control" type="text" value="${label}" required placeholder="<?php echo app('translator')->get('Label'); ?>" readonly>
                             </div>
                             <div class="col-md-3 mt-md-0 mt-2">
-                                <input name="value[]" class="form-control" value="${value}" type="text" required placeholder="@lang('Value')" readonly>
+                                <input name="value[]" class="form-control" value="${value}" type="text" required placeholder="<?php echo app('translator')->get('Value'); ?>" readonly>
                             </div>
                             <div class="col-md-1 mt-md-0 mt-2 text-right">
                                 <span class="input-group-btn">
@@ -308,8 +308,8 @@
             });
 
 
-            $('select[name=brand]').val('{{old('brand')}}');
-            $('select[name=seater]').val('{{old('seater')}}');
+            $('select[name=brand]').val('<?php echo e(old('brand')); ?>');
+            $('select[name=seater]').val('<?php echo e(old('seater')); ?>');
 
             // Icon picker
             $('.iconPicker').iconpicker({
@@ -389,4 +389,7 @@
     });
      </script>
 
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('admin.layouts.appm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make($activeTemplate.'layouts.frontendm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/multibookings/add.blade.php ENDPATH**/ ?>

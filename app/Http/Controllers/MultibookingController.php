@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\multbooking;
+use App\Models\multibooking;
 use App\Models\Brand;
 use App\Models\RentLog;
 use App\Models\Seater;
@@ -15,6 +15,7 @@ use App\Models\Location;
 
 use App\Http\Requests\StoremultbookingRequest;
 use App\Http\Requests\UpdatemultbookingRequest;
+use Illuminate\Http\Request;
 
 class MultibookingController extends Controller
 {
@@ -35,6 +36,20 @@ class MultibookingController extends Controller
   
     }
 
+  public function add()
+    {
+        $pageTitle = 'Add Multbooking';
+        $brands = Brand::active()->orderBy('name')->get();
+        $cartypes = Cartype::orderBy('car_body_type')->get();
+         $colors = Color::orderBy('color')->get();
+ //dd($colors );
+          $tags = Tag::where('status',1)->get(); 
+           $locations = Location::where('status',1)->get();   
+
+        $seaters = Seater::active()->orderBy('number')->get();
+        return view('admin.multibookings.add', compact('pageTitle', 'brands', 'seaters','cartypes','tags','colors','locations'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -51,9 +66,65 @@ class MultibookingController extends Controller
      * @param  \App\Http\Requests\StoremultbookingRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoremultbookingRequest $request)
+   
+
+    public function store(Request $request)
     {
-        //
+      
+     //dd('print_one');
+        $request->validate([
+            'brand_id' => 'required|integer|gt:0',
+            'model_id' => 'required|integer|gt:0',
+            'price' => 'required|numeric|gt:0',
+            'no_days' => 'required|integer|gt:0',
+            'total_costs' => 'required|numeric|gt:0',
+
+            'pick_location' => 'required|string',
+            'drop_location' => 'required|string',
+           
+            'pick_time' => 'required|string',
+            'drop_time' => 'required|string',
+        ]);
+
+dd('print');
+
+        $multibooking = new multibooking();
+        $multibooking->name = $request->name;
+        $multibooking->brand_id = $request->brand;
+        $multibooking->seater_id = $request->seater;
+        $multibooking->price = $request->price;
+        $multibooking->details = $request->details;
+        $multibooking->model = $request->model;
+        $multibooking->doors = $request->doors;
+        $multibooking->transmission = $request->transmission;
+        $multibooking->fuel_type = $request->fuel_type;
+         $multibooking->car_body_type_id = $request->car_body_type;
+          $multibooking->tag_id = $request->tag;
+           $multibooking->color_id = $request->color;
+            $multibooking->location_id = $request->location;
+
+
+        // foreach ($request->label as $key => $item) {
+        //     $specifications[$item] = [
+        //         $request->icon[$key],
+        //         $request->label[$key],
+        //         $request->value[$key]
+        //     ];
+        // }
+        // $vehicle->specifications = $specifications;
+
+        // Upload image
+        // foreach ($request->images as $image) {
+        //     $path = imagePath()['vehicles']['path'];
+        //     $size = imagePath()['vehicles']['size'];
+        //     $images[] = uploadImage($image, $path, $size);
+        // }
+        // $vehicle->images = $images;
+
+        $multbooking->save();
+
+        $notify[] = ['success', 'Order Added Successfully!'];
+        return back()->withNotify($notify);
     }
 
     /**

@@ -100,7 +100,7 @@
 
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('admin.vehicles.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('Add New')</a>
+    <a href="{{ route('user.multibooking.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('Add New')</a>
 @endpush
 
 @push('script')
