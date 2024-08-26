@@ -50,14 +50,14 @@ class DepositController extends Controller
     //dd($deposits);
 
           }elseif(request('tomorrow')){
-                    $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfWeek()->toDateString(),Carbon::now()->endOfWeek()->toDateString()])
+                    $deposits = Deposit::whereDate('created_at',\Carbon\Carbon::now()->addDays(1))
     ->where('method_code', '>=', 1000)
         ->where('status',2)
        ->with(['user', 'gateway'])
       ->orderBy('id','desc')
     ->paginate(getPaginate());
 
-       dd($deposits);
+      // dd($deposits);
           }
           elseif(request('week')){
                     $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfWeek()->toDateString(),Carbon::now()->endOfWeek()->toDateString()])
@@ -66,6 +66,8 @@ class DepositController extends Controller
        ->with(['user', 'gateway'])
       ->orderBy('id','desc')
     ->paginate(getPaginate());
+
+    dd($deposits);
 }
 elseif(request('month')){
                     $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfMonth()->toDateString(),Carbon::now()->endOfMonth()->toDateString()])
