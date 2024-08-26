@@ -105,7 +105,6 @@ elseif(request('month')){
 
     public function rejected(Request $request)
     {
-
           $pageTitle = 'Rejected Payments';
         $emptyMessage = 'No rejected payments.';
        
@@ -121,20 +120,6 @@ elseif(request('month')){
     //dd($deposits);
 
           }elseif(request('monthcancellation')){
-    
-      // $deposits=DB::select('select * from deposits where status=3 and Week(created_at)=Week(NOW())');
-      // $deposits=collect($deposits);
-// $dt = Carbon::now();
-//dd($dt);
- // $depositsx = Deposit::where('method_code', '>=', 1000)
- //            ->where('status', 3)
- //           // ->whereWeek('created_at', $dt->week)
- //              //->where('Week(created_at)','==','Week(NOW())')
- //            ->with(['user', 'gateway'])
- //            // ->selectRaw("SUM( CASE WHEN status = 1 THEN amount END) as depositAmount")
- //        ->selectRaw("Week(created_at)=Week(NOW())")
- //            ->orderBy('id','desc')
- //           ->paginate(getPaginate());
 
  $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfMonth()->toDateString(),Carbon::now()->endOfMonth()->toDateString()])
     ->where('method_code', '>=', 1000)
@@ -142,21 +127,15 @@ elseif(request('month')){
        ->with(['user', 'gateway'])
       ->orderBy('id','desc')
     ->paginate(getPaginate());
-
-// $depositsc = DB::table('deposits')
-//             ->select('id')
-//             ->get();
-      //dd($deposits);
           }
 
           else{            
         $deposits = Deposit::where('method_code', '>=', 1000)->where('status', 3)->with(['user', 'gateway'])->orderBy('id','desc')->paginate(getPaginate());
 
-        //dd($deposits);
           }
 
      
-        return view('admin.deposit.log', compact('pageTitle', 'emptyMessage', 'deposits'));
+        return view('admin.deposit.log_reject', compact('pageTitle', 'emptyMessage', 'deposits'));
     }
 
     public function deposit()
