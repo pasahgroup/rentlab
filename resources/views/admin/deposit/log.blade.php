@@ -124,20 +124,11 @@
             <div class="row">
              <div class="col-md-12 col-sm-12">             
 
-                          <form  method="get"  action="{{route('admin.deposit.rejected')}}" enctype="multipart/form-data">
-                      @csrf
-<input type="hidden" name="_method" value="get">                       
-                        <button type="submit" name="weekcancellation" value="weekcancellation" class="badge--success">
-                            <p class="text--small">@lang('Week')</p></button>
-                        </form>
-                           
-          
-
 
                          <form action="{{route('admin.deposit.rejected')}}" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
             <div class="input-group has_append">
                   <button type="submit" class="badge--warning" name="weekcancellation" value="weekcancellation">
-                            <p class="text--small">@lang('Week2')</p>
+                            <p class="text--small">@lang('Week')</p>
                         </button>
             </div>
         </form>

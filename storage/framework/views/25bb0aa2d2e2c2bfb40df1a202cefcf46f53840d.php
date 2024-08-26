@@ -128,26 +128,17 @@
             <div class="row">
              <div class="col-md-12 col-sm-12">             
 
-                          <form  method="get"  action="<?php echo e(route('admin.deposit.rejected')); ?>" enctype="multipart/form-data">
-                      <?php echo csrf_field(); ?>
-<input type="hidden" name="_method" value="get">                       
-                        <button type="submit" name="weekcancellation" value="weekcancellation" class="badge--success">
-                            <p class="text--small"><?php echo app('translator')->get('Week'); ?></p></button>
-                        </form>
-                           
-          
-
 
                          <form action="<?php echo e(route('admin.deposit.rejected')); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
-            <div class="input-group has_append  ">
+            <div class="input-group has_append">
                   <button type="submit" class="badge--warning" name="weekcancellation" value="weekcancellation">
-                            <p class="text--small"><?php echo app('translator')->get('Week2'); ?></p>
+                            <p class="text--small"><?php echo app('translator')->get('Week'); ?></p>
                         </button>
             </div>
         </form>
 
                      <form action="<?php echo e(route('admin.deposit.rejected')); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
-            <div class="input-group has_append  ">
+            <div class="input-group has_append">
                   <button type="submit" class="badge--success" name="monthcancellation" value="monthcancellation">
                             <p class="text--small"><?php echo app('translator')->get('Month'); ?></p>
                         </button>
