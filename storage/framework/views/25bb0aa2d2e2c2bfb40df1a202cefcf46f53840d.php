@@ -147,7 +147,7 @@
 
              <form action="<?php echo e(route('admin.deposit.rejected')); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
             <div class="input-group has_append  ">
-                  <button type="submit" class="badge--success" name="weekcancellation" value="weekcancellation">
+                  <button type="submit" class="badge--success" name="all" value="all">
                             <p class="text--small"><?php echo app('translator')->get('All'); ?></p>
                         </button>
             </div>
