@@ -3316,7 +3316,8 @@ p, li, a {
 /* card css end */
 /* form css start */
 label {
-    font-size: 0.75rem;
+/*    font-size: 0.75rem;*/
+     font-size: 1.4rem;
 }
 
 input:not([type="radio"]), textarea {

@@ -1,100 +1,5 @@
 <?php $__env->startSection('content'); ?>
-    <!-- Dashboard -->
     <div class="pb-60 pt-60">
-        <div class="row justify-content-center g-4">
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-car-side"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title"><?php echo e(@$data['total_vehicle_booking']); ?></h4>
-                        <span class="subtitle"><?php echo app('translator')->get('Total Vehicle Booking'); ?></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-hourglass-half"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title"><?php echo e(@$data['upcoming_vehicle_booking']); ?></h4>
-                        <span class="subtitle"><?php echo app('translator')->get('Upcoming Vehicle Booking'); ?></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-spinner"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title"><?php echo e(@$data['running_vehicle_booking']); ?></h4>
-                        <span class="subtitle"><?php echo app('translator')->get('Running Vehicle Booking'); ?></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-check-circle"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title"><?php echo e(@$data['completed_vehicle_booking']); ?></h4>
-                        <span class="subtitle"><?php echo app('translator')->get('Completed Vehicle Booking'); ?></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="lab la-product-hunt"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title"><?php echo e(@$data['total_plan_booking']); ?></h4>
-                        <span class="subtitle"><?php echo app('translator')->get('Total Plan Booking'); ?></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-hourglass-half"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title"><?php echo e(@$data['upcoming_plan_booking']); ?></h4>
-                        <span class="subtitle"><?php echo app('translator')->get('Upcoming Plan Booking'); ?></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-spinner"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title"><?php echo e(@$data['running_plan_booking']); ?></h4>
-                        <span class="subtitle"><?php echo app('translator')->get('Running Plan Booking'); ?></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="dashboard__item">
-                    <div class="dashboard__thumb">
-                        <i class="las la-check-circle"></i>
-                    </div>
-                    <div class="dashboard__content">
-                        <h4 class="dashboard__title"><?php echo e(@$data['completed_plan_booking']); ?></h4>
-                        <span class="subtitle"><?php echo app('translator')->get('Completed Plan Booking'); ?></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Dashboard -->
-
-    <div class="pb-60">
         <div class="table-responsive">
             <table class="table cmn--table">
                 <thead>
@@ -113,31 +18,43 @@
                 <?php if(count($logs) >0): ?>
                     <?php $__currentLoopData = $logs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td data-label="#<?php echo app('translator')->get('Trx'); ?>"><?php echo e($data->trx); ?></td>
-                            <td data-label="<?php echo app('translator')->get('Gateway'); ?>"><?php echo e(__(@$data->gateway->name)); ?></td>
-                            <td data-label="<?php echo app('translator')->get('Vehicle'); ?>"><?php echo e(__(@$data->rent->vehicle->name) ?? '-'); ?></td>
-                            <td data-label="<?php echo app('translator')->get('Plan'); ?>"><?php echo e(__(@$data->planlog->plan->name) ?? '-'); ?></td>
-                            <td data-label="<?php echo app('translator')->get('Amount'); ?>">
-                                <strong><?php echo e(showAmount($data->amount)); ?> <?php echo e(__($general->cur_text)); ?></strong>
+                            <td data-label="#<?php echo app('translator')->get('Trx'); ?>">
+                                <div><?php echo e($data->trx); ?></div>
                             </td>
-                            
+                            <td data-label="<?php echo app('translator')->get('Gateway'); ?>">
+                                <div><?php echo e(__(@$data->gateway->name)); ?></div>
+                            </td>
+                            <td data-label="<?php echo app('translator')->get('Vehicle'); ?>">
+                                <div><?php echo e(__(@$data->rent->vehicle->name) ?? '-'); ?></div>
+                            </td>
+                            <td data-label="<?php echo app('translator')->get('Plan'); ?>">
+                                <div><?php echo e(__(@$data->planlog->plan->name) ?? '-'); ?></div>
+                            </td>
+                            <td data-label="<?php echo app('translator')->get('Amount'); ?>">
+                                <div><strong><?php echo e(showAmount($data->amount)); ?> <?php echo e(__($general->cur_text)); ?></strong></div>
+                            </td>
                             <td>
-                                <?php if($data->status == 1): ?>
-                                    <span class="badge badge--success"><?php echo app('translator')->get('Complete'); ?></span>
-                                <?php elseif($data->status == 2): ?>
-                                    <span class="badge badge--warning"><?php echo app('translator')->get('Pending'); ?></span>
-                                <?php elseif($data->status == 3): ?>
-                                    <span class="badge badge--danger"><?php echo app('translator')->get('Cancel'); ?></span>
-                                <?php endif; ?>
+                                <div>
+                                        
+                                    <?php if($data->status == 1): ?>
+                                        <span class="badge badge--success"><?php echo app('translator')->get('Complete'); ?></span>
+                                    <?php elseif($data->status == 2): ?>
+                                        <span class="badge badge--warning"><?php echo app('translator')->get('Pending'); ?></span>
+                                    <?php elseif($data->status == 3): ?>
+                                        <span class="badge badge--danger"><?php echo app('translator')->get('Cancel'); ?></span>
+                                    <?php endif; ?>
 
-                                <?php if($data->admin_feedback != null): ?>
-                                    <button class="btn--info btn-rounded badge detailBtn" data-admin_feedback="<?php echo e($data->admin_feedback); ?>"><i class="la la-info"></i></button>
-                                <?php endif; ?>
+                                    <?php if($data->admin_feedback != null): ?>
+                                        <button class="btn--info btn-rounded badge detailBtn" data-admin_feedback="<?php echo e($data->admin_feedback); ?>"><i class="la la-info"></i></button>
+                                    <?php endif; ?>
 
+                                </div>
                             </td>
                             <td data-label="<?php echo app('translator')->get('Time'); ?>">
-                                <i class="la la-calendar"></i> <?php echo e(showDateTime($data->created_at)); ?>
+                                <div>
+                                    <i class="la la-calendar"></i> <?php echo e(showDateTime($data->created_at)); ?>
 
+                                </div>
                             </td>
 
                             <?php
@@ -160,14 +77,16 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="100%"><?php echo app('translator')->get('Data not found'); ?></td>
+                        <td colspan="100%"><?php echo e(__($emptyMessage)); ?></td>
                     </tr>
                 <?php endif; ?>
                 </tbody>
             </table>
         </div>
-    </div>
 
+        <?php echo e($logs->links()); ?>
+
+    </div>
 
     
     <div id="approveModal" class="modal fade custom--modal" tabindex="-1" role="dialog">
@@ -262,4 +181,5 @@
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make($activeTemplate.'layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/user/dashboard.blade.php ENDPATH**/ ?>
+
+<?php echo $__env->make($activeTemplate.'layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/user/deposit_history.blade.php ENDPATH**/ ?>

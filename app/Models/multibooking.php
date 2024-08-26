@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class multbooking extends Model
+class multibooking extends Model
 {
     use HasFactory;
      protected $fillable = [
@@ -14,7 +14,7 @@ class multbooking extends Model
           'model_id',
           'price',
           'no_days',
-          'total_costs'
+          'total_costs',
           'pick_location',
           'drop_location',
           'booked_by', 

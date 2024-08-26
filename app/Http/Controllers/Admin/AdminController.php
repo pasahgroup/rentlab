@@ -212,6 +212,9 @@ class AdminController extends Controller
 
 $todayPendingInvoices=DB::select('select * from deposits where status=2 and date_format(date(created_at),"%Y-%m-%d")=CURDATE()');
 $todayPendingInvoices=collect($todayPendingInvoices);
+
+//dd($todayPendingInvoices);
+
 $tomorrowPendingInvoices=DB::select('select * from deposits where status=2 and date_format(date(created_at),"%Y-%m-%d")=date_add(CURDATE(),interval 1 day)');
 $tomorrowPendingInvoices=collect($tomorrowPendingInvoices);
 
@@ -245,6 +248,7 @@ $monthCancelledInvoices=collect($monthCancelledInvoices);
         $payment['cancelledInvoicesDataSum'] = Deposit::where('status',3)->sum('amount');
 
 //dd($weekCancelledInvoices);
+        //dd($todayPendingInvoices);
         return view('admin.customers.customer', compact('pageTitle', 'widget', 'report', 'chart','payment','depositsMonth','months','deposits','data','weekCancelledInvoices','monthCancelledInvoices','todayPendingInvoices','tomorrowPendingInvoices','weekPendingInvoices','monthPendingInvoices'));
     }
 

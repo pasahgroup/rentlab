@@ -13,8 +13,8 @@ use App\Models\Color;
 use App\Models\Location;
 
 
-use App\Http\Requests\StoremultbookingRequest;
-use App\Http\Requests\UpdatemultbookingRequest;
+use App\Http\Requests\StoremultibookingRequest;
+use App\Http\Requests\UpdatemultibookingRequest;
 use Illuminate\Http\Request;
 
 class MultibookingController extends Controller
@@ -30,7 +30,7 @@ class MultibookingController extends Controller
         $tags = Tag::where('status',1)->get();      
       //dd($tags );
 
-        $pageTitle = 'Multbooking';
+        $pageTitle = 'Multibooking';
         $empty_message = 'No vehicle has been added.';
         return view('admin.multibookings.index', compact('pageTitle', 'empty_message', 'vehicles','tags'));
   
@@ -38,7 +38,7 @@ class MultibookingController extends Controller
 
   public function add()
     {
-        $pageTitle = 'Add Multbooking';
+        $pageTitle = 'Add Multibooking';
         $brands = Brand::active()->orderBy('name')->get();
         $cartypes = Cartype::orderBy('car_body_type')->get();
          $colors = Color::orderBy('color')->get();
@@ -63,7 +63,7 @@ class MultibookingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoremultbookingRequest  $request
+     * @param  \App\Http\Requests\StoremultibookingRequest  $request
      * @return \Illuminate\Http\Response
      */
    
@@ -71,7 +71,8 @@ class MultibookingController extends Controller
     public function store(Request $request)
     {
       
-     //dd('print_one');
+     //dd(request('pick_location'));
+
         $request->validate([
             'brand_id' => 'required|integer|gt:0',
             'model_id' => 'required|integer|gt:0',
@@ -79,14 +80,15 @@ class MultibookingController extends Controller
             'no_days' => 'required|integer|gt:0',
             'total_costs' => 'required|numeric|gt:0',
 
-            'pick_location' => 'required|string',
-            'drop_location' => 'required|string',
+            'pick_location' => 'required|integer|gt:0',
+            'drop_location' => 'required|integer|gt:0',
            
-            'pick_time' => 'required|string',
-            'drop_time' => 'required|string',
+            'pick_time' => 'required|date',
+            'drop_time' => 'required|date',
         ]);
 
-//dd('print');
+   //dd(request('pick_location'));
+
         $multibooking = new multibooking();
         $multibooking->name =auth()->id();
         $multibooking->brand_id = $request->brand_id;
@@ -94,16 +96,23 @@ class MultibookingController extends Controller
         $multibooking->price = $request->price;
         $multibooking->no_days = $request->no_days;
         $multibooking->booked_by = $request->booked_by;
-        $multibooking->total_costs = $request->total_costs;
-        // $multibooking->transmission = $request->transmission;
-        // $multibooking->fuel_type = $request->fuel_type;
-        //  $multibooking->car_body_type_id = $request->car_body_type;
+        $multibooking->total_costs = $request->price * $request->no_days;
+        
+         $multibooking->pick_location = $request->pick_location;
+         $multibooking->drop_location = $request->drop_location;
+
+          $multibooking->pick_time = $request->pick_time;
+         $multibooking->drop_time = $request->drop_time;
+    
+        $multibooking->booked_by =auth()->id();
+
+        // $multibooking->car_body_type_id = $request->car_body_type;
         //   $multibooking->tag_id = $request->tag;
         //    $multibooking->color_id = $request->color;
         //     $multibooking->location_id = $request->location;
 
 
-        $multbooking->save();
+        $multibooking->save();
 
         $notify[] = ['success', 'Order Added Successfully!'];
         return back()->withNotify($notify);
@@ -112,10 +121,10 @@ class MultibookingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\multbooking  $multbooking
+     * @param  \App\Models\multibooking  $multibooking
      * @return \Illuminate\Http\Response
      */
-    public function show(multbooking $multbooking)
+    public function show(multibooking $multibooking)
     {
         //
     }
@@ -123,10 +132,10 @@ class MultibookingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\multbooking  $multbooking
+     * @param  \App\Models\multibooking  $multibooking
      * @return \Illuminate\Http\Response
      */
-    public function edit(multbooking $multbooking)
+    public function edit(multibooking $multibooking)
     {
         //
     }
@@ -134,11 +143,11 @@ class MultibookingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatemultbookingRequest  $request
-     * @param  \App\Models\multbooking  $multbooking
+     * @param  \App\Http\Requests\UpdatemultibookingRequest  $request
+     * @param  \App\Models\multibooking  $multibooking
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatemultbookingRequest $request, multbooking $multbooking)
+    public function update(UpdatemultibookingRequest $request, multibooking $multibooking)
     {
         //
     }
@@ -146,10 +155,10 @@ class MultibookingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\multbooking  $multbooking
+     * @param  \App\Models\multibooking  $multibooking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(multbooking $multbooking)
+    public function destroy(multibooking $multibooking)
     {
         //
     }
