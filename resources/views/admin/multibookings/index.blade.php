@@ -42,10 +42,10 @@
                                     <td data-label="@lang('Model')">{{ __($item->no_car) }}</td>
                                       <td data-label="@lang('Price')"><strong>{{ $general->cur_sym }} {{ __(showAmount($item->total_costs)) }}</strong></td>
 
-                                     <td data-label="@lang('Booked by')">{{ __($item->pick_location) }}</td>
-                                      <td data-label="@lang('Booked by')">{{ __($item->drop_location) }}</td>
-                                       <td data-label="@lang('Booked by')">{{ __($item->pick_time) }}</td>
-                                        <td data-label="@lang('Booked by')">{{ __($item->drop_time) }}</td>
+                                     <td data-label="@lang('pick_location')">{{ __($item->pick_location) }}</td>
+                                      <td data-label="@lang('drop_location')">{{ __($item->drop_location) }}</td>
+                                       <td data-label="@lang('pick_time')">{{ __($item->pick_time) }}</td>
+                                        <td data-label="@lang('drop_time')">{{ __($item->drop_time) }}</td>
                                          <td data-label="@lang('Booked by')">{{ __($item->booked_by) }}</td>                                       
                                     <td data-label="@lang('Status')">
                                         @if($item->status === 1)

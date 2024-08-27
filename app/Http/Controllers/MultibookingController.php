@@ -11,6 +11,7 @@ use App\Models\Cartype;
 use App\Models\Tag;
 use App\Models\Color;
 use App\Models\Location;
+use App\Models\modelb;
 
 
 use App\Http\Requests\StoremultibookingRequest;
@@ -26,12 +27,15 @@ class MultibookingController extends Controller
      */
     public function index()
     {
-     $vehicles = multibooking::join('modelbs.id','multibookings.model_id')
+     $vehicles = multibooking::join('modelbs','modelbs.id','multibookings.model_id')
+    // ->join('locations','location.id','multibookings.')
      ->select('multibookings.*','modelbs.car_model')
      ->where('multibookings.status',1)
      ->latest()->paginate(getPaginate());
-        $tags = Tag::where('status',1)->get();      
-      dd($vehicles);
+        
+          //$vehicles = modelb::where('status',1)->get();     
+     // dd($vehicles);
+ $tags = Tag::where('status',1)->get();
 
         $pageTitle = 'Multibooking';
         $empty_message = 'No vehicle has been added.';
