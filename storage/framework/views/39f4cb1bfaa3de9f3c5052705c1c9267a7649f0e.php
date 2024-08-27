@@ -132,28 +132,36 @@
             
 
 
-  <form action="<?php echo e(route('admin.deposit.rejected')); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
+  <form action="<?php echo e(route('admin.deposit.pending')); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
             <div class="input-group has_append  ">
                   <button type="submit" class="badge--success" name="all" value="all">
                             <p class="text--small"><?php echo app('translator')->get('All'); ?></p>
                         </button>
             </div>
         </form>
-                     <form action="<?php echo e(route('admin.deposit.rejected')); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
+                     <form action="<?php echo e(route('admin.deposit.pending')); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
             <div class="input-group has_append">
-                  <button type="submit" class="badge--primary" name="monthcancellation" value="monthcancellation">
+                  <button type="submit" class="badge--primary" name="month" value="month">
                             <p class="text--small"><?php echo app('translator')->get('Month'); ?></p>
                         </button>
             </div>
         </form>
 
-                     <form action="<?php echo e(route('admin.deposit.rejected')); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
+                     <form action="<?php echo e(route('admin.deposit.pending')); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
             <div class="input-group has_append">
-                  <button type="submit" class="badge--warning" name="weekcancellation" value="weekcancellation">
+                  <button type="submit" class="badge--warning" name="week" value="week">
                             <p class="text--small"><?php echo app('translator')->get('Week'); ?></p>
                         </button>
             </div>
-        </form>   
+        </form>
+
+           <form action="<?php echo e(route('admin.deposit.pending')); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
+            <div class="input-group has_append">
+                  <button type="submit" class="badge--warning" name="today" value="today">
+                            <p class="text--small"><?php echo app('translator')->get('Today'); ?></p>
+                        </button>
+            </div>
+        </form>      
          
         
 <!-- </div> 
@@ -202,4 +210,4 @@
   </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/deposit/log_reject.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/deposit/log_pending.blade.php ENDPATH**/ ?>

@@ -128,28 +128,36 @@
             
 
 
-  <form action="{{route('admin.deposit.rejected')}}" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
+  <form action="{{route('admin.deposit.pending')}}" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
             <div class="input-group has_append  ">
                   <button type="submit" class="badge--success" name="all" value="all">
                             <p class="text--small">@lang('All')</p>
                         </button>
             </div>
         </form>
-                     <form action="{{route('admin.deposit.rejected')}}" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
+                     <form action="{{route('admin.deposit.pending')}}" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
             <div class="input-group has_append">
-                  <button type="submit" class="badge--primary" name="monthcancellation" value="monthcancellation">
+                  <button type="submit" class="badge--primary" name="month" value="month">
                             <p class="text--small">@lang('Month')</p>
                         </button>
             </div>
         </form>
 
-                     <form action="{{route('admin.deposit.rejected')}}" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
+                     <form action="{{route('admin.deposit.pending')}}" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
             <div class="input-group has_append">
-                  <button type="submit" class="badge--warning" name="weekcancellation" value="weekcancellation">
+                  <button type="submit" class="badge--warning" name="week" value="week">
                             <p class="text--small">@lang('Week')</p>
                         </button>
             </div>
-        </form>   
+        </form>
+
+           <form action="{{route('admin.deposit.pending')}}" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
+            <div class="input-group has_append">
+                  <button type="submit" class="badge--warning" name="today" value="today">
+                            <p class="text--small">@lang('Today')</p>
+                        </button>
+            </div>
+        </form>      
          
         
 <!-- </div> 

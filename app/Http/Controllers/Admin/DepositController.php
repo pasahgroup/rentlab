@@ -24,7 +24,8 @@ class DepositController extends Controller
         $emptyMessage = 'No pending payments.';
 
  if(request('today')){
-
+ $pageTitle = 'Today Pending Payments';
+  
            $depositsx = Deposit::where('created_at',Carbon::today())
     ->where('method_code', '>=', 1000)
         ->where('status',2)
@@ -50,6 +51,7 @@ class DepositController extends Controller
     //dd($deposits);
 
           }elseif(request('tomorrow')){
+             $pageTitle = 'Tomorrow Pending Payments';
                     $deposits = Deposit::whereDate('created_at',\Carbon\Carbon::now()->addDays(1))
     ->where('method_code', '>=', 1000)
         ->where('status',2)
@@ -60,6 +62,8 @@ class DepositController extends Controller
       // dd($deposits);
           }
           elseif(request('week')){
+
+                $pageTitle = 'Week Pending Payments';
                     $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfWeek()->toDateString(),Carbon::now()->endOfWeek()->toDateString()])
     ->where('method_code', '>=', 1000)
         ->where('status',2)
@@ -70,6 +74,7 @@ class DepositController extends Controller
     //dd($deposits);
 }
 elseif(request('month')){
+        $pageTitle = 'Month Pending Payments';
                     $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfMonth()->toDateString(),Carbon::now()->endOfMonth()->toDateString()])
     ->where('method_code', '>=', 1000)
         ->where('status',2)
@@ -79,11 +84,11 @@ elseif(request('month')){
 
           else
           {
-
+    $pageTitle = 'All Pending Payments';
         $deposits = Deposit::where('method_code', '>=', 1000)->where('status', 2)->with(['user', 'gateway'])->orderBy('id','desc')->paginate(getPaginate());
     }
 
-        return view('admin.deposit.log', compact('pageTitle', 'emptyMessage', 'deposits'));
+        return view('admin.deposit.log_pending', compact('pageTitle', 'emptyMessage', 'deposits'));
     }
 
 
@@ -109,6 +114,7 @@ elseif(request('month')){
         $emptyMessage = 'No rejected payments.';
        
           if(request('weekcancellation')){
+  $pageTitle = 'Week Rejected Payments';
 
            $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfWeek()->toDateString(),Carbon::now()->endOfWeek()->toDateString()])
     ->where('method_code', '>=', 1000)
@@ -120,6 +126,7 @@ elseif(request('month')){
     //dd($deposits);
 
           }elseif(request('monthcancellation')){
+              $pageTitle = 'Month Rejected Payments';
 
  $deposits = Deposit::wherebetween('created_at',[Carbon::now()->startOfMonth()->toDateString(),Carbon::now()->endOfMonth()->toDateString()])
     ->where('method_code', '>=', 1000)
@@ -129,7 +136,9 @@ elseif(request('month')){
     ->paginate(getPaginate());
           }
 
-          else{            
+          else{ 
+
+            $pageTitle = 'All Rejected Payments';           
         $deposits = Deposit::where('method_code', '>=', 1000)->where('status', 3)->with(['user', 'gateway'])->orderBy('id','desc')->paginate(getPaginate());
 
           }
