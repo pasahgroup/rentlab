@@ -42,10 +42,10 @@
                                     <td data-label="<?php echo app('translator')->get('Model'); ?>"><?php echo e(__($item->no_car)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->total_costs)); ?></td>
 
-                                     <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->booked_by)); ?></td>
-                                      <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->booked_by)); ?></td>
-                                       <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->booked_by)); ?></td>
-                                        <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->booked_by)); ?></td>
+                                     <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->pick_location)); ?></td>
+                                      <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->drop_location)); ?></td>
+                                       <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->pick_time)); ?></td>
+                                        <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->drop_time)); ?></td>
                                          <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->booked_by)); ?></td>                                       
                                     <td data-label="<?php echo app('translator')->get('Status'); ?>">
                                         <?php if($item->status === 1): ?>

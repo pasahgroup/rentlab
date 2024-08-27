@@ -31,4 +31,8 @@ class multibooking extends Model
     {
         return $this->belongsTo(modelb::class);
     }
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
 }
