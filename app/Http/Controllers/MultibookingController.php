@@ -26,9 +26,12 @@ class MultibookingController extends Controller
      */
     public function index()
     {
-     $vehicles = multibooking::where('status',1)->latest()->paginate(getPaginate());
+     $vehicles = multibooking::join('modelbs.id','multibookings.model_id')
+     ->select('multibookings.*','modelbs.car_model')
+     ->where('multibookings.status',1)
+     ->latest()->paginate(getPaginate());
         $tags = Tag::where('status',1)->get();      
-      //dd($vehicles );
+      dd($vehicles);
 
         $pageTitle = 'Multibooking';
         $empty_message = 'No vehicle has been added.';

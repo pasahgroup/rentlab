@@ -34,13 +34,13 @@
                                 <tr>
                                     <td data-label="@lang('Name')"><strong>{{ __($item->name) }}</strong></td>
                                     <td data-label="@lang('Brand')">{{ __($item->brand->name) }}</td>
-                                    <td data-label="@lang('Model')">{{ __($item->brand->name) }}</td>
-                                      <td data-label="@lang('Price')"><strong>{{ $general->cur_sym }}{{ __(showAmount($item->price)) }}</strong></td>
+                                    <td data-label="@lang('modelb')">{{ __($item->car_model) }}</td>
+                                      <td data-label="@lang('Price')"><strong>{{ $general->cur_sym }} {{ __(showAmount($item->price)) }}</strong></td>
                                     <td data-label="@lang('Car Body Type')">{{ __($item->no_days) }}</td>
 
                                   
                                     <td data-label="@lang('Model')">{{ __($item->no_car) }}</td>
-                                    <td data-label="@lang('Booked by')">{{ __($item->total_costs) }}</td>
+                                      <td data-label="@lang('Price')"><strong>{{ $general->cur_sym }} {{ __(showAmount($item->total_costs)) }}</strong></td>
 
                                      <td data-label="@lang('Booked by')">{{ __($item->pick_location) }}</td>
                                       <td data-label="@lang('Booked by')">{{ __($item->drop_location) }}</td>
