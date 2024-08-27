@@ -6,37 +6,47 @@
         <div class="col-lg-12">
             <div class="card b-radius--10 ">
                 <div class="card-body p-0">
+
                     <div class="table-responsive--sm table-responsive">
                         <table class="table table--light tabstyle--two">
                             <thead>                                
                             <tr>
                                 <th scope="col">@lang('Name')</th>
                                 <th scope="col">@lang('Brand')</th>
-                                <th scope="col">@lang('Car body type')</th>
-                                <th scope="col">@lang('Car tag')</th>
-                                <th scope="col">@lang('Seat type')</th>
-                                <th scope="col">@lang('Price')</th>
                                 <th scope="col">@lang('Model')</th>
-                                <th scope="col">@lang('Transmission')</th>
-                                 <th scope="col">@lang('Fuel')</th>
+                                <th scope="col">@lang('Price')</th>
+                                <th scope="col">@lang('No of Days')</th>
+                                 <th scope="col">@lang('No of Car')</th>
+                                <th scope="col">@lang('Total Costs')</th>
+                                <th scope="col">@lang('Pick Location')</th>
+                                <th scope="col">@lang('Drop Location')</th>
+                                 <th scope="col">@lang('Pick Date')</th>
+                                <th scope="col">@lang('Drop Date')</th>
+                                 <th scope="col">@lang('Booked By')</th>
                                 <th scope="col">@lang('Status')</th>
                                 <th scope="col">@lang('Actions')</th>
                             </tr>
                             </thead>
 
                             <tbody>
+                             
                             @forelse ($vehicles as $item)
                                 <tr>
                                     <td data-label="@lang('Name')"><strong>{{ __($item->name) }}</strong></td>
                                     <td data-label="@lang('Brand')">{{ __($item->brand->name) }}</td>
-                                    <td data-label="@lang('Car Body Type')">{{ __($item->car_body_type_id) }}</td>
-                                    <td data-label="@lang('Car Body Type')">{{ __($item->tag_id) }}</td>
+                                    <td data-label="@lang('Model')">{{ __($item->brand->name) }}</td>
+                                      <td data-label="@lang('Price')"><strong>{{ $general->cur_sym }}{{ __(showAmount($item->price)) }}</strong></td>
+                                    <td data-label="@lang('Car Body Type')">{{ __($item->no_days) }}</td>
 
-                                    <td data-label="@lang('Seat Type')">{{ __($item->seater->number) }} @lang('Seater')</td>
-                                    <td data-label="@lang('Price')"><strong>{{ $general->cur_sym }}{{ __(showAmount($item->price)) }}</strong></td>
-                                    <td data-label="@lang('Model')">{{ __($item->model) }}</td>
-                                    <td data-label="@lang('Transmission')">{{ __($item->transmission) }}</td>
-                                    <td data-label="@lang('Fuel')">{{ __($item->fuel_type) }}</td>
+                                  
+                                    <td data-label="@lang('Model')">{{ __($item->no_car) }}</td>
+                                    <td data-label="@lang('Booked by')">{{ __($item->total_costs) }}</td>
+
+                                     <td data-label="@lang('Booked by')">{{ __($item->booked_by) }}</td>
+                                      <td data-label="@lang('Booked by')">{{ __($item->booked_by) }}</td>
+                                       <td data-label="@lang('Booked by')">{{ __($item->booked_by) }}</td>
+                                        <td data-label="@lang('Booked by')">{{ __($item->booked_by) }}</td>
+                                         <td data-label="@lang('Booked by')">{{ __($item->booked_by) }}</td>                                       
                                     <td data-label="@lang('Status')">
                                         @if($item->status === 1)
                                             <span class="text--small badge font-weight-normal badge--success">@lang('Active')</span>

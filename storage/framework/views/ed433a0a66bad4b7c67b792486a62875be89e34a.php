@@ -48,7 +48,14 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-2">
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label for="doors"><?php echo app('translator')->get('No of Car'); ?></label>
+                                    <input type="number" id="no_car" class="form-control" value="<?php echo e(old('doors')); ?>"
+                                           autocomplete="off" name="no_car" min="1" required>
+                                </div>
+                            </div>
+                             <div class="col-md-1">
                                 <div class="form-group">
                                     <label for="doors"><?php echo app('translator')->get('No of Days'); ?></label>
                                     <input type="number" id="no_days" class="form-control" value="<?php echo e(old('doors')); ?>"
@@ -61,7 +68,7 @@
                                     <label for="price"><?php echo app('translator')->get('Total costs'); ?></label>
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="total_costs" name="total_costs"
-                                               value="<?php echo e(old('total_costs')); ?>" required>
+                                               value="<?php echo e(old('total_costs')); ?>" readonly>
                                         <div class="input-group-append">
                                             <div class="input-group-text"><?php echo e($general->cur_text); ?></div>
                                         </div>
@@ -169,7 +176,7 @@
 
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
-    <a href="<?php echo e(route('admin.vehicles.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+    <a href="<?php echo e(route('user.multibooking.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward" style="padding: 1.4rem 1.75rem;"></i><?php echo app('translator')->get('Go Back'); ?></a>
 <?php $__env->stopPush(); ?>
 

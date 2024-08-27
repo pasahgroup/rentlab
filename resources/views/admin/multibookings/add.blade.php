@@ -48,7 +48,14 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-2">
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label for="doors">@lang('No of Car')</label>
+                                    <input type="number" id="no_car" class="form-control" value="{{ old('doors') }}"
+                                           autocomplete="off" name="no_car" min="1" required>
+                                </div>
+                            </div>
+                             <div class="col-md-1">
                                 <div class="form-group">
                                     <label for="doors">@lang('No of Days')</label>
                                     <input type="number" id="no_days" class="form-control" value="{{ old('doors') }}"
@@ -61,7 +68,7 @@
                                     <label for="price">@lang('Total costs')</label>
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="total_costs" name="total_costs"
-                                               value="{{ old('total_costs') }}" required>
+                                               value="{{ old('total_costs') }}" readonly>
                                         <div class="input-group-append">
                                             <div class="input-group-text">{{ $general->cur_text }}</div>
                                         </div>
@@ -169,7 +176,7 @@
 
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('admin.vehicles.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+    <a href="{{ route('user.multibooking.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward" style="padding: 1.4rem 1.75rem;"></i>@lang('Go Back')</a>
 @endpush
 

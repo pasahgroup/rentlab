@@ -13,7 +13,8 @@ class multibooking extends Model
           'brand_id',
           'model_id',
           'price',
-          'no_days',
+          'no_car',
+           'no_days',
           'total_costs',
           'pick_location',
           'drop_location',
@@ -21,4 +22,13 @@ class multibooking extends Model
         'pick_time',
         'drop_time'
     ];
+
+     public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
+      public function modelb()
+    {
+        return $this->belongsTo(modelb::class);
+    }
 }

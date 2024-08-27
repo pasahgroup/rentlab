@@ -6,37 +6,47 @@
         <div class="col-lg-12">
             <div class="card b-radius--10 ">
                 <div class="card-body p-0">
+
                     <div class="table-responsive--sm table-responsive">
                         <table class="table table--light tabstyle--two">
                             <thead>                                
                             <tr>
                                 <th scope="col"><?php echo app('translator')->get('Name'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Brand'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Car body type'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Car tag'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Seat type'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Price'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Model'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Transmission'); ?></th>
-                                 <th scope="col"><?php echo app('translator')->get('Fuel'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Price'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('No of Days'); ?></th>
+                                 <th scope="col"><?php echo app('translator')->get('No of Car'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Total Costs'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Pick Location'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Drop Location'); ?></th>
+                                 <th scope="col"><?php echo app('translator')->get('Pick Date'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Drop Date'); ?></th>
+                                 <th scope="col"><?php echo app('translator')->get('Booked By'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Status'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Actions'); ?></th>
                             </tr>
                             </thead>
 
                             <tbody>
+                             
                             <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                 <tr>
                                     <td data-label="<?php echo app('translator')->get('Name'); ?>"><strong><?php echo e(__($item->name)); ?></strong></td>
                                     <td data-label="<?php echo app('translator')->get('Brand'); ?>"><?php echo e(__($item->brand->name)); ?></td>
-                                    <td data-label="<?php echo app('translator')->get('Car Body Type'); ?>"><?php echo e(__($item->car_body_type_id)); ?></td>
-                                    <td data-label="<?php echo app('translator')->get('Car Body Type'); ?>"><?php echo e(__($item->tag_id)); ?></td>
+                                    <td data-label="<?php echo app('translator')->get('Model'); ?>"><?php echo e(__($item->brand->name)); ?></td>
+                                      <td data-label="<?php echo app('translator')->get('Price'); ?>"><strong><?php echo e($general->cur_sym); ?><?php echo e(__(showAmount($item->price))); ?></strong></td>
+                                    <td data-label="<?php echo app('translator')->get('Car Body Type'); ?>"><?php echo e(__($item->no_days)); ?></td>
 
-                                    <td data-label="<?php echo app('translator')->get('Seat Type'); ?>"><?php echo e(__($item->seater->number)); ?> <?php echo app('translator')->get('Seater'); ?></td>
-                                    <td data-label="<?php echo app('translator')->get('Price'); ?>"><strong><?php echo e($general->cur_sym); ?><?php echo e(__(showAmount($item->price))); ?></strong></td>
-                                    <td data-label="<?php echo app('translator')->get('Model'); ?>"><?php echo e(__($item->model)); ?></td>
-                                    <td data-label="<?php echo app('translator')->get('Transmission'); ?>"><?php echo e(__($item->transmission)); ?></td>
-                                    <td data-label="<?php echo app('translator')->get('Fuel'); ?>"><?php echo e(__($item->fuel_type)); ?></td>
+                                  
+                                    <td data-label="<?php echo app('translator')->get('Model'); ?>"><?php echo e(__($item->no_car)); ?></td>
+                                    <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->total_costs)); ?></td>
+
+                                     <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->booked_by)); ?></td>
+                                      <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->booked_by)); ?></td>
+                                       <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->booked_by)); ?></td>
+                                        <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->booked_by)); ?></td>
+                                         <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->booked_by)); ?></td>                                       
                                     <td data-label="<?php echo app('translator')->get('Status'); ?>">
                                         <?php if($item->status === 1): ?>
                                             <span class="text--small badge font-weight-normal badge--success"><?php echo app('translator')->get('Active'); ?></span>
