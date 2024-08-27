@@ -142,7 +142,6 @@ elseif(request('month')){
         $deposits = Deposit::where('method_code', '>=', 1000)->where('status', 3)->with(['user', 'gateway'])->orderBy('id','desc')->paginate(getPaginate());
 
           }
-
      
         return view('admin.deposit.log_reject', compact('pageTitle', 'emptyMessage', 'deposits'));
     }
