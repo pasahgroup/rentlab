@@ -121,7 +121,7 @@
 
 <header class="header">
     <div class="container">
-        <div class="col-lg-4 col-md-2 col-sm-12 title-area">      
+        <div class="col-lg-3 col-md-2 col-sm-12 title-area">      
             <div class="logo">
                 <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style="width:140px;"></a>
             </div>
@@ -129,7 +129,7 @@
 
                 
         <!-- title area -->
-        <div class="col-lg-8 col-md-12 col-sm-12">
+        <div class="col-lg-9 col-md-12 col-sm-12">
            
           <div id="nav" class="float-right">
             <div class="container clearfix">

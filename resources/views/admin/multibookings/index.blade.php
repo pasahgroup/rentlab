@@ -71,12 +71,23 @@
                                     <td class="text-muted text-center" colspan="100%">{{ __($empty_message) }}</td>
                                 </tr>
                             @endforelse
-                            </tbody>
+
+
+                                                        </tbody>
                         </table><!-- table end -->
                     </div>
                 </div>
+                     
+  <div class="row">                          
+                            <div class="col-md-11"></div>
+<div class="col-md-1">
+    <button class="btn btn--primary w-100" style="padding: 1.4rem 1.75rem;">@lang('Sent request')</button> 
+</div>
+
+                        </div>
+
                 <div class="card-footer">
-                    {{ $vehicles->links('admin.partials.paginate') }}
+                    {{ $vehicles->links('admin.partials.paginate') }}                    
                 </div>
             </div><!-- card end -->
         </div>

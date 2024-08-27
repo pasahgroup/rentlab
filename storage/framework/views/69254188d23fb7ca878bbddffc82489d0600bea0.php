@@ -42,10 +42,10 @@
                                     <td data-label="<?php echo app('translator')->get('Model'); ?>"><?php echo e(__($item->no_car)); ?></td>
                                       <td data-label="<?php echo app('translator')->get('Price'); ?>"><strong><?php echo e($general->cur_sym); ?> <?php echo e(__(showAmount($item->total_costs))); ?></strong></td>
 
-                                     <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->pick_location)); ?></td>
-                                      <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->drop_location)); ?></td>
-                                       <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->pick_time)); ?></td>
-                                        <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->drop_time)); ?></td>
+                                     <td data-label="<?php echo app('translator')->get('pick_location'); ?>"><?php echo e(__($item->pick_location)); ?></td>
+                                      <td data-label="<?php echo app('translator')->get('drop_location'); ?>"><?php echo e(__($item->drop_location)); ?></td>
+                                       <td data-label="<?php echo app('translator')->get('pick_time'); ?>"><?php echo e(__($item->pick_time)); ?></td>
+                                        <td data-label="<?php echo app('translator')->get('drop_time'); ?>"><?php echo e(__($item->drop_time)); ?></td>
                                          <td data-label="<?php echo app('translator')->get('Booked by'); ?>"><?php echo e(__($item->booked_by)); ?></td>                                       
                                     <td data-label="<?php echo app('translator')->get('Status'); ?>">
                                         <?php if($item->status === 1): ?>
@@ -71,13 +71,23 @@
                                     <td class="text-muted text-center" colspan="100%"><?php echo e(__($empty_message)); ?></td>
                                 </tr>
                             <?php endif; ?>
-                            </tbody>
+
+
+                                                        </tbody>
                         </table><!-- table end -->
                     </div>
                 </div>
-                <div class="card-footer">
-                    <?php echo e($vehicles->links('admin.partials.paginate')); ?>
+                     
+  <div class="row">                          
+                            <div class="col-md-11"></div>
+<div class="col-md-1">
+    <button class="btn btn--primary w-100" style="padding: 1.4rem 1.75rem;"><?php echo app('translator')->get('Sent request'); ?></button> 
+</div>
 
+                        </div>
+
+                <div class="card-footer">
+                    <?php echo e($vehicles->links('admin.partials.paginate')); ?>                    
                 </div>
             </div><!-- card end -->
         </div>
