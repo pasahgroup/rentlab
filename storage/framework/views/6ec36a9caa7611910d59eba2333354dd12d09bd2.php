@@ -61,7 +61,7 @@
                                         <i class="las la-street-view"></i> <?php echo app('translator')->get('No days'); ?>
                                     </label>
                                     <div class="form-group">
-                                   <input type="number" name="no_days" id="no_days">
+                                   <input type="number" name="no_car" id="no_car">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -134,7 +134,7 @@
                         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) +1;
 
 
-                        $('.total_amount').text(price*diffDays);
+                        // $('.total_amount').text(price*diffDays);
                         $('.total_days').text(diffDays);
                     }
                 })
