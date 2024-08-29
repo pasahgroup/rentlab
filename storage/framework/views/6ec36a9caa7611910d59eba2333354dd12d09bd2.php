@@ -112,6 +112,13 @@
             onSelect: function (fd, d, picker) {
                 var pick_time = fd;
                 var price = parseFloat("<?php echo e($vehicle->price); ?>");
+                 $('.total_days').text(1);
+                 var no_car = $('#no_car').val();
+                 
+                   const date1 = new Date(pick_time);
+                        const date2 = new Date(drop_time);
+                        const diffTime = Math.abs(date2 - date1);
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) +1;
 
                 if (pick_time){
                     $('#dateAndTimePicker2').removeAttr('disabled');
@@ -121,6 +128,14 @@
                     $('.total_amount').text(price);
                     $('.total_days').text(1);
                 }
+
+                $("#no_car").on('change keydown paste input', function(){
+
+                      
+
+       $('.total_amount').text(price*diffDays*no_car);
+                        $('.total_days').text(diffDays);
+});
 
                 $('#dateAndTimePicker2').datepicker({
                     timepicker: true,
@@ -134,7 +149,7 @@
                         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) +1;
 
 
-                        // $('.total_amount').text(price*diffDays);
+                        $('.total_amount').text(price*diffDays*no_car);
                         $('.total_days').text(diffDays);
                     }
                 })
