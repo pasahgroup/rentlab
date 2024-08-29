@@ -28,11 +28,12 @@
                         <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="{{ route('vehicle.booking.confirm', $vehicle->id) }}">
                             @csrf
 
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
+                            <div class="col-md-5 col-sm-6">
+                                
                                     <label for="pick-point" class="form--label">
                                         <i class="las la-street-view"></i> @lang('Pick Up Point')
                                     </label>
+                                    <div class="form-group">
                                     <select name="pick_location" id="pick-point" class="form-control form--control" required>
                                         <option value="">@lang('Pick up point')</option>
                                         @forelse($locations as $location)
@@ -42,11 +43,11 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
+                            <div class="col-md-5 col-sm-6">                                
                                     <label for="drop-point" class="form--label">
                                         <i class="las la-street-view"></i> @lang('Drop of Point')
                                     </label>
+                                    <div class="form-group">
                                     <select name="drop_location" id="drop-point" class="form-control form--control" required>
                                         <option value="">@lang('Drop of Point')</option>
                                         @forelse($locations as $location)
@@ -54,6 +55,15 @@
                                         @empty
                                         @endforelse
                                     </select>
+                                </div>
+                            </div>
+
+                                <div class="col-md-2 col-sm-2">                                
+                                    <label for="drop-point" class="form--label">
+                                        <i class="las la-street-view"></i> @lang('No days')
+                                    </label>
+                                    <div class="form-group">
+                                   <input type="number" name="no_car" id="no_car">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">

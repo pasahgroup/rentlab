@@ -14,7 +14,7 @@
                                 <div class="form-group">
                                     <label for="category">@lang('Brand')</label>
                                     <select class="form-control" id="brand_id" name="brand_id">
-                                        <option value="">-- @lang('Select One') --</option>
+                                        <option value="" required>-- @lang('Select One') --</option>
                                         @forelse($brands as $item)
                                             <option value="{{ $item->id }}">{{ __(@$item->name) }}</option>
                                         @empty
@@ -27,8 +27,8 @@
                                     <label for="category">@lang('Model')</label>
                                     <select class="form-control" id="model_id" name="model_id" required="">
                                       
-                                        @forelse($cartypes as $cartype)
-                                            <option value="{{ $cartype->id }}">{{ __(@$cartype->car_body_type) }}</option>
+                                        @forelse($modelbs as $modelb)
+                                            <option value="{{ $modelb->id }}">{{ __(@$modelb->car_model) }}</option>
                                         @empty
                                         @endforelse
                                     </select>
@@ -76,8 +76,7 @@
                                 </div>
                             </div>
                            
-                              
-                           
+                                                       
 
                              <div class="col-md-3">
                                 <div class="form-group">

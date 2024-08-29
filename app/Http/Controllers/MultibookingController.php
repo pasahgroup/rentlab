@@ -12,7 +12,8 @@ use App\Models\Tag;
 use App\Models\Color;
 use App\Models\Location;
 use App\Models\modelb;
-
+use App\Models\user;
+use Carbon\Carbon;
 
 use App\Http\Requests\StoremultibookingRequest;
 use App\Http\Requests\UpdatemultibookingRequest;
@@ -27,19 +28,29 @@ class MultibookingController extends Controller
      */
     public function index()
     {
+        //dd(Carbon::now()->addDays(5));
+
      $vehicles = multibooking::join('modelbs','modelbs.id','multibookings.model_id')
     // ->join('locations','location.id','multibookings.')
      ->select('multibookings.*','modelbs.car_model')
      ->where('multibookings.status',1)
+     ->where('booked_by',auth()->id())
      ->latest()->paginate(getPaginate());
         
-          //$vehicles = modelb::where('status',1)->get();     
-     // dd($vehicles);
+        $user = user::where('id',auth()->id())->first();
+           //dd($vehicles->sum('price'));
+           // dd($vehicles->max('pick_time'));
+$datex=$vehicles->max('pick_time');
+
+$multibookings=collect($vehicles);
+   // dd($multibookings->sum('price'));
+
  $tags = Tag::where('status',1)->get();
+  $locations = Location::where('status',1)->get();
 
         $pageTitle = 'Multibooking';
         $empty_message = 'No vehicle has been added.';
-        return view('admin.multibookings.index', compact('pageTitle', 'empty_message', 'vehicles','tags'));
+        return view('admin.multibookings.index', compact('pageTitle','locations','user', 'empty_message', 'vehicles','tags','datex'));
   
     }
 
@@ -47,14 +58,14 @@ class MultibookingController extends Controller
     {
         $pageTitle = 'Add Multibooking';
         $brands = Brand::active()->orderBy('name')->get();
-        $cartypes = Cartype::orderBy('car_body_type')->get();
+        $modelbs = modelb::orderBy('car_model')->get();
          $colors = Color::orderBy('color')->get();
  //dd($colors );
           $tags = Tag::where('status',1)->get(); 
            $locations = Location::where('status',1)->get();   
 
         $seaters = Seater::active()->orderBy('number')->get();
-        return view('admin.multibookings.add', compact('pageTitle', 'brands', 'seaters','cartypes','tags','colors','locations'));
+        return view('admin.multibookings.add', compact('pageTitle', 'brands', 'seaters','modelbs','tags','colors','locations'));
     }
 
     /**
@@ -78,26 +89,41 @@ class MultibookingController extends Controller
     public function store(Request $request)
     {
       
-     //dd(request('pick_location'));
+   //dd(($request->pick_time)->addDays(60));
+   //$start_dx = substr(request('pick_time'),0,10);
+       
+    
+
+        //dd($drop_time);
+    
+   
+     //$currentDateTime = Carbon::now();
+       // $newDateTime = Carbon::now()->addDays(8);
+             
+       // dd($currentDateTime);
+        //print_r($newDateTime);
 
         $request->validate([
             'brand_id' => 'required|integer|gt:0',
             'model_id' => 'required|integer|gt:0',
             'price' => 'required|numeric|gt:0',
             'no_days' => 'required|integer|gt:0',
-            'total_costs' => 'required|numeric|gt:0',
+            // 'total_costs' => 'required|numeric|gt:0',
 
             'pick_location' => 'required|integer|gt:0',
             'drop_location' => 'required|integer|gt:0',
            
             'pick_time' => 'required|date',
-            'drop_time' => 'required|date',
+             'drop_time' => 'required|date',
         ]);
 
+
+  $pick_time = new Carbon(request('pick_time'));
+       $drop_time = $pick_time->addDays(request('no_days'));
    //dd(request('pick_location'));
 
         $multibooking = new multibooking();
-        $multibooking->name =auth()->id();
+        $multibooking->name ="multi-booking";
         $multibooking->brand_id = $request->brand_id;
         $multibooking->model_id = $request->model_id;
         $multibooking->price = $request->price;
@@ -111,7 +137,7 @@ class MultibookingController extends Controller
          $multibooking->drop_location = $request->drop_location;
 
           $multibooking->pick_time = $request->pick_time;
-         $multibooking->drop_time = $request->drop_time;
+         $multibooking->drop_time =$drop_time;
     
         $multibooking->booked_by =auth()->id();
 

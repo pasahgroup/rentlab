@@ -1649,7 +1649,7 @@ p, li, a {
 }
 
 .text--small {
-    font-size: 0.75rem !important;
+    font-size: 1.2rem !important;
 }
 
 .f-size--24 {
@@ -2865,7 +2865,7 @@ p, li, a {
 
 *[class*="btn-"] {
     transition: all 0.3s;
-    font-size: 0.875rem;
+    font-size: 1.5rem;
 }
 
 .btn--capsule {
@@ -3562,8 +3562,8 @@ input.form-control-sm {
 }
 
 .table td {
-    font-size: 0.8125rem;
-    color: #5b6e88;
+    font-size: 1.5rem;
+    color: #071e3e;
     text-align: center;
     font-weight: 500;
     padding: 15px 25px;

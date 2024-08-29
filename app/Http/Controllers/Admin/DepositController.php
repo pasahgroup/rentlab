@@ -26,12 +26,12 @@ class DepositController extends Controller
  if(request('today')){
  $pageTitle = 'Today Pending Payments';
   
-           $depositsx = Deposit::where('created_at',Carbon::today())
-    ->where('method_code', '>=', 1000)
-        ->where('status',2)
-       ->with(['user', 'gateway'])
-      ->orderBy('id','desc')
-    ->paginate(getPaginate());
+    //        $depositsx = Deposit::where('created_at',Carbon::today())
+    // ->where('method_code', '>=', 1000)
+    //     ->where('status',2)
+    //    ->with(['user', 'gateway'])
+    //   ->orderBy('id','desc')
+    // ->paginate(getPaginate());
 
      // $records = DB::table('deposits')->select(DB::raw('*'))
      //  ->with(['user', 'gateway'])

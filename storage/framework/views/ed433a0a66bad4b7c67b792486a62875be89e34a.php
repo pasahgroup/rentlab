@@ -14,7 +14,7 @@
                                 <div class="form-group">
                                     <label for="category"><?php echo app('translator')->get('Brand'); ?></label>
                                     <select class="form-control" id="brand_id" name="brand_id">
-                                        <option value="">-- <?php echo app('translator')->get('Select One'); ?> --</option>
+                                        <option value="" required>-- <?php echo app('translator')->get('Select One'); ?> --</option>
                                         <?php $__empty_1 = true; $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                             <option value="<?php echo e($item->id); ?>"><?php echo e(__(@$item->name)); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -27,8 +27,8 @@
                                     <label for="category"><?php echo app('translator')->get('Model'); ?></label>
                                     <select class="form-control" id="model_id" name="model_id" required="">
                                       
-                                        <?php $__empty_1 = true; $__currentLoopData = $cartypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cartype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                            <option value="<?php echo e($cartype->id); ?>"><?php echo e(__(@$cartype->car_body_type)); ?></option>
+                                        <?php $__empty_1 = true; $__currentLoopData = $modelbs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $modelb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                            <option value="<?php echo e($modelb->id); ?>"><?php echo e(__(@$modelb->car_model)); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <?php endif; ?>
                                     </select>
@@ -76,8 +76,7 @@
                                 </div>
                             </div>
                            
-                              
-                           
+                                                       
 
                              <div class="col-md-3">
                                 <div class="form-group">
