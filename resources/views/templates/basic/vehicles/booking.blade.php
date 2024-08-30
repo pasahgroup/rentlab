@@ -127,10 +127,6 @@
                     $('.total_days').text(1);
                 }
 
-                $("#no_car").on('change keydown paste input', function(){
-       $('.total_amount').text(price*diffDays*no_car);
-                        $('.total_days').text(diffDays);
-});
 
                 $('#dateAndTimePicker2').datepicker({
                     timepicker: true,
@@ -148,6 +144,11 @@
                         $('.total_days').text(diffDays);
                     }
                 })
+
+                           $("#no_car").on('change keydown paste input', function(){
+                    var no_car = $('#no_car').val();
+});
+
             }
         })
     </script>

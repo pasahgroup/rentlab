@@ -17,6 +17,7 @@
                 </thead>
                 <tbody>
                 @if(count($logs) >0)
+               
                     @foreach($logs as $k=>$data)
                         <tr>
                             <td data-label="#@lang('Trx')">

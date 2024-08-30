@@ -434,7 +434,7 @@
                   <li class="sidebar-menu-item {{menuActive('admin.location.index')}}">
                     <a href="{{route('admin.location.index')}}" class="nav-link ">
                         <i class="menu-icon las la-map-marked"></i>
-                        <span class="menu-title">@lang('Car location')</span>
+                        <span class="menu-title">@lang('Location')</span>
                     </a>
                 </li>            
 

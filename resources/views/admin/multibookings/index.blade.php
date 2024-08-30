@@ -104,7 +104,7 @@
 
                                 <div class="form-group">
                                     <label for="end-date" class="form--label">
-                                        <i class="las la-calendar-alt"></i> @lang('Drop of Date & Time2')
+                                        <i class="las la-calendar-alt"></i> @lang('Total costs')
                                     </label>
                                     <input type="text" name="total_costs" placeholder="@lang('Drop of Date & Time')" id="total_costs" autocomplete="off" data-position='top left' value="{{$vehicles->sum('total_costs')}}" class="form-control form--control" required>
                                 </div>
@@ -119,12 +119,44 @@
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6">
-
                                 <div class="form-group">
                                     <label for="end-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> @lang('Drop of Date & Time2')
                                     </label>
                                     <input type="text" name="drop_time" placeholder="@lang('Drop of Date & Time')" id="dateAndTimePicker2" autocomplete="off" data-position='top left' value="{{$vehicles->max('drop_time')}}" class="form-control form--control" required>
+                                </div>
+                            </div>
+
+
+
+                                <div class="col-md-3 col-sm-6">
+                                <div class="form-group">
+                                    <label for="end-date" class="form--label">
+                                        <i class="las la-calendar-alt"></i> @lang('Location1')
+                                    </label>
+                                     <select name="pick_location" id="drop-point" class="form-control form--control" required>
+                                        <option value="">@lang('--Pick Point--')</option>
+                                        @forelse($locations as $location)
+             <option value="{{ $location->id }}" selected>{{ @$location->name }}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
+
+
+                                <div class="col-md-3 col-sm-6">
+                                <div class="form-group">
+                                    <label for="end-date" class="form--label">
+                                        <i class="las la-calendar-alt"></i> @lang('Location2')
+                                    </label>                                
+                                      <select name="drop_location" id="drop-point" class="form-control form--control" required>
+                                        <option value="">@lang('--Drop of Point--')</option>
+                                        @forelse($locations as $location)
+             <option value="{{ $location->id }}" selected>{{ @$location->name }}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
                                 </div>
                             </div>
     <button class="btn btn--primary w-100" style="padding:.8rem 1.75rem;" name="multi-booking" value="multi-booking">@lang('Submit booking request')</button> 

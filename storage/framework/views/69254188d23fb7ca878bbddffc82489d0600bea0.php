@@ -106,7 +106,7 @@
 
                                 <div class="form-group">
                                     <label for="end-date" class="form--label">
-                                        <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Drop of Date & Time2'); ?>
+                                        <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Total costs'); ?>
                                     </label>
                                     <input type="text" name="total_costs" placeholder="<?php echo app('translator')->get('Drop of Date & Time'); ?>" id="total_costs" autocomplete="off" data-position='top left' value="<?php echo e($vehicles->sum('total_costs')); ?>" class="form-control form--control" required>
                                 </div>
@@ -117,16 +117,48 @@
                                     <label for="start-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Pick Up Date & Time'); ?>
                                     </label>
-                                    <input type="text" name="pick_time" placeholder="<?php echo app('translator')->get('Pick Up Date & Time'); ?>" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control" value="<?php echo e(($vehicles->min('pick_time'))->date->format('d-m-Y')); ?>"  required>
+                                    <input type="text" name="pick_time" placeholder="<?php echo app('translator')->get('Pick Up Date & Time'); ?>" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control" value="<?php echo e($vehicles->min('pick_time')); ?>"  required>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6">
-
                                 <div class="form-group">
                                     <label for="end-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Drop of Date & Time2'); ?>
                                     </label>
                                     <input type="text" name="drop_time" placeholder="<?php echo app('translator')->get('Drop of Date & Time'); ?>" id="dateAndTimePicker2" autocomplete="off" data-position='top left' value="<?php echo e($vehicles->max('drop_time')); ?>" class="form-control form--control" required>
+                                </div>
+                            </div>
+
+
+
+                                <div class="col-md-3 col-sm-6">
+                                <div class="form-group">
+                                    <label for="end-date" class="form--label">
+                                        <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Location1'); ?>
+                                    </label>
+                                     <select name="pick_location" id="drop-point" class="form-control form--control" required>
+                                        <option value=""><?php echo app('translator')->get('--Pick Point--'); ?></option>
+                                        <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+             <option value="<?php echo e($location->id); ?>" selected><?php echo e(@$location->name); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                                <div class="col-md-3 col-sm-6">
+                                <div class="form-group">
+                                    <label for="end-date" class="form--label">
+                                        <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Location2'); ?>
+                                    </label>                                
+                                      <select name="drop_location" id="drop-point" class="form-control form--control" required>
+                                        <option value=""><?php echo app('translator')->get('--Drop of Point--'); ?></option>
+                                        <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+             <option value="<?php echo e($location->id); ?>" selected><?php echo e(@$location->name); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                        <?php endif; ?>
+                                    </select>
                                 </div>
                             </div>
     <button class="btn btn--primary w-100" style="padding:.8rem 1.75rem;" name="multi-booking" value="multi-booking"><?php echo app('translator')->get('Submit booking request'); ?></button> 

@@ -88,7 +88,7 @@ elseif(request('month')){
         $deposits = Deposit::where('method_code', '>=', 1000)->where('status', 2)->with(['user', 'gateway'])->orderBy('id','desc')->paginate(getPaginate());
     }
 
-        return view('admin.deposit.log_pending', compact('pageTitle', 'emptyMessage', 'deposits'));
+    return view('admin.deposit.log_pending', compact('pageTitle', 'emptyMessage', 'deposits'));
     }
 
 

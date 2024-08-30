@@ -16,6 +16,7 @@
                 </thead>
                 <tbody>
                 <?php if(count($logs) >0): ?>
+               
                     <?php $__currentLoopData = $logs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k=>$data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
                             <td data-label="#<?php echo app('translator')->get('Trx'); ?>">

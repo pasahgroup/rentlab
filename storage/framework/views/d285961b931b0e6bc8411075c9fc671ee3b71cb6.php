@@ -434,7 +434,7 @@
                   <li class="sidebar-menu-item <?php echo e(menuActive('admin.location.index')); ?>">
                     <a href="<?php echo e(route('admin.location.index')); ?>" class="nav-link ">
                         <i class="menu-icon las la-map-marked"></i>
-                        <span class="menu-title"><?php echo app('translator')->get('Car location'); ?></span>
+                        <span class="menu-title"><?php echo app('translator')->get('Location'); ?></span>
                     </a>
                 </li>            
 

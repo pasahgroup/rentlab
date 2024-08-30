@@ -115,10 +115,6 @@
                  $('.total_days').text(1);
                  var no_car = $('#no_car').val();
                  
-                   const date1 = new Date(pick_time);
-                        const date2 = new Date(drop_time);
-                        const diffTime = Math.abs(date2 - date1);
-                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) +1;
 
                 if (pick_time){
                     $('#dateAndTimePicker2').removeAttr('disabled');
@@ -129,13 +125,6 @@
                     $('.total_days').text(1);
                 }
 
-                $("#no_car").on('change keydown paste input', function(){
-
-                      
-
-       $('.total_amount').text(price*diffDays*no_car);
-                        $('.total_days').text(diffDays);
-});
 
                 $('#dateAndTimePicker2').datepicker({
                     timepicker: true,
@@ -148,11 +137,16 @@
                         const diffTime = Math.abs(date2 - date1);
                         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) +1;
 
-
+ alert(no_car);
                         $('.total_amount').text(price*diffDays*no_car);
                         $('.total_days').text(diffDays);
                     }
                 })
+
+                           $("#no_car").on('change keydown paste input', function(){
+                    var no_car = $('#no_car').val();
+});
+
             }
         })
     </script>

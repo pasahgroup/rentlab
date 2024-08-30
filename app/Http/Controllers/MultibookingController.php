@@ -103,6 +103,8 @@ $multibookings=collect($vehicles);
        // dd($currentDateTime);
         //print_r($newDateTime);
 
+         // dd(request('pick_location'));
+
         $request->validate([
             'brand_id' => 'required|integer|gt:0',
             'model_id' => 'required|integer|gt:0',

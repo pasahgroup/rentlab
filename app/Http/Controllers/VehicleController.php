@@ -49,7 +49,9 @@ class VehicleController extends Controller
 
     public function vehicleBookingConfirm(Request $request, $id)
     {
-//dd('ppd');
+//dd($id);
+
+
 
         $request->validate([
             'pick_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
@@ -63,22 +65,43 @@ class VehicleController extends Controller
             'drop_location.not_in' => 'Please choose different location!'
         ]);
 
+
+      $pick_time = new Carbon($request->pick_time);
+    $drop_time = new Carbon($request->drop_time);
+
+if(request('multi-booking'))
+{
+
+   $pin=rand(111111,999999);
+
+
+ $rent = new RentLog();
+        $rent->user_id = auth()->id();
+        $rent->vehicle_id = $pin;
+        $rent->pick_location = $request->pick_location;
+        $rent->drop_location = $request->drop_location;
+        $rent->pick_time = $pick_time;
+        $rent->drop_time = $drop_time;
        
 
+        $rent->price = getAmount(request('total_costs'));
+        $rent->save();
 
+}else
 
+{
 
-//dd($vehicle->booked());
+//dd(request('pick_location'));
         //Checking booked or not
         // if ($vehicle->booked()){
         //     $notify[] = ['error', 'This vehicle is booked!'];
         //     return back()->withNotify($notify);
         // }
 
- $vehicle = Vehicle::active()->where('id', $id)->firstOrFail();
 
-        $pick_time = new Carbon($request->pick_time);
-        $drop_time = new Carbon($request->drop_time);
+
+ $vehicle = Vehicle::active()->where('id', $id)->firstOrFail();
+  
 
         $total_days = $pick_time->diffInDays($drop_time) +1;
         $total_price = $vehicle->price*$total_days;
@@ -94,6 +117,8 @@ class VehicleController extends Controller
 
         $rent->price = getAmount($total_price);
         $rent->save();
+
+}
 
         session(['rent_id' => $rent->id]);
 

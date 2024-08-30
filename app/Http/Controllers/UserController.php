@@ -136,6 +136,7 @@ class UserController extends Controller
         $pageTitle = 'Payment History';
         $emptyMessage = 'No history found.';
         $logs = auth()->user()->deposits()->with(['gateway', 'rent', 'planlog'])->orderBy('id','desc')->paginate(getPaginate());
+        //dd($logs);
         return view($this->activeTemplate.'user.deposit_history', compact('pageTitle', 'emptyMessage', 'logs'));
     }
 
