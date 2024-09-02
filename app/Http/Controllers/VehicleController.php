@@ -49,7 +49,7 @@ class VehicleController extends Controller
 
     public function vehicleBookingConfirm(Request $request, $id)
     {
-//dd($id);
+//dd(request('no_car'));
 
 
 
@@ -104,7 +104,7 @@ if(request('multi-booking'))
   
 
         $total_days = $pick_time->diffInDays($drop_time) +1;
-        $total_price = $vehicle->price*$total_days;
+        $total_price = $vehicle->price*$total_days* request('no_car');
 
         $rent = new RentLog();
         $rent->user_id = auth()->id();

@@ -28,7 +28,7 @@
                         <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="{{ route('vehicle.booking.confirm', $vehicle->id) }}">
                             @csrf
 
-                            <div class="col-md-5 col-sm-6">
+                            <div class="col-md-4 col-sm-6">
                                 
                                     <label for="pick-point" class="form--label">
                                         <i class="las la-street-view"></i> @lang('Pick Up Point')
@@ -43,7 +43,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-5 col-sm-6">                                
+                            <div class="col-md-4 col-sm-6">                                
                                     <label for="drop-point" class="form--label">
                                         <i class="las la-street-view"></i> @lang('Drop of Point')
                                     </label>
@@ -59,11 +59,11 @@
                             </div>
 
                                 <div class="col-md-2 col-sm-2">                                
-                                    <label for="drop-point" class="form--label">
-                                        <i class="las la-street-view"></i> @lang('No days')
+                                    <label for="drop-point" class="">
+                                        <i class="las la-street-view"></i> @lang('No Car')
                                     </label>
                                     <div class="form-group">
-                                   <input type="number" name="no_car" id="no_car">
+                                   <input type="number" name="no_car" id="no_car" required>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -139,15 +139,26 @@
                         const diffTime = Math.abs(date2 - date1);
                         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) +1;
 
- alert(no_car);
-                        $('.total_amount').text(price*diffDays*no_car);
-                        $('.total_days').text(diffDays);
+
+                      
+
+if(no_car>0)
+{
+   $('.total_amount').text(price*diffDays*no_car);
+   $('.total_days').text(diffDays);
+
+}else{
+     alert('Car number is Empty');
+}
+
+
+
                     }
                 })
 
-                           $("#no_car").on('change keydown paste input', function(){
-                    var no_car = $('#no_car').val();
-});
+//                            $("#no_car").on('change keydown paste input', function(){
+//                     var no_car = $('#no_car').val();
+// });
 
             }
         })

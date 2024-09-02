@@ -50,7 +50,7 @@
 <!--End of custom css -->
 
 
-
+<!-- POPUM bootstrap -->
 <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/bootstrap.min.css')); ?>">
     <!-- bootstrap toggle css -->
     <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/vendor/bootstrap-toggle.min.css')); ?>">
@@ -81,14 +81,14 @@
     <link rel="stylesheet" href="<?php echo e(asset('assets/admin/css/app.css')); ?>">
 
 
-    <?php echo $__env->yieldPushContent('style'); ?>
+    <!-- <?php echo $__env->yieldPushContent('style'); ?> -->
 
 
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script> -->
 
     <?php echo $__env->yieldPushContent('style-lib'); ?>
-    <?php echo $__env->yieldPushContent('style'); ?>
+    <!-- <?php echo $__env->yieldPushContent('style'); ?> -->
 </head>
 
 

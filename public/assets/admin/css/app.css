@@ -1451,7 +1451,7 @@ p, li, span {
 }
 
 .nice-select .list {
-    box-shadow: 0px -5px 26px -5px #cdd4e7;
+/*    box-shadow: 0px -5px 26px -5px #cdd4e7;*/
 }
 
 .nice-select .list li {
@@ -1645,7 +1645,7 @@ p {
 }
 
 p, li, a {
-    font-size: 0.875rem;
+    font-size: 1.5rem;
 }
 
 .text--small {
