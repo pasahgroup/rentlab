@@ -186,4 +186,6 @@ if(request('multi-booking'))
 
         return view($this->activeTemplate.'vehicles.index',compact('vehicles','pageTitle', 'brands', 'seats'));
     }
+
+
 }

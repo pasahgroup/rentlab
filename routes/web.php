@@ -149,6 +149,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('vehicles/image/remove/{id}/{image}', 'VehicleController@deleteImage')->name('vehicles.image.delete');
         Route::post('vehicles/{id}/status', 'VehicleController@status')->name('vehicles.status');
 
+
         //Car Body Type
         Route::get('cartype', 'CartypeController@index')->name('cartype.index');
         Route::get('cartype/add', 'CartypeController@add')->name('cartype.add');
@@ -450,6 +451,8 @@ Route::name('user.')->prefix('user')->group(function () {
          
           Route::post('multibooking/{id}/recovery', 'MultibookingController@recovery')->name('multibooking.recovery');
          Route::get('multibooking/{id}/delete', 'MultibookingController@delete')->name('multibooking.delete');
+
+          Route::post('multibooking/remove/{id}', 'MultibookingController@remove')->name('multibooking.remove');
         });
     });
 });

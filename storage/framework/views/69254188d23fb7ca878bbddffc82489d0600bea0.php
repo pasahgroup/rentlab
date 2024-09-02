@@ -77,9 +77,21 @@
                                             <i class="la la-edit"></i>
                                         </a>
 
-                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('admin.vehicles.status', $item->id)); ?>">
+ <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('admin.vehicles.status', $item->id)); ?>">
                                             <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
                                         </a>
+
+                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="modal" data-url="<?php echo e(route('admin.vehicles.status', $item->id)); ?>">
+                                            <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
+                                        </a>
+
+
+                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn"  data-toggle="modal" data-target="#deleteModal" data-url="<?php echo e(route('admin.vehicles.status', $item->id)); ?>">
+  <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
+</a>
+
+
+
                                     </td>
 
                                 </tr>
@@ -202,17 +214,11 @@
 
 
 
-
-
-
-
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <form action="<?php echo e(route('user.multibooking.remove',1)); ?>" method="post"
+                      enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -226,10 +232,11 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
+</form>
 </div>
 <?php $__env->stopSection(); ?>
 

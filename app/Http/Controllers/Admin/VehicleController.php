@@ -294,4 +294,11 @@ class VehicleController extends Controller
         $empty_message = 'No data found.';
         return view('admin.vehicle.bookinglog', compact('pageTitle', 'empty_message', 'booking_logs'));
     }
+
+
+    
+       public function destroy(Request $request)
+    {
+       dd('remove');
+    }
 }

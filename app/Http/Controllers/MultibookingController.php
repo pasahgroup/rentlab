@@ -195,8 +195,8 @@ $multibookings=collect($vehicles);
      * @param  \App\Models\multibooking  $multibooking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(multibooking $multibooking)
+    public function remove(Request $request)
     {
-        //
+       dd('removex');
     }
 }
