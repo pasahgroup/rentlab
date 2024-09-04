@@ -26,11 +26,12 @@
                                 <label for="lastname" class="form--label"><?php echo app('translator')->get('Last Name'); ?></label>
                                 <input id="lastname" type="text" class="form-control form--control" name="lastname" value="<?php echo e($user->lastname); ?>" required>
                             </div>
+                         
                             <div class="col-md-6">
                                 <label class="form--label"><?php echo app('translator')->get('Country'); ?></label>
                                 <select name="country" id="country" class="form--control">
                                     <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option data-mobile_code="<?php echo e($country->dial_code); ?>" value="<?php echo e(@$user->address->country); ?>" data-code="<?php echo e($key); ?>"><?php echo e(__($country->country)); ?></option>
+                                        <option data-mobile_code="<?php echo e($country->dial_code); ?>" value="<?php echo e(@$user->address->country); ?>" data-code="<?php echo e($key); ?>"><?php echo e(__(@$user->address->country)); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>

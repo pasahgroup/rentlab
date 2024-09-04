@@ -57,7 +57,7 @@ class UserController extends Controller
     public function submitProfile(Request $request)
     {
 
-       // dd('print');
+        //dd('print');
 
         $request->validate([
             'firstname' => 'required|string|max:50',

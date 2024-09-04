@@ -27,11 +27,12 @@
                                 <label for="lastname" class="form--label">@lang('Last Name')</label>
                                 <input id="lastname" type="text" class="form-control form--control" name="lastname" value="{{$user->lastname}}" required>
                             </div>
+                         
                             <div class="col-md-6">
                                 <label class="form--label">@lang('Country')</label>
                                 <select name="country" id="country" class="form--control">
                                     @foreach($countries as $key => $country)
-                                        <option data-mobile_code="{{ $country->dial_code }}" value="{{@$user->address->country}}" data-code="{{ $key }}">{{ __($country->country) }}</option>
+                                        <option data-mobile_code="{{ $country->dial_code }}" value="{{@$user->address->country}}" data-code="{{ $key }}">{{ __(@$user->address->country) }}</option>
                                     @endforeach
                                 </select>
                             </div>
