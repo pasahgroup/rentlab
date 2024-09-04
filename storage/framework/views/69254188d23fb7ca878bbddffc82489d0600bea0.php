@@ -90,7 +90,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="deleteModal_<?php echo e(__($item->id)); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <form action="<?php echo e(route('user.multibooking.remove',1)); ?>" method="post"
+      <form action="<?php echo e(route('user.multibooking.remove',$item->id)); ?>" method="post"
                       enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
   <div class="modal-dialog" role="document">
@@ -106,7 +106,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn--danger">Delete</button>
       </div>
     </div>
   </div>
@@ -209,59 +209,6 @@
             </div><!-- card end -->
         </div>
     </div>
-
-
-
-    
-    <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel"><?php echo app('translator')->get('Update Status'); ?></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <form method="post" action="">
-                    <?php echo csrf_field(); ?>
-
-                    <div class="modal-body">
-                        <p class="text-muted"><?php echo app('translator')->get('Are you sure to change status?'); ?></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn--dark" data-dismiss="modal"><?php echo app('translator')->get('No'); ?></button>
-                        <button type="submit" class="btn btn--danger deleteButton"><?php echo app('translator')->get('Yes'); ?></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <form action="<?php echo e(route('user.multibooking.remove',1)); ?>" method="post"
-                      enctype="multipart/form-data">
-                    <?php echo csrf_field(); ?>
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title_<?php echo e($item->id); ?></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</form>
-</div>
 <?php $__env->stopSection(); ?>
 
 

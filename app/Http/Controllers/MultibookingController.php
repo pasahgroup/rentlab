@@ -198,6 +198,10 @@ $multibookings=collect($vehicles);
      */
     public function remove(Request $request,$id)
     {
-       dd($id);
+         $asset = multibooking::where('id',$id)->first();
+        if($asset){
+            $asset->delete();
+             return redirect()->back()->with('success','Asset permanent deleted successfully');
+        }
     }
 }

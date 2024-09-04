@@ -80,11 +80,7 @@
                                         <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn"  data-toggle="modal" data-target="#deleteModal_{{ __($item->id) }}">
   <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
 </a>
-{{--
-      <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('admin.location.status', $item->id) }}">
-                                            <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
-                                        </a>
-                                      --}}
+
 
                                     </td>
 
@@ -92,7 +88,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="deleteModal_{{ __($item->id) }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <form action="{{ route('user.multibooking.remove',1) }}" method="post"
+      <form action="{{ route('user.multibooking.remove',$item->id) }}" method="post"
                       enctype="multipart/form-data">
                     @csrf
   <div class="modal-dialog" role="document">
@@ -108,7 +104,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn--danger">Delete</button>
       </div>
     </div>
   </div>
@@ -211,59 +207,6 @@
             </div><!-- card end -->
         </div>
     </div>
-
-
-
-    {{-- Status MODAL --}}
-    <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">@lang('Update Status')</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-                <form method="post" action="">
-                    @csrf
-
-                    <div class="modal-body">
-                        <p class="text-muted">@lang('Are you sure to change status?')</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn--dark" data-dismiss="modal">@lang('No')</button>
-                        <button type="submit" class="btn btn--danger deleteButton">@lang('Yes')</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <form action="{{ route('user.multibooking.remove',1) }}" method="post"
-                      enctype="multipart/form-data">
-                    @csrf
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title_{{$item->id}}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</form>
-</div>
 @endsection
 
 
