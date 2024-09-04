@@ -102,7 +102,7 @@
         </button>
       </div>
       <div class="modal-body">
-       Delete:<?php echo e(__($item->brand->name)); ?>-><?php echo e(__($item->car_model)); ?>
+       Delete: <?php echo e(__($item->brand->name)); ?>-><?php echo e(__($item->car_model)); ?>
 
       </div>
       <div class="modal-footer">
