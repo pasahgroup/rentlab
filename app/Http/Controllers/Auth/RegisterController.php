@@ -74,6 +74,7 @@ class RegisterController extends Controller
         $countryCodes = implode(',', array_keys($countryData));
         $mobileCodes = implode(',',array_column($countryData, 'dial_code'));
         $countries = implode(',',array_column($countryData, 'country'));
+        
         $validate = Validator::make($data, [
             'firstname' => 'sometimes|required|string|max:50',
             'lastname' => 'sometimes|required|string|max:50',
@@ -149,6 +150,7 @@ class RegisterController extends Controller
         $user->ref_by = $referUser ? $referUser->id : 0;
         $user->country_code = $data['country_code'];
         $user->mobile = $data['mobile_code'].$data['mobile'];
+
         $user->address = [
             'address' => '',
             'state' => '',
@@ -191,6 +193,8 @@ class RegisterController extends Controller
             $userLogin->country_code = @implode(',',$info['code']);
             $userLogin->country =  @implode(',', $info['country']);
         }
+
+
 
         $userAgent = osBrowser();
         $userLogin->user_id = $user->id;

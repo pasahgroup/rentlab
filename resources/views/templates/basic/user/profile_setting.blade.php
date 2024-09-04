@@ -27,12 +27,14 @@
                                 <label for="lastname" class="form--label">@lang('Last Name')</label>
                                 <input id="lastname" type="text" class="form-control form--control" name="lastname" value="{{$user->lastname}}" required>
                             </div>
-                         
+
                             <div class="col-md-6">
                                 <label class="form--label">@lang('Country')</label>
                                 <select name="country" id="country" class="form--control">
+                                       <option selected>{{@$user->address->country}}</option>
+                                   
                                     @foreach($countries as $key => $country)
-                                        <option data-mobile_code="{{ $country->dial_code }}" value="{{@$user->address->country}}" data-code="{{ $key }}">{{ __(@$user->address->country) }}</option>
+                                        <option data-mobile_code="{{ $country->dial_code }}" value="{{@$user->address->country}}" data-code="{{ $key }}">{{ __(@$country->country) }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -40,8 +42,8 @@
                                 <label class="form--label">@lang('Mobile')</label>
                                 <div class="form-group">
                                     <div class="input-group ">
-                                        <input type="hidden" name="mobile_code">
-                                        <input type="hidden" name="country_code">
+                                        <input type="text" name="mobile_code">
+                                        <input type="text" name="country_code">
                                         <span class="input-group-text mobile-code"></span>
                                         <input type="text" name="mobile" id="mobile" value="{{$user->mobile}}" class="form-control form--control checkUser" placeholder="@lang('Your Phone Number')">
                                     </div>

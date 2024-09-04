@@ -9,6 +9,8 @@ use App\Models\PlanLog;
 use App\Models\Rating;
 use App\Models\RentLog;
 use App\Models\Vehicle;
+use App\Models\UserLogin;
+
 use App\Rules\FileTypeValidate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -65,7 +67,8 @@ class UserController extends Controller
             'address' => 'sometimes|required|max:80',
             'state' => 'sometimes|required|max:80',
             'zip' => 'sometimes|required|max:40',
-            'city' => 'sometimes|required|max:50',
+            'country' => 'sometimes|required|max:64',
+             'city' => 'sometimes|required|max:50',
 
             'nida' => 'sometimes|required|max:64',
             'driving_license' => 'sometimes|required|max:64',
@@ -78,8 +81,13 @@ class UserController extends Controller
 
         $user = Auth::user();
 
+
+dd(@$user->address->country);
+
         $in['firstname'] = $request->firstname;
         $in['lastname'] = $request->lastname;
+         $in['mobile'] = $request->mobile;
+          $in['country_code'] = $request->country_code;
 
           $in['nida'] = $request->nida;
         $in['driving_license'] = $request->driving_license;
@@ -88,9 +96,29 @@ class UserController extends Controller
             'address' => $request->address,
             'state' => $request->state,
             'zip' => $request->zip,
-            'country' => @$user->address->country,
+            // 'country' => @$user->address->country,
+             'country' => @$request->country,
             'city' => $request->city,
         ];
+
+  //  $exist = UserLogin::where('user_ip',$ip)->first();
+  //       $userLogin = new UserLogin();
+  // if ($exist) {
+  //           $userLogin->longitude =  $exist->longitude;
+  //           $userLogin->latitude =  $exist->latitude;
+  //           $userLogin->city =  $exist->city;
+  //           $userLogin->country_code = $exist->country_code;
+  //           $userLogin->country =  $exist->country;
+  //       }else{
+  //           $info = json_decode(json_encode(getIpInfo()), true);
+  //           $userLogin->longitude =  @implode(',',$info['long']);
+  //           $userLogin->latitude =  @implode(',',$info['lat']);
+  //           $userLogin->city =  @implode(',',$info['city']);
+  //           $userLogin->country_code = @implode(',',$info['code']);
+  //           $userLogin->country =  @implode(',', $info['country']);
+  //       }
+
+
 
 
         if ($request->hasFile('image')) {
@@ -99,6 +127,7 @@ class UserController extends Controller
             $filename = uploadImage($request->image, $location, $size, $user->image);
             $in['image'] = $filename;
         }
+
         $user->fill($in)->save();
         $notify[] = ['success', 'Profile updated successfully.'];
         return back()->withNotify($notify);
