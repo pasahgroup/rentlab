@@ -79,10 +79,11 @@ class UserController extends Controller
             'lastname.required'=>'Last name field is required'
         ]);
 
+
         $user = Auth::user();
 
 
-dd(@$user->address->country);
+//dd(@$user->address->country);
 
         $in['firstname'] = $request->firstname;
         $in['lastname'] = $request->lastname;
@@ -96,7 +97,7 @@ dd(@$user->address->country);
             'address' => $request->address,
             'state' => $request->state,
             'zip' => $request->zip,
-            // 'country' => @$user->address->country,
+             'country' =>'yyyy',
              'country' => @$request->country,
             'city' => $request->city,
         ];
