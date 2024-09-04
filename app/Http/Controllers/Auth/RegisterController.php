@@ -44,6 +44,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
+        //dd('print');
         $pageTitle = "Sign Up";
         $info = json_decode(json_encode(getIpInfo()), true);
         $mobile_code = @implode(',', $info['code']);
@@ -76,6 +77,9 @@ class RegisterController extends Controller
         $validate = Validator::make($data, [
             'firstname' => 'sometimes|required|string|max:50',
             'lastname' => 'sometimes|required|string|max:50',
+             'nida' => 'sometimes|required|string|max:64',
+              'driving_license' => 'sometimes|required|string|max:64',
+
             'email' => 'required|string|email|max:90|unique:users',
             'mobile' => 'required|string|max:50|unique:users',
             'password' => ['required','confirmed',$password_validation],
@@ -136,6 +140,9 @@ class RegisterController extends Controller
         $user = new User();
         $user->firstname = isset($data['firstname']) ? $data['firstname'] : null;
         $user->lastname = isset($data['lastname']) ? $data['lastname'] : null;
+           $user->nida = isset($data['nida']) ? $data['nida'] : null;
+              $user->driving_license = isset($data['driving_license']) ? $data['driving_license'] : null;
+
         $user->email = strtolower(trim($data['email']));
         $user->password = Hash::make($data['password']);
         $user->username = trim($data['username']);

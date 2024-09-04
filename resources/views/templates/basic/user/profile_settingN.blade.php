@@ -1,30 +1,37 @@
-@extends($activeTemplate.'layouts.auth')
+@extends($activeTemplate.'layouts.master')
 @section('content')
     <!-- Account Section Starts Here -->
-    <div class="account-section pt-120 pb-120">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="account__wrapper bg--section">
-                        <div class="logo">
-                                  <a href="{{ route('home') }}" class="d-block"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo" style="width:100%; height:100%;"></a>
-                        </div>
+     <div class="pt-60 pb-60">
+        <div class="profile-wrapper bg--body">
+         
+               <div class="profile-user mb-lg-0">
+                <div class="thumb">
+                    <img src="{{ getImage(imagePath()['profile']['user']['path'].'/'. $user->image,imagePath()['profile']['user']['size']) }}" alt="user">
+                </div>
+                <div class="content">
+                    <h6 class="title">@lang('Name'): {{ $user->fullname }}</h6>
+                    <span class="subtitle">@lang('Username'): {{ $user->username }}</span>
+                </div>
+            </div>
+
+             
+             <div class="profile-form-area">
                         <form class="account-form row g-4" action="{{ route('user.register') }}" method="POST" onsubmit="return submitUserForm();">
                             @csrf
 
                             <div class="col-md-6">
                                 <label for="firstname" class="form--label">@lang('First Name')</label>
-                                <input id="firstname" type="text" placeholder="@lang('First Name')" class="form-control form--control" name="firstname" value="{{ old('firstname') }}" required>
+                                <input id="firstname" type="text" placeholder="@lang('First Name')" class="form-control form--control" name="firstname" value="{{$user->firstname}}" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="lastname" class="form--label">@lang('Last Name')</label>
-                                <input id="lastname" type="text" class="form-control form--control" name="lastname" value="{{ old('lastname') }}" placeholder="@lang('Last Name')" required>
+                                <input id="lastname" type="text" class="form-control form--control" name="lastname" value="{{$user->lastname}}" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form--label">@lang('Country')</label>
                                 <select name="country" id="country" class="form--control">
                                     @foreach($countries as $key => $country)
-                                        <option data-mobile_code="{{ $country->dial_code }}" value="{{ $country->country }}" data-code="{{ $key }}">{{ __($country->country) }}</option>
+                                        <option data-mobile_code="{{ $country->dial_code }}" value="{{@$user->address->country}}" data-code="{{ $key }}">{{ __($country->country) }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -35,7 +42,7 @@
                                         <input type="hidden" name="mobile_code">
                                         <input type="hidden" name="country_code">
                                         <span class="input-group-text mobile-code"></span>
-                                        <input type="text" name="mobile" id="mobile" value="{{ old('mobile') }}" class="form-control form--control checkUser" placeholder="@lang('Your Phone Number')">
+                                        <input type="text" name="mobile" id="mobile" value="{{$user->mobile}}" class="form-control form--control checkUser" placeholder="@lang('Your Phone Number')">
                                     </div>
                                     <small class="text-danger mobileExist"></small>
                                 </div>
@@ -43,71 +50,50 @@
 
                                <div class="col-md-6">
                                 <label for="nida" class="form--label">{{ __('NIDA') }}</label>
-                                <input id="nida" type="text" class="form-control form--control checkUser" name="nida" value="{{ old('nida') }}" placeholder="{{ __('nida no') }}" required>
+                                <input id="nida" type="text" class="form-control form--control checkUser" name="nida" value="{{$user->nida}}" required>
                                 <small class="text-danger usernameExist"></small>
                             </div>
                             <div class="col-md-6">
                                 <label for="email" class="form--label">@lang('Driving License')</label>
-                                <input id="driving_license" type="text" class="form-control form--control checkUser" name="driving_license" value="{{ old('driving license') }}" placeholder="@lang('driving license')" required>
+                                <input id="driving_license" type="text" class="form-control form--control checkUser" name="driving_license" value="{{$user->driving_license}}"  required>
                             </div>
-                            <div class="col-md-6">
-                                <label for="username" class="form--label">{{ __('Username') }}</label>
-                                <input id="username" type="text" class="form-control form--control checkUser" name="username" value="{{ old('username') }}" placeholder="{{ __('Username') }}" required>
-                                <small class="text-danger usernameExist"></small>
-                            </div>
+                          
                             <div class="col-md-6">
                                 <label for="email" class="form--label">@lang('E-Mail Address')</label>
-                                <input id="email" type="email" class="form-control form--control checkUser" name="email" value="{{ old('email') }}" placeholder="@lang('E-Mail Address')" required>
-                            </div>
-                            <div class="col-md-6 hover-input-popup">
-                                <label for="password" class="form--label">@lang('Password')</label>
-                                <input id="password" type="password" class="form-control form--control " name="password" placeholder="@lang('Password')" required>
-                                @if($general->secure_password)
-                                    <div class="input-popup">
-                                        <p class="error lower">@lang('1 small letter minimum')</p>
-                                        <p class="error capital">@lang('1 capital letter minimum')</p>
-                                        <p class="error number">@lang('1 number minimum')</p>
-                                        <p class="error special">@lang('1 special character minimum')</p>
-                                        <p class="error minimum">@lang('6 character password')</p>
-                                    </div>
-                                @endif
-                            </div>
-                            <div class="col-md-6">
-                                <label for="select" class="form--label">@lang('Confirm Password')</label>
-                                <input id="password-confirm" type="password" class="form-control form--control" name="password_confirmation" placeholder="@lang('Confirm Password')" required autocomplete="new-password">
+                                <input id="email" type="email" class="form-control form--control checkUser" name="email" value="{{$user->email}}" required>
                             </div>
 
-                            @include($activeTemplate.'partials.custom_captcha')
-                            <div class="col-md-12 d-flex justify-content-center">
-                                @php echo loadReCaptcha() @endphp
-                            </div>
 
-                            <div class="col-md-12">
-                                <button type="submit" id="recaptcha" class="cmn--btn btn--lg">@lang('Sign Up')</button>
-                            </div>
-
-                            <div class="col-md-12">
-                                <div class="d-flex flex-wrap justify-content-between">
-                                    @if($general->agree)
-                                        <div class="form-check form--check">
-                                            <input class="form-check-input" type="checkbox" name="agree" id="tos" required>
-                                            <label class="form-check-label" for="tos">
-                                                @lang('I agree with')
-                                                @forelse(getContent('policy_pages.element') as $item)
-                                                    <a href="{{ route('policy.pages', [$item->id, slug($item->data_values->title)]) }}" class="text--base">{{ __(@$item->data_values->title) }}</a> {{ $loop->last ? '' : ',' }}
-                                                @empty
-                                                @endforelse
-                                            </label>
-                                        </div>
-                                    @endif
-                                    <div>
-                                        @lang('Already have an account?') <a href="{{ route('user.login') }}" class="text--base">@lang('Sign In Now')</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+    <div class="form--group col-md-6">
+                        <label class="form--label" for="country">@lang('Address')</label>
+                        <input type="text" class="form-control form--control" id="address" name="address" placeholder="@lang('Address')" value="{{@$user->address->address}}">
                     </div>
-                </div>
+                    <div class="form--group col-md-6">
+                        <label class="form--label" for="city">@lang('State')</label>
+                        <input type="text" class="form-control form--control" id="state" name="state" placeholder="@lang('state')" value="{{@$user->address->state}}">
+                    </div>
+                    <div class="form--group col-md-6">
+                        <label class="form--label" for="address">@lang('Zip Code')</label>
+                        <input type="text" class="form-control form--control" id="zip" name="zip" placeholder="@lang('Zip Code')" value="{{@$user->address->zip}}">
+                    </div>
+                    <div class="form--group col-md-6">
+                        <label class="form--label" for="state">@lang('City')</label>
+                        <input type="text" class="form-control form--control" id="city" name="city" placeholder="@lang('City')" value="{{@$user->address->city}}">
+                    </div>
+
+                         
+                        
+                    <div class="form--group col-md-6">
+                        <label class="form--label" for="profile-image">@lang('Change Profile Picture')</label>
+                        <input type="file" name="image" class="form-control form--control" accept="image/*">
+                        <code>@lang('Image size') {{imagePath()['profile']['user']['size']}}</code>
+                    </div>
+                    <div class="form--group w-100 col-md-6 mb-0 text-end">
+                        <button type="submit" class="cmn--btn">@lang('Update Profile')</button>
+                    </div>
+                          
+                    </form>
+                    </div>
             </div>
         </div>
     </div>

@@ -75,22 +75,23 @@
                                             <i class="la la-edit"></i>
                                         </a>
 
- <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('admin.vehicles.status', $item->id) }}">
-                                            <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
-                                        </a>
-
-                                        <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="modal" data-url="{{ route('admin.vehicles.status', $item->id) }}">
-                                            <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
-                                        </a>
 
 
-                                        <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn"  data-toggle="modal" data-target="#deleteModal" data-url="{{ route('admin.vehicles.status', $item->id) }}">
+                                        <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn"  data-toggle="modal" data-target="#deleteModal">
   <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
 </a>
 
-
+      <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--danger' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('admin.location.status', $item->id) }}">
+                                            <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
+                                        </a>
 
                                     </td>
+
+
+
+
+
+
 
                                 </tr>
                             @empty
@@ -212,6 +213,7 @@
 
 
 
+
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <form action="{{ route('user.multibooking.remove',1) }}" method="post"
@@ -220,7 +222,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Modal title_{{$item->id}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -305,5 +307,12 @@
                 })
             }
         })
+    </script>
+
+    <script type="text/javascript">
+        $('#test').click(function(){
+            alert('pop');
+   // $('#your_form').attr('action', 'http://uri-for-button1.com');
+});
     </script>
 @endpush

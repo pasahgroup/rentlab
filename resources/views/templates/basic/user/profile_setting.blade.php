@@ -34,11 +34,11 @@
                     </div>
                     <div class="form--group col-md-6">
                         <label class="form--label" for="country">@lang('Address')</label>
-                        <input type="text" class="form-control form--control" id="address" name="address" placeholder="@lang('Address')" value="{{@$user->address->address}}" required="">
+                        <input type="text" class="form-control form--control" id="address" name="address" placeholder="@lang('Address')" value="{{@$user->address->address}}">
                     </div>
                     <div class="form--group col-md-6">
                         <label class="form--label" for="city">@lang('State')</label>
-                        <input type="text" class="form-control form--control" id="state" name="state" placeholder="@lang('state')" value="{{@$user->address->state}}" required="">
+                        <input type="text" class="form-control form--control" id="state" name="state" placeholder="@lang('state')" value="{{@$user->address->state}}">
                     </div>
                     <div class="form--group col-md-6">
                         <label class="form--label" for="address">@lang('Zip Code')</label>

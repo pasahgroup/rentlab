@@ -58,6 +58,8 @@ class VehicleController extends Controller
             //'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()).'|not_in:'.$request->pick_location,
 
              'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
+             'pick_time' => 'required|integer',
+
              'pick_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:today',
              'drop_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:'. $request->pick_time,
 

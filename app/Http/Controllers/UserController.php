@@ -44,9 +44,14 @@ class UserController extends Controller
 
     public function profile()
     {
+        //dd('ddd');
+
         $pageTitle = "Profile Setting";
         $user = Auth::user();
-        return view($this->activeTemplate. 'user.profile_setting', compact('pageTitle','user'));
+         $countries = json_decode(file_get_contents(resource_path('views/partials/country.json')));
+          $info = json_decode(json_encode(getIpInfo()), true);
+          $mobile_code = @implode(',', $info['code']);
+        return view($this->activeTemplate. 'user.profile_setting', compact('pageTitle','countries','mobile_code','user'));
     }
 
     public function submitProfile(Request $request)

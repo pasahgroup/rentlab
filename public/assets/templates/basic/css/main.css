@@ -165,7 +165,7 @@ ul {
 
 ul li {
     list-style: none;
-    padding: 5px 0;
+    padding: 1px 0;
 }
 
 .bg_img {
@@ -388,7 +388,7 @@ strong, b {
 }
 
 .bg--body {
-    background-color: #22313a !important;
+    background-color: #496f52 !important;
 }
 
 .bg--section {

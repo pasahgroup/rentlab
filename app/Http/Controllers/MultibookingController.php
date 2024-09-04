@@ -43,7 +43,8 @@ class MultibookingController extends Controller
 $datex=$vehicles->max('pick_time');
 
 $multibookings=collect($vehicles);
-   // dd($multibookings->sum('price'));
+   
+    //dd($vehicles);
 
  $tags = Tag::where('status',1)->get();
   $locations = Location::where('status',1)->get();
@@ -195,8 +196,8 @@ $multibookings=collect($vehicles);
      * @param  \App\Models\multibooking  $multibooking
      * @return \Illuminate\Http\Response
      */
-    public function remove(Request $request)
+    public function remove(Request $request,$id)
     {
-       dd('removex');
+       dd($id);
     }
 }

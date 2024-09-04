@@ -2865,7 +2865,7 @@ p, li, a {
 
 *[class*="btn-"] {
     transition: all 0.3s;
-    font-size: 1.5rem;
+    font-size: 0.9rem;
 }
 
 .btn--capsule {

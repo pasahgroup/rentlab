@@ -78,13 +78,13 @@ img {
 }
 
 ::-moz-selection {
-  color: #fff;
+  color: #0f1079;
   text-shadow: none;
   background: #2B2E31;
 }
 
 ::selection {
-  color: #fff;
+/*  color: #fff;*/
   text-shadow: none;
   background: #2B2E31;
 }

@@ -140,6 +140,12 @@
                         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) +1;
 
 
+                           $("#no_car").on('change keydown paste input', function(){
+                     no_car = $('#no_car').val();
+ $('.total_amount').text(price*diffDays*no_car);
+
+                    //alert(no_car);
+});
                       
 
 if(no_car>0)
@@ -155,11 +161,6 @@ if(no_car>0)
 
                     }
                 })
-
-//                            $("#no_car").on('change keydown paste input', function(){
-//                     var no_car = $('#no_car').val();
-// });
-
             }
         })
     </script>

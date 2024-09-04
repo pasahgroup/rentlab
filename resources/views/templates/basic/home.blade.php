@@ -24,7 +24,7 @@
     @foreach($carbodytypes as $carbodytype)
                        
 
-                        <div class="col-lg-3 col-md-3" style="background-color:#305129">
+                        <div class="col-lg-3 col-md-3" style="background-color:#c4741f;">
 
   <div class="row">
               <div class="car__item__text">
