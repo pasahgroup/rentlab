@@ -56,6 +56,9 @@ class UserController extends Controller
 
     public function submitProfile(Request $request)
     {
+
+       // dd('print');
+
         $request->validate([
             'firstname' => 'required|string|max:50',
             'lastname' => 'required|string|max:50',
@@ -63,6 +66,10 @@ class UserController extends Controller
             'state' => 'sometimes|required|max:80',
             'zip' => 'sometimes|required|max:40',
             'city' => 'sometimes|required|max:50',
+
+            'nida' => 'sometimes|required|max:64',
+            'driving_license' => 'sometimes|required|max:64',
+
             'image' => ['image',new FileTypeValidate(['jpg','jpeg','png'])]
         ],[
             'firstname.required'=>'First name field is required',
@@ -73,6 +80,9 @@ class UserController extends Controller
 
         $in['firstname'] = $request->firstname;
         $in['lastname'] = $request->lastname;
+
+          $in['nida'] = $request->nida;
+        $in['driving_license'] = $request->driving_license;
 
         $in['address'] = [
             'address' => $request->address,

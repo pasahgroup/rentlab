@@ -126,7 +126,7 @@ color: <?php echo $color ?> !important;
 }
 
 button.cmn--btn {
-background: <?php echo $color ?>;
+background:#button.cmn--btn;
 }
 
 .footer-wrapper .footer__widget .widget__title::before, .footer-wrapper .footer__widget .widget__title::after {
