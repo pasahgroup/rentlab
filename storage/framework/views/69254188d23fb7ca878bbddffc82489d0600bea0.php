@@ -79,17 +79,39 @@
 
 
 
-                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn"  data-toggle="modal" data-target="#deleteModal">
+                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn"  data-toggle="modal" data-target="#deleteModal_<?php echo e(__($item->id)); ?>">
   <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
 </a>
 
-      <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--danger' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('admin.location.status', $item->id)); ?>">
-                                            <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
-                                        </a>
 
                                     </td>
 
 
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal_<?php echo e(__($item->id)); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <form action="<?php echo e(route('user.multibooking.remove',1)); ?>" method="post"
+                      enctype="multipart/form-data">
+                    <?php echo csrf_field(); ?>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title_<?php echo e($item->id); ?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
 
 
 
@@ -320,4 +342,4 @@
 <?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('admin.layouts.appm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php echo $__env->make($activeTemplate.'layouts.frontendm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/multibookings/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make($activeTemplate.'layouts.frontendmult', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/multibookings/index.blade.php ENDPATH**/ ?>
