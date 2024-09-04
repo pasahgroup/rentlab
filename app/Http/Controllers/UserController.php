@@ -121,7 +121,6 @@ class UserController extends Controller
 
 
 
-
         if ($request->hasFile('image')) {
             $location = imagePath()['profile']['user']['path'];
             $size = imagePath()['profile']['user']['size'];
