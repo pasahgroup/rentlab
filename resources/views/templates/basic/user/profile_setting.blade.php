@@ -34,11 +34,11 @@
                                        <option selected>{{@$user->address->country}}</option>
                                    
                                     @foreach($countries as $key => $country)
-                                        <option data-mobile_code="{{ $country->dial_code }}" value="{{@$user->address->country}}" data-code="{{ $key }}">{{ __(@$country->country) }}</option>
+                                        <option data-mobile_code="{{ $country->dial_code }}" value="{{ __(@$country->country) }}" data-code="{{ $key }}">{{ __(@$country->country) }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-6">
+                     <div class="col-md-6">
                                 <label class="form--label">@lang('Mobile')</label>
                                 <div class="form-group">
                                     <div class="input-group ">
@@ -49,7 +49,7 @@
                                     </div>
                                     <small class="text-danger mobileExist"></small>
                                 </div>
-                            </div>
+                            </div> 
 
                                <div class="col-md-6">
                                 <label for="nida" class="form--label">{{ __('NIDA') }}</label>

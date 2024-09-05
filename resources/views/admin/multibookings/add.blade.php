@@ -111,19 +111,19 @@
                                     <label for="start-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> @lang('Pick Up Date & Time')
                                     </label>
-                                    <input type="date" name="pick_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
+                                    <input type="text" name="pick_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
                                 </div>
                             </div>
 
 
-                              <div class="col-md-3 col-sm-3">
-                                <div class="form-group">
+                              <div class="col-md-2 col-sm-2">
+                           <!--      <div class="form-group">
                                     <label for="start-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> @lang('Pick Up Date & Time')
                                     </label>
-                                    <input type="date" name="drop_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
+                                    <input type="text" name="drop_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
                                    
-                                </div>
+                                </div> -->
                         <button class="btn btn--primary w-100" style="padding: 1.4rem 1.75rem;">@lang('Add car')</button>
                   
                             </div>
@@ -197,8 +197,9 @@
             cursor: pointer;
         }
     </style>
-@endpush
 
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/datepicker.min.css')}}">
+@endpush
 @push('style-lib')
     <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-iconpicker.min.css') }}">
 @endpush
@@ -207,6 +208,57 @@
 @endpush
 
 @push('script')
+
+
+    <script src="{{asset($activeTemplateTrue.'js/datepicker.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'js/datepicker.en.js')}}"></script>
+    <script>
+        // date and time picker
+        $('#dateAndTimePicker').datepicker({
+            timepicker: true,
+            language: 'en',
+            onSelect: function (fd, d, picker) {
+                var pick_time = fd;
+              
+                // if (pick_time){
+                //     $('#dateAndTimePicker2').removeAttr('disabled');
+                // }else{
+                //     $('#dateAndTimePicker2').attr('disabled', 'disabled');
+                // }
+
+                // $('#dateAndTimePicker2').datepicker({
+                //     timepicker: true,
+                //     language: 'en',
+                //     onSelect: function (fd, d, picker) {
+                //         var drop_time = fd;
+
+                //         const date1 = new Date(pick_time);
+                //         const date2 = new Date(drop_time);
+                //         const diffTime = Math.abs(date2 - date1);
+                //         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) +1;
+
+
+                //         $('.total_amount').text(price*diffDays);
+                //         $('.total_days').text(diffDays);
+                //     }
+                // })
+            }
+        })
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script>
         (function ($) {
             "use strict";

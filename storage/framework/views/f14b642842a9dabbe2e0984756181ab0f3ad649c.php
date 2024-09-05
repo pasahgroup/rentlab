@@ -33,11 +33,11 @@
                                        <option selected><?php echo e(@$user->address->country); ?></option>
                                    
                                     <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option data-mobile_code="<?php echo e($country->dial_code); ?>" value="<?php echo e(@$user->address->country); ?>" data-code="<?php echo e($key); ?>"><?php echo e(__(@$country->country)); ?></option>
+                                        <option data-mobile_code="<?php echo e($country->dial_code); ?>" value="<?php echo e(__(@$country->country)); ?>" data-code="<?php echo e($key); ?>"><?php echo e(__(@$country->country)); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
-                            <div class="col-md-6">
+                     <div class="col-md-6">
                                 <label class="form--label"><?php echo app('translator')->get('Mobile'); ?></label>
                                 <div class="form-group">
                                     <div class="input-group ">
@@ -48,7 +48,7 @@
                                     </div>
                                     <small class="text-danger mobileExist"></small>
                                 </div>
-                            </div>
+                            </div> 
 
                                <div class="col-md-6">
                                 <label for="nida" class="form--label"><?php echo e(__('NIDA')); ?></label>

@@ -51,16 +51,14 @@ class UserController extends Controller
         $pageTitle = "Profile Setting";
         $user = Auth::user();
          $countries = json_decode(file_get_contents(resource_path('views/partials/country.json')));
+           //$info[]="";
           $info = json_decode(json_encode(getIpInfo()), true);
-          $mobile_code = @implode(',', $info['code']);
+          $mobile_code = @implode(':', $info['code']);
         return view($this->activeTemplate. 'user.profile_setting', compact('pageTitle','countries','mobile_code','user'));
     }
 
     public function submitProfile(Request $request)
     {
-
-        //dd('print');
-
         $request->validate([
             'firstname' => 'required|string|max:50',
             'lastname' => 'required|string|max:50',
@@ -79,12 +77,9 @@ class UserController extends Controller
             'lastname.required'=>'Last name field is required'
         ]);
 
-
+//dd(request('country'));
         $user = Auth::user();
-
-
-//dd(@$user->address->country);
-
+//dd(@$user->address);
         $in['firstname'] = $request->firstname;
         $in['lastname'] = $request->lastname;
          $in['mobile'] = $request->mobile;
@@ -97,7 +92,7 @@ class UserController extends Controller
             'address' => $request->address,
             'state' => $request->state,
             'zip' => $request->zip,
-             'country' =>'yyyy',
+             'country' => @$user->address->country,
              'country' => @$request->country,
             'city' => $request->city,
         ];
@@ -118,6 +113,7 @@ class UserController extends Controller
   //           $userLogin->country_code = @implode(',',$info['code']);
   //           $userLogin->country =  @implode(',', $info['country']);
   //       }
+
 
 
 

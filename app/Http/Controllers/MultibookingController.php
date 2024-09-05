@@ -116,14 +116,17 @@ $multibookings=collect($vehicles);
             'pick_location' => 'required|integer|gt:0',
             'drop_location' => 'required|integer|gt:0',
            
-            'pick_time' => 'required|date',
-             'drop_time' => 'required|date',
+            // 'pick_time' => 'required|date',
+            //  'drop_time' => 'required|date',
+
+             'pick_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:today',
+             // 'drop_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:'. $request->pick_time,
         ]);
 
 
   $pick_time = new Carbon(request('pick_time'));
-       $drop_time = $pick_time->addDays(request('no_days'));
-   //dd(request('pick_location'));
+        $drop_time = $pick_time->addDays(request('no_days'));
+    //dd($pick_time);
 
         $multibooking = new multibooking();
         $multibooking->name ="multi-booking";
@@ -139,7 +142,7 @@ $multibookings=collect($vehicles);
          $multibooking->pick_location = $request->pick_location;
          $multibooking->drop_location = $request->drop_location;
 
-          $multibooking->pick_time = $request->pick_time;
+          $multibooking->pick_time =$pick_time;
          $multibooking->drop_time =$drop_time;
     
         $multibooking->booked_by =auth()->id();
