@@ -153,17 +153,7 @@
                                     <input type="text" name="pick_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control" value="{{$vehicles->min('pick_time')}}"  required>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="form-group">
-                                    <label for="end-date" class="form--label">
-                                        <i class="las la-calendar-alt"></i> @lang('Drop of Date & Time2')
-                                    </label>
-                                    <input type="text" name="drop_time" placeholder="@lang('Drop of Date & Time')" id="dateAndTimePicker2" autocomplete="off" data-position='top left' value="{{$vehicles->max('drop_time')}}" class="form-control form--control" required>
-                                </div>
-                            </div>
-
-
-
+                      
                                 <div class="col-md-3 col-sm-6">
                                 <div class="form-group">
                                     <label for="end-date" class="form--label">
@@ -247,33 +237,7 @@
             language: 'en',
             onSelect: function (fd, d, picker) {
                 var pick_time = fd;
-                var price = parseFloat("{{ $vehicles->max('price') }}");
-
-                if (pick_time){
-                    $('#dateAndTimePicker2').removeAttr('disabled');
-                }else{
-                    $('#dateAndTimePicker2').attr('disabled', 'disabled');
-
-                    $('.total_amount').text(price);
-                    $('.total_days').text(1);
-                }
-
-                $('#dateAndTimePicker2').datepicker({
-                    timepicker: true,
-                    language: 'en',
-                    onSelect: function (fd, d, picker) {
-                        var drop_time = fd;
-
-                        const date1 = new Date(pick_time);
-                        const date2 = new Date(drop_time);
-                        const diffTime = Math.abs(date2 - date1);
-                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) +1;
-
-
-                        $('.total_amount').text(price*diffDays);
-                        $('.total_days').text(diffDays);
-                    }
-                })
+               
             }
         })
     </script>

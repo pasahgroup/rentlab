@@ -116,7 +116,7 @@
                             </div>
 
 
-                              <div class="col-md-1 col-sm-1">
+                              <div class="col-md-2 col-sm-2">
                            <!--      <div class="form-group">
                                     <label for="start-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Pick Up Date & Time'); ?>
