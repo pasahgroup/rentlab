@@ -40,7 +40,7 @@
                                     <label for="price">@lang('Price Per Day')</label>
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="price" name="price"
-                                               value="{{ old('price') }}" required>
+                                               value="{{ old('price') }}" min="10000" required>
                                         <div class="input-group-append">
                                             <div class="input-group-text">{{ $general->cur_text }}</div>
                                         </div>
@@ -247,18 +247,6 @@
     </script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     <script>
         (function ($) {
             "use strict";
@@ -392,6 +380,44 @@
             });
         })(jQuery);
     </script>
+
+ <script type="text/javascript">
+       $(document).ready(function(){
+      // Department Change
+      $('#price').change(function(){
+     
+alert('price');
+      }
+  }
+</script>
+
+   <script> 
+        $("#price").on("change", function() {         
+ var price = $('#price').val();
+  var no_days = $('#no_days').val();
+   var no_car = $('#no_car').val();
+   document.getElementById("total_costs").value =price*no_days*no_car;
+ //alert(value);
+
+        }); 
+
+  $("#no_days").on("change", function() {         
+ var price = $('#price').val();
+  var no_days = $('#no_days').val();
+   var no_car = $('#no_car').val();
+   document.getElementById("total_costs").value =price*no_days*no_car;
+        }); 
+
+   $("#no_car").on("change", function() {         
+ var price = $('#price').val();
+  var no_days = $('#no_days').val();
+   var no_car = $('#no_car').val();
+   document.getElementById("total_costs").value =price*no_days*no_car;
+        }); 
+
+
+    </script> 
+
 
 
       <script type="text/javascript">
