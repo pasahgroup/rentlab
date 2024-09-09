@@ -64,6 +64,7 @@
             <ul class="menu">
                 <?php if(auth()->guard()->check()): ?>
                     <li><a href="<?php echo e(route('user.home')); ?>"><?php echo app('translator')->get('Dashboard'); ?></a></li>
+                     <li><a href="<?php echo e(route('user.multibooking.index')); ?>"><?php echo app('translator')->get('New Booking'); ?></a></li>
                     <li>
                         <a href="#0"><?php echo app('translator')->get('Vehicle'); ?></a>
                         <ul class="submenu">

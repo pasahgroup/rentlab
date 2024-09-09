@@ -117,13 +117,13 @@
 
 
                               <div class="col-md-2 col-sm-2">
-                           <!--      <div class="form-group">
+                              <div class="form-group">
                                     <label for="start-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Pick Up Date & Time'); ?>
                                     </label>
                                     <input type="text" name="drop_time" placeholder="<?php echo app('translator')->get('Pick Up Date & Time'); ?>" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
                                    
-                                </div> -->
+                                </div>
                         <button class="btn btn--primary w-100" style="padding: 1.4rem 1.75rem;"><?php echo app('translator')->get('Add car'); ?></button>
                   
                             </div>

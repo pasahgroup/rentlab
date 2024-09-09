@@ -14,10 +14,13 @@ use App\Models\Location;
 use App\Models\modelb;
 use App\Models\user;
 use Carbon\Carbon;
-
+use DB;
 use App\Http\Requests\StoremultibookingRequest;
 use App\Http\Requests\UpdatemultibookingRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
+// use Illuminate\Support\Collection;
+use Illuminate\Database\Schema\Blueprint;
 
 class MultibookingController extends Controller
 {
@@ -37,11 +40,14 @@ class MultibookingController extends Controller
      ->where('booked_by',auth()->id())
      ->latest()->paginate(getPaginate());
         
-        $user = user::where('id',auth()->id())->first();
-           //dd($vehicles->sum('price'));
-           // dd($vehicles->max('pick_time'));
-$datex=$vehicles->max('pick_time');
 
+     // $vehicles_count=collect($vehicles);
+     // dd($vehicles_count::select('id')->where('status',1));
+      // $vehicles_count=($vehicles->where('status',1)->count());
+      //dd($vehicles);
+
+$user = user::where('id',auth()->id())->first();      
+$datex=$vehicles->max('pick_time');
 $multibookings=collect($vehicles);
    
     //dd($vehicles);
@@ -176,9 +182,21 @@ $multibookings=collect($vehicles);
      * @param  \App\Models\multibooking  $multibooking
      * @return \Illuminate\Http\Response
      */
-    public function edit(multibooking $multibooking)
+    public function edit(multibooking $multibooking,$id)
     {
-        //
+        $pageTitle = 'Edit Booking with Serial No '.$id;
+        $brands = Brand::active()->orderBy('name')->get();
+        $modelbs = modelb::orderBy('car_model')->get();
+         $colors = Color::orderBy('color')->get();
+ //dd($colors );
+          $tags = Tag::where('status',1)->get(); 
+           $locations = Location::where('status',1)->get(); 
+
+        $seaters = Seater::active()->orderBy('number')->get();
+          $multibooking = multibooking::where('id',$id)->first();
+          //dd($multibooking);   
+       
+        return view('admin.multibookings.edit', compact('pageTitle', 'brands', 'seaters','modelbs','tags','colors','locations','multibooking'));
     }
 
     /**

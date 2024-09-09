@@ -71,7 +71,7 @@
                                          <td data-label="@lang('Booked by')">{{ __($user->firstname) }} {{ __($user->lastname) }}</td>                                       
                                   
                                     <td data-label="@lang('Action')">
-                                        <a href="{{ route('admin.vehicles.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
+                                        <a href="{{ route('user.multibooking.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
                                             <i class="la la-edit"></i>
                                         </a>
 
@@ -125,7 +125,8 @@
                         </table><!-- table end -->
                     </div>
                 </div>
-                     
+                  
+    @if($vehicles->where('status',1)->count()>0)                 
   <div class="row">                          
                             <div class="col-md-1"></div>
 <div class="col-md-11">
@@ -149,6 +150,15 @@
                                         <i class="las la-calendar-alt"></i> @lang('Pick Up Date & Time')
                                     </label>
                                     <input type="text" name="pick_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control" value="{{$vehicles->min('pick_time')}}"  required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6">
+                                <div class="form-group">
+                                    <label for="start-date" class="form--label">
+                                        <i class="las la-calendar-alt"></i> @lang('Drop Of Date & Time')
+                                    </label>
+                                    <input type="text" name="drop_time" placeholder="@lang('Drop Of Date & Time')" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control" value="{{$vehicles->max('drop_time')}}"  required>
                                 </div>
                             </div>
                       
@@ -188,6 +198,7 @@
 </div>
 
                         </div>
+                        @endif
 
                 <div class="card-footer">
                     {{ $vehicles->links('admin.partials.paginate') }}                    
@@ -235,6 +246,28 @@
             language: 'en',
             onSelect: function (fd, d, picker) {
                 var pick_time = fd;
+                   if (pick_time){
+                    $('#dateAndTimePicker2').removeAttr('disabled');
+                }else{
+                    $('#dateAndTimePicker2').attr('disabled', 'disabled');
+                }
+
+                $('#dateAndTimePicker2').datepicker({
+                    timepicker: true,
+                    language: 'en',
+                    onSelect: function (fd, d, picker) {
+                        var drop_time = fd;
+
+                        const date1 = new Date(pick_time);
+                        const date2 = new Date(drop_time);
+                        const diffTime = Math.abs(date2 - date1);
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) +1;
+
+
+                        $('.total_amount').text(price*diffDays);
+                        $('.total_days').text(diffDays);
+                    }
+                })
                
             }
         })

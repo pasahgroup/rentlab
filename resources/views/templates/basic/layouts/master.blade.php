@@ -79,6 +79,7 @@
             <ul class="menu">
                 @auth
                     <li><a href="{{ route('user.home') }}">@lang('Dashboard')</a></li>
+                     <li><a href="{{ route('user.multibooking.index') }}">@lang('New Booking')</a></li>
                     <li>
                         <a href="#0">@lang('Vehicle')</a>
                         <ul class="submenu">
