@@ -523,7 +523,7 @@ alert('price');
              // Department id
              var id = $(this).val();
 
-alert(id);
+//alert(id);
              // Empty the dropdown
              $('#sel_emp2').find('option').not(':first').remove();
 
