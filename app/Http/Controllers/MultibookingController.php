@@ -12,6 +12,7 @@ use App\Models\Tag;
 use App\Models\Color;
 use App\Models\Location;
 use App\Models\modelb;
+use App\Models\model;
 use App\Models\user;
 use Carbon\Carbon;
 use DB;
@@ -171,7 +172,7 @@ $multibookings=collect($vehicles);
      * @param  \App\Models\multibooking  $multibooking
      * @return \Illuminate\Http\Response
      */
-    public function show(multibooking $multibooking)
+    public function showx($multibooking)
     {
         //
     }
@@ -213,12 +214,13 @@ $multibookings=collect($vehicles);
 
 
 
- public function model($departmentid=0){
+ public function show($brand=0){
 
          // Fetch Employees by Departmentid
-         $empData['data'] = employee::orderby("name","asc")
-              ->select('id','name')
-              ->where('department',$departmentid)
+         $empData['data'] = modelb::orderby("car_model","asc")
+              ->select('id','brand_id','car_model')
+              ->where('brand_id',$brand)
+               // ->where('status',1)
               ->get();
 
 

@@ -501,7 +501,7 @@ alert('price');
                           for(var i=0; i<len; i++){
 
                                var id = response['data'][i].id;
-                               var name = response['data'][i].name;
+                               var name = response['data'][i].car_model;
 
                                var option = "<option value='"+id+"'>"+name+"</option>";
 
