@@ -211,6 +211,22 @@ $multibookings=collect($vehicles);
         //
     }
 
+
+
+ public function model($departmentid=0){
+
+         // Fetch Employees by Departmentid
+         $empData['data'] = employee::orderby("name","asc")
+              ->select('id','name')
+              ->where('department',$departmentid)
+              ->get();
+
+
+ //dd( $empData['data']);
+         return response()->json($empData);
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *
