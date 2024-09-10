@@ -25,12 +25,8 @@
                                <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="category">@lang('Model')</label>
-                                    <select class="form-control" id="model_id" name="model_id" required="">
-                                      
-                                        @forelse($modelbs as $modelb)
-                                            <option value="{{ $modelb->id }}">{{ __(@$modelb->car_model) }}</option>
-                                        @empty
-                                        @endforelse
+                                    <select class="form-control" id="model_id" name="model_id" required="">                                    
+                                
                                     </select>
                                 </div>
                             </div>
@@ -482,10 +478,10 @@ alert('price');
 
              // Department id
              var id = $(this).val();
-alert(id);
+//alert(id);
              // Empty the dropdown
-             // $('#sel_emp').find('option').not(':first').remove();
-alert(id);
+             $('#model_id').find('option').not(':first').remove();
+//alert(id);
              // AJAX request 
              $.ajax({
                  url: 'getEmployees/'+id,
