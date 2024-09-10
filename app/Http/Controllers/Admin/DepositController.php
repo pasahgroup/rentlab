@@ -148,6 +148,9 @@ elseif(request('month')){
 
     public function deposit()
     {
+
+        //dd('poopp');
+
         $pageTitle = 'Payment History';
         $emptyMessage = 'No payment history available.';
         $deposits = Deposit::with(['user', 'gateway'])->where('status','!=',0)->orderBy('id','desc')->paginate(getPaginate());

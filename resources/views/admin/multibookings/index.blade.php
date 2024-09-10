@@ -153,14 +153,14 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3 col-sm-6">
+                          <!--   <div class="col-md-3 col-sm-6">
                                 <div class="form-group">
                                     <label for="start-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> @lang('Drop Of Date & Time')
                                     </label>
                                     <input type="text" name="drop_time" placeholder="@lang('Drop Of Date & Time')" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control" value="{{$vehicles->max('drop_time')}}"  required>
                                 </div>
-                            </div>
+                            </div> -->
                       
                                 <div class="col-md-3 col-sm-6">
                                 <div class="form-group">
@@ -210,7 +210,7 @@
 
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('user.multibooking.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('Add New')</a>
+    <a href="{{ route('user.multibooking.add') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i>@lang('Add New Car')</a>
 @endpush
 
 @push('script')

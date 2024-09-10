@@ -10,6 +10,8 @@ use App\Models\GeneralSetting;
 use App\Models\PlanLog;
 use App\Models\RentLog;
 use App\Models\Transaction;
+use App\Models\multibooking;
+
 use App\Models\User;
 use App\Rules\FileTypeValidate;
 use Illuminate\Http\Request;
@@ -116,7 +118,13 @@ class PaymentController extends Controller
         $data->status = 0;
         $data->save();
         session()->put('Track', $data->trx);
-        //dd('preview');
+      
+                  //Update multibooking table
+$account = multibooking::where('booked_by',auth()->id())
+->where('status',1)
+->update([
+        'status'=>0
+            ]);
 
         return redirect()->route('user.deposit.manual.confirm');
                 // return redirect()->route('user.deposit.preview');

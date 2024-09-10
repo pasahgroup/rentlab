@@ -117,13 +117,14 @@
 
 
                               <div class="col-md-2 col-sm-2">
+                            <!--  
                               <div class="form-group">
                                     <label for="start-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> @lang('Pick Up Date & Time')
                                     </label>
-                                    <input type="text" name="drop_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
-                                   
-                                </div>
+                                    <input type="text" name="drop_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>                                  
+                                </div> -->
+                                
                         <button class="btn btn--primary w-100" style="padding: 1.4rem 1.75rem;">@lang('Add car')</button>
                   
                             </div>
@@ -175,8 +176,8 @@
 
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('user.multibooking.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
-            class="fa fa-fw fa-backward" style="padding: 1.4rem 1.75rem;"></i>@lang('Go Back')</a>
+    <a href="{{ route('user.multibooking.index') }}" class="btn btn-sm btn-secondary box--shadow1 text-white text--small"><i
+            class="fa fa-fw fa-backward" style="padding: 1.4rem 1.75rem;"></i>@lang('Ok')</a>
 @endpush
 
 @push('style')

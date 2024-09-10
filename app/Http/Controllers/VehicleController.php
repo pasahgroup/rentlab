@@ -7,6 +7,8 @@ use App\Models\Location;
 use App\Models\RentLog;
 use App\Models\Seater;
 use App\Models\Vehicle;
+use App\Models\multibooking;
+
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -49,21 +51,37 @@ class VehicleController extends Controller
 
     public function vehicleBookingConfirm(Request $request, $id)
     {
-//dd(request('drop_time'));
+//dd(request('pick_time'));
 
-        $request->validate([
+ if(request('multi-booking')){
+    //dd('popo');
+             
+            $request->validate([
             'pick_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
             //'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()).'|not_in:'.$request->pick_location,
 
              'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
-             'pick_time' => 'required|integer',
-
-             'pick_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:today',
-             'drop_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:'. $request->pick_time,
-
+             'pick_time' => 'required|integer',           
+             'pick_time' => 'required|after_or_equal:today',
+             // 'drop_time' => 'required|date_format:Y-m-d h:i|after_or_equal:'. $request->pick_time,
         ],[
             'drop_location.not_in' => 'Please choose different location!'
         ]);
+         }
+         else{
+               $request->validate([
+            'pick_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
+            //'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()).'|not_in:'.$request->pick_location,
+
+             'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
+             'pick_time' => 'required|integer',           
+             'pick_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:today',
+             'drop_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:'. $request->pick_time,
+                     ],[
+            'drop_location.not_in' => 'Please choose different location!'
+        ]);
+    }
+
 
 //dd(request('drop_time'));
 
@@ -83,7 +101,6 @@ if(request('multi-booking'))
         $rent->pick_time = $pick_time;
         $rent->drop_time = $drop_time;
        
-
         $rent->price = getAmount(request('total_costs'));
         $rent->save();
 
@@ -91,16 +108,7 @@ if(request('multi-booking'))
 
 {
 
-//dd(request('pick_location'));
-        //Checking booked or not
-        // if ($vehicle->booked()){
-        //     $notify[] = ['error', 'This vehicle is booked!'];
-        //     return back()->withNotify($notify);
-        // }
-
-
-
- $vehicle = Vehicle::active()->where('id', $id)->firstOrFail();  
+ $vehicle = Vehicle::active()->where('id', $id)->firstOrFail(); 
 
         $total_days = $pick_time->diffInDays($drop_time) +1;
         $total_price = $vehicle->price*$total_days* request('no_car');

@@ -267,7 +267,8 @@
     <script src="{{asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.js')}}"></script>
   <script src="{{asset($activeTemplateTrue.'custom/cjs/main.js')}}"></script>
 
-  
+//Jquery
+   <script src="{{asset($activeTemplateTrue.'custom/cjs/jquery360.min.js')}}"></script>
 
 <script>
     $( function() {

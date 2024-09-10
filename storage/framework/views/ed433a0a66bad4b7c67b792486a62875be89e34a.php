@@ -117,13 +117,14 @@
 
 
                               <div class="col-md-2 col-sm-2">
+                            <!--  
                               <div class="form-group">
                                     <label for="start-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Pick Up Date & Time'); ?>
                                     </label>
-                                    <input type="text" name="drop_time" placeholder="<?php echo app('translator')->get('Pick Up Date & Time'); ?>" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
-                                   
-                                </div>
+                                    <input type="text" name="drop_time" placeholder="<?php echo app('translator')->get('Pick Up Date & Time'); ?>" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>                                  
+                                </div> -->
+                                
                         <button class="btn btn--primary w-100" style="padding: 1.4rem 1.75rem;"><?php echo app('translator')->get('Add car'); ?></button>
                   
                             </div>
@@ -175,8 +176,8 @@
 
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
-    <a href="<?php echo e(route('user.multibooking.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
-            class="fa fa-fw fa-backward" style="padding: 1.4rem 1.75rem;"></i><?php echo app('translator')->get('Go Back'); ?></a>
+    <a href="<?php echo e(route('user.multibooking.index')); ?>" class="btn btn-sm btn-secondary box--shadow1 text-white text--small"><i
+            class="fa fa-fw fa-backward" style="padding: 1.4rem 1.75rem;"></i><?php echo app('translator')->get('Ok'); ?></a>
 <?php $__env->stopPush(); ?>
 
 <?php $__env->startPush('style'); ?>
@@ -413,9 +414,7 @@ alert('price');
   var no_days = $('#no_days').val();
    var no_car = $('#no_car').val();
    document.getElementById("total_costs").value =price*no_days*no_car;
-        }); 
-
-
+        });
     </script> 
 
 

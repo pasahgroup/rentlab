@@ -156,14 +156,14 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3 col-sm-6">
+                          <!--   <div class="col-md-3 col-sm-6">
                                 <div class="form-group">
                                     <label for="start-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Drop Of Date & Time'); ?>
                                     </label>
                                     <input type="text" name="drop_time" placeholder="<?php echo app('translator')->get('Drop Of Date & Time'); ?>" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control" value="<?php echo e($vehicles->max('drop_time')); ?>"  required>
                                 </div>
-                            </div>
+                            </div> -->
                       
                                 <div class="col-md-3 col-sm-6">
                                 <div class="form-group">
@@ -213,7 +213,7 @@
 
 
 <?php $__env->startPush('breadcrumb-plugins'); ?>
-    <a href="<?php echo e(route('user.multibooking.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('Add New'); ?></a>
+    <a href="<?php echo e(route('user.multibooking.add')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('Add New Car'); ?></a>
 <?php $__env->stopPush(); ?>
 
 <?php $__env->startPush('script'); ?>
