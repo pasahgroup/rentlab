@@ -484,7 +484,7 @@ alert('price');
 //alert(id);
              // AJAX request 
              $.ajax({
-                 url: 'getEmployees/'+id,
+                 url: 'multibooking/model/'+id,
                  type: 'get',
                  dataType: 'json',
                  success: function(response){

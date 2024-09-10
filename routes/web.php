@@ -448,6 +448,8 @@ Route::name('user.')->prefix('user')->group(function () {
         Route::get('multibooking/{id}', 'MultibookingController@edit')->name('multibooking.edit');
         Route::post('multibooking/update/{id}', 'MultibookingController@update')->name('multibooking.update');
         Route::post('multibooking/{id}/status', 'MultibookingController@status')->name('multibooking.status');
+
+          Route::get('multibooking/model/{id}', 'MultibookingController@model')->name('multibooking.model');
          
           Route::post('multibooking/{id}/recovery', 'MultibookingController@recovery')->name('multibooking.recovery');
          Route::get('multibooking/{id}/delete', 'MultibookingController@delete')->name('multibooking.delete');
