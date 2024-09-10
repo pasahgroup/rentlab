@@ -472,8 +472,7 @@ alert('price');
      </script>
 
 
-
-
+ <script type="text/javascript" src="../../js/jquery360.min.js"></script>
 
   <script type='text/javascript'>
     $(document).ready(function(){
@@ -485,7 +484,7 @@ alert('price');
              var id = $(this).val();
 alert(id);
              // Empty the dropdown
-             $('#sel_emp').find('option').not(':first').remove();
+             // $('#sel_emp').find('option').not(':first').remove();
 alert(id);
              // AJAX request 
              $.ajax({
@@ -566,6 +565,6 @@ alert(len);
     </script>
 
 
-     
+
 
 @endpush

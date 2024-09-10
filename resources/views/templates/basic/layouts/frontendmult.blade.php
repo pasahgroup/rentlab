@@ -264,7 +264,7 @@
   <script src="{{asset($activeTemplateTrue.'custom/lib/jquery/jquery.min.js')}}"></script>
   <script src="{{asset($activeTemplateTrue.'custom/lib/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.js')}}"></script>
-  <script src="{{asset($activeTemplateTrue.'custom/cjs/main.js')}}"></script>
+  <!-- <script src="{{asset($activeTemplateTrue.'custom/cjs/main.js')}}"></script> -->
 
   
 

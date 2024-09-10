@@ -255,10 +255,15 @@
     <script src="{{asset($activeTemplateTrue.'custom/js/jquery.nice-select.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'custom/js/jquery-ui.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'custom/js/jquery.magnific-popup.min.js')}}"></script>
+
+
     <script src="{{asset($activeTemplateTrue.'custom/js/mixitup.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'custom/js/jquery.slicknav.js')}}"></script>
+   
     <script src="{{asset($activeTemplateTrue.'custom/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset($activeTemplateTrue.'custom/js/main.js')}}"></script>
+    <!-- <script src="{{asset($activeTemplateTrue.'custom/js/main.js')}}"></script> -->
+
+
 
 <!-- custom2 -->
   <!-- JavaScript Libraries -->
@@ -267,7 +272,7 @@
     <script src="{{asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.js')}}"></script>
   <script src="{{asset($activeTemplateTrue.'custom/cjs/main.js')}}"></script>
 
-//Jquery
+
    <script src="{{asset($activeTemplateTrue.'custom/cjs/jquery360.min.js')}}"></script>
 
 <script>

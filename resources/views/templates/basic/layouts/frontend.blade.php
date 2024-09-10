@@ -230,23 +230,7 @@
   <script src="{{asset($activeTemplateTrue.'custom/lib/jquery/jquery.min.js')}}"></script>
   <script src="{{asset($activeTemplateTrue.'custom/lib/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.js')}}"></script>
-  <script src="{{asset($activeTemplateTrue.'custom/cjs/main.js')}}"></script>
-
-
- <!--  <script src="../../custom/lib/php-mail-form/validate.js"></script>
-  <script src="../../custom/lib/prettyphoto/js/prettyphoto.js"></script>
-  <script src="../../custom/lib/isotope/isotope.min.js"></script>
-
-  <script src="../../custom/lib/hover/hoverdir.js"></script>
-  <script src="../../custom/lib/hover/hoverex.min.js"></script>
-
-  <script src="../../custom/lib/unveil-effects/unveil-effects.js"></script>
-  <script src="../../custom/lib/owl-carousel/owl-carousel.js"></script>
-
-  <script src="../../custom/lib/animate-enhanced/animate-enhanced.min.js"></script>
-  <script src="../../custom/lib/jigowatt/jigowatt.js"></script>
-  <script src="../../custom/lib/easypiechart/easypiechart.min.js"></script> -->
-
+  <!-- <script src="{{asset($activeTemplateTrue.'custom/cjs/main.js')}}"></script> -->
 
 <script>
     $( function() {

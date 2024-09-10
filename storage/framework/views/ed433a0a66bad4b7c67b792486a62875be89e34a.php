@@ -472,14 +472,9 @@ alert('price');
      </script>
 
 
+ <script type="text/javascript" src="../../js/jquery360.min.js"></script>
 
-
-
-
-
-
-
- <script type='text/javascript'>
+  <script type='text/javascript'>
     $(document).ready(function(){
 
         // Department Change
@@ -488,9 +483,8 @@ alert('price');
              // Department id
              var id = $(this).val();
 alert(id);
-
              // Empty the dropdown
-             $('#sel_emp').find('option').not(':first').remove();
+             // $('#sel_emp').find('option').not(':first').remove();
 alert(id);
              // AJAX request 
              $.ajax({
@@ -523,6 +517,55 @@ alert(id);
              });
         });
     });
+
+
+     $(document).ready(function(){
+
+        // Department Change
+        $('#sel_emp').change(function(){
+
+             // Department id
+             var id = $(this).val();
+
+alert(id);
+             // Empty the dropdown
+             $('#sel_emp2').find('option').not(':first').remove();
+
+             // AJAX request 
+             $.ajax({
+                 url: 'getEmp/'+id,
+                 type: 'get',
+                 dataType: 'json',
+                 success: function(response){
+
+                     var len = 0;
+                     if(response['data'] != null){
+                          len = response['data'].length;
+                     }
+
+alert(len);
+
+                     if(len > 0){
+                          // Read data and create <option >
+                          for(var i=0; i<len; i++){
+
+                               var id = response['data'][i].id;
+                               var name = response['data'][i].name;
+
+                               var option = "<option value='"+id+"'>"+name+"</option>";
+
+                               $("#sel_emp2").append(option); 
+                          }
+                     }
+
+                 }
+             });
+        });
+    });
+    </script>
+
+
+
 
 <?php $__env->stopPush(); ?>
 
