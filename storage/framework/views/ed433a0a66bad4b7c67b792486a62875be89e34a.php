@@ -25,12 +25,8 @@
                                <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="category"><?php echo app('translator')->get('Model'); ?></label>
-                                    <select class="form-control" id="model_id" name="model_id" required="">
-                                      
-                                        <?php $__empty_1 = true; $__currentLoopData = $modelbs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $modelb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                            <option value="<?php echo e($modelb->id); ?>"><?php echo e(__(@$modelb->car_model)); ?></option>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                                        <?php endif; ?>
+                                    <select class="form-control" id="model_id" name="model_id" required="">                                    
+                                
                                     </select>
                                 </div>
                             </div>
@@ -482,10 +478,10 @@ alert('price');
 
              // Department id
              var id = $(this).val();
-alert(id);
+//alert(id);
              // Empty the dropdown
-             // $('#sel_emp').find('option').not(':first').remove();
-alert(id);
+             $('#model_id').find('option').not(':first').remove();
+//alert(id);
              // AJAX request 
              $.ajax({
                  url: 'getEmployees/'+id,
@@ -522,7 +518,7 @@ alert(id);
      $(document).ready(function(){
 
         // Department Change
-        $('#sel_emp').change(function(){
+        $('#brand_id').change(function(){
 
              // Department id
              var id = $(this).val();

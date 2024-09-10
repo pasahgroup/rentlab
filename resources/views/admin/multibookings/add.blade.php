@@ -518,14 +518,14 @@ alert('price');
      $(document).ready(function(){
 
         // Department Change
-        $('#sel_emp').change(function(){
+        $('#brand_id').change(function(){
 
              // Department id
              var id = $(this).val();
 
-//alert(id);
+alert(id);
              // Empty the dropdown
-             $('#sel_emp2').find('option').not(':first').remove();
+             $('#model_id').find('option').not(':first').remove();
 
              // AJAX request 
              $.ajax({
