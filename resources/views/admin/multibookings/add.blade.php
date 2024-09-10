@@ -124,7 +124,7 @@
                                     </label>
                                     <input type="text" name="drop_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>                                  
                                 </div> -->
-                                
+
                         <button class="btn btn--primary w-100" style="padding: 1.4rem 1.75rem;">@lang('Add car')</button>
                   
                             </div>
@@ -470,5 +470,102 @@ alert('price');
       });
     });
      </script>
+
+
+
+
+
+  <script type='text/javascript'>
+    $(document).ready(function(){
+
+        // Department Change
+        $('#brand_id').change(function(){
+
+             // Department id
+             var id = $(this).val();
+alert(id);
+             // Empty the dropdown
+             $('#sel_emp').find('option').not(':first').remove();
+alert(id);
+             // AJAX request 
+             $.ajax({
+                 url: 'getEmployees/'+id,
+                 type: 'get',
+                 dataType: 'json',
+                 success: function(response){
+
+                     var len = 0;
+                     if(response['data'] != null){
+                          len = response['data'].length;
+                     }
+
+                     alert(len);
+
+                     if(len > 0){
+                          // Read data and create <option >
+                          for(var i=0; i<len; i++){
+
+                               var id = response['data'][i].id;
+                               var name = response['data'][i].name;
+
+                               var option = "<option value='"+id+"'>"+name+"</option>";
+
+                               $("#sel_emp").append(option); 
+                          }
+                     }
+
+                 }
+             });
+        });
+    });
+
+
+     $(document).ready(function(){
+
+        // Department Change
+        $('#sel_emp').change(function(){
+
+             // Department id
+             var id = $(this).val();
+
+alert(id);
+             // Empty the dropdown
+             $('#sel_emp2').find('option').not(':first').remove();
+
+             // AJAX request 
+             $.ajax({
+                 url: 'getEmp/'+id,
+                 type: 'get',
+                 dataType: 'json',
+                 success: function(response){
+
+                     var len = 0;
+                     if(response['data'] != null){
+                          len = response['data'].length;
+                     }
+
+alert(len);
+
+                     if(len > 0){
+                          // Read data and create <option >
+                          for(var i=0; i<len; i++){
+
+                               var id = response['data'][i].id;
+                               var name = response['data'][i].name;
+
+                               var option = "<option value='"+id+"'>"+name+"</option>";
+
+                               $("#sel_emp2").append(option); 
+                          }
+                     }
+
+                 }
+             });
+        });
+    });
+    </script>
+
+
+     
 
 @endpush
