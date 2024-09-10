@@ -505,7 +505,7 @@ alert('price');
 
                                var option = "<option value='"+id+"'>"+name+"</option>";
 
-                               $("#sel_emp").append(option); 
+                               $("#model_id").append(option); 
                           }
                      }
 
@@ -518,14 +518,14 @@ alert('price');
      $(document).ready(function(){
 
         // Department Change
-        $('#brand_id').change(function(){
+        $('#brand_idx').change(function(){
 
              // Department id
              var id = $(this).val();
 
-alert(id);
+//alert(id);
              // Empty the dropdown
-             $('#model_id').find('option').not(':first').remove();
+             $('#model_idx').find('option').not(':first').remove();
 
              // AJAX request 
              $.ajax({

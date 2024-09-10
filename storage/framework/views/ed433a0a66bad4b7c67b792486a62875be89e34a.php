@@ -525,7 +525,7 @@ alert('price');
 
 alert(id);
              // Empty the dropdown
-             $('#sel_emp2').find('option').not(':first').remove();
+             $('#model_id').find('option').not(':first').remove();
 
              // AJAX request 
              $.ajax({
