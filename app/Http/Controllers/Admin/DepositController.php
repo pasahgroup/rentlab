@@ -299,18 +299,19 @@ elseif(request('month')){
         $general = GeneralSetting::first();
      //dd($general);
         // Email lodge
-        notify($user, 'PAYMENT_APPROVE', [
-            'method_name' => $deposit->gatewayCurrency()->name,
-            'method_currency' => $deposit->method_currency,
-            'method_amount' => showAmount($deposit->final_amo),
-            'amount' => showAmount($deposit->amount),
-            'charge' => showAmount($deposit->charge),
-            'currency' => $general->cur_text,
-            'rate' => showAmount($deposit->rate),
-            'trx' => $deposit->trx
-        ]);
+       
+        // notify($user, 'PAYMENT_APPROVE', [
+        //     'method_name' => $deposit->gatewayCurrency()->name,
+        //     'method_currency' => $deposit->method_currency,
+        //     'method_amount' => showAmount($deposit->final_amo),
+        //     'amount' => showAmount($deposit->amount),
+        //     'charge' => showAmount($deposit->charge),
+        //     'currency' => $general->cur_text,
+        //     'rate' => showAmount($deposit->rate),
+        //     'trx' => $deposit->trx
+        // ]);
 
-        // dd('print3');
+         //dd('print3');
 
         $notify[] = ['success', 'Payment request has been approved.'];
 

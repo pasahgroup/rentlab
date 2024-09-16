@@ -106,7 +106,7 @@
                                         data-amount="{{ showAmount($deposit->amount)}} {{ __($general->cur_text) }}"
                                         data-username="{{ @$deposit->user->username }}"
                                         data-toggle="tooltip" data-original-title="@lang('Approve')"><i class="fas fa-check"></i>
-                                    @lang('Approve  bb')
+                                    @lang('Approve')
                                 </button>
 
                                 <button class="btn btn--danger ml-1 rejectBtn"
