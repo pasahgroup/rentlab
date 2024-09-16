@@ -14,6 +14,8 @@ use App\Models\Location;
 use App\Models\modelb;
 use App\Models\model;
 use App\Models\user;
+// use App\Models\user;
+
 use Carbon\Carbon;
 use DB;
 use App\Http\Requests\StoremultibookingRequest;
@@ -213,6 +215,12 @@ $multibookings=collect($vehicles);
     }
 
 
+ public function getModel($p){
+       // Fetch Employees by Departmentid
+       $aData['dataA'] = vehicle::getModell($p);
+       echo json_encode($aData);
+       exit;
+     }
 
  public function show($brand=0){
 
@@ -223,10 +231,8 @@ $multibookings=collect($vehicles);
                // ->where('status',1)
               ->get();
 
-
  //dd( $empData['data']);
          return response()->json($empData);
-
     }
 
     /**

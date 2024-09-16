@@ -206,6 +206,7 @@
 
 @push('script')
 
+ <script type="text/javascript" src="../../js/jquery360.min.js"></script>
 
     <script src="{{asset($activeTemplateTrue.'js/datepicker.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'js/datepicker.en.js')}}"></script>
@@ -418,7 +419,7 @@ alert('price');
       <script type="text/javascript">
        $(document).ready(function(){
       // Department Change
-      $('#brand').change(function(){
+      $('#brand_id').change(function(){
          // ward
 
   //alert('changed');
@@ -426,28 +427,27 @@ alert('price');
          var v = $(this).val();
              // alert(v);
            // Empty the dropdown
-         // $('#model').find('option').not(':first').remove();
+          $('#model_id').find('option').not(':first').remove();
             // document.getElementById("classgf").value =v;
          // $('#village').find('option').not(':first').remove();
          // $('#project_name').find('option').not(':first').remove();
          // $('#project_activities').find('option').not(':first').remove();
 
-
+  //alert(v);
          // AJAX request
 
          $.ajax({
-          url: 'getA/'+v,            
+          url: 'user/getP/'+v,            
            type: 'get',
            dataType: 'json',
            success: function(response){
       //alet('fffff');
 
-             var len = 0;
-            
+             var len = 0;            
              if(response['dataA'] != null){
                len = response['dataA'].length;
              }
-         //alet(len);
+         alet(len);
 
                        if(len > 0){
                // Read data and create <option >
@@ -456,7 +456,7 @@ alert('price');
                  var id = response['dataA'][i].id;
                  var name = response['dataA'][i].car_model;
                  var option = "<option value='"+id+"'>"+name+"</option>";
-                 $("#model").append(option);
+                 $("#model_id").append(option);
                }
              }
              //DAta are here
@@ -468,23 +468,23 @@ alert('price');
      </script>
 
 
- <script type="text/javascript" src="../../js/jquery360.min.js"></script>
+
 
   <script type='text/javascript'>
     $(document).ready(function(){
 
         // Department Change
-        $('#brand_id').change(function(){
+        $('#brand_idx').change(function(){
 
              // Department id
              var id = $(this).val();
 //alert(id);
              // Empty the dropdown
-             $('#model_id').find('option').not(':first').remove();
+             $('#model_idx').find('option').not(':first').remove();
 //alert(id);
              // AJAX request 
              $.ajax({
-                 url: 'multibooking/model/'+id,
+                 url: 'user/multibooking/model/'+id,
                  type: 'get',
                  dataType: 'json',
                  success: function(response){
@@ -505,7 +505,7 @@ alert('price');
 
                                var option = "<option value='"+id+"'>"+name+"</option>";
 
-                               $("#model_id").append(option); 
+                               $("#model_idx").append(option); 
                           }
                      }
 

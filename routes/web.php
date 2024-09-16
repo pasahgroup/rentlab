@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\PdfController;
 use App\Http\Controllers\Admin\VehicleController;
+use App\Http\Controllers\DepartController;
+use App\Http\Controllers\AzampayController;
+
 
 Route::get('/clear', function(){
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
@@ -450,6 +453,9 @@ Route::name('user.')->prefix('user')->group(function () {
         Route::post('multibooking/{id}/status', 'MultibookingController@status')->name('multibooking.status');
 
           Route::get('multibooking/show/{id}', 'MultibookingController@show')->name('multibooking.show');
+
+          Route::get('/getP/{p}', 'MultibookingController@getModel')->name('multibooking.getp');
+         // Route::get('/getP/{p}', [VehicleController::class,'getModel']);
          
           Route::post('multibooking/{id}/recovery', 'MultibookingController@recovery')->name('multibooking.recovery');
          Route::get('multibooking/{id}/delete', 'MultibookingController@delete')->name('multibooking.delete');
@@ -491,3 +497,19 @@ Route::get('/cartag-page/{id}', 'SiteController@carTag')->name('cartag-page.show
 
 Route::get('/{slug}', 'SiteController@pages')->name('pages');
 Route::get('/', 'SiteController@index')->name('home');
+
+// AzamPay
+ // Route::get('azam', DepartController::class)->name('azam.index');
+Route::get('/azam/{r}', 'DepartController@index');
+
+// Route::resource('azam', AzampayController::class, 'index');
+ // Route::resource('azamx', AzampayController::class);
+// Route::resource('azam', DepartmentController::class);
+
+// Route::resource('dk', DepartmentController::class);
+ Route::get('/dd/{d}', [DepartController::class, 'show']);
+// Route::get('/getEmployees/{id}', [DepartmentController::class, 'getEmployees']);
+// Route::get('/getEmp/{id}', [DepartmentController::class, 'getEmp']);
+
+//Route::resource('yyy', SiteController::class);
+//Route::resource('/', 'SiteController@index')->name('home');
