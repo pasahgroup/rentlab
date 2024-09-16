@@ -70,7 +70,7 @@ $multibookings=collect($vehicles);
         $brands = Brand::active()->orderBy('name')->get();
         $modelbs = modelb::orderBy('car_model')->get();
          $colors = color::orderBy('color')->get();
- //dd($colors );
+        //dd($colors);
           $tags = Tag::where('status',1)->get(); 
            $locations = Location::where('status',1)->get();   
 
