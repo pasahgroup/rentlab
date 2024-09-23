@@ -392,8 +392,9 @@ strong, b {
 }
 
 .bg--section {
-    background-color: #5e8059 !important;
+/*    background-color: #5e8059 !important;*/
 /*        background-color: #26353e !important;*/
+background-color: #ffffff !important;
 }
 
 .btn--base,
@@ -558,7 +559,7 @@ strong, b {
 }
 
 .bg--section .form--control, .bg--section .form--control:focus, .bg--section .rental__thumbnails, .bg--section .faq__item, .bg--section .plan__item, .bg--section .client__item, .bg--section .counter-item, .bg--section .post__item, .bg--section .how__item .how__icon, .bg--section .rent__item, .bg--section .form-control:disabled, .bg--section .form-control[readonly], .bg--section .reply-item, .bg--section .dashboard__item, .bg--section .custom--card, .bg--section .cmn--table, .bg--section .widget {
-    background: #22313a;
+    background: #fff;
 }
 
 .bg--section .synced .rental__thumbnails, .bg--section .post__item .post__content .meta__date, .bg--section .rent__item .rent__thumb, .bg--section .rent__item .rent__content .car-info {
@@ -1162,7 +1163,7 @@ strong, b {
 }
 
 .header-top-item a {
-    color: #fff;
+    color: #0a5104;
     display: flex;
     align-items: center;
 }
@@ -3240,7 +3241,7 @@ width: 40%;
 }
 
 .rent__item {
-    padding: 15px;
+    padding: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -3422,8 +3423,8 @@ width: 40%;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    background: rgba(0, 174, 235, 0.1);
-    color: #dcf3ff;
+    background: rgba(15, 15, 14, 0.1);
+    color: #0f0f0f;
     border: none;
     border: 1px solid rgba(255, 255, 255, 0.03);
 }

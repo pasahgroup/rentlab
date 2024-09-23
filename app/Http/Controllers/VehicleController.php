@@ -22,6 +22,7 @@ class VehicleController extends Controller
         $brands = Brand::active()->withCount('vehicles')->orderBy('name')->get();
         $seats = Seater::active()->withCount('vehicles')->orderBy('number')->get();
 
+//dd($brands);
         $vehicles = Vehicle::active()->latest()->paginate(getPaginate());
         $pageTitle = 'All Vehicles';
         return view($this->activeTemplate.'vehicles.index',compact('vehicles','pageTitle', 'brands', 'seats'));

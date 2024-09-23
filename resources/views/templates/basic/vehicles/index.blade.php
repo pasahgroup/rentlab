@@ -1,10 +1,9 @@
 @extends($activeTemplate.'layouts.frontend')
-
 @section('content')
     <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side">@lang('Rent')</div>
         <div class="shape">@lang('Vehicles')</div>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4">
                     <aside class="category-sidebar">

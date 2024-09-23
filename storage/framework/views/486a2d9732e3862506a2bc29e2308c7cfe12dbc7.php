@@ -57,7 +57,7 @@
 </head>
 
 
-<div class="header-top py-2" style="background-color:#698c68;">
+<div class="header-top py-2" style="background-color:#fff;">
     <div class="container-fluid">
         <div class="d-flex flex-wrap justify-content-between mx--10">
             <div class="header-top-item meta-list">
@@ -68,6 +68,11 @@
                     <div class="header-top-item ml-sm-auto">
                         <a href="<?php echo e(route('user.home')); ?>"><i class="las la-tachometer-alt"></i><?php echo app('translator')->get('Dashboard'); ?></a>
                     </div>
+
+                     <div class="header-top-item ml-sm-auto">
+                        <a href="<?php echo e(route('user.home')); ?>"><i class="las la-tachometer-alt"></i><?php echo app('translator')->get('Dashboard'); ?></a>
+                    </div>
+
                     <div class="header-top-item">
                         <a href="<?php echo e(route('user.logout')); ?>"><i class="las la-sign-out-alt"></i><?php echo app('translator')->get('Logout'); ?></a>
                     </div>

@@ -2,7 +2,7 @@
     <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side"><?php echo app('translator')->get('Rent'); ?></div>
         <div class="shape"><?php echo app('translator')->get('Vehicles'); ?></div>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4">
                     <aside class="category-sidebar">
