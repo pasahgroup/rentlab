@@ -1367,7 +1367,7 @@ background-color: #ffffff !important;
 
 /*Book Wrapper*/
 .book__wrapper {
-    padding: 30px;
+    padding: 2px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -4694,7 +4694,7 @@ width: 40%;
 }
 
 .widget:not(:last-child) {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .widget.widget__category ul li {

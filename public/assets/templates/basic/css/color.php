@@ -1,7 +1,7 @@
 <?php
 header("Content-Type:text/css");
 $color = "#f0f"; // Change your Color Here 
-$colorb = "#011303"; // Change your Color Here 
+$colorb = "#000"; // Change your Color Here 
 $color2 = "#264f2e"; // Change your Color Here
 $secondColor = "#ff8"; // Change your Color Here
 
@@ -167,7 +167,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 color: <?php echo $color ?>;
 }
 .widget__post .widget__post__content span {
-color: <?php echo $color ?>;
+color: <?php echo $colorb ?>;
 }
 
 .account__wrapper {
@@ -201,7 +201,7 @@ color: <?php echo $color ?>;
 }
 
 .widget {
-border: 1px dashed <?php echo $color ?>4d;
+border: 1px dashed <?php echo $colorb ?>;
 }
 .widget .title::before, .widget .title::after {
 border-bottom: 2px dashed <?php echo $color ?>33;
@@ -216,7 +216,7 @@ border: 1px dashed <?php echo $colorb ?>;
 }
 
 .border--dashed {
-border: 1px dashed <?php echo $color ?>4d;
+border: 1px dashed <?php echo $colorb ?>4d;
 }
 
 .price-area .item {
