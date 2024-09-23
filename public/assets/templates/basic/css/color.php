@@ -1,6 +1,7 @@
 <?php
 header("Content-Type:text/css");
 $color = "#f0f"; // Change your Color Here 
+$colorb = "#011303"; // Change your Color Here 
 $color2 = "#264f2e"; // Change your Color Here
 $secondColor = "#ff8"; // Change your Color Here
 
@@ -210,8 +211,8 @@ border-bottom: 1px dashed <?php echo $color ?>33;
 }
 
 .rent__item {
-box-shadow: 0 0 15px <?php echo $color ?>1a;
-border: 1px dashed <?php echo $color ?>4d;
+box-shadow: 0 0 10px <?php echo $colorb ?>;
+border: 1px dashed <?php echo $colorb ?>;
 }
 
 .border--dashed {

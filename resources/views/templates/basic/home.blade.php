@@ -122,8 +122,6 @@
 
 
 
-
-
   <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side">@lang('Rent')</div>
         <div class="shape">@lang('Vehicles')</div>

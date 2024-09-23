@@ -1,11 +1,11 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
-    <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
+   <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side">@lang('Rent')</div>
         <div class="shape">@lang('Vehicles')</div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-2">
                     <aside class="category-sidebar">
                         <div class="widget d-lg-none border--dashed">
                             <div class="d-flex justify-content-between">
@@ -79,13 +79,13 @@
                         </div>
                     </aside>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                     <div class="filter-in d-lg-none">
                         <i class="las la-filter"></i>
                     </div>
                     <div class="book__wrapper bg--body border--dashed mb-4">
                         <form class="book--form row gx-3 gy-4 g-md-4" action="{{ route('vehicle.search') }}" method="get">
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-3 col-sm-4">
                                 <div class="form-group">
                                     <label for="car-type" class="form--label">
                                         <i class="las la-car-side"></i> @lang('Select Model')
@@ -99,7 +99,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-2 col-sm-4">
                                 <div class="form-group">
                                     <label for="pick-point" class="form--label">
                                         <i class="las la-chair"></i> @lang('Number Of Seats')
@@ -113,7 +113,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-1 col-sm-3">
                                 <div class="form-group">
                                     <label class="form--label d-none d-sm-block">&nbsp;</label>
                                     <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit">@lang('Search')</button>
@@ -124,7 +124,7 @@
                     <div class="row g-4">
 
                         @forelse($vehicles as $vehicle)
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 <div class="rent__item">
                                     <div class="rent__thumb">
                                         <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}">
@@ -134,25 +134,51 @@
                                     </div>
                                     <div class="rent__content">
                                         <h6 class="rent__title">
-                                            <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}">{{ __(@$vehicle->name) }}</a>
+                                            <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}">{{ __(@$vehicle->model) }}</a>
                                         </h6>
                                         <div class="price-area">
                                             <h5 class="item">{{ $general->cur_sym }}{{ showAmount($vehicle->price) }} <sub>/@lang('day')</sub></h5>
                                         </div>
                                         <ul class="d-flex car-info">
-                                            <li class="pr-3"><i class="las la-car"></i><span class="font-mini">{{ __(@$vehicle->model) }}</span></li>
+                                            <li class="pr-3"><i class="las la-car"></i><span class="font-mini">{{ __(@$vehicle->name) }}</span></li>
                                             <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini">{{ __(@$vehicle->transmission) }}</span></li>
                                             <li class="pr-3"><i class="las la-gas-pump"></i><span class="font-mini">{{ __(@$vehicle->fuel_type) }}</span></li>
                                         </ul>
-                                        <div class="rent-btn mt-4 text-center">
-                                            <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn w-100 justify-content-center">
-                                                @if($vehicle->booked())
-                                                    @lang('Booked')
-                                                @else
-                                                    @lang('Book Now')
-                                                @endif
-                                            </a>
-                                        </div>
+                                        
+
+<div class="row" style="margin-top:10px">
+       <div class="col-lg-6 col-md-4">
+                                          <div class="car__item__price">
+                                        <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center"
+                                    type="submit" style="background-color:brwon">@lang('More Details')</a>
+                                    </div>
+                                </div>
+                                   <div class="col-lg-6 col-md-4">
+                                      <div class="car__item__price">
+
+                                           <div class="btn__grp">              
+                                             @auth
+                             {{--   @if($vehicle->booked())
+                                    <a href="javascript:void(0)" class="cmn--btn">@lang('Booked')</a>
+                                @else 
+                                    
+                                @endif --}}
+
+                              
+
+                                 <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
+                            @else
+                                <a href="{{ route('user.login') }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
+                            @endauth
+                        </div>
+
+
+                                    </div>
+                                </div>
+                               </div> 
+
+
+
                                     </div>
                                 </div>
                             </div>
@@ -164,6 +190,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 
 @push('script')
