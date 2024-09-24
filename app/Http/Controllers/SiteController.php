@@ -81,15 +81,13 @@ $vehicles = Vehicle::active()->latest()->paginate(getPaginate());
 public function show(Request $request,$id)
     {
    
-//dd($id); 
-//Request $request
     if(request('carType')){
-
    $vehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
       ->where('cartypes.car_body_type',$id)
+       ->where('vehicles.brand_id',request('brand'))
+        ->where('vehicles.seater_id',request('seats'))
      ->select('vehicles.*','cartypes.car_body_type')
       ->get();
-      //dd($vehicles); 
 }else{
    
    $vehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
@@ -98,8 +96,6 @@ public function show(Request $request,$id)
       ->get(); 
 }
       
- //dd((request('seats')));
-
           $metaVehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
       ->select('vehicles.*','cartypes.car_body_type')
       ->get();
@@ -111,19 +107,30 @@ public function show(Request $request,$id)
         $pageTitle = $id;
     // dd($cartypes);
 
-        return view($this->activeTemplate . 'carbodytypes.carbodytype', compact('vehicles','cartypes','metaVehicles','pageTitle'));
+        return view($this->activeTemplate . 'carbodytypes.carbodytype', compact('vehicles','cartypes','metaVehicles','pageTitle','id'));
     }
 
-    public function carTag($id)
+
+
+
+    public function carTag(Request $request,$id)
     {
-        //dd($id);
-      $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
+  if(request('carTag')){
+    $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
+      ->where('tags.tag',$id)
+       ->where('vehicles.brand_id',request('brand'))
+        ->where('vehicles.seater_id',request('seats'))
+     ->select('vehicles.*','tags.tag')
+      ->get();
+      dd($vehicles);
+ }else{   
+  $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
       ->where('tags.tag',$id)
      ->select('vehicles.*','tags.tag')
       ->get();
-      //dd($vehicles);
+}
 
-          $metaVehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
+  $metaVehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
       ->select('vehicles.*','tags.tag')
       ->get();
 
@@ -134,7 +141,7 @@ public function show(Request $request,$id)
         $pageTitle = $id;
     // dd($cartypes);
 
-        return view($this->activeTemplate.'carbodytypes.cartag', compact('vehicles','cartags','metaVehicles','pageTitle'));
+        return view($this->activeTemplate.'carbodytypes.cartag', compact('vehicles','cartags','metaVehicles','pageTitle','id'));
     }
 
 

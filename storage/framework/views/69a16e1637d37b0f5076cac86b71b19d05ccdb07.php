@@ -7,7 +7,6 @@
     ?>
     <!-- Banner Section -->
 
-
   <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side"><?php echo app('translator')->get('Rent'); ?></div>
         <div class="shape"><?php echo app('translator')->get('Vehicles'); ?></div>
@@ -45,10 +44,10 @@
                         <i class="las la-filter"></i>
                     </div>
                     <div class="book__wrapper bg--body border--dashed mb-4">
-                        <form class="book--form row gx-3 gy-4 g-md-4" action="<?php echo e(route('cartype-page.show',1)); ?>" method="get">
+                        <form class="book--form row gx-3 gy-4 g-md-4" action="<?php echo e(route('cartype-page.show',$id)); ?>" method="get">
                             <div class="col-md-3 col-sm-4">
 
-                                 <input type="text" name="carTag" id="carTag" >
+                                 <!-- <input type="text" name="carTag" id="carTag" value="<?php echo e($id); ?>"> -->
                                 <div class="form-group">
                                     <label for="car-type" class="form--label">
                                         <i class="las la-car-side"></i> <?php echo app('translator')->get('Select Model'); ?>

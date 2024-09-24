@@ -31,7 +31,7 @@
                                 <ul class="category-link">
                                        <li>
                                             <a href="/cartype-page/Search By Body Type"><span>Car Body Type</span><span></span></a>
-                                            <a href="/cartag-page/Search By Car Type"><span>Car Type</span><span></span></a>
+                                            <a href="/cartag-page/Search By Car Tag"><span>Car Tag</span><span></span></a>
                                                                     </ul>
                             </div>
 
