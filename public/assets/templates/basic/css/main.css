@@ -22,10 +22,10 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 600;
+    font-weight: 500;
     margin: 0;
     line-height: 1.2;
-    color: #dcf3ff;
+    color: #10390d;
     font-family: "Josefin Sans", sans-serif;
 }
 
@@ -122,8 +122,8 @@ p a:hover {
     }
 
     h4 {
-        font-size: 28px;
-        line-height: 38px;
+        font-size: 22px;
+        line-height: 28px;
         margin-top: -14px;
     }
 
@@ -394,7 +394,7 @@ strong, b {
 .bg--section {
 /*    background-color: #5e8059 !important;*/
 /*        background-color: #26353e !important;*/
-background-color: #ffffff !important;
+background-color: #f0f0f0 !important;
 }
 
 .btn--base,
@@ -1680,8 +1680,8 @@ select.form--control {
 }
 
 .widget .title {
-    padding-bottom: 18px;
-    margin-bottom: 40px;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
     position: relative;
 }
 
@@ -2114,7 +2114,7 @@ select.form--control {
 }
 
 .cmn--table tbody {
-    color: #fff;
+    color: #000;
     text-align: center;
 }
 

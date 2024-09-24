@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer__top" style="background-color:#57554c;">
+        <div class="footer__top" style="background-color:#357749;">
             <div class="footer-wrapper">
                 <div class="footer__widget widget__about">
                     <h4 class="widget__title">@lang('About') @lang($general->sitename)</h4>

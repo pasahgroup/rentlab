@@ -78,13 +78,27 @@ $vehicles = Vehicle::active()->latest()->paginate(getPaginate());
 
 
 
-public function show($id)
+public function show(Request $request,$id)
     {
-        //dd($id);
-      $vehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+   
+//dd($id); 
+//Request $request
+    if(request('carType')){
+
+   $vehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
       ->where('cartypes.car_body_type',$id)
      ->select('vehicles.*','cartypes.car_body_type')
       ->get();
+      //dd($vehicles); 
+}else{
+   
+   $vehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+      ->where('cartypes.car_body_type',$id)
+     ->select('vehicles.*','cartypes.car_body_type')
+      ->get(); 
+}
+      
+ //dd((request('seats')));
 
           $metaVehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
       ->select('vehicles.*','cartypes.car_body_type')

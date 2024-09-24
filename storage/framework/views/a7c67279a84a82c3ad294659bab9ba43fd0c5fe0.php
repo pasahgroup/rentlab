@@ -144,7 +144,7 @@
 <!-- Breadcrumb section end -->
 
 <!-- Dashboard Section Starts Here -->
-<main class="dashboard-section bg--section pt-60 pb-60">
+<main class="dashboard-section pt-60 pb-60" style="background-color:#335b3e;">
     <div class="container">
                 <?php echo $__env->yieldContent('content'); ?>
 
