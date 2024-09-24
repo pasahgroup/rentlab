@@ -6,7 +6,7 @@
     $policy_pages = getContent('policy_pages.element', false, null, true);
 @endphp
 <!-- Footer Section -->
-<footer class="footer-section">
+<footer class="footer-section" style="background-color:#26353e">
     <div class="container-fluid">
         <div class="newsletter-section">
             <div class="newsletter-wrapper">
