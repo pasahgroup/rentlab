@@ -47,8 +47,7 @@ class PaymentController extends Controller
         })->with('method')->orderby('method_code')->get();
         $pageTitle = 'Payment Methods';
 
-        //dd('print');
-        
+        //dd('print2');        
         return view($this->activeTemplate . 'user.payment.deposit', compact('gatewayCurrency', 'pageTitle','total_cost'));
     }
 
