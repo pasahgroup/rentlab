@@ -159,7 +159,7 @@
 <!-- Breadcrumb section end -->
 
 <!-- Dashboard Section Starts Here -->
-<main class="dashboard-section pt-60 pb-60" style="background-color:#335b3e;">
+<main class="dashboard-section pt-60 pb-60" style="background-color:#f0f0f0;">
     <div class="container">
                 @yield('content')
 
