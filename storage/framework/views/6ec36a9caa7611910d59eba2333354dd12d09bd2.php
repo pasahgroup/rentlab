@@ -1,9 +1,19 @@
 <?php $__env->startSection('content'); ?>
+
+
+<div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
+        <div class="shape right-side"><?php echo app('translator')->get('Rent'); ?></div>
+        <div class="shape"><?php echo app('translator')->get('Vehicles'); ?></div>
+           
+
+        <div class="container">
+    <div class="widget border--dashed">
+        <h4 class="mb-4"><?php echo app('translator')->get('BOOKING FORM'); ?></h4>
     <div class="single-section pt-120 pb-120 bg--section">
         <div class="container">
-            <h4 class="mb-4"><?php echo app('translator')->get('You have selected this car'); ?></h4>
+            <h4 class="mb-4"><?php echo app('translator')->get('You are booking'); ?>:<?php echo e($vehicle->name); ?></h4>
             <div class="row gy-5">
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
                         <?php $__empty_1 = true; $__currentLoopData = $vehicle->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <div class="car__rental-thumb w-100 bg--body p-0">
@@ -22,12 +32,12 @@
                     </div>
                 </div>
                 <div class="col-lg-7">
+                    <div class="widget border--dashed">
                     <div class="book__wrapper bg--body border--dashed mb-4">
                         <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="<?php echo e(route('vehicle.booking.confirm', $vehicle->id)); ?>">
                             <?php echo csrf_field(); ?>
 
-                            <div class="col-md-4 col-sm-6">
-                                
+                            <div class="col-md-6 col-sm-6">                                
                                     <label for="pick-point" class="form--label">
                                         <i class="las la-street-view"></i> <?php echo app('translator')->get('Pick Up Point'); ?>
                                     </label>
@@ -41,7 +51,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-6">                                
+                            <div class="col-md-6 col-sm-6">                              
                                     <label for="drop-point" class="form--label">
                                         <i class="las la-street-view"></i> <?php echo app('translator')->get('Drop of Point'); ?>
                                     </label>
@@ -56,14 +66,17 @@
                                 </div>
                             </div>
 
-                                <div class="col-md-2 col-sm-2">                                
+                               <div class="col-md-12 col-sm-12">                                
                                     <label for="drop-point" class="">
                                         <i class="las la-street-view"></i> <?php echo app('translator')->get('No Car'); ?>
                                     </label>
                                     <div class="form-group">
                                    <input type="number" name="no_car" id="no_car" required>
                                 </div>
-                            </div>
+                            </div>    
+
+
+                             
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label for="start-date" class="form--label">
@@ -80,23 +93,44 @@
                                     <input type="text" name="drop_time" placeholder="<?php echo app('translator')->get('Drop of Date & Time'); ?>" id="dateAndTimePicker2" autocomplete="off" data-position='top left' class="form-control form--control" disabled required>
                                 </div>
                             </div>
-                            <div class="col-12">
+
+            
+
+ <div class="col-1">
+ </div>
+                            <div class="col-8">
                                 <div class="booking-costs mb-4">
-                                    <?php echo app('translator')->get('You will be charged'); ?> <span class="text--danger"><span class="total_amount"><?php echo e(showAmount($vehicle->price)); ?></span> <?php echo e($general->cur_text); ?> </span> <?php echo app('translator')->get('for book this'); ?>
-                                    <?php echo e($vehicle->name); ?> <?php echo app('translator')->get('for'); ?> <span class="total_days">1</span> <?php echo app('translator')->get('days. Please confirm to book.'); ?>
-                                </div>
-                                <div class="form-group">
-                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit"><?php echo app('translator')->get('Book Now'); ?></button>
+                                    <?php echo app('translator')->get('  Costs:'); ?> <span class="text--danger"><span class="total_amount"><?php echo e(showAmount($vehicle->price)); ?></span> <?php echo e($general->cur_text); ?> </span>
+                                    <?php echo app('translator')->get('for'); ?> <span class="total_days text--danger">1</span> <?php echo app('translator')->get('days.'); ?>
+                                </div>                                
+                            </div>
+   <div class="col-3">
+                            <div class="form-group float-right">
+                                    <button class="cmn--btn justify-content-center float-right" type="submit"><?php echo app('translator')->get('Book Now'); ?></button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+                </div>
             </div>
         </div>
     </div>
-<?php $__env->stopSection(); ?>
+</div>
+</div>
+</div>
+</div>
+                     
+                    </div>
+                </div>
 
+
+            </div>
+        </div>
+    </div>
+
+
+<?php $__env->stopSection(); ?>
 <?php $__env->startPush('style'); ?>
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/datepicker.min.css')); ?>">
 <?php $__env->stopPush(); ?>

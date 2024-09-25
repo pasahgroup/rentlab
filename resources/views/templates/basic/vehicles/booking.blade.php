@@ -1,11 +1,20 @@
 @extends($activeTemplate.'layouts.frontend')
-
 @section('content')
+
+
+<div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
+        <div class="shape right-side">@lang('Rent')</div>
+        <div class="shape">@lang('Vehicles')</div>
+           
+
+        <div class="container">
+    <div class="widget border--dashed">
+        <h4 class="mb-4">@lang('BOOKING FORM')</h4>
     <div class="single-section pt-120 pb-120 bg--section">
         <div class="container">
-            <h4 class="mb-4">@lang('You have selected this car')</h4>
+            <h4 class="mb-4">@lang('You are booking'):{{ $vehicle->name }}</h4>
             <div class="row gy-5">
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
                         @forelse($vehicle->images as $image)
                             <div class="car__rental-thumb w-100 bg--body p-0">
@@ -24,12 +33,12 @@
                     </div>
                 </div>
                 <div class="col-lg-7">
+                    <div class="widget border--dashed">
                     <div class="book__wrapper bg--body border--dashed mb-4">
                         <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="{{ route('vehicle.booking.confirm', $vehicle->id) }}">
                             @csrf
 
-                            <div class="col-md-4 col-sm-6">
-                                
+                            <div class="col-md-6 col-sm-6">                                
                                     <label for="pick-point" class="form--label">
                                         <i class="las la-street-view"></i> @lang('Pick Up Point')
                                     </label>
@@ -43,7 +52,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-6">                                
+                            <div class="col-md-6 col-sm-6">                              
                                     <label for="drop-point" class="form--label">
                                         <i class="las la-street-view"></i> @lang('Drop of Point')
                                     </label>
@@ -58,14 +67,17 @@
                                 </div>
                             </div>
 
-                                <div class="col-md-2 col-sm-2">                                
+                               <div class="col-md-12 col-sm-12">                                
                                     <label for="drop-point" class="">
                                         <i class="las la-street-view"></i> @lang('No Car')
                                     </label>
                                     <div class="form-group">
                                    <input type="number" name="no_car" id="no_car" required>
                                 </div>
-                            </div>
+                            </div>    
+
+
+                             
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label for="start-date" class="form--label">
@@ -82,23 +94,44 @@
                                     <input type="text" name="drop_time" placeholder="@lang('Drop of Date & Time')" id="dateAndTimePicker2" autocomplete="off" data-position='top left' class="form-control form--control" disabled required>
                                 </div>
                             </div>
-                            <div class="col-12">
+
+            
+
+ <div class="col-1">
+ </div>
+                            <div class="col-8">
                                 <div class="booking-costs mb-4">
-                                    @lang('You will be charged') <span class="text--danger"><span class="total_amount">{{ showAmount($vehicle->price) }}</span> {{ $general->cur_text }} </span> @lang('for book this')
-                                    {{ $vehicle->name }} @lang('for') <span class="total_days">1</span> @lang('days. Please confirm to book.')
-                                </div>
-                                <div class="form-group">
-                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit">@lang('Book Now')</button>
+                                    @lang('  Costs:') <span class="text--danger"><span class="total_amount">{{ showAmount($vehicle->price) }}</span> {{ $general->cur_text }} </span>
+                                    @lang('for') <span class="total_days text--danger">1</span> @lang('days.')
+                                </div>                                
+                            </div>
+   <div class="col-3">
+                            <div class="form-group float-right">
+                                    <button class="cmn--btn justify-content-center float-right" type="submit">@lang('Book Now')</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+                </div>
             </div>
         </div>
     </div>
-@endsection
+</div>
+</div>
+</div>
+</div>
+                     
+                    </div>
+                </div>
 
+
+            </div>
+        </div>
+    </div>
+
+
+@endsection
 @push('style')
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/datepicker.min.css')}}">
 @endpush
