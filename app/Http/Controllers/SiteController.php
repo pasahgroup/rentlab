@@ -122,7 +122,7 @@ public function show(Request $request,$id)
         ->where('vehicles.seater_id',request('seats'))
      ->select('vehicles.*','tags.tag')
       ->get();
-      dd($vehicles);
+      //dd($vehicles);
  }else{   
   $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
       ->where('tags.tag',$id)
