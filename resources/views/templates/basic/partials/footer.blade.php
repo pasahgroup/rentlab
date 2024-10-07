@@ -6,7 +6,7 @@
     $policy_pages = getContent('policy_pages.element', false, null, true);
 @endphp
 <!-- Footer Section -->
-<footer class="footer-section" style="background-color:#26353e">
+<footer class="footer-section" style="background-color:#60452e">
     <div class="container-fluid">
         <div class="newsletter-section">
             <div class="newsletter-wrapper">
@@ -95,6 +95,6 @@
             </div>
         </div>
     </div>
-    <div class="footer__bottom bg--section py-3 text-center" style="color:#fff">{{ __(@$footer_content->data_values->copyright) }}</div>
+    <div class="footer__bottom py-3 text-center" style="color:yellow">{{ __(@$footer_content->data_values->copyright) }}</div>
 </footer>
 <!-- Footer Section -->

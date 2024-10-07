@@ -1,6 +1,6 @@
 <?php
 header("Content-Type:text/css");
-$color = "#f0f"; // Change your Color Here 
+$color = "#000"; // Change your Color Here 
 $colorb = "#000"; // Change your Color Here 
 $color2 = "#264f2e"; // Change your Color Here
 $secondColor = "#ff8"; // Change your Color Here

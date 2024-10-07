@@ -81,7 +81,7 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label for="start-date" class="form--label">
-                                        <i class="las la-calendar-alt"></i> @lang('Pick Up Date & Time')
+                                        <i class="las la-calendar-alt"></i> @lang('From Date')
                                     </label>
                                     <input type="text" name="pick_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
                                 </div>
@@ -89,7 +89,7 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label for="end-date" class="form--label">
-                                        <i class="las la-calendar-alt"></i> @lang('Drop of Date & Time')
+                                        <i class="las la-calendar-alt"></i> @lang('To Date')
                                     </label>
                                     <input type="text" name="drop_time" placeholder="@lang('Drop of Date & Time')" id="dateAndTimePicker2" autocomplete="off" data-position='top left' class="form-control form--control" disabled required>
                                 </div>
@@ -100,8 +100,8 @@
  <div class="col-1">
  </div>
                             <div class="col-8">
-                                <div class="booking-costs mb-4">
-                                    @lang('  Costs:') <span class="text--danger"><span class="total_amount">{{ showAmount($vehicle->price) }}</span> {{ $general->cur_text }} </span>
+                                <div class="booking-costs mb-4"><strong>
+                                    @lang('  Price Total:') </strong><span class="text--danger"><span class="total_amount">{{ showAmount($vehicle->price) }}</span> {{ $general->cur_text }} </span>
                                     @lang('for') <span class="total_days text--danger">1</span> @lang('days.')
                                 </div>                                
                             </div>

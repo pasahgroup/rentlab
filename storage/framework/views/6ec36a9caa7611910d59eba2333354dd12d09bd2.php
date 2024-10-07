@@ -80,7 +80,7 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label for="start-date" class="form--label">
-                                        <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Pick Up Date & Time'); ?>
+                                        <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('From Date'); ?>
                                     </label>
                                     <input type="text" name="pick_time" placeholder="<?php echo app('translator')->get('Pick Up Date & Time'); ?>" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
                                 </div>
@@ -88,7 +88,7 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label for="end-date" class="form--label">
-                                        <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Drop of Date & Time'); ?>
+                                        <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('To Date'); ?>
                                     </label>
                                     <input type="text" name="drop_time" placeholder="<?php echo app('translator')->get('Drop of Date & Time'); ?>" id="dateAndTimePicker2" autocomplete="off" data-position='top left' class="form-control form--control" disabled required>
                                 </div>
@@ -99,8 +99,8 @@
  <div class="col-1">
  </div>
                             <div class="col-8">
-                                <div class="booking-costs mb-4">
-                                    <?php echo app('translator')->get('  Costs:'); ?> <span class="text--danger"><span class="total_amount"><?php echo e(showAmount($vehicle->price)); ?></span> <?php echo e($general->cur_text); ?> </span>
+                                <div class="booking-costs mb-4"><strong>
+                                    <?php echo app('translator')->get('  Price Total:'); ?> </strong><span class="text--danger"><span class="total_amount"><?php echo e(showAmount($vehicle->price)); ?></span> <?php echo e($general->cur_text); ?> </span>
                                     <?php echo app('translator')->get('for'); ?> <span class="total_days text--danger">1</span> <?php echo app('translator')->get('days.'); ?>
                                 </div>                                
                             </div>

@@ -1,6 +1,9 @@
 
 
 
+<?php $__env->startPush('style'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/datepicker.min.css')); ?>">
+<?php $__env->stopPush(); ?>
 <?php $__env->startSection('panel'); ?>
     <div class="row">
         <div class="col-lg-12">
@@ -156,14 +159,6 @@
                                 </div>
                             </div>
 
-                          <!--   <div class="col-md-3 col-sm-6">
-                                <div class="form-group">
-                                    <label for="start-date" class="form--label">
-                                        <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('Drop Of Date & Time'); ?>
-                                    </label>
-                                    <input type="text" name="drop_time" placeholder="<?php echo app('translator')->get('Drop Of Date & Time'); ?>" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control" value="<?php echo e($vehicles->max('drop_time')); ?>"  required>
-                                </div>
-                            </div> -->
                       
                                 <div class="col-md-3 col-sm-6">
                                 <div class="form-group">
@@ -235,9 +230,7 @@
 <?php $__env->stopPush(); ?>
 
 
-<?php $__env->startPush('style'); ?>
-    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/datepicker.min.css')); ?>">
-<?php $__env->stopPush(); ?>
+
 
 <?php $__env->startPush('script'); ?>
     <script src="<?php echo e(asset($activeTemplateTrue.'js/datepicker.min.js')); ?>"></script>

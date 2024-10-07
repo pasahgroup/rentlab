@@ -2,6 +2,7 @@
     <div class="single-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape"><?php echo app('translator')->get('Book Now'); ?></div>
         <div class="container">
+             <div class="widget border--dashed">
             <div class="row gy-5">
                 <div class="col-lg-5">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
@@ -22,6 +23,8 @@
                     </div>
                 </div>
                 <div class="col-lg-7 align-self-center">
+                    <h4><span class="text--body">Vehicle details</span></h4>
+                    <br>
                     <div class="rent__single">
                         <h3 class="title"><?php echo e(__(@$vehicle->name)); ?></h3>
                         <div class="ratings mb-4">
@@ -37,9 +40,9 @@
                         </div>
                         <div class="btn__grp">
                             <?php if(auth()->guard()->check()): ?>                             
-                                 <a href="<?php echo e(route('vehicle.booking', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn"><?php echo app('translator')->get('Book Your Ride'); ?></a>
+                                 <a href="<?php echo e(route('vehicle.booking', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn"><?php echo app('translator')->get('Book Now'); ?></a>
                             <?php else: ?>
-                                <a href="<?php echo e(route('user.login')); ?>" class="cmn--btn"><?php echo app('translator')->get('Book Your Ride'); ?></a>
+                                <a href="<?php echo e(route('user.login')); ?>" class="cmn--btn"><?php echo app('translator')->get('Book Now'); ?></a>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -198,6 +201,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 <?php $__env->stopSection(); ?>
 

@@ -9,7 +9,7 @@ body {
     padding: 0;
     margin: 0;
     font-size: 16px;
-    color: #7996A9;
+    color: #031A04;
     overflow-x: hidden;
     line-height: 1.6;
     font-family: "Open Sans", sans-serif;
@@ -224,7 +224,7 @@ ul li {
 
 @media (min-width: 992px) {
     .pt-120 {
-        padding-top: 60px;
+        padding-top: 32px;
     }
 
     .pb-120 {
@@ -263,7 +263,8 @@ body *::-webkit-scrollbar-thumb {
 
 *::selection {
     background-color: #00aeeb;
-    color: #fff;
+/*    color: #fff;*/
+color: #000;
 }
 
 .bg--overlay {
@@ -394,7 +395,7 @@ strong, b {
 .bg--section {
 /*    background-color: #5e8059 !important;*/
 /*        background-color: #26353e !important;*/
-background-color: #f0f0f0 !important;
+background-color: #5e8059 !important;
 }
 
 .btn--base,
@@ -535,7 +536,7 @@ background-color: #f0f0f0 !important;
 }
 
 .text--base {
-    color: #00aeeb !important;
+    color: #fff !important;
 }
 
 .text--title {
@@ -559,7 +560,7 @@ background-color: #f0f0f0 !important;
 }
 
 .bg--section .form--control, .bg--section .form--control:focus, .bg--section .rental__thumbnails, .bg--section .faq__item, .bg--section .plan__item, .bg--section .client__item, .bg--section .counter-item, .bg--section .post__item, .bg--section .how__item .how__icon, .bg--section .rent__item, .bg--section .form-control:disabled, .bg--section .form-control[readonly], .bg--section .reply-item, .bg--section .dashboard__item, .bg--section .custom--card, .bg--section .cmn--table, .bg--section .widget {
-    background: #fff;
+    background: #709f69;
 }
 
 .bg--section .synced .rental__thumbnails, .bg--section .post__item .post__content .meta__date, .bg--section .rent__item .rent__thumb, .bg--section .rent__item .rent__content .car-info {
@@ -1413,16 +1414,16 @@ background-color: #f0f0f0 !important;
     -moz-border-radius: 4px;
     border-radius: 4px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: #26353e;
+    background: #fff;
     box-shadow: none;
-    color: #fff;
+color: #000;
     font-size: 14px;
     width: 100%;
     -webkit-appearance: button;
 }
 
 .form--control::placeholder, .form-control:disabled::placeholder, .form-control[readonly]::placeholder {
-    color: #7996A9;
+    color: #000;
 }
 
 .form--control:focus, .form-control:disabled:focus, .form-control[readonly]:focus {

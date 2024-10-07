@@ -7,9 +7,6 @@
         $seats = \App\Models\Seater::active()->orderBy('number')->get();
     @endphp
 
-
-
-
     <!-- Book Section -->
     @if($sections->secs != null)
         @foreach(json_decode($sections->secs) as $sec)

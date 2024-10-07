@@ -4,6 +4,7 @@
     <div class="single-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape">@lang('Book Now')</div>
         <div class="container">
+             <div class="widget border--dashed">
             <div class="row gy-5">
                 <div class="col-lg-5">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
@@ -24,6 +25,8 @@
                     </div>
                 </div>
                 <div class="col-lg-7 align-self-center">
+                    <h4><span class="text--body">Vehicle details</span></h4>
+                    <br>
                     <div class="rent__single">
                         <h3 class="title">{{ __(@$vehicle->name) }}</h3>
                         <div class="ratings mb-4">
@@ -39,9 +42,9 @@
                         </div>
                         <div class="btn__grp">
                             @auth                             
-                                 <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn">@lang('Book Your Ride')</a>
+                                 <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn">@lang('Book Now')</a>
                             @else
-                                <a href="{{ route('user.login') }}" class="cmn--btn">@lang('Book Your Ride')</a>
+                                <a href="{{ route('user.login') }}" class="cmn--btn">@lang('Book Now')</a>
                             @endauth
                         </div>
                     </div>
@@ -200,5 +203,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection

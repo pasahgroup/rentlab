@@ -1,6 +1,9 @@
 
 @extends($activeTemplate.'layouts.frontendmult')
 @extends('admin.layouts.appm')
+@push('style')
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/datepicker.min.css')}}">
+@endpush
 @section('panel')
     <div class="row">
         <div class="col-lg-12">
@@ -153,14 +156,6 @@
                                 </div>
                             </div>
 
-                          <!--   <div class="col-md-3 col-sm-6">
-                                <div class="form-group">
-                                    <label for="start-date" class="form--label">
-                                        <i class="las la-calendar-alt"></i> @lang('Drop Of Date & Time')
-                                    </label>
-                                    <input type="text" name="drop_time" placeholder="@lang('Drop Of Date & Time')" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control" value="{{$vehicles->max('drop_time')}}"  required>
-                                </div>
-                            </div> -->
                       
                                 <div class="col-md-3 col-sm-6">
                                 <div class="form-group">
@@ -232,9 +227,7 @@
 @endpush
 
 
-@push('style')
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/datepicker.min.css')}}">
-@endpush
+
 
 @push('script')
     <script src="{{asset($activeTemplateTrue.'js/datepicker.min.js')}}"></script>

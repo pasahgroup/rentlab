@@ -39,8 +39,6 @@
     <link rel="stylesheet" href="{{asset('assets/admin/css/vendor/bootstrap-pincode-input.css')}}">
     <!-- dashdoard main css -->
     <link rel="stylesheet" href="{{asset('assets/admin/css/app.css')}}">
-
-
     @stack('style')
 </head>
 <body>

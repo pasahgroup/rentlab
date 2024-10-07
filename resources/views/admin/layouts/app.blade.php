@@ -10,7 +10,6 @@
             <div class="bodywrapper__inner">
 
                 @include('admin.partials.breadcrumb')
-
                 @yield('panel')
 
 
