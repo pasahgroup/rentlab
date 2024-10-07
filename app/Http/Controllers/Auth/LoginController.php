@@ -137,13 +137,14 @@ class LoginController extends Controller
             return redirect()->route('user.login')->withNotify($notify);
         }
 
-
         $user = auth()->user();
         $user->tv = $user->ts == 1 ? 0 : 1;
         $user->save();
         $ip = $_SERVER["REMOTE_ADDR"];
         $exist = UserLogin::where('user_ip',$ip)->first();
         $userLogin = new UserLogin();
+        //dd($info['long']);
+
         if ($exist) {
             $userLogin->longitude =  $exist->longitude;
             $userLogin->latitude =  $exist->latitude;
@@ -152,7 +153,7 @@ class LoginController extends Controller
             $userLogin->country =  $exist->country;
         }else{
             $info = json_decode(json_encode(getIpInfo()), true);
-            $userLogin->longitude =  @implode(',',$info['long']);
+            $userLogin->longitude =  @implode(",",$info["long"]);
             $userLogin->latitude =  @implode(',',$info['lat']);
             $userLogin->city =  @implode(',',$info['city']);
             $userLogin->country_code = @implode(',',$info['code']);
