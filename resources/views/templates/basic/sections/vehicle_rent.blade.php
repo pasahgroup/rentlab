@@ -135,7 +135,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="row g-4">
+                    <div class="row border--dashed g-4">
 
                         @forelse($vehicles as $vehicle)
                             <div class="col-md-3">
