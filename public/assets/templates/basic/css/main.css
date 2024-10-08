@@ -395,7 +395,7 @@ strong, b {
 .bg--section {
 /*    background-color: #5e8059 !important;*/
 /*        background-color: #26353e !important;*/
-background-color: #5e8059 !important;
+background-color: #f9f4f4 !important;
 }
 
 .btn--base,
@@ -560,7 +560,7 @@ background-color: #5e8059 !important;
 }
 
 .bg--section .form--control, .bg--section .form--control:focus, .bg--section .rental__thumbnails, .bg--section .faq__item, .bg--section .plan__item, .bg--section .client__item, .bg--section .counter-item, .bg--section .post__item, .bg--section .how__item .how__icon, .bg--section .rent__item, .bg--section .form-control:disabled, .bg--section .form-control[readonly], .bg--section .reply-item, .bg--section .dashboard__item, .bg--section .custom--card, .bg--section .cmn--table, .bg--section .widget {
-    background: #709f69;
+    background: #f9f4f4;
 }
 
 .bg--section .synced .rental__thumbnails, .bg--section .post__item .post__content .meta__date, .bg--section .rent__item .rent__thumb, .bg--section .rent__item .rent__content .car-info {
@@ -3293,7 +3293,7 @@ width: 40%;
 }
 
 .rent__item .rent__content {
-    padding: 20px 0 0;
+    padding: 10px 0 0;
 }
 
 .rent__item .rent__content .rent__title {
@@ -4690,7 +4690,7 @@ width: 40%;
 }
 
 .widget {
-    border: 1px dashed rgba(0, 174, 235, 0.3);
+    border: 1px dashed rgba(9,5,23);
     background: #26353e;
 }
 

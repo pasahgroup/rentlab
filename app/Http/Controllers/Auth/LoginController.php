@@ -143,9 +143,10 @@ class LoginController extends Controller
         $ip = $_SERVER["REMOTE_ADDR"];
         $exist = UserLogin::where('user_ip',$ip)->first();
         $userLogin = new UserLogin();
-        //dd($info['long']);
+        
 
         if ($exist) {
+             dd('print2');
             $userLogin->longitude =  $exist->longitude;
             $userLogin->latitude =  $exist->latitude;
             $userLogin->city =  $exist->city;
@@ -153,6 +154,8 @@ class LoginController extends Controller
             $userLogin->country =  $exist->country;
         }else{
             $info = json_decode(json_encode(getIpInfo()), true);
+            dd($info);
+
             $userLogin->longitude =  @implode(",",$info["long"]);
             $userLogin->latitude =  @implode(',',$info['lat']);
             $userLogin->city =  @implode(',',$info['city']);
