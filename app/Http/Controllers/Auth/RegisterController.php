@@ -50,7 +50,10 @@ class RegisterController extends Controller
 
          if($info["code"]!==null) {
              $mobile_code = @implode(',', $info['code']);
-             dd($mobile_code);
+             //dd($mobile_code);
+             }
+             else{
+                $mobile_code=000;
              }
              
        
