@@ -9,6 +9,15 @@
     <title> <?php echo e($general->sitename(__($pageTitle))); ?></title>
     <?php echo $__env->make('partials.seo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+    <!-- Custom css -->
+     <link rel="stylesheet" href="../mold/assets/css/min/bootstrap.min.css" media="all">
+  <link rel="stylesheet" href="../mold/assets/css/jqueryui.css" media="all">
+  <link rel="stylesheet" href="../mold/vendor/animate-css/animate.css" media="all">
+  <link rel="stylesheet" href="../mold/assets/font/iconfont/iconstyle.css" media="all">
+  <link rel="stylesheet" href="../mold/assets/font/font-awesome/css/font-awesome.css" media="all">
+  <link rel="stylesheet" href="../mold/assets/css/main.css" media="all" id="maincss">
+
+
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/bootstrap.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/line-awesome.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/magnific-popup.min.css')); ?>">
