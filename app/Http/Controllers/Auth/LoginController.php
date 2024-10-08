@@ -146,7 +146,6 @@ class LoginController extends Controller
         
 
         if ($exist) {
-             dd('print2');
             $userLogin->longitude =  $exist->longitude;
             $userLogin->latitude =  $exist->latitude;
             $userLogin->city =  $exist->city;
@@ -154,10 +153,10 @@ class LoginController extends Controller
             $userLogin->country =  $exist->country;
         }else{
             $info = json_decode(json_encode(getIpInfo()), true);
-            dd($info);
+           // dd($info);
 
-            $userLogin->longitude =  @implode(",",$info["long"]);
-            $userLogin->latitude =  @implode(',',$info['lat']);
+            // $userLogin->longitude =  @implode(",",$info["long"]);
+            // $userLogin->latitude =  @implode(',',$info['lat']);
             $userLogin->city =  @implode(',',$info['city']);
             $userLogin->country_code = @implode(',',$info['code']);
             $userLogin->country =  @implode(',', $info['country']);
