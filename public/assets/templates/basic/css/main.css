@@ -389,13 +389,13 @@ strong, b {
 }
 
 .bg--body {
-    background-color: #285533 !important;
+    background-color: #fff !important;
 }
 
 .bg--section {
 /*    background-color: #5e8059 !important;*/
 /*        background-color: #26353e !important;*/
-background-color: #f9f4f4 !important;
+background-color: #a5b5a2 !important;
 }
 
 .btn--base,
@@ -558,9 +558,12 @@ background-color: #f9f4f4 !important;
 .text--star {
     color: #e9ba17;
 }
-
-.bg--section .form--control, .bg--section .form--control:focus, .bg--section .rental__thumbnails, .bg--section .faq__item, .bg--section .plan__item, .bg--section .client__item, .bg--section .counter-item, .bg--section .post__item, .bg--section .how__item .how__icon, .bg--section .rent__item, .bg--section .form-control:disabled, .bg--section .form-control[readonly], .bg--section .reply-item, .bg--section .dashboard__item, .bg--section .custom--card, .bg--section .cmn--table, .bg--section .widget {
-    background: #f9f4f4;
+/*cca67c*/
+.bg--section, .bg--section .form--control:focus, .bg--section .rental__thumbnails, .bg--section .faq__item, .bg--section .plan__item, .bg--section .client__item, .bg--section .counter-item, .bg--section .post__item, .bg--section .how__item .how__icon, .bg--section .rent__item, .bg--section .form-control:disabled, .bg--section .form-control[readonly], .bg--section .reply-item, .bg--section .dashboard__item, .bg--section .custom--card, .bg--section .cmn--table, .bg--section .widget {
+    background: #cca67c;
+}
+.form--control, .bg--section .rental__thumbnails, .bg--section .faq__item, .bg--section .plan__item, .bg--section .client__item, .bg--section .counter-item, .bg--section .post__item, .bg--section .how__item .how__icon, .bg--section .rent__item, .bg--section .form-control:disabled, .bg--section .form-control[readonly], .bg--section .reply-item, .bg--section .dashboard__item, .bg--section .custom--card, .bg--section .cmn--table, .bg--section .widget {
+    background: #fff;
 }
 
 .bg--section .synced .rental__thumbnails, .bg--section .post__item .post__content .meta__date, .bg--section .rent__item .rent__thumb, .bg--section .rent__item .rent__content .car-info {
@@ -694,7 +697,7 @@ background-color: #f9f4f4 !important;
 }
 
 .social-icons li a i[class*="facebook"]:hover {
-    background: #3b5998;
+    background: #327145;
 }
 
 .social-icons li a i[class*="twitter"]:hover {

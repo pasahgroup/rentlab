@@ -9,6 +9,16 @@
     <title> {{ $general->sitename(__($pageTitle)) }}</title>
     @include('partials.seo')
 
+ <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/iconfont/iconstyle.css')}}">
+     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/vendor/animate-css/animate.css')}}">
+       <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/font-awesome/css/font-awesome.css')}}">
+         <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/css/main.css')}}">
+
+
+
+
+
+
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/line-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/magnific-popup.min.css')}}">
