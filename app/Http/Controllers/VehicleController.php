@@ -8,6 +8,7 @@ use App\Models\RentLog;
 use App\Models\Seater;
 use App\Models\Vehicle;
 use App\Models\multibooking;
+use App\Models\Deposit;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -49,6 +50,9 @@ class VehicleController extends Controller
         $pageTitle = 'Vehicle Booked by '.auth()->user()->firstname .' '.auth()->user()->lastname;
         return view($this->activeTemplate.'vehicles.booking',compact('vehicle','pageTitle', 'locations'));
     }
+
+
+
 
     public function vehicleBookingConfirm(Request $request, $id)
     {
@@ -129,11 +133,28 @@ if(request('multi-booking'))
 }
 
         session(['rent_id' => $rent->id]);
-
-//dd('ppd');
-        return redirect()->route('user.deposit');
+        //Origin Route
+        //dd('Inserted');
+        // return redirect()->route('user.deposit');
+       // dd('print testxx');
+         
+         return redirect()->route('user.deposit.manual.confirm');
     }
 
+ public function pesapal(Request $request,$id)
+    {
+          
+         //$track = session()->get('Track');
+        // dd($track);
+        // $data = Deposit::where('trx', $track)->where('status',0)->orderBy('id', 'DESC')->firstOrFail();
+    //$data = Deposit::get();
+        //dd($data);
+         $data=RentLog::findOrFail($id);
+ //dd($data);
+
+        $pageTitle = 'Payment Preview';
+          return view($this->activeTemplate . 'user.pesapal.preview', compact('data', 'pageTitle'));
+    }
 
     public function vehicleSearch(Request $request)
     {

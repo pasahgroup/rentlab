@@ -25,7 +25,7 @@ class PaymentController extends Controller
 
     public function deposit()
     {
-//dd('deposit');
+
 
         if (!session()->has('rent_id') && !session()->has('plan_id')){
             $notify[] = ['error', 'Invalid request!'];
@@ -41,15 +41,19 @@ class PaymentController extends Controller
             $total_cost = $plan_log->price;
         }
 
-
+//dd('depositv bnm');
         $gatewayCurrency = GatewayCurrency::whereHas('method', function ($gate) {
             $gate->where('status', 1);
         })->with('method')->orderby('method_code')->get();
         $pageTitle = 'Payment Methods';
 
-        //dd('print2');        
-        return view($this->activeTemplate . 'user.payment.deposit', compact('gatewayCurrency', 'pageTitle','total_cost'));
+             
+         return view($this->activeTemplate . 'user.payment.deposit', compact('gatewayCurrency', 'pageTitle','total_cost'));
+
+              // return view($this->activeTemplate . 'user.manual_payment.manual_confirm', compact('data', 'pageTitle', 'method'));
     }
+
+
 
     public function depositInsert(Request $request)
     {
@@ -242,14 +246,15 @@ $account = multibooking::where('booked_by',auth()->id())
         $track = session()->get('Track');
         $data = Deposit::with('gateway')->where('status', 0)->where('trx', $track)->first();
        
+//dd(gatewayRedirectUrl());
 
+        // if (!$data) {
+        //     return redirect()->route(gatewayRedirectUrl());
+        // }
 
-        if (!$data) {
-
-            return redirect()->route(gatewayRedirectUrl());
-        }
+        //dd('print');
         if ($data->method_code > 999) {
-//dd('print');
+
             $pageTitle = 'Payment Confirm';
             $method = $data->gatewayCurrency();
             return view($this->activeTemplate . 'user.manual_payment.manual_confirm', compact('data', 'pageTitle', 'method'));
