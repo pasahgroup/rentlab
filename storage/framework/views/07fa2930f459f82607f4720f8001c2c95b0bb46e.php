@@ -161,12 +161,14 @@
                                         
 
 <div class="row" style="margin-top:10px">
-       <div class="col-lg-6 col-md-4">
+
+                                <div class="col-lg-6 col-md-4">
                                           <div class="car__item__price">
                                         <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"
                                     type="submit" style="background-color:brwon"><?php echo app('translator')->get('More Details'); ?></a>
                                     </div>
                                 </div>
+
                                    <div class="col-lg-6 col-md-4">
                                       <div class="car__item__price">
 
@@ -176,9 +178,9 @@
 
                               
 
-                                 <a href="<?php echo e(route('vehicle.booking', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"><?php echo app('translator')->get('Book Now'); ?></a>
+                                 <a href="<?php echo e(route('vehicle.booking', [$vehicle->id, slug($vehicle->name)])); ?>" class="booking-btn"><?php echo app('translator')->get('Book Now'); ?></a>
                             <?php else: ?>
-                                <a href="<?php echo e(route('user.login')); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"><?php echo app('translator')->get('Book Now'); ?></a>
+                                <a href="<?php echo e(route('user.login')); ?>" class="booking-btn"><?php echo app('translator')->get('Book Now'); ?></a>
                             <?php endif; ?>
                         </div>
 

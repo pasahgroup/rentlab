@@ -56,7 +56,7 @@ class VehicleController extends Controller
 
     public function vehicleBookingConfirm(Request $request, $id)
     {
-//dd(request('pick_time'));
+//dd(request('pick_location'));
 
  if(request('multi-booking')){
     //dd('popo');
@@ -90,23 +90,31 @@ class VehicleController extends Controller
 
 //dd(request('drop_time'));
 
-      $pick_time = new Carbon($request->pick_time);
+    $pick_time = new Carbon($request->pick_time);
     $drop_time = new Carbon($request->drop_time);
+
+
+
 
 if(request('multi-booking'))
 {
-
+    $total_days = $pick_time->diffInDays($drop_time) +1;
    $pin=rand(111111,999999);
 
  $rent = new RentLog();
         $rent->user_id = auth()->id();
         $rent->vehicle_id = $pin;
+        $rent->model_name = $vehicle->model;
+           $rent->no_car =request('no_car');
+
         $rent->pick_location = $request->pick_location;
         $rent->drop_location = $request->drop_location;
         $rent->pick_time = $pick_time;
         $rent->drop_time = $drop_time;
-       
+          $rent->no_day =$total_days;
+
         $rent->price = getAmount(request('total_costs'));
+        $rent->total_cost = getAmount(request('total_costs'));
         $rent->save();
 
 }else
@@ -121,13 +129,19 @@ if(request('multi-booking'))
         $rent = new RentLog();
         $rent->user_id = auth()->id();
         $rent->vehicle_id = $vehicle->id;
+         $rent->model_name = $vehicle->model;
+
+         $rent->no_car =request('no_car');
+
         $rent->pick_location = $request->pick_location;
         $rent->drop_location = $request->drop_location;
         $rent->pick_time = $pick_time;
         $rent->drop_time = $drop_time;
+         $rent->no_day =$total_days;
        
 
         $rent->price = getAmount($total_price);
+         $rent->total_cost = getAmount($total_price);
         $rent->save();
 
 }
@@ -136,24 +150,107 @@ if(request('multi-booking'))
         //Origin Route
         //dd('Inserted');
         // return redirect()->route('user.deposit');
-       // dd('print testxx');
+       //dd('print testxx');
          
-         return redirect()->route('user.deposit.manual.confirm');
+//Insert into deposits table
+        //   $request->validate([
+        //     'method_code' => 'required',
+        //     'currency' => 'required',
+        // ]);
+
+        if (!session()->has('rent_id') && !session()->has('plan_id')){
+            $notify[] = ['error', 'Invalid request!'];
+            return back()->withNotify($notify);
+        }
+
+        $user = auth()->user();
+        // $gate = GatewayCurrency::whereHas('method', function ($gate) {
+        //     $gate->where('status', 1);
+        // })->where('method_code', $request->method_code)->where('currency', $request->currency)->first();
+        // if (!$gate) {
+        //     $notify[] = ['error', 'Invalid gateway'];
+        //     return back()->withNotify($notify);
+        // }
+
+        if (session()->has('rent_id')){
+            $rent_log = RentLog::findOrFail(session('rent_id'));
+            $amount = $rent_log->price;
+        } elseif(session()->has('plan_id')) {
+            $plan_log = PlanLog::findOrFail(session('plan_id'));
+            $amount = $plan_log->price;
+        }
+
+        // if ($gate->min_amount > $amount || $gate->max_amount < $amount) {
+        //     $notify[] = ['error', 'Please follow payment limit'];
+        //     return back()->withNotify($notify);
+        // }
+
+       
+
+         // $down_payment=request('down_payment');
+      $down_payment=6000;
+       // $charge = $gate->fixed_charge + ($amount * $gate->percent_charge / 100);
+        // $payable = $amount + $charge;
+         $payable = $amount;
+        // $final_amo = $payable * $gate->rate;
+         $final_amo = $payable;
+
+        $data = new Deposit();
+        $data->user_id = $user->id;
+        $data->rent_id = session('rent_id') ?? 0;
+        $data->plan_id = session('plan_id') ?? 0;
+        // $data->method_code = $gate->method_code;
+        // $data->method_currency = strtoupper($gate->currency);
+          $data->method_code = 999;
+        $data->method_currency ="USD";
+        $data->amount = $amount;
+        // $data->charge = $charge;
+        // $data->rate = $gate->rate;
+
+          $data->charge =10;
+        $data->rate =2300;
+        $data->final_amo = $final_amo;
+  
+  $data->paid = $down_payment;
+  $data->remain_balance = $amount-$down_payment;
+
+        $data->btc_amo = 0;
+        $data->btc_wallet = "";
+        $data->trx = getTrx();
+        $data->try = 0;
+        $data->status = 0;
+        $data->save();
+
+
+//dd('print');
+        //Get value from rentlab
+        // $rentLogs = RentLog::->where('id', $id)->firstOrFail(); 
+ return redirect()->route('user.pesapal',$data->id);        
+
+
+        // return redirect()->route('user.deposit.manual.confirm');
     }
+
+
 
  public function pesapal(Request $request,$id)
     {
-          
+          //dd('print');
          //$track = session()->get('Track');
         // dd($track);
         // $data = Deposit::where('trx', $track)->where('status',0)->orderBy('id', 'DESC')->firstOrFail();
     //$data = Deposit::get();
         //dd($data);
-         $data=RentLog::findOrFail($id);
- //dd($data);
+        $times=RentLog::findOrFail($id);
+         
+         $datas=RentLog::join('vehicles','vehicles.id','rent_logs.vehicle_id')
+         ->where('rent_logs.id',$id)
+         ->select('vehicles.name','rent_logs.pick_time','rent_logs.drop_time','rent_logs.model_name','rent_logs.price','rent_logs.discount','rent_logs.no_car','rent_logs.no_day','rent_logs.total_cost')
+         ->get();
+ //dd($datas);
 
         $pageTitle = 'Payment Preview';
-          return view($this->activeTemplate . 'user.pesapal.preview', compact('data', 'pageTitle'));
+          return view($this->activeTemplate . 'user.pesapal.pesapal', compact('datas', 'pageTitle','times'));
     }
 
     public function vehicleSearch(Request $request)

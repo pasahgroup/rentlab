@@ -44,6 +44,25 @@ class VehicleController extends Controller
     }
 
 
+
+ public function pesapal(Request $request,$id)
+    {
+          //dd('print');
+
+         //$track = session()->get('Track');
+        // dd($track);
+        // $data = Deposit::where('trx', $track)->where('status',0)->orderBy('id', 'DESC')->firstOrFail();
+    //$data = Deposit::get();
+        //dd($data);
+         $data=RentLog::findOrFail($id);
+ //dd($data);
+
+        $pageTitle = 'Payment Preview';
+          return view($this->activeTemplate . 'user.pesapal.preview', compact('data', 'pageTitle'));
+    }
+
+
+
    public function getModel($p){
        // Fetch Employees by Departmentid
        $aData['dataA'] = vehicle::getModell($p);

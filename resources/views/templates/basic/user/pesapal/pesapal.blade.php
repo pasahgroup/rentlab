@@ -37,80 +37,50 @@
 </div>
 
 
-
         <p></p>
         <em>Booking Costs Summary</em>
           <em><b>(Please finish Payment to complete you are booking)</b></em>
+         
+             <p><em>(From date {{date("d-M-Y", strtotime($times->pick_time)) }} to {{date("d-M-Y", strtotime($times->drop_time)) }})</em></p>
         <div class="table-responsive-wrap">
           <table class="table table-responsive cart-checkout-table">
             <thead>
               <tr>
                 <th>Car name</th>
-                  <th>Percent Price Rate(%)</th>
-                     <th>Actual Price</th>
+                     <th>Price</th>
+                     <th>Discount</th>
                 <th>No of Car</th>
+                 <th>No of Day</th>
                 <th class="price">Total Costs</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
             <tbody>
               
-              <tr>
-                <td>
-                 Adults
-                </td>
-                <td>
- 
-               
-                </td>
-                  <td>
-                  </td>
-                <td>
-                  <div class="counter-number">
-                    <div class="sub icon-minus"></div>
-                    <input type="text" value="55" readonly>
+            
+@foreach($datas as $data)
 
-                    <div class="add icon-plus"></div>
-                  </div>
+  <tr>
+                <td>
+              {{$data->model_name}}
                 </td>
-                <td class="price">5</td>
-              </tr>
+                <td>
+               {{number_format($data->price,2)}}
+                </td>
+                <td>
+ {{number_format($data->discount,2)}}               
+                </td>
+                <td>
+                    {{$data->no_car}}
+                </td>
+                <td>
+                    {{$data->no_day}}
+                </td>
+                <td class="price">{{number_format($data->total_cost,2)}} </td>
+                </tr>
+                @endforeach
+              
 
-              <tr>
-                <td>
-                 Teens
-                </td>
-                <td>   </td>
-                  <td>
-                           
-                  </td>
-                <td>
-                  <div class="counter-number">
-                    <div class="sub icon-minus"></div>
-                     <input type="text" value="56" readonly>
-                    <div class="add icon-plus"></div>
-                  </div>
-                </td>
-                <td class="price">454</td>
-              </tr>
-
-                 <tr>
-                <td>
-                 Children
-                </td>
-                <td>   </td>
-                  <td>
-
-                  </td>
-                <td>
-                  <div class="counter-number">
-                    <div class="sub icon-minus"></div>
-                     <input type="text" value="" readonly>
-                    <div class="add icon-plus"></div>
-                  </div>
-                </td>
-                <td class="price"></td>
-              </tr>
 
             </tbody>
           </table>
@@ -144,7 +114,7 @@
               </tr>
                <tr>
                 <td>
-                  Addon total
+                  VAT total
                 </td>
                 <td class="price">
                 

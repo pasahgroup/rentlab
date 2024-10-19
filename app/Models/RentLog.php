@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class RentLog extends Model
 {
     use HasFactory;
+      protected $fillable = [
+        'no_day',
+         'no_car',
+         'model_name',
+        'discount',  
+         'total_cost',     
+    ];
+
 
     public function vehicle()
     {

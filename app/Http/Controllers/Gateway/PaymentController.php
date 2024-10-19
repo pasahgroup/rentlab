@@ -11,6 +11,7 @@ use App\Models\PlanLog;
 use App\Models\RentLog;
 use App\Models\Transaction;
 use App\Models\multibooking;
+use App\Models\Location;
 
 use App\Models\User;
 use App\Rules\FileTypeValidate;
@@ -94,6 +95,8 @@ class PaymentController extends Controller
         }
 
        
+
+
          $down_payment=request('down_payment');
 
         $charge = $gate->fixed_charge + ($amount * $gate->percent_charge / 100);
@@ -233,8 +236,100 @@ $account = multibooking::where('booked_by',auth()->id())
         }
     }
 
-    public function manualDepositConfirm()
+    public function manualDepositConfirm(Request $request)
     {
+        //dd('print testing');
+
+        dd(request('drop_time'));
+if(request('multi-booking')){
+    //dd('popo');
+             
+            $request->validate([
+            'pick_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
+            //'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()).'|not_in:'.$request->pick_location,
+
+             'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
+             'pick_time' => 'required|integer',           
+             'pick_time' => 'required|after_or_equal:today',
+             // 'drop_time' => 'required|date_format:Y-m-d h:i|after_or_equal:'. $request->pick_time,
+        ],[
+            'drop_location.not_in' => 'Please choose different location!'
+        ]);
+         }
+         else{
+               $request->validate([
+            'pick_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
+            //'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()).'|not_in:'.$request->pick_location,
+
+             'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
+             'pick_time' => 'required|integer',           
+             'pick_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:today',
+             'drop_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:'. $request->pick_time,
+                     ],[
+            'drop_location.not_in' => 'Please choose different location!'
+        ]);
+    }
+
+
+dd(request('drop_time'));
+
+      $pick_time = new Carbon($request->pick_time);
+    $drop_time = new Carbon($request->drop_time);
+
+if(request('multi-booking'))
+{
+
+   $pin=rand(111111,999999);
+
+ $rent = new RentLog();
+        $rent->user_id = auth()->id();
+        $rent->vehicle_id = $pin;
+        $rent->pick_location = $request->pick_location;
+        $rent->drop_location = $request->drop_location;
+        $rent->pick_time = $pick_time;
+        $rent->drop_time = $drop_time;
+       
+        $rent->price = getAmount(request('total_costs'));
+        $rent->save();
+
+}else
+
+{
+
+ $vehicle = Vehicle::active()->where('id', $id)->firstOrFail(); 
+
+        $total_days = $pick_time->diffInDays($drop_time) +1;
+        $total_price = $vehicle->price*$total_days* request('no_car');
+
+        $rent = new RentLog();
+        $rent->user_id = auth()->id();
+        $rent->vehicle_id = $vehicle->id;
+        $rent->pick_location = $request->pick_location;
+        $rent->drop_location = $request->drop_location;
+        $rent->pick_time = $pick_time;
+        $rent->drop_time = $drop_time;
+       
+
+        $rent->price = getAmount($total_price);
+        $rent->save();
+
+}
+
+        session(['rent_id' => $rent->id]);
+        //Origin Route
+        //dd('Inserted');
+        // return redirect()->route('user.deposit');
+       // dd('print testxx');
+         
+         return redirect()->route('user.deposit.manual.confirm');
+
+
+
+
+
+
+
+   // End of Renting     
        
 //dd('payment Confirm');
 
@@ -243,22 +338,124 @@ $account = multibooking::where('booked_by',auth()->id())
             return back()->withNotify($notify);
         }
 
-        $track = session()->get('Track');
-        $data = Deposit::with('gateway')->where('status', 0)->where('trx', $track)->first();
-       
+     
 //dd(gatewayRedirectUrl());
 
         // if (!$data) {
         //     return redirect()->route(gatewayRedirectUrl());
         // }
 
-        //dd('print');
-        if ($data->method_code > 999) {
+        // Insert into deposits form
+
+
+
+//dd('print fh');
+
+
+        // $request->validate([
+        //     'method_code' => 'required',
+        //     'currency' => 'required',
+        // ]);
+
+ //dd('print');
+
+        if (!session()->has('rent_id') && !session()->has('plan_id')){
+            $notify[] = ['error', 'Invalid request!'];
+            return back()->withNotify($notify);
+        }
+
+//dd('pppp3');
+        $user = auth()->user();
+        $gate = GatewayCurrency::whereHas('method', function ($gate) {
+            $gate->where('status', 1);
+        })->where('method_code', $request->method_code)->where('currency', $request->currency)->first();
+       
+ //dd($gate);
+
+        // if (!$gate) {
+        //     $notify[] = ['error', 'Invalid gateway'];
+        //     return back()->withNotify($notify);
+        // }
+        //    dd('pppp1');
+
+        // if (session()->has('rent_id')){
+        //     $rent_log = RentLog::findOrFail(session('rent_id'));
+        //     $amount = $rent_log->price;
+        // } elseif(session()->has('plan_id')) {
+        //     $plan_log = PlanLog::findOrFail(session('plan_id'));
+        //     $amount = $plan_log->price;
+        // }
+
+        // if ($gate->min_amount > $amount || $gate->max_amount < $amount) {
+        //     $notify[] = ['error', 'Please follow payment limit'];
+        //     return back()->withNotify($notify);
+        // }
+
+      //dd('pppp');
+
+
+         // $down_payment=request('down_payment');
+        $down_payment=45000;
+$amount=50000;
+        // $charge = $gate->fixed_charge + ($amount * $gate->percent_charge / 100);
+        // $payable = $amount + $charge;
+        // $final_amo = $payable * $gate->rate;
+
+        $data = new Deposit();
+        $data->user_id = $user->id;
+        $data->rent_id = session('rent_id') ?? 0;
+        $data->plan_id = session('plan_id') ?? 0;
+        // $data->method_code = $gate->method_code;
+        // $data->method_currency = strtoupper($gate->currency);
+        // $data->amount =2000;
+           $data->amount = $amount;
+        // $data->charge = $charge;
+          $data->charge = 6000;
+        // $data->rate = $gate->rate;
+          $data->rate = 1000;
+        // $data->final_amo = $final_amo;
+          $data->final_amo =4000;
+  
+  $data->paid = $down_payment;
+  $data->remain_balance = $amount-$down_payment;
+
+        $data->btc_amo = 0;
+        $data->btc_wallet = "";
+        $data->trx = getTrx();
+        $data->try = 0;
+        $data->status = 0;
+        $data->save();
+        
+
+//         session()->put('Track', $data->trx);
+      
+//                   //Update multibooking table
+// $account = multibooking::where('booked_by',auth()->id())
+// ->where('status',1)
+// ->update([
+//         'status'=>0
+//             ]);
+
+
+//    $track = session()->get('Track');
+//         $data = Deposit::with('gateway')->where('status', 0)->where('trx', $track)->first();
+ 
+//$id= $data;
+ return redirect()->route('user.pesapal',$data->id);
+//dd('print');
+
+
+
+
+ return redirect()->route('user.deposit.manual.confirm');
+
+        dd($data->gatewayCurrency());
+        // if ($data->method_code > 999) {
 
             $pageTitle = 'Payment Confirm';
             $method = $data->gatewayCurrency();
             return view($this->activeTemplate . 'user.manual_payment.manual_confirm', compact('data', 'pageTitle', 'method'));
-        }
+        // }
         abort(404);
     }
 
