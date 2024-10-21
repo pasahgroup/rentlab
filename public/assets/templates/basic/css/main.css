@@ -224,11 +224,11 @@ ul li {
 
 @media (min-width: 992px) {
     .pt-120 {
-        padding-top: 32px;
+        padding-top: 12px;
     }
 
     .pb-120 {
-        padding-bottom: 25px;
+        padding-bottom: 15px;
     }
 
     .pt-60 {
