@@ -9,12 +9,16 @@ use App\Models\Seater;
 use App\Models\Vehicle;
 use App\Models\multibooking;
 use App\Models\Deposit;
+use Illuminate\Support\Facades\Validator;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+include_once(app_path().'/pesapal/oauth.php');
 
 class VehicleController extends Controller
 {
+     // include_once(app_path().'/pesapal/oauth.php');
+
     public function __construct(){
         $this->activeTemplate = activeTemplate();
     }
@@ -52,11 +56,31 @@ class VehicleController extends Controller
     }
 
 
+ public function addCar($m){
+        if (!auth()->check()){
+            $notify[] = ['error', 'Please login to continue!'];
+            return back()->withNotify($notify);
+        }
+
+//dd($this->activeTemplate);
+$id=1;
+        $vehicle = Vehicle::active()->where('id', $id)->firstOrFail();
+         $vehicles = Vehicle::groupby('model')->get();
+         
+
+//dd($vehicles);
+        $locations = Location::active()->orderBy('name')->get();
+        $pageTitle = 'Vehicle Booked by '.auth()->user()->firstname .' '.auth()->user()->lastname;
+        return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations'));
+    }
+
+
+
 
 
     public function vehicleBookingConfirm(Request $request, $id)
     {
-//dd(request('pick_location'));
+// dd(request('drop_location'));
 
  if(request('multi-booking')){
     //dd('popo');
@@ -95,7 +119,6 @@ class VehicleController extends Controller
 
 
 
-
 if(request('multi-booking'))
 {
     $total_days = $pick_time->diffInDays($drop_time) +1;
@@ -117,6 +140,12 @@ if(request('multi-booking'))
         $rent->total_cost = getAmount(request('total_costs'));
         $rent->save();
 
+        //Update RentLog table bookingID Column
+        $updateBookingColumn = RentLog::where('id',$rent->id)
+->update([
+        'booking_id'=>$rent->id
+            ]);
+
 }else
 
 {
@@ -129,6 +158,7 @@ if(request('multi-booking'))
         $rent = new RentLog();
         $rent->user_id = auth()->id();
         $rent->vehicle_id = $vehicle->id;
+        
          $rent->model_name = $vehicle->model;
 
          $rent->no_car =request('no_car');
@@ -143,6 +173,12 @@ if(request('multi-booking'))
         $rent->price = getAmount($total_price);
          $rent->total_cost = getAmount($total_price);
         $rent->save();
+
+//Update RentLog table bookingID Column
+        $updateBookingColumn = RentLog::where('id',$rent->id)
+->update([
+        'booking_id'=>$rent->id
+            ]);
 
 }
 
@@ -235,7 +271,32 @@ if(request('multi-booking'))
 
  public function pesapal(Request $request,$id)
     {
-          //dd('print');
+          //dd($id);
+         //$track = session()->get('Track');
+        // dd($track);
+        // $data = Deposit::where('trx', $track)->where('status',0)->orderBy('id', 'DESC')->firstOrFail();
+    //$data = Deposit::get();
+        //dd($data);
+         $locations = Location::active()->orderBy('name')->get();
+        $times=RentLog::findOrFail($id);
+            //dd($times);
+        $vehicle = Vehicle::active()->where('id', $times->vehicle_id)->firstOrFail();
+         //dd($vehicle);
+        $times=RentLog::findOrFail($id);
+         
+         $datas=RentLog::join('vehicles','vehicles.id','rent_logs.vehicle_id')
+         ->where('rent_logs.id',$id)
+         ->select('vehicles.name','rent_logs.pick_time','rent_logs.drop_time','rent_logs.model_name','rent_logs.price','rent_logs.discount','rent_logs.no_car','rent_logs.no_day','rent_logs.total_cost')
+         ->get();
+
+        $pageTitle = 'Payment Preview';
+          return view($this->activeTemplate . 'user.pesapal.pesapal', compact('datas', 'pageTitle','times','vehicle','locations'));
+    }
+
+
+ public function payConfirmx(Request $request,$id)
+    {
+          dd($id);
          //$track = session()->get('Track');
         // dd($track);
         // $data = Deposit::where('trx', $track)->where('status',0)->orderBy('id', 'DESC')->firstOrFail();
@@ -251,6 +312,69 @@ if(request('multi-booking'))
 
         $pageTitle = 'Payment Preview';
           return view($this->activeTemplate . 'user.pesapal.pesapal', compact('datas', 'pageTitle','times'));
+    }
+
+
+    public function payConfirm(Request $request,$id)
+    {   
+
+
+$amount_percent=request('percent_downpayment')*request('total_cost');
+
+if(request('amount')<$amount_percent)
+{
+ return redirect()->back()->with('error','Down Payment must not below 30% of total booking costs.');
+}
+
+// Fetching JSON
+$req_url = 'https://api.exchangerate-api.com/v4/latest/USD';
+$response_json = file_get_contents($req_url);
+
+//dd($response_json);
+// Continuing if we got a result
+if(false !== $response_json) {
+
+    // Try/catch for json_decode operation
+    try {
+    // Decoding
+    $response_object = json_decode($response_json);
+$first_name=request('first_name');
+$last_name=request('last_name');
+$desc=request('desc');
+$email=request('email');
+$phone=request('phone');
+
+$type=request('type');
+$amount=request('amount');
+$currency=request('currency');
+$status=1;
+
+ // dd($amount);
+
+// dd(number_format($amount, 2));
+    // YOUR APPLICATION CODE HERE, e.g.
+    //$base_price =$amount; // Your price in USD
+    $amount = (float)$amount;
+
+
+$base_price=($response_object->rates->TZS/$response_object->rates->$currency);
+
+ // $defaultCurrency2=($response_object->rates->$currency);
+    $to_bepaid = round(($amount * $base_price), 2);
+     //dd($to_bepaid);
+ 
+    }
+    catch(Exception $e) {
+        // Handle JSON parse error...
+    }
+}
+ 
+    //dd('print');
+ //return response()->json(['url' => redirect('https://payments.pesapal.com/palatialtours',compact(['first_name','status']));
+//return redirect('https://payments.pesapal.com/palatialtours',compact('status'));
+$pageTitle="Payment";
+return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('first_name','last_name','currency','to_bepaid','desc','email','phone','type','pageTitle'));  
+
     }
 
     public function vehicleSearch(Request $request)

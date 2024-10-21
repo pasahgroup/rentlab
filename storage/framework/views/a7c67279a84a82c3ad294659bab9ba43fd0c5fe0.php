@@ -6,19 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> <?php echo e($general->sitename(__($pageTitle))); ?></title>
 
-    <?php echo $__env->make('partials.seo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+    <?php echo $__env->make('partials.seo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
  <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'mold/assets/font/iconfont/iconstyle.css')); ?>">
      <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'mold/vendor/animate-css/animate.css')); ?>">
        <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'mold/assets/font/font-awesome/css/font-awesome.css')); ?>">
          <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'mold/assets/css/main.css')); ?>">
-
-
-
-
-
-
 
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/bootstrap.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/line-awesome.min.css')); ?>">

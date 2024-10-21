@@ -46,11 +46,9 @@
          
              <p><em>(From date {{date("d-M-Y", strtotime($times->pick_time)) }} to {{date("d-M-Y", strtotime($times->drop_time)) }})</em></p>
 </div>
-<div class="col-sm-2">          
-<form method="post" action="{{ route('user.addCar',1) }}">
-                            @csrf
-             <button type="submit" class="btn btn-success">Add Car</button>         
-</form>         
+<div class="col-sm-2">
+             <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#bookNow">Book Now</button> -->
+             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Book Now</button>
          </div>
      </div>
 
@@ -214,6 +212,120 @@
          <button href="/payConfirm/" class="btn btn-success pull-right hvr-sweep-to-right" type="submit">Proceed</button>        
         </div>
       </form>
+
+
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Car</h4>
+        </div>
+        <div class="modal-body">
+         <div class="widget border--dashed">
+                    <div class="book__wrapper bg--body border--dashed mb-4">
+                        <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="{{ route('vehicle.booking.confirm', $vehicle->id) }}">
+                            @csrf
+
+                            <div class="col-md-6 col-sm-6">                                
+                                    <label for="pick-point" class="form--label">
+                                        <i class="las la-street-view"></i> @lang('Pick Up Point')
+                                    </label>
+                                    <div class="form-group">
+                                    <select name="pick_location" id="pick-point" class="form-control form--control" required>
+                                        <option value="">@lang('Pick up point')</option>
+                                        @forelse($locations as $location)
+                                            <option value="{{ $location->id }}">{{ @$location->name }}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">                              
+                                    <label for="drop-point" class="form--label">
+                                        <i class="las la-street-view"></i> @lang('Drop of Point')
+                                    </label>
+                                    <div class="form-group">
+                                    <select name="drop_location" id="drop-point" class="form-control form--control" required>
+                                        <option value="">@lang('Drop of Point')</option>
+                                        @forelse($locations as $location)
+             <option value="{{ $location->id }}" selected>{{ @$location->name }}</option>
+                                        @empty
+                                        @endforelse
+                                    </select>
+                                </div>
+                            </div>
+
+                               <div class="col-md-12 col-sm-12">                                
+                                    <label for="drop-point" class="">
+                                        <i class="las la-street-view"></i> @lang('No Car')
+                                    </label>
+                                    <div class="form-group">
+                                   <input type="number" name="no_car" id="no_car" value="1" min="1" required>
+                                </div>
+                            </div>    
+
+
+                             
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="start-date" class="form--label">
+                                        <i class="las la-calendar-alt"></i> @lang('From Date')
+                                    </label>
+                                    <input type="text" name="pick_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <label for="end-date" class="form--label">
+                                        <i class="las la-calendar-alt"></i> @lang('To Date')
+                                    </label>
+                                    <input type="text" name="drop_time" placeholder="@lang('Drop of Date & Time')" id="dateAndTimePicker2" autocomplete="off" data-position='top left' class="form-control form--control" disabled required>
+                                </div>
+                            </div>
+
+            
+
+ <div class="col-1">
+ </div>
+                            <div class="col-8">
+                                <div class="booking-costs mb-4"><strong>
+                                    @lang('  Price Total:') </strong><span class="text--danger"><span class="total_amount">{{ showAmount($vehicle->price) }}</span> {{ $general->cur_text }} </span>
+                                    @lang('for') <span class="total_days text--danger">1</span> @lang('days.')
+                                </div>                                
+                            </div>
+   <div class="col-3">
+                            <div class="form-group float-right">
+                                    <button class="cmn--btn justify-content-center float-right" type="submit">@lang('Book Now')</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>  
+</div>
+
+
+
+
+
+
+
+
+
 
 
 

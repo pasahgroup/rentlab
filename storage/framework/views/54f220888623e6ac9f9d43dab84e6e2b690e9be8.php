@@ -7,13 +7,48 @@
            
 
         <div class="container">
-    <div class="widget border--dashed">
-        <h4 class="mb-4"><?php echo app('translator')->get('BOOKING FORM'); ?></h4>
+    <div class="widget border--dashed">       
+
     <div class="single-section pt-120 pb-120 bg--section">
-        <div class="container">
-            <h4 class="mb-4"><?php echo app('translator')->get('You are booking'); ?>: <?php echo e($vehicle->model); ?></h4>
+        <div class="container">            
             <div class="row gy-5">
+ <form method="post" action="<?php echo e(route('user.addCar',1)); ?>">
+                            <?php echo csrf_field(); ?>
+                <div class="col-md-4">
+                  <h4 class="mb-4"><?php echo app('translator')->get('You are booking'); ?>: <?php echo e($vehicle->model); ?></h4>
+                </div>
+               
+                <div class="col-md-2">
+                    <label for="drop-point" class="form--label">
+                                        <i class="las la-street-view"></i> <?php echo app('translator')->get('Search car Model'); ?>
+                                    </label>
+                                </div>
+
+                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">  
+    <input class="form-control" list="carModels" name="carModel" id="carModel">
+    <datalist id="carModels">
+         <option value="0">--Select car Model--</option>
+
+          <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                            <option value="<?php echo e($vehicle->id); ?>"><?php echo e(@$vehicle->model); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                        <?php endif; ?>
+    </datalist> 
+</div>
+
+                                 <div class="col-md-2">
+                                 <div class="form-group float-right">
+                                    <button class="cmn--btn justify-content-center float-right" type="submit"><?php echo app('translator')->get('Search'); ?></button>
+                                </div>
+                            </div>
+</form>
+               
+        </div>
+
+            <div class="row gy-5">
+               
                 <div class="col-lg-4">
+                    <hr>
                     <div class="slider-top owl-theme owl-carousel border--dashed">
                         <?php $__empty_1 = true; $__currentLoopData = $vehicle->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <div class="car__rental-thumb w-100 bg--body p-0">
@@ -32,6 +67,7 @@
                     </div>
                 </div>
                 <div class="col-lg-7">
+                    <hr>
                     <div class="widget border--dashed">
                     <div class="book__wrapper bg--body border--dashed mb-4">
                         <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="<?php echo e(route('vehicle.booking.confirm', $vehicle->id)); ?>">
@@ -42,13 +78,17 @@
                                         <i class="las la-street-view"></i> <?php echo app('translator')->get('Pick Up Point'); ?>
                                     </label>
                                     <div class="form-group">
-                                    <select name="pick_location" id="pick-point" class="form-control form--control" required>
-                                        <option value=""><?php echo app('translator')->get('Pick up point'); ?></option>
+
+<input class="form-control" list="pick_locations" name="pick_location" id="pick_location">
+    <datalist id="pick_locations">
+      <option value=""><?php echo app('translator')->get('--Pick up point--'); ?></option>
                                         <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                             <option value="<?php echo e($location->id); ?>"><?php echo e(@$location->name); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <?php endif; ?>
-                                    </select>
+    </datalist>
+
+
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">                              
@@ -56,7 +96,7 @@
                                         <i class="las la-street-view"></i> <?php echo app('translator')->get('Drop of Point'); ?>
                                     </label>
                                     <div class="form-group">
-                                                 <input class="form-control" list="drop_locations" name="drop_location" id="drop_location">
+                                    <input class="form-control" list="drop_locations" name="drop_location" id="drop_location">
     <datalist id="drop_locations">
       <option value=""><?php echo app('translator')->get('--Pick up point--'); ?></option>
                                         <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -64,6 +104,7 @@
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <?php endif; ?>
     </datalist>
+
                                 </div>
                             </div>
 
@@ -201,4 +242,4 @@ if(no_car>0)
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/vehicles/booking.blade.php ENDPATH**/ ?>
+<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/user/pesapal/addcar.blade.php ENDPATH**/ ?>

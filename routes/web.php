@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\PdfController;
 use App\Http\Controllers\Admin\VehicleController;
+// use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\DepartController;
 use App\Http\Controllers\AzampayController;
 
@@ -409,10 +410,13 @@ Route::name('user.')->prefix('user')->group(function () {
     Route::middleware('auth')->group(function () {
 //pesaPal Preview
         Route::get('/pesapal/{x}', 'VehicleController@pesapal')->name('pesapal');
-         Route::get('/pg/{x}', [VehicleController::class, 'pesapal'])->name('pg');  
-  //End of pesaPal Preview      
+         Route::get('/pg/{x}', [VehicleController::class, 'pesapal'])->name('pg');
+         // Route::post('/payConfirm/{x}', [VehicleController::class, 'payConfirm'])->name('payConfirm'); 
+          Route::post('/payConfirm/{x}', 'VehicleController@payConfirm')->name('payConfirm');
+              Route::post('/addCar/{x}', 'VehicleController@addCar')->name('addCar');
 
-
+        // Route::post('/payConfirm/{x}', 'VehicleController@payConfirm')->name('payConfirm');
+     
         Route::get('authorization', 'AuthorizationController@authorizeForm')->name('authorization');
         Route::get('resend-verify', 'AuthorizationController@sendVerifyCode')->name('send.verify.code');
         Route::post('verify-email', 'AuthorizationController@emailVerification')->name('verify.email');

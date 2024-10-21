@@ -9,6 +9,7 @@ class RentLog extends Model
 {
     use HasFactory;
       protected $fillable = [
+        'booking_id',
         'no_day',
          'no_car',
          'model_name',

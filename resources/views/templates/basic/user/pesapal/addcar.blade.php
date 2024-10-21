@@ -8,13 +8,48 @@
            
 
         <div class="container">
-    <div class="widget border--dashed">
-        <h4 class="mb-4">@lang('BOOKING FORM')</h4>
+    <div class="widget border--dashed">       
+
     <div class="single-section pt-120 pb-120 bg--section">
-        <div class="container">
-            <h4 class="mb-4">@lang('You are booking'): {{ $vehicle->model }}</h4>
+        <div class="container">            
             <div class="row gy-5">
+ <form method="post" action="{{ route('user.addCar',1) }}">
+                            @csrf
+                <div class="col-md-4">
+                  <h4 class="mb-4">@lang('You are booking'): {{ $vehicle->model }}</h4>
+                </div>
+               
+                <div class="col-md-2">
+                    <label for="drop-point" class="form--label">
+                                        <i class="las la-street-view"></i> @lang('Search car Model')
+                                    </label>
+                                </div>
+
+                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">  
+    <input class="form-control" list="carModels" name="carModel" id="carModel">
+    <datalist id="carModels">
+         <option value="0">--Select car Model--</option>
+
+          @forelse($vehicles as $vehicle)
+                                            <option value="{{ $vehicle->id }}">{{ @$vehicle->model }}</option>
+                                        @empty
+                                        @endforelse
+    </datalist> 
+</div>
+
+                                 <div class="col-md-2">
+                                 <div class="form-group float-right">
+                                    <button class="cmn--btn justify-content-center float-right" type="submit">@lang('Search')</button>
+                                </div>
+                            </div>
+</form>
+               
+        </div>
+
+            <div class="row gy-5">
+               
                 <div class="col-lg-4">
+                    <hr>
                     <div class="slider-top owl-theme owl-carousel border--dashed">
                         @forelse($vehicle->images as $image)
                             <div class="car__rental-thumb w-100 bg--body p-0">
@@ -33,6 +68,7 @@
                     </div>
                 </div>
                 <div class="col-lg-7">
+                    <hr>
                     <div class="widget border--dashed">
                     <div class="book__wrapper bg--body border--dashed mb-4">
                         <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="{{ route('vehicle.booking.confirm', $vehicle->id) }}">
@@ -43,13 +79,17 @@
                                         <i class="las la-street-view"></i> @lang('Pick Up Point')
                                     </label>
                                     <div class="form-group">
-                                    <select name="pick_location" id="pick-point" class="form-control form--control" required>
-                                        <option value="">@lang('Pick up point')</option>
+
+<input class="form-control" list="pick_locations" name="pick_location" id="pick_location">
+    <datalist id="pick_locations">
+      <option value="">@lang('--Pick up point--')</option>
                                         @forelse($locations as $location)
                                             <option value="{{ $location->id }}">{{ @$location->name }}</option>
                                         @empty
                                         @endforelse
-                                    </select>
+    </datalist>
+
+
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">                              
@@ -57,7 +97,7 @@
                                         <i class="las la-street-view"></i> @lang('Drop of Point')
                                     </label>
                                     <div class="form-group">
-                                                 <input class="form-control" list="drop_locations" name="drop_location" id="drop_location">
+                                    <input class="form-control" list="drop_locations" name="drop_location" id="drop_location">
     <datalist id="drop_locations">
       <option value="">@lang('--Pick up point--')</option>
                                         @forelse($locations as $location)
@@ -65,6 +105,7 @@
                                         @empty
                                         @endforelse
     </datalist>
+
                                 </div>
                             </div>
 
