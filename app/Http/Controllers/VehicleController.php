@@ -235,6 +235,8 @@ if(request('multi-booking'))
         $data->user_id = $user->id;
         $data->rent_id = session('rent_id') ?? 0;
         $data->plan_id = session('plan_id') ?? 0;
+        $data->booking_id =$rent->id;
+
         // $data->method_code = $gate->method_code;
         // $data->method_currency = strtoupper($gate->currency);
           $data->method_code = 999;
