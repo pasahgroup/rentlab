@@ -79,7 +79,7 @@
                                     </label>
                                     <div class="form-group">
 
-   <input type="text" class="form-control" name="car_id" id="car_id" value="<?php echo e($vehicle->id); ?>">
+   <input type="hidden" class="form-control" name="car_id" id="car_id" value="<?php echo e($vehicle->id); ?>">
     <input type="text" class="form-control" name="bookingID" id="bookingID" value="<?php echo e($bookingID); ?>">
 
 <input class="form-control" list="pick_locations" name="pick_location" id="pick_location">

@@ -129,7 +129,7 @@ if(request('carModel')!=null)
 
     public function vehicleBookingConfirm(Request $request, $id)
     {
-// dd(request('drop_location'));
+//dd(request('bookingID'));
 
  if(request('multi-booking')){
     //dd('popo');
@@ -165,6 +165,9 @@ if(request('carModel')!=null)
 
     $pick_time = new Carbon($request->pick_time);
     $drop_time = new Carbon($request->drop_time);
+
+
+
 
 if(request('multi-booking'))
 {
@@ -269,6 +272,38 @@ if(request('multi-booking'))
         // }
 
        
+if(request('bookingID')!=null)
+{
+ $updateBookingColumn = RentLog::where('id',$rent->id)
+->update([
+        'booking_id'=>request('bookingID')
+            ]);
+
+
+
+
+
+
+}
+else{
+       $updateBookingColumn = RentLog::where('id',$rent->id)
+->update([
+        'booking_id'=>$rent->id
+            ]);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
          // $down_payment=request('down_payment');
       $down_payment=6000;
@@ -305,6 +340,7 @@ if(request('multi-booking'))
         $data->try = 0;
         $data->status = 0;
         $data->save();
+
 
 
 //dd('print');
