@@ -414,6 +414,8 @@ Route::name('user.')->prefix('user')->group(function () {
          // Route::post('/payConfirm/{x}', [VehicleController::class, 'payConfirm'])->name('payConfirm'); 
           Route::post('/payConfirm/{x}', 'VehicleController@payConfirm')->name('payConfirm');
               Route::post('/addCar/{x}', 'VehicleController@addCar')->name('addCar');
+              Route::get('/addCar/{x}', 'VehicleController@addCar')->name('addCar');
+               Route::get('/pc/{x}', [VehicleController::class, 'pesapal'])->name('pc');
 
         // Route::post('/payConfirm/{x}', 'VehicleController@payConfirm')->name('payConfirm');
      

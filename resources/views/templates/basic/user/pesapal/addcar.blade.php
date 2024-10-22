@@ -30,8 +30,8 @@
     <datalist id="carModels">
          <option value="0">--Select car Model--</option>
 
-          @forelse($vehicles as $vehicle)
-                                            <option value="{{ $vehicle->id }}">{{ @$vehicle->model }}</option>
+          @forelse($vehicles as $veh)
+                                            <option value="{{ $veh->id }}">{{ @$veh->model }}</option>
                                         @empty
                                         @endforelse
     </datalist> 
@@ -71,14 +71,16 @@
                     <hr>
                     <div class="widget border--dashed">
                     <div class="book__wrapper bg--body border--dashed mb-4">
-                        <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="{{ route('vehicle.booking.confirm', $vehicle->id) }}">
+                        <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="{{ route('vehicle.booking.confirm',$vehicle->id) }}">
                             @csrf
 
-                            <div class="col-md-6 col-sm-6">                                
+                            <div class="col-md-6 col-sm-6">                             
                                     <label for="pick-point" class="form--label">
                                         <i class="las la-street-view"></i> @lang('Pick Up Point')
                                     </label>
                                     <div class="form-group">
+
+   <input class="form-control" name="car_id" id="car_id" value="{{$vehicle->id}}">
 
 <input class="form-control" list="pick_locations" name="pick_location" id="pick_location">
     <datalist id="pick_locations">

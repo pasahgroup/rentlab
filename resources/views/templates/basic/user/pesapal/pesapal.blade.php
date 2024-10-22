@@ -1,8 +1,5 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
- <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
-<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 
      <section class="cart-page">
     <div class="container">
@@ -46,11 +43,16 @@
          
              <p><em>(From date {{date("d-M-Y", strtotime($times->pick_time)) }} to {{date("d-M-Y", strtotime($times->drop_time)) }})</em></p>
 </div>
-<div class="col-sm-2">          
-<form method="post" action="{{ route('user.addCar',1) }}">
-                            @csrf
-             <button type="submit" class="btn btn-success">Add Car</button>         
-</form>         
+<div class="col-sm-2">  
+                               <form  method="get"  action="{{ route('user.pc',1) }}" enctype="multipart/form-data">
+                             @csrf
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <input type="text" name="bookingID" value="{{$times->booking_id}}">        
+             <button type="submit" class="btn btn-primary">Add Car</button>         
+</form>   
+
          </div>
      </div>
 
@@ -64,7 +66,7 @@
                      <th>Discount</th>
                 <th>No of Car</th>
                  <th>No of Day</th>
-                <th class="pricex">Total Costs</th>
+                <th class="price">Total Costs</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>

@@ -56,24 +56,31 @@ class VehicleController extends Controller
     }
 
 
- public function addCar($m){
+ public function addCar(Request $request,$id){
         if (!auth()->check()){
             $notify[] = ['error', 'Please login to continue!'];
             return back()->withNotify($notify);
         }
 
 //dd($this->activeTemplate);
-$id=1;
-        $vehicle = Vehicle::active()->where('id', $id)->firstOrFail();
+
+// if($id==1){
+// $id=1;
+// }else{
+// $id=request('carModel');
+// }
+  
+  //dd(request('bookingID'));
+  $bookingID=request('bookingID');
+
+        $vehicle = Vehicle::active()->where('id',request('carModel'))->firstOrFail();
          $vehicles = Vehicle::groupby('model')->get();
          
-
-//dd($vehicles);
+     //dd($vehicle);
         $locations = Location::active()->orderBy('name')->get();
         $pageTitle = 'Vehicle Booked by '.auth()->user()->firstname .' '.auth()->user()->lastname;
-        return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations'));
+        return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations','bookingID'));
     }
-
 
 
 
@@ -116,8 +123,6 @@ $id=1;
 
     $pick_time = new Carbon($request->pick_time);
     $drop_time = new Carbon($request->drop_time);
-
-
 
 if(request('multi-booking'))
 {
@@ -285,7 +290,8 @@ if(request('multi-booking'))
         $vehicle = Vehicle::active()->where('id', $times->vehicle_id)->firstOrFail();
          //dd($vehicle);
         $times=RentLog::findOrFail($id);
-         
+         //dd($times);
+
          $datas=RentLog::join('vehicles','vehicles.id','rent_logs.vehicle_id')
          ->where('rent_logs.id',$id)
          ->select('vehicles.name','rent_logs.pick_time','rent_logs.drop_time','rent_logs.model_name','rent_logs.price','rent_logs.discount','rent_logs.no_car','rent_logs.no_day','rent_logs.total_cost')
