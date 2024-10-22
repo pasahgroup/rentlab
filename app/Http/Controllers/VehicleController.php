@@ -270,8 +270,17 @@ if(request('multi-booking'))
         //     $notify[] = ['error', 'Please follow payment limit'];
         //     return back()->withNotify($notify);
         // }
+   
 
-       
+
+        // $down_payment=request('down_payment');
+      $down_payment=0;
+       // $charge = $gate->fixed_charge + ($amount * $gate->percent_charge / 100);
+        // $payable = $amount + $charge;
+         $payable = $amount;
+        // $final_amo = $payable * $gate->rate;
+         $final_amo = $payable;
+
 if(request('bookingID')!=null)
 {
  $updateBookingColumn = RentLog::where('id',$rent->id)
@@ -280,9 +289,34 @@ if(request('bookingID')!=null)
             ]);
 
 
+ $updateDepositColumn = Deposit::where('booking_id',request('bookingID'))
+->update([
+        
+      'user_id' => $user->id,
+       'rent_id' => session('rent_id') ?? 0,
+       'plan_id' => session('plan_id') ?? 0,
+        'booking_id' =>$rent->id,
 
+           'method_code' = 999,
+        'method_currency' ="USD",
+      'amount' = $amount,
+        // $data->charge = $charge;
+        // $data->rate = $gate->rate;
 
+       'charge' =10,
+       'rate' =2300,
+        'final_amo' = $final_amo,
+  
+'paid' = $down_payment,
+  'remain_balance' = $amount-$down_payment,
 
+        'btc_amo' = 0,
+       'btc_wallet' = "",
+      'trx' = getTrx(),
+       'try' = 0,
+        'status' = 0
+
+            ]);
 
 }
 else{
@@ -291,29 +325,7 @@ else{
         'booking_id'=>$rent->id
             ]);
 
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-         // $down_payment=request('down_payment');
-      $down_payment=6000;
-       // $charge = $gate->fixed_charge + ($amount * $gate->percent_charge / 100);
-        // $payable = $amount + $charge;
-         $payable = $amount;
-        // $final_amo = $payable * $gate->rate;
-         $final_amo = $payable;
-
-        $data = new Deposit();
+  $data = new Deposit();
         $data->user_id = $user->id;
         $data->rent_id = session('rent_id') ?? 0;
         $data->plan_id = session('plan_id') ?? 0;
@@ -340,8 +352,7 @@ else{
         $data->try = 0;
         $data->status = 0;
         $data->save();
-
-
+}
 
 //dd('print');
         //Get value from rentlab
