@@ -289,7 +289,7 @@ if(request('bookingID')!=null)
             ]);
 
 
- $updateDepositColumn = Deposit::where('booking_id',request('bookingID'))
+ $updateData = Deposit::where('booking_id',request('bookingID'))
 ->update([
         
       'user_id' => $user->id,
