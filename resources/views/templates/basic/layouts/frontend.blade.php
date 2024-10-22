@@ -70,7 +70,7 @@
 </head>
 
 
-<div class="header-top py-2" style="background-color:#fff;">
+<div class="header-top py-2" style="background-color:#a5b5a2;">
     <div class="container-fluid">
         <div class="d-flex flex-wrap justify-content-between mx--10">
             <div class="header-top-item meta-list">

@@ -56,40 +56,40 @@ class VehicleController extends Controller
     }
 
 
-//  public function addBooking(Request $request,$id){
-//         if (!auth()->check()){
-//             $notify[] = ['error', 'Please login to continue!'];
-//             return back()->withNotify($notify);
-//         }
+ public function addBooking(Request $request,$id){
+        if (!auth()->check()){
+            $notify[] = ['error', 'Please login to continue!'];
+            return back()->withNotify($notify);
+        }
 
-// //dd($id);
+//dd($id);
 
-// // if($id==1){
-// // $id=1;
-// // }else{
-// // $id=request('carModel');
-// // }
+// if($id==1){
+// $id=1;
+// }else{
+// $id=request('carModel');
+// }
   
-//   //dd(request('bookingID'));
-//   $bookingID=request('carModel');
-//  //dd($bookingID);
-//  if(request('carModel')!=null)
-//  {
-//    $vehicle = Vehicle::active()->where('id',request('carModel'))->firstOrFail();      
-//  }else{
-//        $vehicle = Vehicle::active()->where('id',1)->firstOrFail();
+  //dd(request('bookingID'));
+  $bookingID=request('bookingID');
+ // dd($bookingID);
+ if(request('carModel')!=null)
+ {
+   $vehicle = Vehicle::active()->where('id',request('carModel'))->firstOrFail();      
+ }else{
+       $vehicle = Vehicle::active()->where('id',1)->firstOrFail();
 
-//        }  
+       }  
 
 
-//          $vehicles = Vehicle::groupby('model')->get();
+         $vehicles = Vehicle::groupby('model')->get();
  
          
-//      //dd($vehicle);
-//         $locations = Location::active()->orderBy('name')->get();
-//         $pageTitle = 'Vehicle Booked by '.auth()->user()->firstname .' '.auth()->user()->lastname;
-//         return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations','bookingID'));
-//     }
+     //dd($vehicle);
+        $locations = Location::active()->orderBy('name')->get();
+        $pageTitle = 'Vehicle Booked by '.auth()->user()->firstname .' '.auth()->user()->lastname;
+        return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations','bookingID'));
+    }
 
 
 
