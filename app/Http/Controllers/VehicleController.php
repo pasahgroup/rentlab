@@ -288,8 +288,7 @@ if(request('bookingID')!=null)
 
 
  $updateData = Deposit::where('booking_id',request('bookingID'))
-->update([
-        
+->update([        
       'user_id' => $user->id,
        'rent_id' => session('rent_id') ?? 0,
        'plan_id' => session('plan_id') ?? 0,
@@ -316,7 +315,7 @@ if(request('bookingID')!=null)
 
             ]);
 
-//dd($updateData);
+dd('print1');
 
 }
 else{
@@ -352,6 +351,7 @@ else{
         $data->try = 0;
         $data->status = 0;
         $data->save();
+        dd('print2');
 }
 
 //dd('print');
