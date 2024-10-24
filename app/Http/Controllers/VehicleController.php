@@ -315,7 +315,7 @@ if(request('bookingID')!=null)
 
             ]);
 
-dd('print1');
+//dd('print1');
 
 }
 else{
@@ -351,7 +351,7 @@ else{
         $data->try = 0;
         $data->status = 0;
         $data->save();
-        dd('print2');
+        //dd('print2');
 }
 
 //dd('print');
