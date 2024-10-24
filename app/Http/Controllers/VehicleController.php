@@ -10,7 +10,7 @@ use App\Models\Vehicle;
 use App\Models\multibooking;
 use App\Models\Deposit;
 use Illuminate\Support\Facades\Validator;
-
+use DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 include_once(app_path().'/pesapal/oauth.php');
@@ -167,8 +167,6 @@ if(request('carModel')!=null)
     $drop_time = new Carbon($request->drop_time);
 
 
-
-
 if(request('multi-booking'))
 {
     $total_days = $pick_time->diffInDays($drop_time) +1;
@@ -186,15 +184,15 @@ if(request('multi-booking'))
         $rent->drop_time = $drop_time;
           $rent->no_day =$total_days;
 
-        $rent->price = getAmount(request('total_costs'));
+        $rent->price =$vehicle->price;
         $rent->total_cost = getAmount(request('total_costs'));
         $rent->save();
 
         //Update RentLog table bookingID Column
-        $updateBookingColumn = RentLog::where('id',$rent->id)
-->update([
-        'booking_id'=>$rent->id
-            ]);
+//         $updateBookingColumn = RentLog::where('id',$rent->id)
+// ->update([
+//         'booking_id'=>$rent->id
+//             ]);
 
 }else
 
@@ -220,15 +218,9 @@ if(request('multi-booking'))
          $rent->no_day =$total_days;
        
 
-        $rent->price = getAmount($total_price);
+        $rent->price =$vehicle->price;
          $rent->total_cost = getAmount($total_price);
         $rent->save();
-
-//Update RentLog table bookingID Column
-        $updateBookingColumn = RentLog::where('id',$rent->id)
-->update([
-        'booking_id'=>$rent->id
-            ]);
 
 }
 
@@ -297,26 +289,28 @@ if(request('bookingID')!=null)
        'plan_id' => session('plan_id') ?? 0,
         'booking_id' =>$rent->id,
 
-           'method_code' = 999,
-        'method_currency' ="USD",
-      'amount' = $amount,
+           'method_code' => 999,
+        'method_currency' =>"USD",
+      'amount' => $amount,
         // $data->charge = $charge;
         // $data->rate = $gate->rate;
 
-       'charge' =10,
-       'rate' =2300,
-        'final_amo' = $final_amo,
+       'charge' =>10,
+       'rate' =>2300,
+        'final_amo' => $final_amo,
   
-'paid' = $down_payment,
-  'remain_balance' = $amount-$down_payment,
+'paid' => $down_payment,
+  'remain_balance' => $amount-$down_payment,
 
-        'btc_amo' = 0,
-       'btc_wallet' = "",
-      'trx' = getTrx(),
-       'try' = 0,
-        'status' = 0
+        'btc_amo' => 0,
+       'btc_wallet' => "",
+      'trx' => getTrx(),
+       'try' => 0,
+        'status' => 0
 
             ]);
+
+//dd($updateData);
 
 }
 else{
@@ -356,9 +350,11 @@ else{
 
 //dd('print');
         //Get value from rentlab
-        // $rentLogs = RentLog::->where('id', $id)->firstOrFail(); 
- return redirect()->route('user.pesapal',$data->id);        
+        // $rentLogs = RentLog::->where('id', $id)->firstOrFail();
 
+
+ // return redirect()->route('user.pesapal',$data->id);        
+ return redirect()->route('user.pesapal',$rent->id);   
 
         // return redirect()->route('user.deposit.manual.confirm');
     }
@@ -378,16 +374,32 @@ else{
             //dd($times);
         $vehicle = Vehicle::active()->where('id', $times->vehicle_id)->firstOrFail();
          //dd($vehicle);
-        $times=RentLog::findOrFail($id);
+       // $times=RentLog::findOrFail($id);
          //dd($times);
 
          $datas=RentLog::join('vehicles','vehicles.id','rent_logs.vehicle_id')
-         ->where('rent_logs.id',$id)
+         ->where('rent_logs.booking_id',$times->booking_id)
          ->select('vehicles.name','rent_logs.pick_time','rent_logs.drop_time','rent_logs.model_name','rent_logs.price','rent_logs.discount','rent_logs.no_car','rent_logs.no_day','rent_logs.total_cost')
          ->get();
 
+
+ // $totals = RentLog::select(['rent_logs.*',
+ // DB::raw('SUM(total_cost) as total_revenue'),
+ // DB::raw('SUM(discount) as total_cash')
+ // ])->get();
+
+
+  $totals = RentLog::select(DB::raw('SUM(total_cost) as total_cost'),DB::raw('SUM(discount) as Discount'),DB::raw('SUM(total_cost)-SUM(discount)-sum(total_cost)*0.18 as Grant_total'),DB::raw('sum(total_cost)*0.18 as VAT'))
+  ->where('booking_id',$times->booking_id)
+  ->first();
+
+        //$answerPerc=DB::select('select sum(total_cost)toc,sum(discount)disc from rent_logs');
+        //dd($totals);
+
+
+
         $pageTitle = 'Payment Preview';
-          return view($this->activeTemplate . 'user.pesapal.pesapal', compact('datas', 'pageTitle','times','vehicle','locations'));
+          return view($this->activeTemplate . 'user.pesapal.pesapal', compact('datas', 'pageTitle','times','vehicle','locations','totals'));
     }
 
 

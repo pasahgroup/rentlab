@@ -325,11 +325,7 @@ if(request('multi-booking'))
 
 
 
-
-
-
-
-   // End of Renting     
+   // End of Renting   
        
 //dd('payment Confirm');
 

@@ -1,14 +1,12 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
 
-     <section class="cart-page">
+     <section class="cart-page" style="padding:5px">
     <div class="container">
       <div class="border-box">
-        <div class="box-title">
            <div class="col-md-12">
              <p><strong></strong></p>
-           </div>
-        
+           </div>        
 <div class="col-md-12">
          @if($message = Session::get('success'))
   <div class="alert alert-success">
@@ -34,7 +32,7 @@
   </div>
   @endif
 </div>
-</div>
+
 
      <div class="row">
           <div class="col-sm-10">
@@ -49,8 +47,8 @@
     <input type="hidden" name="_method" value="put">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                    <input type="text" name="bookingID" value="{{$times->booking_id}}">        
-             <button type="submit" class="btn btn-primary">Add Car</button>         
+             <input type="hidden" name="bookingID" value="{{$times->booking_id}}">       
+             <button type="submit" class="btn btn-primary float-right">Add Car</button>         
 </form>   
 
          </div>
@@ -74,7 +72,6 @@
               
             
 @foreach($datas as $data)
-
   <tr>
                 <td>
               {{$data->model_name}}
@@ -100,7 +97,7 @@
             </tbody>
           </table>
         </div>
-        <hr>
+      
         <div class="row">
           <div class="col-sm-6">
           <!--   <div class="form-group col-md-8 col-sm-10">
@@ -121,10 +118,10 @@
             <table class="table table-responsive cart-checkout-table">
               <tr>
                 <td>
-                  Sub Total
+                  Sub total
                 </td>
                 <td class="price">
-                
+                 {{number_format($totals->total_cost,2)}}
                 </td>
               </tr>              
 
@@ -133,7 +130,7 @@
                   Discount
                 </td>
                 <td class="price">
-             555555555
+             {{number_format($totals->discount,2)}}
                 </td>
               </tr>
 
@@ -142,23 +139,23 @@
                   VAT total
                 </td>
                 <td class="price">
-                
+                 {{number_format($totals->VAT,2)}}
                 </td>
               </tr>
               <tr>
                 <td class="price">Grand Total</td>
+                <td class="price">
+                {{number_format($totals->Grant_total,2)}}
+                </td>
               </tr>
 
  <form  method="post"  action="{{ route('user.payConfirm',2) }}" enctype="multipart/form-data">
           @csrf
-               
-                <tr>
-                <td class="price">Down Payment must not below 30% of total booking costs. not below</td>
-              </tr>
               <tr class="total">
                        <input type="hidden" name="total_cost" value="" id="total_cost" /> 
                 <td class="price">Amount to be Paid {{number_format($data->total_cost,2)}}</td>
-                <td><input type="text" name="amount" id="amount" value="{{number_format($data->total_cost,2)}}"/>Down Payment must not below 30% of total booking costs. not below</td>
+                <td>
+                    <input type="text" name="amount" id="amount" value="{{number_format($data->total_cost)}}"/>Down Payment must not below 30% of total booking costs. not below</td>
               </tr>
             </table>
  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
