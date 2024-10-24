@@ -191,18 +191,11 @@ if(request('multi-booking'))
 
         $rent->save();
 
-        //Update RentLog table bookingID Column
-//         $updateBookingColumn = RentLog::where('id',$rent->id)
-// ->update([
-//         'booking_id'=>$rent->id
-//             ]);
-
 }else
 
 {
 
- $vehicle = Vehicle::active()->where('id', $id)->firstOrFail(); 
-
+ $vehicle = Vehicle::active()->where('id', $id)->firstOrFail();
         $total_days = $pick_time->diffInDays($drop_time) +1;
         $total_price = $vehicle->price*$total_days* request('no_car');
 
@@ -255,6 +248,8 @@ if(request('multi-booking'))
         // $final_amo = $payable * $gate->rate;
          $final_amo = $payable;
 
+
+
 if(request('bookingID')!=null)
 {
  $updateBookingColumn = RentLog::where('id',$rent->id)
@@ -301,6 +296,11 @@ else{
         'booking_id'=>$rent->id
             ]);
 
+ $vehicle = Vehicle::active()->where('id', $id)->firstOrFail();
+        $total_days = $pick_time->diffInDays($drop_time) +1;
+        $total_price = $vehicle->price*$total_days* request('no_car');
+
+
   $data = new Deposit();
         $data->user_id = $user->id;
         $data->rent_id = session('rent_id') ?? 0;
@@ -317,10 +317,10 @@ else{
 
           $data->charge =10;
         $data->rate =2300;
-        $data->final_amo = $final_amo;
+        $data->final_amo = $total_price;
   
-  $data->paid = $down_payment;
-  $data->remain_balance = $amount-$down_payment;
+  $data->paid =0.00;
+  $data->remain_balance = $total_price-$payable;
 
         $data->btc_amo = 0;
         $data->btc_wallet = "";
