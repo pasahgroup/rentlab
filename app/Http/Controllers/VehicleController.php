@@ -231,16 +231,7 @@ if(request('multi-booking'))
 }
 
         session(['rent_id' => $rent->id]);
-        //Origin Route
-        //dd('Inserted');
-        // return redirect()->route('user.deposit');
-       //dd('print testxx');
-         
-//Insert into deposits table
-        //   $request->validate([
-        //     'method_code' => 'required',
-        //     'currency' => 'required',
-        // ]);
+      
 
         if (!session()->has('rent_id') && !session()->has('plan_id')){
             $notify[] = ['error', 'Invalid request!'];
@@ -248,13 +239,6 @@ if(request('multi-booking'))
         }
 
         $user = auth()->user();
-        // $gate = GatewayCurrency::whereHas('method', function ($gate) {
-        //     $gate->where('status', 1);
-        // })->where('method_code', $request->method_code)->where('currency', $request->currency)->first();
-        // if (!$gate) {
-        //     $notify[] = ['error', 'Invalid gateway'];
-        //     return back()->withNotify($notify);
-        // }
 
         if (session()->has('rent_id')){
             $rent_log = RentLog::findOrFail(session('rent_id'));
@@ -264,14 +248,6 @@ if(request('multi-booking'))
             $amount = $plan_log->price;
         }
 
-        // if ($gate->min_amount > $amount || $gate->max_amount < $amount) {
-        //     $notify[] = ['error', 'Please follow payment limit'];
-        //     return back()->withNotify($notify);
-        // }
-   
-
-
-        // $down_payment=request('down_payment');
       $down_payment=0;
        // $charge = $gate->fixed_charge + ($amount * $gate->percent_charge / 100);
         // $payable = $amount + $charge;
@@ -286,7 +262,7 @@ if(request('bookingID')!=null)
         'booking_id'=>request('bookingID')
             ]);
 $deposits=Deposit::findOrFail($id);
-dd($deposits);
+//dd($deposits);
 
  $updateData = Deposit::where('booking_id',request('bookingID'))
 ->update([        
