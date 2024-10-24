@@ -186,6 +186,9 @@ if(request('multi-booking'))
 
         $rent->price =$vehicle->price;
         $rent->total_cost = getAmount(request('total_costs'));
+        $rent->discount =0.00;
+        $rent->balance =getAmount(request('total_costs'))-$rent->discount;
+
         $rent->save();
 
         //Update RentLog table bookingID Column
@@ -220,6 +223,9 @@ if(request('multi-booking'))
 
         $rent->price =$vehicle->price;
          $rent->total_cost = getAmount($total_price);
+         $rent->discount =0.00;
+        $rent->balance =getAmount($total_price)-$rent->discount;
+
         $rent->save();
 
 }

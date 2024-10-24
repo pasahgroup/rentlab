@@ -13,8 +13,9 @@ class RentLog extends Model
         'no_day',
          'no_car',
          'model_name',
+           'total_cost', 
         'discount',  
-         'total_cost',     
+         'balance',     
     ];
 
 
