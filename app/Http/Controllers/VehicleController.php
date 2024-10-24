@@ -285,7 +285,8 @@ if(request('bookingID')!=null)
 ->update([
         'booking_id'=>request('bookingID')
             ]);
-
+$deposits=Deposit::findOrFail($id);
+dd($deposits);
 
  $updateData = Deposit::where('booking_id',request('bookingID'))
 ->update([        
