@@ -73,8 +73,8 @@ class VehicleController extends Controller
   //dd(request('bookingID'));
 
   $bookingID=request('bookingID');
-  $bookID=$bookingID;
-  $bookedID=1266;
+  // $bookID=$bookingID;
+  $bookedID=$bookingID;
   //dd($bookID);
  if(request('carModel')!=null)
  {
@@ -91,7 +91,7 @@ class VehicleController extends Controller
      //dd($vehicle);
         $locations = Location::active()->orderBy('name')->get();
         $pageTitle = 'Vehicle Booked by '.auth()->user()->firstname .' '.auth()->user()->lastname;
-        return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations','bookingID','bookID','bookedID'));
+        return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations','bookingID','bookedID'));
     }
 
 
