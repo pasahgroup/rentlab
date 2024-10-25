@@ -153,9 +153,9 @@
           @csrf
               <tr class="total">
                        <input type="hidden" name="total_cost" value="" id="total_cost" /> 
-                <td class="price">Amount to be Paid {{number_format($data->total_cost,2)}}</td>
+                <td class="price">Amount to be Paid {{number_format($totals->Grant_total,2)}}</td>
                 <td>
-                    <input type="text" name="amount" id="amount" value="{{number_format($data->total_cost)}}"/>Down Payment must not below 30% of total booking costs. not below</td>
+                    <input type="text" name="amount" id="amount" value="{{number_format($data->total_cost)}}"/>Down Payment must not below 30% of total booking costs.</td>
               </tr>
             </table>
  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">

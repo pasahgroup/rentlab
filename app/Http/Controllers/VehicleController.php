@@ -71,8 +71,11 @@ class VehicleController extends Controller
 // }
   
   //dd(request('bookingID'));
+
   $bookingID=request('bookingID');
- // dd($bookingID);
+  $bookID=$bookingID;
+  $bookedID=1266;
+  //dd($bookID);
  if(request('carModel')!=null)
  {
    $vehicle = Vehicle::active()->where('id',request('carModel'))->firstOrFail();      
@@ -88,7 +91,7 @@ class VehicleController extends Controller
      //dd($vehicle);
         $locations = Location::active()->orderBy('name')->get();
         $pageTitle = 'Vehicle Booked by '.auth()->user()->firstname .' '.auth()->user()->lastname;
-        return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations','bookingID'));
+        return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations','bookingID','bookID','bookedID'));
     }
 
 
@@ -108,7 +111,12 @@ class VehicleController extends Controller
 // $id=request('carModel');
 // }
   
+//dd(request('bookID'));
+
   $bookingID=request('bookingID');
+  $bookID=request('bookID');
+  $bookedID=request('bookID');
+  //dd($bookID);
 if(request('carModel')!=null)
  {
    $vehicle = Vehicle::active()->where('id',request('carModel'))->firstOrFail();     
@@ -121,7 +129,7 @@ if(request('carModel')!=null)
      //dd($vehicle);
         $locations = Location::active()->orderBy('name')->get();
         $pageTitle = 'Vehicle Booked by '.auth()->user()->firstname .' '.auth()->user()->lastname;
-        return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations','bookingID'));
+        return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations','bookingID','bookID','bookedID'));
     }
 
 
@@ -256,34 +264,34 @@ if(request('bookingID')!=null)
 ->update([
         'booking_id'=>request('bookingID')
             ]);
+
+ $vehicle = Vehicle::active()->where('id', $id)->firstOrFail();
+        $total_days = $pick_time->diffInDays($drop_time) +1;
+        $total_price = $vehicle->price*$total_days* request('no_car');
+
 $deposits=Deposit::findOrFail($id);
-//dd($deposits);
+//dd($deposits->final_amo);
+// dd($deposits->remain_balance);
+
 
  $updateData = Deposit::where('booking_id',request('bookingID'))
 ->update([        
-      'user_id' => $user->id,
-       'rent_id' => session('rent_id') ?? 0,
-       'plan_id' => session('plan_id') ?? 0,
-        'booking_id' =>$rent->id,
+      // 'user_id' => $user->id,
+      //  'rent_id' => session('rent_id') ?? 0,
+      //  'plan_id' => session('plan_id') ?? 0,
+      //   'booking_id' =>$rent->id,
 
-           'method_code' => 999,
-        'method_currency' =>"USD",
-      'amount' => $amount,
+      //      'method_code' => 999,
+      //   'method_currency' =>"USD",
+      // // 'amount' => $amount,
         // $data->charge = $charge;
         // $data->rate = $gate->rate;
 
-       'charge' =>10,
-       'rate' =>2300,
-        'final_amo' => $final_amo,
-  
-'paid' => $down_payment,
-  'remain_balance' => $amount-$down_payment,
-
-        'btc_amo' => 0,
-       'btc_wallet' => "",
-      'trx' => getTrx(),
-       'try' => 0,
-        'status' => 0
+       // 'charge' =>10,
+       // 'rate' =>2300,
+        'final_amo' =>$total_price+$deposits->remain_balance,
+        'remain_balance' =>$total_price+$deposits->remain_balance,
+        'status' =>4
 
             ]);
 
@@ -320,7 +328,7 @@ else{
         $data->final_amo = $total_price;
   
   $data->paid =0.00;
-  $data->remain_balance = $total_price-$payable;
+  $data->remain_balance = $total_price;
 
         $data->btc_amo = 0;
         $data->btc_wallet = "";
@@ -372,7 +380,7 @@ else{
  // ])->get();
 
 
-  $totals = RentLog::select(DB::raw('SUM(total_cost) as total_cost'),DB::raw('SUM(discount) as Discount'),DB::raw('SUM(total_cost)-SUM(discount)-sum(total_cost)*0.18 as Grant_total'),DB::raw('sum(total_cost)*0.18 as VAT'))
+  $totals = RentLog::select(DB::raw('SUM(total_cost) as total_cost'),DB::raw('SUM(discount) as Discount'),DB::raw('SUM(total_cost)-SUM(discount)+sum(total_cost)*0.18 as Grant_total'),DB::raw('sum(total_cost)*0.18 as VAT'))
   ->where('booking_id',$times->booking_id)
   ->first();
 
