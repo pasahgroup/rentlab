@@ -56,7 +56,7 @@
                                         <i class="las la-street-view"></i> <?php echo app('translator')->get('Drop of Point'); ?>
                                     </label>
                                     <div class="form-group">
-        <input class="form-control" list="drop_locations" name="drop_location" id="drop_location">
+        <!-- <input class="form-control" list="drop_locations" name="drop_location" id="drop_location"> -->
     <select id="drop_location" name="drop_location">
       <option value=""><?php echo app('translator')->get('--Pick up point--'); ?></option>
                                         <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
