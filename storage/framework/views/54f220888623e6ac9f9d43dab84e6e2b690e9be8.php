@@ -83,14 +83,14 @@
    <input type="hidden" class="form-control" name="car_id" id="car_id" value="<?php echo e($vehicle->id); ?>">
     <input type="hidden" class="form-control" name="bookingID" id="bookingID" value="<?php echo e($bookedID); ?>">
 
-<input class="form-control" list="pick_locations" name="pick_location" id="pick_location">
-    <datalist id="pick_locations">
+<!-- <input class="form-control" list="pick_locations" name="pick_location" id="pick_location"> -->
+    <select class="form-control" id="pick_locations" name="pick_location">
       <option value=""><?php echo app('translator')->get('--Pick up point--'); ?></option>
                                         <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                             <option value="<?php echo e($location->id); ?>"><?php echo e(@$location->name); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <?php endif; ?>
-    </datalist>
+    </select>
 
 
                                 </div>
@@ -100,14 +100,15 @@
                                         <i class="las la-street-view"></i> <?php echo app('translator')->get('Drop of Point'); ?>
                                     </label>
                                     <div class="form-group">
-                                    <input class="form-control" list="drop_locations" name="drop_location" id="drop_location">
-    <datalist id="drop_locations">
+
+<!-- <input class="form-control" list="drop_locations" name="drop_location" id="drop_location"> -->
+    <select id="drop_location" name="drop_location">
       <option value=""><?php echo app('translator')->get('--Pick up point--'); ?></option>
                                         <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                             <option value="<?php echo e($location->id); ?>"><?php echo e(@$location->name); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <?php endif; ?>
-    </datalist>
+    </select>
 
                                 </div>
                             </div>

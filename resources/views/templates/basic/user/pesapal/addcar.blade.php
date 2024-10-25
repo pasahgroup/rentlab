@@ -84,14 +84,14 @@
    <input type="hidden" class="form-control" name="car_id" id="car_id" value="{{$vehicle->id}}">
     <input type="hidden" class="form-control" name="bookingID" id="bookingID" value="{{$bookedID}}">
 
-<input class="form-control" list="pick_locations" name="pick_location" id="pick_location">
-    <datalist id="pick_locations">
+<!-- <input class="form-control" list="pick_locations" name="pick_location" id="pick_location"> -->
+    <select class="form-control" id="pick_locations" name="pick_location">
       <option value="">@lang('--Pick up point--')</option>
                                         @forelse($locations as $location)
                                             <option value="{{ $location->id }}">{{ @$location->name }}</option>
                                         @empty
                                         @endforelse
-    </datalist>
+    </select>
 
 
                                 </div>
@@ -101,14 +101,15 @@
                                         <i class="las la-street-view"></i> @lang('Drop of Point')
                                     </label>
                                     <div class="form-group">
-                                    <input class="form-control" list="drop_locations" name="drop_location" id="drop_location">
-    <datalist id="drop_locations">
+
+<!-- <input class="form-control" list="drop_locations" name="drop_location" id="drop_location"> -->
+    <select id="drop_location" name="drop_location">
       <option value="">@lang('--Pick up point--')</option>
                                         @forelse($locations as $location)
                                             <option value="{{ $location->id }}">{{ @$location->name }}</option>
                                         @empty
                                         @endforelse
-    </datalist>
+    </select>
 
                                 </div>
                             </div>
