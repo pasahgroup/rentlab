@@ -219,9 +219,10 @@ if(request('multi-booking'))
         $rent->save();
 
 }
+//dd($rent->id);
 
-        session(['rent_id' => $rent->id]);
-      
+         session(['rent_id' => $rent->id]);
+      // dd(session(['rent_id' =>18]));
 
         if (!session()->has('rent_id') && !session()->has('plan_id')){
             $notify[] = ['error', 'Invalid request!'];
@@ -229,6 +230,7 @@ if(request('multi-booking'))
         }
 
         $user = auth()->user();
+
 
         if (session()->has('rent_id')){
             $rent_log = RentLog::findOrFail(session('rent_id'));
@@ -238,27 +240,32 @@ if(request('multi-booking'))
             $amount = $plan_log->price;
         }
 
-      $down_payment=0;
+
+
+      $down_payment=0.00;
        // $charge = $gate->fixed_charge + ($amount * $gate->percent_charge / 100);
         // $payable = $amount + $charge;
-         $payable = $amount;
-        // $final_amo = $payable * $gate->rate;
+          $payable = $amount;
+        // // $final_amo = $payable * $gate->rate;
          $final_amo = $payable;
 
 
 
 if(request('bookingID')!=null)
 {
+    // dd('printq');
  $updateBookingColumn = RentLog::where('id',$rent->id)
 ->update([
         'booking_id'=>request('bookingID')
             ]);
 
+
  $vehicle = Vehicle::active()->where('id', $id)->firstOrFail();
         $total_days = $pick_time->diffInDays($drop_time) +1;
         $total_price = $vehicle->price*$total_days* request('no_car');
-
-$deposits=Deposit::findOrFail($id);
+//dd($id);
+$deposits=Deposit::where('booking_id',request('bookingID'))->first();
+//dd($deposits);
 //dd($deposits->final_amo);
 // dd($deposits->remain_balance);
 
@@ -300,8 +307,10 @@ else{
 
   $data = new Deposit();
         $data->user_id = $user->id;
-        $data->rent_id = session('rent_id') ?? 0;
-        $data->plan_id = session('plan_id') ?? 0;
+        // $data->rent_id = session('rent_id') ?? 0;
+        // $data->plan_id = session('plan_id') ?? 0;
+          $data->rent_id=$rent->id;
+        $data->plan_id =0;
         $data->booking_id =$rent->id;
 
         // $data->method_code = $gate->method_code;
@@ -327,6 +336,7 @@ else{
         $data->save();
         //dd('print2');
 }
+
 
  // return redirect()->route('user.pesapal',$data->id);        
  return redirect()->route('user.pesapal',$rent->id);   
