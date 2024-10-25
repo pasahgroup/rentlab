@@ -25,7 +25,7 @@
                                     </label>
                                 </div>
 
-                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"> 
+                                 <div class="col-lg-3 col-md-8 col-sm-8 col-xs-8"> 
     <input class="form-control" type="hidden" name="bookID" id="bookID" value="{{$bookedID}}">                          
     <input class="form-control" list="carModels" name="carModel" id="carModel">
     <datalist id="carModels">

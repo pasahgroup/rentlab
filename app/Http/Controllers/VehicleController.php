@@ -240,15 +240,12 @@ if(request('multi-booking'))
             $amount = $plan_log->price;
         }
 
-
-
       $down_payment=0.00;
        // $charge = $gate->fixed_charge + ($amount * $gate->percent_charge / 100);
         // $payable = $amount + $charge;
           $payable = $amount;
         // // $final_amo = $payable * $gate->rate;
          $final_amo = $payable;
-
 
 
 if(request('bookingID')!=null)

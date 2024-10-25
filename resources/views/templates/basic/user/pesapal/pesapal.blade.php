@@ -90,10 +90,7 @@
                 </td>
                 <td class="price">{{number_format($data->price,2)}} </td>
                 </tr>
-                @endforeach
-              
-
-
+                @endforeach           
             </tbody>
           </table>
         </div>
