@@ -57,7 +57,7 @@
                                         <i class="las la-street-view"></i> @lang('Drop of Point')
                                     </label>
                                     <div class="form-group">
-        <input class="form-control" list="drop_locations" name="drop_location" id="drop_location">
+        <!-- <input class="form-control" list="drop_locations" name="drop_location" id="drop_location"> -->
     <select id="drop_location" name="drop_location">
       <option value="">@lang('--Pick up point--')</option>
                                         @forelse($locations as $location)
