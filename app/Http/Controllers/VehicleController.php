@@ -62,14 +62,6 @@ class VehicleController extends Controller
             return back()->withNotify($notify);
         }
 
-//dd($id);
-
-// if($id==1){
-// $id=1;
-// }else{
-// $id=request('carModel');
-// }
-  
   //dd(request('bookingID'));
 
   $bookingID=request('bookingID');
@@ -113,7 +105,6 @@ class VehicleController extends Controller
 //dd(request('bookID'));
 
   $bookingID=request('bookingID');
-  $bookID=request('bookID');
   $bookedID=request('bookID');
   //dd($bookID);
 if(request('carModel')!=null)
