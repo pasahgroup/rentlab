@@ -101,15 +101,6 @@ class VehicleController extends Controller
             $notify[] = ['error', 'Please login to continue!'];
             return back()->withNotify($notify);
         }
-
-//dd($this->activeTemplate);
-
-// if($id==1){
-// $id=1;
-// }else{
-// $id=request('carModel');
-// }
-  
 //dd(request('bookID'));
 
   $bookingID=request('bookingID');
@@ -191,8 +182,8 @@ if(request('multi-booking'))
         $rent->drop_time = $drop_time;
           $rent->no_day =$total_days;
 
-        $rent->price =$vehicle->price;
-        $rent->total_cost = getAmount(request('total_costs'));
+        $rent->unit_price =$vehicle->price;
+        $rent->price = getAmount(request('total_costs'));
         $rent->discount =0.00;
         $rent->balance =getAmount(request('total_costs'))-$rent->discount;
 
@@ -221,11 +212,10 @@ if(request('multi-booking'))
          $rent->no_day =$total_days;
        
 
-        $rent->price =$vehicle->price;
-         $rent->total_cost = getAmount($total_price);
+        $rent->unit_price =$vehicle->price;
+         $rent->price = getAmount($total_price);
          $rent->discount =0.00;
         $rent->balance =getAmount($total_price)-$rent->discount;
-
         $rent->save();
 
 }
@@ -338,11 +328,6 @@ else{
         //dd('print2');
 }
 
-//dd('print');
-        //Get value from rentlab
-        // $rentLogs = RentLog::->where('id', $id)->firstOrFail();
-
-
  // return redirect()->route('user.pesapal',$data->id);        
  return redirect()->route('user.pesapal',$rent->id);   
 
@@ -369,7 +354,7 @@ else{
 
          $datas=RentLog::join('vehicles','vehicles.id','rent_logs.vehicle_id')
          ->where('rent_logs.booking_id',$times->booking_id)
-         ->select('vehicles.name','rent_logs.pick_time','rent_logs.drop_time','rent_logs.model_name','rent_logs.price','rent_logs.discount','rent_logs.no_car','rent_logs.no_day','rent_logs.total_cost')
+         ->select('vehicles.name','rent_logs.pick_time','rent_logs.drop_time','rent_logs.model_name','rent_logs.price','rent_logs.discount','rent_logs.no_car','rent_logs.no_day','rent_logs.price')
          ->get();
 
 
@@ -379,7 +364,7 @@ else{
  // ])->get();
 
 
-  $totals = RentLog::select(DB::raw('SUM(total_cost) as total_cost'),DB::raw('SUM(discount) as Discount'),DB::raw('SUM(total_cost)-SUM(discount)+sum(total_cost)*0.18 as Grant_total'),DB::raw('sum(total_cost)*0.18 as VAT'))
+  $totals = RentLog::select(DB::raw('SUM(price) as total_cost'),DB::raw('SUM(discount) as Discount'),DB::raw('SUM(price)-SUM(discount)+sum(price)*0.18 as Grant_total'),DB::raw('sum(price)*0.18 as VAT'))
   ->where('booking_id',$times->booking_id)
   ->first();
 
@@ -395,7 +380,7 @@ else{
 
  public function payConfirmx(Request $request,$id)
     {
-          dd($id);
+         // dd($id);
          //$track = session()->get('Track');
         // dd($track);
         // $data = Deposit::where('trx', $track)->where('status',0)->orderBy('id', 'DESC')->firstOrFail();

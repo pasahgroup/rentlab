@@ -94,7 +94,7 @@
                     <?php echo e($data->no_day); ?>
 
                 </td>
-                <td class="price"><?php echo e(number_format($data->total_cost,2)); ?> </td>
+                <td class="price"><?php echo e(number_format($data->price,2)); ?> </td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               
