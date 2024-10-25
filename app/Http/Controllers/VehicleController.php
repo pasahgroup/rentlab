@@ -85,8 +85,7 @@ class VehicleController extends Controller
        }  
 
 
-         $vehicles = Vehicle::groupby('model')->get();
- 
+         $vehicles = Vehicle::groupby('model')->get(); 
          
      //dd($vehicle);
         $locations = Location::active()->orderBy('name')->get();
