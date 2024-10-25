@@ -26,7 +26,7 @@
                                 </div>
 
                                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"> 
-    <input class="form-control" name="bookID" id="bookID" value="{{$bookedID}}">                          
+    <input class="form-control" type="hidden" name="bookID" id="bookID" value="{{$bookedID}}">                          
     <input class="form-control" list="carModels" name="carModel" id="carModel">
     <datalist id="carModels">
          <option value="0">--Select car Model--</option>
@@ -82,7 +82,7 @@
                                     <div class="form-group">
 
    <input type="hidden" class="form-control" name="car_id" id="car_id" value="{{$vehicle->id}}">
-    <input type="text" class="form-control" name="bookingID" id="bookingID" value="{{$bookingID}}">
+    <input type="hidden" class="form-control" name="bookingID" id="bookingID" value="{{$bookedID}}">
 
 <input class="form-control" list="pick_locations" name="pick_location" id="pick_location">
     <datalist id="pick_locations">
