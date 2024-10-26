@@ -93,35 +93,6 @@
     <?php echo $__env->yieldPushContent('style'); ?>
 </head>
 
-
-<div class="header-top py-2" style="background-color:#a5b5a2;">
-    <div class="container-fluid">
-        <div class="d-flex flex-wrap justify-content-between mx--10">
-            <div class="header-top-item meta-list">
-                <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"><i class="lar la-envelope"></i><?php echo e(getContent('contact.content', true)->data_values->email); ?></a>
-            </div>
-            <div class="d-flex flex-wrap meta-list">
-                <?php if(auth()->guard()->check()): ?>
-                     <div class="header-top-item ml-sm-auto">
-                        <a href="<?php echo e(route('user.home')); ?>"><i class="las la-tachometer-alt"></i><?php echo app('translator')->get('Dashboard'); ?></a>
-                    </div>
-
-                    <div class="header-top-item">
-                        <a href="<?php echo e(route('user.logout')); ?>"><i class="las la-sign-out-alt"></i><?php echo app('translator')->get('Logout'); ?></a>
-                    </div>
-                <?php else: ?>
-                    <div class="header-top-item ml-sm-auto">
-                        <a href="<?php echo e(route('user.login')); ?>"><i class="las la-user"></i><?php echo app('translator')->get('Login'); ?></a>
-                    </div>
-                    <div class="header-top-item">
-                        <a href="<?php echo e(route('user.register')); ?>"><i class="las la-user-plus"></i><?php echo app('translator')->get('Register'); ?></a>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="container top-header-area" style="background:yellow;padding:1px">
          <div class="align-items-center py-1 px-xl-5 d-lg-flex" style="background-color:#51934f;margin-top:0px;margin-bottom:0px;">
               <div class="col-lg-4 col-md-4">
@@ -233,10 +204,12 @@
 
 
   <li><a href="#" class="las la-user float-right">Account</a>
-                                    <ul class="dropdown">                                       
-                                   
+                                    <ul class="dropdown">                         
  <?php if(auth()->guard()->check()): ?>
                     
+                    <div class="header-top-item meta-list">
+                <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"><i class="lar la-envelope"></i><?php echo e(getContent('contact.content', true)->data_values->email); ?></a>
+            </div>
                      <div class="header-top-item ml-sm-auto">
                         <a href="<?php echo e(route('user.home')); ?>"><i class="las la-tachometer-alt"></i><?php echo app('translator')->get('Dashboard'); ?></a>
                     </div>
