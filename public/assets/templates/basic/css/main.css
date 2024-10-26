@@ -395,7 +395,7 @@ strong, b {
 .bg--section {
 /*    background-color: #5e8059 !important;*/
 /*        background-color: #26353e !important;*/
-background-color: #a5b5a2 !important;
+/*background-color: #a5b5a2 !important;*/
 }
 
 .btn--base,
@@ -560,7 +560,7 @@ background-color: #a5b5a2 !important;
 }
 /*cca67c*/
 .bg--section, .bg--section .form--control:focus, .bg--section .rental__thumbnails, .bg--section .faq__item, .bg--section .plan__item, .bg--section .client__item, .bg--section .counter-item, .bg--section .post__item, .bg--section .how__item .how__icon, .bg--section .rent__item, .bg--section .form-control:disabled, .bg--section .form-control[readonly], .bg--section .reply-item, .bg--section .dashboard__item, .bg--section .custom--card, .bg--section .cmn--table, .bg--section .widget {
-    background: #cca67c;
+    background:transparent;
 }
 .form--control, .bg--section .rental__thumbnails, .bg--section .faq__item, .bg--section .plan__item, .bg--section .client__item, .bg--section .counter-item, .bg--section .post__item, .bg--section .how__item .how__icon, .bg--section .rent__item, .bg--section .form-control:disabled, .bg--section .form-control[readonly], .bg--section .reply-item, .bg--section .dashboard__item, .bg--section .custom--card, .bg--section .cmn--table, .bg--section .widget {
     background: #fff;
@@ -2101,7 +2101,7 @@ select.form--control {
 .cmn--table {
     margin: 0;
     border: none;
-    background: #26353e;
+    background: #fafbfb;
 }
 
 .cmn--table thead tr th {

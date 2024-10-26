@@ -10,12 +10,36 @@
     @include('partials.seo')
 
     <!-- Custom css -->
-     <link rel="stylesheet" href="../../mold/assets/css/min/bootstrap.min.css" media="all">
-  <link rel="stylesheet" href="../../mold/assets/css/jqueryui.css" media="all">
-  <link rel="stylesheet" href="../../mold/vendor/animate-css/animate.css" media="all">
-  <link rel="stylesheet" href="../../mold/assets/font/iconfont/iconstyle.css" media="all">
-  <link rel="stylesheet" href="../../mold/assets/font/font-awesome/css/font-awesome.css" media="all">
-  <link rel="stylesheet" href="../../mold/assets/css/main.css" media="all" id="maincss">
+   <link rel="icon" type="image/png" href="../mold/assets/img/favicon.png" />
+ <link rel="stylesheet" href="../mold/assets/css/min/bootstrap.min.css" media="all">
+  <link rel="stylesheet" href="../mold/assets/css/jqueryui.css" media="all">
+  <link rel="stylesheet" href="../mold/vendor/animate-css/animate.css" media="all">
+  <link rel="stylesheet" href="../mold/assets/font/iconfont/iconstyle.css" media="all">
+  <link rel="stylesheet" href="../mold/assets/font/font-awesome/css/font-awesome.css" media="all">
+  <link rel="stylesheet" href="../mold/assets/css/main.css" media="all" id="maincss">
+
+
+<link rel="stylesheet" href="../assetf/style.css">
+ <link href="../../assets2/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
+<link href="../../assets2/corporate/css/style.css" rel="stylesheet">
+
+  <!-- Custom -->
+  <link href="../../img_library/main.css" rel="stylesheet">
+    <link href="../../img_library/mform.css" rel="stylesheet">
+    <link href="../../css/mform.css" rel="stylesheet">
+   
+<!-- Custom css -->
+ <link rel="stylesheet" href="../css/font621.min.css">
+
+<link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+<link href="../../assets2/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+<link href="../../assets2/pages/css/animate.css" rel="stylesheet">
+
+ <script src="../js/jquery361.min.js"></script>
+ <script src="../custom/js/bootstrap.min.js"></script>
+
+
    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/iconfont/iconstyle.css')}}">
      <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/vendor/animate-css/animate.css')}}">
        <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/font-awesome/css/font-awesome.css')}}">
@@ -78,10 +102,6 @@
             </div>
             <div class="d-flex flex-wrap meta-list">
                 @auth
-                    <div class="header-top-item ml-sm-auto">
-                        <a href="{{ route('user.home') }}"><i class="las la-tachometer-alt"></i>@lang('Dashboard')</a>
-                    </div>
-
                      <div class="header-top-item ml-sm-auto">
                         <a href="{{ route('user.home') }}"><i class="las la-tachometer-alt"></i>@lang('Dashboard')</a>
                     </div>
@@ -102,69 +122,152 @@
     </div>
 </div>
 
-<header class="header">
-    <div class="container">
-        <div class="col-lg-4 col-md-2 col-sm-12 title-area">      
-            <div class="logo">
-                <a href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="logo" style="width:140px;"></a>
+<div class="container top-header-area" style="background:yellow;padding:1px">
+         <div class="align-items-center py-1 px-xl-5 d-lg-flex" style="background-color:#51934f;margin-top:0px;margin-bottom:0px;">
+              <div class="col-lg-4 col-md-4">
+                <a href="" class="text-decoration-none">
+                    <span class="h3 text-primary bg-dark px-2">Rhonds</span>
+                    <span class="h3 text-dark bg-primary px-2 ml-n1">Company Ltd</span>
+                </a>            
+
             </div>
-          </div>
 
-                
-        <!-- title area -->
-        <div class="col-lg-8 col-md-12 col-sm-12">
-           
-          <div id="nav" class="float-right">
-            <div class="container clearfix">
-              <ul id="jetmenu" class="jetmenu blue">
-               
-                <li class="active"><a href="{{ route('home') }}">Home</a>
-                </li>
-
-                <li><a href="{{ route('vehicles') }}">Vehicles</a>
-                  <ul class="dropdown">
-                   @foreach($cartypes as $cartype)
-                    <li><a href="/cartype-page/{{$cartype->car_body_type}}">{{$cartype->car_body_type}}</a></li>
-                   @endforeach
-                   
-                  </ul>
-                </li>
-                          <li><a href="{{ route('user.multibooking.index') }}">Multi-Booking</a>
-                </li>
-                
-                         <li><a href="{{ route('plans') }}">Plan</a>
-                </li>
-                              
-                  <li><a href="{{ route('blogs') }}">Blog</a>
-                </li>
-                
-                  @foreach($pages as $k => $data)
-                    <li><a href="{{route('pages',[$data->slug])}}">{{__($data->name)}}</a></li>
-                @endforeach
-                  <li><a href="{{ route('contact') }}">Contact</a>
-                </li>
+              <div class="col-lg-4 col-md-7">
+                 <div class="email-address_no">
+                    <a href="mailto:info@isol.com">
+                      <i class="fa fa-envelope" style="color:pink;"></i><b style="color:#FDD43D;">  info@rhonds.co.tz</b></a>
+                       <a href="https://wa.link/z5mmcd" style="padding-left:10px">
+                            <img src="../../../images/whatsapp.png" alt="" style="width:20px; height:20px;">
+                               <b style="color:#FDD43D;">(+255)655 633 302</b>
+                            </a>
+                </div>
+            </div>
 
 
-                  <li class="py-3">
+        <div class="col-lg-3 col-md-4 text-right">
+<!-- btn btn-primary btn-square mr-2 -->
+                      <a href="#"  class="btn btn-outline btn-primary"><i class="fab fa-twitter"></i></a>
+      <a href="#"  class="btn btn-outline btn-primary" href=""><i class="fab fa-facebook-f"></i></a>
+          <a href="#"  class="btn btn-outline btn-primary"><i class="fab fa-linkedin-in"></i></a>
+           <a href="#"  class="btn btn-outline btn-primary"><i class="fab fa-instagram"></i></a>
+
+            </div>
+            <div class="col-lg-2 col-md-4 text-right">
                     <select class="langSel language-select ms-3">
                         @foreach($language as $item)
                             <option value="{{$item->code}}"
                                     @if(session('lang') == $item->code) selected @endif>{{ __($item->name) }}</option>
                         @endforeach
                     </select>
+                </div>
+        </div>
+    </div>
+     <header class="header-area">
+        <!-- Main Header Area -->
+        <div class="main-header-area" id="stickyHeader" style="background:#fdfdfd;">
+           <!-- <div class="main-header-area" id="stickyHeader" style="background:#2e4432;"> -->
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="southNav">
+ <div class="logo">
+                <a href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="logo" style="width:120px;"></a>
+            </div>
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+
+                    <div class="classy-menu">
+                        <div class="classynav">
+                            <ul>
+ <li class="active"><a href="{{ route('home') }}">Home</a>
                 </li>
 
-              </ul>
-            </div>
-          </div>
-          <!-- nav -->
-        </div>
-        <!-- title area -->
 
-      <!-- site header -->
-    </div>
-    <!-- end container -->
-  </header>
+                                    <li><a href="{{ route('vehicles') }}">Vehicles</a>
+                                    <div class="megamenu">
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Car Models</li>
+                                            
+                                               @foreach($cartypes as $cartype)
+                    <li><a href="/cartype-page/{{$cartype->car_body_type}}">{{$cartype->car_body_type}}</a></li>
+                   @endforeach                                
+                                        </ul>
+                                                                         
+                                    </div>
+                                </li>
+
+                                  <li><a href="#">Booking</a>
+                                    <ul class="dropdown">
+                                         <li><a href="{{ route('user.multibooking.index') }}">Multi-booking</a></li>
+                                          <li><a href="{{ route('plans') }}">Plan-booking</a></li>
+                                       
+                                    </ul>
+                                </li>
+                               
+
+                                <li><a href="#">Services</a>
+                                    <ul class="dropdown">
+                                          <li><a href="#">Rhonds Services (Comming soon---)</a></li>
+                                       
+                                    </ul>
+                                </li>    
+
+                                <li><a href="#">Miscellaneous</a>
+                                    <ul class="dropdown">
+                                        <li><a href="{{ route('blogs') }}">Blog</a></li>    
+                                        <li><a href="#">Galleries (Comming soon---)</a></li>
+                                        <li><a href="#">Opportunities (Comming soon---)</a></li>
+                                    </ul>
+                                </li>
+
+
+  @foreach($pages as $k => $data)
+                    <li><a href="{{route('pages',[$data->slug])}}">{{__($data->name)}}</a></li>
+                @endforeach
+                  <li><a href="{{ route('contact') }}">Contact</a>
+                </li>
+
+
+
+  <li><a href="#" class="las la-user float-right">Account</a>
+                                    <ul class="dropdown">                                       
+                                   
+ @auth
+                    
+                     <div class="header-top-item ml-sm-auto">
+                        <a href="{{ route('user.home') }}"><i class="las la-tachometer-alt"></i>@lang('Dashboard')</a>
+                    </div>
+
+                    <div class="header-top-item">
+                        <a href="{{ route('user.logout') }}"><i class="las la-sign-out-alt"></i>@lang('Logout')</a>
+                    </div>
+                @else
+                    <div class="header-top-item ml-sm-auto">
+                        <a href="{{ route('user.login') }}"><i class="las la-user"></i>@lang('Login')</a>
+                    </div>
+                    <div class="header-top-item">
+                        <a href="{{ route('user.register') }}"><i class="las la-user-plus"></i>@lang('Register')</a>
+                    </div>
+                @endauth
+
+
+
+                                    </ul>
+                                </li>
+                            
+
+    </ul>
+
+      </div>
+     </div>
+ </nav>
+           </div>
+        </div>
+    </header>
+
 <body>
 
 @stack('fbComment')
@@ -315,5 +418,55 @@
     })(jQuery);
 </script>
 
+
+<!-- Custom library -->
+  <script src="../mold/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="../mold/vendor/jqueryui/jquery-ui-1.10.3.custom.min.js"></script>
+  <script src="../mold/vendor/jquery.ui.touch-punch.min.js"></script>
+  <script src="../mold/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script src="../mold/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
+  <script src="../mold/vendor/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../mold/vendor/retina.min.js"></script>
+  <script src="../mold/vendor/jquery.imageScroll.min.js"></script>
+  <script src="../mold/assets/js/min/responsivetable.min.js"></script>
+  <script src="../mold/assets/js/bootstrap-tabcollapse.js"></script>
+
+  <script src="../mold/assets/js/min/countnumbers.min.js"></script>
+  <script src="../mold/assets/js/main.js"></script>
+
+  <!-- Current Page JS -->
+  <script src="../mold/assets/js/min/home.min.js"></script>
+  <script>
+    $(document).ready(function(){
+            $('.equal-height > div').deasil_equalHeight();
+            $('#carousel').carousel({
+              interval: 10000
+            })
+          });
+          $(window).resize(function(){
+            $('.equal-height > div').deasil_equalHeight();
+          });
+  </script>
+
+
+
+
+
+    <!-- Popper js -->
+<!--     <script src="../assetf/js/popper.min.js"></script>
+
+    <script src="../assetf/js/bootstrap.min.js"></script>
+              -->        
+    <script src="../assetf/js/plugins.js"></script>
+    <script src="../assetf/js/classy-nav.min.js"></script>
+    <script src="../assetf/js/jquery-ui.min.js"></script>
+      
+    <script src="../assetf/js/active.js"></script>
+     <script src="../assets2/js/main.js"></script> 
+
+<!-- Custom Javascript -->
+ <script src="../../img_library/scripts.js" type="text/javascript"></script>
+  
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
 <style type="text/css">
@@ -44,7 +45,7 @@
 </style>
 
 
-
+<section class="showcase" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
     @php
         $banners = getContent('banner.element');
 
@@ -58,4 +59,5 @@
             @include($activeTemplate.'sections.'.$sec)
         @endforeach
     @endif
+</section>
 @endsection
