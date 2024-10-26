@@ -11,12 +11,12 @@
 
     <!-- Custom css -->
    <link rel="icon" type="image/png" href="../mold/assets/img/favicon.png" />
- <link rel="stylesheet" href="../mold/assets/css/min/bootstrap.min.css" media="all">
-  <link rel="stylesheet" href="../mold/assets/css/jqueryui.css" media="all">
-  <link rel="stylesheet" href="../mold/vendor/animate-css/animate.css" media="all">
-  <link rel="stylesheet" href="../mold/assets/font/iconfont/iconstyle.css" media="all">
-  <link rel="stylesheet" href="../mold/assets/font/font-awesome/css/font-awesome.css" media="all">
-  <link rel="stylesheet" href="../mold/assets/css/main.css" media="all" id="maincss">
+ <link rel="stylesheet" href="../../mold/assets/css/min/bootstrap.min.css" media="all">
+  <link rel="stylesheet" href="../../mold/assets/css/jqueryui.css" media="all">
+  <link rel="stylesheet" href="../../mold/vendor/animate-css/animate.css" media="all">
+  <link rel="stylesheet" href="../../mold/assets/font/iconfont/iconstyle.css" media="all">
+  <link rel="stylesheet" href="../../mold/assets/font/font-awesome/css/font-awesome.css" media="all">
+  <link rel="stylesheet" href="../../../mold/assets/css/main.css" media="all" id="maincss">
 
 
 <link rel="stylesheet" href="../assetf/style.css">
@@ -29,15 +29,15 @@
     <link href="../../css/mform.css" rel="stylesheet">
    
 <!-- Custom css -->
- <link rel="stylesheet" href="../css/font621.min.css">
+ <link rel="stylesheet" href="../../css/font621.min.css">
 
 <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
 <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
 <link href="../../assets2/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
 <link href="../../assets2/pages/css/animate.css" rel="stylesheet">
 
- <script src="../js/jquery361.min.js"></script>
- <script src="../custom/js/bootstrap.min.js"></script>
+ <script src="../../js/jquery361.min.js"></script>
+ <script src="../../custom/js/bootstrap.min.js"></script>
 
 
    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'mold/assets/font/iconfont/iconstyle.css')); ?>">
@@ -377,23 +377,23 @@
 
 
 <!-- Custom library -->
-  <script src="../mold/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="../mold/vendor/jqueryui/jquery-ui-1.10.3.custom.min.js"></script>
-  <script src="../mold/vendor/jquery.ui.touch-punch.min.js"></script>
-  <script src="../mold/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../../mold/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="../../mold/vendor/jqueryui/jquery-ui-1.10.3.custom.min.js"></script>
+  <script src="../../mold/vendor/jquery.ui.touch-punch.min.js"></script>
+  <script src="../../mold/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
-  <script src="../mold/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
-  <script src="../mold/vendor/owlcarousel/owl.carousel.min.js"></script>
-  <script src="../mold/vendor/retina.min.js"></script>
-  <script src="../mold/vendor/jquery.imageScroll.min.js"></script>
-  <script src="../mold/assets/js/min/responsivetable.min.js"></script>
-  <script src="../mold/assets/js/bootstrap-tabcollapse.js"></script>
+  <script src="../../mold/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
+  <script src="../../mold/vendor/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../../mold/vendor/retina.min.js"></script>
+  <script src="../../mold/vendor/jquery.imageScroll.min.js"></script>
+  <script src="../../mold/assets/js/min/responsivetable.min.js"></script>
+  <script src="../../mold/assets/js/bootstrap-tabcollapse.js"></script>
 
-  <script src="../mold/assets/js/min/countnumbers.min.js"></script>
-  <script src="../mold/assets/js/main.js"></script>
+  <script src="../../mold/assets/js/min/countnumbers.min.js"></script>
+  <script src="../../mold/assets/js/main.js"></script>
 
   <!-- Current Page JS -->
-  <script src="../mold/assets/js/min/home.min.js"></script>
+  <script src="../../mold/assets/js/min/home.min.js"></script>
   <script>
     $(document).ready(function(){
             $('.equal-height > div').deasil_equalHeight();
@@ -415,12 +415,12 @@
 
     <script src="../assetf/js/bootstrap.min.js"></script>
               -->        
-    <script src="../assetf/js/plugins.js"></script>
-    <script src="../assetf/js/classy-nav.min.js"></script>
-    <script src="../assetf/js/jquery-ui.min.js"></script>
+    <script src="../../assetf/js/plugins.js"></script>
+    <script src="../../assetf/js/classy-nav.min.js"></script>
+    <script src="../../assetf/js/jquery-ui.min.js"></script>
       
-    <script src="../assetf/js/active.js"></script>
-     <script src="../assets2/js/main.js"></script> 
+    <script src="../../assetf/js/active.js"></script>
+     <script src="../../assets2/js/main.js"></script> 
 
 <!-- Custom Javascript -->
  <script src="../../img_library/scripts.js" type="text/javascript"></script>
