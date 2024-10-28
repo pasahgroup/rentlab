@@ -88,7 +88,7 @@
                             <div class="col-md-3 col-sm-4">
                                 <div class="form-group">
                                     <label for="car-type" class="form--label">
-                                        <i class="las la-car-side"></i> @lang('Select Model')
+                                        <i class="las la-car-side"></i> @lang('Select Brand')
                                     </label>
                                     <select name="brand" id="car-type" class="form-control form--control">
                                         <option value="">@lang('Select Option')</option>
