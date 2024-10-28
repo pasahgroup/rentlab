@@ -60,12 +60,19 @@ $models = Vehicle::orderby('model')
 ->get();
 
 
-//dd($models);
-$vehicles = Vehicle::active()->latest()->paginate(getPaginate());
+
+// $vehicles = Vehicle::active()->latest()->paginate(getPaginate());
+$vehicles = Vehicle::active()->latest()->paginate(4);
+ //dd($vehicles);       
+
         $pageTitle = 'Home';
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
+
+         //dd($sections);  
         return view($this->activeTemplate . 'home', compact('pageTitle','sections','vehicles','carbodytypes','carTags','models'));
     }
+
+
 
     public function pages($slug)
     {

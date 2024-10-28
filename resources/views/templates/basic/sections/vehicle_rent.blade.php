@@ -137,6 +137,7 @@
                     </div>
                     <div class="row g-4 border--dashed">
 
+{!! $vehicles->links() !!}
                         @forelse($vehicles as $vehicle)
                             <div class="col-md-3">
                                 <div class="rent__item">
@@ -197,6 +198,8 @@
                                     </div>
                                 </div>
                             </div>
+
+                            {!! $vehicles->links() !!}
                         @empty
                         @endforelse
 
