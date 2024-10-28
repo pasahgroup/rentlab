@@ -95,16 +95,20 @@ public function show(Request $request,$id)
       ->where('cartypes.car_body_type',$id)
        ->where('vehicles.brand_id',request('brand'))
         ->where('vehicles.seater_id',request('seats'))
+         ->groupBy('vehicles.model')
      ->select('vehicles.*','cartypes.car_body_type')
-      ->get();
+       ->paginate(getPaginate(8));
 }else{
    
    $vehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
       ->where('cartypes.car_body_type',$id)
+     ->groupBy('vehicles.model')
      ->select('vehicles.*','cartypes.car_body_type')
-      ->get(); 
+      ->paginate(getPaginate(8));
 }
-      
+   //dd($vehicles);   
+
+
           $metaVehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
       ->select('vehicles.*','cartypes.car_body_type')
       ->get();
