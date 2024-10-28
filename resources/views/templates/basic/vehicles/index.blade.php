@@ -183,7 +183,7 @@
                             </div>
                         @empty
                         @endforelse
-
+{!! $vehicles->links() !!}
                     </div>
                 </div>
             </div>

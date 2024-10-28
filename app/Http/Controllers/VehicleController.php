@@ -498,7 +498,7 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
             $vehicles->where('price', '<=', $request->max_price);
         }
 
-        $vehicles = $vehicles->latest()->paginate(10)->withQueryString();
+        $vehicles = $vehicles->latest()->paginate(3)->withQueryString();
 
       //dd($vehicles);
         return view($this->activeTemplate.'vehicles.index',compact('vehicles','pageTitle', 'brands', 'seats'));
@@ -509,9 +509,10 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
         $brands = Brand::active()->withCount('vehicles')->orderBy('name')->get();
         $seats = Seater::active()->withCount('vehicles')->orderBy('number')->get();
 
-        $vehicles = Vehicle::active()->where('brand_id', $brand_id)->latest()->paginate(6);
-        $pageTitle = 'Brand Vehicles';
+        $vehicles = Vehicle::active()->where('brand_id', $brand_id)->latest()->paginate(8);
 
+//dd($vehicles);
+        $pageTitle = 'Brand Vehicles';
         return view($this->activeTemplate.'vehicles.index',compact('vehicles','pageTitle', 'brands', 'seats'));
     }
 
@@ -520,7 +521,7 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
         $brands = Brand::active()->withCount('vehicles')->orderBy('name')->get();
         $seats = Seater::active()->withCount('vehicles')->orderBy('number')->get();
 
-        $vehicles = Vehicle::active()->where('seater_id', $seat_id)->latest()->paginate(6);
+        $vehicles = Vehicle::active()->where('seater_id', $seat_id)->latest()->paginate(8);
         $pageTitle = 'Vehicles Seating';
 
         return view($this->activeTemplate.'vehicles.index',compact('vehicles','pageTitle', 'brands', 'seats'));
