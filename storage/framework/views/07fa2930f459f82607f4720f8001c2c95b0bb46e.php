@@ -137,7 +137,6 @@
                     </div>
                     <div class="row g-4 border--dashed">
 
-<?php echo $vehicles->links(); ?>
 
                         <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <div class="col-md-3">
@@ -196,11 +195,12 @@
                                 </div>
                             </div>
 
-                            <?php echo $vehicles->links(); ?>
-
+                          
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <?php endif; ?>
+  <?php echo $vehicles->links(); ?>
 
+  
                     </div>
                 </div>
             </div>

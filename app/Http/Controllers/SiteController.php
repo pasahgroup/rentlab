@@ -61,9 +61,11 @@ $models = Vehicle::orderby('model')
 
 
 
-// $vehicles = Vehicle::active()->latest()->paginate(getPaginate());
-$vehicles = Vehicle::active()->latest()->paginate(4);
- //dd($vehicles);       
+ $vehicles = Vehicle::active()->latest()
+ ->groupBy('model')
+ ->paginate(getPaginate(4));
+//$vehicles = Vehicle::active()->latest()->paginate(4);
+// dd($vehicles);       
 
         $pageTitle = 'Home';
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
