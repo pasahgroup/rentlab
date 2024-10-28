@@ -387,9 +387,10 @@ strong, b {
     visibility: visible;
     opacity: 1;
 }
-
+/*51934f*/
+/*558e5f*/
 .bg--body {
-    background-color: #fff !important;
+    background-color: #transparent !important;
 }
 
 .bg--section {
@@ -401,7 +402,7 @@ strong, b {
 .btn--base,
 .badge--base,
 .bg--base {
-    background-color: #776029 !important;
+    background-color: #636653 !important;
 }
 
 .btn--primary,

@@ -1,4 +1,5 @@
-  <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
+<?php $__env->startSection('content'); ?>
+   <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side"><?php echo app('translator')->get('Rent'); ?></div>
         <div class="shape"><?php echo app('translator')->get('Vehicles'); ?></div>
         <div class="container-fluid">
@@ -13,9 +14,8 @@
                         </div>
                         <div class="widget border--dashed">
                             <h5 class="title">
-                                <label for="search"><?php echo app('translator')->get('Search By Name'); ?></label>
+                                <label for="search"><?php echo app('translator')->get('Search Name'); ?></label>
                             </h5>
-                            
                             <div class="widget-body">
                                 <form action="<?php echo e(route('vehicle.search')); ?>" method="get">
                                     <div class="input-group">
@@ -24,17 +24,6 @@
                                     </div>
                                 </form>
                             </div>
-                        
-                           <div class="widget-body">
-                              <h5 class="title"></h5>
-                              <h5 class="title"><?php echo app('translator')->get('Filter by Body Type'); ?></h5>
-                                <ul class="category-link">
-                                       <li>
-                                            <a href="/cartype-page/Search By Body Type"><span>Car Body Type</span><span></span></a>
-                                            <a href="/cartag-page/Search By Car Tag"><span>Car Tag</span><span></span></a>
-                                                                    </ul>
-                            </div>
-
                         </div>
                         <div class="widget border--dashed">
                             <h5 class="title"><?php echo app('translator')->get('Filter by Price'); ?></h5>
@@ -54,10 +43,6 @@
                                             <input type="text" value="<?php echo e(@request()->max_price); ?>" class="form-control form--control max_price" name="max_price" placeholder="<?php echo app('translator')->get('Max Price'); ?>">
                                         </div>
                                     </div>
-                                     <div class="car__filter__btn" style="margin-top:20px">
-                                   <button class="cmn--btn form--control bg--base w-100 justify-content-center"
-                                    type="submit"><?php echo app('translator')->get('Search'); ?></button>
-                                </div>
                                 </form>
                             </div>
                         </div>
@@ -97,7 +82,7 @@
                     <div class="filter-in d-lg-none">
                         <i class="las la-filter"></i>
                     </div>
-                    <div class="book__wrapper bg--body border--dashed mb-4" style="background-color:#345742">
+                    <div class="book__wrapper bg--body border--dashed mb-4">
                         <form class="book--form row gx-3 gy-4 g-md-4" action="<?php echo e(route('vehicle.search')); ?>" method="get">
                             <div class="col-md-3 col-sm-4">
                                 <div class="form-group">
@@ -135,7 +120,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="row g-4 border--dashed">
+                    <div class="row g-4">
 
                         <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <div class="col-md-3">
@@ -148,7 +133,7 @@
                                     </div>
                                     <div class="rent__content">
                                         <h6 class="rent__title">
-                                            <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="las la-car"> <?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->name)); ?>)</a>
+                                           <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="las la-car"> <?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->name)); ?>)</a>
                                         </h6>
                                         <div class="price-area">
                                             <h5 class="item las la-dollar-sign"><?php echo e($general->cur_sym); ?><?php echo e(showAmount($vehicle->price)); ?> <sub>/<?php echo app('translator')->get('day'); ?></sub></h5>
@@ -157,15 +142,16 @@
                                             <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini"><?php echo e(__(@$vehicle->transmission)); ?></span></li>
                                             <li class="pr-3"><i class="las la-gas-pump"></i><span class="font-mini"><?php echo e(__(@$vehicle->fuel_type)); ?></span></li>
                                         </ul>
+                                        
 
-                                         <div class="row" style="margin-top:10px">
-       <div class="col-lg-6 col-md-4 col-sm-6">
+<div class="row" style="margin-top:10px">
+       <div class="col-lg-6 col-md-4">
                                           <div class="car__item__price">
-                                        <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center  hvr-sweep-to-right"
+                                        <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"
                                     type="submit" style="background-color:brwon"><?php echo app('translator')->get('More Details'); ?></a>
                                     </div>
                                 </div>
-                                   <div class="col-lg-6 col-md-4 col-sm-6">
+                                   <div class="col-lg-6 col-md-4">
                                       <div class="car__item__price">
 
                                            <div class="btn__grp">              
@@ -187,9 +173,6 @@
 
 
 
-
-
-
                                     </div>
                                 </div>
                             </div>
@@ -200,4 +183,30 @@
                 </div>
             </div>
         </div>
-    </div><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/sections/vehicle_rent.blade.php ENDPATH**/ ?>
+    </div>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startPush('script'); ?>
+    <script>
+        (function ($) {
+            "use strict";
+
+            $('.min_price').keypress(function (e) {
+                if (e.which == 13) {
+                    $('.priceForm').submit();
+                    return false;
+                }
+            });
+
+            $('.max_price').keypress(function (e) {
+                if (e.which == 13) {
+                    $('.priceForm').submit();
+                    return false;
+                }
+            });
+        })(jQuery);
+    </script>
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/vehicles/index.blade.php ENDPATH**/ ?>

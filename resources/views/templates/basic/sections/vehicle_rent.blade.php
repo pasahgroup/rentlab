@@ -97,7 +97,7 @@
                     <div class="filter-in d-lg-none">
                         <i class="las la-filter"></i>
                     </div>
-                    <div class="book__wrapper bg--body border--dashed mb-4">
+                    <div class="book__wrapper bg--body border--dashed mb-4" style="background-color:#345742">
                         <form class="book--form row gx-3 gy-4 g-md-4" action="{{ route('vehicle.search') }}" method="get">
                             <div class="col-md-3 col-sm-4">
                                 <div class="form-group">
@@ -148,28 +148,24 @@
                                     </div>
                                     <div class="rent__content">
                                         <h6 class="rent__title">
-                                            <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}">{{ __(@$vehicle->model) }}</a>
+                                            <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="las la-car"> {{ __(@$vehicle->model) }} ({{ __(@$vehicle->name) }})</a>
                                         </h6>
                                         <div class="price-area">
-                                            <h5 class="item">{{ $general->cur_sym }}{{ showAmount($vehicle->price) }} <sub>/@lang('day')</sub></h5>
+                                            <h5 class="item las la-dollar-sign">{{ $general->cur_sym }}{{ showAmount($vehicle->price) }} <sub>/@lang('day')</sub></h5>
                                         </div>
                                         <ul class="d-flex car-info">
-                                            <li class="pr-3"><i class="las la-car"></i><span class="font-mini">{{ __(@$vehicle->name) }}</span></li>
                                             <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini">{{ __(@$vehicle->transmission) }}</span></li>
                                             <li class="pr-3"><i class="las la-gas-pump"></i><span class="font-mini">{{ __(@$vehicle->fuel_type) }}</span></li>
                                         </ul>
-                                        
 
-<div class="row" style="margin-top:10px">
-
-                                <div class="col-lg-6 col-md-4">
+                                         <div class="row" style="margin-top:10px">
+       <div class="col-lg-6 col-md-4 col-sm-6">
                                           <div class="car__item__price">
-                                        <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center"
+                                        <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center  hvr-sweep-to-right"
                                     type="submit" style="background-color:brwon">@lang('More Details')</a>
                                     </div>
                                 </div>
-
-                                   <div class="col-lg-6 col-md-4">
+                                   <div class="col-lg-6 col-md-4 col-sm-6">
                                       <div class="car__item__price">
 
                                            <div class="btn__grp">              
@@ -182,9 +178,9 @@
 
                               
 
-                                 <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="booking-btn">@lang('Book Now')</a>
+                                 <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
                             @else
-                                <a href="{{ route('user.login') }}" class="booking-btn">@lang('Book Now')</a>
+                                <a href="{{ route('user.login') }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
                             @endauth
                         </div>
 
@@ -192,6 +188,9 @@
                                     </div>
                                 </div>
                                </div> 
+
+
+
 
 
 

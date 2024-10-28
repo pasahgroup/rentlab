@@ -7,37 +7,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>{{$title ?? 'ISOL Tours'}}</title>
-  <link rel="icon" type="image/png" href="../mold/assets/img/favicon.png" />
+  <title><?php echo e($title ?? 'Rhonds Company Ltd'); ?></title>
+  <link rel="icon" type="image/png" href="../../../mold/assets/img/favicon.png" />
 
-  <link rel="stylesheet" href="../mold/assets/css/min/bootstrap.min.css" media="all">
-  <link rel="stylesheet" href="../mold/assets/css/jqueryui.css" media="all">
-  <link rel="stylesheet" href="../mold/vendor/animate-css/animate.css" media="all">
-  <link rel="stylesheet" href="../mold/assets/font/iconfont/iconstyle.css" media="all">
-  <link rel="stylesheet" href="../mold/assets/font/font-awesome/css/font-awesome.css" media="all">
-  <link rel="stylesheet" href="../mold/assets/css/main.css" media="all" id="maincss">
+  <link rel="stylesheet" href="../../../mold/assets/css/min/bootstrap.min.css" media="all">
+  <link rel="stylesheet" href="../../../mold/assets/css/jqueryui.css" media="all">
+  <link rel="stylesheet" href="../../../mold/vendor/animate-css/animate.css" media="all">
+  <link rel="stylesheet" href="../../../mold/assets/font/iconfont/iconstyle.css" media="all">
+  <link rel="stylesheet" href="../../../mold/assets/font/font-awesome/css/font-awesome.css" media="all">
+  <link rel="stylesheet" href="../../../mold/assets/css/main.css" media="all" id="maincss">
 
 
-<link rel="stylesheet" href="../assetf/style.css">
- <link href="../../assets2/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
-<link href="../../assets2/corporate/css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="../../../assetf/style.css">
+ <link href="../../../assets2/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
+<link href="../../../assets2/corporate/css/style.css" rel="stylesheet">
 
   <!-- Custom -->
-  <link href="../../img_library/main.css" rel="stylesheet">
-    <link href="../../img_library/mform.css" rel="stylesheet">
-    <link href="../../css/mform.css" rel="stylesheet">
+  <link href="../../../img_library/main.css" rel="stylesheet">
+    <link href="../../../img_library/mform.css" rel="stylesheet">
+    <link href="../../../css/mform.css" rel="stylesheet">
  
   
 <!-- Custom css -->
- <link rel="stylesheet" href="../css/font621.min.css">
+ <link rel="stylesheet" href="../../../css/font621.min.css">
 
 <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
 <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-<link href="../../assets2/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
-<link href="../../assets2/pages/css/animate.css" rel="stylesheet">
+<link href="../../../assets2/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+<link href="../../../assets2/pages/css/animate.css" rel="stylesheet">
 
- <script src="../js/jquery361.min.js"></script>
- <script src="../custom/js/bootstrap.min.js"></script>
+ <script src="../../../js/jquery361.min.js"></script>
+ <script src="../../../custom/js/bootstrap.min.js"></script>
 
 
 
@@ -73,7 +73,7 @@
 
             <div class="col-lg-4 col-md-8 text-left">
                       <form  method="post"  action="#" enctype="multipart/form-data">
-                                  @csrf
+                                  <?php echo csrf_field(); ?>
                     <div class="input-group">
                         <input type="text" class="form-control" name="search" placeholder="search any keyword" required="">
                         <div class="input-group-append">
@@ -223,7 +223,7 @@
         </div>
     </header>
 
-     @yield('content')
+     <?php echo $__env->yieldContent('content'); ?>
 
   <!-- <footer id="footer"> -->
 
@@ -272,7 +272,7 @@
                         <h5 class="text-secondary text-uppercase mb-4">Contacts</h5>
                            
                            <div class="d-flex flex-column justify-content-start">
-                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Address:{{$contacts->address??'Arusha'}}</a>
+                            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Address:<?php echo e($contacts->address??'Arusha'); ?></a>
                             <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Contact No: (+255)753 216 263</a>
                             <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Email: info@isol.com</a>
                             <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Website: www.isol.com</a>
@@ -304,23 +304,23 @@
 
 
 
-  <script src="../mold/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="../mold/vendor/jqueryui/jquery-ui-1.10.3.custom.min.js"></script>
-  <script src="../mold/vendor/jquery.ui.touch-punch.min.js"></script>
-  <script src="../mold/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../../../mold/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="../../../mold/vendor/jqueryui/jquery-ui-1.10.3.custom.min.js"></script>
+  <script src="../../../mold/vendor/jquery.ui.touch-punch.min.js"></script>
+  <script src="../../../mold/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
-  <script src="../mold/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
-  <script src="../mold/vendor/owlcarousel/owl.carousel.min.js"></script>
-  <script src="../mold/vendor/retina.min.js"></script>
-  <script src="../mold/vendor/jquery.imageScroll.min.js"></script>
-  <script src="../mold/assets/js/min/responsivetable.min.js"></script>
-  <script src="../mold/assets/js/bootstrap-tabcollapse.js"></script>
+  <script src="../../../mold/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
+  <script src="../../../mold/vendor/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../../../mold/vendor/retina.min.js"></script>
+  <script src="../../../mold/vendor/jquery.imageScroll.min.js"></script>
+  <script src="../../../mold/assets/js/min/responsivetable.min.js"></script>
+  <script src="../../../mold/assets/js/bootstrap-tabcollapse.js"></script>
 
-  <script src="../mold/assets/js/min/countnumbers.min.js"></script>
-  <script src="../mold/assets/js/main.js"></script>
+  <script src="../../../mold/assets/js/min/countnumbers.min.js"></script>
+  <script src="../../../mold/assets/js/main.js"></script>
 
   <!-- Current Page JS -->
-  <script src="../mold/assets/js/min/home.min.js"></script>
+  <script src="../../../mold/assets/js/min/home.min.js"></script>
   <script>
     $(document).ready(function(){
             $('.equal-height > div').deasil_equalHeight();
@@ -348,15 +348,15 @@
 
     <script src="../assetf/js/bootstrap.min.js"></script>
               -->        
-    <script src="../assetf/js/plugins.js"></script>
-    <script src="../assetf/js/classy-nav.min.js"></script>
-    <script src="../assetf/js/jquery-ui.min.js"></script>
+    <script src="../../assetf/js/plugins.js"></script>
+    <script src="../../assetf/js/classy-nav.min.js"></script>
+    <script src="../../assetf/js/jquery-ui.min.js"></script>
       
-    <script src="../assetf/js/active.js"></script>
-     <script src="../assets2/js/main.js"></script> 
+    <script src="../../assetf/js/active.js"></script>
+     <script src="../../assets2/js/main.js"></script> 
 
 <!-- Custom Javascript -->
  <script src="../../img_library/scripts.js" type="text/javascript"></script>
   
 </body>
-</html>
+</html><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/layouts/frontend_new.blade.php ENDPATH**/ ?>

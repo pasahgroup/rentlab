@@ -1,5 +1,4 @@
-@extends($activeTemplate.'layouts.frontend')
-@section('content')
+<?php $__env->startSection('content'); ?>
 
      <section class="cart-page" style="padding:5px">
     <div class="container">
@@ -8,29 +7,32 @@
              <p><strong></strong></p>
            </div>        
 <div class="col-md-12">
-         @if($message = Session::get('success'))
+         <?php if($message = Session::get('success')): ?>
   <div class="alert alert-success">
     <button aria-label="Close" class="close" data-dismiss="alert" type="button">
     <span aria-hidden="true">&times;</span></button>
-    <strong>Well!: </strong> {{$message}}
-  </div>
-  @endif
+    <strong>Well!: </strong> <?php echo e($message); ?>
 
- @if($message = Session::get('info'))
+  </div>
+  <?php endif; ?>
+
+ <?php if($message = Session::get('info')): ?>
   <div class="alert alert-warning">
     <button aria-label="Close" class="close" data-dismiss="alert" type="button">
     <span aria-hidden="true">&times;</span></button>
-    <strong>Ops!: </strong> {{$message}}
-  </div>
-  @endif   
+    <strong>Ops!: </strong> <?php echo e($message); ?>
 
- @if($message = Session::get('error'))
+  </div>
+  <?php endif; ?>   
+
+ <?php if($message = Session::get('error')): ?>
   <div class="alert alert-danger">
     <button aria-label="Close" class="close" data-dismiss="alert" type="button">
     <span aria-hidden="true">&times;</span></button>
-    <strong>Sorry!: </strong> {{$message}}
+    <strong>Sorry!: </strong> <?php echo e($message); ?>
+
   </div>
-  @endif
+  <?php endif; ?>
 </div>
 
 
@@ -39,15 +41,15 @@
         <em>Booking Costs Summary</em>
           <em><b>(Please finish Payment to complete you are booking)</b></em>
          
-             <p><em>(From date {{date("d-M-Y", strtotime($times->pick_time)) }} to {{date("d-M-Y", strtotime($times->drop_time)) }})</em></p>
+             <p><em>(From date <?php echo e(date("d-M-Y", strtotime($times->pick_time))); ?> to <?php echo e(date("d-M-Y", strtotime($times->drop_time))); ?>)</em></p>
 </div>
 <div class="col-sm-2">  
-                               <form  method="get"  action="{{ route('user.pc',1) }}" enctype="multipart/form-data">
-                             @csrf
+                               <form  method="get"  action="<?php echo e(route('user.pc',1)); ?>" enctype="multipart/form-data">
+                             <?php echo csrf_field(); ?>
     <input type="hidden" name="_method" value="put">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
-             <input type="hidden" name="bookingID" value="{{$times->booking_id}}">       
+             <input type="hidden" name="bookingID" value="<?php echo e($times->booking_id); ?>">       
              <button type="submit" class="btn btn-primary float-right">Add Car</button>         
 </form>   
 
@@ -71,26 +73,30 @@
             <tbody>
               
             
-@foreach($datas as $data)
+<?php $__currentLoopData = $datas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
   <tr>
                 <td>
-              {{$data->model_name}}
+              <?php echo e($data->model_name); ?>
+
                 </td>
                 <td>
-               {{number_format($data->price,2)}}
+               <?php echo e(number_format($data->price,2)); ?>
+
                 </td>
                 <td>
- {{number_format($data->discount,2)}}               
+ <?php echo e(number_format($data->discount,2)); ?>               
                 </td>
                 <td>
-                    {{$data->no_car}}
+                    <?php echo e($data->no_car); ?>
+
                 </td>
                 <td>
-                    {{$data->no_day}}
+                    <?php echo e($data->no_day); ?>
+
                 </td>
-                <td class="price">{{number_format($data->price,2)}} </td>
+                <td class="price"><?php echo e(number_format($data->price,2)); ?> </td>
                 </tr>
-                @endforeach           
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>           
             </tbody>
           </table>
         </div>
@@ -118,7 +124,8 @@
                   Sub total
                 </td>
                 <td class="price">
-                 {{number_format($totals->total_cost,2)}}
+                 <?php echo e(number_format($totals->total_cost,2)); ?>
+
                 </td>
               </tr>              
 
@@ -127,7 +134,8 @@
                   Discount
                 </td>
                 <td class="price">
-             {{number_format($totals->discount,2)}}
+             <?php echo e(number_format($totals->discount,2)); ?>
+
                 </td>
               </tr>
 
@@ -136,25 +144,27 @@
                   VAT total
                 </td>
                 <td class="price">
-                 {{number_format($totals->VAT,2)}}
+                 <?php echo e(number_format($totals->VAT,2)); ?>
+
                 </td>
               </tr>
               <tr>
                 <td class="price">Grand Total</td>
                 <td class="price">
-                {{number_format($totals->Grant_total,2)}}
+                <?php echo e(number_format($totals->Grant_total,2)); ?>
+
                 </td>
               </tr>
 
- <form  method="post"  action="{{ route('user.payConfirm',2) }}" enctype="multipart/form-data">
-          @csrf
+ <form  method="post"  action="<?php echo e(route('user.payConfirm',2)); ?>" enctype="multipart/form-data">
+          <?php echo csrf_field(); ?>
               <tr class="total">
-                       <input type="text" name="total_cost" value="{{$data->Grant_total}}"/> 
+                       <input type="text" name="total_cost" value="<?php echo e($data->Grant_total); ?>"/> 
                 <td class="price"></td>
                 <td>
-                    <input type="text" name="amount" id="amount" value="{{$data->Grant_total}}"/>Down Payment must not below 30% of total booking costs.
+                    <input type="text" name="amount" id="amount" value="<?php echo e($data->Grant_total); ?>"/>Down Payment must not below 30% of total booking costs.
 
-                    <input type="text" name="amount" id="amount" value="{{$data->Grant_total}}"/>Down Payment must not below 30% of total booking costs.
+                    <input type="text" name="amount" id="amount" value="<?php echo e($data->Grant_total); ?>"/>Down Payment must not below 30% of total booking costs.
                 </td>
               </tr>
             </table>
@@ -236,7 +246,7 @@
              
 
                 <form id="msform"  method="post"  action="#" class="registration-form">
-                    @csrf
+                    <?php echo csrf_field(); ?>
                    
                <!-- progressbar -->
                     <ul id="progressbar">
@@ -452,14 +462,14 @@
       </div>                
   </section>
  
-@endsection
-@push('style')
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/datepicker.min.css')}}">
-@endpush
+<?php $__env->stopSection(); ?>
+<?php $__env->startPush('style'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/datepicker.min.css')); ?>">
+<?php $__env->stopPush(); ?>
 
-@push('script')
-    <script src="{{asset($activeTemplateTrue.'js/datepicker.min.js')}}"></script>
-    <script src="{{asset($activeTemplateTrue.'js/datepicker.en.js')}}"></script>
+<?php $__env->startPush('script'); ?>
+    <script src="<?php echo e(asset($activeTemplateTrue.'js/datepicker.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'js/datepicker.en.js')); ?>"></script>
      <script src="../../assetff/js/jquery/jquery-2.2.4.min.js"></script>
      
     <script>
@@ -469,7 +479,7 @@
             language: 'en',
             onSelect: function (fd, d, picker) {
                 var pick_time = fd;
-                var price = parseFloat("{{ $vehicle->price }}");
+                var price = parseFloat("<?php echo e($vehicle->price); ?>");
                  $('.total_days').text(1);
                  var no_car = $('#no_car').val();
                  
@@ -520,6 +530,8 @@ if(no_car>0)
             }
         })
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
 
 
+
+<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/user/pesapal/pesapal.blade.php ENDPATH**/ ?>

@@ -12,16 +12,19 @@ $token = $params = null;
 // testing. When you are ready to go live make sure you change the key to the
 // live account registered on www.pesapal.com
 
- // $consumer_key = '6JdMvJRXbriqxfNmysvgcD0rGCjefFN3';
+  $consumer_key = 'TsVRVlvOyz1EJrpgGzwkrwHC6+LpOeKY';
 // $consumer_key = 'xN2px0DCDBvE9cIr+zEK2fH00/sRjTJW';
-$consumer_key = '6JdMvJRXbriqxfNmysvgcD0rGCjefFN3';
+//$consumer_key = '6JdMvJRXbriqxfNmysvgcD0rGCjefFN3'; palatial
 
 // Use the secret from your test account on demo.pesapal.com. When you are ready
 // to go live make sure you  change the secret to the live account registered on
 // www.pesapal.com
- // $consumer_secret = 'jy3XgaKw9nK0Pwr2+nllq0/KTu4=';
+
+  $consumer_secret = 'pUTTzCd7kR4hCmpaTYi3shymlhE=';
 // $consumer_secret = 'z3pein/v6RLsbAhyuC1zHffXahg=';
-$consumer_secret = 'jy3XgaKw9nK0Pwr2+nllq0/KTu4=';
+//$consumer_secret = 'jy3XgaKw9nK0Pwr2+nllq0/KTu4=';  Palatial
+
+
 
 // Change this to https://www.pesapal.com/API/PostPesapalDirectOrderV4 when you
 // are ready to go live

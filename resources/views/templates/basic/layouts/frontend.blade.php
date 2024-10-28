@@ -9,42 +9,91 @@
     <title> {{ $general->sitename(__($pageTitle)) }}</title>
     @include('partials.seo')
 
+
+<style type="text/css">
+    
+    .booking-btn {
+  border: 0px solid #647545;
+  padding: 5px 30px;
+  color:#fff;
+  display: block;  
+  /*background-color: #3f403d;*/
+  /*background-color: #2e4432;*/
+  background-color: #2e4432;
+  transition: all ease-in-out 0.5s;
+  -webkit-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 30px;
+}
+
+ .header-btn {
+  border: 0px solid #647545;
+  padding: 1px 2px;
+  color:#fff;
+  display: block;  
+  /*background-color: #3f403d;*/
+  /*background-color: #2e4432;*/
+  background-color: #2e4432;
+  transition: all ease-in-out 0.5s;
+  -webkit-transition: all ease-in-out 0.5s;
+  -moz-transition: all ease-in-out 0.5s;
+  -ms-transition: all ease-in-out 0.5s;
+  -o-transition: all ease-in-out 0.5s;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 30px;
+}
+</style>
+
+
+
+
+
+
+
     <!-- Custom css -->
-   <link rel="icon" type="image/png" href="../mold/assets/img/favicon.png" />
- <link rel="stylesheet" href="../../mold/assets/css/min/bootstrap.min.css" media="all">
-  <link rel="stylesheet" href="../../mold/assets/css/jqueryui.css" media="all">
-  <link rel="stylesheet" href="../../mold/vendor/animate-css/animate.css" media="all">
-  <link rel="stylesheet" href="../../mold/assets/font/iconfont/iconstyle.css" media="all">
-  <link rel="stylesheet" href="../../mold/assets/font/font-awesome/css/font-awesome.css" media="all">
+   <link rel="icon" type="image/png" href="../../../mold/assets/img/favicon.png" />
+ <link rel="stylesheet" href="../../../mold/assets/css/min/bootstrap.min.css" media="all">
+  <link rel="stylesheet" href="../../../mold/assets/css/jqueryui.css" media="all">
+  <link rel="stylesheet" href="../../../mold/vendor/animate-css/animate.css" media="all">
+  <link rel="stylesheet" href="../../../mold/assets/font/iconfont/iconstyle.css" media="all">
+  <link rel="stylesheet" href="../../../mold/assets/font/font-awesome/css/font-awesome.css" media="all">
   <link rel="stylesheet" href="../../../mold/assets/css/main.css" media="all" id="maincss">
 
 
-<link rel="stylesheet" href="../assetf/style.css">
- <link href="../../assets2/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
-<link href="../../assets2/corporate/css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="../../../assetf/style.css">
+ <link href="../../../assets2/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
+<link href="../../../assets2/corporate/css/style.css" rel="stylesheet">
 
   <!-- Custom -->
-  <link href="../../img_library/main.css" rel="stylesheet">
-    <link href="../../img_library/mform.css" rel="stylesheet">
-    <link href="../../css/mform.css" rel="stylesheet">
+  <link href="../../../img_library/main.css" rel="stylesheet">
+    <link href="../../../img_library/mform.css" rel="stylesheet">
+    <link href="../../../css/mform.css" rel="stylesheet">
    
 <!-- Custom css -->
- <link rel="stylesheet" href="../../css/font621.min.css">
+ <link rel="stylesheet" href="../../../css/font621.min.css">
 
-<link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-<link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-<link href="../../assets2/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
-<link href="../../assets2/pages/css/animate.css" rel="stylesheet">
+<link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
+<link href="../../../assets2/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+<link href="../../../assets2/pages/css/animate.css" rel="stylesheet">
 
- <script src="../../js/jquery361.min.js"></script>
- <script src="../../custom/js/bootstrap.min.js"></script>
+ <script src="../../../js/jquery361.min.js"></script>
+ <script src="../../../custom/js/bootstrap.min.js"></script>
 
 
    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/iconfont/iconstyle.css')}}">
      <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/vendor/animate-css/animate.css')}}">
        <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/font-awesome/css/font-awesome.css')}}">
          <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/css/main.css')}}">
-
 
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/line-awesome.min.css')}}">
@@ -94,7 +143,7 @@
 </head>
 
 <div class="container top-header-area" style="background:yellow;padding:1px">
-         <div class="align-items-center py-1 px-xl-5 d-lg-flex" style="background-color:#51934f;margin-top:0px;margin-bottom:0px;">
+         <div class="align-items-center px-xl-5 d-lg-flex" style="background-color:#51934f;margin-top:0px;margin-bottom:0px;">
               <div class="col-lg-4 col-md-4">
                 <a href="" class="text-decoration-none">
                     <span class="h3 text-primary bg-dark px-2">Rhonds</span>
@@ -117,20 +166,11 @@
 
         <div class="col-lg-3 col-md-4 text-right">
 <!-- btn btn-primary btn-square mr-2 -->
-                      <a href="#"  class="btn btn-outline btn-primary"><i class="fab fa-twitter"></i></a>
-      <a href="#"  class="btn btn-outline btn-primary" href=""><i class="fab fa-facebook-f"></i></a>
-          <a href="#"  class="btn btn-outline btn-primary"><i class="fab fa-linkedin-in"></i></a>
-           <a href="#"  class="btn btn-outline btn-primary"><i class="fab fa-instagram"></i></a>
-
+                      <a href="#"  class="btn btn-outline btn-primary"  style="margin-bottom:0px;padding:2px 5px;"><i class="fab fa-twitter"></i></a>
+      <a href="#"  class="btn btn-outline btn-primary" href=""  style="margin-bottom:0px;padding:2px 5px;"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"  class="btn btn-outline btn-primary"  style="margin-bottom:0px;padding:2px 5px;"><i class="fab fa-linkedin-in"></i></a>
+           <a href="#"  class="btn btn-outline btn-primary"  style="margin-bottom:0px;padding:2px 5px;"><i class="fab fa-instagram"></i></a>
             </div>
-            <div class="col-lg-2 col-md-4 text-right">
-                    <select class="langSel language-select ms-3">
-                        @foreach($language as $item)
-                            <option value="{{$item->code}}"
-                                    @if(session('lang') == $item->code) selected @endif>{{ __($item->name) }}</option>
-                        @endforeach
-                    </select>
-                </div>
         </div>
     </div>
      <header class="header-area">
@@ -203,27 +243,37 @@
 
 
 
+  <!-- <li><a href="#">Account</a>
+                                    <ul class="dropdown">
+                                        <li><a href="{{ route('blogs') }}">Blog</a></li>    
+                                        <li><a href="#">Galleries (Comming soon---)</a></li>
+                                        <li><a href="#">Opportunities (Comming soon---)</a></li>
+                                    </ul>
+                                </li> -->
+
+
+
   <li><a href="#" class="las la-user float-right">Account</a>
                                     <ul class="dropdown">                         
  @auth
                     
-                    <div class="header-top-item meta-list">
+                    <li class="header-top-item meta-list">
                 <a href="Mailto:{{ getContent('contact.content', true)->data_values->email }}"><i class="lar la-envelope"></i>{{ getContent('contact.content', true)->data_values->email }}</a>
-            </div>
-                     <div class="header-top-item ml-sm-auto">
+            </li>
+                     <li class="header-top-item ml-sm-auto">
                         <a href="{{ route('user.home') }}"><i class="las la-tachometer-alt"></i>@lang('Dashboard')</a>
-                    </div>
+                    </li>
 
-                    <div class="header-top-item">
+                    <li class="header-top-item">
                         <a href="{{ route('user.logout') }}"><i class="las la-sign-out-alt"></i>@lang('Logout')</a>
-                    </div>
+                    </li>
                 @else
-                    <div class="header-top-item ml-sm-auto">
+                    <li class="header-top-item ml-sm-auto">
                         <a href="{{ route('user.login') }}"><i class="las la-user"></i>@lang('Login')</a>
-                    </div>
-                    <div class="header-top-item">
+                    </li>
+                    <li class="header-top-item">
                         <a href="{{ route('user.register') }}"><i class="las la-user-plus"></i>@lang('Register')</a>
-                    </div>
+                    </li>
                 @endauth
 
 
@@ -231,6 +281,21 @@
                                     </ul>
                                 </li>
                             
+
+                            <li><a href="#" class="las Plan-booking float-right"><strong style="color:yellow;">Language</strong></a>
+                                    <ul class="dropdown">
+                   
+                        <select class="langSel language-select ms-3">
+                        @foreach($language as $item)
+                            <option value="{{$item->code}}"
+                                    @if(session('lang') == $item->code) selected @endif>{{ __($item->name) }}</option>
+                        @endforeach
+                    </select>         
+
+
+
+                                    </ul>
+                                </li>
 
     </ul>
 
@@ -324,7 +389,7 @@
   <script src="{{asset($activeTemplateTrue.'custom/lib/jquery/jquery.min.js')}}"></script>
   <script src="{{asset($activeTemplateTrue.'custom/lib/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.js')}}"></script>
-  <!-- <script src="{{asset($activeTemplateTrue.'custom/cjs/main.js')}}"></script> -->
+  <script src="{{asset($activeTemplateTrue.'custom/cjs/main.js')}}"></script>
 
 <script>
     $( function() {
@@ -393,23 +458,27 @@
 
 
 <!-- Custom library -->
-  <script src="../../mold/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="../../mold/vendor/jqueryui/jquery-ui-1.10.3.custom.min.js"></script>
-  <script src="../../mold/vendor/jquery.ui.touch-punch.min.js"></script>
-  <script src="../../mold/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+ <!--  <script src="../../../mold/vendor/jquery/dist/jquery.min.js"></script>
+  <script src="../../../mold/vendor/jqueryui/jquery-ui-1.10.3.custom.min.js"></script> -->
 
-  <script src="../../mold/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
-  <script src="../../mold/vendor/owlcarousel/owl.carousel.min.js"></script>
-  <script src="../../mold/vendor/retina.min.js"></script>
-  <script src="../../mold/vendor/jquery.imageScroll.min.js"></script>
-  <script src="../../mold/assets/js/min/responsivetable.min.js"></script>
-  <script src="../../mold/assets/js/bootstrap-tabcollapse.js"></script>
 
-  <script src="../../mold/assets/js/min/countnumbers.min.js"></script>
-  <script src="../../mold/assets/js/main.js"></script>
+  <script src="../../../mold/vendor/jquery.ui.touch-punch.min.js"></script>
+  <script src="../../../mold/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script src="../../../mold/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
+  <script src="../../../mold/vendor/owlcarousel/owl.carousel.min.js"></script>
+
+  <script src="../../../../mold/vendor/retina.min.js"></script>
+
+  <script src="../../../mold/vendor/jquery.imageScroll.min.js"></script>
+  <script src="../../../mold/assets/js/min/responsivetable.min.js"></script>
+  <script src="../../../mold/assets/js/bootstrap-tabcollapse.js"></script>
+
+  <script src="../../../mold/assets/js/min/countnumbers.min.js"></script>
+  <script src="../../../mold/assets/js/main.js"></script>
 
   <!-- Current Page JS -->
-  <script src="../../mold/assets/js/min/home.min.js"></script>
+  <script src="../../../mold/assets/js/min/home.min.js"></script>
   <script>
     $(document).ready(function(){
             $('.equal-height > div').deasil_equalHeight();
@@ -423,23 +492,16 @@
   </script>
 
 
-
-
-
-    <!-- Popper js -->
-<!--     <script src="../assetf/js/popper.min.js"></script>
-
-    <script src="../assetf/js/bootstrap.min.js"></script>
-              -->        
-    <script src="../../assetf/js/plugins.js"></script>
-    <script src="../../assetf/js/classy-nav.min.js"></script>
-    <script src="../../assetf/js/jquery-ui.min.js"></script>
+       
+    <script src="../../../assetf/js/plugins.js"></script>
+    <script src="../../../assetf/js/classy-nav.min.js"></script>
+    <script src="../../../assetf/js/jquery-ui.min.js"></script>
       
-    <script src="../../assetf/js/active.js"></script>
-     <script src="../../assets2/js/main.js"></script> 
+    <script src="../../../assetf/js/active.js"></script>
+     <script src="../../../assets2/js/main.js"></script> 
 
 <!-- Custom Javascript -->
- <script src="../../img_library/scripts.js" type="text/javascript"></script>
+ <script src="../../../img_library/scripts.js" type="text/javascript"></script>
   
 </body>
 </html>

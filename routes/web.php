@@ -492,6 +492,7 @@ Route::get('vehicle/details/{id}/{slug}', 'VehicleController@vehicleDetails')->n
 Route::get('vehicle/booking/{id}/{slug}', 'VehicleController@vehicleBooking')->name('vehicle.booking');
 
 Route::post('vehicle/booking/confirm/{id}', 'VehicleController@vehicleBookingConfirm')->name('vehicle.booking.confirm');
+
 Route::get('vehicle/search', 'VehicleController@vehicleSearch')->name('vehicle.search');
 Route::get('vehicle/search/brand/{brand_id}/{slug}', 'VehicleController@brandVehicles')->name('vehicle.brand');
 Route::get('vehicle/search/{seat_id}/seater', 'VehicleController@seaterVehicles')->name('vehicle.seater');

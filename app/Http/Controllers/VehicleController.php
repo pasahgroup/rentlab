@@ -123,8 +123,6 @@ if(request('carModel')!=null)
     }
 
 
-
-
     public function vehicleBookingConfirm(Request $request, $id)
     {
 //dd(request('bookingID'));

@@ -52,7 +52,8 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-6">                              
+
+                            <div class="col-md-6 col-sm-6">                            
                                     <label for="drop-point" class="form--label">
                                         <i class="las la-street-view"></i> @lang('Drop of Point')
                                     </label>
@@ -77,9 +78,8 @@
                                 </div>
                             </div>    
 
-
-                             
-                            <div class="col-md-6 col-sm-6">
+                         
+                           <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label for="start-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> @lang('From Date')
@@ -87,6 +87,7 @@
                                     <input type="text" name="pick_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
                                 </div>
                             </div>
+
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label for="end-date" class="form--label">
