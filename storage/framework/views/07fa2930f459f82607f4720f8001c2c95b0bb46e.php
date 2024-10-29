@@ -38,9 +38,9 @@
     color:#ffffff;
     font-family:Arial;
     font-size:17px;
-    padding:4px 16px;
+    padding:2px 16px;
     text-decoration:none;
-    text-shadow:0px 1px 0px #2f6627;
+    text-shadow:0px 1px 0px #2B2E31;
 }
 .myButton:hover {
     background-color:#5cbf2a;
@@ -221,9 +221,9 @@
                                     </div>
                                 </div>
                                    <div class="col-lg-6 col-md-4 col-sm-6">
-                                      <div class="car__item__price">
+                                      <div class="">
 
-                                           <div class="btn__grp">              
+                                           <div class="">              
                                              <?php if(auth()->guard()->check()): ?>
                              
                           
