@@ -30,15 +30,15 @@
 
   <style type="text/css">
       .myButton {
-    background-color:#44c767;
-    border-radius:28px;
-    border:1px solid #18ab29;
+    background-color:#6F6761;
+    border-radius:10px;
+    border:0px solid #18ab29;
     display:inline-block;
     cursor:pointer;
     color:#ffffff;
     font-family:Arial;
     font-size:17px;
-    padding:2px 16px;
+    padding:3px 16px;
     text-decoration:none;
     text-shadow:0px 1px 0px #2B2E31;
 }
@@ -221,9 +221,9 @@
                                     </div>
                                 </div>
                                    <div class="col-lg-6 col-md-4 col-sm-6">
-                                      <div class="">
+                                      <div class="car__item__price">
 
-                                           <div class="">              
+                                           <div class="btn__grp">              
                                              <?php if(auth()->guard()->check()): ?>
                              
                           
