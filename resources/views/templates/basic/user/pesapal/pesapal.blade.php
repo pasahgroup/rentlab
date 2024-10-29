@@ -8,7 +8,7 @@
              <p><strong></strong></p>
            </div>        
 <div class="col-md-12">
-         @if($message = Session::get('success'))
+    @if($message = Session::get('success'))
   <div class="alert alert-success">
     <button aria-label="Close" class="close" data-dismiss="alert" type="button">
     <span aria-hidden="true">&times;</span></button>
@@ -42,12 +42,12 @@
              <p><em>(From date {{date("d-M-Y", strtotime($times->pick_time)) }} to {{date("d-M-Y", strtotime($times->drop_time)) }})</em></p>
 </div>
 <div class="col-sm-2">  
-                               <form  method="get"  action="{{ route('user.pc',1) }}" enctype="multipart/form-data">
+        <form  method="get"  action="{{ route('user.pc',1) }}" enctype="multipart/form-data">
                              @csrf
     <input type="hidden" name="_method" value="put">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-             <input type="hidden" name="bookingID" value="{{$times->booking_id}}">       
+        <input type="hidden" name="bookingID" value="{{$times->booking_id}}">       
              <button type="submit" class="btn btn-primary float-right">Add Car</button>         
 </form>   
 
@@ -97,6 +97,7 @@
       
         <div class="row">
           <div class="col-sm-6">
+
           <!--   <div class="form-group col-md-8 col-sm-10">
               <label>Have a Promotional Code</label>
               <div class="input-group">
@@ -140,28 +141,25 @@
                 </td>
               </tr>
               <tr>
+
                 <td class="price">Grand Total</td>
                 <td class="price">
                 {{number_format($totals->Grant_total,2)}}
                 </td>
               </tr>
 
- <form  method="post"  action="{{ route('user.payConfirm',2) }}" enctype="multipart/form-data">
+ <form  method="post"  action="{{ route('user.payConfirm',$times->booking_id) }}" enctype="multipart/form-data">
           @csrf
               <tr class="total">
-                       <input type="text" name="total_cost" value="{{$data->Grant_total}}"/> 
-                <td class="price"></td>
-                <td>
-                    <input type="text" name="amount" id="amount" value="{{$data->Grant_total}}"/>Down Payment must not below 30% of total booking costs.
-
-                    <input type="text" name="amount" id="amount" value="{{$data->Grant_total}}"/>Down Payment must not below 30% of total booking costs.
+                <td class="price"> <input type="text" name="amount" value=" {{number_format($totals->Grant_total,2)}}"></td>
+                <td>Down Payment must not below 30% of total booking costs. {{$data->total_cost}}
                 </td>
-              </tr>
-            </table>
+              </tr>       
+            </table>  
  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
    <label class="fieldlabels">Select Currency: *</label>
-                          <input class="form-control" list="currencies" name="currency" id="currency" required>
-    <datalist id="currencies">
+
+    <select id="currency" name="currency" required>
          <option value="" selected></option>
                         <option value="KES">KES</option>
                           <option value="USD">USD</option>
@@ -169,10 +167,10 @@
                               <option value="GBP">GBP</option>
                                 <option value="UGX">UGX</option>
 
-                                 <option value="TZS">TZS</option>
+                                 <option value="TZS" selected>TZS</option>
                                   <option value="ZMW">ZMW</option>
                                    <option value="RWF">RWF</option>
-    </datalist> 
+    </select> 
                         </div>
 
           </div>
@@ -183,8 +181,7 @@
                         </div>
                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <input type="hidden" name="last_name" value="" /> 
-                        </div>
-  
+                        </div> 
                         
 
                           <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
@@ -196,6 +193,7 @@
                
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">   <input type="hidden" name="email" value="" /> 
                         </div>
+
                         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                        <input type="hidden" name="desc" value="" /> 
                         </div>
@@ -203,18 +201,14 @@
                        <input type="hidden" name="percent_downpayment" value="" id="percent_downpayment" /> 
                         </div>
 
-                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                       
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">                      
                             <input type="hidden" name="desc" value="" /> 
                         </div>
 
-
         <div class="clearfix">          
-         <button href="/payConfirm/" class="btn btn-success pull-right hvr-sweep-to-right" type="submit">Proceed</button>        
+         <button class="btn btn-success pull-right hvr-sweep-to-right" type="submit">Proceed</button>        
         </div>
       </form>
-
-
 
 
 <div class="modal fade modal-book-now" id="bookNow" tabindex="-1" role="dialog" style="margin-top:50px;">
@@ -260,11 +254,10 @@
                             </div> 
                            
 
- <div class="form-group">
-              
+ <div class="form-group">             
                             
-             <input type="hidden" class="form-control" name="tour_name" value="#">
-            <input type="hidden" class="form-control" name="currency" value="#">
+        <input type="hidden" class="form-control" name="tour_name" value="#">
+        <input type="hidden" class="form-control" name="currency" value="#">
         </div>
 
 

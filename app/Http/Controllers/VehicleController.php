@@ -407,7 +407,6 @@ else{
     public function payConfirm(Request $request,$id)
     {   
 
-
 $amount_percent=request('percent_downpayment')*request('total_cost');
 
 if(request('amount')<$amount_percent)
@@ -421,9 +420,12 @@ $response_json = file_get_contents($req_url);
 
 //dd($response_json);
 // Continuing if we got a result
+
+
 if(false !== $response_json) {
 
-    // Try/catch for json_decode operation
+// $amount = remove_format(request('amount'));
+$amount = preg_replace("/[^0-9\.]/", "",request('amount'));
     try {
     // Decoding
     $response_object = json_decode($response_json);
@@ -433,8 +435,9 @@ $desc=request('desc');
 $email=request('email');
 $phone=request('phone');
 
+$reference=$id;
 $type=request('type');
-$amount=request('amount');
+$amount=$amount;
 $currency=request('currency');
 $status=1;
 
@@ -462,7 +465,7 @@ $base_price=($response_object->rates->TZS/$response_object->rates->$currency);
  //return response()->json(['url' => redirect('https://payments.pesapal.com/palatialtours',compact(['first_name','status']));
 //return redirect('https://payments.pesapal.com/palatialtours',compact('status'));
 $pageTitle="Payment";
-return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('first_name','last_name','currency','to_bepaid','desc','email','phone','type','pageTitle'));  
+return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('first_name','last_name','currency','to_bepaid','desc','email','phone','reference','type','pageTitle'));  
 
     }
 
