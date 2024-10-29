@@ -406,10 +406,10 @@ else{
 
     public function payConfirm(Request $request,$id)
     {   
-
+$amount = preg_replace("/[^0-9\.]/", "",request('amount'));
 $amount_percent=request('percent_downpayment')*request('total_cost');
 
-if(request('amount')<$amount_percent)
+if($amount<$amount_percent)
 {
  return redirect()->back()->with('error','Down Payment must not below 30% of total booking costs.');
 }
@@ -425,7 +425,7 @@ $response_json = file_get_contents($req_url);
 if(false !== $response_json) {
 
 // $amount = remove_format(request('amount'));
-$amount = preg_replace("/[^0-9\.]/", "",request('amount'));
+
     try {
     // Decoding
     $response_object = json_decode($response_json);
