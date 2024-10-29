@@ -1,3 +1,57 @@
+  <style type="text/css">
+      
+     .btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+ /* font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;*/
+/*  padding: 10px 10px 10px 10px;*/
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+} 
+  </style>
+
+  <style type="text/css">
+      .myButton {
+    background-color:#44c767;
+    border-radius:28px;
+    border:1px solid #18ab29;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:17px;
+    padding:4px 16px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+    background-color:#5cbf2a;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+  </style>
+
+
   <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side"><?php echo app('translator')->get('Rent'); ?></div>
         <div class="shape"><?php echo app('translator')->get('Vehicles'); ?></div>
@@ -162,7 +216,7 @@
                                          <div class="row" style="margin-top:10px">
        <div class="col-lg-6 col-md-4 col-sm-6">
                                           <div class="car__item__price">
-                                        <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center  hvr-sweep-to-right"
+                                        <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="myButton"
                                     type="submit" style="background-color:brwon"><?php echo app('translator')->get('More Details'); ?></a>
                                     </div>
                                 </div>
