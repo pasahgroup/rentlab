@@ -13,7 +13,7 @@ class Vehicle extends Model
     protected $casts = [
           'car_body_type_id',
           'tag_id',
-          'model_no',
+          'car_model_no',
         'images' => 'object',
         'specifications' => 'object',
     ];
