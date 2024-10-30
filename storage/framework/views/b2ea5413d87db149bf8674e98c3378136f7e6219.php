@@ -4,6 +4,8 @@
         <div class="col-lg-12">
             <div class="card b-radius--10 ">
                 <div class="card-body p-0">
+                    <?php echo e($vehicles); ?>
+
                     <div class="table-responsive--sm table-responsive">
                         <table class="table table--light tabstyle--two">
                             <thead>                                
@@ -25,7 +27,7 @@
 
                             <tbody>
                             <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                <tr>
+                                <tr>                                    
                                     <td data-label="<?php echo app('translator')->get('Name'); ?>"><strong><?php echo e(__($item->name)); ?></strong></td>
                                     <td data-label="<?php echo app('translator')->get('Brand'); ?>"><?php echo e(__($item->brand->name)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Car Body Type'); ?>"><?php echo e(__($item->car_body_type_id)); ?></td>
@@ -33,8 +35,8 @@
 
                                     <td data-label="<?php echo app('translator')->get('Seat Type'); ?>"><?php echo e(__($item->seater->number)); ?> <?php echo app('translator')->get('Seater'); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Price'); ?>"><strong><?php echo e($general->cur_sym); ?><?php echo e(__(showAmount($item->price))); ?></strong></td>
-                                    <td data-label="<?php echo app('translator')->get('Model'); ?>"><?php echo e(__($item->model)); ?></td>
-                                     <td data-label="<?php echo app('translator')->get('Model No'); ?>"><?php echo e(__($item->model_no)); ?></td>
+                                    <td data-label="<?php echo app('translator')->get('Model'); ?>"><?php echo e(__($item->brand->model)); ?></td>
+                                     <td data-label="<?php echo app('translator')->get('Model No'); ?>"><?php echo e(__($item->car_model_no)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Transmission'); ?>"><?php echo e(__($item->transmission)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Fuel'); ?>"><?php echo e(__($item->fuel_type)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Status'); ?>">
