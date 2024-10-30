@@ -21,7 +21,7 @@ class VehicleController extends Controller
 {
     public function index()
     {
-        $vehicles = Vehicle::with(['brand', 'seater'])->latest()->paginate(getPaginate(15));
+        $vehicles = Vehicle::with(['brand', 'seater','cartype'])->latest()->paginate(getPaginate(15));
         $tags = Tag::where('status',1)->get();      
       
       //dd($vehicles);

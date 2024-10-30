@@ -4,6 +4,7 @@
         <div class="col-lg-12">
             <div class="card b-radius--10 ">
                 <div class="card-body p-0">
+
                     <div class="table-responsive--sm table-responsive">
                         <table class="table table--light tabstyle--two">
                             <thead>                                
