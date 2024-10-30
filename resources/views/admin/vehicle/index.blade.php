@@ -33,7 +33,7 @@
 
                                     <td data-label="@lang('Seat Type')">{{ __($item->seater->number) }} @lang('Seater')</td>
                                     <td data-label="@lang('Price')"><strong>{{ $general->cur_sym }}{{ __(showAmount($item->price)) }}</strong></td>
-                                    <td data-label="@lang('Model')">{{ __($item->brand->model) }}</td>
+                                    <td data-label="@lang('Model')">{{ __($item->model) }}</td>
                                      <td data-label="@lang('Model No')">{{ __($item->car_model_no) }}</td>
                                     <td data-label="@lang('Transmission')">{{ __($item->transmission) }}</td>
                                     <td data-label="@lang('Fuel')">{{ __($item->fuel_type) }}</td>
