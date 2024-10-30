@@ -9,7 +9,7 @@ use App\Models\Page;
 use App\Models\Plan;
 use App\Models\PlanLog;
 use App\Models\Cartype;
-use App\Models\tag;
+use App\Models\Tag;
 
 use App\Models\Subscriber;
 use App\Models\SupportAttachment;
@@ -50,7 +50,7 @@ $carbodytypes = cartype::orderby('car_body_type')
 ->groupBy('car_body_type')
 ->get();
 
-$carTags = tag::orderby('tag')
+$carTags = Tag::orderby('tag')
 ->groupBy('tag')
 ->get();
 
@@ -150,7 +150,7 @@ public function show(Request $request,$id)
     $metavehicles = collect($metaVehicles);
    //dd($metavehicles->where('car_body_type','SUV')->count());
 
-    $cartags = tag::where('status','1')->get();     
+    $cartags = Tag::where('status','1')->get();     
         $pageTitle = $id;
     // dd($cartypes);
 
