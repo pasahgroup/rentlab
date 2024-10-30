@@ -134,7 +134,7 @@
                                     </div>
                                     <div class="rent__content">
                                         <h6 class="rent__title">
-                                           <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="las la-car"> {{ __(@$vehicle->model) }} ({{ __(@$vehicle->name) }})</a>
+                                           <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="las la-car"> {{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no ?? 1) }})</a>
                                         </h6>
                                         <div class="price-area">
                                             <h5 class="item las la-dollar-sign">{{ $general->cur_sym }}{{ showAmount($vehicle->price) }} <sub>/@lang('day')</sub></h5>
@@ -165,9 +165,9 @@
 
                               
 
-                                 <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
+                                 <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center"  style="background-color:#345742 !important">@lang('Book Now')</a>
                             @else
-                                <a href="{{ route('user.login') }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
+                                <a href="{{ route('user.login') }}" class="cmn--btn form--control bg--base w-100 justify-content-center"  style="background-color:#345742 !important">@lang('Book Now')</a>
                             @endauth
                         </div>
 
