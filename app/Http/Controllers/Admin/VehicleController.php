@@ -24,9 +24,7 @@ class VehicleController extends Controller
         $vehicles = Vehicle::with(['brand', 'seater','cartype'])->latest()->paginate(getPaginate(15));
         $tags = Tag::where('status',1)->get();      
       
-      //dd($vehicles);
-
-
+     // dd($vehicles);
 
         $pageTitle = 'Vehicles';
         $empty_message = 'No vehicle has been added.';

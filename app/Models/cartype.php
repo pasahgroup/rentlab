@@ -16,6 +16,7 @@ class cartype extends Model
 
     public function vehicles()
     {
-        return $this->hasMany(Vehicle::class, 'car_body_type')->where('status', 1);
+        // return $this->hasMany(Vehicle::class, 'car_body_type')->where('status', 1);
+         return $this->hasMany(Vehicle::class)->where('status', 1);
     }
 }
