@@ -47,7 +47,7 @@
 
   <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="category">@lang('Model No.')</label>
+                                    <label for="category">@lang('Car model No.')</label>
                                     <input type="number" name="car_model_no" id="car_model_no" class="form-control">                                    
                                 </div>
                             </div>

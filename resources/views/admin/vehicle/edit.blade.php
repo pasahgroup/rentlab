@@ -36,7 +36,7 @@
                                         <option value="">-- @lang('Select car model') --</option>
                                         @forelse($modelbs as $modelb)
                                                               <option
-                                                value="{{ $modelb->id }}" {{ $vehicle->model == $modelb->id ? 'selected' : '' }}>{{ __(@$modelb->car_model) }}</option>
+                                                value="{{ $modelb->car_model }}" {{ $vehicle->model == $modelb->car_model ? 'selected' : '' }}>{{ __(@$modelb->car_model) }}</option>
                                         @empty
                                         @endforelse
 
@@ -52,7 +52,7 @@
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="category">@lang('Model No.')</label>
+                                    <label for="category">@lang('Car model No.')</label>
                                     <input type="number" name="car_model_no" id="car_model_no" class="form-control" value="{{ $vehicle->car_model_no }}">                                    
                                 </div>
                             </div>
