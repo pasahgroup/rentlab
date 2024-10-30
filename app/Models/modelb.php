@@ -9,7 +9,7 @@ class modelb extends Model
 {
     use HasFactory;
      protected $fillable = [
-         'brand_id','car_model'
+         'brand_id','car_model','car_model_no'
     ];
 
     public function vehicles()

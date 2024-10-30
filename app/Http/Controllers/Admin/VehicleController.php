@@ -11,6 +11,7 @@ use App\Models\Cartype;
 use App\Models\Tag;
 use App\Models\Color;
 use App\Models\Location;
+use App\Models\modelb;
 
 use App\Rules\FileTypeValidate;
 use Carbon\Carbon;
@@ -20,9 +21,12 @@ class VehicleController extends Controller
 {
     public function index()
     {
-        $vehicles = Vehicle::with(['brand', 'seater'])->latest()->paginate(getPaginate());
+        $vehicles = Vehicle::with(['brand', 'seater'])->latest()->paginate(getPaginate(15));
         $tags = Tag::where('status',1)->get();      
-      //dd($tags );
+      
+      //dd($vehicles);
+
+
 
         $pageTitle = 'Vehicles';
         $empty_message = 'No vehicle has been added.';
@@ -32,15 +36,21 @@ class VehicleController extends Controller
     public function add()
     {
         $pageTitle = 'Add vehicle';
-        $brands = Brand::active()->orderBy('name')->get();
-        $cartypes = Cartype::orderBy('car_body_type')->get();
-         $colors = Color::orderBy('color')->get();
- //dd($colors );
+        $brands = Brand::where('status','1')
+        ->active()->orderBy('name')->get();
+        $cartypes = Cartype::where('status','1')
+        ->orderBy('car_body_type')->get();
+         $colors = Color::where('status','1')
+         ->orderBy('color')->get();
+          $modelbs = modelb::where('status','1')
+          ->orderBy('car_model')->get();
+ //dd($modelbs);
+
           $tags = Tag::where('status',1)->get(); 
            $locations = Location::where('status',1)->get();   
 
         $seaters = Seater::active()->orderBy('number')->get();
-        return view('admin.vehicle.add', compact('pageTitle', 'brands', 'seaters','cartypes','tags','colors','locations'));
+        return view('admin.vehicle.add', compact('pageTitle', 'brands', 'seaters','cartypes','tags','colors','locations','modelbs'));
     }
 
 
@@ -81,6 +91,8 @@ class VehicleController extends Controller
             'price' => 'required|numeric|gt:0',
             'details' => 'required|string',
             'model' => 'required|string',
+            'car_model_no' => 'required|integer',
+
             'doors' => 'required|integer|gt:0',
             'transmission' => 'required|string',
             'fuel_type' => 'required|string',
@@ -106,6 +118,8 @@ class VehicleController extends Controller
         $vehicle->price = $request->price;
         $vehicle->details = $request->details;
         $vehicle->model = $request->model;
+        $vehicle->car_model_no = $request->car_model_no;
+
         $vehicle->doors = $request->doors;
         $vehicle->transmission = $request->transmission;
         $vehicle->fuel_type = $request->fuel_type;
@@ -145,13 +159,15 @@ class VehicleController extends Controller
         $pageTitle = 'Edit Vehicle';
         $brands = Brand::active()->orderBy('name')->get();
         $cartypes = Cartype::orderBy('car_body_type')->where('status',1)->get();
+        $modelbs = modelb::where('status','1')
+          ->orderBy('car_model')->get();
+
          $tags = Tag::where('status',1)->get();
           $colors = Color::orderBy('color')->get();
           $locations = Location::where('status',1)->get(); 
 
-// dd($colors);
         $seaters = Seater::active()->orderBy('number')->get();
-        return view('admin.vehicle.edit', compact('pageTitle', 'brands', 'seaters', 'vehicle','cartypes','tags','colors','locations'));
+        return view('admin.vehicle.edit', compact('pageTitle', 'brands', 'seaters', 'vehicle','cartypes','tags','colors','locations','modelbs'));
     }
 
     public function update(Request $request,$id)
@@ -165,6 +181,8 @@ class VehicleController extends Controller
             'price' => 'required|numeric|gt:0',
             'details' => 'required|string',
             'model' => 'required|string',
+            'car_model_no' => 'required|integer',
+
             'doors' => 'required|integer|gt:0',
             'transmission' => 'required|string',
             'fuel_type' => 'required|string',
@@ -190,6 +208,8 @@ class VehicleController extends Controller
         $vehicle->price = $request->price;
         $vehicle->details = $request->details;
         $vehicle->model = $request->model;
+         $vehicle->car_model_no = $request->car_model_no;
+
         $vehicle->doors = $request->doors;
         $vehicle->transmission = $request->transmission;
         $vehicle->fuel_type = $request->fuel_type;
@@ -226,9 +246,6 @@ class VehicleController extends Controller
 
     public function deleteImage($id, $image)
     {
-
-        //dd('pr');
-
         $vehicle = Vehicle::findOrFail($id);
 
         $images = $vehicle->images;
@@ -318,6 +335,6 @@ class VehicleController extends Controller
     
        public function destroy(Request $request)
     {
-       dd('remove');
+       //dd('remove');
     }
 }

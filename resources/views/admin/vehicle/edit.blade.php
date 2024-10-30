@@ -16,7 +16,7 @@
                                            value="{{ $vehicle->name }}">
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="category">@lang('Brand')</label>
                                     <select class="form-control" id="category" name="brand" required="">
@@ -29,17 +29,31 @@
                                     </select>
                                 </div>
                             </div>
-                              <div class="col-md-4">
+                              <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="category">@lang('Model')</label>
                                     <select class="form-control" id="model" name="model" required="">
-                                        <option value="">-- @lang('Select One') --</option>
-                                        @forelse($brands as $item)
+                                        <option value="">-- @lang('Select car model') --</option>
+                                        @forelse($modelbs as $modelb)
+                                                              <option
+                                                value="{{ $modelb->id }}" {{ $vehicle->model == $modelb->id ? 'selected' : '' }}>{{ __(@$modelb->car_model) }}</option>
+                                        @empty
+                                        @endforelse
+
+
+                                      <!--     @forelse($brands as $item)
                                             <option
                                                 value="{{ $item->id }}" {{ $vehicle->brand_id == $item->id ? 'selected' : '' }}>{{ __(@$item->name) }}</option>
                                         @empty
-                                        @endforelse
+                                        @endforelse -->
                                     </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="category">@lang('Model No.')</label>
+                                    <input type="number" name="car_model_no" id="car_model_no" class="form-control" value="{{ $vehicle->car_model_no }}">                                    
                                 </div>
                             </div>
 
@@ -58,7 +72,7 @@
                                 </div>
                             </div>
 
-                               <div class="col-md-4">
+                               <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="category">@lang('Car Tag')</label>
                                     <select class="form-control" id="tag" name="tag" required="">
@@ -73,7 +87,7 @@
                                 </div>
                             </div>
 
-                               <div class="col-md-4">
+                               <div class="col-md-5">
                                 <div class="form-group">
                                     <label for="category">@lang('Color')</label>
                                     <select class="form-control" id="color" name="color" required="">
@@ -102,7 +116,7 @@
                                 </div>
                             </div>
 
-                              <div class="col-md-4">
+                              <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="seater">@lang('Location')</label>
                                     <select class="form-control" id="location" name="location" required="">
@@ -115,7 +129,7 @@
                                     </select>
                                 </div>
                             </div>
-                           <div class="col-md-4">
+                           <div class="col-md-5">
                                 <div class="form-group">
                                     <label for="price">@lang('Price Per Day')</label>
                                     <div class="input-group">
