@@ -36,6 +36,8 @@ class VehicleController extends Controller
 
     public function vehicleDetails($id, $slug){
         $vehicle = Vehicle::active()->where('id', $id)->with('ratings')->withCount('ratings')->withAvg('ratings', 'rating')->firstOrFail();
+
+        //dd($vehicle);
         $rental_terms = getContent('rental_terms.content', true);
         $pageTitle = 'Vehicle Details';
         return view($this->activeTemplate.'vehicles.details',compact('vehicle','pageTitle', 'rental_terms'));

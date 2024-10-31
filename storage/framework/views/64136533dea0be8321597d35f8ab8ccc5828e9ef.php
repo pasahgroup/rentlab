@@ -26,7 +26,23 @@
                     <h4><span class="text--body">Vehicle details</span></h4>
                     <br>
                     <div class="rent__single">
-                        <h3 class="title"><?php echo e(__(@$vehicle->name)); ?></h3>
+<div class="row">
+                     <div class="col-lg-9">    
+                        <h3 class="title"><?php echo e(__(@$vehicle->name)); ?>
+
+</h3>
+</div>
+<div class="col-lg-3"> 
+<div class="btn__grp">
+                            <?php if(auth()->guard()->check()): ?>                             
+                                 <a href="<?php echo e(route('vehicle.booking', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn"><?php echo app('translator')->get('Book Now'); ?></a>
+                            <?php else: ?>
+                                <a href="<?php echo e(route('user.login')); ?>" class="cmn--btn"><?php echo app('translator')->get('Book Now'); ?></a>
+                            <?php endif; ?>
+                        </div>
+                         </div>
+                     </div>
+
                         <div class="ratings mb-4">
                             <span><i class="las la-star"></i></span>
                             <span>(<?php echo e(@$vehicle->ratings_avg_rating+0); ?>)</span>
@@ -38,13 +54,13 @@
                         <div class="content">
                             <?php echo @$vehicle->details ?>
                         </div>
-                        <div class="btn__grp">
+                      <!--   <div class="btn__grp">
                             <?php if(auth()->guard()->check()): ?>                             
                                  <a href="<?php echo e(route('vehicle.booking', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn"><?php echo app('translator')->get('Book Now'); ?></a>
                             <?php else: ?>
                                 <a href="<?php echo e(route('user.login')); ?>" class="cmn--btn"><?php echo app('translator')->get('Book Now'); ?></a>
                             <?php endif; ?>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
