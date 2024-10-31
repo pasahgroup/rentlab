@@ -214,32 +214,23 @@
                                         </ul>
 
                                          <div class="row" style="margin-top:10px">
-       <div class="col-lg-6 col-md-4 col-sm-6">
-                                          <div class="car__item__price">
-                                        <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center"
-                                    type="submit" style="background-color:brwon">@lang('More Details')</a>
-                                    </div>
+  <div class="col-lg-1 col-md-1 col-sm-1">
+                                         
                                 </div>
-                                   <div class="col-lg-6 col-md-4 col-sm-6">
+                                   <div class="col-lg-10 col-md-10 col-sm-10">
                                       <div class="car__item__price">
 
-                                           <div class="btn__grp">              
-                                             @auth
-                             {{--   @if($vehicle->booked())
-                                    <a href="javascript:void(0)" class="cmn--btn">@lang('Booked')</a>
-                                @else 
-                                    
-                                @endif --}}
-                          
+                                           <div class="btn__grp">
 
-                                 <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:#345742 !important">@lang('Book Now')</a>
-                            @else
-                                <a href="{{ route('user.login') }}" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:#345742 !important">@lang('Book Now')</a>
-                            @endauth
+                                             <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:#345742 !important">@lang('Book')</a>
                         </div>
 
 
                                     </div>
+                                </div>
+
+                                <div class="col-lg-1 col-md-1 col-sm-1">
+                                         
                                 </div>
                                </div> 
 

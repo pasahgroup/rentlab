@@ -7,7 +7,6 @@ use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\DepartController;
 use App\Http\Controllers\AzampayController;
 
-
 Route::get('/clear', function(){
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
 });
