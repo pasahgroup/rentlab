@@ -107,6 +107,29 @@
                                         </ul>
                                         
 
+
+                     <div class="row" style="margin-top:10px">
+  <div class="col-lg-1 col-md-1 col-sm-1">
+                                         
+                                </div>
+                                   <div class="col-lg-10 col-md-10 col-sm-10">
+                                      <div class="car__item__price">
+
+                                           <div class="btn__grp">
+
+                                             <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:#345742 !important"><?php echo app('translator')->get('Book'); ?></a>
+                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-1 col-md-1 col-sm-1">
+                                         
+                                </div>
+                               </div> 
+
+
 <div class="row" style="margin-top:10px">
        <div class="col-lg-6 col-md-4">
                                           <div class="car__item__price">

@@ -123,9 +123,6 @@ public function show(Request $request,$id)
         return view($this->activeTemplate . 'carbodytypes.carbodytype', compact('vehicles','cartypes','metaVehicles','pageTitle','id'));
     }
 
-
-
-
     public function carTag(Request $request,$id)
     {
   if(request('carTag')){
