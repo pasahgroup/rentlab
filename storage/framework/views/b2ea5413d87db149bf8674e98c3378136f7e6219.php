@@ -29,7 +29,7 @@
                                 <tr>                                    
                                     <td data-label="<?php echo app('translator')->get('Name'); ?>"><?php echo e(__($item->name)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Brand'); ?>"><?php echo e(__($item->brand->name)); ?></td>
-                                    <td data-label="<?php echo app('translator')->get('Car Body Type'); ?>"><?php echo e(__($item->car_body_type_id)); ?></td>
+                                    <td data-label="<?php echo app('translator')->get('Car Body Type'); ?>"><?php echo e(__($item->car_body_type)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Car Body Type'); ?>"><?php echo e(__($item->tag)); ?></td>
 
                                     <td data-label="<?php echo app('translator')->get('Seat Type'); ?>"><?php echo e(__($item->seater->number)); ?></td>

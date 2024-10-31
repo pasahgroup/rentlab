@@ -29,7 +29,7 @@
                                 <tr>                                    
                                     <td data-label="@lang('Name')">{{ __($item->name) }}</td>
                                     <td data-label="@lang('Brand')">{{ __($item->brand->name) }}</td>
-                                    <td data-label="@lang('Car Body Type')">{{ __($item->car_body_type_id) }}</td>
+                                    <td data-label="@lang('Car Body Type')">{{ __($item->car_body_type) }}</td>
                                     <td data-label="@lang('Car Body Type')">{{ __($item->tag) }}</td>
 
                                     <td data-label="@lang('Seat Type')">{{ __($item->seater->number) }}</td>

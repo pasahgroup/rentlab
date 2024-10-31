@@ -22,8 +22,9 @@ class VehicleController extends Controller
     public function index()
     {
         $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
+        ->join('cartypes','cartypes.id','vehicles.car_body_type_id')
         ->with(['brand', 'seater','cartype'])->latest()
-        ->select('vehicles.*','tags.tag')
+        ->select('vehicles.*','tags.tag','cartypes.car_body_type')
         ->paginate(getPaginate(15));
         $tags = Tag::where('status',1)->get();      
       
