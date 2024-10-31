@@ -96,11 +96,11 @@
                                         </a>
                                     </div>
                                     <div class="rent__content">
-                                        <h6 class="rent__title">
-                                             <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="las la-car"> {{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no ?? 1) }})</a>
+                                       <h6 class="rent__title">
+                                            <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="las la-car"> {{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no?? 1) }})</a>
                                         </h6>
                                         <div class="price-area">
-                                            <h5 class="item">{{ $general->cur_sym }}{{ showAmount($vehicle->price) }} <sub>/@lang('day')</sub></h5>
+                                            <h5 class="item las la-dollar-sign"> {{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</sub></h5>
                                         </div>
                                         <ul class="d-flex car-info">
                                             <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini">{{ __(@$vehicle->transmission) }}</span></li>

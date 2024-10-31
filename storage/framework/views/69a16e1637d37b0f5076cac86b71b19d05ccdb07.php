@@ -95,11 +95,11 @@
                                         </a>
                                     </div>
                                     <div class="rent__content">
-                                        <h6 class="rent__title">
-                                             <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="las la-car"> <?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->car_model_no ?? 1)); ?>)</a>
+                                       <h6 class="rent__title">
+                                            <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="las la-car"> <?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->car_model_no?? 1)); ?>)</a>
                                         </h6>
                                         <div class="price-area">
-                                            <h5 class="item"><?php echo e($general->cur_sym); ?><?php echo e(showAmount($vehicle->price)); ?> <sub>/<?php echo app('translator')->get('day'); ?></sub></h5>
+                                            <h5 class="item las la-dollar-sign"> <?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></sub></h5>
                                         </div>
                                         <ul class="d-flex car-info">
                                             <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini"><?php echo e(__(@$vehicle->transmission)); ?></span></li>
@@ -118,7 +118,7 @@
 
                                            <div class="btn__grp">
 
-                                             <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:#345742 !important"><?php echo app('translator')->get('Book'); ?></a>
+                                             <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:brwon !important"><?php echo app('translator')->get('Book'); ?></a>
                         </div>
 
 
