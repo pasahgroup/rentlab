@@ -3,19 +3,17 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                               <form action="{{ route('admin.modelb.update',$modelbs->brand_id) }}" method="post" enctype="multipart/form-data">
+                               <form action="{{ route('admin.modelb.update',$modelbs->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="card-body">
-                        <div class="row">
-                            
+                        <div class="row">                          
                        
                             
                             <div class="col-xl-3 col-md-6">
                                 <div class="form-group ">
-                                    <label class="form-control-label font-weight-bold">@lang('Brand') {{$modelbs->brand_id}}</label>
+                                    <label class="form-control-label font-weight-bold">@lang('Brand') </label>
             
-
  <select class="form-control" id="brand" name="brand" required="">
                                         <option value="">-- @lang('--Select brand--') --</option>
                                         @forelse($brands as $brand)
@@ -28,7 +26,8 @@
                             </div>
 
                             <div class="col-md-6">
-                                <div class="form-group">
+                                <div class="form-group">                            
+
                                     <label for="name">@lang('Car model')</label>
                                     <input type="text" id="modelb" name="modelb" class="form-control"
                                          value="{{ $modelbs->car_model }}">

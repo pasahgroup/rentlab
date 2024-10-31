@@ -3,19 +3,17 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                               <form action="<?php echo e(route('admin.modelb.update',$modelbs->brand_id)); ?>" method="post" enctype="multipart/form-data">
+                               <form action="<?php echo e(route('admin.modelb.update',$modelbs->id)); ?>" method="post" enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
 
                     <div class="card-body">
-                        <div class="row">
-                            
+                        <div class="row">                          
                        
                             
                             <div class="col-xl-3 col-md-6">
                                 <div class="form-group ">
-                                    <label class="form-control-label font-weight-bold"><?php echo app('translator')->get('Brand'); ?> <?php echo e($modelbs->brand_id); ?></label>
+                                    <label class="form-control-label font-weight-bold"><?php echo app('translator')->get('Brand'); ?> </label>
             
-
  <select class="form-control" id="brand" name="brand" required="">
                                         <option value="">-- <?php echo app('translator')->get('--Select brand--'); ?> --</option>
                                         <?php $__empty_1 = true; $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
@@ -28,7 +26,8 @@
                             </div>
 
                             <div class="col-md-6">
-                                <div class="form-group">
+                                <div class="form-group">                            
+
                                     <label for="name"><?php echo app('translator')->get('Car model'); ?></label>
                                     <input type="text" id="modelb" name="modelb" class="form-control"
                                          value="<?php echo e($modelbs->car_model); ?>">

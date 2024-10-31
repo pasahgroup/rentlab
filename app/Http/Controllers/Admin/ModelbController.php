@@ -63,13 +63,15 @@ class ModelbController extends Controller
 
     public function edit($id)
     {
+
+        //dd($id);
         $modelbs = modelb::findOrFail($id);
         $pageTitle = 'Edit Car model';
          $brands = Brand::active()->orderBy('name')->get();
         $seaters = Seater::active()->orderBy('number')->get();
 
         //dd($modelbs);
-        return view('admin.models.edit', compact('pageTitle','brands','modelbs'));
+        return view('admin.models.edit', compact('pageTitle','brands','modelbs','id'));
     }
 
 
@@ -81,16 +83,22 @@ class ModelbController extends Controller
                   ]);
 
 
+   // $update = modelb::where('id',$id)->update([
+   //              'from'=>$from,
+   //              'to'=>$from + $paid
+   //          ]);
 
-
- $car_modelb = modelb::where('id',$id)->first();
-  dd($car_modelb);
+ // $car_modelb = modelb::where('id',$id)->first();
+ //  dd($car_modelb);
         //   $car_modelb = modelb::findOrFail($id);
-         
-       
-        $car_modelb->brand_id = $request->brand;
-          $car_modelb->car_model = $request->modelb;
         
+ $car_modelb = modelb::findOrFail($id);
+            // $rent_log->status = 1;
+            // $rent_log->trx = $deposit->trx;
+            // $rent_log->save();
+
+        $car_modelb->brand_id = $request->brand;
+          $car_modelb->car_model = $request->modelb;        
         $car_modelb->save();
 
         $notify[] = ['success', 'Car model Updated Successfully!'];
