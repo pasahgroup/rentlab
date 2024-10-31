@@ -119,7 +119,7 @@
 
                                            <div class="btn__grp">
 
-                                             <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:#345742 !important">@lang('Book')</a>
+                                             <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:brwon !important">@lang('Book')</a>
                         </div>
 
 

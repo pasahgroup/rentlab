@@ -118,7 +118,7 @@
 
                                            <div class="btn__grp">
 
-                                             <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:#345742 !important">@lang('Book')</a>
+                                             <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:brwon !important">@lang('Book')</a>
                         </div>
 
 
@@ -129,39 +129,6 @@
                                          
                                 </div>
                                </div> 
-
-
-<div class="row" style="margin-top:10px">
-       <div class="col-lg-6 col-md-4">
-                                          <div class="car__item__price">
-                                        <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center"
-                                    type="submit" style="background-color:brwon">@lang('More Details')</a>
-                                    </div>
-                                </div>
-                                   <div class="col-lg-6 col-md-4">
-                                      <div class="car__item__price">
-
-                                           <div class="btn__grp">              
-                                             @auth
-                             {{--   @if($vehicle->booked())
-                                    <a href="javascript:void(0)" class="cmn--btn">@lang('Booked')</a>
-                                @else 
-                                    
-                                @endif --}}
-
-                              
-
-                                 <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
-                            @else
-                                <a href="{{ route('user.login') }}" class="cmn--btn form--control bg--base w-100 justify-content-center">@lang('Book Now')</a>
-                            @endauth
-                        </div>
-
-
-                                    </div>
-                                </div>
-                               </div> 
-
 
 
                                     </div>
