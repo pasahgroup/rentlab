@@ -13,8 +13,8 @@
                                 <th scope="col"><?php echo app('translator')->get('Brand'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Car body type'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Car tag'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Seat type'); ?></th>
-                                <th scope="col"><?php echo app('translator')->get('Price'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Seat'); ?></th>
+                                <th scope="col"><?php echo app('translator')->get('Price'); ?>(<?php echo e($general->cur_sym); ?>)</th>
                                 <th scope="col"><?php echo app('translator')->get('Model'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Car Number'); ?></th>
                                 <th scope="col"><?php echo app('translator')->get('Transmission'); ?></th>
@@ -27,13 +27,13 @@
                             <tbody>
                             <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                 <tr>                                    
-                                    <td data-label="<?php echo app('translator')->get('Name'); ?>"><strong><?php echo e(__($item->name)); ?></strong></td>
+                                    <td data-label="<?php echo app('translator')->get('Name'); ?>"><?php echo e(__($item->name)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Brand'); ?>"><?php echo e(__($item->brand->name)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Car Body Type'); ?>"><?php echo e(__($item->car_body_type_id)); ?></td>
-                                    <td data-label="<?php echo app('translator')->get('Car Body Type'); ?>"><?php echo e(__($item->tag_id)); ?></td>
+                                    <td data-label="<?php echo app('translator')->get('Car Body Type'); ?>"><?php echo e(__($item->tag)); ?></td>
 
-                                    <td data-label="<?php echo app('translator')->get('Seat Type'); ?>"><?php echo e(__($item->seater->number)); ?> <?php echo app('translator')->get('Seater'); ?></td>
-                                    <td data-label="<?php echo app('translator')->get('Price'); ?>"><strong><?php echo e($general->cur_sym); ?><?php echo e(__(showAmount($item->price))); ?></strong></td>
+                                    <td data-label="<?php echo app('translator')->get('Seat Type'); ?>"><?php echo e(__($item->seater->number)); ?></td>
+                                    <td data-label="<?php echo app('translator')->get('Price'); ?>"><?php echo e(__(showAmount($item->price))); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Model'); ?>"><?php echo e(__($item->model)); ?></td>
                                      <td data-label="<?php echo app('translator')->get('Model No'); ?>"><?php echo e(__($item->car_model_no)); ?></td>
                                     <td data-label="<?php echo app('translator')->get('Transmission'); ?>"><?php echo e(__($item->transmission)); ?></td>

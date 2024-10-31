@@ -21,10 +21,13 @@ class VehicleController extends Controller
 {
     public function index()
     {
-        $vehicles = Vehicle::with(['brand', 'seater','cartype'])->latest()->paginate(getPaginate(15));
+        $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
+        ->with(['brand', 'seater','cartype'])->latest()
+        ->select('vehicles.*','tags.tag')
+        ->paginate(getPaginate(15));
         $tags = Tag::where('status',1)->get();      
       
-     // dd($vehicles);
+     //dd($vehicles);
 
         $pageTitle = 'Vehicles';
         $empty_message = 'No vehicle has been added.';
