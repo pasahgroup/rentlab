@@ -38,7 +38,7 @@
                                     <select class="form-control" id="model" name="model" required="">
                                       <option value="">-- <?php echo app('translator')->get('Select car model'); ?> --</option>
                                         <?php $__empty_1 = true; $__currentLoopData = $modelbs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $modelb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                            <option value="<?php echo e($modelb->id); ?>"><?php echo e(__(@$modelb->car_model)); ?></option>
+                                            <option value="<?php echo e($modelb->car_model); ?>"><?php echo e(__(@$modelb->car_model)); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <?php endif; ?>
                                     </select>
@@ -47,8 +47,8 @@
 
   <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="category"><?php echo app('translator')->get('Model No.'); ?></label>
-                                    <input type="number" name="model_no" id="model_no" class="form-control">                                    
+                                    <label for="category"><?php echo app('translator')->get('Available cars'); ?></label>
+                                    <input type="number" name="car_model_no" id="car_model_no" class="form-control">                                    
                                 </div>
                             </div>
 

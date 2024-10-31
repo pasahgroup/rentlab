@@ -216,7 +216,7 @@
                                          <div class="row" style="margin-top:10px">
        <div class="col-lg-6 col-md-4 col-sm-6">
                                           <div class="car__item__price">
-                                        <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="myButton"
+                                        <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center"
                                     type="submit" style="background-color:brwon"><?php echo app('translator')->get('More Details'); ?></a>
                                     </div>
                                 </div>
