@@ -15,9 +15,7 @@ class CartypeController extends Controller
      */
     public function index()
     {
-        dd('print');
-
-     $vehicles = Vehicle::with(['brand', 'seater'])->latest()->paginate(getPaginate());
+     $vehicles = Vehicle::with(['brand', 'seater'])->latest()->paginate(getPaginate(10));
         $pageTitle = 'Vehicles';
         $empty_message = 'No vehicle has been added.';
         return view('admin.vehicle.index', compact('pageTitle', 'empty_message', 'vehicles'));

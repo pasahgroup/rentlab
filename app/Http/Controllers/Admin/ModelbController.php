@@ -22,7 +22,7 @@ class ModelbController extends Controller
 
         $vehicles = modelb::join('brands','brands.id','modelbs.brand_id')
         ->select('brands.name','modelbs.*')
-        ->latest()->paginate(getPaginate());
+        ->latest()->paginate(getPaginate(10));
        // dd($vehicles);
 
         $pageTitle = 'Car Models';
@@ -81,8 +81,10 @@ class ModelbController extends Controller
                   ]);
 
 
- $car_modelb = modelb::where('brand_id',$id)->first();
-  //dd($car_modelb);
+
+
+ $car_modelb = modelb::where('id',$id)->first();
+  dd($car_modelb);
         //   $car_modelb = modelb::findOrFail($id);
          
        
