@@ -261,7 +261,7 @@
 }
 
 .mb-30 {
-    margin-bottom: 30px;
+    margin-bottom: 5px;
 }
 
 .mb-35 {
@@ -5987,7 +5987,7 @@ th.w-85 {
 /* body-wrapper css start */
 .body-wrapper {
     margin-left: 250px;
-    padding: 30px;
+    padding: 20px;
     transition: all 0.5s cubic-bezier(0.4, -0.25, 0.25, 1.1);
     overflow-x: hidden;
 }
