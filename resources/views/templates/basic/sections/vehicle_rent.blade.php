@@ -151,7 +151,7 @@
                     <div class="filter-in d-lg-none">
                         <i class="las la-filter"></i>
                     </div>
-                    <div class="book__wrapper bg--body border--dashed mb-4" style="background-color:#345742">
+                    <div class="book__wrapper bg--body border--dashed mb-4" style="background-color:#d7d4c6">
                         <form class="book--form row gx-3 gy-4 g-md-4" action="{{ route('vehicle.search') }}" method="get">
                             <div class="col-md-3 col-sm-4">
                                 <div class="form-group">
@@ -246,7 +246,10 @@
                           
                         @empty
                         @endforelse
-  {!! $vehicles->links() !!}
+                        <div style="background-color:#d7d4c6;">
+                        {!! $vehicles->links() !!}     
+                        </div>
+ 
   
                     </div>
                 </div>

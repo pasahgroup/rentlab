@@ -52,7 +52,7 @@
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="category"><?php echo app('translator')->get('Car model No.'); ?></label>
+                                    <label for="category"><?php echo app('translator')->get('Available cars'); ?></label>
                                     <input type="number" name="car_model_no" id="car_model_no" class="form-control" value="<?php echo e($vehicle->car_model_no); ?>">                                    
                                 </div>
                             </div>

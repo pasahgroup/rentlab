@@ -1313,7 +1313,7 @@ strong, b {
     }
 
     .banner__content .btn__grp {
-        margin-top: 35px;
+        margin-top: 30px;
     }
 
     .banner__thumb {
@@ -5171,7 +5171,7 @@ button.cmn--btn:hover {
 
 .pagination {
     margin: -3px;
-    margin-top: 25px;
+    margin-top: 5px;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -5188,7 +5188,7 @@ button.cmn--btn:hover {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    background: rgba(255, 255, 255, 0.1);
+/*    background: rgba(255, 255, 255, 0.1);*/
     color: #fcf6f5ff;
     padding: 0;
     line-height: 45px;
