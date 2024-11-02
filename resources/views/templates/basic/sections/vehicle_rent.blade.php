@@ -88,8 +88,8 @@
                                             <a href="/cartag-page/Search By Car Tag"><span>Car Tag</span><span></span></a>
                                                                     </ul>
                             </div>
-
                         </div>
+
                         <div class="widget border--dashed">
                             <h5 class="title">@lang('Filter by Price')</h5>
                             <div class="widget-body">
@@ -208,16 +208,40 @@
                                         <div class="rent__content">
                                             <h5 class="item">  {{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</sub></h5>
                                         </div>
+
                                         <ul class="d-flex car-info">
+
+
+                            
+                         <!--    <div class="widget-body">
+                                <form action="{{ route('vehicle.search') }}" method="get">
+                                    <div class="input-group">
+                                        <input type="text" name="name" value="{{ @request()->name }}" class="form-control form--control" placeholder="@lang('Vehicle Name')" id="search">
+                                        <button class="input-group-text cmn--btn" type="submit"><i class="las la-search"></i></button>
+                                    </div>
+                                </form>
+                            </div> -->
+                        
+                        <!--    <div class="widget-body">
+                              <h5 class="title"></h5>
+                              <h5 class="title">@lang('Filter by Body Type')</h5>
+                                <ul class="category-link">
+                                       <li>
+                                            <a href="/cartype-page/Search By Body Type"><span>Car Body Type</span><span></span></a>
+                                            <a href="/cartag-page/Search By Car Tag"><span>Car Tag</span><span></span></a>
+                                                                    </ul>
+                            </div> -->
+                       
                                             <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini">{{ __(@$vehicle->transmission) }}</span></li>
                                             <li class="pr-3"><i class="las la-gas-pump"></i><span class="font-mini">{{ __(@$vehicle->fuel_type) }}</span></li>
                                         </ul>
 
+
                                          <div class="row" style="margin-top:10px">
-  <div class="col-lg-1 col-md-1 col-sm-1">
+    <div class="col-lg-3 col-md-3 col-sm-3">
                                          
                                 </div>
-                                   <div class="col-lg-10 col-md-10 col-sm-10">
+                                   <div class="col-lg-6 col-md-6 col-sm-6">
                                       <div class="car__item__price">
 
                                            <div class="btn__grp">
@@ -225,11 +249,10 @@
                                              <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:#345742 !important">@lang('Book')</a>
                         </div>
 
-
                                     </div>
                                 </div>
 
-                                <div class="col-lg-1 col-md-1 col-sm-1">
+                                    <div class="col-lg-3 col-md-3 col-sm-3">
                                          
                                 </div>
                                </div> 
