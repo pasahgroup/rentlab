@@ -445,7 +445,8 @@ $req_url = 'https://api.exchangerate-api.com/v4/latest/USD';
 //     die('allow_url_fopen is disabled. file_get_contents would not work');
 // }
 
-$response_json = file_get_contents($req_url);
+
+$response_json = file_get_contents($currency);
 
 dd($response_json);
 // Continuing if we got a result
