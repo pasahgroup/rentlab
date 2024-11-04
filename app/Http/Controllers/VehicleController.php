@@ -438,24 +438,8 @@ $req_url = "https://api.exchangerate-api.com/v4/latest/USD";
  
  //return $this->curl_get_file_contents($req_url);
  $response_json=$this->curl_get_file_contents($req_url);
-//dd($currency);
-// if( ini_get('allow_url_fopen') ) {
-//     die('allow_url_fopen is enabled. file_get_contents should work well');
-// } else {
-//     die('allow_url_fopen is disabled. file_get_contents would not work');
-// }
-
-
-// $response_json = file_get_contents($currency);
-
-//dd($response_json);
-// Continuing if we got a result
-
 
 if(false !== $response_json) {
-
-// $amount = remove_format(request('amount'));
-
     try {
     // Decoding
     $response_object = json_decode($response_json);
