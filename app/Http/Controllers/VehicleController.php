@@ -419,12 +419,14 @@ if($amount<$amount_percent)
 // Fetching JSON
 $req_url = 'https://api.exchangerate-api.com/v4/latest/USD';
 //dd($req_url);
-
+ ini_set("allow_url_fopen", 1);
+ 
 if( ini_get('allow_url_fopen') ) {
     die('allow_url_fopen is enabled. file_get_contents should work well');
 } else {
     die('allow_url_fopen is disabled. file_get_contents would not work');
 }
+
 $response_json = file_get_contents($req_url);
 
 dd($response_json);
