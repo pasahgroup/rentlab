@@ -43,15 +43,10 @@ class CartypeController extends Controller
             'car_body_type' => 'required|string',
             'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
                   ]);
-
-
         $cartype = new Cartype();
         $cartype->car_body_type = $request->car_body_type;
         
        // dd($cartype);
-
-
-
  if(request('images')){
             $attach = request('images');
             foreach($attach as $attached){
@@ -100,8 +95,7 @@ class CartypeController extends Controller
 
            $cartype = Cartype::findOrFail($id);
            $cartype->car_body_type = $request->car_body_type;
-
-       
+   
 
        // $vehicle->specifications = $specifications;
  //dd('print');

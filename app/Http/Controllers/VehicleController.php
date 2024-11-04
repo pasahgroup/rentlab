@@ -418,9 +418,10 @@ if($amount<$amount_percent)
 
 // Fetching JSON
 $req_url = 'https://api.exchangerate-api.com/v4/latest/USD';
+dd($req_url);
 $response_json = file_get_contents($req_url);
 
-//dd($response_json);
+dd($response_json);
 // Continuing if we got a result
 
 
