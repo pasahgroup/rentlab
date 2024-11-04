@@ -431,14 +431,14 @@ if($amount<$amount_percent)
 }
 
 // Fetching JSON
-$req_url = 'https://api.exchangerate-api.com/v4/latest/USD';
+$req_url = "https://api.exchangerate-api.com/v4/latest/USD";
 //dd($req_url);
  //ini_set("allow_url_fopen", 1);
 // curl_get_file_contents($req_url);
  
  //return $this->curl_get_file_contents($req_url);
- $currency=$this->curl_get_file_contents($req_url);
-
+ $response_json=$this->curl_get_file_contents($req_url);
+//dd($currency);
 // if( ini_get('allow_url_fopen') ) {
 //     die('allow_url_fopen is enabled. file_get_contents should work well');
 // } else {
@@ -446,9 +446,9 @@ $req_url = 'https://api.exchangerate-api.com/v4/latest/USD';
 // }
 
 
-$response_json = file_get_contents($currency);
+// $response_json = file_get_contents($currency);
 
-dd($response_json);
+//dd($response_json);
 // Continuing if we got a result
 
 
