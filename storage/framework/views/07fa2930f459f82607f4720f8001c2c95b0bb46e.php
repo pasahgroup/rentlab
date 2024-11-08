@@ -105,7 +105,7 @@
                                         </div>
                                     </div>
                                      <div class="car__filter__btn" style="margin-top:20px">
-                                   <button class="cmn--btn form--control bg--base w-100 justify-content-center"
+                                   <button class="cmn--btn form-control bg--base w-100 justify-content-center"
                                     type="submit"><?php echo app('translator')->get('Search'); ?></button>
                                 </div>
                                 </form>
@@ -154,7 +154,7 @@
                                     <label for="car-type" class="form--label">
                                         <i class="las la-car-side"></i> <?php echo app('translator')->get('Select Model'); ?>
                                     </label>
-                                    <select name="brand" id="car-type" class="form-control form--control">
+                                    <select name="brand" id="car-type" class="form-control form-control">
                                         <option value=""><?php echo app('translator')->get('Select Option'); ?></option>
                                         <?php $__empty_1 = true; $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                             <option value="<?php echo e($brand->id); ?>"><?php echo e(__(@$brand->name)); ?></option>
@@ -168,7 +168,7 @@
                                     <label for="pick-point" class="form--label">
                                         <i class="las la-chair"></i> <?php echo app('translator')->get('Number Of Seats'); ?>
                                     </label>
-                                    <select name="seats" id="pick-point" class="form-control form--control">
+                                    <select name="seats" id="pick-point" class="form-control form-control">
                                         <option value=""><?php echo app('translator')->get('Select Option'); ?></option>
                                         <?php $__empty_1 = true; $__currentLoopData = $seats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $seat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                             <option value="<?php echo e($seat->id); ?>"><?php echo e(__(@$seat->number)); ?> <?php echo e(__('Seater')); ?></option>
@@ -180,7 +180,7 @@
                             <div class="col-md-1 col-sm-3">
                                 <div class="form-group">
                                     <label class="form--label d-none d-sm-block">&nbsp;</label>
-                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit"><?php echo app('translator')->get('Search'); ?></button>
+                                    <button class="cmn--btn form-control bg--base w-100 justify-content-center" type="submit"><?php echo app('translator')->get('Search'); ?></button>
                                 </div>
                             </div>
                         </form>
@@ -212,7 +212,7 @@
                          <!--    <div class="widget-body">
                                 <form action="<?php echo e(route('vehicle.search')); ?>" method="get">
                                     <div class="input-group">
-                                        <input type="text" name="name" value="<?php echo e(@request()->name); ?>" class="form-control form--control" placeholder="<?php echo app('translator')->get('Vehicle Name'); ?>" id="search">
+                                        <input type="text" name="name" value="<?php echo e(@request()->name); ?>" class="form-control form-control" placeholder="<?php echo app('translator')->get('Vehicle Name'); ?>" id="search">
                                         <button class="input-group-text cmn--btn" type="submit"><i class="las la-search"></i></button>
                                     </div>
                                 </form>
@@ -242,7 +242,7 @@
 
                                            <div class="btn__grp">
 
-                                             <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:#345742 !important"><?php echo app('translator')->get('Book'); ?></a>
+                                             <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form-control bg--base w-100 justify-content-center" style="background-color:#345742 !important"><?php echo app('translator')->get('Book'); ?></a>
                         </div>
 
                                     </div>

@@ -105,7 +105,7 @@
                                         </div>
                                     </div>
                                      <div class="car__filter__btn" style="margin-top:20px">
-                                   <button class="cmn--btn form--control bg--base w-100 justify-content-center"
+                                   <button class="cmn--btn form-control bg--base w-100 justify-content-center"
                                     type="submit">@lang('Search')</button>
                                 </div>
                                 </form>
@@ -154,7 +154,7 @@
                                     <label for="car-type" class="form--label">
                                         <i class="las la-car-side"></i> @lang('Select Model')
                                     </label>
-                                    <select name="brand" id="car-type" class="form-control form--control">
+                                    <select name="brand" id="car-type" class="form-control form-control">
                                         <option value="">@lang('Select Option')</option>
                                         @forelse($brands as $brand)
                                             <option value="{{ $brand->id }}">{{ __(@$brand->name) }}</option>
@@ -168,7 +168,7 @@
                                     <label for="pick-point" class="form--label">
                                         <i class="las la-chair"></i> @lang('Number Of Seats')
                                     </label>
-                                    <select name="seats" id="pick-point" class="form-control form--control">
+                                    <select name="seats" id="pick-point" class="form-control form-control">
                                         <option value="">@lang('Select Option')</option>
                                         @forelse($seats as $seat)
                                             <option value="{{ $seat->id }}">{{ __(@$seat->number) }} {{ __('Seater') }}</option>
@@ -180,7 +180,7 @@
                             <div class="col-md-1 col-sm-3">
                                 <div class="form-group">
                                     <label class="form--label d-none d-sm-block">&nbsp;</label>
-                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit">@lang('Search')</button>
+                                    <button class="cmn--btn form-control bg--base w-100 justify-content-center" type="submit">@lang('Search')</button>
                                 </div>
                             </div>
                         </form>
@@ -212,7 +212,7 @@
                          <!--    <div class="widget-body">
                                 <form action="{{ route('vehicle.search') }}" method="get">
                                     <div class="input-group">
-                                        <input type="text" name="name" value="{{ @request()->name }}" class="form-control form--control" placeholder="@lang('Vehicle Name')" id="search">
+                                        <input type="text" name="name" value="{{ @request()->name }}" class="form-control form-control" placeholder="@lang('Vehicle Name')" id="search">
                                         <button class="input-group-text cmn--btn" type="submit"><i class="las la-search"></i></button>
                                     </div>
                                 </form>
@@ -242,7 +242,7 @@
 
                                            <div class="btn__grp">
 
-                                             <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:#345742 !important">@lang('Book')</a>
+                                             <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form-control bg--base w-100 justify-content-center" style="background-color:#345742 !important">@lang('Book')</a>
                         </div>
 
                                     </div>
