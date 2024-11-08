@@ -73,7 +73,7 @@
                             <div class="widget-body">
                                 <form action="{{ route('vehicle.search') }}" method="get">
                                     <div class="input-group">
-                                        <input type="text" name="name" value="{{ @request()->name }}" class=" form--control" placeholder="@lang('Vehicle Name')" id="search">
+                                        <input type="text" name="name" value="{{ @request()->name }}" class=" form-control" placeholder="@lang('Vehicle Name')" id="search">
                                         <button class="input-group-text cmn--btn" type="submit"><i class="las la-search"></i></button>
                                     </div>
                                 </form>
@@ -100,7 +100,7 @@
                                             <label for="stat-dae" class="form--label">
                                                 <i class="las la-dollar-sign"></i> @lang('Price')
                                             </label>
-                                              <input type="hidden" value="{{ @request()->min_price }}" class="form--control min_price" name="min_price">
+                                              <input type="hidden" value="{{ @request()->min_price }}" class="min_price" name="min_price">
                                             <input type="text" value="{{ @request()->max_price }}" class="form-control max_price" name="max_price" placeholder="@lang('price')">
                                         </div>
                                     </div>
