@@ -25,7 +25,6 @@ function sidebarVariation(){
 
     //for overlay
     $variation['overlay'] = 'overlay--indigo';
-
     //Opacity
     $variation['opacity'] = 'overlay--opacity-8'; // 1-10
 

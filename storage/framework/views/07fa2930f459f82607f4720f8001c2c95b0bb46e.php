@@ -95,17 +95,13 @@
                             <div class="widget-body">
                                 <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
                                     <div class="row justify-content-center">
-                                        <div class="col-md-6">
-                                            <label for="srt-date" class="form--label">
-                                                <i class="las la-dollar-sign"></i> <?php echo app('translator')->get('Min Price'); ?>
-                                            </label>
-                                            <input type="text" value="<?php echo e(@request()->min_price); ?>" class="form-control form--control min_price" name="min_price" placeholder="<?php echo app('translator')->get('Min Price'); ?>">
-                                        </div>
-                                        <div class="col-md-6">
+                                  
+                                        <div class="col-md-12">
                                             <label for="stat-dae" class="form--label">
-                                                <i class="las la-dollar-sign"></i> <?php echo app('translator')->get('Max Price'); ?>
+                                                <i class="las la-dollar-sign"></i> <?php echo app('translator')->get('Price'); ?>
                                             </label>
-                                            <input type="text" value="<?php echo e(@request()->max_price); ?>" class="form-control form--control max_price" name="max_price" placeholder="<?php echo app('translator')->get('Max Price'); ?>">
+                                              <input type="hidden" value="<?php echo e(@request()->min_price); ?>" class="form--control min_price" name="min_price">
+                                            <input type="text" value="<?php echo e(@request()->max_price); ?>" class="form-control max_price" name="max_price" placeholder="<?php echo app('translator')->get('price'); ?>">
                                         </div>
                                     </div>
                                      <div class="car__filter__btn" style="margin-top:20px">

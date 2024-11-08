@@ -31,17 +31,13 @@
                             <div class="widget-body">
                                 <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
                                     <div class="row justify-content-center">
-                                        <div class="col-md-6">
-                                            <label for="srt-date" class="form--label">
-                                                <i class="las la-dollar-sign"></i> @lang('Min Price')
-                                            </label>
-                                            <input type="text" value="{{ @request()->min_price }}" class="form-control form--control min_price" name="min_price" placeholder="@lang('Min Price')">
-                                        </div>
-                                        <div class="col-md-6">
+                                   
+                                        <div class="col-md-12">
                                             <label for="stat-dae" class="form--label">
                                                 <i class="las la-dollar-sign"></i> @lang('Max Price')
                                             </label>
-                                            <input type="text" value="{{ @request()->max_price }}" class="form-control form--control max_price" name="max_price" placeholder="@lang('Max Price')">
+                                              <input type="hidden" value="{{ @request()->min_price }}" class="form-control form--control min_price" name="min_price">
+                                            <input type="text" value="{{ @request()->max_price }}" class="form-control form--control max_price" name="max_price" placeholder="@lang('price')">
                                         </div>
                                     </div>
                                 </form>
@@ -137,7 +133,7 @@
                                            <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="las la-car"> {{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no ?? 1) }})</a>
                                         </h6>
                                         <div class="price-area">
-                                            <h5 class="">  {{ $general->cur_sym }}{{ showAmount($vehicle->price) }} <sub>/@lang('day')</sub></h5>
+                                            <h5 class="">&nbsp;{{ $general->cur_sym }}{{ showAmount($vehicle->price) }} <sub>/@lang('day')</sub></h5>
                                         </div>
                                         <ul class="d-flex car-info">
                                             <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini">{{ __(@$vehicle->transmission) }}</span></li>

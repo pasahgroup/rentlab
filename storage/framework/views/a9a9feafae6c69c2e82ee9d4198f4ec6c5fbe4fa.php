@@ -30,17 +30,13 @@
                             <div class="widget-body">
                                 <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
                                     <div class="row justify-content-center">
-                                        <div class="col-md-6">
-                                            <label for="srt-date" class="form--label">
-                                                <i class="las la-dollar-sign"></i> <?php echo app('translator')->get('Min Price'); ?>
-                                            </label>
-                                            <input type="text" value="<?php echo e(@request()->min_price); ?>" class="form-control form--control min_price" name="min_price" placeholder="<?php echo app('translator')->get('Min Price'); ?>">
-                                        </div>
-                                        <div class="col-md-6">
+                                   
+                                        <div class="col-md-12">
                                             <label for="stat-dae" class="form--label">
                                                 <i class="las la-dollar-sign"></i> <?php echo app('translator')->get('Max Price'); ?>
                                             </label>
-                                            <input type="text" value="<?php echo e(@request()->max_price); ?>" class="form-control form--control max_price" name="max_price" placeholder="<?php echo app('translator')->get('Max Price'); ?>">
+                                              <input type="hidden" value="<?php echo e(@request()->min_price); ?>" class="form-control form--control min_price" name="min_price">
+                                            <input type="text" value="<?php echo e(@request()->max_price); ?>" class="form-control form--control max_price" name="max_price" placeholder="<?php echo app('translator')->get('price'); ?>">
                                         </div>
                                     </div>
                                 </form>
@@ -136,7 +132,7 @@
                                            <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="las la-car"> <?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->car_model_no ?? 1)); ?>)</a>
                                         </h6>
                                         <div class="price-area">
-                                            <h5 class="">  <?php echo e($general->cur_sym); ?><?php echo e(showAmount($vehicle->price)); ?> <sub>/<?php echo app('translator')->get('day'); ?></sub></h5>
+                                            <h5 class="">&nbsp;<?php echo e($general->cur_sym); ?><?php echo e(showAmount($vehicle->price)); ?> <sub>/<?php echo app('translator')->get('day'); ?></sub></h5>
                                         </div>
                                         <ul class="d-flex car-info">
                                             <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini"><?php echo e(__(@$vehicle->transmission)); ?></span></li>
