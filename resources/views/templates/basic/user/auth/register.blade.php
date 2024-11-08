@@ -14,15 +14,15 @@
 
                             <div class="col-md-6">
                                 <label for="firstname" class="form--label">@lang('First Name')</label>
-                                <input id="firstname" type="text" placeholder="@lang('First Name')" class="form-control form--control" name="firstname" value="{{ old('firstname') }}" required>
+                                <input id="firstname" type="text" placeholder="@lang('First Name')" class="form-control" name="firstname" value="{{ old('firstname') }}" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="lastname" class="form--label">@lang('Last Name')</label>
-                                <input id="lastname" type="text" class="form-control form--control" name="lastname" value="{{ old('lastname') }}" placeholder="@lang('Last Name')" required>
+                                <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" placeholder="@lang('Last Name')" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form--label">@lang('Country')</label>
-                                <select name="country" id="country" class="form--control">
+                                <select name="country" id="country" class="form-control">
                                     @foreach($countries as $key => $country)
                                         <option data-mobile_code="{{ $country->dial_code }}" value="{{ $country->country }}" data-code="{{ $key }}">{{ __($country->country) }}</option>
                                     @endforeach
@@ -35,7 +35,7 @@
                                         <input type="hidden" name="mobile_code">
                                         <input type="hidden" name="country_code">
                                         <span class="input-group-text mobile-code"></span>
-                                        <input type="text" name="mobile" id="mobile" value="{{ old('mobile') }}" class="form-control form--control checkUser" placeholder="@lang('Your Phone Number')">
+                                        <input type="text" name="mobile" id="mobile" value="{{ old('mobile') }}" class="form-control checkUser" placeholder="@lang('Your Phone Number')">
                                     </div>
                                     <small class="text-danger mobileExist"></small>
                                 </div>
@@ -43,25 +43,25 @@
 
                                <div class="col-md-6">
                                 <label for="nida" class="form--label">{{ __('NIDA') }}</label>
-                                <input id="nida" type="text" class="form-control form--control checkUser" name="nida" value="{{ old('nida') }}" placeholder="{{ __('nida no') }}" required>
+                                <input id="nida" type="text" class="form-control checkUser" name="nida" value="{{ old('nida') }}" placeholder="{{ __('nida no') }}" required>
                                 <small class="text-danger usernameExist"></small>
                             </div>
                             <div class="col-md-6">
                                 <label for="email" class="form--label">@lang('Driving License')</label>
-                                <input id="driving_license" type="text" class="form-control form--control checkUser" name="driving_license" value="{{ old('driving license') }}" placeholder="@lang('driving license')" required>
+                                <input id="driving_license" type="text" class="form-control checkUser" name="driving_license" value="{{ old('driving license') }}" placeholder="@lang('driving license')" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="username" class="form--label">{{ __('Username') }}</label>
-                                <input id="username" type="text" class="form-control form--control checkUser" name="username" value="{{ old('username') }}" placeholder="{{ __('Username') }}" required>
+                                <input id="username" type="text" class="form-control checkUser" name="username" value="{{ old('username') }}" placeholder="{{ __('Username') }}" required>
                                 <small class="text-danger usernameExist"></small>
                             </div>
                             <div class="col-md-6">
                                 <label for="email" class="form--label">@lang('E-Mail Address')</label>
-                                <input id="email" type="email" class="form-control form--control checkUser" name="email" value="{{ old('email') }}" placeholder="@lang('E-Mail Address')" required>
+                                <input id="email" type="email" class="form-control checkUser" name="email" value="{{ old('email') }}" placeholder="@lang('E-Mail Address')" required>
                             </div>
                             <div class="col-md-6 hover-input-popup">
                                 <label for="password" class="form--label">@lang('Password')</label>
-                                <input id="password" type="password" class="form-control form--control " name="password" placeholder="@lang('Password')" required>
+                                <input id="password" type="password" class="form-control " name="password" placeholder="@lang('Password')" required>
                                 @if($general->secure_password)
                                     <div class="input-popup">
                                         <p class="error lower">@lang('1 small letter minimum')</p>
@@ -74,7 +74,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="select" class="form--label">@lang('Confirm Password')</label>
-                                <input id="password-confirm" type="password" class="form-control form--control" name="password_confirmation" placeholder="@lang('Confirm Password')" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="@lang('Confirm Password')" required autocomplete="new-password">
                             </div>
 
                             @include($activeTemplate.'partials.custom_captcha')

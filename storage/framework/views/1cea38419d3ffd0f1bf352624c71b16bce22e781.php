@@ -13,15 +13,15 @@
 
                             <div class="col-md-6">
                                 <label for="firstname" class="form--label"><?php echo app('translator')->get('First Name'); ?></label>
-                                <input id="firstname" type="text" placeholder="<?php echo app('translator')->get('First Name'); ?>" class="form-control form--control" name="firstname" value="<?php echo e(old('firstname')); ?>" required>
+                                <input id="firstname" type="text" placeholder="<?php echo app('translator')->get('First Name'); ?>" class="form-control" name="firstname" value="<?php echo e(old('firstname')); ?>" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="lastname" class="form--label"><?php echo app('translator')->get('Last Name'); ?></label>
-                                <input id="lastname" type="text" class="form-control form--control" name="lastname" value="<?php echo e(old('lastname')); ?>" placeholder="<?php echo app('translator')->get('Last Name'); ?>" required>
+                                <input id="lastname" type="text" class="form-control" name="lastname" value="<?php echo e(old('lastname')); ?>" placeholder="<?php echo app('translator')->get('Last Name'); ?>" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form--label"><?php echo app('translator')->get('Country'); ?></label>
-                                <select name="country" id="country" class="form--control">
+                                <select name="country" id="country" class="form-control">
                                     <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option data-mobile_code="<?php echo e($country->dial_code); ?>" value="<?php echo e($country->country); ?>" data-code="<?php echo e($key); ?>"><?php echo e(__($country->country)); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -34,7 +34,7 @@
                                         <input type="hidden" name="mobile_code">
                                         <input type="hidden" name="country_code">
                                         <span class="input-group-text mobile-code"></span>
-                                        <input type="text" name="mobile" id="mobile" value="<?php echo e(old('mobile')); ?>" class="form-control form--control checkUser" placeholder="<?php echo app('translator')->get('Your Phone Number'); ?>">
+                                        <input type="text" name="mobile" id="mobile" value="<?php echo e(old('mobile')); ?>" class="form-control form-control checkUser" placeholder="<?php echo app('translator')->get('Your Phone Number'); ?>">
                                     </div>
                                     <small class="text-danger mobileExist"></small>
                                 </div>
@@ -42,25 +42,25 @@
 
                                <div class="col-md-6">
                                 <label for="nida" class="form--label"><?php echo e(__('NIDA')); ?></label>
-                                <input id="nida" type="text" class="form-control form--control checkUser" name="nida" value="<?php echo e(old('nida')); ?>" placeholder="<?php echo e(__('nida no')); ?>" required>
+                                <input id="nida" type="text" class="form-control form-control checkUser" name="nida" value="<?php echo e(old('nida')); ?>" placeholder="<?php echo e(__('nida no')); ?>" required>
                                 <small class="text-danger usernameExist"></small>
                             </div>
                             <div class="col-md-6">
                                 <label for="email" class="form--label"><?php echo app('translator')->get('Driving License'); ?></label>
-                                <input id="driving_license" type="text" class="form-control form--control checkUser" name="driving_license" value="<?php echo e(old('driving license')); ?>" placeholder="<?php echo app('translator')->get('driving license'); ?>" required>
+                                <input id="driving_license" type="text" class="form-control form-control checkUser" name="driving_license" value="<?php echo e(old('driving license')); ?>" placeholder="<?php echo app('translator')->get('driving license'); ?>" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="username" class="form--label"><?php echo e(__('Username')); ?></label>
-                                <input id="username" type="text" class="form-control form--control checkUser" name="username" value="<?php echo e(old('username')); ?>" placeholder="<?php echo e(__('Username')); ?>" required>
+                                <input id="username" type="text" class="form-control form-control checkUser" name="username" value="<?php echo e(old('username')); ?>" placeholder="<?php echo e(__('Username')); ?>" required>
                                 <small class="text-danger usernameExist"></small>
                             </div>
                             <div class="col-md-6">
                                 <label for="email" class="form--label"><?php echo app('translator')->get('E-Mail Address'); ?></label>
-                                <input id="email" type="email" class="form-control form--control checkUser" name="email" value="<?php echo e(old('email')); ?>" placeholder="<?php echo app('translator')->get('E-Mail Address'); ?>" required>
+                                <input id="email" type="email" class="form-control checkUser" name="email" value="<?php echo e(old('email')); ?>" placeholder="<?php echo app('translator')->get('E-Mail Address'); ?>" required>
                             </div>
                             <div class="col-md-6 hover-input-popup">
                                 <label for="password" class="form--label"><?php echo app('translator')->get('Password'); ?></label>
-                                <input id="password" type="password" class="form-control form--control " name="password" placeholder="<?php echo app('translator')->get('Password'); ?>" required>
+                                <input id="password" type="password" class="form-control " name="password" placeholder="<?php echo app('translator')->get('Password'); ?>" required>
                                 <?php if($general->secure_password): ?>
                                     <div class="input-popup">
                                         <p class="error lower"><?php echo app('translator')->get('1 small letter minimum'); ?></p>
@@ -73,7 +73,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="select" class="form--label"><?php echo app('translator')->get('Confirm Password'); ?></label>
-                                <input id="password-confirm" type="password" class="form-control form--control" name="password_confirmation" placeholder="<?php echo app('translator')->get('Confirm Password'); ?>" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="<?php echo app('translator')->get('Confirm Password'); ?>" required autocomplete="new-password">
                             </div>
 
                             <?php echo $__env->make($activeTemplate.'partials.custom_captcha', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
