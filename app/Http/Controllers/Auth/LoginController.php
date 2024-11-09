@@ -45,20 +45,23 @@ class LoginController extends Controller
         $this->username = $this->findUsername();
     }
 
-    public function showLoginForm()
+    public function showLoginForm(Request $request)
     {
 
+//dd(request('fullurl'));
 // if(!session()->has('url.intended'))
 //     {
 //         session(['url.intended' => url()->previous()]);
 //     }
     //return view('auth.login');
+$fullUrl=request('fullurl');
         $pageTitle = "Sign In";
-        return view(activeTemplate() . 'user.auth.login', compact('pageTitle'));
+        return view(activeTemplate() . 'user.auth.login', compact('pageTitle','fullUrl'));
     }
 
     public function login(Request $request)
     {
+       //dd(request('fullurl')); 
 
         $this->validateLogin($request);
 
@@ -77,9 +80,14 @@ class LoginController extends Controller
 
             return $this->sendLockoutResponse($request);
         }
+        
+           $fullUrl=request('fullurl');
+           //dd($fullUrl);
 
-
+        
         if ($this->attemptLogin($request)) {
+
+//dd('uyuyu');
 
     // if(!session()->has('url.intended'))
     // {
@@ -89,9 +97,14 @@ class LoginController extends Controller
 
 //session(['url.intended' => url()->previous()]);
     //return view('auth.login');   
-
+        if(!is_null($fullUrl))
+        {
+           return redirect()->intended($fullUrl);  
+        }
             return $this->sendLoginResponse($request);
         }
+
+
 
         // If the login attempt was unsuccessful we will increment the number of attempts
         // to login and redirect the user back to the login form. Of course, when this

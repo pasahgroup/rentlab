@@ -13,6 +13,8 @@
                         <form class="account-form row g-4" method="POST" action="{{ route('user.login')}}" onsubmit="return submitUserForm();">
                             @csrf
 
+  <input type="hidden" name="fullurl" value="{{$fullUrl}}"/>  
+
                             <div class="col-md-12">
                                 <label for="username" class="form--label">@lang('Username or Email')</label>
                                 <input type="text" name="username" value="{{ old('username') }}" placeholder="@lang('Username or Email')" class="form-control form--control" required>

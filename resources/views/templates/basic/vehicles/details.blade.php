@@ -38,15 +38,17 @@
                             @auth                             
                                  <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn">@lang('Book Now')</a>
                             @else
+                               {{--
                                 <a href="{{ route('user.login') }}" class="cmn--btn">@lang('Book Now')</a>
+                               --}}
                             
-                      <form  method="post"  action="{{ route('user.login') }}" enctype="multipart/form-data">
+                    <form  method="GET"  action="{{ route('user.login') }}" enctype="multipart/form-data">
                              @csrf
-    <input type="hidden" name="_method" value="post">
+    <input type="hidden" name="_method" value="GET">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="text" name="fullurl" value="{{$fullUrl}}"/>   
+                <input type="hidden" name="fullurl" value="{{$fullUrl}}"/>   
                 
-                <button type="submit" class="cmn--btn">@lang('Book Now2')</button>
+                <button type="submit" class="cmn--btn">@lang('Book Now')</button>
                                 </form>
                             @endauth
                         </div>

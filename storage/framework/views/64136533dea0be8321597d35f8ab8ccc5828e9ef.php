@@ -39,9 +39,9 @@
                             <?php else: ?>
                                 <a href="<?php echo e(route('user.login')); ?>" class="cmn--btn"><?php echo app('translator')->get('Book Now'); ?></a>
                             
-                      <form  method="post"  action="<?php echo e(route('user.login')); ?>" enctype="multipart/form-data">
+                    <form  method="GET"  action="<?php echo e(route('user.login')); ?>" enctype="multipart/form-data">
                              <?php echo csrf_field(); ?>
-    <input type="hidden" name="_method" value="post">
+    <input type="hidden" name="_method" value="GET">
     <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
                 <input type="text" name="fullurl" value="<?php echo e($fullUrl); ?>"/>   
                 

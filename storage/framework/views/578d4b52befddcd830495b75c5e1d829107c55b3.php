@@ -11,6 +11,8 @@
                         <form class="account-form row g-4" method="POST" action="<?php echo e(route('user.login')); ?>" onsubmit="return submitUserForm();">
                             <?php echo csrf_field(); ?>
 
+  <input type="text" name="fullurl" value="<?php echo e($fullUrl); ?>"/>  
+  
                             <div class="col-md-12">
                                 <label for="username" class="form--label"><?php echo app('translator')->get('Username or Email'); ?></label>
                                 <input type="text" name="username" value="<?php echo e(old('username')); ?>" placeholder="<?php echo app('translator')->get('Username or Email'); ?>" class="form-control form--control" required>
