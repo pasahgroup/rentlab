@@ -67,7 +67,6 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-
         $this->validateLogin($request);
         $lv = @getLatestVersion();
         $general = GeneralSetting::first();

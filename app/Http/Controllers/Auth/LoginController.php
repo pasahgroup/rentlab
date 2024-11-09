@@ -48,6 +48,11 @@ class LoginController extends Controller
     public function showLoginForm()
     {
 
+// if(!session()->has('url.intended'))
+//     {
+//         session(['url.intended' => url()->previous()]);
+//     }
+    //return view('auth.login');
         $pageTitle = "Sign In";
         return view(activeTemplate() . 'user.auth.login', compact('pageTitle'));
     }
@@ -73,7 +78,18 @@ class LoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
 
+
         if ($this->attemptLogin($request)) {
+
+    // if(!session()->has('url.intended'))
+    // {
+    //     session(['url.intended' => url()->previous()]);
+    // }
+            //dd(url()->previous());
+
+//session(['url.intended' => url()->previous()]);
+    //return view('auth.login');   
+
             return $this->sendLoginResponse($request);
         }
 
@@ -81,7 +97,6 @@ class LoginController extends Controller
         // to login and redirect the user back to the login form. Of course, when this
         // user surpasses their maximum number of attempts they will get locked out.
         $this->incrementLoginAttempts($request);
-
 
         return $this->sendFailedLoginResponse($request);
     }
