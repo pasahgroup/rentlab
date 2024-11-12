@@ -62,7 +62,7 @@
   float: right;
 }
 .gl {
-  float: right;
+  float: left;
 }
 </style>
 
