@@ -58,6 +58,12 @@
   -ms-border-radius: 10px;
   -o-border-radius: 30px;
 }
+.gr {
+  float: right;
+}
+.gl {
+  float: right;
+}
 </style>
 
 
@@ -150,7 +156,7 @@
 <div class="container top-header-area" style="background:yellow;padding:1px">
          <div class="align-items-center px-xl-5 d-lg-flex" style="background-color:#5a715a;margin-top:0px;margin-bottom:0px;">
               <div class="col-lg-4 col-md-4">
-                              <div class="logo">
+                              <div class="logo gl">
                 <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style="width:120px;"></a>
             </div>           
 
@@ -168,7 +174,7 @@
             </div>
 
         <div class="col-lg-3 col-md-4 text-right">
-             <ul class="social-icons">
+             <ul class="social-icons gr" style="padding-top:5px">
                         <?php $__empty_1 = true; $__currentLoopData = $social_icons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <li class="float-right">
                                 <a href="<?php echo e($item->data_values->url); ?>">
