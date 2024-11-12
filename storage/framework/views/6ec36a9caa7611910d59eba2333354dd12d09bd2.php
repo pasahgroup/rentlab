@@ -9,7 +9,7 @@
         <div class="container">
     <div class="widget border--dashed">
         <h4 class="mb-4"><?php echo app('translator')->get('BOOKING FORM'); ?></h4>
-    <div class="single-section pt-120 pb-120 bg--section">
+    <div class="single-section pt-120 pb-120 bg--section" style="background-color:#6d846c">
         <div class="container">
             <h4 class="mb-4"><?php echo app('translator')->get('You are booking'); ?>: <?php echo e($vehicle->model); ?></h4>
             <div class="row gy-5">
@@ -68,17 +68,20 @@
                                 </div>
                             </div>
 
-                               <div class="col-md-12 col-sm-12">                                
-                                    <label for="drop-point" class="">
+                             <div class="row">
+
+
+
+                             <div class="col-md-3 col-sm-3">
+                                    <label for="start-date" class="form--label">
                                         <i class="las la-street-view"></i> <?php echo app('translator')->get('No Car'); ?>
                                     </label>
-                                    <div class="form-group">
-                                   <input type="number" name="no_car" id="no_car" value="1" min="1" required>
+                                  <input type="number"  class="form-group" name="no_car" id="no_car" value="1" min="1" required style="width:120px;">
                                 </div>
-                            </div>    
+                          
 
                          
-                           <div class="col-md-6 col-sm-6">
+                           <div class="col-md-4 col-sm-4">
                                 <div class="form-group">
                                     <label for="start-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('From Date'); ?>
@@ -87,7 +90,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-6 col-sm-6">
+                            <div class="col-md-5 col-sm-5">
                                 <div class="form-group">
                                     <label for="end-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> <?php echo app('translator')->get('To Date'); ?>
@@ -95,6 +98,7 @@
                                     <input type="text" name="drop_time" placeholder="<?php echo app('translator')->get('Drop of Date & Time'); ?>" id="dateAndTimePicker2" autocomplete="off" data-position='top left' class="form-control form--control" disabled required>
                                 </div>
                             </div>
+                        </div>
 
             
 

@@ -24,7 +24,6 @@
                 <div class="newsletter-form">
                     <form action="<?php echo e(route('subscribe')); ?>" id="subscribeForm" method="post">
                         <?php echo csrf_field(); ?>
-
                         <div class="input-group">
                             <input name="email" type="email" class="form-control form--control subscribe_email" placeholder="<?php echo app('translator')->get('Enter your email address'); ?>"/>
                             <button type="submit" class="input-group-text cmn--btn"><?php echo app('translator')->get('Subscribe'); ?></button>

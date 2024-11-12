@@ -1,3 +1,11 @@
+<?php
+    $subscribe_content = getContent('subscribe.content', true);
+    $footer_content = getContent('footer.content', true);
+    $contact = getContent('contact.content', true);
+    $social_icons = getContent('social_icon.element', false, null, true);
+    $policy_pages = getContent('policy_pages.element', false, null, true);
+?>
+
 <!doctype html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 <head>
@@ -10,8 +18,7 @@
     <?php echo $__env->make('partials.seo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
-<style type="text/css">
-    
+<style type="text/css">    
     .booking-btn {
   border: 0px solid #647545;
   padding: 5px 30px;
@@ -52,8 +59,6 @@
   -o-border-radius: 30px;
 }
 </style>
-
-
 
 
 
@@ -145,31 +150,35 @@
 <div class="container top-header-area" style="background:yellow;padding:1px">
          <div class="align-items-center px-xl-5 d-lg-flex" style="background-color:#5a715a;margin-top:0px;margin-bottom:0px;">
               <div class="col-lg-4 col-md-4">
-                <a href="" class="text-decoration-none">
-                    <span class="h3 text-primary bg-dark px-2">Rhonds</span>
-                    <span class="h3 text-dark bg-primary px-2 ml-n1">Company Ltd</span>
-                </a>            
+                              <div class="logo">
+                <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style="width:120px;"></a>
+            </div>           
 
             </div>
 
-              <div class="col-lg-4 col-md-7">
-                 <div class="email-address_no">
+              <div class="col-lg-5 col-md-7 float-right">
+                 <div class="email-address_no float-right">
                     <a href="mailto:info@isol.com">
-                      <i class="fa fa-envelope" style="color:pink;"></i><b style="color:#FDD43D;">  info@rhonds.co.tz</b></a>
+                      <i class="fa fa-envelope" style="color:pink;"></i><b style="color:#FDD43D;">info@rhonds.co.tz</b></a>
                        <a href="https://wa.link/z5mmcd" style="padding-left:10px">
-                            <img src="../../../images/whatsapp.png" alt="" style="width:20px; height:20px;">
-                               <b style="color:#FDD43D;">(+255)655 633 302</b>
+                            <i class="fa fa-phone">
+                               <b style="color:#FDD43D;">(+255)655 633 302</b> </i>
                             </a>
                 </div>
             </div>
 
-
         <div class="col-lg-3 col-md-4 text-right">
-<!-- btn btn-primary btn-square mr-2 -->
-                      <a href="#"  class="btn btn-outline btn-primary"  style="margin-bottom:0px;padding:2px 5px;"><i class="fab fa-twitter"></i></a>
-      <a href="#"  class="btn btn-outline btn-primary" href=""  style="margin-bottom:0px;padding:2px 5px;"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"  class="btn btn-outline btn-primary"  style="margin-bottom:0px;padding:2px 5px;"><i class="fab fa-linkedin-in"></i></a>
-           <a href="#"  class="btn btn-outline btn-primary"  style="margin-bottom:0px;padding:2px 5px;"><i class="fab fa-instagram"></i></a>
+             <ul class="social-icons">
+                        <?php $__empty_1 = true; $__currentLoopData = $social_icons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                            <li class="float-right">
+                                <a href="<?php echo e($item->data_values->url); ?>">
+                                    <?php echo @$item->data_values->social_icon ?>
+
+                                </a>
+                            </li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                        <?php endif; ?>
+                    </ul>
             </div>
         </div>
     </div>
@@ -181,7 +190,7 @@
                 <!-- Classy Menu -->
                 <nav class="classy-navbar justify-content-between" id="southNav">
  <div class="logo">
-                <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style="width:120px;"></a>
+                <!-- <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style="width:120px;"></a> -->
             </div>
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">

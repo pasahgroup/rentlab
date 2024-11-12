@@ -4,9 +4,9 @@
     <div class="single-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape">@lang('Book Now')</div>
         <div class="container">
-             <div class="widget border--dashed">
+             <div class="widget border--dashed" style="background-color:#cfd5d3">
             <div class="row gy-5">
-                <div class="col-lg-5">
+                <div class="col-lg-5" style="background-color:#6d846c">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
                         @forelse($vehicle->images as $image)
                             <div class="car__rental-thumb w-100 bg--body p-0">
@@ -24,7 +24,7 @@
                         @endforelse
                     </div>
                 </div>
-                <div class="col-lg-7 align-self-center">
+                <div class="col-lg-7 align-self-center" style="background-color:#fff"> 
                     <h4><span class="text--body">Vehicle details</span></h4>
                     <br>
                     <div class="rent__single">
@@ -39,7 +39,7 @@
                                  <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn">@lang('Book Now')</a>
                             @else
                                {{--
-                                <a href="{{ route('user.login') }}" class="cmn--btn">@lang('Book Now')</a>
+                                <a href="{{ route('user.login') }}" class="cmn--btn">@lang('Login to Book')</a>
                                --}}
                             
                     <form  method="GET"  action="{{ route('user.login') }}" enctype="multipart/form-data">
@@ -48,7 +48,7 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="fullurl" value="{{$fullUrl}}"/>   
                 
-                <button type="submit" class="cmn--btn">@lang('Book Now')</button>
+                <button type="submit" class="cmn--btn">@lang('Login to Book')</button>
                                 </form>
                             @endauth
                         </div>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <div class="single__details mt-5">
+            <div class="single__details mt-5" style="background-color:#6d846c">
                 <ul class="nav nav-tabs nav--tabs">
                     <li class="nav-item">
                         <a href="#specifications" data-bs-toggle="tab" class="nav-link active">@lang('All Specifications')</a>

@@ -685,13 +685,13 @@ strong, b {
 }
 
 .social-icons li a i {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    line-height: 40px;
+    width: 24px;
+/*    height: 40px;*/
+    font-size: 15px;
+    line-height: 25px;
     text-align: center;
     color: #fff;
-    background: rgba(054, 70, 77);
+    background: rgba(176,161,31);
     -webkit-transition: all ease 0.3s;
     -moz-transition: all ease 0.3s;
     transition: all ease 0.3s;

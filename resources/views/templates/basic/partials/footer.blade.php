@@ -24,7 +24,6 @@
                 <div class="newsletter-form">
                     <form action="{{ route('subscribe') }}" id="subscribeForm" method="post">
                         @csrf
-
                         <div class="input-group">
                             <input name="email" type="email" class="form-control form--control subscribe_email" placeholder="@lang('Enter your email address')"/>
                             <button type="submit" class="input-group-text cmn--btn">@lang('Subscribe')</button>

@@ -2,9 +2,9 @@
     <div class="single-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape"><?php echo app('translator')->get('Book Now'); ?></div>
         <div class="container">
-             <div class="widget border--dashed">
+             <div class="widget border--dashed" style="background-color:#cfd5d3">
             <div class="row gy-5">
-                <div class="col-lg-5">
+                <div class="col-lg-5" style="background-color:#6d846c">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
                         <?php $__empty_1 = true; $__currentLoopData = $vehicle->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <div class="car__rental-thumb w-100 bg--body p-0">
@@ -22,7 +22,7 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <div class="col-lg-7 align-self-center">
+                <div class="col-lg-7 align-self-center" style="background-color:#fff"> 
                     <h4><span class="text--body">Vehicle details</span></h4>
                     <br>
                     <div class="rent__single">
@@ -37,15 +37,15 @@
                             <?php if(auth()->guard()->check()): ?>                             
                                  <a href="<?php echo e(route('vehicle.booking', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn"><?php echo app('translator')->get('Book Now'); ?></a>
                             <?php else: ?>
-                                <a href="<?php echo e(route('user.login')); ?>" class="cmn--btn"><?php echo app('translator')->get('Book Now'); ?></a>
+                               
                             
                     <form  method="GET"  action="<?php echo e(route('user.login')); ?>" enctype="multipart/form-data">
                              <?php echo csrf_field(); ?>
     <input type="hidden" name="_method" value="GET">
     <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
-                <input type="text" name="fullurl" value="<?php echo e($fullUrl); ?>"/>   
+                <input type="hidden" name="fullurl" value="<?php echo e($fullUrl); ?>"/>   
                 
-                <button type="submit" class="cmn--btn"><?php echo app('translator')->get('Book Now2'); ?></button>
+                <button type="submit" class="cmn--btn"><?php echo app('translator')->get('Login to Book'); ?></button>
                                 </form>
                             <?php endif; ?>
                         </div>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <div class="single__details mt-5">
+            <div class="single__details mt-5" style="background-color:#6d846c">
                 <ul class="nav nav-tabs nav--tabs">
                     <li class="nav-item">
                         <a href="#specifications" data-bs-toggle="tab" class="nav-link active"><?php echo app('translator')->get('All Specifications'); ?></a>
