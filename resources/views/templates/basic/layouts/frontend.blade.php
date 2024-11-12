@@ -195,12 +195,7 @@
  <div class="logo">
                 <!-- <a href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="logo" style="width:120px;"></a> -->
             </div>
-                    <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                    </div>
-
-                    <!-- Menu -->
+                   
 
                     <div class="classy-menu" style="color:#fff">
                         <div class="classynav" style="color:#fff">
@@ -313,8 +308,11 @@
 
       </div>
      </div>
+       <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
  </nav>
-           </div>    
+           </div>   
  <body>
 
 @stack('fbComment')

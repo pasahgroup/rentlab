@@ -206,28 +206,6 @@
                                         </div>
 
                                         <ul class="d-flex car-info">
-
-
-                            
-                         <!--    <div class="widget-body">
-                                <form action="{{ route('vehicle.search') }}" method="get">
-                                    <div class="input-group">
-                                        <input type="text" name="name" value="{{ @request()->name }}" class="form-control form-control" placeholder="@lang('Vehicle Name')" id="search">
-                                        <button class="input-group-text cmn--btn" type="submit"><i class="las la-search"></i></button>
-                                    </div>
-                                </form>
-                            </div> -->
-                        
-                        <!--    <div class="widget-body">
-                              <h5 class="title"></h5>
-                              <h5 class="title">@lang('Filter by Body Type')</h5>
-                                <ul class="category-link">
-                                       <li>
-                                            <a href="/cartype-page/Search By Body Type"><span>Car Body Type</span><span></span></a>
-                                            <a href="/cartag-page/Search By Car Tag"><span>Car Tag</span><span></span></a>
-                                                                    </ul>
-                            </div> -->
-                       
                                             <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini">{{ __(@$vehicle->transmission) }}</span></li>
                                             <li class="pr-3"><i class="las la-gas-pump"></i><span class="font-mini">{{ __(@$vehicle->fuel_type) }}</span></li>
                                         </ul>
