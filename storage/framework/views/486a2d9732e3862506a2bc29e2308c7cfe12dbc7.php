@@ -308,7 +308,7 @@
 
       </div>
      </div>
-       <div class="classy-navbar-toggler">
+       <div class="classy-navbar-toggler" style="float-right">
                         <span class="navbarToggler"><span></span><span></span><span></span></span>
                     </div>
  </nav>
