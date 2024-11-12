@@ -168,7 +168,7 @@
             </div>
 
         <div class="col-lg-3 col-md-4 text-right">
-             <ul class="social-icons">
+             <ul class="social-icons" style="padding-top:5px">
                         @forelse($social_icons as $item)
                             <li class="float-right">
                                 <a href="{{ $item->data_values->url }}">
