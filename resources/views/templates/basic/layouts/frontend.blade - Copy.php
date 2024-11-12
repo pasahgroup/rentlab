@@ -183,6 +183,7 @@
         </div>
     </div>
 
+    <div class="container top-header-area" style="background:yellow;padding:1px">
            <div class="classy-nav-container breakpoint-off">
                 <!-- Classy Menu -->
                 <nav class="classy-navbar justify-content-between" id="southNav">
@@ -308,8 +309,142 @@
       </div>
      </div>
  </nav>
-           </div>    
- <body>
+           </div>
+    </div>
+     <header class="header-area">
+        <!-- Main Header Area -->
+        <div class="main-header-area" id="stickyHeader" style="background:#fdfdfd;">
+           <!-- <div class="main-header-area" id="stickyHeader" style="background:#2e4432;"> -->
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="southNav">
+ <div class="logo">
+                <!-- <a href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="logo" style="width:120px;"></a> -->
+            </div>
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+
+                    <div class="classy-menu">
+                        <div class="classynav">
+                            <ul>
+ <li class="active"><a href="{{ route('home') }}">Home</a>
+                </li>
+
+
+                                    <li><a href="{{ route('vehicles') }}">Vehicles</a>
+                                    <div class="megamenu">
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Car Models</li>
+                                            
+                                               @foreach($cartypes as $cartype)
+                    <li><a href="/cartype-page/{{$cartype->car_body_type}}">{{$cartype->car_body_type}}</a></li>
+                   @endforeach                                
+                                        </ul>
+                                                                         
+                                    </div>
+                                </li>
+
+                                  <li><a href="#">Booking</a>
+                                    <ul class="dropdown">
+                                         <li><a href="{{ route('user.multibooking.index') }}">Multi-booking</a></li>
+                                          <li><a href="{{ route('plans') }}">Plan-booking</a></li>
+                                       
+                                    </ul>
+                                </li>
+                               
+
+                                <li><a href="#">Services</a>
+                                    <ul class="dropdown">
+                                          <li><a href="#">Rhonds Services (Comming soon---)</a></li>
+                                       
+                                    </ul>
+                                </li>    
+
+                                <li><a href="#">Miscellaneous</a>
+                                    <ul class="dropdown">
+                                        <li><a href="{{ route('blogs') }}">Blog</a></li>    
+                                        <li><a href="#">Galleries (Comming soon---)</a></li>
+                                        <li><a href="#">Opportunities (Comming soon---)</a></li>
+                                    </ul>
+                                </li>
+
+
+  @foreach($pages as $k => $data)
+                    <li><a href="{{route('pages',[$data->slug])}}">{{__($data->name)}}</a></li>
+                @endforeach
+                  <li><a href="{{ route('contact') }}">Contact</a>
+                </li>
+
+
+
+  <!-- <li><a href="#">Account</a>
+                                    <ul class="dropdown">
+                                        <li><a href="{{ route('blogs') }}">Blog</a></li>    
+                                        <li><a href="#">Galleries (Comming soon---)</a></li>
+                                        <li><a href="#">Opportunities (Comming soon---)</a></li>
+                                    </ul>
+                                </li> -->
+
+
+
+  <li><a href="#" class="las la-user float-right">Account</a>
+                                    <ul class="dropdown">                         
+ @auth
+                    
+                    <li class="header-top-item meta-list">
+                <a href="Mailto:{{ getContent('contact.content', true)->data_values->email }}"><i class="lar la-envelope"></i>{{ getContent('contact.content', true)->data_values->email }}</a>
+            </li>
+                     <li class="header-top-item ml-sm-auto">
+                        <a href="{{ route('user.home') }}"><i class="las la-tachometer-alt"></i>@lang('Dashboard')</a>
+                    </li>
+
+                    <li class="header-top-item">
+                        <a href="{{ route('user.logout') }}"><i class="las la-sign-out-alt"></i>@lang('Logout')</a>
+                    </li>
+                @else
+                    <li class="header-top-item ml-sm-auto">
+                        <a href="{{ route('user.login') }}"><i class="las la-user"></i>@lang('Login')</a>
+                    </li>
+                    <li class="header-top-item">
+                        <a href="{{ route('user.register') }}"><i class="las la-user-plus"></i>@lang('Register')</a>
+                    </li>
+                @endauth
+
+
+
+                                    </ul>
+                                </li>
+                            
+
+                            <li><a href="#" class="las Plan-booking float-right"><strong style="color:yellow;">Language</strong></a>
+                                    <ul class="dropdown">
+                   
+                        <select class="langSel language-select ms-3">
+                        @foreach($language as $item)
+                            <option value="{{$item->code}}"
+                                    @if(session('lang') == $item->code) selected @endif>{{ __($item->name) }}</option>
+                        @endforeach
+                    </select>         
+
+
+
+                                    </ul>
+                                </li>
+
+    </ul>
+
+      </div>
+     </div>
+ </nav>
+           </div>
+        </div>
+    </header>
+
+<body>
 
 @stack('fbComment')
 
