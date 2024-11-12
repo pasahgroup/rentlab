@@ -422,8 +422,9 @@ img {
 .dark .classynav ul li .megamenu,
 .dark.breakpoint-on .classynav > ul > li > a,
 .dark.breakpoint-on .classy-navbar .classy-menu {
-  background-color: #37533c;}
+  }
 
+/*37533c*/
 .header-area {
   position: relative;
   z-index: 10000;

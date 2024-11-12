@@ -202,8 +202,8 @@
 
                     <!-- Menu -->
 
-                    <div class="classy-menu">
-                        <div class="classynav">
+                    <div class="classy-menu" style="color:#fff">
+                        <div class="classynav" style="color:#fff">
                             <ul>
  <li class="active"><a href="<?php echo e(route('home')); ?>">Home</a>
                 </li>
