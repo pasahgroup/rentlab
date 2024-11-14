@@ -27,7 +27,6 @@ class SiteController extends Controller
         $this->activeTemplate = activeTemplate();
     }
 
-
     public function index(){
          //dd($this->activeTemplate);
         $count = Page::where('tempname',$this->activeTemplate)->where('slug','home')->count();
@@ -71,7 +70,7 @@ $models = Vehicle::orderby('model')
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
 
          //dd($sections);  
-        return view($this->activeTemplate . 'home', compact('pageTitle','sections','vehicles','carbodytypes','carTags','models'));
+        return view($this->activeTemplate . 'homem', compact('pageTitle','sections','vehicles','carbodytypes','carTags','models'));
     }
 
 
