@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('content'); ?>
     <?php
         $banners = getContent('banner.element');
@@ -144,4 +145,4 @@
     </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/carbodytypes/carbodytype.blade.php ENDPATH**/ ?>
+<?php echo $__env->make($activeTemplate.'layoutm.frontendm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/carbodytypes/carbodytype.blade.php ENDPATH**/ ?>

@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layoutm.frontendm')
+@extends($activeTemplate.'layouts.frontend')
 @section('content')
     @php
         $banners = getContent('banner.element');

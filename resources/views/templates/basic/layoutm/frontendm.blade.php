@@ -42,11 +42,59 @@
   <link rel="stylesheet" href="../../../mold/vendor/animate-css/animate.css" media="all">
   <link rel="stylesheet" href="../../../mold/assets/font/iconfont/iconstyle.css" media="all">
   <link rel="stylesheet" href="../../../mold/assets/font/font-awesome/css/font-awesome.css" media="all">
- <!-- End of Session On -->
-
 <link rel="stylesheet" href="../../../assetf/style.css">
+<!-- Original custom css -->
 
 
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap.min.css')}}">
+   
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/line-awesome.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/magnific-popup.min.css')}}">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/owl.min.css')}}">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/main.css')}}">
+
+
+
+
+
+   <!-- <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/iconfont/iconstyle.css')}}">
+     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/vendor/animate-css/animate.css')}}">
+       <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/font-awesome/css/font-awesome.css')}}"> -->
+       
+  <!--   <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/color.php?color='.$general->base_color.'&secondColor='.$general->secondary_color)}}">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap-fileinput.css')}}">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/custom.css')}}"> -->
+
+
+<!-- Custom2 header menu css -->
+ <!--    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/ccss/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/ccss/colors/blue.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/ccss/bbpres.css')}}" type="text/css">
+
+    <link href="{{asset($activeTemplateTrue.'custom/lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet"> -->
+
+<!--   <link href="{{asset($activeTemplateTrue.'custom/lib/prettyphoto/css/prettyphoto.css')}}" rel="stylesheet">
+  <link href="{{asset($activeTemplateTrue.'custom/lib/hover/hoverex-all.css')}}" rel="stylesheet">
+  <link href="{{asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.css')}}" rel="stylesheet">
+  <link href=".{{asset($activeTemplateTrue.'custom/lib/owl-carousel/owl-carousel.css')}}" rel="stylesheet">
+
+   <link href="{{asset($activeTemplateTrue.'custom/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Ruda:400,900,700" rel="stylesheet"> -->
+
+<!-- Custom css -->
+
+ <!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/font-awesome.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/elegant-icons.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/nice-select.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/magnific-popup.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/jquery-ui.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/owl.carousel.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/slicknav.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/style.css')}}" type="text/css">
+ -->
            <!-- end of Custom library -->
 
     @stack('style-lib')
@@ -88,7 +136,7 @@
 
 <div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
             <div class="container">           
-       <nav class="navbar navbar-expand-lg navbar-light">
+       <nav class="navbar navbar-expand-lg navbar-light float-left">
                     <a href="" class="navbar-brand p-0">
                                      <div class="logo gl">
                 <a href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="logo" style="width:120px;"></a>
@@ -227,9 +275,12 @@
                 </nav>
 
 
+
+
            <!--  <div class="classy-navbar-toggler" style="float-right">
                         <span class="navbarToggler"><span></span><span></span><span></span></span>
                     </div> -->
+
             </div>
         </div>
 
