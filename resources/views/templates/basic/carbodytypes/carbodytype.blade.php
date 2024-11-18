@@ -195,6 +195,7 @@
                     </p>
                 </div>
        <div class="row">
+        {{$vehicles}}
 @forelse($vehicles as $vehicle)
                      <div class="col-md-3">
                     <div class="categories-item p-4">
@@ -207,23 +208,20 @@
                                     </div>                            
                             <div class="categories-content rounded-bottom p-4">
                                 <h4>{{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no?? 1) }})</h4>
-                                <div class="categories-review mb-4">
-                                    <div class="d-flex justify-content-center text-secondary">
-                                      
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <h5 class="bg-white text-primary rounded-pill py-2 px-4 mb-0">$ {{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</sub></h5>
+                                   <div class="rent__content">
+                                        <ul class="d-flex car-info">
+                                            <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini">{{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</span></li>
+                                        </ul>
                                 </div>
                                 <div class="row gy-2 gx-0 text-center mb-4">
                                     <div class="col-4 border-end border-white">
-                                        <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4 Seat</span>
+                                        <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">{{ __(@$vehicle->seat) }} Seat</span>
                                     </div>
                                     <div class="col-4 border-end border-white">
-                                        <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">AT/MT</span>
+                                        <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">{{ __(@$vehicle->transmission) }}</span>
                                     </div>
                                     <div class="col-4">
-                                        <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1">Petrol</span>
+                                        <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1">{{ __(@$vehicle->fuel_type) }}</span>
                                     </div>
                                 </div>
                  <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-3" style="background-color:brwon !important">@lang('Book')</a>
