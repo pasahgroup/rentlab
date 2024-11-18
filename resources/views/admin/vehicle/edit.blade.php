@@ -36,7 +36,7 @@
                                         <option value="">-- @lang('Select car model') --</option>
                                         @forelse($modelbs as $modelb)
                                                               <option
-                                                value="{{ $modelb->car_model }}" {{ $vehicle->model == $modelb->car_model ? 'selected' : '' }}>{{ __(@$modelb->car_model) }}</option>
+                                                value="{{ $modelb->car_model }}" {{ $vehicle->id == $modelb->id ? 'selected' : '' }}>{{ __(@$modelb->car_model) }}</option>
                                         @empty
                                         @endforelse
 
@@ -174,11 +174,10 @@
                                                                 </div>
 
                                                                 <div class="avatar-remove">
-                                                                    <button class="bg-danger deleteOldImage"
-                                                                            onclick="return false"
-                                                                            data-removeindex="imageItem{{ $loop->iteration }}"
-                                                                            data-deletelink="{{ route('admin.vehicles.image.delete', [$vehicle->id, $image]) }}">
-                                                                        <i class="la la-close"></i></button>
+<button class="bg-danger deleteOldImage"onclick="return false"
+ data-removeindex="imageItem{{ $loop->iteration }}"
+data-deletelink="{{ route('admin.vehicles.image.delete', [$vehicle->id, $image]) }}">
+<i class="la la-close"></i></button>
                                                                 </div>
 
                                                             </div>
