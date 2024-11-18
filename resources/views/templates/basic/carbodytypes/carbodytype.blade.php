@@ -7,6 +7,12 @@
         $seats = \App\Models\Seater::active()->orderBy('number')->get();
     @endphp
     <!-- Banner Section -->
+    <style type="text/css">
+        .mt-n1 {
+  margin-left: -0.25rem !important;
+}
+
+    </style>
 
   <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side">@lang('Rent')</div>
@@ -110,7 +116,7 @@
                                    <div class="rent__content text-center">
                                         <ul class="d-flex car-info text-center">
                                             <li class="pr-3 text-center"><i class="fas fa-money-check"></i>
-                                                <span class="">{{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</span>
+                                                <span class="mt-n1">{{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</span>
                                             </li>
                                         </ul>
                                 </div>

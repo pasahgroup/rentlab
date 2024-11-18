@@ -7,6 +7,12 @@
         $seats = \App\Models\Seater::active()->orderBy('number')->get();
     ?>
     <!-- Banner Section -->
+    <style type="text/css">
+        .mt-n1 {
+  margin-left: -0.25rem !important;
+}
+
+    </style>
 
   <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side"><?php echo app('translator')->get('Rent'); ?></div>
@@ -110,7 +116,7 @@
                                    <div class="rent__content text-center">
                                         <ul class="d-flex car-info text-center">
                                             <li class="pr-3 text-center"><i class="fas fa-money-check"></i>
-                                                <span class="text-center"><?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span>
+                                                <span class="mt-n1"><?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span>
                                             </li>
                                         </ul>
                                 </div>
