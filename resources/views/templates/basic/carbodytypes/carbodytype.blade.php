@@ -87,6 +87,48 @@
                     <div class="row g-4">
 
                         @forelse($vehicles as $vehicle)
+   <div class="col-md-4">
+ <div class="rent__item">
+                            <div class="rent__thumb categories-item">
+                                        <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}">
+                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
+                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
+                                        </a>
+                                    </div>
+                            <div class="categories-img rounded-top">
+                                <img src="img/car-1.png" class="img-fluid w-100 rounded-top" alt="">
+                            </div>
+                            <div class="categories-content rounded-bottom p-4">
+                                <h4>Mercedes Benz R3</h4>
+                                  <div class="mb-4">
+                                    <h4 class="bg-white text-primary rounded-pill py-2 px-4 mb-0">$99:00/Day</h4>
+                                </div>
+                                <div class="row gy-2 gx-0 text-center mb-4">
+                                    <div class="col-4 border-end border-white">
+                                        <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4 Seat</span>
+                                    </div>
+                                    <div class="col-4 border-end border-white">
+                                        <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">AT/MT</span>
+                                    </div>
+                                    <div class="col-4">
+                                        <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1">Petrol</span>
+                                    </div>
+                                    <div class="col-4 border-end border-white">
+                                        <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">2015</span>
+                                    </div>
+                                    <div class="col-4 border-end border-white">
+                                        <i class="fa fa-cogs text-dark"></i> <span class="text-body ms-1">AUTO</span>
+                                    </div>
+                                    <div class="col-4">
+                                        <i class="fa fa-road text-dark"></i> <span class="text-body ms-1">27K</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+
                             <div class="col-md-3">
                                 <div class="rent__item">
                                     <div class="rent__thumb">
@@ -112,6 +154,7 @@
 
 
                      <div class="row" style="margin-top:10px">
+
   <div class="col-lg-3 col-md-3 col-sm-3">
                                          
                                 </div>
@@ -120,7 +163,7 @@
 
                                            <div class="btn__grp">
 
-                                             <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:brwon !important">@lang('Book')</a>
+                                             <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:brwon !important">@lang('Bookd')</a>
                         </div>
 
 
@@ -142,4 +185,59 @@
             </div>
         </div>
     </div>
+
+
+      <div class="container-fluid categories py-5">
+            <div class="container-fluid py-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+                    <h1 class="display-5 text-capitalize mb-3">Vehicle <span class="text-primary">Categories</span></h1>
+                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+                    </p>
+                </div>
+       <div class="row">
+@forelse($vehicles as $vehicle)
+                     <div class="col-md-3">
+                    <div class="categories-item p-4">
+                        <div class="rent__item">
+                            <div class="rent__thumb">
+                                        <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}">
+                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
+                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
+                                        </a>
+                                    </div>                            
+                            <div class="categories-content rounded-bottom p-4">
+                                <h4>{{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no?? 1) }})</h4>
+                                <div class="categories-review mb-4">
+                                    <div class="d-flex justify-content-center text-secondary">
+                                      
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <h5 class="bg-white text-primary rounded-pill py-2 px-4 mb-0">$ {{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</sub></h5>
+                                </div>
+                                <div class="row gy-2 gx-0 text-center mb-4">
+                                    <div class="col-4 border-end border-white">
+                                        <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4 Seat</span>
+                                    </div>
+                                    <div class="col-4 border-end border-white">
+                                        <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">AT/MT</span>
+                                    </div>
+                                    <div class="col-4">
+                                        <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1">Petrol</span>
+                                    </div>
+                                </div>
+                 <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-3" style="background-color:brwon !important">@lang('Book')</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                        @empty
+                        @endforelse
+                    </div>
+{!! $vehicles->links() !!}
+
+            </div>
+        </div>
 @endsection
