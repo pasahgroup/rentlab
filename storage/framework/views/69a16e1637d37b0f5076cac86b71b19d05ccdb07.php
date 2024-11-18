@@ -86,49 +86,7 @@
                     </div>
                     <div class="row g-4">
 
-                        <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-   <div class="col-md-4">
- <div class="rent__item">
-                            <div class="rent__thumb categories-item">
-                                        <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>">
-                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" class="first-look" alt="rent-vehicle">
-                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
-                                        </a>
-                                    </div>
-                            <div class="categories-img rounded-top">
-                                <img src="img/car-1.png" class="img-fluid w-100 rounded-top" alt="">
-                            </div>
-                            <div class="categories-content rounded-bottom p-4">
-                                <h4>Mercedes Benz R3</h4>
-                                  <div class="mb-4">
-                                    <h4 class="bg-white text-primary rounded-pill py-2 px-4 mb-0">$99:00/Day</h4>
-                                </div>
-                                <div class="row gy-2 gx-0 text-center mb-4">
-                                    <div class="col-4 border-end border-white">
-                                        <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">4 Seat</span>
-                                    </div>
-                                    <div class="col-4 border-end border-white">
-                                        <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">AT/MT</span>
-                                    </div>
-                                    <div class="col-4">
-                                        <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1">Petrol</span>
-                                    </div>
-                                    <div class="col-4 border-end border-white">
-                                        <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">2015</span>
-                                    </div>
-                                    <div class="col-4 border-end border-white">
-                                        <i class="fa fa-cogs text-dark"></i> <span class="text-body ms-1">AUTO</span>
-                                    </div>
-                                    <div class="col-4">
-                                        <i class="fa fa-road text-dark"></i> <span class="text-body ms-1">27K</span>
-                                    </div>
-                                </div>
-                                <a href="#" class="btn btn-primary rounded-pill d-flex justify-content-center py-3">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-
+                        <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?> 
                             <div class="col-md-3">
                                 <div class="rent__item">
                                     <div class="rent__thumb">
@@ -190,15 +148,7 @@
 
       <div class="container-fluid categories py-5">
             <div class="container-fluid py-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Vehicle <span class="text-primary">Categories</span></h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
-
-                        <?php echo e($vehicles); ?>
-
-                    </p>
-                </div>
-       <div class="row">        
+                      <div class="row">        
 <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                      <div class="col-md-3">
                     <div class="categories-item">
@@ -227,7 +177,8 @@
                                         <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->fuel_type)); ?></span>
                                     </div>
                                 </div>
-                 <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-3" style="background-color:brwon !important"><?php echo app('translator')->get('Book'); ?></a>
+                 <!-- <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-3" style="background-color:brwon !important"><?php echo app('translator')->get('Book'); ?></a> -->
+                 <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4">Get Started</a>
                             </div>
                         </div>
                     </div>
