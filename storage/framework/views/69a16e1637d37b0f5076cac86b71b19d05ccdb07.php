@@ -109,7 +109,9 @@
                                 <strong><?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->car_model_no?? 1)); ?>)</strong>
                                    <div class="rent__content text-center">
                                         <ul class="d-flex car-info text-center">
-                                            <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="text-center"><?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span></li>
+                                            <li class="pr-3 text-center"><i class="fas fa-money-check"></i>
+                                                <span class="text-center"><?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span>
+                                            </li>
                                         </ul>
                                 </div>
                                 <br>

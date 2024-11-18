@@ -109,7 +109,9 @@
                                 <strong>{{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no?? 1) }})</strong>
                                    <div class="rent__content text-center">
                                         <ul class="d-flex car-info text-center">
-                                            <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="text-center">{{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</span></li>
+                                            <li class="pr-3 text-center"><i class="fas fa-money-check"></i>
+                                                <span class="">{{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</span>
+                                            </li>
                                         </ul>
                                 </div>
                                 <br>
