@@ -36,7 +36,7 @@
                                         <option value="">-- @lang('Select car model') --</option>
                                         @forelse($modelbs as $modelb)
                                                               <option
-                                                value="{{ $modelb->car_model }}" {{ $vehicle->id == $modelb->id ? 'selected' : '' }}>{{ __(@$modelb->car_model) }}</option>
+                                                value="{{ $modelb->car_model }}" {{ $vehicle->model == $modelb->car_model ? 'selected' : '' }}>{{ __(@$modelb->car_model) }}</option>
                                         @empty
                                         @endforelse
 

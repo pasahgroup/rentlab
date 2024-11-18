@@ -36,7 +36,7 @@
                                         <option value="">-- <?php echo app('translator')->get('Select car model'); ?> --</option>
                                         <?php $__empty_1 = true; $__currentLoopData = $modelbs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $modelb): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                                               <option
-                                                value="<?php echo e($modelb->car_model); ?>" <?php echo e($vehicle->id == $modelb->id ? 'selected' : ''); ?>><?php echo e(__(@$modelb->car_model)); ?></option>
+                                                value="<?php echo e($modelb->car_model); ?>" <?php echo e($vehicle->model == $modelb->car_model ? 'selected' : ''); ?>><?php echo e(__(@$modelb->car_model)); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <?php endif; ?>
 
@@ -174,11 +174,10 @@
                                                                 </div>
 
                                                                 <div class="avatar-remove">
-                                                                    <button class="bg-danger deleteOldImage"
-                                                                            onclick="return false"
-                                                                            data-removeindex="imageItem<?php echo e($loop->iteration); ?>"
-                                                                            data-deletelink="<?php echo e(route('admin.vehicles.image.delete', [$vehicle->id, $image])); ?>">
-                                                                        <i class="la la-close"></i></button>
+<button class="bg-danger deleteOldImage"onclick="return false"
+ data-removeindex="imageItem<?php echo e($loop->iteration); ?>"
+data-deletelink="<?php echo e(route('admin.vehicles.image.delete', [$vehicle->id, $image])); ?>">
+<i class="la la-close"></i></button>
                                                                 </div>
 
                                                             </div>

@@ -195,8 +195,8 @@
                                     <select class="form-control" id="transmission" name="transmission" required="">
                                         <option value="">-- <?php echo app('translator')->get('Select Transmission'); ?> --</option>
                               
-                                            <option value="Automatic"><?php echo app('translator')->get('AT'); ?></option>
-                                            <option value="Semi-automatic"><?php echo app('translator')->get('SAT'); ?></option>
+                                            <option value="AT"><?php echo app('translator')->get('AT'); ?></option>
+                                            <option value="SAT"><?php echo app('translator')->get('SAT'); ?></option>
                                              <option value="Manual"><?php echo app('translator')->get('Manual'); ?></option>
                                                                         </select>
                                 </div>
