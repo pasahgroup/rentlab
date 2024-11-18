@@ -13,27 +13,7 @@
         <div class="shape"><?php echo app('translator')->get('Vehicles'); ?></div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-2" style="margin-top:0px">
-                    <aside class="category-sidebar">                       
-                        <div class="widget border--dashed">
-                             <div class="close-sidebar"><i class="las la-times"></i></div>
-                            <h5 class="title"><?php echo app('translator')->get('Filter by Car Body Type'); ?></h5>
-                            <div class="widget-body">
-                                <ul class="category-link">
-
-                                    <?php $__empty_1 = true; $__currentLoopData = $cartypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cartype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                        <li>
-                                            <a href="/cartype-page/<?php echo e($cartype->car_body_type); ?>"><span><?php echo e($cartype->car_body_type); ?></span><span>(<?php echo e($metaVehicles->where('car_body_type',$cartype->car_body_type)->count()); ?>)</span></a>
-                                        </li>
-                                   
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                                    <?php endif; ?>
-
-                                </ul>
-                            </div>
-                        </div>                    
-                    </aside>
-                </div>
+              
                 <div class="col-lg-10">
                     <div class="filter-in d-lg-none">
                         <i class="las la-filter"></i>
@@ -78,8 +58,8 @@
                             </div>
                         </form>
                     </div>
-                    <div class="row g-4">
 
+                    <div class="row g-4">
                         <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?> 
                             <div class="col-md-3">
                                 <div class="rent__item">
@@ -115,7 +95,7 @@
 
                                            <div class="btn__grp">
 
-                                             <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="cmn--btn form--control bg--base w-100 justify-content-center" style="background-color:brwon !important"><?php echo app('translator')->get('Bookd'); ?></a>
+                                            <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
                         </div>
 
 
@@ -142,7 +122,31 @@
 
       <div class="container-fluid categories py-5">
             <div class="container-fluid py-5">
-                      <div class="row">        
+                      <div class="row">  
+
+                      <div class="col-lg-2" style="margin-top:0px">
+                    <aside class="category-sidebar">                       
+                        <div class="widget border--dashed">
+                             <div class="close-sidebar"><i class="las la-times"></i></div>
+                            <h5 class="title"><?php echo app('translator')->get('Filter by Car Body Type'); ?></h5>
+                            <div class="widget-body">
+                                <ul class="category-link">
+
+                                    <?php $__empty_1 = true; $__currentLoopData = $cartypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cartype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                        <li>
+                                            <a href="/cartype-page/<?php echo e($cartype->car_body_type); ?>"><span><?php echo e($cartype->car_body_type); ?></span><span>(<?php echo e($metaVehicles->where('car_body_type',$cartype->car_body_type)->count()); ?>)</span></a>
+                                        </li>
+                                   
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                    <?php endif; ?>
+
+                                </ul>
+                            </div>
+                        </div>                    
+                    </aside>
+                </div>
+   <div class="col-lg-10" style="margin-top:0px"> 
+      <div class="row">               
 <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                      <div class="col-md-3">
                     <div class="categories-item">
@@ -153,8 +157,8 @@
                                             <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
                                         </a>
                                     </div>                            
-                            <div class="categories-content rounded-bottom p-4">
-                                <h4><?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->car_model_no?? 1)); ?>)</h4>
+                            <div class="categories-content rounded-bottom p-4" style="margin:-25px;">
+                                <strong><?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->car_model_no?? 1)); ?>)</strong>
                                    <div class="rent__content">
                                         <ul class="d-flex car-info">
                                             <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini"><?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span></li>
@@ -171,19 +175,19 @@
                                         <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->fuel_type)); ?></span>
                                     </div>
                                 </div>
-                 <!-- <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-3" style="background-color:brwon !important"><?php echo app('translator')->get('Book'); ?></a> -->
-                 <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:-22px;">Book</a>
                             </div>
+                 <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
+                          
                         </div>
                     </div>
                 </div>
 
-
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <?php endif; ?>
-                    </div>
-<?php echo $vehicles->links(); ?>
+                        <?php echo $vehicles->links(); ?>
 
+                    </div>
+</div>
 
             </div>
         </div>

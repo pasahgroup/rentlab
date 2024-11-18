@@ -9,7 +9,8 @@ body {
     padding: 0;
     margin: 0;
     font-size: 16px;
-    color: #031A04;
+/*    color: #031A04;*/
+      color: #fff;
     overflow-x: hidden;
     line-height: 1.6;
     font-family: "Open Sans", sans-serif;
@@ -3314,7 +3315,7 @@ width: 40%;
 
 .rent__item .rent__content .car-info {
     background: #22313a;
-    padding: 8px 15px;
+    padding: 1px 10px;
     margin-top: 10px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
