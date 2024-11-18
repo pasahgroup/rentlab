@@ -13,16 +13,10 @@
         <div class="shape"><?php echo app('translator')->get('Vehicles'); ?></div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-2">
-                    <aside class="category-sidebar">
-                        <div class="widget d-lg-none border--dashed">
-                            <div class="d-flex justify-content-between">
-                                <h5 class="title border-0 pb-0 mb-0"><?php echo app('translator')->get('Filter Vehicles'); ?></h5>
-                                <div class="close-sidebar"><i class="las la-times"></i></div>
-                            </div>
-                        </div>
-                       
+                <div class="col-lg-2" style="margin-top:0px">
+                    <aside class="category-sidebar">                       
                         <div class="widget border--dashed">
+                             <div class="close-sidebar"><i class="las la-times"></i></div>
                             <h5 class="title"><?php echo app('translator')->get('Filter by Car Body Type'); ?></h5>
                             <div class="widget-body">
                                 <ul class="category-link">
@@ -178,7 +172,7 @@
                                     </div>
                                 </div>
                  <!-- <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-3" style="background-color:brwon !important"><?php echo app('translator')->get('Book'); ?></a> -->
-                 <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4">Get Started</a>
+                 <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:-22px;">Book</a>
                             </div>
                         </div>
                     </div>

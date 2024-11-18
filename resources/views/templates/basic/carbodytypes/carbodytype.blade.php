@@ -13,16 +13,10 @@
         <div class="shape">@lang('Vehicles')</div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-2">
-                    <aside class="category-sidebar">
-                        <div class="widget d-lg-none border--dashed">
-                            <div class="d-flex justify-content-between">
-                                <h5 class="title border-0 pb-0 mb-0">@lang('Filter Vehicles')</h5>
-                                <div class="close-sidebar"><i class="las la-times"></i></div>
-                            </div>
-                        </div>
-                       
+                <div class="col-lg-2" style="margin-top:0px">
+                    <aside class="category-sidebar">                       
                         <div class="widget border--dashed">
+                             <div class="close-sidebar"><i class="las la-times"></i></div>
                             <h5 class="title">@lang('Filter by Car Body Type')</h5>
                             <div class="widget-body">
                                 <ul class="category-link">
@@ -177,7 +171,7 @@
                                     </div>
                                 </div>
                  <!-- <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-3" style="background-color:brwon !important">@lang('Book')</a> -->
-                 <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4">Get Started</a>
+                 <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:-22px;">Book</a>
                             </div>
                         </div>
                     </div>
