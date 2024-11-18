@@ -111,12 +111,12 @@
                                             <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
                                         </a>
                                     </div>                            
-                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-25px;">
+                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-22px;">
                                 <strong>{{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no?? 1) }})</strong>
-                                   <div class="rent__content text-center">
+                                   <div class="rent__content text-center mt-n1">
                                         <ul class="d-flex car-info text-center">
                                             <li class="pr-3 text-center"><i class="fas fa-money-check"></i>
-                                                <span class="mt-n1">{{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</span>
+                                                <span class="">{{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</span>
                                             </li>
                                         </ul>
                                 </div>

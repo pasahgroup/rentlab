@@ -111,12 +111,12 @@
                                             <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
                                         </a>
                                     </div>                            
-                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-25px;">
+                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-22px;">
                                 <strong><?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->car_model_no?? 1)); ?>)</strong>
-                                   <div class="rent__content text-center">
+                                   <div class="rent__content text-center mt-n1">
                                         <ul class="d-flex car-info text-center">
                                             <li class="pr-3 text-center"><i class="fas fa-money-check"></i>
-                                                <span class="mt-n1"><?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span>
+                                                <span class=""><?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span>
                                             </li>
                                         </ul>
                                 </div>
