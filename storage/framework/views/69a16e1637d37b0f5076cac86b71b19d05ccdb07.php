@@ -59,61 +59,6 @@
                         </form>
                     </div>
 
-                    <div class="row g-4">
-                        <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?> 
-                            <div class="col-md-3">
-                                <div class="rent__item">
-                                    <div class="rent__thumb">
-                                        <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>">
-                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" class="first-look" alt="rent-vehicle">
-                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
-                                        </a>
-                                    </div>
-                                    <div class="rent__content">
-                                       <h6 class="rent__title">
-                                            <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="las la-car"> <?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->car_model_no?? 1)); ?>)</a>
-                                        </h6>
-                                        <div class="rent__content">
-                                            <h5 class="item">  <?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></sub></h5>
-                                        </div>
-
-                                        <ul class="d-flex car-info">
-                                            <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini"><?php echo e(__(@$vehicle->transmission)); ?></span></li>
-                                            <li class="pr-3"><i class="las la-gas-pump"></i><span class="font-mini"><?php echo e(__(@$vehicle->fuel_type)); ?></span></li>
-                                        </ul>
-        
-
-
-
-                     <div class="row" style="margin-top:10px">
-
-  <div class="col-lg-3 col-md-3 col-sm-3">
-                                         
-                                </div>
-                                   <div class="col-lg-6 col-md-6 col-sm-6">
-                                      <div class="car__item__price">
-
-                                           <div class="btn__grp">
-
-                                            <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
-                        </div>
-
-
-                                    </div>
-                                </div>
-
-                                   <div class="col-lg-3 col-md-3 col-sm-3"> 
-                                </div>
-                               </div> 
-
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                        <?php endif; ?>
-<?php echo $vehicles->links(); ?>
-
-                    </div>
                 </div>
             </div>
         </div>
@@ -146,6 +91,9 @@
                     </aside>
                 </div>
    <div class="col-lg-10" style="margin-top:0px"> 
+     <div class="filter-in d-lg-none">
+                        <i class="las la-filter"></i>
+                    </div>
       <div class="row">               
 <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                      <div class="col-md-3">
@@ -157,13 +105,14 @@
                                             <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
                                         </a>
                                     </div>                            
-                            <div class="categories-content rounded-bottom p-4" style="margin:-25px;">
+                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-25px;">
                                 <strong><?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->car_model_no?? 1)); ?>)</strong>
-                                   <div class="rent__content">
-                                        <ul class="d-flex car-info">
-                                            <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini"><?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span></li>
+                                   <div class="rent__content text-center">
+                                        <ul class="d-flex car-info text-center">
+                                            <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="text-center"><?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span></li>
                                         </ul>
                                 </div>
+                                <br>
                                 <div class="row gy-2 gx-0 text-center mb-4">
                                     <div class="col-4 border-end border-white">
                                         <i class="fa fa-users text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->seat)); ?> Seat</span>

@@ -59,60 +59,6 @@
                         </form>
                     </div>
 
-                    <div class="row g-4">
-                        @forelse($vehicles as $vehicle) 
-                            <div class="col-md-3">
-                                <div class="rent__item">
-                                    <div class="rent__thumb">
-                                        <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}">
-                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
-                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
-                                        </a>
-                                    </div>
-                                    <div class="rent__content">
-                                       <h6 class="rent__title">
-                                            <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="las la-car"> {{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no?? 1) }})</a>
-                                        </h6>
-                                        <div class="rent__content">
-                                            <h5 class="item">  {{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</sub></h5>
-                                        </div>
-
-                                        <ul class="d-flex car-info">
-                                            <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini">{{ __(@$vehicle->transmission) }}</span></li>
-                                            <li class="pr-3"><i class="las la-gas-pump"></i><span class="font-mini">{{ __(@$vehicle->fuel_type) }}</span></li>
-                                        </ul>
-        
-
-
-
-                     <div class="row" style="margin-top:10px">
-
-  <div class="col-lg-3 col-md-3 col-sm-3">
-                                         
-                                </div>
-                                   <div class="col-lg-6 col-md-6 col-sm-6">
-                                      <div class="car__item__price">
-
-                                           <div class="btn__grp">
-
-                                            <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
-                        </div>
-
-
-                                    </div>
-                                </div>
-
-                                   <div class="col-lg-3 col-md-3 col-sm-3"> 
-                                </div>
-                               </div> 
-
-                                    </div>
-                                </div>
-                            </div>
-                        @empty
-                        @endforelse
-{!! $vehicles->links() !!}
-                    </div>
                 </div>
             </div>
         </div>
@@ -145,6 +91,9 @@
                     </aside>
                 </div>
    <div class="col-lg-10" style="margin-top:0px"> 
+     <div class="filter-in d-lg-none">
+                        <i class="las la-filter"></i>
+                    </div>
       <div class="row">               
 @forelse($vehicles as $vehicle)
                      <div class="col-md-3">
@@ -156,13 +105,14 @@
                                             <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
                                         </a>
                                     </div>                            
-                            <div class="categories-content rounded-bottom p-4" style="margin:-25px;">
+                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-25px;">
                                 <strong>{{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no?? 1) }})</strong>
-                                   <div class="rent__content">
-                                        <ul class="d-flex car-info">
-                                            <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini">{{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</span></li>
+                                   <div class="rent__content text-center">
+                                        <ul class="d-flex car-info text-center">
+                                            <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="text-center">{{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</span></li>
                                         </ul>
                                 </div>
+                                <br>
                                 <div class="row gy-2 gx-0 text-center mb-4">
                                     <div class="col-4 border-end border-white">
                                         <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">{{ __(@$vehicle->seat) }} Seat</span>
