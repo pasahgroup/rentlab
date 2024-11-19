@@ -59,7 +59,6 @@ $models = Vehicle::orderby('model')
 ->get();
 
 
-
  $vehicles = Vehicle::active()->latest()
  ->groupBy('model')
  ->paginate(getPaginate(8));
