@@ -38,14 +38,14 @@
                     <h4 class="widget__title">@lang('About') @lang($general->sitename)</h4>
                     <p>{{ __(@$footer_content->data_values->content) }}</p>
                     <ul class="social-icons">
-                        @forelse($social_icons as $item)
-                            <li>
-                                <a href="{{ $item->data_values->url }}">
+                   
+                          @forelse($social_icons as $item)                          
+                                <a href="{{ $item->data_values->url }}" class="btn btn-secondary btn-md-square rounded-circle me-3">
                                     @php echo @$item->data_values->social_icon @endphp
                                 </a>
-                            </li>
-                        @empty
+                       @empty
                         @endforelse
+
                     </ul>
                 </div>
                 <div class="footer__widget">

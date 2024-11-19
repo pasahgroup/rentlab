@@ -38,14 +38,14 @@
                     <h4 class="widget__title"><?php echo app('translator')->get('About'); ?> <?php echo app('translator')->get($general->sitename); ?></h4>
                     <p><?php echo e(__(@$footer_content->data_values->content)); ?></p>
                     <ul class="social-icons">
-                        <?php $__empty_1 = true; $__currentLoopData = $social_icons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                            <li>
-                                <a href="<?php echo e($item->data_values->url); ?>">
+                   
+                          <?php $__empty_1 = true; $__currentLoopData = $social_icons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>                          
+                                <a href="<?php echo e($item->data_values->url); ?>" class="btn btn-secondary btn-md-square rounded-circle me-3">
                                     <?php echo @$item->data_values->social_icon ?>
                                 </a>
-                            </li>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <?php endif; ?>
+
                     </ul>
                 </div>
                 <div class="footer__widget">
