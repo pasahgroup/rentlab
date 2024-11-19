@@ -3,12 +3,13 @@
 
         <!-- Carousel Start -->
         <div class="header-carousel">
-             @foreach ($vehicles as $indexKey => $vehicle)
+           
             <div id="carouselId" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
                 <ol class="carousel-indicators">
                     <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
                     <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
-                    <li data-bs-target="#carouselId" data-bs-slide-to="{{$indexKey}}" aria-label="Second slide"></li>                    
+                      @foreach ($vehicles as $indexKey => $vehicle)
+                    <li data-bs-target="#carouselId" data-bs-slide-to="{{$indexKey}}" aria-label="Second slide"></li> @endforeach                   
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     
@@ -85,7 +86,7 @@
                         </div>                         
                     </div>
 
-    @foreach ($reportData as $indexKey => $DailyReader)  
+    @foreach ($vehicles as $indexKey => $DailyReader)  
  <div class="carousel-item">
                         <img src="#" alt="rent-vehicle" class="img-fluid w-100" alt="First slide"/>
                         <div class="carousel-caption">
