@@ -36,10 +36,10 @@
                                                             <option value="4">BMW 320 ModernLine</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-12">
-                                                        <div class="input-group">
-                                                            <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                                <span class="fas fa-map-marker-alt"></span> 
+                                <div class="col-12">
+                            <div class="input-group">
+                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                <span class="fas fa-map-marker-alt"></span> 
                 <span class="ms-1">Pick Up</span>
                                                             </div>
 <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
