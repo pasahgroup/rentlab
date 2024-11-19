@@ -11,13 +11,10 @@
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
-                            <div class="footer-item">
-                                <h4 class="text-white mb-4">About Us</h4>
-                                <p class="mb-3">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit.</p>
-                            </div>
-                            <div class="position-relative">
-                                <input class="form-control rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
-                                <button type="button" class="btn btn-secondary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">Subscribe</button>
+                            <div class="footer-item">                              
+                            <h4 class="widget__title">@lang('About') @lang($general->sitename)</h4>
+                    <p>{{ __(@$footer_content->data_values->content) }}</p>
+
                             </div>
                         </div>
                     </div>
@@ -73,19 +70,35 @@
 
         <!-- Copyright Start -->
         <div class="container-fluid copyright py-4">
-            <div class="container">
-                <div class="row g-4 align-items-center">
-                    <div class="col-md-6 text-center text-md-start mb-md-0">
-                        <span class="text-body"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
+            <div class="container">            
+
+ <div class="newsletter-section">
+            <div class="newsletter-wrapper">
+                <div class="footer-logo">
+                    <a href="{{ route('home') }}">
+                        <img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo">
+                    </a>
+                </div>
+                <div class="newsletter-title">
+                    <div class="section__header border-0">
+                        <h4 class="section__title mb-0">@lang('Newsletter') <span class="text--base">@lang('Subscription')</span></h4>
+                        <p>{{ __(@$subscribe_content->data_values->content) }}</p>
                     </div>
-                    <div class="col-md-6 text-center text-md-end text-body">
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="border-bottom text-white" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a class="border-bottom text-white" href="https://themewagon.com">ThemeWagon</a>
-                    </div>
+                </div>
+                <div class="newsletter-form">
+                    <form action="{{ route('subscribe') }}" id="subscribeForm" method="post">
+                        @csrf
+                        <div class="input-group">
+                            <input name="email" type="email" class="form-control form--control subscribe_email" placeholder="@lang('Enter your email address')"/>
+                            <button type="submit" class="input-group-text cmn--btn">@lang('Subscribe')</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+
+            </div>
+        </div>
+     
               <!-- Back to Top -->
         <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>

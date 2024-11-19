@@ -274,9 +274,6 @@
                     </div>
                 </nav>
 
-
-
-
            <!--  <div class="classy-navbar-toggler" style="float-right">
                         <span class="navbarToggler"><span></span><span></span><span></span></span>
                     </div> -->
@@ -292,7 +289,7 @@
 
 <!-- footer section start -->
 @include($activeTemplate.'partials.footer')
-@include($activeTemplate.'partials.footer_new')        
+
         
 @stack('script-lib')
 @stack('script')

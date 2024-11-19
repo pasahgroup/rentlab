@@ -274,9 +274,6 @@
                     </div>
                 </nav>
 
-
-
-
            <!--  <div class="classy-navbar-toggler" style="float-right">
                         <span class="navbarToggler"><span></span><span></span><span></span></span>
                     </div> -->
@@ -292,7 +289,7 @@
 
 <!-- footer section start -->
 <?php echo $__env->make($activeTemplate.'partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-<?php echo $__env->make($activeTemplate.'partials.footer_new', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>        
+
         
 <?php echo $__env->yieldPushContent('script-lib'); ?>
 <?php echo $__env->yieldPushContent('script'); ?>

@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <div class="single__details mt-5" style="background-color:#6d846c">
+            <div class="single__details mt-2" style="background-color:#6d846c">
                 <ul class="nav nav-tabs nav--tabs">
                     <li class="nav-item">
                         <a href="#specifications" data-bs-toggle="tab" class="nav-link active"><?php echo app('translator')->get('All Specifications'); ?></a>
