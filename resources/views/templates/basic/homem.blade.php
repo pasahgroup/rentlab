@@ -52,8 +52,8 @@
                                                     <div class="col-12">
                                                         <div class="input-group">
                                                             <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                                <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
-                                                            </div>
+                     <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
+                                                 </div>
                                                             <input class="form-control" type="date">
                                                          
                                                         </div>
@@ -76,7 +76,7 @@
                                     </div>
                                     <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                         <div class="text-start">
-                                            <h1 class="display-5 text-white">Get 15% off your rental Plan your trip now</h1>
+                                            <strong class="text-white">Get 15% off your rental Plan your trip now</strong>
                                             <p>Treat yourself in USA</p>
                                         </div>
                                     </div>
@@ -165,7 +165,7 @@
                                     </div>
                                     <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                         <div class="text-start">
-                                            <h1 class="display-5 text-white">Get 15% off your rental! Choose Your Model </h1>
+                                            <strong class="text-white">Get 15% off your rental! Choose Your Model </strong>
                                             <p>Treat yourself in USA</p>
                                         </div>
                                     </div>
