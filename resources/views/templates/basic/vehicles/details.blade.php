@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.frontend')
+@extends($activeTemplate.'layoutm.frontendm')
 
 @section('content')
     <div class="single-section pt-120 pb-120 bg--section position-relative overflow-hidden">
@@ -6,10 +6,11 @@
         <div class="container">
              <div class="widget border--dashed" style="background-color:#cfd5d3">
             <div class="row gy-5">
-                <div class="col-lg-5" style="background-color:#6d846c">
+                <!-- 6d846c -->
+                <div class="col-lg-5" style="background-color:#">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
                         @forelse($vehicle->images as $image)
-                            <div class="car__rental-thumb w-100 bg--body p-0">
+                            <div class="car__rental-thumb w-100 bg--body p-0" style="border-radius: 2px 4px 2px;">
                                 <img src="{{ getImage(imagePath()['vehicles']['path'].'/'. $image, imagePath()['vehicles']['size']) }}" alt="rent-vehicle">
                             </div>
                         @empty
@@ -24,10 +25,12 @@
                         @endforelse
                     </div>
                 </div>
-                <div class="col-lg-7 align-self-center" style="background-color:#fff"> 
-                    <h4><span class="text--body">Vehicle details</span></h4>
+                <!-- <div class="col-lg-7 align-self-center border--dashed " style="background-color:#fff">  -->
+                      <div class="col-lg-6">
+                
                     <br>
-                    <div class="rent__single">
+                    <div class="rent__single border--dashed">
+                            <h4><span class="text--body">Vehicle details</span></h4>
 <div class="row">
                      <div class="col-lg-9">    
                         <h3 class="title">{{ __(@$vehicle->name) }}

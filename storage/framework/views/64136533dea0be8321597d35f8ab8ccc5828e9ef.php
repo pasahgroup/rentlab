@@ -4,10 +4,11 @@
         <div class="container">
              <div class="widget border--dashed" style="background-color:#cfd5d3">
             <div class="row gy-5">
-                <div class="col-lg-5" style="background-color:#6d846c">
+                <!-- 6d846c -->
+                <div class="col-lg-5" style="background-color:#">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
                         <?php $__empty_1 = true; $__currentLoopData = $vehicle->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                            <div class="car__rental-thumb w-100 bg--body p-0">
+                            <div class="car__rental-thumb w-100 bg--body p-0" style="border-radius: 2px 4px 2px;">
                                 <img src="<?php echo e(getImage(imagePath()['vehicles']['path'].'/'. $image, imagePath()['vehicles']['size'])); ?>" alt="rent-vehicle">
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -22,10 +23,12 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <div class="col-lg-7 align-self-center" style="background-color:#fff"> 
-                    <h4><span class="text--body">Vehicle details</span></h4>
+                <!-- <div class="col-lg-7 align-self-center border--dashed " style="background-color:#fff">  -->
+                      <div class="col-lg-6">
+                
                     <br>
-                    <div class="rent__single">
+                    <div class="rent__single border--dashed">
+                            <h4><span class="text--body">Vehicle details</span></h4>
 <div class="row">
                      <div class="col-lg-9">    
                         <h3 class="title"><?php echo e(__(@$vehicle->name)); ?>
@@ -230,4 +233,4 @@
     </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/vehicles/details.blade.php ENDPATH**/ ?>
+<?php echo $__env->make($activeTemplate.'layoutm.frontendm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/vehicles/details.blade.php ENDPATH**/ ?>
