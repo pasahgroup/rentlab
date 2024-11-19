@@ -2,12 +2,12 @@
 
         <!-- Carousel Start -->
         <div class="header-carousel">
+             <?php $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indexKey => $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div id="carouselId" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
                 <ol class="carousel-indicators">
                     <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
                     <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
-                    <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Second slide"></li>
-                    
+                    <li data-bs-target="#carouselId" data-bs-slide-to="<?php echo e($indexKey); ?>" aria-label="Second slide"></li>                    
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     
@@ -226,10 +226,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Carousel End -->
+            </div>   
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
+        </div>
+     
         <!-- Features Start -->
         <div class="container-fluid feature py-5">
             <div class="container py-5">
