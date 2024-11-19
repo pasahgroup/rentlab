@@ -157,7 +157,7 @@ public function show(Request $request,$id)
     public function contact()
     {
         $pageTitle = "Contact Us";
-        return view($this->activeTemplate . 'contact',compact('pageTitle'));
+        return view($this->activeTemplate.'contact',compact('pageTitle'));
     }
 
 

@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.frontend')
+@extends($activeTemplate.'layoutm.frontendm')
 
 @section('content')
     @php

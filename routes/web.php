@@ -472,7 +472,6 @@ Route::name('user.')->prefix('user')->group(function () {
          
           Route::post('multibooking/{id}/recovery', 'MultibookingController@recovery')->name('multibooking.recovery');
          Route::get('multibooking/{id}/delete', 'MultibookingController@delete')->name('multibooking.delete');
-
           Route::post('multibooking/remove/{id}', 'MultibookingController@remove')->name('multibooking.remove');
         });
     });
