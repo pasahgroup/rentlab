@@ -75,13 +75,17 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
-                                        <div class="text-start">
-                                            <strong class="text-white">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</strong>
-                                              <p>Transmission: {{$metaFirstVehicle->transmission}}</p>
-                                              <p>Number of Doors: {{$metaFirstVehicle->doors}}</p>
-                                              <p>Fuel: {{$metaFirstVehicle->fuel_type}}</p>
 
-                                               <p>Details: {{$metaFirstVehicle->details}}</p>
+
+                                        <div class="text-start">
+                               <div class="rounded">
+                                    <strong class="text-white">{{$vehicle->model}}({{$vehicle->car_body_type}})</strong>
+                                    <hr>
+                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$vehicle->transmission}}</strong></p>
+                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$vehicle->doors}}</strong></p>
+                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$vehicle->fuel_type}}</strong></p>
+                                        <p class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong>{{$vehicle->details}}</strong></p>
+                                    </div>
                                         </div>
                                     </div>
                                 </div>
@@ -154,13 +158,15 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
-                                          <div class="text-start">
-                                            <strong class="text-white">{{$vehicle->model}}({{$vehicle->car_body_type}})</strong>
-                                              <p>Transmission: {{$vehicle->transmission}}</p>
-                                              <p>Number of Doors: {{$vehicle->doors}}</p>
-                                              <p>Fuel: {{$vehicle->fuel_type}}</p>
-
-                                               <p>Details: {{$vehicle->details}}</p>
+                                    <div class="text-start">
+                                <div class="rounded">
+                                    <strong class="text-white">{{$vehicle->model}}({{$vehicle->car_body_type}})</strong>
+                                    <hr>
+                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$vehicle->transmission}}</strong></p>
+                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$vehicle->doors}}</strong></p>
+                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$vehicle->fuel_type}}</strong></p>
+                                        <p class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong>{{$vehicle->details}}</strong></p>
+                                    </div>
                                         </div>
                                     </div>
                                 </div>
