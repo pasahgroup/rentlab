@@ -1,5 +1,10 @@
 @extends($activeTemplate.'layoutm.frontendm')
 @section('content')
+<style type="text/css">
+    pp {  
+    color:#fff; /* Sets the text color of paragraphs to blue */  
+}  
+</style>
 
     <div class="header-carousel">
            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -79,12 +84,12 @@
 
                                         <div class="text-start">
                                <div class="rounded">
-                                    <strong class="text-white">{{$vehicle->model}}({{$vehicle->car_body_type}})</strong>
+                                    <strong class="text-white">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</strong>
                                     <hr>
-                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$vehicle->transmission}}</strong></p>
-                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$vehicle->doors}}</strong></p>
-                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$vehicle->fuel_type}}</strong></p>
-                                        <p class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong>{{$vehicle->details}}</strong></p>
+                                        <pp class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$metaFirstVehicle->transmission}}</strong></pp>
+                                        <pp class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$metaFirstVehicle->doors}}</strong></pp>
+                                        <pp class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$metaFirstVehicle->fuel_type}}</strong></pp>
+                                        <pp class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong>{{$metaFirstVehicle->details}}</strong></pp>
                                     </div>
                                         </div>
                                     </div>
@@ -159,13 +164,21 @@
                                     </div>
                                     <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                     <div class="text-start">
+                                <ul class="widget__links">
+                        <li>rer</a></li>
+                        <li>wawa</a></li>
+                        <li>eere</a></li>
+                    </ul>
+
                                 <div class="rounded">
                                     <strong class="text-white">{{$vehicle->model}}({{$vehicle->car_body_type}})</strong>
                                     <hr>
-                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$vehicle->transmission}}</strong></p>
-                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$vehicle->doors}}</strong></p>
-                                        <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$vehicle->fuel_type}}</strong></p>
-                                        <p class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong>{{$vehicle->details}}</strong></p>
+                                    <ul class="widget__links">
+                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$vehicle->transmission}}</strong></li>
+                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$vehicle->doors}}</strong></li>
+                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$vehicle->fuel_type}}</strong></li>
+                                        <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong>{{$vehicle->details}}</strong></li>
+                                    </ul>
                                     </div>
                                         </div>
                                     </div>
