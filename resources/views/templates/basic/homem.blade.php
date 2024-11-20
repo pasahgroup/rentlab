@@ -83,13 +83,15 @@
 
 
                                         <div class="text-start">
-                               <div class="rounded">
+                              <div class="rounded">
                                     <strong class="text-white">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</strong>
                                     <hr>
-                                        <pp class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$metaFirstVehicle->transmission}}</strong></pp>
-                                        <pp class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$metaFirstVehicle->doors}}</strong></pp>
-                                        <pp class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$metaFirstVehicle->fuel_type}}</strong></pp>
-                                        <pp class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong>{{$metaFirstVehicle->details}}</strong></pp>
+                                    <ul class="#">
+                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$metaFirstVehicle->transmission}}</strong></li>
+                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$metaFirstVehicle->doors}}</strong></li>
+                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$metaFirstVehicle->fuel_type}}</strong></li>
+                                        <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong>{{$metaFirstVehicle->details}}</strong></li>
+                                    </ul>
                                     </div>
                                         </div>
                                     </div>
@@ -164,16 +166,10 @@
                                     </div>
                                     <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                     <div class="text-start">
-                                <ul class="widget__links">
-                        <li>rer</a></li>
-                        <li>wawa</a></li>
-                        <li>eere</a></li>
-                    </ul>
-
-                                <div class="rounded">
+                            <div class="rounded">
                                     <strong class="text-white">{{$vehicle->model}}({{$vehicle->car_body_type}})</strong>
                                     <hr>
-                                    <ul class="widget__links">
+                                    <ul class="#">
                                         <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$vehicle->transmission}}</strong></li>
                                         <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$vehicle->doors}}</strong></li>
                                         <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$vehicle->fuel_type}}</strong></li>

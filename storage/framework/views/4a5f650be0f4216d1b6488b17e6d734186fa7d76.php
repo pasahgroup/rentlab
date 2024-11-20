@@ -82,13 +82,15 @@
 
 
                                         <div class="text-start">
-                               <div class="rounded">
+                              <div class="rounded">
                                     <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
-                                    <hr>
-                                        <pp class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></pp>
-                                        <pp class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></pp>
-                                        <pp class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></pp>
-                                        <pp class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong><?php echo e($metaFirstVehicle->details); ?></strong></pp>
+                                    <br>
+                                    <ul class="#">
+                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
+                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
+                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                                        <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong><?php echo e($metaFirstVehicle->details); ?></strong></li>
+                                    </ul>
                                     </div>
                                         </div>
                                     </div>
@@ -163,16 +165,10 @@
                                     </div>
                                     <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                     <div class="text-start">
-                                <ul class="widget__links">
-                        <li>rer</a></li>
-                        <li>wawa</a></li>
-                        <li>eere</a></li>
-                    </ul>
-
-                                <div class="rounded">
+                            <div class="rounded">
                                     <strong class="text-white"><?php echo e($vehicle->model); ?>(<?php echo e($vehicle->car_body_type); ?>)</strong>
                                     <hr>
-                                    <ul class="widget__links">
+                                    <ul class="#">
                                         <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($vehicle->transmission); ?></strong></li>
                                         <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($vehicle->doors); ?></strong></li>
                                         <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($vehicle->fuel_type); ?></strong></li>
