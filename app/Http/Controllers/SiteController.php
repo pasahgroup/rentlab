@@ -44,7 +44,6 @@ class SiteController extends Controller
             session()->put('reference', $reference);
         }
 
-
 $carbodytypes = cartype::orderby('car_body_type')
 ->groupBy('car_body_type')
 ->get();
@@ -62,14 +61,28 @@ $models = Vehicle::orderby('model')
  $vehicles = Vehicle::active()->latest()
  ->groupBy('model')
  ->paginate(getPaginate(8));
+
+
+ $metaFirstVehicle = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+      ->select('vehicles.*','cartypes.car_body_type')
+     ->first();
+     //dd($metaFirstVehicles)
+
+  $metaVehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+      ->select('vehicles.*','cartypes.car_body_type')
+     ->paginate(getPaginate(8));
+     $metaVehicleCount=$metaVehicles->count();
+    // dd($metaVehicles->count());  
+    // $metavehicles = collect($metaVehicles);
 //$vehicles = Vehicle::active()->latest()->paginate(4);
-// dd($vehicles);       
+ //dd($metaVehicles->count());       
 
         $pageTitle = 'Home';
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
 
-         //dd($sections);  
-        return view($this->activeTemplate . 'homem', compact('pageTitle','sections','vehicles','carbodytypes','carTags','models'));
+         //dd($metaFirstVehicle); 
+
+        return view($this->activeTemplate . 'homem', compact('pageTitle','sections','vehicles','carbodytypes','carTags','models','metaVehicles','metaVehicleCount','metaFirstVehicle'));
     }
 
 
@@ -104,8 +117,7 @@ public function show(Request $request,$id)
      ->select('vehicles.*','cartypes.car_body_type')
       ->paginate(getPaginate(8));
 }
-   //dd($vehicles);   
-
+  
 
           $metaVehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
       ->select('vehicles.*','cartypes.car_body_type')
@@ -113,6 +125,7 @@ public function show(Request $request,$id)
 
     $metavehicles = collect($metaVehicles);
    //dd($metavehicles->where('car_body_type','SUV')->count());
+ 
 
     $cartypes = Cartype::where('status','1')->get();     
         $pageTitle = $id;
