@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.frontend')
+@extends($activeTemplate.'layoutm.frontendm')
 @section('content')
     <section class="faq-section pt-120 pb-120 position-relative bg--section overflow-hidden">
         <div class="shape right-side">@lang('Posts')</div>

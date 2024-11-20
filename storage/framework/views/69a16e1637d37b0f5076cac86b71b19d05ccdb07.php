@@ -72,7 +72,6 @@
 
 
       <div class="container-fluid categories py-5">
-            <div class="container-fluid py-5">
                       <div class="row">  
 
                       <div class="col-lg-2" style="margin-top:0px">
