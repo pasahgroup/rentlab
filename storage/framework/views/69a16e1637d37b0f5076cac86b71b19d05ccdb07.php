@@ -70,10 +70,8 @@
         </div>
     </div>
 
-
       <div class="container-fluid categories py-5">
-                      <div class="row">  
-
+                      <div class="row"> 
                       <div class="col-lg-2" style="margin-top:0px">
                     <aside class="category-sidebar">                       
                         <div class="widget border--dashed">
