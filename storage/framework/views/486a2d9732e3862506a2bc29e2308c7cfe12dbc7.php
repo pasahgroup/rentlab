@@ -284,7 +284,7 @@
 <!-- custo jss -->
   <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/jquery-3.3.1.min.js')); ?>"></script>
     <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/bootstrap.min.js')); ?>"></script>
-    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/jquery.nice-select.min.js')); ?>"></script>
+ 
     <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/jquery-ui.min.js')); ?>"></script>
     <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/jquery.magnific-popup.min.js')); ?>"></script>
     <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/mixitup.min.js')); ?>"></script>
@@ -425,6 +425,7 @@
 
 <script src="../../frontendp/lib/counterup/counterup.min.js" type="text/javascript"></script>
           <script src="../../frontendp/lib/owlcarousel/owl.carousel.min.js" type="text/javascript"></script>
+
 
 
     <!-- Template Javascript -->
