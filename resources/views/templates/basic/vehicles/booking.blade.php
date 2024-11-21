@@ -36,79 +36,79 @@
                     <div class="book__wrapper bg--body border--dashed mb-4">
                         <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="{{ route('vehicle.booking.confirm', $vehicle->id) }}">
                             @csrf
-
-                            <div class="col-md-6 col-sm-6">                                
-                                    <label for="pick-point" class="form--label">
+                         
+                          <div class="form-group"> 
+                         <div class="row">  
+                          <div class="col-md-6 col-sm-6">
+                             <label for="pick-point" class="form--label">
                                         <i class="las la-street-view"></i> @lang('Pick Up Point')
                                     </label>
-                                    <div class="form-group">
-                                    <select name="pick_location" id="pick-point" class="form-control form--control" required>
-                                        <option value="">@lang('Pick up point')</option>
+                    <select name="pick_location" id="pick-point" class="form-select" aria-label="Default select example" required>
+                         
+                          <option value="">@lang('--Pick up point--')</option>
                                         @forelse($locations as $location)
                                             <option value="{{ $location->id }}">{{ @$location->name }}</option>
                                         @empty
                                         @endforelse
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 col-sm-6">                            
-                                    <label for="drop-point" class="form--label">
+                                                        </select>
+                                                    </div>
+                          
+                              <div class="col-md-6 col-sm-6">
+                                 <label for="drop-point" class="form--label">
                                         <i class="las la-street-view"></i> @lang('Drop of Point')
                                     </label>
-                                    <div class="form-group">
-        <!-- <input class="form-control" list="drop_locations" name="drop_location" id="drop_location"> -->
-    <select id="drop_location" name="drop_location">
-      <option value="">@lang('--Pick up point--')</option>
+                    <select id="drop_location" name="drop_location" class="form-select" aria-label="Default select example">
+                     <option value="">@lang('--Pick up point--')</option>
                                         @forelse($locations as $location)
                                             <option value="{{ $location->id }}">{{ @$location->name }}</option>
                                         @empty
                                         @endforelse
-    </select>
-                                </div>
-                            </div>
-{{--
-                               <div class="col-md-2 col-sm-2">                                
-                                    <label for="drop-point" class="">
-                                        <i class="las la-street-view"></i> @lang('No Car')
-                                    </label>
-                                    <div class="form-group">
-                                   <input type="number" name="no_car" id="no_car" value="1" min="1" required>
-                                </div>
-                            </div> 
---}}
-                             <div class="row">
+                                                        </select>
+                                                    </div>
+                          </div>
+          <div class="form-group">
+          <div class="row">
+        <div class="col-3">
+                            <div class="input-group">
+                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                <span class="las la-street-view"></span> 
+                <span class="ms-1">@lang('No. Car')</span>
+                                                </div>
+<input class="form-control" type="number" aria-label="Enter a City or Airport" name="no_car" id="no_car" value="1" min="1" required>
+                                                        </div>
+                                                    </div>
 
 
+        <div class="col-5">
+                                                        <div class="input-group">
+                         <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                     <span class="fas fa-calendar-alt"></span><span class="ms-1">From Date</span>
+                                                 </div>
+                        
+                         <input type="text" name="pick_time" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
+                                                         
+                    </div>
+                                                    </div>
 
-                             <div class="col-md-3 col-sm-3">
-                                    <label for="start-date" class="form--label">
-                                        <i class="las la-street-view"></i> @lang('No Car')
-                                    </label>
-                                  <input type="number"  class="form-group" name="no_car" id="no_car" value="1" min="1" required style="width:120px;">
-                                </div>
-                          
+        <div class="col-4">
+                                                        <div class="input-group">
+                         <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                     <span class="fas fa-calendar-alt"></span><span class="ms-1">To Date2</span>
+                                                 </div>
+                        
+                         <input type="text" name="drop_time" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control" disabled required>
 
-                         
-                           <div class="col-md-4 col-sm-4">
-                                <div class="form-group">
-                                    <label for="start-date" class="form--label">
-                                        <i class="las la-calendar-alt"></i> @lang('From Date')
-                                    </label>
-                                    <input type="text" name="pick_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control pick_time" required>
-                                </div>
-                            </div>
+                                                         
+                    </div>
+                                                    </div>
+                                                
+
+                                                </div>
+                                            </div>
+</div>
 
 
-                            <div class="col-md-5 col-sm-5">
-                                <div class="form-group">
-                                    <label for="end-date" class="form--label">
-                                        <i class="las la-calendar-alt"></i> @lang('To Date')
-                                    </label>
-                                    <input type="text" name="drop_time" placeholder="@lang('Drop of Date & Time')" id="dateAndTimePicker2" autocomplete="off" data-position='top left' class="form-control form--control" disabled required>
-                                </div>
-                            </div>
-                        </div>
+                        
 
             
 
