@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layoutm.frontendm')
+@extends($activeTemplate.'layouts.frontend')
 @section('content')
 <style type="text/css">
     pp {  
@@ -25,7 +25,8 @@
                                     <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                         <div class="bg-secondary rounded p-5">
                                             <h4 class="text-white mb-4">Book Your Ride</h4>
-                                            <form>
+                <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="{{ route('vehicle.booking.confirm',1) }}">
+                            @csrf
                                                 <div class="row g-3">
                                                     <div class="col-12">
                     <select class="form-select" aria-label="Default select example">
@@ -36,44 +37,56 @@
             <option value="4">BMW 320 ModernLine</option>
                                                         </select>
                                                     </div>
-                                <div class="col-12">
+                                <div class="col-6">
                             <div class="input-group">
                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                 <span class="fas fa-map-marker-alt"></span> 
-                <span class="ms-1">Pick Up</span>
+                <span class="ms-1">Pick Up Point</span>
                                                 </div>
 <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
                                                         </div>
                                                     </div>
-<div class="col-12">
-<a href="#" class="text-start text-white d-block mb-2">Need a different drop-off location?</a>
-    <div class="input-group">
-  <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
-                                            </div>
-                <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
+
+                                                      <div class="col-6">
+                            <div class="input-group">
+                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                <span class="fas fa-map-marker-alt"></span> 
+                <span class="ms-1">Drop of Point</span>
+                                                </div>
+<input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
+
+                                                      <div class="col-12">
+                            <div class="input-group">
+                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                <span class="fas fa-map-marker-alt"></span> 
+                <span class="ms-1">@lang('Number of Car')</span>
+                                                </div>
+<input class="form-control" type="number" aria-label="Enter a City or Airport" name="no_car" id="no_car" value="1" min="1" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-6">
                                                         <div class="input-group">
                          <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                     <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
+                     <span class="fas fa-calendar-alt"></span><span class="ms-1">From Date</span>
                                                  </div>
-                        <input class="form-control" type="date">
+                        <input class="form-control" type="date" name="pick_time" id='dateAndTimePicker' class="form-control form--control pick_time" required>
                                                          
                     </div>
                                                     </div>
-                                                    <div class="col-12">
+                                                    <div class="col-6">
                                             <div class="input-group">
                                         <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop off</span>
+                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">To Date</span>
                                                             </div>
                                         <input class="form-control" type="date">
                                    
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
-                                                        <button class="btn btn-light w-100 py-2">Book Now</button>
+                                                         <button href="" class="btn btn-primary rounded-pill d-flex justify-content-center btn-light w-100 py-2" style="margin-bottom:0px;">Book</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -740,3 +753,69 @@ function scrollToNextSection() {
     </script>
              </body>
 @endsection
+@push('style')
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/datepicker.min.css')}}">
+@endpush
+
+@push('script')
+    <script src="{{asset($activeTemplateTrue.'js/datepicker.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'js/datepicker.en.js')}}"></script>
+    <script>
+        // date and time picker
+        $('#dateAndTimePicker').datepicker({
+            timepicker: true,
+            language: 'en',
+            onSelect: function (fd, d, picker) {
+                var pick_time = fd;
+                var price = parseFloat("{{ $vehicle->price }}");
+                 $('.total_days').text(1);
+                 var no_car = $('#no_car').val();
+                 
+
+                if (pick_time){
+                    $('#dateAndTimePicker2').removeAttr('disabled');
+                }else{
+                    $('#dateAndTimePicker2').attr('disabled', 'disabled');
+
+                    $('.total_amount').text(price);
+                    $('.total_days').text(1);
+                }
+
+
+                $('#dateAndTimePicker2').datepicker({
+                    timepicker: true,
+                    language: 'en',
+                    onSelect: function (fd, d, picker) {
+                        var drop_time = fd;
+
+                        const date1 = new Date(pick_time);
+                        const date2 = new Date(drop_time);
+                        const diffTime = Math.abs(date2 - date1);
+                        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) +1;
+
+
+                           $("#no_car").on('change keydown paste input', function(){
+                     no_car = $('#no_car').val();
+ $('.total_amount').text(price*diffDays*no_car);
+
+                    //alert(no_car);
+});
+                      
+
+if(no_car>0)
+{
+   $('.total_amount').text(price*diffDays*no_car);
+   $('.total_days').text(diffDays);
+
+}else{
+     alert('Car number is Empty');
+}
+
+
+
+                    }
+                })
+            }
+        })
+    </script>
+@endpush

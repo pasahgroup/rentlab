@@ -1,7 +1,6 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
 
-
 <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side">@lang('Rent')</div>
         <div class="shape">@lang('Vehicles')</div>
@@ -96,9 +95,10 @@
                                     <label for="start-date" class="form--label">
                                         <i class="las la-calendar-alt"></i> @lang('From Date')
                                     </label>
-                                    <input type="text" name="pick_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
+                                    <input type="text" name="pick_time" placeholder="@lang('Pick Up Date & Time')" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control pick_time" required>
                                 </div>
                             </div>
+
 
                             <div class="col-md-5 col-sm-5">
                                 <div class="form-group">
