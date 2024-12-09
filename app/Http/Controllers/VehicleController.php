@@ -527,10 +527,26 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
 
         $vehicles = $vehicles->latest()->paginate(4)->withQueryString();
 
+
+        $carBodies = vehicle::join('cartypes','vehicles.car_body_type_id','cartypes.id')
+        ->select('vehicles.*','cartypes.car_body_type')
+        ->groupby('vehicles.car_body_type_id')
+             ->get();
+
+
+             $carTags = vehicle::join('tags','vehicles.tag_id','tags.id')
+             ->select('vehicles.*','tags.tag')
+             ->groupby('vehicles.tag_id')
+              ->get();
+      //  $carBodies = vehicle::join('vehicles.car_body_type_id','cartypes.id')->get();
+ dd($carBodies);
         //Filter by Car body or Car Tag
 
+   //$vehicle = Vehicle::active()->where('model',request('carModel'))->first();
+
+
       //dd($vehicles);
-        return view($this->activeTemplate.'vehicles.index',compact('vehicles','pageTitle', 'brands', 'seats'));
+        return view($this->activeTemplate.'vehicles.index',compact('vehicles','pageTitle', 'brands', 'seats','carTags','carBodies'));
     }
 
     public function brandVehicles($brand_id, $slug)

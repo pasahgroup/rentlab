@@ -12,7 +12,7 @@ class cartype extends Model
         'car_body_type',
         'images' => 'object',
         'status'
-    ];
+      ];
 
     public function vehicles()
     {

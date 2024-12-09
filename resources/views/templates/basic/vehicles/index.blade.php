@@ -54,8 +54,8 @@
                                     <div class="input-group">
                                       <select name="brand" id="car-type" class="form-control form--control" required="" style="background-color:#809f75">
                                           <option value="">@lang('--Select Car Body--')</option>
-                                          @forelse($brands as $brand)
-                                              <option value="{{ $brand->id }}">{{ __(@$brand->name) }}</option>
+                                          @forelse($carBodies as $carbody)
+                                              <option value="{{ $carbody->car_body_type_id }}">{{ __(@$carbody->car_body_type) }}</option>
                                           @empty
                                           @endforelse
                                       </select>
@@ -76,8 +76,8 @@
 
                                       <select name="brand" id="car-type" class="form-control form--control" required="" style="background-color:#809f75">
                                           <option value="">@lang('--Select Car Tag--')</option>
-                                          @forelse($brands as $brand)
-                                              <option value="{{ $brand->id }}">{{ __(@$brand->name) }}</option>
+                                          @forelse($carTags as $cartag)
+                                              <option value="{{ $cartag->tag_id }}">{{ __(@$cartag->tag) }}</option>
                                           @empty
                                           @endforelse
                                       </select>
