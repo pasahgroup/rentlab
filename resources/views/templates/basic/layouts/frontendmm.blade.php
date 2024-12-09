@@ -17,179 +17,93 @@
     <title> {{ $general->sitename(__($pageTitle)) }}</title>
     @include('partials.seo')
 
+<!-- Custom css -->
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/nice-select.css')}}" type="text/css">
+   
+  
 
-<style type="text/css">    
-    .booking-btn {
-  border: 0px solid #647545;
-  padding: 5px 30px;
-  color:#fff;
-  display: block;  
-  /*background-color: #3f403d;*/
-  /*background-color: #2e4432;*/
-  background-color: #2e4432;
-  transition: all ease-in-out 0.5s;
-  -webkit-transition: all ease-in-out 0.5s;
-  -moz-transition: all ease-in-out 0.5s;
-  -ms-transition: all ease-in-out 0.5s;
-  -o-transition: all ease-in-out 0.5s;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 30px;
-}
+<!--CUSTOM 2 CUSTOM 2 -->
+  <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
 
- .header-btn {
-  border: 0px solid #647545;
-  padding: 1px 2px;
-  color:#fff;
-  display: block;  
-  /*background-color: #3f403d;*/
-  /*background-color: #2e4432;*/
-  background-color: #2e4432;
-  transition: all ease-in-out 0.5s;
-  -webkit-transition: all ease-in-out 0.5s;
-  -moz-transition: all ease-in-out 0.5s;
-  -ms-transition: all ease-in-out 0.5s;
-  -o-transition: all ease-in-out 0.5s;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 30px;
-}
-.gr {
-  float: right;
-}
-.gl {
-  float: left;
-}
-</style>
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+        <!-- Libraries Stylesheet -->
+       
+  <link href="../../../frontendp/lib/animate/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../../frontendp/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
 
+        <!-- Template Stylesheet -->
+        <link href="../../../frontendp/css/style.css" rel="stylesheet" type="text/css" />
+           <link href="../../../frontendp/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
-
-
-    <!-- Custom css -->
+           <!-- Custom library  -->
    <link rel="icon" type="image/png" href="../../../mold/assets/img/favicon.png" />
- <link rel="stylesheet" href="../../../mold/assets/css/min/bootstrap.min.css" media="all">
+ <!-- <link rel="stylesheet" href="../../../mold/assets/css/min/bootstrap.min.css" media="all"> -->
   <link rel="stylesheet" href="../../../mold/assets/css/jqueryui.css" media="all">
   <link rel="stylesheet" href="../../../mold/vendor/animate-css/animate.css" media="all">
   <link rel="stylesheet" href="../../../mold/assets/font/iconfont/iconstyle.css" media="all">
   <link rel="stylesheet" href="../../../mold/assets/font/font-awesome/css/font-awesome.css" media="all">
-  <link rel="stylesheet" href="../../../mold/assets/css/main.css" media="all" id="maincss">
-
-
 <link rel="stylesheet" href="../../../assetf/style.css">
- <link href="../../../assets2/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
-<link href="../../../assets2/corporate/css/style.css" rel="stylesheet">
+<!-- Original custom css -->
 
-  <!-- Custom -->
-  <link href="../../../img_library/main.css" rel="stylesheet">
-    <link href="../../../img_library/mform.css" rel="stylesheet">
-    <link href="../../../css/mform.css" rel="stylesheet">
-   
-<!-- Custom css -->
- <link rel="stylesheet" href="../../../css/font621.min.css">
-
-<link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
-<link rel="stylesheet" href="../../../plugins/fontawesome-free/css/all.min.css">
-<link href="../../../assets2/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
-<link href="../../../assets2/pages/css/animate.css" rel="stylesheet">
-
- <script src="../../../js/jquery361.min.js"></script>
- <script src="../../../custom/js/bootstrap.min.js"></script>
-
-
-   <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/iconfont/iconstyle.css')}}">
-     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/vendor/animate-css/animate.css')}}">
-       <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/font-awesome/css/font-awesome.css')}}">
-         <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/css/main.css')}}">
-
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/line-awesome.min.css')}}">
+
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/magnific-popup.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/owl.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/main.css')}}">
 
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/color.php?color='.$general->base_color.'&secondColor='.$general->secondary_color)}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap-fileinput.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/custom.css')}}">
-
-
-<!-- Custom2 header menu css -->
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/ccss/style.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/ccss/colors/blue.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/ccss/bbpres.css')}}" type="text/css">
-
-    <link href="{{asset($activeTemplateTrue.'custom/lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-  <link href="{{asset($activeTemplateTrue.'custom/lib/prettyphoto/css/prettyphoto.css')}}" rel="stylesheet">
-  <link href="{{asset($activeTemplateTrue.'custom/lib/hover/hoverex-all.css')}}" rel="stylesheet">
-  <link href="{{asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.css')}}" rel="stylesheet">
-  <link href=".{{asset($activeTemplateTrue.'custom/lib/owl-carousel/owl-carousel.css')}}" rel="stylesheet">
-
-   <link href="{{asset($activeTemplateTrue.'custom/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css?family=Ruda:400,900,700" rel="stylesheet">
-
-<!-- Custom css -->
-
- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/font-awesome.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/elegant-icons.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/nice-select.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/magnific-popup.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/jquery-ui.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/owl.carousel.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/slicknav.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'custom/css/style.css')}}" type="text/css">
-
     @stack('style-lib')
     @stack('style')
-</head>
-
-<div class="container top-header-area" style="background:yellow;padding:1px">
-         <div class="align-items-center px-xl-5 d-lg-flex" style="background-color:#5a715a;margin-top:0px;margin-bottom:0px;">
-              <div class="col-lg-4 col-md-4">
-                              <div class="logo gl">
-                <a href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="logo" style="width:120px;"></a>
-            </div>           
-
-            </div>
-
-              <div class="col-lg-5 col-md-7 float-right">
-                 <div class="email-address_no float-right">
-                    <a href="mailto:info@isol.com">
-                      <i class="fa fa-envelope" style="color:pink;"></i><b style="color:#FDD43D;">info@rhonds.co.tz</b></a>
-                       <a href="https://wa.link/z5mmcd" style="padding-left:10px">
-                            <i class="fa fa-phone">
-                               <b style="color:#FDD43D;">(+255)655 633 302</b> </i>
-                            </a>
-                </div>
-            </div>
-
-        <div class="col-lg-3 col-md-4 text-right">
-             <ul class="social-icons gr" style="padding-top:5px">
-                        @forelse($social_icons as $item)
-                            <li class="float-right">
-                                <a href="{{ $item->data_values->url }}">
+</head> 
+ <body>
+ <div class="container-fluid topbar bg-secondary d-none d-xl-block w-100">
+            <div class="container">
+                <div class="row gx-0 align-items-center" style="height: 45px;">
+                    <div class="col-lg-6 text-center text-lg-start mb-lg-0">
+                        <div class="d-flex flex-wrap">                         
+                            <a href="tel:+01234567890" class="text-muted me-4"><i class="fas fa-phone-alt text-primary me-2"></i> (+255)655 633 302</a>
+                            <a href="mailto:mailto:info@rhonds.co.tz" class="text-muted me-0"><i class="fas fa-envelope text-primary me-2"></i>info@rhonds.co.tz</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-end">
+                        <div class="d-flex align-items-center justify-content-end float-right">
+                       
+                @forelse($social_icons as $item)
+                                <a href="{{ $item->data_values->url }}" class="btn btn-light btn-sm-square rounded-circle me-3">
                                     @php echo @$item->data_values->social_icon @endphp
-
                                 </a>
-                            </li>
                         @empty
                         @endforelse
-                    </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-           <div class="classy-nav-container breakpoint-off">
+<div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">
+            <div class="container">           
+       <nav class="navbar navbar-expand-lg navbar-light float-left">
+                    <a href="" class="navbar-brand p-0">
+                                     <div class="logo gl">
+                <a href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="logo" style="width:120px;"></a>
+            </div> 
+                      
+                    </a>
+
+                       <!-- <div class="classy-navbar-toggler" style="float-right">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>  -->               
+               
+ <div class="classy-nav-container breakpoint-off">
+
                 <!-- Classy Menu -->
                 <nav class="classy-navbar justify-content-between" id="southNav">
- <div class="logo">
-                <!-- <a href="{{ route('home') }}"><img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="logo" style="width:120px;"></a> -->
-            </div>
                    
 
                     <div class="classy-menu" style="color:#fff">
@@ -197,8 +111,6 @@
                             <ul>
  <li class="active"><a href="{{ route('home') }}">Home</a>
                 </li>
-
-
                                     <li><a href="{{ route('vehicles') }}">Vehicles</a>
                                     <div class="megamenu">
                                         <ul class="single-mega cn-col-4">
@@ -253,8 +165,6 @@
                                     </ul>
                                 </li> -->
 
-
-
   <li><a href="#" class="las la-user float-right">Account</a>
                                     <ul class="dropdown">                         
  @auth
@@ -298,17 +208,29 @@
 
                                     </ul>
                                 </li>
-
-    </ul>
-
-      </div>
+<a href="#" class="btn btn-primary rounded-pill py-2 px-4">Get Started</a>
+    </ul>    
+</div>
+      
      </div>
-       <div class="classy-navbar-toggler" style="float-right">
+       <div class="classy-navbar-toggler" style="">
                         <span class="navbarToggler"><span></span><span></span><span></span></span>
                     </div>
- </nav>
-           </div>   
- <body>
+
+ </nav>        
+
+                    
+
+                        
+                    </div>
+                </nav>
+
+           <!--  <div class="classy-navbar-toggler" style="float-right">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div> -->
+
+            </div>
+        </div>
 
 @stack('fbComment')
 
@@ -378,7 +300,7 @@
 <!-- custo jss -->
   <script src="{{asset($activeTemplateTrue.'custom/js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'custom/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset($activeTemplateTrue.'custom/js/jquery.nice-select.min.js')}}"></script>
+ 
     <script src="{{asset($activeTemplateTrue.'custom/js/jquery-ui.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'custom/js/jquery.magnific-popup.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'custom/js/mixitup.min.js')}}"></script>
@@ -401,11 +323,8 @@
 </script>
 
 @stack('script-lib')
-
 @stack('script')
-
 @include('partials.plugins')
-
 @include('partials.notify')
 
 
@@ -496,7 +415,7 @@
 
        
     <script src="../../../assetf/js/plugins.js"></script>
-    <script src="../../../assetf/js/classy-nav.min.js"></script>
+    <!-- <script src="../../../assetf/js/classy-nav.min.js"></script> -->
     <script src="../../../assetf/js/jquery-ui.min.js"></script>
       
     <script src="../../../assetf/js/active.js"></script>
@@ -510,21 +429,20 @@
  <!-- Custom2 Javascript --> 
   <!-- Custom2 Javascript -->
 
- <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
      
-  <!--   <script src="../../frontendp/lib/wow/wow.min.js" type="text/javascript"></script>
+    <script src="../../frontendp/lib/wow/wow.min.js" type="text/javascript"></script>
 <script src="../../frontendp/lib/easing/easing.min.js" type="text/javascript"></script>
-<script src="../../frontendp/lib/waypoints/waypoints.min.js" type="text/javascript"></script> -->
+<script src="../../frontendp/lib/waypoints/waypoints.min.js" type="text/javascript"></script>
 
-<!-- <script src="../../frontendp/lib/counterup/counterup.min.js" type="text/javascript"></script>
+<script src="../../frontendp/lib/counterup/counterup.min.js" type="text/javascript"></script>
           <script src="../../frontendp/lib/owlcarousel/owl.carousel.min.js" type="text/javascript"></script>
- -->
+
 
 
     <!-- Template Javascript -->
-    <!-- <script src="../../frontendp/js/main.js" type="text/javascript"></script> -->
-    <!-- <script src="../../frontendp/js/main.js" type="text/javascript"></script> -->
+    <script src="../../frontendp/js/main.js" type="text/javascript"></script>
 
   
 <!-- ?Custom Javascript -->
@@ -539,7 +457,7 @@
 
 
 <!-- custo jss -->
-  <!-- <script src="{{asset($activeTemplateTrue.'custom/js/jquery-3.3.1.min.js')}}"></script> -->
+
     <script src="{{asset($activeTemplateTrue.'custom/js/bootstrap.min.js')}}"></script>
    
     <script src="{{asset($activeTemplateTrue.'custom/js/jquery.nice-select.min.js')}}"></script>
@@ -552,8 +470,6 @@
     
     <script src="{{asset($activeTemplateTrue.'custom/js/jquery.slicknav.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'custom/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset($activeTemplateTrue.'custom/js/main.js')}}"></script>
-
- 
+  
 </body>
 </html>

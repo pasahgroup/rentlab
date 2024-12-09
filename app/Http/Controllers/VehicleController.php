@@ -37,7 +37,7 @@ class VehicleController extends Controller
     public function vehicleDetails($id, $slug){
         $vehicle = Vehicle::active()->where('id', $id)->with('ratings')->withCount('ratings')->withAvg('ratings', 'rating')->firstOrFail();
 
-$fullUrl = url()->full();  
+$fullUrl = url()->full();
         //dd($fullUrl);
 
         $rental_terms = getContent('rental_terms.content', true);
@@ -75,7 +75,7 @@ $fullUrl = url()->full();
 // }else{
 // $id=request('carModel');
 // }
-  
+
   //dd(request('bookingID'));
 
   $bookingID=request('bookingID');
@@ -84,15 +84,15 @@ $fullUrl = url()->full();
   //dd($bookID);
  if(request('carModel')!=null)
  {
-   $vehicle = Vehicle::active()->where('id',request('carModel'))->firstOrFail();      
+   $vehicle = Vehicle::active()->where('id',request('carModel'))->firstOrFail();
  }else{
        $vehicle = Vehicle::active()->where('id',1)->firstOrFail();
 
-       }  
+       }
 
 
-         $vehicles = Vehicle::groupby('model')->get(); 
-         
+         $vehicles = Vehicle::groupby('model')->get();
+
      //dd($vehicle);
         $locations = Location::active()->orderBy('name')->get();
         $pageTitle = 'Vehicle Booked by '.auth()->user()->firstname .' '.auth()->user()->lastname;
@@ -107,19 +107,25 @@ $fullUrl = url()->full();
             $notify[] = ['error', 'Please login to continue!'];
             return back()->withNotify($notify);
         }
-//dd(request('bookID'));
-
   $bookingID=request('bookingID');
   $bookID=request('bookID');
   $bookedID=request('bookID');
   //dd($bookID);
 if(request('carModel')!=null)
  {
-   $vehicle = Vehicle::active()->where('id',request('carModel'))->firstOrFail();     
+   // $vehicle = Vehicle::active()->where('id',request('carModel'))->firstOrFail();
+   $vehicle = Vehicle::active()->where('model',request('carModel'))->first();
+
+   if($vehicle==null)
+    {
+   $notify[] = ['error', 'No car model was set!'];
+             return back()->withNotify($notify);
+         }
+
  }else{
        $vehicle = Vehicle::active()->where('id',1)->firstOrFail();
 
-       }  
+       }
 
          $vehicles = Vehicle::groupby('model')->get();
      //dd($vehicle);
@@ -135,13 +141,13 @@ if(request('carModel')!=null)
 
  if(request('multi-booking')){
     //dd('popo');
-             
+
             $request->validate([
             'pick_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
             //'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()).'|not_in:'.$request->pick_location,
 
              'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
-             'pick_time' => 'required|integer',           
+             'pick_time' => 'required|integer',
              'pick_time' => 'required|after_or_equal:today',
              // 'drop_time' => 'required|date_format:Y-m-d h:i|after_or_equal:'. $request->pick_time,
         ],[
@@ -154,7 +160,7 @@ if(request('carModel')!=null)
             //'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()).'|not_in:'.$request->pick_location,
 
              'drop_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),
-             'pick_time' => 'required|integer',           
+             'pick_time' => 'required|integer',
              'pick_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:today',
              'drop_time' => 'required|date_format:m/d/Y h:i a|after_or_equal:'. $request->pick_time,
                      ],[
@@ -204,7 +210,7 @@ if(request('multi-booking'))
         $rent = new RentLog();
         $rent->user_id = auth()->id();
         $rent->vehicle_id = $vehicle->id;
-        
+
          $rent->model_name = $vehicle->model;
 
          $rent->no_car =request('no_car');
@@ -214,7 +220,7 @@ if(request('multi-booking'))
         $rent->pick_time = $pick_time;
         $rent->drop_time = $drop_time;
          $rent->no_day =$total_days;
-       
+
 
         $rent->unit_price =$vehicle->price;
          $rent->price = getAmount($total_price);
@@ -272,7 +278,7 @@ $deposits=Deposit::where('booking_id',request('bookingID'))->first();
 
 
  $updateData = Deposit::where('booking_id',request('bookingID'))
-->update([        
+->update([
       // 'user_id' => $user->id,
       //  'rent_id' => session('rent_id') ?? 0,
       //  'plan_id' => session('plan_id') ?? 0,
@@ -325,7 +331,7 @@ else{
           $data->charge =10;
         $data->rate =2300;
         $data->final_amo = $total_price;
-  
+
   $data->paid =0.00;
   $data->remain_balance = $total_price;
 
@@ -339,8 +345,8 @@ else{
 }
 
 
- // return redirect()->route('user.pesapal',$data->id);        
- return redirect()->route('user.pesapal',$rent->id);   
+ // return redirect()->route('user.pesapal',$data->id);
+ return redirect()->route('user.pesapal',$rent->id);
 
         // return redirect()->route('user.deposit.manual.confirm');
     }
@@ -398,7 +404,7 @@ else{
     //$data = Deposit::get();
         //dd($data);
         $times=RentLog::findOrFail($id);
-         
+
          $datas=RentLog::join('vehicles','vehicles.id','rent_logs.vehicle_id')
          ->where('rent_logs.id',$id)
          ->select('vehicles.name','rent_logs.pick_time','rent_logs.drop_time','rent_logs.model_name','rent_logs.price','rent_logs.discount','rent_logs.no_car','rent_logs.no_day','rent_logs.total_cost')
@@ -425,7 +431,7 @@ else{
 
 
     public function payConfirm(Request $request,$id)
-    {   
+    {
 $amount = preg_replace("/[^0-9\.]/", "",request('amount'));
 $amount_percent=request('percent_downpayment')*request('total_cost');
 
@@ -439,7 +445,7 @@ $req_url = "https://api.exchangerate-api.com/v4/latest/USD";
 //dd($req_url);
  //ini_set("allow_url_fopen", 1);
 // curl_get_file_contents($req_url);
- 
+
  //return $this->curl_get_file_contents($req_url);
  $response_json=$this->curl_get_file_contents($req_url);
 
@@ -472,18 +478,18 @@ $base_price=($response_object->rates->TZS/$response_object->rates->$currency);
  // $defaultCurrency2=($response_object->rates->$currency);
     $to_bepaid = round(($amount * $base_price), 2);
      //dd($to_bepaid);
- 
+
     }
     catch(Exception $e) {
         // Handle JSON parse error...
     }
 }
- 
+
     //dd('print');
  //return response()->json(['url' => redirect('https://payments.pesapal.com/palatialtours',compact(['first_name','status']));
 //return redirect('https://payments.pesapal.com/palatialtours',compact('status'));
 $pageTitle="Payment";
-return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('first_name','last_name','currency','to_bepaid','desc','email','phone','reference','type','pageTitle'));  
+return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('first_name','last_name','currency','to_bepaid','desc','email','phone','reference','type','pageTitle'));
 
     }
 
@@ -519,7 +525,9 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
             $vehicles->where('price', '<=', $request->max_price);
         }
 
-        $vehicles = $vehicles->latest()->paginate(3)->withQueryString();
+        $vehicles = $vehicles->latest()->paginate(4)->withQueryString();
+
+        //Filter by Car body or Car Tag
 
       //dd($vehicles);
         return view($this->activeTemplate.'vehicles.index',compact('vehicles','pageTitle', 'brands', 'seats'));

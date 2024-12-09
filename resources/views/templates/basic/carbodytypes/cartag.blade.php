@@ -21,7 +21,7 @@
                                 <div class="close-sidebar"><i class="las la-times"></i></div>
                             </div>
                         </div>
-                       
+
                         <div class="widget border--dashed">
                             <h5 class="title">@lang('Filter by Car Tag')</h5>
                             <div class="widget-body">
@@ -35,10 +35,10 @@
                                 </a>
                                  </li>
                                       @endforeach
-                                    
+
                                 </ul>
                             </div>
-                        </div>                    
+                        </div>
                     </aside>
                 </div>
                 <div class="col-lg-10">
@@ -102,16 +102,16 @@
                                          <div class="rent__content">
                                             <h5 class="">  {{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</sub></h5>
                                         </div>
-                                        <ul class="d-flex car-info">                                           
+                                        <ul class="d-flex car-info">
                                             <li class="pr-3"><i class="las la-tachometer-alt"></i><span class="font-mini">{{ __(@$vehicle->transmission) }}</span></li>
                                             <li class="pr-3"><i class="las la-gas-pump"></i><span class="font-mini">{{ __(@$vehicle->fuel_type) }}</span></li>
                                         </ul>
-                                        
+
 
 
                      <div class="row" style="margin-top:10px">
    <div class="col-lg-3 col-md-3 col-sm-3">
-                                         
+
                                 </div>
                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                       <div class="car__item__price">
@@ -126,9 +126,9 @@
                                 </div>
 
                                  <div class="col-lg-3 col-md-3 col-sm-3">
-                                         
+
                                 </div>
-                               </div> 
+                               </div>
 
 
                                     </div>

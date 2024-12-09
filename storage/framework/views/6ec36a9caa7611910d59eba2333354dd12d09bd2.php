@@ -1,9 +1,7 @@
 <?php $__env->startSection('content'); ?>
-
 <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side"><?php echo app('translator')->get('Rent'); ?></div>
         <div class="shape"><?php echo app('translator')->get('Vehicles'); ?></div>
-           
 
         <div class="container">
     <div class="widget border--dashed">
@@ -12,7 +10,7 @@
         <div class="container">
             <h4 class="mb-4"><?php echo app('translator')->get('You are booking'); ?>: <?php echo e($vehicle->model); ?></h4>
             <div class="row gy-5">
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
                         <?php $__empty_1 = true; $__currentLoopData = $vehicle->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <div class="car__rental-thumb w-100 bg--body p-0">
@@ -30,102 +28,99 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-9">
                     <div class="widget border--dashed">
-                    <div class="book__wrapper bg--body border--dashed mb-4">
-                        <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="<?php echo e(route('vehicle.booking.confirm', $vehicle->id)); ?>">
-                            <?php echo csrf_field(); ?>
-                         
-                          <div class="form-group"> 
-                         <div class="row">  
-                          <div class="col-md-6 col-sm-6">
-                             <label for="pick-point" class="form--label">
-                                        <i class="las la-street-view"></i> <?php echo app('translator')->get('Pick Up Point'); ?>
-                                    </label>
-                    <select name="pick_location" id="pick-point" class="form-select" aria-label="Default select example" required>
-                         
-                          <option value=""><?php echo app('translator')->get('--Pick up point--'); ?></option>
-                                        <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                            <option value="<?php echo e($location->id); ?>"><?php echo e(@$location->name); ?></option>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                                        <?php endif; ?>
-                                                        </select>
-                                                    </div>
-                          
-                              <div class="col-md-6 col-sm-6">
-                                 <label for="drop-point" class="form--label">
-                                        <i class="las la-street-view"></i> <?php echo app('translator')->get('Drop of Point'); ?>
-                                    </label>
-                    <select id="drop_location" name="drop_location" class="form-select" aria-label="Default select example">
-                     <option value=""><?php echo app('translator')->get('--Pick up point--'); ?></option>
-                                        <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                            <option value="<?php echo e($location->id); ?>"><?php echo e(@$location->name); ?></option>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                                        <?php endif; ?>
-                                                        </select>
-                                                    </div>
-                          </div>
-          <div class="form-group">
-          <div class="row">
-        <div class="col-3">
-                            <div class="input-group">
-                <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                <span class="las la-street-view"></span> 
-                <span class="ms-1"><?php echo app('translator')->get('No. Car'); ?></span>
-                                                </div>
-<input class="form-control" type="number" aria-label="Enter a City or Airport" name="no_car" id="no_car" value="1" min="1" required>
-                                                        </div>
-                                                    </div>
 
 
-        <div class="col-5">
-                                                        <div class="input-group">
-                         <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                     <span class="fas fa-calendar-alt"></span><span class="ms-1">From Date</span>
-                                                 </div>
-                        
-                         <input type="text" name="pick_time" id='dateAndTimePicker' autocomplete="off" data-position='top left' class="form-control form--control pick_time" required>
-                                                         
-                    </div>
-                                                    </div>
+                      <div class="col-lg-11 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
+                                                    <div class="bg-secondary rounded p-5">
 
-        <div class="col-4">
-                                                        <div class="input-group">
-                         <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                     <span class="fas fa-calendar-alt"></span><span class="ms-1">To Date2</span>
-                                                 </div>
-                        
-                         <input type="text" name="drop_time" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control form--control" disabled required>
+                                      <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="<?php echo e(route('vehicle.booking.confirm', $vehicle->id)); ?>">
+                                        <?php echo csrf_field(); ?>
+                                                            <div class="row g-3">
 
-                                                         
-                    </div>
-                                                    </div>
-                                                
+                                            <div class="col-6">
+                                        <div class="input-group">
+                            <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                            <span class="fas fa-map-marker-alt"></span>
+                            <span class="ms-1"><i class="las la-street-view"></i><?php echo app('translator')->get('Pick Up Point'); ?></span>
+                                                            </div>
+                                                            <select name="pick_location" id="pick-point" class="form-select" aria-label="Default select example" required>
 
-                                                </div>
-                                            </div>
-</div>
+                                                                    <option value=""><?php echo app('translator')->get('--Pick up point--'); ?></option>
+                                                                                  <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                                                                      <option value="<?php echo e($location->id); ?>"><?php echo e(@$location->name); ?></option>
+                                                                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                                                                  <?php endif; ?>
+                                                                                                </select>
 
+                                                                    </div>
+                                                                </div>
 
-                        
+                                                                  <div class="col-6">
+                                        <div class="input-group">
+                            <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                            <span class="fas fa-map-marker-alt"></span>
+                            <span class="ms-1"><i class="las la-street-view"></i><?php echo app('translator')->get('Drop Of Point'); ?></span>
+                                                            </div>
+                                                            <select name="drop_location" id="pick-drop_location" class="form-select" aria-label="Default select example" required>
 
-            
+                                                               <option value=""><?php echo app('translator')->get('--Pick up point--'); ?></option>
+                                                                                  <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                                                                      <option value="<?php echo e($location->id); ?>"><?php echo e(@$location->name); ?></option>
+                                                                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                                                                  <?php endif; ?>
+                                                                                                </select>
+                                                                    </div>
+                                                                </div>
 
- <div class="col-1">
- </div>
-                            <div class="col-8">
-                                <div class="booking-costs mb-4"><strong>
-                                    <?php echo app('translator')->get('  Price Total:'); ?> </strong><span class="text--danger"><span class="total_amount"><?php echo e(showAmount($vehicle->price)); ?></span> <?php echo e($general->cur_text); ?> </span>
-                                    <?php echo app('translator')->get('for'); ?> <span class="total_days text--danger">1</span> <?php echo app('translator')->get('days.'); ?>
-                                </div>                                
-                            </div>
-   <div class="col-3">
-                            <div class="form-group float-right">
-                                    <button class="cmn--btn justify-content-center float-right" type="submit"><?php echo app('translator')->get('Book Now'); ?></button>
+                                                                  <div class="col-12">
+                                        <div class="input-group">
+                            <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                            <span class="las la-car"></span>
+                            <span class="ms-1"><?php echo app('translator')->get('Number of Car'); ?></span>
+                                                            </div>
+            <input class="form-control" type="number" aria-label="Enter a City or Airport" name="no_car" id="no_car" value="1" min="1" required>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-6">
+                                                                    <div class="input-group">
+                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                 <span class="las fa-calendar"></span><span class="ms-1">From Date</span>
+                                                             </div>
+                                    <input class="form-control" type="text" name="pick_time" id='dateAndTimePicker' class="form-control form--control pick_time" required>
+
                                 </div>
-                            </div>
-                        </form>
-                    </div>
+                                                                </div>
+                                                                <div class="col-6">
+                                                        <div class="input-group">
+                                                    <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                                                    <span class="las fa-calendar"></span><span class="ms-1">To Date</span>
+                                                                        </div>
+                                                   <input type="text" name="drop_time" id='dateAndTimePicker2' autocomplete="off" data-position='top left' class="form-control" required>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-8">
+                                                                                                              </div>
+                                                                <div class="col-4">
+                                                <button class="btn btn-primary rounded-pill d-flex justify-content-center btn-light w-100 py-2 float-right" type="submit" style="margin-bottom:0px;">Book Now</button>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-12">
+                                                                <div class="booking-costs mb-4"><strong>
+                                                                    <?php echo app('translator')->get('  Price Total:'); ?> </strong><span class="text--danger"><span class="total_amount"><?php echo e(showAmount($vehicle->price)); ?></span> <?php echo e($general->cur_text); ?> </span>
+                                                                    <?php echo app('translator')->get('for'); ?> <span class="total_days text--danger">1</span> <?php echo app('translator')->get('days.'); ?>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+
+
                 </div>
 
 
@@ -137,7 +132,7 @@
 </div>
 </div>
 </div>
-                     
+
                     </div>
                 </div>
 
@@ -165,7 +160,7 @@
                 var price = parseFloat("<?php echo e($vehicle->price); ?>");
                  $('.total_days').text(1);
                  var no_car = $('#no_car').val();
-                 
+
 
                 if (pick_time){
                     $('#dateAndTimePicker2').removeAttr('disabled');
@@ -195,7 +190,7 @@
 
                     //alert(no_car);
 });
-                      
+
 
 if(no_car>0)
 {
@@ -215,4 +210,4 @@ if(no_car>0)
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/vehicles/booking.blade.php ENDPATH**/ ?>
+<?php echo $__env->make($activeTemplate.'layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/vehicles/booking.blade.php ENDPATH**/ ?>

@@ -72,15 +72,15 @@ $models = Vehicle::orderby('model')
       ->select('vehicles.*','cartypes.car_body_type')
      ->paginate(getPaginate(8));
      $metaVehicleCount=$metaVehicles->count();
-    // dd($metaVehicles->count());  
+    // dd($metaVehicles->count());
     // $metavehicles = collect($metaVehicles);
 //$vehicles = Vehicle::active()->latest()->paginate(4);
- //dd($metaVehicles->count());       
+ //dd($metaVehicles->count());
 
         $pageTitle = 'Home';
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
 
-         //dd($metaFirstVehicle); 
+         //dd($metaFirstVehicle);
 
         return view($this->activeTemplate . 'homem', compact('pageTitle','sections','vehicles','carbodytypes','carTags','models','metaVehicles','metaVehicleCount','metaFirstVehicle'));
     }
@@ -100,7 +100,7 @@ $models = Vehicle::orderby('model')
 
 public function show(Request $request,$id)
     {
-   
+
     if(request('carType')){
    $vehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
       ->where('cartypes.car_body_type',$id)
@@ -110,14 +110,14 @@ public function show(Request $request,$id)
      ->select('vehicles.*','cartypes.car_body_type')
        ->paginate(getPaginate(8));
 }else{
-   
+
    $vehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
       ->where('cartypes.car_body_type',$id)
      ->groupBy('vehicles.model')
      ->select('vehicles.*','cartypes.car_body_type')
       ->paginate(getPaginate(8));
 }
-  
+
 
           $metaVehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
       ->select('vehicles.*','cartypes.car_body_type')
@@ -125,9 +125,9 @@ public function show(Request $request,$id)
 
     $metavehicles = collect($metaVehicles);
    //dd($metavehicles->where('car_body_type','SUV')->count());
- 
 
-    $cartypes = Cartype::where('status','1')->get();     
+
+    $cartypes = Cartype::where('status','1')->get();
         $pageTitle = $id;
     // dd($cartypes);
 
@@ -144,7 +144,7 @@ public function show(Request $request,$id)
      ->select('vehicles.*','tags.tag')
       ->get();
       //dd($vehicles);
- }else{   
+ }else{
   $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
       ->where('tags.tag',$id)
      ->select('vehicles.*','tags.tag')
@@ -158,12 +158,50 @@ public function show(Request $request,$id)
     $metavehicles = collect($metaVehicles);
    //dd($metavehicles->where('car_body_type','SUV')->count());
 
-    $cartags = Tag::where('status','1')->get();     
+    $cartags = Tag::where('status','1')->get();
         $pageTitle = $id;
     // dd($cartypes);
 
         return view($this->activeTemplate.'carbodytypes.cartag', compact('vehicles','cartags','metaVehicles','pageTitle','id'));
     }
+
+
+    public function carView(Request $request,$id)
+    {
+  if(request('carTag')){
+    $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
+      ->where('tags.tag',$id)
+       ->where('vehicles.brand_id',request('brand'))
+        ->where('vehicles.seater_id',request('seats'))
+     ->select('vehicles.*','tags.tag')
+        ->paginate(4);
+
+      //dd($vehicles);
+  }else{
+  $vehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
+      ->where('tags.tag',$id)
+     ->select('vehicles.*','tags.tag')
+        ->paginate(4);
+  }
+
+  $metaVehicles = Vehicle::join('tags','tags.id','vehicles.tag_id')
+      ->select('vehicles.*','tags.tag')
+      ->get();
+
+    $metavehicles = collect($metaVehicles);
+   //dd($metavehicles->where('car_body_type','SUV')->count());
+
+    $cartags = Tag::where('status','1')->get();
+        $pageTitle = $id;
+    // dd($cartypes);
+
+        return view($this->activeTemplate.'carview.carview', compact('vehicles','cartags','metaVehicles','pageTitle','id'));
+    }
+
+
+
+
+
 
 
     public function contact()

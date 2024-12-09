@@ -2,10 +2,11 @@
 
 @section('content')
     <!-- Account Section Starts Here -->
-    <div class="account-section pt-120 pb-120">
+    <div class="account-section pt-120 pb-120" style="border:1px solid rgba(0,0,0,.9)">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xxl-6 col-lg-8">
+            <div style="border:1px solid rgba(1,0,0,.9);">
+            <div class="row justify-content-center" style="background-color:#a28560">
+                <div class="col-xxl-6 col-lg-8" >
                     <div class="account__wrapper bg--section">
                         <div class="logo">
                             <a href="{{ route('home') }}" class="d-block"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo" style="width:100%; height:100%;"></a>
@@ -13,7 +14,7 @@
                         <form class="account-form row g-4" method="POST" action="{{ route('user.login')}}" onsubmit="return submitUserForm();">
                             @csrf
 
-  <input type="hidden" name="fullurl" value="{{$fullUrl}}"/>  
+  <input type="hidden" name="fullurl" value="{{$fullUrl}}"/>
 
                             <div class="col-md-12">
                                 <label for="username" class="form--label">@lang('Username or Email')</label>
@@ -52,6 +53,7 @@
                         </form>
                     </div>
                 </div>
+              </div>
             </div>
         </div>
     </div>

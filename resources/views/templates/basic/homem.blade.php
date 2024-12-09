@@ -1,11 +1,12 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
 <style type="text/css">
-    pp {  
-    color:#fff; /* Sets the text color of paragraphs to blue */  
-}  
+    pp {
+    color:#fff; /* Sets the text color of paragraphs to blue */
+}
 </style>
-
+<div class="row" style="padding-left:2%;padding-left:2%">
+    <div class="col-9">
     <div class="header-carousel" id="section1">
            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
     <!-- Carousel indicators -->
@@ -14,7 +15,7 @@
         @for($i=0;$i<10;$i++)
     <li data-bs-target="#myCarousel" data-bs-slide-to="{{$i}}"></li>        @endfor
     </ol>
-    
+
     <!-- Wrapper for carousel items -->
     <div class="carousel-inner">
          <div class="carousel-item active">
@@ -23,14 +24,15 @@
                             <div class="container py-4">
                                 <div class="row g-5">
                                     <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
+{{--
                                         <div class="bg-secondary rounded p-5">
-                                            <h4 class="text-white">Book Your Ride</h4>
+                                            <h4 class="text-white">Book Your Ride2</h4>
                 <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="{{ route('vehicle.booking.confirm',1) }}">
                             @csrf
                                                 <div class="row g-3">
                                                     <div class="col-12">
                     <select class="form-select" aria-label="Default select example">
-                         <option selected>Select Your Car type</option>
+                         <option selected>--select car model--</option>
                   <option value="1">VW Golf VII</option>
             <option value="2">Audi A1 S-Line</option>
             <option value="3">Toyota Camry</option>
@@ -40,7 +42,7 @@
                                 <div class="col-6">
                             <div class="input-group">
                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                <span class="fas fa-map-marker-alt"></span> 
+                <span class="fas fa-map-marker-alt"></span>
                 <span class="ms-1">Pick Up Point</span>
                                                 </div>
 <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
@@ -50,7 +52,7 @@
                                                       <div class="col-6">
                             <div class="input-group">
                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                <span class="fas fa-map-marker-alt"></span> 
+                <span class="fas fa-map-marker-alt"></span>
                 <span class="ms-1">Drop of Point</span>
                                                 </div>
 <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
@@ -60,7 +62,7 @@
                                                       <div class="col-12">
                             <div class="input-group">
                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                <span class="fas fa-map-marker-alt"></span> 
+                <span class="fas fa-map-marker-alt"></span>
                 <span class="ms-1">@lang('Number of Car')</span>
                                                 </div>
 <input class="form-control" type="number" aria-label="Enter a City or Airport" name="no_car" id="no_car" value="1" min="1" required>
@@ -73,7 +75,7 @@
                      <span class="fas fa-calendar-alt"></span><span class="ms-1">From Date</span>
                                                  </div>
                         <input class="form-control" type="date" name="pick_time" id='dateAndTimePicker' class="form-control form--control pick_time" required>
-                                                         
+
                     </div>
                                                     </div>
                                                     <div class="col-6">
@@ -82,7 +84,7 @@
                                         <span class="fas fa-calendar-alt"></span><span class="ms-1">To Date</span>
                                                             </div>
                                         <input class="form-control" type="date">
-                                   
+
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
@@ -91,6 +93,7 @@
                                                 </div>
                                             </form>
                                         </div>
+                                        --}}
                                     </div>
                                     <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
 
@@ -106,6 +109,9 @@
                                         <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong>{{$metaFirstVehicle->details}}</strong></li>
                                     </ul>
                                     </div>
+                                    <div class="mb-2">
+                                    </div>
+                                       <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
                                         </div>
                                     </div>
                                 </div>
@@ -114,16 +120,18 @@
         </div>
 
 
-         @foreach ($metaVehicles as $indexKey => $vehicle) 
+         @foreach ($metaVehicles as $indexKey => $vehicle)
         <div class="carousel-item">
             <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" class="img-fluid w-100" alt="First slide"/>
                         <div class="carousel-caption">
                             <div class="container py-4">
                                 <div class="row g-5">
+
                                     <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
+    {{--
                                         <div class="bg-secondary rounded p-5">
                                             <h4 class="text-white">Book Your Ride</h4>
-                                            
+
     <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="{{ route('vehicle.booking.confirm',1) }}">
                             @csrf
                                                 <div class="row g-3">
@@ -139,7 +147,7 @@
                                 <div class="col-6">
                             <div class="input-group">
                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                <span class="fas fa-map-marker-alt"></span> 
+                <span class="fas fa-map-marker-alt"></span>
                 <span class="ms-1">Pick Up Point</span>
                                                 </div>
 <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
@@ -149,7 +157,7 @@
                                                       <div class="col-6">
                             <div class="input-group">
                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                <span class="fas fa-map-marker-alt"></span> 
+                <span class="fas fa-map-marker-alt"></span>
                 <span class="ms-1">Drop of Point</span>
                                                 </div>
 <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
@@ -159,7 +167,7 @@
                                                       <div class="col-12">
                             <div class="input-group">
                 <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                <span class="fas fa-map-marker-alt"></span> 
+                <span class="fas fa-map-marker-alt"></span>
                 <span class="ms-1">@lang('Number of Car')</span>
                                                 </div>
 <input class="form-control" type="number" aria-label="Enter a City or Airport" name="no_car" id="no_car" value="1" min="1" required>
@@ -172,7 +180,7 @@
                      <span class="fas fa-calendar-alt"></span><span class="ms-1">From Date</span>
                                                  </div>
                         <input class="form-control" type="date" name="pick_time" id='dateAndTimePicker' class="form-control form--control pick_time" required>
-                                                         
+
                     </div>
                                                     </div>
                                                     <div class="col-6">
@@ -181,7 +189,7 @@
                                         <span class="fas fa-calendar-alt"></span><span class="ms-1">To Date</span>
                                                             </div>
                                         <input class="form-control" type="date">
-                                   
+
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
@@ -191,7 +199,9 @@
                                             </form>
 
                                         </div>
+                                            --}}
                                     </div>
+
                                     <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                     <div class="text-start">
                             <div class="rounded">
@@ -203,9 +213,13 @@
                                         <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$vehicle->fuel_type}}</strong></li>
                                         <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong>{{$vehicle->details}}</strong></li>
                                     </ul>
-                                    </div>
+                                  </div>
+                                  <div class="mb-2">
+                                  </div>
+                                     <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -220,9 +234,14 @@
     <a class="carousel-control-next" href="#myCarousel" data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
     </a>
-</div>  
 </div>
-     
+</div>
+</div>
+    <div class="col-6">
+      TEsg
+    </div>
+  </div>
+
         <!-- Features Start -->
         <div class="container-fluid feature py-5" id="section2">
             <div class="container py-5">
@@ -292,7 +311,7 @@
         </div>
         <!-- Features End -->
 
- 
+
  <!-- Car categories Start -->
         <div class="container categories pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
@@ -300,18 +319,18 @@
                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
                     </p>
                 </div>
-      <div class="row">               
+      <div class="row">
 @forelse($vehicles as $vehicle)
                      <div class="col-md-3">
                     <div class="categories-item">
                         <div class="rent__item">
-                            <div class="rent__thumb">
+                            <div class="rent__thumb" style="background-color:#9ca494">
                                         <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}">
                                             <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
                                             <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
                                         </a>
-                                    </div>                            
-                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-22px;">
+                                    </div>
+                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-22px">
                                 <strong>{{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no?? 1) }})</strong>
                                    <div class="rent__content text-center mt-n1">
                                         <ul class="d-flex car-info text-center">
@@ -329,20 +348,30 @@
                                         <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">{{ __(@$vehicle->transmission) }}</span>
                                     </div>
                                     <div class="col-4">
-                                        <i class="fa fa-gas-pump text-dark"></i> <span class="text-body ms-1">{{ __(@$vehicle->fuel_type) }}</span>
+                                        <i class="las la-gas-pump"></i> <span class="text-body ms-1">{{ __(@$vehicle->fuel_type) }}</span>
                                     </div>
                                 </div>
                             </div>
                  <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
-                          
+
                         </div>
                     </div>
                 </div>
 
                         @empty
                         @endforelse
+                        {{--
                         {!! $vehicles->links() !!}
+                        --}}
+                        <marquee style="color:#03153e;float: right">Book car with Rhond's Company Ltd</marquee>
                     </div>
+                    <div>
+                    <h3 class="position-relative mx-xl-5"><span class="bg-secondary pr-3 section-heading wow fadeInUp float-right">
+
+   <a class="btn-transparent" href="/vehicle/search" target="_blank"  style="color:#b76b0b;float: right">View More vehicles <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                         </a>
+  </span></h3>
+</div>
 
         </div>
 
@@ -471,7 +500,7 @@
         </div>
         <!-- Services End -->
 
-       
+
 
         <!-- Car Steps Start -->
         <div class="container-fluid steps py-5" id="section7">
@@ -754,7 +783,7 @@
                 </div>
             </div>
         </div>
-    
+
     <script type="text/javascript">
 function scrollToNextSection() {
   const currentSection = document.activeElement.closest('section');
@@ -785,7 +814,7 @@ function scrollToNextSection() {
                 var price = parseFloat("{{ $vehicle->price }}");
                  $('.total_days').text(1);
                  var no_car = $('#no_car').val();
-                 
+
 
                 if (pick_time){
                     $('#dateAndTimePicker2').removeAttr('disabled');
@@ -815,7 +844,7 @@ function scrollToNextSection() {
 
                     //alert(no_car);
 });
-                      
+
 
 if(no_car>0)
 {

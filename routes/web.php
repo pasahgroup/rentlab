@@ -59,7 +59,7 @@ Route::prefix('ticket')->group(function () {
 */
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
-   
+
     Route::namespace('Auth')->group(function () {
         Route::get('/', 'LoginController@showLoginForm')->name('login');
         Route::post('/', 'LoginController@login')->name('login');
@@ -186,7 +186,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('tag/update/{id}', 'TagController@update')->name('tag.update');
         Route::post('tag/image/remove/{id}', 'TagController@deleteImage')->name('tag.image.delete');
         Route::post('tag/{id}/status', 'TagController@status')->name('tag.status');
-         
+
           Route::post('tag/{id}/recovery', 'TagController@recovery')->name('tag.recovery');
          Route::get('tag/{id}/delete', 'TagController@delete')->name('tag.delete');
 
@@ -410,7 +410,7 @@ Route::name('user.')->prefix('user')->group(function () {
 //pesaPal Preview
         Route::get('/pesapal/{x}', 'VehicleController@pesapal')->name('pesapal');
          Route::get('/pg/{x}', [VehicleController::class, 'pesapal'])->name('pg');
-         // Route::post('/payConfirm/{x}', [VehicleController::class, 'payConfirm'])->name('payConfirm'); 
+         // Route::post('/payConfirm/{x}', [VehicleController::class, 'payConfirm'])->name('payConfirm');
           Route::post('/payConfirm/{x}', 'VehicleController@payConfirm')->name('payConfirm');
               Route::post('/addCar/{x}', 'VehicleController@addCar')->name('addCar');
               Route::get('/pc/{x}', 'VehicleController@addBooking')->name('pc');
@@ -419,7 +419,7 @@ Route::name('user.')->prefix('user')->group(function () {
 
 
         // Route::post('/payConfirm/{x}', 'VehicleController@payConfirm')->name('payConfirm');
-     
+
         Route::get('authorization', 'AuthorizationController@authorizeForm')->name('authorization');
         Route::get('resend-verify', 'AuthorizationController@sendVerifyCode')->name('send.verify.code');
         Route::post('verify-email', 'AuthorizationController@emailVerification')->name('verify.email');
@@ -445,7 +445,7 @@ Route::name('user.')->prefix('user')->group(function () {
             Route::post('payment/insert', 'Gateway\PaymentController@depositInsert')->name('deposit.insert');
             Route::get('payment/preview', 'Gateway\PaymentController@depositPreview')->name('deposit.preview');
             Route::get('payment/confirm', 'Gateway\PaymentController@depositConfirm')->name('deposit.confirm');
-            
+
             Route::get('payment/manual', 'Gateway\PaymentController@manualDepositConfirm')->name('deposit.manual.confirm');
             Route::post('payment/manual', 'Gateway\PaymentController@manualDepositUpdate')->name('deposit.manual.update');
             Route::get('payment/history', 'UserController@depositHistory')->name('deposit.history');
@@ -469,7 +469,7 @@ Route::name('user.')->prefix('user')->group(function () {
 
           Route::get('/getP/{p}', 'MultibookingController@getModel')->name('multibooking.getp');
          // Route::get('/getP/{p}', [VehicleController::class,'getModel']);
-         
+
           Route::post('multibooking/{id}/recovery', 'MultibookingController@recovery')->name('multibooking.recovery');
          Route::get('multibooking/{id}/delete', 'MultibookingController@delete')->name('multibooking.delete');
           Route::post('multibooking/remove/{id}', 'MultibookingController@remove')->name('multibooking.remove');
@@ -508,6 +508,8 @@ Route::get('placeholder-image/{size}', 'SiteController@placeholderImage')->name(
 Route::get('/cartype-page/{id}', 'SiteController@show')->name('cartype-page.show');
 
 Route::get('/cartag-page/{id}', 'SiteController@carTag')->name('cartag-page.show');
+// Route::get('/car-view/{id}', 'SiteController@carView')->name('car-view.show');
+
 
 Route::get('/{slug}', 'SiteController@pages')->name('pages');
 Route::get('/', 'SiteController@index')->name('home');

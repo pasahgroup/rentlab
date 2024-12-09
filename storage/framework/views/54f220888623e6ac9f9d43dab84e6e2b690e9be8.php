@@ -1,10 +1,9 @@
-@extends($activeTemplate.'layouts.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
-        <div class="shape right-side">@lang('Rent')</div>
-        <div class="shape">@lang('Vehicles')</div>
+        <div class="shape right-side"><?php echo app('translator')->get('Rent'); ?></div>
+        <div class="shape"><?php echo app('translator')->get('Vehicles'); ?></div>
 
 
         <div class="container">
@@ -13,49 +12,49 @@
     <div class="single-section pt-120 pb-120 bg--section">
         <div class="container">
           <div class="col-md-4">
-                  <h4 class="mb-4">@lang('You are booking'): {{ $vehicle->model }}</h4>
+                  <h4 class="mb-4"><?php echo app('translator')->get('You are booking'); ?>: <?php echo e($vehicle->model); ?></h4>
                 </div>
 
             <div class="row gy-5">
                 <div class="col-lg-4">
                     <hr>
                     <div class="slider-top owl-theme owl-carousel border--dashed">
-                        @forelse($vehicle->images as $image)
+                        <?php $__empty_1 = true; $__currentLoopData = $vehicle->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <div class="car__rental-thumb w-100 bg--body p-0">
-                                <img src="{{ getImage(imagePath()['vehicles']['path'].'/'. $image, imagePath()['vehicles']['size']) }}" alt="rent-vehicle">
+                                <img src="<?php echo e(getImage(imagePath()['vehicles']['path'].'/'. $image, imagePath()['vehicles']['size'])); ?>" alt="rent-vehicle">
                             </div>
-                        @empty
-                        @endforelse
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                        <?php endif; ?>
                     </div>
                     <div class="slider-bottom owl-theme owl-carousel mt-4">
-                        @forelse($vehicle->images as $image)
+                        <?php $__empty_1 = true; $__currentLoopData = $vehicle->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <div class="rental__thumbnails bg--body">
-                                <img src="{{ getImage(imagePath()['vehicles']['path'].'/'. $image, imagePath()['vehicles']['size']) }}" alt="rent-vehicle">
+                                <img src="<?php echo e(getImage(imagePath()['vehicles']['path'].'/'. $image, imagePath()['vehicles']['size'])); ?>" alt="rent-vehicle">
                             </div>
-                        @empty
-                        @endforelse
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <hr>
                     <div class="widget border--dashed">
-<form method="post" action="{{ route('user.addCar',1) }}">
- @csrf
-<input class="form-control" type="hidden" name="bookID" id="bookID" value="{{$bookedID}}">
+<form method="post" action="<?php echo e(route('user.addCar',1)); ?>">
+ <?php echo csrf_field(); ?>
+<input class="form-control" type="hidden" name="bookID" id="bookID" value="<?php echo e($bookedID); ?>">
 <div class="input-group">
-<input class="form-control" list="carModels" name="carModel" id="carModel"  placeholder="@lang('--search car model--')" style="border:1px solid">
+<input class="form-control" list="carModels" name="carModel" id="carModel"  placeholder="<?php echo app('translator')->get('--search car model--'); ?>" style="border:1px solid">
     <datalist id="carModels">
          <option value="0">--Select car Model--</option>
 
-          @forelse($vehicles as $veh)
-                                            <option value="{{ $veh->model }}">{{ @$veh->model }}</option>
-                                        @empty
-                                        @endforelse
+          <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $veh): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                            <option value="<?php echo e($veh->model); ?>"><?php echo e(@$veh->model); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                        <?php endif; ?>
     </datalist>
 
 
 
-                            <button type="submit" class="input-group-text cmn--btn">@lang('Search New Car')</button>
+                            <button type="submit" class="input-group-text cmn--btn"><?php echo app('translator')->get('Search New Car'); ?></button>
 
                         </div>
                     </form>
@@ -64,26 +63,26 @@
                     <div class="book__wrapper bg--body border--dashed mb-4">
                                             <div class="col-lg-12 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                                                           <div class="bg-secondary rounded p-5">
-                                                            <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="{{ route('vehicle.booking.confirm',$vehicle->id) }}">
-                                                              @csrf
+                                                            <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="<?php echo e(route('vehicle.booking.confirm',$vehicle->id)); ?>">
+                                                              <?php echo csrf_field(); ?>
                                                                                   <div class="row g-3">
-                                                                                    <input type="hidden" class="form-control" name="car_id" id="car_id" value="{{$vehicle->id}}">
-                                                                                     <input type="hidden" class="form-control" name="bookingID" id="bookingID" value="{{$bookedID}}">
+                                                                                    <input type="hidden" class="form-control" name="car_id" id="car_id" value="<?php echo e($vehicle->id); ?>">
+                                                                                     <input type="hidden" class="form-control" name="bookingID" id="bookingID" value="<?php echo e($bookedID); ?>">
 
 
                                                                   <div class="col-6">
                                                               <div class="input-group">
                                                   <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                                   <span class="fas fa-map-marker-alt"></span>
-                                                  <span class="ms-1"><i class="las la-street-view"></i>@lang('Pick Up Point')</span>
+                                                  <span class="ms-1"><i class="las la-street-view"></i><?php echo app('translator')->get('Pick Up Point'); ?></span>
                                                                                   </div>
                                                                                   <select name="pick_location" id="pick-point" class="form-select" aria-label="Default select example" required>
 
-                                                                                          <option value="">@lang('--Pick up point--')</option>
-                                                                                                        @forelse($locations as $location)
-                                                                                                            <option value="{{ $location->id }}">{{ @$location->name }}</option>
-                                                                                                        @empty
-                                                                                                        @endforelse
+                                                                                          <option value=""><?php echo app('translator')->get('--Pick up point--'); ?></option>
+                                                                                                        <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                                                                                            <option value="<?php echo e($location->id); ?>"><?php echo e(@$location->name); ?></option>
+                                                                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                                                                                        <?php endif; ?>
                                                                                                                       </select>
 
                                                                                           </div>
@@ -93,15 +92,15 @@
                                                               <div class="input-group">
                                                   <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                                   <span class="fas fa-map-marker-alt"></span>
-                                                  <span class="ms-1"><i class="las la-street-view"></i>@lang('Drop Of Point')</span>
+                                                  <span class="ms-1"><i class="las la-street-view"></i><?php echo app('translator')->get('Drop Of Point'); ?></span>
                                                                                   </div>
                                                                                   <select name="drop_location" id="pick-drop_location" class="form-select" aria-label="Default select example" required>
 
-                                                                                     <option value="">@lang('--Pick up point--')</option>
-                                                                                                        @forelse($locations as $location)
-                                                                                                            <option value="{{ $location->id }}">{{ @$location->name }}</option>
-                                                                                                        @empty
-                                                                                                        @endforelse
+                                                                                     <option value=""><?php echo app('translator')->get('--Pick up point--'); ?></option>
+                                                                                                        <?php $__empty_1 = true; $__currentLoopData = $locations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $location): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                                                                                            <option value="<?php echo e($location->id); ?>"><?php echo e(@$location->name); ?></option>
+                                                                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                                                                                        <?php endif; ?>
                                                                                                                       </select>
                                                                                           </div>
                                                                                       </div>
@@ -110,7 +109,7 @@
                                                               <div class="input-group">
                                                   <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                                   <span class="las la-car"></span>
-                                                  <span class="ms-1">@lang('Number of Car')</span>
+                                                  <span class="ms-1"><?php echo app('translator')->get('Number of Car'); ?></span>
                                                                                   </div>
                                   <input class="form-control" type="number" aria-label="Enter a City or Airport" name="no_car" id="no_car" value="1" min="1" required>
                                                                                           </div>
@@ -143,8 +142,8 @@
 
                                                                                   <div class="col-12">
                                                                                       <div class="booking-costs mb-4"><strong>
-                                                                                          @lang('  Price Total:') </strong><span class="text--danger"><span class="total_amount">{{ showAmount($vehicle->price) }}</span> {{ $general->cur_text }} </span>
-                                                                                          @lang('for') <span class="total_days text--danger">1</span> @lang('days.')
+                                                                                          <?php echo app('translator')->get('  Price Total:'); ?> </strong><span class="text--danger"><span class="total_amount"><?php echo e(showAmount($vehicle->price)); ?></span> <?php echo e($general->cur_text); ?> </span>
+                                                                                          <?php echo app('translator')->get('for'); ?> <span class="total_days text--danger">1</span> <?php echo app('translator')->get('days.'); ?>
                                                                                       </div>
                                                                                   </div>
                                                                               </form>
@@ -174,14 +173,14 @@
     </div>
 
 
-@endsection
-@push('style')
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/datepicker.min.css')}}">
-@endpush
+<?php $__env->stopSection(); ?>
+<?php $__env->startPush('style'); ?>
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/datepicker.min.css')); ?>">
+<?php $__env->stopPush(); ?>
 
-@push('script')
-    <script src="{{asset($activeTemplateTrue.'js/datepicker.min.js')}}"></script>
-    <script src="{{asset($activeTemplateTrue.'js/datepicker.en.js')}}"></script>
+<?php $__env->startPush('script'); ?>
+    <script src="<?php echo e(asset($activeTemplateTrue.'js/datepicker.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'js/datepicker.en.js')); ?>"></script>
     <script>
         // date and time picker
         $('#dateAndTimePicker').datepicker({
@@ -189,7 +188,7 @@
             language: 'en',
             onSelect: function (fd, d, picker) {
                 var pick_time = fd;
-                var price = parseFloat("{{ $vehicle->price }}");
+                var price = parseFloat("<?php echo e($vehicle->price); ?>");
                  $('.total_days').text(1);
                  var no_car = $('#no_car').val();
 
@@ -240,4 +239,6 @@ if(no_car>0)
             }
         })
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make($activeTemplate.'layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/user/pesapal/addcar.blade.php ENDPATH**/ ?>

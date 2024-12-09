@@ -10,11 +10,11 @@ body {
     margin: 0;
     font-size: 16px;
 /*    color: #031A04;*/
-      color: #fff;
+    color: #000;
     overflow-x: hidden;
     line-height: 1.2;
     font-family: "Open Sans", sans-serif;
-    background: #22313a;
+    background:transparent;
 }
 
 h1,
@@ -26,7 +26,8 @@ h6 {
     font-weight: 500;
     margin: 0;
     line-height: 1.2;
-    color: #f0f0f0;
+/*    color: #f0f0f0;*/
+     color: #000;
     font-family: "Josefin Sans", sans-serif;
 }
 
@@ -263,7 +264,7 @@ body *::-webkit-scrollbar-thumb {
 }
 
 *::selection {
-    background-color: #00aeeb;
+    background-color:transparent;
 /*    color: #fff;*/
 color: #000;
 }
@@ -573,7 +574,7 @@ strong, b {
 }
 
 .bg--body .form--control, .bg--body .form--control:focus, .bg--body .rental__thumbnails, .bg--body .faq__item, .bg--body .plan__item, .bg--body .client__item, .bg--body .counter-item, .bg--body .post__item, .bg--body .how__item .how__icon, .bg--body .rent__item, .bg--body .form-control:disabled, .bg--body .form-control[readonly], .bg--body .reply-item, .bg--body .dashboard__item, .bg--body .custom--card, .bg--body .cmn--table, .bg--body .widget {
-    background: #e3dfdd;
+    background:#b7af90;
 }
 
 .bg--body .synced .rental__thumbnails, .bg--body .post__item .post__content .meta__date, .bg--body .rent__item .rent__thumb, .bg--body .rent__item .rent__content .car-info {
@@ -1148,8 +1149,8 @@ strong, b {
     -webkit-transition: all ease 0.3s;
     -moz-transition: all ease 0.3s;
     transition: all ease 0.3s;
-    padding-bottom: 17px;
-    padding-top: 17px;
+    padding-bottom: 1px;
+    padding-top: 1px;
     background: rgba(255, 255, 255, 0.02);
     border-bottom: 1px solid rgba(255, 255, 255, 0);
     position: sticky;
@@ -1418,7 +1419,7 @@ strong, b {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(19,1,1);
     background: #fff;
     box-shadow: none;
 color: #000;
@@ -1448,7 +1449,7 @@ textarea.form--control {
 }
 
 select.form--control {
-    color: #7996A9;
+    color: #000;
 }
 
 .form--label {
@@ -1628,10 +1629,10 @@ select.form--control {
         left: 0;
         top: 0 !important;
         background: #26353e;
-        padding: 30px;
+        padding: 2px;
         z-index: 999;
         width: 100%;
-        max-width: 400px;
+        max-width: 360px;
         max-height: 100vh;
         overflow-y: auto;
         -webkit-transform: translateX(-100%);
@@ -1681,7 +1682,7 @@ select.form--control {
     background: #22313a;
     padding: 4px;
     border-radius: 20px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); */
     margin-bottom: 30px;
 }
 
@@ -3253,7 +3254,7 @@ width: 40%;
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0, 174, 235, 0.1);
     border: 1px dashed rgba(1, 8, 11);
-    background: #26353e;
+    background: #fff;
 }
 
 .rent__item .rent__thumb {
@@ -4700,7 +4701,7 @@ width: 40%;
 }
 
 .widget:not(:last-child) {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .widget.widget__category ul li {
@@ -5065,7 +5066,7 @@ width: 40%;
 }
 
 .cmn--btn.btn--lg {
-    padding: 13px 35px;
+    padding: 2px 25px;
 }
 
 .cmn--btn.btn--block {

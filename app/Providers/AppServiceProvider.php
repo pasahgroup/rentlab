@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         // $this->app['request']->server->set('HTTPS', true);
-   
+
 
 //check that app is local
 if ($this->app->isLocal()) {

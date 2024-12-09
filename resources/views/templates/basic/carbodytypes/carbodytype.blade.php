@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layoutm.frontendm')
+@extends($activeTemplate.'layouts.frontend')
 @section('content')
     @php
         $banners = getContent('banner.element');
@@ -19,7 +19,7 @@
         <div class="shape">@lang('Vehicles')</div>
         <div class="container-fluid">
             <div class="row">
-              
+
                 <div class="col-lg-10">
                     <div class="filter-in d-lg-none">
                         <i class="las la-filter"></i>
@@ -71,9 +71,9 @@
     </div>
 
       <div class="container-fluid categories py-5">
-                      <div class="row"> 
+                      <div class="row">
                       <div class="col-lg-2" style="margin-top:0px">
-                    <aside class="category-sidebar">                       
+                    <aside class="category-sidebar">
                         <div class="widget border--dashed">
                              <div class="close-sidebar"><i class="las la-times"></i></div>
                             <h5 class="title">@lang('Filter by Car Body Type')</h5>
@@ -84,20 +84,20 @@
                                         <li>
                                             <a href="/cartype-page/{{$cartype->car_body_type}}"><span>{{$cartype->car_body_type}}</span><span>({{$metaVehicles->where('car_body_type',$cartype->car_body_type)->count()}})</span></a>
                                         </li>
-                                   
+
                                     @empty
                                     @endforelse
 
                                 </ul>
                             </div>
-                        </div>                    
+                        </div>
                     </aside>
                 </div>
-   <div class="col-lg-10" style="margin-top:0px"> 
+   <div class="col-lg-10" style="margin-top:0px">
      <div class="filter-in d-lg-none">
                         <i class="las la-filter"></i>
                     </div>
-      <div class="row">               
+      <div class="row">
 @forelse($vehicles as $vehicle)
                      <div class="col-md-3">
                     <div class="categories-item">
@@ -107,7 +107,7 @@
                                             <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
                                             <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
                                         </a>
-                                    </div>                            
+                                    </div>
                             <div class="categories-content rounded-bottom p-4 text-center" style="margin:-22px;">
                                 <strong>{{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no?? 1) }})</strong>
                                    <div class="rent__content text-center mt-n1">
@@ -131,7 +131,7 @@
                                 </div>
                             </div>
                  <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
-                          
+
                         </div>
                     </div>
                 </div>

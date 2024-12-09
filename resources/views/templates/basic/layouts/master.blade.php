@@ -8,6 +8,7 @@
 
 
     @include('partials.seo')
+           <link href="../../../frontendp/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
  <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/assets/font/iconfont/iconstyle.css')}}">
      <link rel="stylesheet" href="{{asset($activeTemplateTrue.'mold/vendor/animate-css/animate.css')}}">
