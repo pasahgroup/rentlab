@@ -89,11 +89,11 @@
 
                     </aside>
                 </div>
-                <div class="col-lg-10">
+                <div class="col-lg-10" style="border:solid 1px rgb(1,1,1)">
                     <div class="filter-in d-lg-none" style="margin-top:-80px">
                         <i class="las la-filter"></i>
                     </div>
-                    <div class="book__wrapper bg--body border--dashed mb-4">
+                    <div class="book__wrapper bg--body border--dashed mb-4" style="border:solid 1px rgb(1,1,1)">
                         <form class="book--form row gx-3 gy-4 g-md-4" action="{{ route('vehicle.search') }}" method="get" class="priceForm">
                             <div class="col-md-3 col-sm-4">
                                 <div class="form-group">
