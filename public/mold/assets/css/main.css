@@ -47,7 +47,7 @@ TABLE OF CONTENTS:
 	2.31 Image Gallery
 	2.32 Location
 	2.33 Footer
-	
+
 3.0 Partial UI
 	3.1 Trip Showcase
 	3.2 Trip Grid
@@ -1787,7 +1787,7 @@ header + section {
   color: rgba(255, 255, 255, 0.7);
 }
 .bg-primary {
-  background: #558B2F;
+  background: #646256;
   color: #fff;
 }
 .bg-gray {
@@ -2256,7 +2256,7 @@ main.gray {
   margin-right: 15px;
 }
 .btn-primary {
-  background: #558B2F;
+  background: #646256;
 }
 .btn-primary:hover {
   background: #395d20;
@@ -2320,7 +2320,7 @@ main.gray {
 }
 .btn-line.btn-primary {
   color: #558B2F;
-  border-color: #558B2F;
+  border-color: #646256;
 }
 .btn-line.btn-primary:hover {
   color: #3e6522;
