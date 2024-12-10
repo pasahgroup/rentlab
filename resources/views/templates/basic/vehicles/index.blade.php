@@ -52,7 +52,7 @@
                             <div class="widget-body">
                               <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
                                     <div class="input-group">
-                                      <select name="brand" id="car-type" class="form-control form--control" required="" style="background-color:#809f75">
+                                      <select name="carbody" id="carbody" class="form-control form--control" required="" style="background-color:#809f75">
                                           <option value="">@lang('--Select Car Body--')</option>
                                           @forelse($carBodies as $carbody)
                                               <option value="{{ $carbody->car_body_type_id }}">{{ __(@$carbody->car_body_type) }}</option>
@@ -74,7 +74,7 @@
                               <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
                                     <div class="input-group">
 
-                                      <select name="brand" id="car-type" class="form-control form--control" required="" style="background-color:#809f75">
+                                      <select name="cartag" id="cartag" class="form-control form--control" required="" style="background-color:#809f75">
                                           <option value="">@lang('--Select Car Tag--')</option>
                                           @forelse($carTags as $cartag)
                                               <option value="{{ $cartag->tag_id }}">{{ __(@$cartag->tag) }}</option>
@@ -94,16 +94,17 @@
                         <i class="las la-filter"></i>
                     </div>
                     <div class="book__wrapper bg--body border--dashed mb-4">
-                        <form class="book--form row gx-3 gy-4 g-md-4" action="{{ route('vehicle.search') }}" method="get">
+                        <form class="book--form row gx-3 gy-4 g-md-4" action="{{ route('vehicle.search') }}" method="get" class="priceForm">
                             <div class="col-md-3 col-sm-4">
                                 <div class="form-group">
                                     <label for="car-type" class="form--label">
                                         <i class="las la-car-side"></i> @lang('--Select Brand--')
                                     </label>
-                                    <select name="brand" id="car-type" class="form-control form--control">
-                                        <option value="">@lang('--Select Option--')</option>
-                                        @forelse($brands as $brand)
-                                            <option value="{{ $brand->id }}">{{ __(@$brand->name) }}</option>
+                                    <select name="brand" id="brand" class="form-control form--control">
+                                        <option value="">@lang('--Select Brand--')</option>
+                                        <option value="0">All</option>
+                                        @forelse($brandss as $brand)
+                                            <option value="{{ $brand->brand_id }}">{{ __(@$brand->name) }}</option>
                                         @empty
                                         @endforelse
                                     </select>
@@ -115,10 +116,11 @@
                                     <label for="car-type" class="form--label">
                                         <i class="las la-car-side"></i> @lang('--Select Model--')
                                     </label>
-                                    <select name="brand" id="car-type" class="form-control form--control">
-                                        <option value="">@lang('--Select Option--')</option>
-                                        @forelse($brands as $brand)
-                                            <option value="{{ $brand->id }}">{{ __(@$brand->name) }}</option>
+                                    <select name="model" id="model" class="form-control form--control">
+                                        <option value="">@lang('--Select Model--')</option>
+                                          <option value="0">All</option>
+                                     @forelse($models as $modeld)
+                                            <option value="{{ $modeld->id }}">{{ __(@$modeld->name) }}</option>
                                         @empty
                                         @endforelse
                                     </select>
@@ -129,9 +131,10 @@
                                     <label for="pick-point" class="form--label">
                                         <i class="las la-chair"></i> @lang('--Number Of Seats--')
                                     </label>
-                                    <select name="seats" id="pick-point" class="form-control form--control">
+                                    <select name="seats" id="seats" class="form-control form--control">
                                         <option value="">@lang('--Select Option--')</option>
-                                        @forelse($seats as $seat)
+                                          <option value="0">All</option>
+                                       @forelse($seats as $seat)
                                             <option value="{{ $seat->id }}">{{ __(@$seat->number) }} {{ __('Seater') }}</option>
                                         @empty
                                         @endforelse
@@ -141,7 +144,7 @@
                             <div class="col-md-1 col-sm-3">
                                 <div class="form-group">
                                     <label class="form--label d-none d-sm-block">&nbsp;</label>
-                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit">@lang('Search')</button>
+                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit" value="search" name="search">@lang('Search')</button>
                                 </div>
                             </div>
                         </form>

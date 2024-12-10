@@ -51,10 +51,10 @@
                             <div class="widget-body">
                               <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
                                     <div class="input-group">
-                                      <select name="brand" id="car-type" class="form-control form--control" required="" style="background-color:#809f75">
+                                      <select name="carbody" id="carbody" class="form-control form--control" required="" style="background-color:#809f75">
                                           <option value=""><?php echo app('translator')->get('--Select Car Body--'); ?></option>
                                           <?php $__empty_1 = true; $__currentLoopData = $carBodies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $carbody): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                              <option value="<?php echo e($carbody->id); ?>"><?php echo e(__(@$carbody->car_body_type)); ?></option>
+                                              <option value="<?php echo e($carbody->car_body_type_id); ?>"><?php echo e(__(@$carbody->car_body_type)); ?></option>
                                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                           <?php endif; ?>
                                       </select>
@@ -73,10 +73,10 @@
                               <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
                                     <div class="input-group">
 
-                                      <select name="brand" id="car-type" class="form-control form--control" required="" style="background-color:#809f75">
+                                      <select name="cartag" id="cartag" class="form-control form--control" required="" style="background-color:#809f75">
                                           <option value=""><?php echo app('translator')->get('--Select Car Tag--'); ?></option>
                                           <?php $__empty_1 = true; $__currentLoopData = $carTags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cartag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                              <option value="<?php echo e($cartag->id); ?>"><?php echo e(__(@$cartag->tag)); ?></option>
+                                              <option value="<?php echo e($cartag->tag_id); ?>"><?php echo e(__(@$cartag->tag)); ?></option>
                                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                           <?php endif; ?>
                                       </select>
@@ -93,16 +93,17 @@
                         <i class="las la-filter"></i>
                     </div>
                     <div class="book__wrapper bg--body border--dashed mb-4">
-                        <form class="book--form row gx-3 gy-4 g-md-4" action="<?php echo e(route('vehicle.search')); ?>" method="get">
+                        <form class="book--form row gx-3 gy-4 g-md-4" action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
                             <div class="col-md-3 col-sm-4">
                                 <div class="form-group">
                                     <label for="car-type" class="form--label">
                                         <i class="las la-car-side"></i> <?php echo app('translator')->get('--Select Brand--'); ?>
                                     </label>
-                                    <select name="brand" id="car-type" class="form-control form--control">
-                                        <option value=""><?php echo app('translator')->get('--Select Option--'); ?></option>
-                                        <?php $__empty_1 = true; $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                            <option value="<?php echo e($brand->id); ?>"><?php echo e(__(@$brand->name)); ?></option>
+                                    <select name="brand" id="brand" class="form-control form--control">
+                                        <option value=""><?php echo app('translator')->get('--Select Brand--'); ?></option>
+                                        <option value="0">All</option>
+                                        <?php $__empty_1 = true; $__currentLoopData = $brandss; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                            <option value="<?php echo e($brand->brand_id); ?>"><?php echo e(__(@$brand->name)); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <?php endif; ?>
                                     </select>
@@ -114,10 +115,11 @@
                                     <label for="car-type" class="form--label">
                                         <i class="las la-car-side"></i> <?php echo app('translator')->get('--Select Model--'); ?>
                                     </label>
-                                    <select name="brand" id="car-type" class="form-control form--control">
-                                        <option value=""><?php echo app('translator')->get('--Select Option--'); ?></option>
-                                        <?php $__empty_1 = true; $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                            <option value="<?php echo e($brand->id); ?>"><?php echo e(__(@$brand->name)); ?></option>
+                                    <select name="model" id="model" class="form-control form--control">
+                                        <option value=""><?php echo app('translator')->get('--Select Model--'); ?></option>
+                                          <option value="0">All</option>
+                                     <?php $__empty_1 = true; $__currentLoopData = $models; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $modeld): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                            <option value="<?php echo e($modeld->id); ?>"><?php echo e(__(@$modeld->name)); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <?php endif; ?>
                                     </select>
@@ -128,9 +130,10 @@
                                     <label for="pick-point" class="form--label">
                                         <i class="las la-chair"></i> <?php echo app('translator')->get('--Number Of Seats--'); ?>
                                     </label>
-                                    <select name="seats" id="pick-point" class="form-control form--control">
+                                    <select name="seats" id="seats" class="form-control form--control">
                                         <option value=""><?php echo app('translator')->get('--Select Option--'); ?></option>
-                                        <?php $__empty_1 = true; $__currentLoopData = $seats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $seat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                          <option value="0">All</option>
+                                       <?php $__empty_1 = true; $__currentLoopData = $seats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $seat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                             <option value="<?php echo e($seat->id); ?>"><?php echo e(__(@$seat->number)); ?> <?php echo e(__('Seater')); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <?php endif; ?>
@@ -140,7 +143,7 @@
                             <div class="col-md-1 col-sm-3">
                                 <div class="form-group">
                                     <label class="form--label d-none d-sm-block">&nbsp;</label>
-                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit"><?php echo app('translator')->get('Search'); ?></button>
+                                    <button class="cmn--btn form--control bg--base w-100 justify-content-center" type="submit" value="search" name="search"><?php echo app('translator')->get('Search'); ?></button>
                                 </div>
                             </div>
                         </form>
