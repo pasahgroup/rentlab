@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="<?php echo e(route('admin.cartype.store')); ?>" method="post" enctype="multipart/form-data">
+                <form action="<?php echo e(route('admin.service.store')); ?>" method="post" enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
 
                     <div class="card-body">
@@ -28,8 +28,8 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label for="name"><?php echo app('translator')->get('Category'); ?></label>
-                                                            <select type="text" id="title" name="title" class="form-control"
-                                                                   value="<?php echo e(old('title')); ?>">
+                                                            <select type="text" id="category" name="category" class="form-control"
+                                                                   value="<?php echo e(old('category')); ?>">
                                                                    <option>Main</option>
                                                             </select>
 
@@ -47,7 +47,7 @@
 
 
 
-                            <div class="col-md-8">
+                            <div class="col-md-10">
                                 <div class="card border--dark mb-4">
                                     <div class="card-header bg--dark d-flex justify-content-between">
                                         <h5 class="text-white"><?php echo app('translator')->get('Images'); ?></h5>
@@ -91,7 +91,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                <div class="form-group">
          <label for="name"><?php echo app('translator')->get('Status'); ?></label>
                                <select type="text" id="status" name="status" class="form-control"
@@ -105,13 +105,15 @@
 
                         </div>
                     </div>
-
-
-                    <div class="card-header bg--dark d-flex justify-content-between float-right">
-                     <div class="">
-                            <button type="button" class="btn btn--primary w-100"><?php echo app('translator')->get('Create'); ?></button>
-                          </div>
+                    <div class="row">
+<div class="col-md-10">
+</div>
+<div class="col-md-2">
+                          <div class="card-footer">
+                              <button class="btn btn--primary w-100"><?php echo app('translator')->get('Create'); ?></button>
                     </div>
+                  </div>
+                </div>
                 </form>
             </div><!-- card end -->
         </div>

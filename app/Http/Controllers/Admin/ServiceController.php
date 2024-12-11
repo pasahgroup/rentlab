@@ -40,11 +40,18 @@ class ServiceController extends Controller
   public function store(Request $request)
   {
       $request->validate([
-          'car_body_type' => 'required|string',
+        'service_name' => 'required|string',
+          'title' => 'required|string',
+            'category' => 'required|string',
+              'content' => 'required|string',
           'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
-                ]);
-      $cartype = new Cartype();
-      $cartype->car_body_type = $request->car_body_type;
+        ]);
+
+                  $service = new service();
+             $service->service_name = $request->service_name;
+                $service->title = $request->title;
+                   $service->category = $request->category;
+                      $service->content = $request->content;
 
      // dd($cartype);
 if(request('images')){
@@ -60,17 +67,17 @@ if(request('images')){
                    //Filename to store
                    $imageToStore = $filename.'_'.time().'.'.$extension;
                    //upload the image
-                   $path =$attached->storeAs('public/cartypes/', $imageToStore);
+                   $path =$attached->storeAs('public/services/', $imageToStore);
 
 
        }
   }
 
 
-      $cartype->images = $imageToStore;
-      $cartype->save();
+      $service->images = $imageToStore;
+      $service->save();
 
-      $notify[] = ['success', 'Car body type Added Successfully!'];
+      $notify[] = ['success', 'Service Added Successfully!'];
       return back()->withNotify($notify);
   }
 
@@ -89,12 +96,20 @@ if(request('images')){
   public function update(Request $request,$id)
   {
       $request->validate([
-          'car_body_type' => 'required|string',
+          'service_name' => 'required|string',
+            'title' => 'required|string',
+              'category' => 'required|string',
+                'content' => 'required|strong',
+
           'images.*' => ['required', 'max:10000', new FileTypeValidate(['jpeg','jpg','png','gif'])],
       ]);
 
-         $cartype = Cartype::findOrFail($id);
-         $cartype->car_body_type = $request->car_body_type;
+         // $cartype = service::findOrFail($id);
+            $service = service::findOrFail($id);
+         $service->service_name = $request->service_name;
+            $service->title = $request->title;
+               $service->category = $request->category;
+                  $service->content = $request->content;
 
 
      // $vehicle->specifications = $specifications;
@@ -114,20 +129,13 @@ if(request('images')){
                    //Filename to store
                    $imageToStore = $filename.'_'.time().'.'.$extension;
                    //upload the image
-                   $path =$attached->storeAs('public/cartypes/', $imageToStore);
-
-
-                   $cartype->images = $imageToStore;
+                   $path =$attached->storeAs('public/services/', $imageToStore);
+                   $service->images = $imageToStore;
 
        }
   }
-
-  //dd('print');
-
-
-$cartype->save();
-
-      $notify[] = ['success', 'Car body type Updated Successfully!'];
+$service->save();
+      $notify[] = ['success', 'Service Updated Successfully!'];
       // return back()->withNotify($notify);
       return redirect()->route('admin.services.index')->withNotify($notify);
   }

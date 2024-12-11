@@ -20,6 +20,7 @@ class CreateServicesTable extends Migration
          $table->string('category')->nullable();
         $table->string('images')->nullable();
         $table->longtext('content')->nullable();
+          $table->integer('status')->default(0);
             $table->timestamps();
         });
       }
