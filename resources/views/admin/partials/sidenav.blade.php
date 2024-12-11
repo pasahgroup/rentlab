@@ -11,7 +11,7 @@
         </div>
 
         <div class="sidebar__menu-wrapper" id="sidebar__menuWrapper">
-            <ul class="sidebar__menu">            
+            <ul class="sidebar__menu">
     <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.dashboard')}}">
                         <i class="menu-icon las la-home"></i>
@@ -19,7 +19,7 @@
                     </a>
                     <div class="sidebar-submenu {{menuActive('admin.dashboard')}} ">
                         <ul>
-                             
+
                              <li class="sidebar-menu-item {{menuActive('admin.brand*')}}">
                     <a href="{{route('admin.dashboard')}}" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
@@ -32,17 +32,17 @@
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title">@lang('Pending Customers')</span>
                     </a>
-                </li>                             
+                </li>
 
                         </ul>
                     </div>
                 </li>
 
 
-    
 
 
-          
+
+
 
                <!--  <li class="sidebar-menu-item {{menuActive('admin.seater.index')}}">
                     <a href="{{route('admin.seater.index')}}" class="nav-link ">
@@ -137,7 +137,7 @@
                     </div>
                 </li>
 
-          
+
 
                 <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.deposit*',3)}}">
@@ -296,7 +296,7 @@
                 </li>
 
 
-         
+
                 <li class="sidebar__menu-header">@lang('Frontend Manager')</li>
 
 
@@ -319,13 +319,20 @@
                                     <span class="menu-title">@lang('Manage Pages')</span>
                                 </a>
                             </li>
+
+                            <li class="sidebar-menu-item {{menuActive('admin.sms.template.global')}} ">
+                               <a href="{{route('admin.service.index')}}" class="nav-link">
+                                   <i class="menu-icon las la-dot-circle"></i>
+                                   <span class="menu-title">@lang('Services')</span>
+                               </a>
+                           </li>
                         </ul>
                     </div>
                 </li>
 
 
 
-       <li class="sidebar__menu-header">@lang('Settings')</li> 
+       <li class="sidebar__menu-header">@lang('Settings')</li>
 
 
                        <li class="sidebar-menu-item sidebar-dropdown">
@@ -349,7 +356,7 @@
                     </a>
                 </li>
 
-                           
+
                 <li class="sidebar-menu-item {{menuActive('admin.extensions.index')}}">
                     <a href="{{route('admin.extensions.index')}}" class="nav-link">
                         <i class="menu-icon las la-cogs"></i>
@@ -403,40 +410,40 @@
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title">@lang('Car body type')</span>
                     </a>
-                </li>  
+                </li>
                 <li class="sidebar-menu-item {{menuActive('admin.modelb*')}}">
                     <a href="{{route('admin.modelb.index')}}" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title">@lang('Car Model')</span>
                     </a>
-                </li>    
+                </li>
 
                   <li class="sidebar-menu-item {{menuActive('admin.tags*')}}">
                     <a href="{{route('admin.tag.index')}}" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title">@lang('Tag')</span>
                     </a>
-                </li>   
+                </li>
 
                  <li class="sidebar-menu-item {{menuActive('admin.colors*')}}">
                     <a href="{{route('admin.color.index')}}" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title">@lang('Color')</span>
                     </a>
-                </li>     
+                </li>
 
                  <li class="sidebar-menu-item {{menuActive('admin.seater.index')}}">
                     <a href="{{route('admin.seater.index')}}" class="nav-link ">
                         <i class="menu-icon las la-feather"></i>
                         <span class="menu-title">@lang('Seat')</span>
                     </a>
-                </li>    
+                </li>
                   <li class="sidebar-menu-item {{menuActive('admin.location.index')}}">
                     <a href="{{route('admin.location.index')}}" class="nav-link ">
                         <i class="menu-icon las la-map-marked"></i>
                         <span class="menu-title">@lang('Location')</span>
                     </a>
-                </li>            
+                </li>
 
                         </ul>
                     </div>
@@ -606,7 +613,7 @@
                     </div>
                 </li>
 
-                  <li class="sidebar__menu-header">@lang('Extra Part')</li> 
+                  <li class="sidebar__menu-header">@lang('Extra Part')</li>
 
                        <li class="sidebar-menu-item sidebar-dropdown">
                     <a href="javascript:void(0)" class="{{menuActive('admin.email.template*',3)}}">

@@ -68,6 +68,22 @@ class FrontendController extends Controller
     }
 
 
+    // public function frontendServices($key)
+    // {
+    //     $section = @getPageSections()->$key;
+    //     if (!$section) {
+    //         return abort(404);
+    //     }
+    //
+    //     $content = Frontend::where('data_keys', $key . '.content')->orderBy('id','desc')->first();
+    //     $elements = Frontend::where('data_keys', $key . '.element')->orderBy('id')->orderBy('id','desc')->get();
+    //     $pageTitle = $section->name ;
+    //     $emptyMessage = 'No item created yet.';
+    //     return view('admin.frontend.index', compact('section', 'content', 'elements', 'key', 'pageTitle', 'emptyMessage'));
+    // }
+
+
+
 
 
     public function frontendContent(Request $request, $key)

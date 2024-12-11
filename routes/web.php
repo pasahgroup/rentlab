@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\PdfController;
 use App\Http\Controllers\Admin\VehicleController;
-//use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\Admin\ServiceController;
+
 use App\Http\Controllers\DepartController;
 use App\Http\Controllers\AzampayController;
 
@@ -152,6 +153,17 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('vehicles/image/remove/{id}/{image}', 'VehicleController@deleteImage')->name('vehicles.image.delete');
         Route::post('vehicles/{id}/status', 'VehicleController@status')->name('vehicles.status');
 
+        //Services
+        Route::get('service', 'ServiceController@index')->name('service.index');
+        Route::get('service/add', 'ServiceController@add')->name('service.add');
+        Route::post('service/store', 'ServiceController@store')->name('service.store');
+        Route::get('service/{id}', 'ServiceController@edit')->name('service.edit');
+        Route::post('service/update/{id}', 'ServiceController@update')->name('service.update');
+        Route::post('service/image/remove/{id}', 'ServiceController@deleteImage')->name('service.image.delete');
+        Route::post('service/{id}/status', 'ServiceController@status')->name('service.status');
+
+         Route::post('service/{id}/recovery', 'ServiceController@recovery')->name('service.recovery');
+         Route::get('service/{id}/delete', 'ServiceController@delete')->name('service.delete');
 
         //Car Body Type
         Route::get('cartype', 'CartypeController@index')->name('cartype.index');
@@ -363,6 +375,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
 
             Route::get('frontend-sections/{key}', 'FrontendController@frontendSections')->name('sections');
+
             Route::post('frontend-content/{key}', 'FrontendController@frontendContent')->name('sections.content');
             Route::get('frontend-element/{key}/{id?}', 'FrontendController@frontendElement')->name('sections.element');
             Route::post('remove', 'FrontendController@remove')->name('remove');
