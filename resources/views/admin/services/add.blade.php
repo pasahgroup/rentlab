@@ -94,8 +94,7 @@
                             <div class="col-md-2">
                                <div class="form-group">
          <label for="name">@lang('Status')</label>
-                               <select type="text" id="status" name="status" class="form-control"
-                                      value="{{ old('title') }}">
+                               <select type="text" id="status" name="status" class="form-control">
                                       <option>0</option>
                                         <option>1</option>
                                </select>

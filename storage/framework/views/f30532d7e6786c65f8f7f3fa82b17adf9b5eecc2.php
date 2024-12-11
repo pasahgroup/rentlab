@@ -39,6 +39,15 @@
                                                       </div>
 
 
+                                                      <div class="col-md-12">
+                                                          <div class="form-group">
+                                                              <label for="name"><?php echo app('translator')->get('Content'); ?></label>
+                                                                     <textarea id="content" name="content"><?php echo e($service->content); ?></textarea>
+                                                          </div>
+                                                      </div>
+
+
+
                             <div class="col-md-8">
                                 <div class="card border--dark mb-4">
                                     <div class="card-header bg--dark d-flex justify-content-between">
@@ -79,8 +88,18 @@
                             </div>
 
 
+                            <div class="col-md-2">
+                               <div class="form-group">
+                          <label for="name"><?php echo app('translator')->get('Status'); ?></label>
+                               <select type="text" id="status" name="status" class="form-control"
+                                      value="<?php echo e($service->status); ?>">
+                                      <option>0</option>
+                                        <option>1</option>
+                               </select>
 
-                            
+                               </div>
+                           </div>
+
                         </div>
                     </div>
 

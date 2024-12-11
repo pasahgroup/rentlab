@@ -36,7 +36,6 @@ class CartypeController extends Controller
     }
 
 
-
     public function store(Request $request)
     {
         $request->validate([
@@ -45,7 +44,7 @@ class CartypeController extends Controller
                   ]);
         $cartype = new Cartype();
         $cartype->car_body_type = $request->car_body_type;
-        
+
        // dd($cartype);
  if(request('images')){
             $attach = request('images');
@@ -95,7 +94,7 @@ class CartypeController extends Controller
 
            $cartype = Cartype::findOrFail($id);
            $cartype->car_body_type = $request->car_body_type;
-   
+
 
        // $vehicle->specifications = $specifications;
  //dd('print');
@@ -176,7 +175,7 @@ public function recovery($id)
           return response()->json(['success' => true, 'message' => 'Car body type image deleted!']);
         }
 
-    
+
  public function delete($id)
     {
        // dd('print');
@@ -194,7 +193,7 @@ public function recovery($id)
         }
     }
 
-  
+
     public function status($id)
     {
 

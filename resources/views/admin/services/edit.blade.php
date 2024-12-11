@@ -39,6 +39,15 @@
                                                       </div>
 
 
+                                                      <div class="col-md-12">
+                                                          <div class="form-group">
+                                                              <label for="name">@lang('Content')</label>
+                                                                     <textarea id="content" name="content">{{ $service->content }}</textarea>
+                                                          </div>
+                                                      </div>
+
+
+
                             <div class="col-md-8">
                                 <div class="card border--dark mb-4">
                                     <div class="card-header bg--dark d-flex justify-content-between">
@@ -82,8 +91,8 @@
                             <div class="col-md-2">
                                <div class="form-group">
                           <label for="name">@lang('Status')</label>
-                               <select type="text" id="status" name="status" class="form-control"
-                                      value="{{ $service->status }}">
+                               <select type="text" id="status" name="status" class="form-control">
+                                        <option value="{{ $service->status }}" selected>{{ $service->status }}</option>
                                       <option>0</option>
                                         <option>1</option>
                                </select>
