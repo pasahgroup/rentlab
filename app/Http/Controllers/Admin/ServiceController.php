@@ -83,13 +83,12 @@ if(request('images')){
 
   public function edit($id)
   {
-      $vehicle = Cartype::findOrFail($id);
-      $pageTitle = 'Edit Car body type';
+      $service = service::findOrFail($id);
+      $pageTitle = 'Edit Service';
       // $brands = Brand::active()->orderBy('name')->get();
       // $seaters = Seater::active()->orderBy('number')->get();
 
-      //dd($vehicle);
-      return view('admin.services.edit', compact('pageTitle', 'vehicle'));
+      return view('admin.services.edit', compact('pageTitle', 'service'));
   }
 
 
