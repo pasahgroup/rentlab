@@ -40,7 +40,7 @@
                                             <i class="la la-edit"></i>
                                         </a>
 
-                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--primary' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('admin.cartype.status', $item->id)); ?>">
+                                        <a href="javascript:void(0)" class="icon-btn <?php echo e($item->status ? 'btn--primary' : 'btn--success'); ?> ml-1 statusBtn" data-original-title="<?php echo app('translator')->get('Status'); ?>" data-toggle="tooltip" data-url="<?php echo e(route('admin.service.status', $item->id)); ?>">
                                             <i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i>
                                         </a>
                                          <a href="<?php echo e(route('admin.service.delete',$item->id)); ?>" id="click-edit1" onclick="return confirm(id='Are you sure you want to delete this  <?php echo e($item->id); ?>')"><i class="la la-eye<?php echo e($item->status ? '-slash' : null); ?>"></i></a>

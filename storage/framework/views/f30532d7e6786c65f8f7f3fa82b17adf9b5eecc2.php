@@ -91,8 +91,8 @@
                             <div class="col-md-2">
                                <div class="form-group">
                           <label for="name"><?php echo app('translator')->get('Status'); ?></label>
-                               <select type="text" id="status" name="status" class="form-control"
-                                      value="<?php echo e($service->status); ?>">
+                               <select type="text" id="status" name="status" class="form-control">
+                                        <option value="<?php echo e($service->status); ?>" selected><?php echo e($service->status); ?></option>
                                       <option>0</option>
                                         <option>1</option>
                                </select>
