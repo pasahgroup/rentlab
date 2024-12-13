@@ -5,6 +5,7 @@
     $social_icons = getContent('social_icon.element', false, null, true);
     $policy_pages = getContent('policy_pages.element', false, null, true);
 @endphp
+ <script type="text/javascript" src="../js/jquery360.min.js"></script>
 <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap.min.css')}}">
 
 <!DOCTYPE html>

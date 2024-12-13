@@ -138,6 +138,17 @@ if(request('carModel')!=null)
         return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations','bookingID','bookID','bookedID'));
     }
 
+    public function getModel($departmentid=0){ //dd($departmentid);
+          // Fetch Employees by Departmentid
+          $empData['data'] = Vehicle::where('brand_id',1)              //->select('category_id','subcategory')
+               ->get();
+          return response()->json($empData);
+
+     }
+
+
+
+
 
     public function vehicleBookingConfirm(Request $request, $id)
     {
@@ -603,12 +614,10 @@ $pageTitle="Page Page";
       //    $brandss = $brandss->latest()->paginate(4)->withQueryString();
 //dd($vehicles);
 
-
         $carBodies = vehicle::join('cartypes','vehicles.car_body_type_id','cartypes.id')
         ->select('vehicles.*','cartypes.car_body_type')
         ->groupby('vehicles.car_body_type_id')
              ->get();
-
 
              $carTags = vehicle::join('tags','vehicles.tag_id','tags.id')
              ->select('vehicles.*','tags.tag')

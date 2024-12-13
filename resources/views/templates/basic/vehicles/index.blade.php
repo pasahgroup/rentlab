@@ -1,5 +1,7 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
+ <!-- <script type="text/javascript" src="../js/jquery360.min.js"></script> -->
+
    <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side">@lang('Rent')</div>
         <div class="shape">@lang('Vehicles')</div>
@@ -119,10 +121,12 @@
                                     <select name="model" id="model" class="form-control form--control">
                                         <option value="">@lang('--Select Model--')</option>
                                           <option value="0">All</option>
+                                          {{--
                                      @forelse($models as $modeld)
                                             <option value="{{ $modeld->id }}">{{ __(@$modeld->name) }}</option>
                                         @empty
                                         @endforelse
+                                        --}}
                                     </select>
                                 </div>
                             </div>
@@ -198,7 +202,53 @@
         </div>
     </div>
 
+
+    <script type='text/javascript'>
+      $(document).ready(function(){
+
+          // Department Change
+          $('#brand').change(function(){
+
+//alert('sasa');
+               // Department id
+               var id = $(this).val();
+
+               // Empty the dropdown
+               $('#model').find('option').not(':first').remove();
+  alert(id);
+               // AJAX request
+               $.ajax({
+                   url: 'getModel/'+id,
+                   type: 'get',
+                   dataType: 'json',
+                   success: function(response){
+
+                       var len = 0;
+                       if(response['data'] != null){
+                            len = response['data'].length;
+                       }
+
+  alert(len);
+                       if(len > 0){
+                            // Read data and create <option >
+                            for(var i=0; i<len; i++){
+
+                                 var id = response['data'][i].category_id;
+                                 var name = response['data'][i].subcategory;
+
+                                 var option = "<option value='"+name+"'>"+name+"</option>";
+
+                                 $("#subcategory").append(option);
+                            }
+                       }
+
+                   }
+               });
+          });
+      });
+      </script>
 @endsection
+
 
 @push('script')
     <script>

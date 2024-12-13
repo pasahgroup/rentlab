@@ -5,102 +5,148 @@
     color:#fff; /* Sets the text color of paragraphs to blue */
 }
 </style>
-<div class="row" style="padding-left:2%;padding-left:2%">
-    <div class="col-9">
-    <div class="header-carousel" id="section1">
-           <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <!-- Carousel indicators -->
-    <ol class="carousel-indicators">
-        <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
-        <?php for($i=0;$i<10;$i++): ?>
-    <li data-bs-target="#myCarousel" data-bs-slide-to="<?php echo e($i); ?>"></li>        <?php endfor; ?>
-    </ol>
-
-    <!-- Wrapper for carousel items -->
-    <div class="carousel-inner">
-         <div class="carousel-item active">
-            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size'])); ?>" class="img-fluid w-100" alt="First slide"/>
-                        <div class="carousel-caption">
-                            <div class="container py-4">
-                                <div class="row g-5">
-                                    <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
-
-                                    </div>
-                                    <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
 
 
-                                        <div class="text-start">
-                              <div class="rounded">
-                                    <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
-                                    <hr>
-                                    <ul class="#">
-                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
-                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
-                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
-                                        <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong><?php echo e($metaFirstVehicle->details); ?></strong></li>
-                                    </ul>
-                                    </div>
-                                    <div class="mb-2">
-                                    </div>
-                                       <a href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-        </div>
+
+<div class="container-fluid overflow-hidden about py-5">
+          <div class="container py-5">
+              <div class="row g-5">
+
+                <div class="col-xl-8 wow fadeInRight" data-wow-delay="0.2s">
+                  <div class="header-carousel" id="section1">
+                         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                  <!-- Carousel indicators -->
+                  <ol class="carousel-indicators">
+                      <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+                      <?php for($i=0;$i<10;$i++): ?>
+                  <li data-bs-target="#myCarousel" data-bs-slide-to="<?php echo e($i); ?>"></li>
+                  <?php endfor; ?>
+                  </ol>
+
+                  <!-- Wrapper for carousel items -->
+                  <div class="carousel-inner">
+                       <div class="carousel-item active">
+                          <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size'])); ?>" class="img-fluid w-100" alt="First slide"/>
+                                      <div class="carousel-caption">
+                                          <div class="container py-4">
+                                              <div class="row g-5">
+                                                  <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
+
+                                                  </div>
+                                                  <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
 
 
-         <?php $__currentLoopData = $metaVehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indexKey => $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <div class="carousel-item">
-            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" class="img-fluid w-100" alt="First slide"/>
-                        <div class="carousel-caption">
-                            <div class="container py-4">
-                                <div class="row g-5">
+                                            <div class="text-start">
+                                            <div class="rounded">
+                                                  <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
+                                                  <hr>
+                                                  <ul class="#">
+                                                      <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
+                                                      <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
+                                                      <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                                                      <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong><?php echo e($metaFirstVehicle->details); ?></strong></li>
+                                                  </ul>
+                                                  </div>
+                                                  <div class="mb-2">
+                                                  </div>
+                                                     <a href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                      </div>
 
-                                    <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
-    
-                                    </div>
 
-                                    <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
-                                    <div class="text-start">
-                            <div class="rounded">
-                                    <strong class="text-white"><?php echo e($vehicle->model); ?>(<?php echo e($vehicle->car_body_type); ?>)</strong>
-                                    <hr>
-                                    <ul class="#">
-                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($vehicle->transmission); ?></strong></li>
-                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($vehicle->doors); ?></strong></li>
-                                        <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($vehicle->fuel_type); ?></strong></li>
-                                        <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong><?php echo e($vehicle->details); ?></strong></li>
-                                    </ul>
+                       <?php $__currentLoopData = $metaVehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indexKey => $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                      <div class="carousel-item">
+                          <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" class="img-fluid w-100" alt="First slide"/>
+                                      <div class="carousel-caption">
+                                          <div class="container py-4">
+                                              <div class="row g-5">
+
+                                                  <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
+
+                                                  </div>
+
+
+
+                                                  <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
+                                                  <div class="text-start">
+                                          <div class="rounded">
+                                                  <strong class="text-white"><?php echo e($vehicle->model); ?>(<?php echo e($vehicle->car_body_type); ?>)</strong>
+                                                  <hr>
+                                                  <ul class="#">
+                                                      <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($vehicle->transmission); ?></strong></li>
+                                                      <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($vehicle->doors); ?></strong></li>
+                                                      <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($vehicle->fuel_type); ?></strong></li>
+                                                      <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong><?php echo e($vehicle->details); ?></strong></li>
+                                                  </ul>
+                                                </div>
+                                                <div class="mb-2">
+                                                </div>
+                                                   <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
+                                                      </div>
+                                                  </div>
+
+                                              </div>
+                                          </div>
+                                      </div>
+                      </div>
+                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                  </div>
+
+                  <!-- Carousel controls -->
+                  <a class="carousel-control-prev" href="#myCarousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon"></span>
+                  </a>
+                  <a class="carousel-control-next" href="#myCarousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon"></span>
+                  </a>
+                </div>
+                </div>
+                </div>
+
+                  <div class="col-xl-4 wow fadeInLeft" data-wow-delay="0.2s">
+                      <div class="about-item">
+                          <!-- <div class="row g-4"> -->
+
+
+
+                            <div class="pb-5">
+                              <div class="col-lg-12">
+                                  <div class="about-item-inner border p-4">
+                                      <div class="about-icon mb-4">
+                                          <img src="img/about-icon-1.png" class="img-fluid w-50 h-50" alt="Icon">
+                                      </div>
+                                      <h5 class="mb-3">Our Vision</h5>
+                                      <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                   </div>
-                                  <div class="mb-2">
-                                  </div>
-                                     <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
-                                        </div>
-                                    </div>
 
-                                </div>
-                            </div>
-                        </div>
-        </div>
-         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    </div>
+                              </div>
+                          </div>
 
-    <!-- Carousel controls -->
-    <a class="carousel-control-prev" href="#myCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a class="carousel-control-next" href="#myCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </a>
-</div>
-</div>
-</div>
-    <div class="col-6">
-      TEsg
-    </div>
-  </div>
+                          <div class="rounded">
+                              <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Morbi tristique senectus</p>
+                              <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> A scelerisque purus</p>
+                              <p class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Dictumst vestibulum</p>
+                              <p class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i> dio aenean sed adipiscing</p>
+                          </div>
+                          <p class="text-item my-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, aliquam ipsum. Sed suscipit dolorem libero sequi aut natus debitis reprehenderit facilis quaerat similique, est at in eum. Quo, obcaecati in!
+                          </p>
+                          <div class="row">
+                                <div class="col-lg-12 d-flex align-items-center">
+                                  <a href="#" class="btn btn-primary rounded py-3 px-5">See More</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+
+
 
         <!-- Features Start -->
         <div class="container-fluid feature py-5" id="section2">

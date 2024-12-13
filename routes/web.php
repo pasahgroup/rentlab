@@ -143,6 +143,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('seaters', 'SeaterController@store')->name('seater.store');
         Route::post('seaters/{seater}', 'SeaterController@update')->name('seater.update');
         Route::post('seaters/status/{seater}', 'SeaterController@status')->name('seater.status');
+//Get model
+
 
         // Vehicles
         Route::get('vehicles', 'VehicleController@index')->name('vehicles.index');
@@ -223,7 +225,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::get('vehicles/booking/log/{id}/running', 'VehicleController@userRunningBookingLog')->name('user.vehicles.booking.log.running');
         Route::get('vehicles/booking/log/{id}/completed', 'VehicleController@userCompletedBookingLog')->name('user.vehicles.booking.log.completed');
          Route::get('/getA/{p}', [VehicleController::class,'getModel']);
-         // Route::get('getA/{id}', 'VehicleController@getModel')->name('getA.popo');
 
         // Plans
         Route::get('plans', 'PlanController@index')->name('plans.index');
@@ -537,6 +538,7 @@ Route::get('/azam/{r}', 'DepartController@index');
 
 // Route::resource('dk', DepartmentController::class);
  Route::get('/dd/{d}', [DepartController::class, 'show']);
+    Route::get('getModel/{id}', 'VehicleController@getModel')->name('getModel');
 // Route::get('/getEmployees/{id}', [DepartmentController::class, 'getEmployees']);
 // Route::get('/getEmp/{id}', [DepartmentController::class, 'getEmp']);
 

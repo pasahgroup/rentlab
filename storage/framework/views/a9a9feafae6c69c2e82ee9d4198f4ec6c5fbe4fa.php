@@ -1,4 +1,6 @@
 <?php $__env->startSection('content'); ?>
+ <!-- <script type="text/javascript" src="../js/jquery360.min.js"></script> -->
+
    <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side"><?php echo app('translator')->get('Rent'); ?></div>
         <div class="shape"><?php echo app('translator')->get('Vehicles'); ?></div>
@@ -118,10 +120,7 @@
                                     <select name="model" id="model" class="form-control form--control">
                                         <option value=""><?php echo app('translator')->get('--Select Model--'); ?></option>
                                           <option value="0">All</option>
-                                     <?php $__empty_1 = true; $__currentLoopData = $models; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $modeld): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                            <option value="<?php echo e($modeld->id); ?>"><?php echo e(__(@$modeld->name)); ?></option>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                                        <?php endif; ?>
+                                          
                                     </select>
                                 </div>
                             </div>
@@ -198,7 +197,53 @@
         </div>
     </div>
 
+
+    <script type='text/javascript'>
+      $(document).ready(function(){
+
+          // Department Change
+          $('#brand').change(function(){
+
+//alert('sasa');
+               // Department id
+               var id = $(this).val();
+
+               // Empty the dropdown
+               $('#model').find('option').not(':first').remove();
+  alert(id);
+               // AJAX request
+               $.ajax({
+                   url: 'getModel/'+id,
+                   type: 'get',
+                   dataType: 'json',
+                   success: function(response){
+
+                       var len = 0;
+                       if(response['data'] != null){
+                            len = response['data'].length;
+                       }
+
+  alert(len);
+                       if(len > 0){
+                            // Read data and create <option >
+                            for(var i=0; i<len; i++){
+
+                                 var id = response['data'][i].category_id;
+                                 var name = response['data'][i].subcategory;
+
+                                 var option = "<option value='"+name+"'>"+name+"</option>";
+
+                                 $("#subcategory").append(option);
+                            }
+                       }
+
+                   }
+               });
+          });
+      });
+      </script>
 <?php $__env->stopSection(); ?>
+
 
 <?php $__env->startPush('script'); ?>
     <script>
