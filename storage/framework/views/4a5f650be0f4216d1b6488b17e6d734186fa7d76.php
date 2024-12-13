@@ -8,10 +8,9 @@
 
 
 
-<div class="container-fluid overflow-hidden about py-5">
+<div class="container-fluid overflow-hidden about">
           <div class="container py-5">
-              <div class="row g-5">
-
+              <div class="row">
                 <div class="col-xl-8 wow fadeInRight" data-wow-delay="0.2s">
                   <div class="header-carousel" id="section1">
                          <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -30,27 +29,27 @@
                                       <div class="carousel-caption">
                                           <div class="container py-4">
                                               <div class="row g-5">
-                                                  <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
+                                                  <div class="col-lg-2 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
+</div>
+    <div class="col-lg-5 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
+                                                    <div class="text-start">
+                                                    <div class="rounded">
+                                                          <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
+                                                          <hr>
+                                                          <ul class="#">
+                                                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
+                                                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
+                                                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                                                              <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong><?php echo e($metaFirstVehicle->details); ?></strong></li>
+                                                          </ul>
+                                                          </div>
+                                                          <div class="mb-2">
+                                                          </div>
+                                                             <a href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
+                                                              </div>
 
                                                   </div>
-                                                  <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
-
-
-                                            <div class="text-start">
-                                            <div class="rounded">
-                                                  <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
-                                                  <hr>
-                                                  <ul class="#">
-                                                      <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
-                                                      <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
-                                                      <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
-                                                      <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong><?php echo e($metaFirstVehicle->details); ?></strong></li>
-                                                  </ul>
-                                                  </div>
-                                                  <div class="mb-2">
-                                                  </div>
-                                                     <a href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
-                                                      </div>
+                                                  <div class="col-lg-5 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                                   </div>
                                               </div>
                                           </div>
@@ -65,30 +64,28 @@
                                           <div class="container py-4">
                                               <div class="row g-5">
 
-                                                  <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
-
-                                                  </div>
-
-
-
-                                                  <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
+                                                <div class="col-lg-2 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
+                                            </div>
+                                            <div class="col-lg-5 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                                   <div class="text-start">
-                                          <div class="rounded">
-                                                  <strong class="text-white"><?php echo e($vehicle->model); ?>(<?php echo e($vehicle->car_body_type); ?>)</strong>
-                                                  <hr>
-                                                  <ul class="#">
-                                                      <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($vehicle->transmission); ?></strong></li>
-                                                      <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($vehicle->doors); ?></strong></li>
-                                                      <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($vehicle->fuel_type); ?></strong></li>
-                                                      <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong><?php echo e($vehicle->details); ?></strong></li>
-                                                  </ul>
-                                                </div>
-                                                <div class="mb-2">
-                                                </div>
-                                                   <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
-                                                      </div>
-                                                  </div>
+                                                  <div class="rounded">
+                                                        <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
+                                                        <hr>
+                                                        <ul class="#">
+                                                            <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
+                                                            <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
+                                                            <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                                                            <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong><?php echo e($metaFirstVehicle->details); ?></strong></li>
+                                                        </ul>
+                                                        </div>
+                                                        <div class="mb-2">
+                                                        </div>
+                                                           <a href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
+                                                            </div>
 
+                                                </div>
+                                                <div class="col-lg-5 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
+                                                </div>
                                               </div>
                                           </div>
                                       </div>
@@ -145,7 +142,6 @@
               </div>
           </div>
       </div>
-
 
 
         <!-- Features Start -->
