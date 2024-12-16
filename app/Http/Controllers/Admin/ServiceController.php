@@ -143,8 +143,6 @@ $service->save();
 
 public function recovery($id)
   {
-
-
       $service = service::findOrFail($id);
 
       $images = $service->images;
@@ -164,9 +162,8 @@ public function recovery($id)
 
  public function deleteImage($id, $image)
   {
-
+    // dd($id);
       $vehicle = service::findOrFail($id);
-
         return response()->json(['success' => true, 'message' => 'Service image deleted!']);
       }
 

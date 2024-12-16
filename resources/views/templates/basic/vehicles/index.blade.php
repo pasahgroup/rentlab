@@ -153,8 +153,33 @@
                             </div>
                         </form>
                     </div>
-                    <div class="row g-4">
 
+
+
+
+                    <!-- Department Dropdown -->
+                    Department : <select id='sel_depart' name='sel_depart'>
+                        <option value='0'>-- Select department --</option>
+
+                        <!-- Read Departments -->
+                        @foreach($departments['data'] as $department)
+                            <option value='{{ $department->id }}'>{{ $department->name }}</option>
+                        @endforeach
+                    </select>
+
+                    <br><br>
+                    <!-- Department Employees Dropdown -->
+                    Employee : <select id='sel_emp' name='sel_emp'>
+                        <option value='0'>-- Select Employee --</option>
+                    </select>
+
+                        Employee2 : <select id='sel_emp2' name='sel_emp2'>
+                        <option value='0'>-- Select Employee --</option>
+                    </select>
+
+
+
+                    <div class="row g-4">
                         @forelse($vehicles as $vehicle)
                             <div class="col-md-3">
                            <div class="categories-item">
@@ -239,6 +264,96 @@
                                  var option = "<option value='"+name+"'>"+name+"</option>";
 
                                  $("#subcategory").append(option);
+                            }
+                       }
+
+                   }
+               });
+          });
+      });
+      </script>
+
+
+
+      <script type='text/javascript'>
+      $(document).ready(function(){
+
+          // Department Change
+          $('#sel_depart').change(function(){
+
+               // Department id
+               var id = $(this).val();
+
+               // Empty the dropdown
+               $('#sel_emp').find('option').not(':first').remove();
+  alert(id);
+               // AJAX request
+               $.ajax({
+                   url: 'getEmployees/'+id,
+                   type: 'get',
+                   dataType: 'json',
+                   success: function(response){
+
+                       var len = 0;
+                       if(response['data'] != null){
+                            len = response['data'].length;
+                       }
+
+                       alert(len);
+
+                       if(len > 0){
+                            // Read data and create <option >
+                            for(var i=0; i<len; i++){
+
+                                 var id = response['data'][i].id;
+                                 var name = response['data'][i].name;
+
+                                 var option = "<option value='"+id+"'>"+name+"</option>";
+
+                                 $("#sel_emp").append(option);
+                            }
+                       }
+
+                   }
+               });
+          });
+      });
+
+
+       $(document).ready(function(){
+          // Department Change
+          $('#sel_emp').change(function(){
+
+               // Department id
+               var id = $(this).val();
+
+  //alert(id);
+               // Empty the dropdown
+               $('#sel_emp2').find('option').not(':first').remove();
+
+               // AJAX request
+               $.ajax({
+                   url: 'getEmp/'+id,
+                   type: 'get',
+                   dataType: 'json',
+                   success: function(response){
+
+                       var len = 0;
+                       if(response['data'] != null){
+                            len = response['data'].length;
+                       }
+  //alert(len);
+
+                       if(len > 0){
+                            // Read data and create <option >
+                            for(var i=0; i<len; i++){
+
+                                 var id = response['data'][i].id;
+                                 var name = response['data'][i].name;
+
+                                 var option = "<option value='"+id+"'>"+name+"</option>";
+
+                                 $("#sel_emp2").append(option);
                             }
                        }
 

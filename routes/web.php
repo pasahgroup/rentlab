@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ServiceController;
 
 use App\Http\Controllers\DepartController;
 use App\Http\Controllers\AzampayController;
+use App\Http\Controllers\ComboboxController;
 
 Route::get('/clear', function(){
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
@@ -16,6 +17,11 @@ Route::get('/clear', function(){
 | Web Routes
 |--------------------------------------------------------------------------
 */
+
+ Route::get('/dd', [ComboboxController::class, 'show']);
+Route::get('/Employee/{id}', [ComboboxController::class, 'getEmployees']);
+Route::get('/getEmpl/{id}', [ComboboxController::class, 'getEmp']);
+
 
 Route::namespace('Gateway')->prefix('ipn')->name('ipn.')->group(function () {
     Route::post('paypal', 'Paypal\ProcessController@ipn')->name('Paypal');
@@ -509,6 +515,13 @@ Route::get('vehicle/search', 'VehicleController@vehicleSearch')->name('vehicle.s
 Route::get('vehicle/search/brand/{brand_id}/{slug}', 'VehicleController@brandVehicles')->name('vehicle.brand');
 Route::get('vehicle/search/{seat_id}/seater', 'VehicleController@seaterVehicles')->name('vehicle.seater');
 
+
+Route::get('dd/search', 'VehicleController@show')->name('vehicle.show');
+Route::get('getEmployees/{id}', 'VehicleController@getEmployees')->name('vehicle.getEmployees');
+Route::get('getEmp/{id}', 'VehicleController@getEmp')->name('vehicle.getEmp');
+
+
+
 Route::get('plans', 'SiteController@plans')->name('plans');
 Route::post('plan/{id}', 'SiteController@planBooking')->name('plan.booking');
 
@@ -539,8 +552,6 @@ Route::get('/azam/{r}', 'DepartController@index');
 // Route::resource('dk', DepartmentController::class);
  Route::get('/dd/{d}', [DepartController::class, 'show']);
     Route::get('getModel/{id}', 'VehicleController@getModel')->name('getModel');
-// Route::get('/getEmployees/{id}', [DepartmentController::class, 'getEmployees']);
-// Route::get('/getEmp/{id}', [DepartmentController::class, 'getEmp']);
 
 //Route::resource('yyy', SiteController::class);
 //Route::resource('/', 'SiteController@index')->name('home');

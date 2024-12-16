@@ -31,6 +31,8 @@
                                                             <select type="text" id="category" name="category" class="form-control"
                                                                    value="{{ old('category') }}">
                                                                    <option>Main</option>
+                                                                      <option>Normal</option>
+                                                                        <option>Section</option>
                                                             </select>
 
                                                             </div>

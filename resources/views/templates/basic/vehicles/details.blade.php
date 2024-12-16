@@ -1,10 +1,10 @@
-@extends($activeTemplate.'layoutm.frontendm')
+@extends($activeTemplate.'layouts.frontend')
 
 @section('content')
     <div class="single-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape">@lang('Book Now')</div>
         <div class="container">
-             <div class="widget border--dashed" style="background-color:#cfd5d3">
+             <div class="widget border--dashed" style="background-color:#f0f0f">
             <div class="row gy-5">
                 <!-- 6d846c -->
                 <div class="col-lg-5" style="background-color:#">
@@ -27,30 +27,30 @@
                 </div>
                 <!-- <div class="col-lg-7 align-self-center border--dashed " style="background-color:#fff">  -->
                       <div class="col-lg-6">
-                
+
                     <br>
                     <div class="rent__single border--dashed">
                             <h4><span class="text--body">Vehicle details</span></h4>
 <div class="row">
-                     <div class="col-lg-9">    
+                     <div class="col-lg-9">
                         <h3 class="title">{{ __(@$vehicle->name) }}
 </h3>
 </div>
-<div class="col-lg-3"> 
+<div class="col-lg-3">
 <div class="btn__grp">
-                            @auth                             
+                            @auth
                                  <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn">@lang('Book Now')</a>
                             @else
                                {{--
                                 <a href="{{ route('user.login') }}" class="cmn--btn">@lang('Login to Book')</a>
                                --}}
-                            
+
                     <form  method="GET"  action="{{ route('user.login') }}" enctype="multipart/form-data">
                              @csrf
     <input type="hidden" name="_method" value="GET">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="hidden" name="fullurl" value="{{$fullUrl}}"/>   
-                
+                <input type="hidden" name="fullurl" value="{{$fullUrl}}"/>
+
                 <button type="submit" class="cmn--btn">@lang('Login to Book')</button>
                                 </form>
                             @endauth
@@ -70,7 +70,7 @@
                             @php echo @$vehicle->details @endphp
                         </div>
                       <!--   <div class="btn__grp">
-                            @auth                             
+                            @auth
                                  <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn">@lang('Book Now')</a>
                             @else
                                 <a href="{{ route('user.login') }}" class="cmn--btn">@lang('Book Now')</a>

@@ -1,5 +1,4 @@
-@extends('admin.layouts.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <head>
     <title>Auto populate Dropdown with jQuery AJAX in Laravel 9</title>
 </head>
@@ -10,9 +9,9 @@
         <option value='0'>-- Select department --</option>
 
         <!-- Read Departments -->
-        @foreach($departments['data'] as $department)
-            <option value='{{ $department->id }}'>{{ $department->color }}</option>
-        @endforeach
+        <?php $__currentLoopData = $departments['data']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <option value='<?php echo e($department->id); ?>'><?php echo e($department->color); ?></option>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </select>
 
     <br><br>
@@ -114,4 +113,6 @@
        });
        </script>
 </body>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/index.blade.php ENDPATH**/ ?>

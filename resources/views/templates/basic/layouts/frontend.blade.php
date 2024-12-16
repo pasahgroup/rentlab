@@ -15,6 +15,7 @@
          <title>{{ $general->sitename(__($pageTitle)) }}</title>
            @include('partials.seo')
 
+
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -209,7 +210,9 @@
 
                                     </ul>
                                 </li>
+                                {{--
 <a href="#" class="btn btn-primary rounded-pill py-2 px-4">View</a>
+--}}
     </ul>
 </div>
 

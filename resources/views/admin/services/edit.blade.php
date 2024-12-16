@@ -32,7 +32,10 @@
                                                               <label for="name">@lang('Category')</label>
                                                           <select type="text" id="category" name="category" class="form-control"
                                                                  value="{{ $service->category }}">
-                                                                 <option>Main</option>
+
+                                                                 <option value="{{ $service->category }}">{{ $service->category }}</option>
+                                                                 <option>Normal</option>
+                                                                   <option>Section</option>
                                                           </select>
 
                                                           </div>
@@ -73,7 +76,7 @@
 
                                                                  <div class="avatar-remove">
                                                                         <i class="la la-close">
-                                                                            <a href="{{ route('admin.service.image.delete',$service->id) }}" class="btn btn--danger btn-lg removeInfoBtn w-100" type="button"></a>
+                                                                            <a href="{{ route('admin.service.image.delete',$service->id) }}" class="btn btn--danger btn-lg removeInfoBtn w-100" type="button">ccc</a>
                                                                         </i>
                                                                 </div>
 
@@ -113,7 +116,7 @@
 @endsection
 
 @push('breadcrumb-plugins')
-    <a href="{{ route('admin.cartype.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
+    <a href="{{ route('admin.service.index') }}" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward"></i>@lang('Go Back')</a>
 @endpush
 @push('style')

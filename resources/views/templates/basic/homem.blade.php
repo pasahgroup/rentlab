@@ -148,9 +148,14 @@
         <div class="container-fluid feature py-5" id="section2">
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Cental <span class="text-primary">Features</span></h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
-                    </p>
+                    <h1 class="display-5 text-capitalize mb-3">Rhonds <span class="text-primary">Services</span></h1>
+
+                    <strong class="mb-0">
+                    </strong>
+                    <div class="ms-4">
+                        <h5 class="mb-3">{{$main_service->title}}</h5>
+                        <p class="mb-0">{{$main_service->content}}</p>
+                    </div>
                 </div>
                 <div class="row g-4 align-items-center">
                     <div class="col-xl-4">
@@ -161,8 +166,9 @@
                                         <span class="fa fa-trophy fa-2x"></span>
                                     </div>
                                     <div class="ms-4">
-                                        <h5 class="mb-3">First Class services</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                      <h5 class="mb-3">{{$wedding->title}}</h5>
+                                      <p class="mb-0">{{$wedding->content}}</p>
+
                                     </div>
                                 </div>
                             </div>
@@ -172,23 +178,24 @@
                                         <span class="fa fa-road fa-2x"></span>
                                     </div>
                                     <div class="ms-4">
-                                        <h5 class="mb-3">24/7 road assistance</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                      <h5 class="mb-3">{{$escort->title}}</h5>
+                                      <p class="mb-0">{{$escort->content}}</p>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-12 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-                        <img src="../../frontendp/img/features-img.png" class="img-fluid w-100" style="object-fit: cover;" alt="Img">
+                        <img src="{{URL::asset('/storage/services/'.$main_service->images)}}" class="img-fluid w-100" style="object-fit: cover;" alt="Img">
                     </div>
                     <div class="col-xl-4">
                         <div class="row gy-4 gx-0">
                             <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="feature-item justify-content-end">
                                     <div class="text-end me-4">
-                                        <h5 class="mb-3">Quality at Minimum</h5>
-                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
+                                      <h5 class="mb-3">{{$car_hiring->title}}</h5>
+                                      <p class="mb-0">{{$car_hiring->content}}</p>
                                     </div>
                                     <div class="feature-icon">
                                         <span class="fa fa-tag fa-2x"></span>
@@ -217,8 +224,8 @@
  <!-- Car categories Start -->
         <div class="container categories pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Vehicle <span class="text-primary">Categories</span></h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+                    <h1 class="display-5 text-capitalize mb-3">Car <span class="text-primary">List</span></h1>
+                    <p class="mb-0">Book your appriapriate Car Type
                     </p>
                 </div>
       <div class="row">

@@ -508,6 +508,48 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
 
     }
 
+    public function show(Vehicle $department)
+  {
+     // Fetch departments
+     $pageTitle="Title";
+       $departments['data'] = Vehicle::orderby("name","asc")
+            ->select('id','name')
+            ->get();
+
+// dd( $departments['data']);
+       // Load index view
+       return view('index')->with("departments",$departments);
+  }
+
+    public function getEmployees($departmentid=0){
+
+           // Fetch Employees by Departmentid
+           $empData['data'] = Vehicle::orderby("name","asc")
+                ->select('id','name')
+                ->where('id',$departmentid)
+                ->get();
+           return response()->json($empData);
+      }
+
+      public function getEmp($departmentid=0){
+      // Fetch Employees by Departmentid
+      $empData['data'] = Vehicle::orderby("name","asc")
+           ->select('id','name')
+           ->where('id',$departmentid)
+           ->get();
+
+
+  // dd( $empData['data']);
+      return response()->json($empData);
+  }
+
+
+    public function vehicleSearch2(Request $request)
+    {
+
+    }
+
+
     public function vehicleSearch(Request $request)
     {
       $vehicles=[];
@@ -529,7 +571,6 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
 
 
        //dd($brandss);
-
 
         $vehicles = Vehicle::active();       //$pageTitle = 'Vehicle Search';
 
@@ -631,7 +672,14 @@ $pageTitle="Page Page";
    //$vehicle = Vehicle::active()->where('model',request('carModel'))->first();
 
       //dd($brandss);
-        return view($this->activeTemplate.'vehicles.index',compact('vehicles','pageTitle', 'brands','brandss','models', 'seats','carTags','carBodies'));
+      //Combo textBox
+
+      //  $pageTitle="Title";
+        $departments['data'] = vehicle::orderby("name","asc")
+             ->select('id','name')
+             ->get();
+
+        return view($this->activeTemplate.'vehicles.index',compact('departments','vehicles','pageTitle', 'brands','brandss','models', 'seats','carTags','carBodies'));
     }
 
     public function brandVehicles($brand_id, $slug)

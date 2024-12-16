@@ -10,6 +10,8 @@ use App\Models\Plan;
 use App\Models\PlanLog;
 use App\Models\Cartype;
 use App\Models\Tag;
+use App\Models\service;
+
 
 use App\Models\Subscriber;
 use App\Models\SupportAttachment;
@@ -80,9 +82,25 @@ $models = Vehicle::orderby('model')
         $pageTitle = 'Home';
         $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
 
-         //dd($metaFirstVehicle);
 
-        return view($this->activeTemplate . 'homem', compact('pageTitle','sections','vehicles','carbodytypes','carTags','models','metaVehicles','metaVehicleCount','metaFirstVehicle'));
+$main_service=service::where('category','Main')->where('status','1')->first();
+$escort=service::where('service_name','Escort')->where('status','1')->first();
+$wedding=service::where('service_name','Wedding')->where('status','1')->first();
+
+
+$car_hiring=service::where('service_name','car_hiring')->where('status','1')->first();
+//dd($wedding);
+ $services=service::get();
+
+        // $services=collect($services);
+
+//dd($services->where('category','Main')->where('status','1')->category);
+// $model_key = 3;
+// $services = $services->Where('id', $model_key)->Where('status',1);
+
+//$services=$services->where('category','Main')->where('status','1');
+
+        return view($this->activeTemplate . 'homem', compact('pageTitle','services','main_service','sections','wedding','escort','car_hiring','vehicles','carbodytypes','carTags','models','metaVehicles','metaVehicleCount','metaFirstVehicle'));
     }
 
 

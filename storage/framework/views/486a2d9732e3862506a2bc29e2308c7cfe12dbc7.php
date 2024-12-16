@@ -15,6 +15,7 @@
          <title><?php echo e($general->sitename(__($pageTitle))); ?></title>
            <?php echo $__env->make('partials.seo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -209,7 +210,7 @@
 
                                     </ul>
                                 </li>
-<a href="#" class="btn btn-primary rounded-pill py-2 px-4">View</a>
+                                
     </ul>
 </div>
 

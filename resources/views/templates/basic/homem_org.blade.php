@@ -1,5 +1,5 @@
-
-<?php $__env->startSection('content'); ?>
+@extends($activeTemplate.'layouts.frontend')
+@section('content')
 <style type="text/css">
     pp {
     color:#fff; /* Sets the text color of paragraphs to blue */
@@ -17,15 +17,15 @@
                   <!-- Carousel indicators -->
                   <ol class="carousel-indicators">
                       <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
-                      <?php for($i=0;$i<10;$i++): ?>
-                  <li data-bs-target="#myCarousel" data-bs-slide-to="<?php echo e($i); ?>"></li>
-                  <?php endfor; ?>
+                      @for($i=0;$i<10;$i++)
+                  <li data-bs-target="#myCarousel" data-bs-slide-to="{{$i}}"></li>
+                  @endfor
                   </ol>
 
                   <!-- Wrapper for carousel items -->
                   <div class="carousel-inner">
                        <div class="carousel-item active">
-                          <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size'])); ?>" class="img-fluid w-100" alt="First slide"/>
+                          <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size']) }}" class="img-fluid w-100" alt="First slide"/>
                                       <div class="carousel-caption">
                                           <div class="container py-4">
                                               <div class="row g-5">
@@ -34,18 +34,18 @@
     <div class="col-lg-5 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                                     <div class="text-start">
                                                     <div class="rounded">
-                                                          <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
+                                                          <strong class="text-white">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</strong>
                                                           <hr>
                                                           <ul class="#">
-                                                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
-                                                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
-                                                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
-                                                              <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong><?php echo e($metaFirstVehicle->details); ?></strong></li>
+                                                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$metaFirstVehicle->transmission}}</strong></li>
+                                                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$metaFirstVehicle->doors}}</strong></li>
+                                                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$metaFirstVehicle->fuel_type}}</strong></li>
+                                                              <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong>{{$metaFirstVehicle->details}}</strong></li>
                                                           </ul>
                                                           </div>
                                                           <div class="mb-2">
                                                           </div>
-                                                             <a href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
+                                                             <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
                                                               </div>
 
                                                   </div>
@@ -57,9 +57,9 @@
                       </div>
 
 
-                       <?php $__currentLoopData = $metaVehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indexKey => $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                       @foreach ($metaVehicles as $indexKey => $vehicle)
                       <div class="carousel-item">
-                          <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" class="img-fluid w-100" alt="First slide"/>
+                          <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" class="img-fluid w-100" alt="First slide"/>
                                       <div class="carousel-caption">
                                           <div class="container py-4">
                                               <div class="row g-5">
@@ -69,18 +69,18 @@
                                             <div class="col-lg-5 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                                   <div class="text-start">
                                                   <div class="rounded">
-                                                        <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
+                                                        <strong class="text-white">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</strong>
                                                         <hr>
                                                         <ul class="#">
-                                                            <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
-                                                            <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
-                                                            <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
-                                                            <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong><?php echo e($metaFirstVehicle->details); ?></strong></li>
+                                                            <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$metaFirstVehicle->transmission}}</strong></li>
+                                                            <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$metaFirstVehicle->doors}}</strong></li>
+                                                            <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$metaFirstVehicle->fuel_type}}</strong></li>
+                                                            <li class="mb-0"><i class="fa fa-check-circle text-primary me-1"></i>Details:  <strong>{{$metaFirstVehicle->details}}</strong></li>
                                                         </ul>
                                                         </div>
                                                         <div class="mb-2">
                                                         </div>
-                                                           <a href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
+                                                           <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
                                                             </div>
 
                                                 </div>
@@ -90,7 +90,7 @@
                                           </div>
                                       </div>
                       </div>
-                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                       @endforeach
                   </div>
 
                   <!-- Carousel controls -->
@@ -148,14 +148,9 @@
         <div class="container-fluid feature py-5" id="section2">
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Rhonds <span class="text-primary">Services</span></h1>
-
-                    <strong class="mb-0">
-                    </strong>
-                    <div class="ms-4">
-                        <h5 class="mb-3"><?php echo e($main_service->title); ?></h5>
-                        <p class="mb-0"><?php echo e($main_service->content); ?></p>
-                    </div>
+                    <h1 class="display-5 text-capitalize mb-3">Cental <span class="text-primary">Features</span></h1>
+                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+                    </p>
                 </div>
                 <div class="row g-4 align-items-center">
                     <div class="col-xl-4">
@@ -166,9 +161,8 @@
                                         <span class="fa fa-trophy fa-2x"></span>
                                     </div>
                                     <div class="ms-4">
-                                      <h5 class="mb-3"><?php echo e($wedding->title); ?></h5>
-                                      <p class="mb-0"><?php echo e($wedding->content); ?></p>
-
+                                        <h5 class="mb-3">First Class services</h5>
+                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
                                     </div>
                                 </div>
                             </div>
@@ -178,24 +172,23 @@
                                         <span class="fa fa-road fa-2x"></span>
                                     </div>
                                     <div class="ms-4">
-                                      <h5 class="mb-3"><?php echo e($escort->title); ?></h5>
-                                      <p class="mb-0"><?php echo e($escort->content); ?></p>
-
+                                        <h5 class="mb-3">24/7 road assistance</h5>
+                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-12 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-                        <img src="<?php echo e(URL::asset('/storage/services/'.$main_service->images)); ?>" class="img-fluid w-100" style="object-fit: cover;" alt="Img">
+                        <img src="../../frontendp/img/features-img.png" class="img-fluid w-100" style="object-fit: cover;" alt="Img">
                     </div>
                     <div class="col-xl-4">
                         <div class="row gy-4 gx-0">
                             <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="feature-item justify-content-end">
                                     <div class="text-end me-4">
-                                      <h5 class="mb-3"><?php echo e($car_hiring->title); ?></h5>
-                                      <p class="mb-0"><?php echo e($car_hiring->content); ?></p>
+                                        <h5 class="mb-3">Quality at Minimum</h5>
+                                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, in illum aperiam ullam magni eligendi?</p>
                                     </div>
                                     <div class="feature-icon">
                                         <span class="fa fa-tag fa-2x"></span>
@@ -224,52 +217,54 @@
  <!-- Car categories Start -->
         <div class="container categories pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Car <span class="text-primary">List</span></h1>
-                    <p class="mb-0">Book your appriapriate Car Type
+                    <h1 class="display-5 text-capitalize mb-3">Vehicle <span class="text-primary">Categories</span></h1>
+                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
                     </p>
                 </div>
       <div class="row">
-<?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+@forelse($vehicles as $vehicle)
                      <div class="col-md-3">
                     <div class="categories-item">
                         <div class="rent__item">
                             <div class="rent__thumb" style="background-color:#9ca494">
-                                        <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>">
-                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" class="first-look" alt="rent-vehicle">
-                                            <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
+                                        <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}">
+                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
+                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
                                         </a>
                                     </div>
                             <div class="categories-content rounded-bottom p-4 text-center" style="margin:-22px">
-                                <strong><?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->car_model_no?? 1)); ?>)</strong>
+                                <strong>{{ __(@$vehicle->model) }} ({{ __(@$vehicle->car_model_no?? 1) }})</strong>
                                    <div class="rent__content text-center mt-n1">
                                         <ul class="d-flex car-info text-center">
                                             <li class="pr-3 text-center"><i class="fas fa-money-check"></i>
-                                                <span class=""><?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span>
+                                                <span class="">{{ showAmount($vehicle->price) }}({{ $general->cur_sym }}) <sub>/@lang('day')</span>
                                             </li>
                                         </ul>
                                 </div>
                                 <br>
                                 <div class="row gy-2 gx-0 text-center mb-4">
                                     <div class="col-4 border-end border-white">
-                                        <i class="fa fa-users text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->seat)); ?> Seat</span>
+                                        <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">{{ __(@$vehicle->seat) }} Seat</span>
                                     </div>
                                     <div class="col-4 border-end border-white">
-                                        <i class="fa fa-car text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->transmission)); ?></span>
+                                        <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">{{ __(@$vehicle->transmission) }}</span>
                                     </div>
                                     <div class="col-4">
-                                        <i class="las la-gas-pump"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->fuel_type)); ?></span>
+                                        <i class="las la-gas-pump"></i> <span class="text-body ms-1">{{ __(@$vehicle->fuel_type) }}</span>
                                     </div>
                                 </div>
                             </div>
-                 <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
+                 <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
 
                         </div>
                     </div>
                 </div>
 
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                        <?php endif; ?>
-                        
+                        @empty
+                        @endforelse
+                        {{--
+                        {!! $vehicles->links() !!}
+                        --}}
                         <marquee style="color:#03153e;float: right">Book car with Rhond's Company Ltd</marquee>
                     </div>
                     <div>
@@ -703,14 +698,14 @@ function scrollToNextSection() {
 
     </script>
              </body>
-<?php $__env->stopSection(); ?>
-<?php $__env->startPush('style'); ?>
-    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/datepicker.min.css')); ?>">
-<?php $__env->stopPush(); ?>
+@endsection
+@push('style')
+    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/datepicker.min.css')}}">
+@endpush
 
-<?php $__env->startPush('script'); ?>
-    <script src="<?php echo e(asset($activeTemplateTrue.'js/datepicker.min.js')); ?>"></script>
-    <script src="<?php echo e(asset($activeTemplateTrue.'js/datepicker.en.js')); ?>"></script>
+@push('script')
+    <script src="{{asset($activeTemplateTrue.'js/datepicker.min.js')}}"></script>
+    <script src="{{asset($activeTemplateTrue.'js/datepicker.en.js')}}"></script>
     <script>
         // date and time picker
         $('#dateAndTimePicker').datepicker({
@@ -718,7 +713,7 @@ function scrollToNextSection() {
             language: 'en',
             onSelect: function (fd, d, picker) {
                 var pick_time = fd;
-                var price = parseFloat("<?php echo e($vehicle->price); ?>");
+                var price = parseFloat("{{ $vehicle->price }}");
                  $('.total_days').text(1);
                  var no_car = $('#no_car').val();
 
@@ -769,6 +764,4 @@ if(no_car>0)
             }
         })
     </script>
-<?php $__env->stopPush(); ?>
-
-<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/homem.blade.php ENDPATH**/ ?>
+@endpush
