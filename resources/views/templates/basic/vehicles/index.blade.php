@@ -153,23 +153,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-2 col-sm-4">
-                                <div class="form-group">
-                                    <label for="pick-point" class="form--label">
-                                        <i class="las la-chair"></i> @lang('--Number Of Seats--')
-                                    </label>
-                                    <select name="seats" id="seats" class="form-control form--control">
-                                        <option value="">@lang('--Select Option--')</option>
-                                          <option value="0">All</option>
-                                              {{--
-                                       @forelse($seats as $seat)
-                                            <option value="{{ $seat->id }}">{{ __(@$seat->number) }} {{ __('Seater') }}</option>
-                                        @empty
-                                        @endforelse
-                                        --}}
-                                    </select>
-                                </div>
-                            </div>
+                        
                             <div class="col-md-1 col-sm-3">
                                 <div class="form-group">
                                     <label class="form--label d-none d-sm-block">&nbsp;</label>

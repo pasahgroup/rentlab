@@ -147,18 +147,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-2 col-sm-4">
-                                <div class="form-group">
-                                    <label for="pick-point" class="form--label">
-                                        <i class="las la-chair"></i> <?php echo app('translator')->get('--Number Of Seats--'); ?>
-                                    </label>
-                                    <select name="seats" id="seats" class="form-control form--control">
-                                        <option value=""><?php echo app('translator')->get('--Select Option--'); ?></option>
-                                          <option value="0">All</option>
-                                              
-                                    </select>
-                                </div>
-                            </div>
+                        
                             <div class="col-md-1 col-sm-3">
                                 <div class="form-group">
                                     <label class="form--label d-none d-sm-block">&nbsp;</label>
