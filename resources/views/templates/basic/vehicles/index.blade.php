@@ -41,10 +41,10 @@
                                                       <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
                                                             <div class="input-group">
 
-                                                              <select name="cartag" id="cartag" class="form-control form--control" required="" style="background-color:#809f75">
+                                                              <select name="seats" id="seats" class="form-control form--control" required="" style="background-color:#809f75">
                                                                   <option value="">@lang('--Select Seats--')</option>
-                                                                  @forelse($carTags as $cartag)
-                                                                      <option value="{{ $cartag->tag_id }}">{{ __(@$cartag->tag) }}</option>
+                                                                  @forelse($seats as $seat)
+                                                                      <option value="{{ $seat->id }}">{{ __(@$seat->number) }} Seats</option>
                                                                   @empty
                                                                   @endforelse
                                                               </select>
@@ -153,7 +153,7 @@
                                     </select>
                                 </div>
                             </div>
-                        
+
                             <div class="col-md-1 col-sm-3">
                                 <div class="form-group">
                                     <label class="form--label d-none d-sm-block">&nbsp;</label>
@@ -302,16 +302,6 @@
             });
         });
         </script>
-
-
-
-
-
-
-
-
-
-
 
 
 

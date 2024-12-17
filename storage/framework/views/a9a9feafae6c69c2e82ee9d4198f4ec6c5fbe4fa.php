@@ -40,10 +40,10 @@
                                                       <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
                                                             <div class="input-group">
 
-                                                              <select name="cartag" id="cartag" class="form-control form--control" required="" style="background-color:#809f75">
+                                                              <select name="seats" id="seats" class="form-control form--control" required="" style="background-color:#809f75">
                                                                   <option value=""><?php echo app('translator')->get('--Select Seats--'); ?></option>
-                                                                  <?php $__empty_1 = true; $__currentLoopData = $carTags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cartag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                                                      <option value="<?php echo e($cartag->tag_id); ?>"><?php echo e(__(@$cartag->tag)); ?></option>
+                                                                  <?php $__empty_1 = true; $__currentLoopData = $seats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $seat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                                                      <option value="<?php echo e($seat->id); ?>"><?php echo e(__(@$seat->number)); ?> Seats</option>
                                                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                                                   <?php endif; ?>
                                                               </select>
@@ -147,7 +147,7 @@
                                     </select>
                                 </div>
                             </div>
-                        
+
                             <div class="col-md-1 col-sm-3">
                                 <div class="form-group">
                                     <label class="form--label d-none d-sm-block">&nbsp;</label>
@@ -297,16 +297,6 @@
             });
         });
         </script>
-
-
-
-
-
-
-
-
-
-
 
 
 

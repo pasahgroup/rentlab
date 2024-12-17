@@ -607,7 +607,7 @@ $pageTitle="Page Page";
 
         if ($request->seats){
             $vehicles = $vehicles->Where('seater_id', $request->seats);
-              $pageTitle=$request->seats;
+              $pageTitle=$request->seats. ' Seats';
         }
 
         if ($request->min_price){
@@ -660,7 +660,7 @@ $pageTitle="Page Page";
 
    //$vehicle = Vehicle::active()->where('model',request('carModel'))->first();
 
-      //dd($brandss);
+      //dd($seats);
       //Combo textBox
 
       //  $pageTitle="Title";
