@@ -30,6 +30,29 @@
                             </div>
                         </div>
 
+
+
+                                                <div class="widget border--dashed">
+                                                  <label for="stat-dae" class="form--label">
+                                                      <strong class="title">  <i class="las la-dollar-sign"></i> <?php echo app('translator')->get('Filter by Seats'); ?></strong>
+                                                  </label>
+                                                    <div class="widget-body">
+                                                      <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
+                                                            <div class="input-group">
+
+                                                              <select name="cartag" id="cartag" class="form-control form--control" required="" style="background-color:#809f75">
+                                                                  <option value=""><?php echo app('translator')->get('--Select Seats--'); ?></option>
+                                                                  <?php $__empty_1 = true; $__currentLoopData = $carTags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cartag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                                                      <option value="<?php echo e($cartag->tag_id); ?>"><?php echo e(__(@$cartag->tag)); ?></option>
+                                                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                                                  <?php endif; ?>
+                                                              </select>
+                                                                <button class="input-group-text cmn--btn" type="submit">Search</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
                         <div class="widget border--dashed">
                           <label for="stat-dae" class="form--label">
                               <strong class="title">  <i class="las la-dollar-sign"></i> <?php echo app('translator')->get('Filter by Price'); ?></strong>
@@ -132,10 +155,7 @@
                                     <select name="seats" id="seats" class="form-control form--control">
                                         <option value=""><?php echo app('translator')->get('--Select Option--'); ?></option>
                                           <option value="0">All</option>
-                                       <?php $__empty_1 = true; $__currentLoopData = $seats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $seat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                            <option value="<?php echo e($seat->id); ?>"><?php echo e(__(@$seat->number)); ?> <?php echo e(__('Seater')); ?></option>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                                        <?php endif; ?>
+                                              
                                     </select>
                                 </div>
                             </div>
@@ -147,30 +167,6 @@
                             </div>
                         </form>
                     </div>
-
-
-
-
-                    <!-- Department Dropdown -->
-                    Department : <select id='sel_depart' name='sel_depart'>
-                        <option value='0'>-- Select department --</option>
-
-                        <!-- Read Departments -->
-                        <?php $__currentLoopData = $departments['data']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value='<?php echo e($department->id); ?>'><?php echo e($department->name); ?></option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </select>
-
-                    <br><br>
-                    <!-- Department Employees Dropdown -->
-                    Employee : <select id='sel_emp' name='sel_emp'>
-                        <option value='0'>-- Select Employee --</option>
-                    </select>
-
-                        Employee2 : <select id='sel_emp2' name='sel_emp2'>
-                        <option value='0'>-- Select Employee --</option>
-                    </select>
-
 
 
                     <div class="row g-4">
@@ -235,30 +231,30 @@
 
                // Empty the dropdown
                $('#model').find('option').not(':first').remove();
-  alert(id);
+              $('#seats').find('option').not(':first').remove();
+  // alert(id);
                // AJAX request
                $.ajax({
                    url: 'getModel/'+id,
                    type: 'get',
                    dataType: 'json',
                    success: function(response){
-
                        var len = 0;
                        if(response['data'] != null){
                             len = response['data'].length;
                        }
 
-  alert(len);
+  // alert(len);
                        if(len > 0){
                             // Read data and create <option >
                             for(var i=0; i<len; i++){
 
-                                 var id = response['data'][i].category_id;
-                                 var name = response['data'][i].subcategory;
+                                 var id = response['data'][i].id;
+                                 var name = response['data'][i].model;
 
                                  var option = "<option value='"+name+"'>"+name+"</option>";
 
-                                 $("#subcategory").append(option);
+                                 $("#model").append(option);
                             }
                        }
 
@@ -271,20 +267,75 @@
 
 
       <script type='text/javascript'>
+        $(document).ready(function(){
+
+            // Department Change
+            $('#model').change(function(){
+
+    //alert('sasa');
+                 // Department id
+                 var id = $(this).val();
+
+                 // Empty the dropdown
+                $('#seats').find('option').not(':first').remove();
+     //alert(id);
+                 // AJAX request
+                 $.ajax({
+                     url: 'getSeater/'+id,
+                     type: 'get',
+                     dataType: 'json',
+                     success: function(response){
+                         var len = 0;
+                         if(response['data'] != null){
+                              len = response['data'].length;
+                         }
+
+    //alert(len);
+                         if(len > 0){
+                              // Read data and create <option >
+                              for(var i=0; i<len; i++){
+
+                                   var id = response['data'][i].id;
+                                   var name = response['data'][i].seater_id;
+                                   var option = "<option value='"+name+"'>"+name+"</option>";
+
+                                   $("#seats").append(option);
+                              }
+                         }
+
+                     }
+                 });
+            });
+        });
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <script type='text/javascript'>
       $(document).ready(function(){
 
           // Department Change
           $('#sel_depart').change(function(){
-
                // Department id
                var id = $(this).val();
-
                // Empty the dropdown
-               $('#sel_emp').find('option').not(':first').remove();
-  alert(id);
+                  $('#sel_emp').find('option').not(':first').remove();
+                  $('#seats').find('option').not(':first').remove();
+  // alert(id);
                // AJAX request
                $.ajax({
-                   url: 'getEmployees/'+id,
+                   url: 'Employee/'+id,
                    type: 'get',
                    dataType: 'json',
                    success: function(response){
@@ -301,7 +352,7 @@
                             for(var i=0; i<len; i++){
 
                                  var id = response['data'][i].id;
-                                 var name = response['data'][i].name;
+                                 var name = response['data'][i].color;
 
                                  var option = "<option value='"+id+"'>"+name+"</option>";
 
@@ -324,7 +375,7 @@
 
   //alert(id);
                // Empty the dropdown
-               $('#sel_emp2').find('option').not(':first').remove();
+               $('#seats').find('option').not(':first').remove();
 
                // AJAX request
                $.ajax({
@@ -337,14 +388,14 @@
                        if(response['data'] != null){
                             len = response['data'].length;
                        }
-  //alert(len);
+  alert(len);
 
                        if(len > 0){
                             // Read data and create <option >
                             for(var i=0; i<len; i++){
 
                                  var id = response['data'][i].id;
-                                 var name = response['data'][i].name;
+                                 var name = response['data'][i].color;
 
                                  var option = "<option value='"+id+"'>"+name+"</option>";
 

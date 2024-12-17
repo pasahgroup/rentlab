@@ -7,6 +7,8 @@ use App\Models\Location;
 use App\Models\RentLog;
 use App\Models\Seater;
 use App\Models\Vehicle;
+use App\Models\color;
+
 use App\Models\multibooking;
 use App\Models\Deposit;
 
@@ -138,13 +140,7 @@ if(request('carModel')!=null)
         return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations','bookingID','bookID','bookedID'));
     }
 
-    public function getModel($departmentid=0){ //dd($departmentid);
-          // Fetch Employees by Departmentid
-          $empData['data'] = Vehicle::where('brand_id',1)              //->select('category_id','subcategory')
-               ->get();
-          return response()->json($empData);
 
-     }
 
 
 
@@ -508,24 +504,24 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
 
     }
 
-    public function show(Vehicle $department)
+    public function show(color $department)
   {
      // Fetch departments
      $pageTitle="Title";
-       $departments['data'] = Vehicle::orderby("name","asc")
-            ->select('id','name')
+       $departments['data'] = color::orderby("color","asc")
+            ->select('id','color')
             ->get();
 
 // dd( $departments['data']);
        // Load index view
-       return view('index')->with("departments",$departments);
+       return view('indexf')->with("departments",$departments);
   }
 
     public function getEmployees($departmentid=0){
 
            // Fetch Employees by Departmentid
-           $empData['data'] = Vehicle::orderby("name","asc")
-                ->select('id','name')
+           $empData['data'] = color::orderby("color","asc")
+                ->select('id','color')
                 ->where('id',$departmentid)
                 ->get();
            return response()->json($empData);
@@ -533,8 +529,8 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
 
       public function getEmp($departmentid=0){
       // Fetch Employees by Departmentid
-      $empData['data'] = Vehicle::orderby("name","asc")
-           ->select('id','name')
+      $empData['data'] = color::orderby("color","asc")
+           ->select('id','color')
            ->where('id',$departmentid)
            ->get();
 
@@ -544,10 +540,10 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
   }
 
 
-    public function vehicleSearch2(Request $request)
-    {
-
-    }
+    // public function vehicleSearch2(Request $request)
+    // {
+    //
+    // }
 
 
     public function vehicleSearch(Request $request)
@@ -585,13 +581,6 @@ if(request('search'))
  // if(request('save')){
  //   dd('ddd');
  // }
-
-
-
-
-
-
-
 
 
         if ($request->name) {
@@ -681,6 +670,30 @@ $pageTitle="Page Page";
 
         return view($this->activeTemplate.'vehicles.index',compact('departments','vehicles','pageTitle', 'brands','brandss','models', 'seats','carTags','carBodies'));
     }
+
+
+    public function getModel($brand_id=0){ //dd($departmentid);
+
+               $empData['data'] = Vehicle::orderby("brand_id","asc")
+                    ->select('id','brand_id','model')
+                    ->where('brand_id',$brand_id)
+                    ->get();
+              // dd($empData['data']);
+          return response()->json($empData);
+     }
+
+         public function getSeater($model=0){ //dd($departmentid);
+                    $empData['data'] = Vehicle::orderby("model","asc")
+                         ->select('id','brand_id','seater_id')
+                         ->where('model',$model)
+                         ->get();
+                   // dd($empData['data']);
+               return response()->json($empData);
+          }
+
+
+
+
 
     public function brandVehicles($brand_id, $slug)
     {

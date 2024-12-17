@@ -277,7 +277,7 @@
                     <div>
                     <h3 class="position-relative mx-xl-5"><span class="bg-secondary pr-3 section-heading wow fadeInUp float-right">
 
-   <a class="btn-transparent" href="/vehicle/search" target="_blank"  style="color:#b76b0b;float: right">View More vehicles <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+   <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="color:#b76b0b;float: right">View More vehicles <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                          </a>
   </span></h3>
 </div>

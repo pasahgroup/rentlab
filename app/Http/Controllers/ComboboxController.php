@@ -4,13 +4,39 @@ namespace App\Http\Controllers;
 
 use App\Models\combobox;
 use App\Models\color;
-use App\Models\vehicle;
 
 use App\Http\Requests\StorecomboboxRequest;
 use App\Http\Requests\UpdatecomboboxRequest;
 
+
+use App\Models\Brand;
+use App\Models\Location;
+use App\Models\RentLog;
+use App\Models\Seater;
+use App\Models\Vehicle;
+
+use App\Models\multibooking;
+use App\Models\Deposit;
+
+use App\Models\Tag;
+use App\Models\cartype;
+
+use Illuminate\Support\Facades\Validator;
+use DB;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+include_once(app_path().'/pesapal/oauth.php');
+
+
+
+
 class ComboboxController extends Controller
 {
+
+  public function __construct(){
+      $this->activeTemplate = activeTemplate();
+  }
+
     /**
      * Display a listing of the resource.
      *
@@ -79,7 +105,10 @@ class ComboboxController extends Controller
 
 //dd($departments['data']);
         // Load index view
-        return view('index')->with("departments",$departments);
+
+        return view($this->activeTemplate.'vehicles.select',compact('departments'));
+        // return view('index')->with("departments",$departments);
+        //return view('index',compact('departments'));
    }
 
     /**

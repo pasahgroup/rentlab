@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\DepartController;
 use App\Http\Controllers\AzampayController;
 use App\Http\Controllers\ComboboxController;
+use App\Http\Controllers\VehiclesController;
 
 Route::get('/clear', function(){
     \Illuminate\Support\Facades\Artisan::call('optimize:clear');
@@ -18,9 +19,9 @@ Route::get('/clear', function(){
 |--------------------------------------------------------------------------
 */
 
- Route::get('/dd', [ComboboxController::class, 'show']);
-Route::get('/Employee/{id}', [ComboboxController::class, 'getEmployees']);
-Route::get('/getEmpl/{id}', [ComboboxController::class, 'getEmp']);
+//  Route::get('/ddd', [ComboboxController::class, 'show']);
+// Route::get('/Employeed/{id}', [ComboboxController::class, 'getEmployees']);
+// Route::get('/getEmpld/{id}', [ComboboxController::class, 'getEmp']);
 
 
 Route::namespace('Gateway')->prefix('ipn')->name('ipn.')->group(function () {
@@ -511,15 +512,28 @@ Route::get('vehicle/booking/{id}/{slug}', 'VehicleController@vehicleBooking')->n
 
 Route::post('vehicle/booking/confirm/{id}', 'VehicleController@vehicleBookingConfirm')->name('vehicle.booking.confirm');
 
-Route::get('vehicle/search', 'VehicleController@vehicleSearch')->name('vehicle.search');
+Route::get('vehicle-search', 'VehicleController@vehicleSearch')->name('vehicle.search'); //changed from vehicle/search to vehicle-search
 Route::get('vehicle/search/brand/{brand_id}/{slug}', 'VehicleController@brandVehicles')->name('vehicle.brand');
 Route::get('vehicle/search/{seat_id}/seater', 'VehicleController@seaterVehicles')->name('vehicle.seater');
+  Route::get('getModel/{id}', 'VehicleController@getModel')->name('getModel');
+    Route::get('getSeater/{id}', 'VehicleController@getSeater')->name('getSeater');
 
 
-Route::get('dd/search', 'VehicleController@show')->name('vehicle.show');
-Route::get('getEmployees/{id}', 'VehicleController@getEmployees')->name('vehicle.getEmployees');
+Route::get('dd/search', [VehiclesController::class, 'show'])->name('vehicles.search');
+Route::get('Employee/{id}', [VehiclesController::class, 'getEmployees'])->name('vehicles.getEmployees');
+
+Route::get('/ddx/search', [ComboboxController::class, 'show'])->name('vehicles.search');
+Route::get('/Employeed/{id}', [ComboboxController::class, 'getEmployees']);
+Route::get('/getEmpld/{id}', [ComboboxController::class, 'getEmp']);
+
+
+// Route::get('ddx/search', 'VehicleController@show')->name('vehicle.show');
+// Route::get('getEmployees/{id}', 'VehicleController@getEmployees')->name('vehicle.getEmployees');
 Route::get('getEmp/{id}', 'VehicleController@getEmp')->name('vehicle.getEmp');
 
+ Route::get('/dd', [VehiclesController::class, 'show']);
+// Route::get('/Employee/{id}', [VehiclesController::class, 'getEmployees']);
+Route::get('/getEmpl/{id}', [VehiclesController::class, 'getEmp']);
 
 
 Route::get('plans', 'SiteController@plans')->name('plans');
@@ -550,8 +564,8 @@ Route::get('/azam/{r}', 'DepartController@index');
 // Route::resource('azam', DepartmentController::class);
 
 // Route::resource('dk', DepartmentController::class);
- Route::get('/dd/{d}', [DepartController::class, 'show']);
-    Route::get('getModel/{id}', 'VehicleController@getModel')->name('getModel');
+ Route::get('/ddp/{d}', [DepartController::class, 'show']);
+
 
 //Route::resource('yyy', SiteController::class);
 //Route::resource('/', 'SiteController@index')->name('home');
