@@ -28,6 +28,7 @@
 
                     <br>
                     <div class="rent__single border--dashed">
+                      <br>
                             <h4><span class="text--body">Vehicle details</span></h4>
 <div class="row">
                      <div class="col-lg-9">

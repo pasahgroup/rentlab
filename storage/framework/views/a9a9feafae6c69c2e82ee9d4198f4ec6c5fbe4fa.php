@@ -181,7 +181,7 @@
                                        <br>
                                        <div class="row gy-2 gx-0 text-center mb-4">
                                            <div class="col-4 border-end border-white">
-                                               <i class="fa fa-users text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->seat)); ?> Seat</span>
+                                               <i class="fa fa-users text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->seater_id)); ?> Seats</span>
                                            </div>
                                            <div class="col-4 border-end border-white">
                                                <i class="fa fa-car text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->transmission)); ?></span>

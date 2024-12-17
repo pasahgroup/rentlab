@@ -225,7 +225,7 @@
         <div class="container categories pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                     <h1 class="display-5 text-capitalize mb-3">Car <span class="text-primary">List</span></h1>
-                    <p class="mb-0">Book your appriapriate Car Type
+                    <p class="mb-0">Book your appropriate Car Type
                     </p>
                 </div>
       <div class="row">

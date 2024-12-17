@@ -225,7 +225,7 @@
         <div class="container categories pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                     <h1 class="display-5 text-capitalize mb-3">Car <span class="text-primary">List</span></h1>
-                    <p class="mb-0">Book your appriapriate Car Type
+                    <p class="mb-0">Book your appropriate Car Type
                     </p>
                 </div>
       <div class="row">
@@ -275,7 +275,7 @@
                     <div>
                     <h3 class="position-relative mx-xl-5"><span class="bg-secondary pr-3 section-heading wow fadeInUp float-right">
 
-   <a class="btn-transparent" href="/vehicle/search" target="_blank"  style="color:#b76b0b;float: right">View More vehicles <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+   <a class="btn-transparent" href="/vehicle-search" target="_blank"  style="color:#b76b0b;float: right">View More vehicles <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                          </a>
   </span></h3>
 </div>

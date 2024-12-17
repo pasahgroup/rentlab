@@ -1675,7 +1675,7 @@ select.form--control {
 }
 
 .border--dashed {
-    border: 1px dashed rgba(0, 174, 235, 0.3);
+    border: 1px dashed rgba(1,1,1);
 }
 
 .widget {
