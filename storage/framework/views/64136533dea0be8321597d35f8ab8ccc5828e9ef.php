@@ -3,12 +3,12 @@
         <div class="shape"><?php echo app('translator')->get('Book Now'); ?></div>
         <div class="container">
              <div class="widget border--dashed" style="background-color:#f0f0f">
-            <div class="row gy-5">
+            <div class="row gy-3">
                 <!-- 6d846c -->
-                <div class="col-lg-5" style="background-color:#">
+                <div class="col-lg-4">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
                         <?php $__empty_1 = true; $__currentLoopData = $vehicle->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                            <div class="car__rental-thumb w-100 bg--body p-0" style="border-radius: 2px 4px 2px;">
+                            <div class="car__rental-thumb w-100 bg--body p-0" style="border-radius:2px 1px 2px;">
                                 <img src="<?php echo e(getImage(imagePath()['vehicles']['path'].'/'. $image, imagePath()['vehicles']['size'])); ?>" alt="rent-vehicle">
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -24,9 +24,7 @@
                     </div>
                 </div>
                 <!-- <div class="col-lg-7 align-self-center border--dashed " style="background-color:#fff">  -->
-                      <div class="col-lg-6">
-
-                    <br>
+                      <div class="col-lg-8">
                     <div class="rent__single border--dashed">
                       <br>
                             <h4><span class="text--body">Vehicle details</span></h4>

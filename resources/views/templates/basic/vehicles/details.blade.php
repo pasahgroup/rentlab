@@ -5,12 +5,12 @@
         <div class="shape">@lang('Book Now')</div>
         <div class="container">
              <div class="widget border--dashed" style="background-color:#f0f0f">
-            <div class="row gy-5">
+            <div class="row gy-3">
                 <!-- 6d846c -->
-                <div class="col-lg-5" style="background-color:#">
+                <div class="col-lg-4">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
                         @forelse($vehicle->images as $image)
-                            <div class="car__rental-thumb w-100 bg--body p-0" style="border-radius: 2px 4px 2px;">
+                            <div class="car__rental-thumb w-100 bg--body p-0" style="border-radius:2px 1px 2px;">
                                 <img src="{{ getImage(imagePath()['vehicles']['path'].'/'. $image, imagePath()['vehicles']['size']) }}" alt="rent-vehicle">
                             </div>
                         @empty
@@ -26,9 +26,7 @@
                     </div>
                 </div>
                 <!-- <div class="col-lg-7 align-self-center border--dashed " style="background-color:#fff">  -->
-                      <div class="col-lg-6">
-
-                    <br>
+                      <div class="col-lg-8">
                     <div class="rent__single border--dashed">
                       <br>
                             <h4><span class="text--body">Vehicle details</span></h4>
