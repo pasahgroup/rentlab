@@ -81,7 +81,8 @@
 
 <!-- Carousel Start -->
 
-          <div class="col-md-8">
+          <div class="row">
+              <div class="col-md-8">
               <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
                   <ol class="carousel-indicators">
                       <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
@@ -121,9 +122,9 @@
                       </div>
                   </div>
               </div>
-                  </div>
+            </div>
 
-          <div class="col-md-4">
+              <div class="col-md-4">
               <div class="product-offer mb-30" style="height: 200px;">
                   <img class="img-fluid" src="img/offer-1.jpg" alt="">
                   <div class="offer-text">
@@ -132,6 +133,7 @@
                       <a href="" class="btn btn-primary">Shop Now</a>
                   </div>
               </div>
+
               <div class="product-offer mb-30" style="height: 200px;">
                   <img class="img-fluid" src="img/offer-2.jpg" alt="">
                   <div class="offer-text">
@@ -140,9 +142,9 @@
                       <a href="" class="btn btn-primary">Shop Now</a>
                   </div>
               </div>
-          </div>
-  
+            </div>
 
+                  </div>
   <!-- Carousel End -->
 
 
