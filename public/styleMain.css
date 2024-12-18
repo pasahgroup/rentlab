@@ -6169,7 +6169,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #f0f0f0 !important;
+  background-color: #aa925a !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -9466,7 +9466,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .mb-30 {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .pb-30 {

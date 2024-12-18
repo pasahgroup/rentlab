@@ -463,7 +463,7 @@
 
             </div>
         </div>
---}}
+
         <?php echo $__env->yieldPushContent('fbComment'); ?>
    <?php if(!request()->routeIs('home')): ?>
     <?php echo $__env->make($activeTemplate.'partials.breadcrumb', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

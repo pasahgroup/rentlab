@@ -572,7 +572,7 @@
 
             </div>
         </div>
---}}
+
         @stack('fbComment')
    @if(!request()->routeIs('home'))
     @include($activeTemplate.'partials.breadcrumb')
