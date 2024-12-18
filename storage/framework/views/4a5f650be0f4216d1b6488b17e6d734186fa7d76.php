@@ -6,13 +6,8 @@
 }
 </style>
 <br>
-
-<!-- Navbar Start -->
-
-<!-- Navbar End -->
-
 <!-- Carousel Start -->
-
+  <div class="container-fluid">
           <div class="row">
               <div class="col-md-8">
               <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
@@ -77,6 +72,7 @@
             </div>
 
                   </div>
+                </div>
   <!-- Carousel End -->
 
 
@@ -290,7 +286,7 @@
 
 
  <!-- Car categories Start -->
-        <div class="container categories pb-5" id="section3">
+        <div class="container-fluid categories pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                     <h1 class="display-5 text-capitalize mb-3">Car <span class="text-primary">List</span></h1>
                     <p class="mb-0">Book your appropriate Car Type
