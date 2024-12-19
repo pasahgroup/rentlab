@@ -27,12 +27,7 @@
                                   <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Book</a>
                               </div>
                           </div>
-
-
                       </div>
-
-
-
 
 
      <?php $__currentLoopData = $metaVehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indexKey => $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -54,20 +49,40 @@
 
               <div class="col-md-4">
               <div class="product-offer mb-30" style="height: 200px;">
-                  <img class="img-fluid" src="img/offer-1.jpg" alt="">
+                  <img class="img-fluid" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size'])); ?>" alt="">
                   <div class="offer-text">
-                      <h6 class="text-white text-uppercase">Save 20%</h6>
-                      <h3 class="text-white mb-3">Special Offer</h3>
-                      <a href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flexx justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a>
+                    <div class="text-start">
+                    <div class="rounded">
+                          <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
+                          <ul class="#">
+                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
+                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
+                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                          </ul>
+                          </div>
+                          <div class="mb-2">
+                          </div>
+                             <a href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a>
+                              </div>
                   </div>
               </div>
 
               <div class="product-offer mb-30" style="height: 200px;">
-                  <img class="img-fluid" src="img/offer-2.jpg" alt="">
+                  <img class="img-fluid" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size'])); ?>" alt="">
                   <div class="offer-text">
-                      <h6 class="text-white text-uppercase">Save 20%</h6>
-                      <h3 class="text-white mb-3">Special Offer</h3>
-                      <a href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flexx justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a>
+                    <div class="text-start">
+                    <div class="rounded">
+                          <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
+                          <ul class="#">
+                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
+                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
+                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                          </ul>
+                          </div>
+                          <div class="mb-2">
+                          </div>
+                             <a href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a>
+                              </div>
                   </div>
               </div>
             </div>
