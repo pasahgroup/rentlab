@@ -23,7 +23,7 @@
                               <div class="p-3" style="max-width: 700px;">
                                   <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Fashion 1</h1>
                                   <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
-                                  <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                  <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Book</a>
                               </div>
                           </div>
                       </div>
@@ -40,9 +40,7 @@
                                   <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</h1>
                                   <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
                                   <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}">Book</a>
-                                  <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
-
-                              </div>
+                                                          </div>
                           </div>
                       </div>
    @endforeach
@@ -57,7 +55,7 @@
                   <div class="offer-text">
                       <h6 class="text-white text-uppercase">Save 20%</h6>
                       <h3 class="text-white mb-3">Special Offer</h3>
-                      <a href="" class="btn btn-primary">Shop Now</a>
+                      <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flexx justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a>
                   </div>
               </div>
 
@@ -66,7 +64,7 @@
                   <div class="offer-text">
                       <h6 class="text-white text-uppercase">Save 20%</h6>
                       <h3 class="text-white mb-3">Special Offer</h3>
-                      <a href="" class="btn btn-primary">Shop Now</a>
+                      <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flexx justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a>
                   </div>
               </div>
             </div>
