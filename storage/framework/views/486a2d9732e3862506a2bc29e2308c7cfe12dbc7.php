@@ -191,7 +191,7 @@
 
 
                                         <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
-                                            <input type="text" name="brand" id="brand" value="<?php echo e($brand->id); ?>" class="form-control form--control" required>
+                                            <input type="hidden" name="brand" id="brand" value="<?php echo e($brand->id); ?>" class="form-control form--control" required>
                                   <button  class="dropdown-item"> <a class="nav-link dropdown-toggle" data-toggle="dropdown"><?php echo e($brand->name); ?> <i class="fa fa-angle-right float-right mt-1"></i></a>
 
 </button>
