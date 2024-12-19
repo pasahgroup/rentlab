@@ -1681,7 +1681,7 @@ select.form--control {
 .widget {
     background: #22313a;
     padding: 4px;
-    border-radius: 2px;
+    border-radius: 5px;
     /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); */
     margin-bottom: 30px;
 }

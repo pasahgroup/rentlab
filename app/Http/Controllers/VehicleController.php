@@ -585,8 +585,9 @@ if(request('search'))
 
         if ($request->brand !=null) {
             $vehicles->where('brand_id',$request->brand);
-            //$brands=brand::where('id',$request->brand)->first();
-             $pageTitle="Page Page";
+        //  $brands=brand::where('id',$request->brand)->first();
+             //dd($brands->name);
+             $pageTitle=$request->brand;
         }
 
  //dd($request->brand);
