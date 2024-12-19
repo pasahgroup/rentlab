@@ -540,11 +540,6 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
   }
 
 
-    // public function vehicleSearch2(Request $request)
-    // {
-    //
-    // }
-
 
     public function vehicleSearch(Request $request)
     {
@@ -591,16 +586,17 @@ if(request('search'))
         if ($request->brand !=null) {
             $vehicles->where('brand_id',$request->brand);
             //$brands=brand::where('id',$request->brand)->first();
-$pageTitle="Page Page";
+             $pageTitle="Page Page";
         }
 
+ //dd($request->brand);
 
         if ($request->model){
           // $vehicles->Where('model', 'LIKE', "%$request->model%");
             $vehicles->Where('model', "$request->model");
             $models=$vehicles;
               $pageTitle=$request->model;
-            //  dd($models);
+             //dd($request->mode);
         }
 
 

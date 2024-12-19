@@ -11,6 +11,8 @@ use App\Models\Page;
 use App\Models\SupportTicket;
 use App\Models\User;
 use App\Models\cartype;
+use App\Models\Brand;
+use App\Models\Vehicle;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
@@ -55,6 +57,9 @@ if ($this->app->isLocal()) {
         $viewShare['pages'] = Page::where('tempname',$activeTemplate)->where('slug','!=','home')->get();
 
         $viewShare['cartypes'] = cartype::orderBy('car_body_type')->get();
+       $viewShare['brands'] = brand::orderBy('name')->get();
+       $viewShare['vehicles'] = Vehicle::orderBy('model')->get();
+          // dd();
         view()->share($viewShare);
 
 

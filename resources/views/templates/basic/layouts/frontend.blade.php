@@ -88,89 +88,6 @@
                   <div class="col-lg-6 text-center text-lg-right">
 
 
-
-                    <nav class="navbar navbar-expand-lg navbar-light float-left">
-              <div class="classy-nav-container breakpoint-off">
-
-                             <!-- Classy Menu -->
-                             <nav class="classy-navbar justify-content-between" id="southNav">
-
-                                 <div class="classy-menu">
-                                     <div class="classynav">
-                                         <ul>
-
-               <li><a href="#" class="las la-user float-right">Account1</a>
-                                                 <ul class="dropdown">
-              @auth
-
-                                 <li class="header-top-item meta-list">
-                             <a href="Mailto:{{ getContent('contact.content', true)->data_values->email }}"><i class="lar la-envelope"></i>{{ getContent('contact.content', true)->data_values->email }}</a>
-                         </li>
-                                  <li class="header-top-item ml-sm-auto">
-                                     <a href="{{ route('user.home') }}"><i class="las la-tachometer-alt"></i>@lang('Dashboard')</a>
-                                 </li>
-
-                                 <li class="header-top-item">
-                                     <a href="{{ route('user.logout') }}"><i class="las la-sign-out-alt"></i>@lang('Logout')</a>
-                                 </li>
-                             @else
-                                 <li class="header-top-item ml-sm-auto">
-                                     <a href="{{ route('user.login') }}"><i class="las la-user"></i>@lang('Login')</a>
-                                 </li>
-                                 <li class="header-top-item">
-                                     <a href="{{ route('user.register') }}"><i class="las la-user-plus"></i>@lang('Register')</a>
-                                 </li>
-                             @endauth
-
-
-
-                                                 </ul>
-                                             </li>
-
-
-                                         <li><a href="#" class="las Plan-booking float-right"><strong style="color:yellow;">Language</strong></a>
-                                                 <ul class="dropdown">
-
-                                     <select class="langSel language-select ms-3">
-                                     @foreach($language as $item)
-                                         <option value="{{$item->code}}"
-                                                 @if(session('lang') == $item->code) selected @endif>{{ __($item->name) }}</option>
-                                     @endforeach
-                                 </select>
-
-
-                                                 </ul>
-                                             </li>
-                                             {{--
-             <a href="#" class="btn btn-primary rounded-pill py-2 px-4">View</a>
-             --}}
-                 </ul>
-             </div>
-
-                  </div>
-
-
-                                                <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                                                    <a href="" class="btn px-0">
-                                                        <i class="fas fa-heart text-primary"></i>
-                                                        <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
-                                                    </a>
-                                                    <a href="" class="btn px-0 ml-3">
-                                                        <i class="fas fa-shopping-cart text-primary"></i>
-                                                        <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
-                                                    </a>
-                                                </div>
-
-              </nav>
-
-
-
-
-                                 </div>
-                             </nav>
-
-
-
                       <div class="d-inline-flex align-items-center">
                               <div class="btn-group">
                               <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account2</button>
@@ -260,28 +177,42 @@
               <div class="row px-xl-5">
                   <div class="col-md-2 d-none d-lg-block">
                       <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical">
-                          <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>Brands</h6>
-                          <i class="fa fa-angle-down text-dark"></i>
+                          <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>Vehicles</h6>
+
+                                        <i class="fa fa-angle-down text-dark"></i>
                       </a>
                       <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                           <div class="navbar-nav w-100">
+                              @foreach($brands as $brand)
+
+
+
                               <div class="nav-item dropdown dropright">
-                                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dresses <i class="fa fa-angle-right float-right mt-1"></i></a>
-                                  <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                                      <a href="" class="dropdown-item">Men's Dresses</a>
-                                      <a href="" class="dropdown-item">Women's Dresses</a>
-                                      <a href="" class="dropdown-item">Baby's Dresses</a>
+
+
+                                        <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
+                                            <input type="text" name="brand" id="brand" value="{{$brand->id}}" class="form-control form--control" required>
+                                  <button  class="dropdown-item"> <a class="nav-link dropdown-toggle" data-toggle="dropdown">{{$brand->name}} <i class="fa fa-angle-right float-right mt-1"></i></a>
+
+</button>
+</form>
+
+                                                                       <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
+
+                                        @foreach($vehicles as $vehicle)
+                                        @if($vehicle->brand_id==$brand->id)
+
+                                          <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
+                                    <input type="hidden" name="model" id="model" value="{{$vehicle->model}}" class="form-control form--control" required>
+                                      <button  class="dropdown-item">{{$vehicle->model}}</button>
+                                                                              </form>
+                                      @endif
+                                          @endforeach
                                   </div>
                               </div>
-                              <a href="" class="nav-item nav-link">Shirts</a>
-                              <a href="" class="nav-item nav-link">Jeans</a>
-                              <a href="" class="nav-item nav-link">Swimwear</a>
-                              <a href="" class="nav-item nav-link">Sleepwear</a>
-                              <a href="" class="nav-item nav-link">Sportswear</a>
-                              <a href="" class="nav-item nav-link">Jumpsuits</a>
-                              <a href="" class="nav-item nav-link">Blazers</a>
-                              <a href="" class="nav-item nav-link">Jackets</a>
-                              <a href="" class="nav-item nav-link">Shoes</a>
+
+                              @endforeach
+                              <!-- <a href="" class="nav-item nav-link">Shoes</a> -->
                           </div>
                       </nav>
                   </div>

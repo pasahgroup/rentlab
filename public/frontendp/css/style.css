@@ -120,7 +120,7 @@
 
 .navbar-light .navbar-nav .nav-link {
     position: relative;
-    margin-right: 25px;
+    margin-right: 2px;
     padding: 35px 0;
     letter-spacing: 1px;
     color: var(--bs-dark);
@@ -178,7 +178,7 @@
     .navbar .nav-item .dropdown-menu {
     display: block;
     visibility: hidden;
-    top: 100%;
+    top: 10%;
     transform: rotateX(-75deg);
     transform-origin: 0% 0%;
     border: 0;

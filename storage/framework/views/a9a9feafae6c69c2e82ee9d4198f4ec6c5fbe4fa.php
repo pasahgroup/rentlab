@@ -1,3 +1,4 @@
+
 <?php $__env->startSection('content'); ?>
  <!-- <script type="text/javascript" src="../js/jquery360.min.js"></script> -->
 
@@ -113,11 +114,12 @@
 
                     </aside>
                 </div>
-                <div class="col-lg-10" style="border:solid 1px rgb(1,1,1)">
+                <div class="col-lg-10">
                     <div class="filter-in d-lg-none" style="margin-top:-80px">
                         <i class="las la-filter"></i>
                     </div>
-                    <div class="book__wrapper bg--body border--dashed mb-4" style="border:solid 1px rgb(1,1,1)">
+
+                    <div class="book__wrapper bg--body border--dashed mb-4">
                         <form class="book--form row gx-3 gy-4 g-md-4" action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
                             <div class="col-md-3 col-sm-4">
                                 <div class="form-group">
@@ -158,7 +160,8 @@
                     </div>
 
 
-                    <div class="row g-4">
+
+                    <div class="row g-4" style="margin-top:-42px">
                         <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <div class="col-md-3">
                            <div class="categories-item">
@@ -191,8 +194,7 @@
                                            </div>
                                        </div>
                                    </div>
-                        <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
-
+                        <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a>
                                </div>
                            </div>
                        </div>
