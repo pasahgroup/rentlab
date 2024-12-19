@@ -97,10 +97,10 @@
   <!-- Car Steps Start -->
   <div class="container-fluid">
           <div class="row">
-  <div class="container-fluid steps py-5" id="section7">
-      <div class="container py-4">
+  <div class="container-fluid steps py-1" id="section7">
+      <div class="container-fluid py-4">
           <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-              <h1 class="display-5 text-capitalize text-white mb-3">Cental<span class="text-primary"> Process</span></h1>
+              <h1 class="display-5 text-capitalize text-white mb-3">Rhonds<span class="text-primary"> Services</span></h1>
               <p class="mb-0 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
               </p>
           </div>
