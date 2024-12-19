@@ -21,32 +21,32 @@
                           <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
                           <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                               <div class="p-3" style="max-width: 700px;">
-                                  <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Fashion</h1>
+                                  <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Fashion 1</h1>
                                   <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
-                                  <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                  <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
                               </div>
                           </div>
                       </div>
+
+
+
+
+
+     @foreach ($metaVehicles as $indexKey => $vehicle)
                       <div class="carousel-item position-relative" style="height: 430px;">
-                          <img class="position-absolute w-100 h-100" src="img/carousel-2.jpg" style="object-fit: cover;">
+                          <img class="position-absolute w-100 h-100" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
                           <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                               <div class="p-3" style="max-width: 700px;">
-                                  <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Women Fashion</h1>
+                                  <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</h1>
                                   <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
-                                  <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                  <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}">Book</a>
+                                  <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
+
                               </div>
                           </div>
                       </div>
-                      <div class="carousel-item position-relative" style="height: 430px;">
-                          <img class="position-absolute w-100 h-100" src="img/carousel-3.jpg" style="object-fit: cover;">
-                          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                              <div class="p-3" style="max-width: 700px;">
-                                  <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Kids Fashion</h1>
-                                  <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
-                                  <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now2</a>
-                              </div>
-                          </div>
-                      </div>
+   @endforeach
+
                   </div>
               </div>
             </div>
@@ -113,7 +113,9 @@
                                                           </div>
                                                           <div class="mb-2">
                                                           </div>
-                                                             <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book bn</a>
+                                                             <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Book</a>
+
+
                                                               </div>
 
                                                   </div>
@@ -325,7 +327,7 @@
                                     </div>
                                 </div>
                             </div>
-                 <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-2 px-4" style="margin-bottom:0px;">Bookg</a>
+                 <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a>
 
                         </div>
                     </div>
