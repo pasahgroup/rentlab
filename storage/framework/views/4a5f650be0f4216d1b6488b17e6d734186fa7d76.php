@@ -25,7 +25,7 @@
                               <div class="p-3" style="max-width: 700px;">
                                   <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</h1>
                                   <p class="mx-md-5 px-5 animate__animated animate__bounceIn text-white"><?php echo e($metaFirstVehicle->details); ?></p>
-                                  <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Book</a>
+                                  <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="#">View More</a>
                               </div>
                           </div>
                       </div>
@@ -38,7 +38,7 @@
                               <div class="p-3" style="max-width: 700px;">
                                   <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"><?php echo e($vehicle->model); ?>(<?php echo e($vehicle->car_body_type); ?>)</h1>
                                   <p class="mx-md-5 px-5 animate__animated animate__bounceIn text-white"><?php echo e($vehicle->details); ?></p>
-                                  <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>">Book</a>
+                                  <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>">View More</a>
                                                           </div>
                           </div>
                       </div>
@@ -91,6 +91,56 @@
                   </div>
                 </div>
   <!-- Carousel End -->
+
+
+
+  <!-- Car Steps Start -->
+  <div class="container-fluid">
+          <div class="row">
+  <div class="container-fluid steps py-5" id="section7">
+      <div class="container py-4">
+          <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+              <h1 class="display-5 text-capitalize text-white mb-3">Cental<span class="text-primary"> Process</span></h1>
+              <p class="mb-0 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+              </p>
+          </div>
+          <div class="row g-4">
+              <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                  <div class="steps-item p-4 mb-4">
+                      <h4>Come In Contact</h4>
+                      <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
+                      <div class="setps-number">01.</div>
+                  </div>
+              </div>
+              <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                  <div class="steps-item p-4 mb-4">
+                      <h4>Choose A Car</h4>
+                      <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
+                      <div class="setps-number">02.</div>
+                  </div>
+              </div>
+              <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                  <div class="steps-item p-4 mb-4">
+                      <h4>Enjoy Driving</h4>
+                      <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
+                      <div class="setps-number">03.</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
 
 
         <!-- Features Start -->
