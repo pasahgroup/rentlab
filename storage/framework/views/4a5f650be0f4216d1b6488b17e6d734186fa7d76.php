@@ -18,14 +18,17 @@
                   </ol>
                   <div class="carousel-inner">
                       <div class="carousel-item position-relative active" style="height: 430px;">
-                          <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
+
+                          <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
                           <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                               <div class="p-3" style="max-width: 700px;">
-                                  <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Fashion 1</h1>
-                                  <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                  <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</h1>
+                                  <p class="mx-md-5 px-5 animate__animated animate__bounceIn text-white"><?php echo e($metaFirstVehicle->details); ?></p>
                                   <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Book</a>
                               </div>
                           </div>
+
+
                       </div>
 
 
@@ -37,8 +40,8 @@
                           <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
                           <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                               <div class="p-3" style="max-width: 700px;">
-                                  <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</h1>
-                                  <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                  <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"><?php echo e($vehicle->model); ?>(<?php echo e($vehicle->car_body_type); ?>)</h1>
+                                  <p class="mx-md-5 px-5 animate__animated animate__bounceIn text-white"><?php echo e($vehicle->details); ?></p>
                                   <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>">Book</a>
                                                           </div>
                           </div>
