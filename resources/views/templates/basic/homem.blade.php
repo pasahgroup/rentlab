@@ -177,7 +177,7 @@
                                     </div>
                                     <div class="ms-4">
                                       <h5 class="mb-3">{{$escort->title?? 'No Title'}}</h5>
-                                      <p class="mb-0">{{$escort->content?? 'No content'}}</p>
+                                      <p class="mb-0">{{$escort->content?? 'No Content'}}</p>
 
                                     </div>
                                 </div>
@@ -192,8 +192,8 @@
                             <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="feature-item justify-content-end">
                                     <div class="text-end me-4">
-                                      <h5 class="mb-3">{{$car_hiring->title}}</h5>
-                                      <p class="mb-0">{{$car_hiring->content}}</p>
+                                      <h5 class="mb-3">{{$car_hiring->title?? 'No Title'}}</h5>
+                                      <p class="mb-0">{{$car_hiring->content?? 'No Content'}}</p>
                                     </div>
                                     <div class="feature-icon">
                                         <span class="fa fa-tag fa-2x"></span>
