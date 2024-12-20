@@ -1,6 +1,5 @@
 
 <?php $__env->startSection('content'); ?>
- <!-- <script type="text/javascript" src="../js/jquery360.min.js"></script> -->
 
    <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side"><?php echo app('translator')->get('Rent'); ?></div>
@@ -160,44 +159,70 @@
                     </div>
 
 
-
                     <div class="row g-4" style="margin-top:-42px">
                         <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                            <div class="col-md-3">
-                           <div class="categories-item">
-                               <div class="rent__item">
-                                   <div class="rent__thumb" style="background-color:#9ca494">
-                                               <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>">
-                                                   <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" class="first-look" alt="rent-vehicle">
-                                                   <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
-                                               </a>
-                                           </div>
-                                   <div class="categories-content rounded-bottom p-4 text-center" style="margin:-22px">
-                                       <strong><?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->car_model_no?? 1)); ?>)</strong>
-                                          <div class="rent__content text-center mt-n1">
-                                               <ul class="d-flex car-info text-center">
-                                                   <li class="pr-3 text-center"><i class="fas fa-money-check"></i>
-                                                       <span class=""><?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span>
-                                                   </li>
-                                               </ul>
+                        <div class="col-md-3">
+                       <div class="categories-item">
+                           <div class="rent__item">
+                               <div class="blog-item">
+                               <div class="rent__thumb" style="background-color:#9ca494">
+                                           <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>">
+                                               <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" class="first-look" alt="rent-vehicle">
+                                               <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
+                                           </a>
                                        </div>
-                                       <br>
-                                       <div class="row gy-2 gx-0 text-center mb-4">
-                                           <div class="col-4 border-end border-white">
-                                               <i class="fa fa-users text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->seater_id)); ?> Seats</span>
+                               <div class="categories-content rounded-bottom p-3 text-center" style="margin:-10px">
+                                       <!-- <div class="blog-img">
+                                           <img src="../../frontendp/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">
+                                       </div> -->
+
+                                       <div class="blog-content rounded-bottom p-2">
+                                           <div class="blog-date"><span class=""><?php echo e(showAmount($vehicle->price)); ?>(<?php echo e($general->cur_sym); ?>) <sub>/<?php echo app('translator')->get('day'); ?></span></div>
+
+
+                                             <div class="rent__content text-center mt-n1">
+                                                  <ul class="d-flex car-info text-center">
+
+                                                  </ul>
+                                          </div>
+
+                                           <strong><?php echo e($vehicle->name); ?></strong>
+
+                                              <div class="rent__content text-center mt-n1">
+                                                   <ul class="d-flex car-info text-center">
+                                                        <li class="pr-3 text-center">
+                                                           <span class=""><?php echo e(__(@$vehicle->model)); ?> (<?php echo e(__(@$vehicle->car_model_no?? 1)); ?>)</span>
+                                                       </li>
+                                                   </ul>
                                            </div>
-                                           <div class="col-4 border-end border-white">
-                                               <i class="fa fa-car text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->transmission)); ?></span>
-                                           </div>
-                                           <div class="col-4">
-                                               <i class="las la-gas-pump"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->fuel_type)); ?></span>
-                                           </div>
+
+
+                                           <div class="rent__content text-center mt-n1">
+                                                <ul class="d-flex_org car-info text-center">
+                                                     <li class="pr-1 text-center">
+                                                         <div class="row gy-2 gx-0 text-center mb-2">
+                                                              <div class="col-4 border-end border-white">
+                                                                  <i class="fa fa-users text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->seat)); ?> Seat</span>
+                                                              </div>
+                                                              <div class="col-4 border-end border-white">
+                                                                  <i class="fa fa-car text-dark"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->transmission)); ?></span>
+                                                              </div>
+                                                              <div class="col-4">
+                                                                  <i class="las la-gas-pump"></i> <span class="text-body ms-1"><?php echo e(__(@$vehicle->fuel_type)); ?></span>
+                                                              </div>
+                                                          </div>
+
+                                                    </li>
+                                                </ul>
+                                          </div>
                                        </div>
+                                         <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="">Read More  <i class="fa fa-arrow-right"></i></a>
                                    </div>
-                        <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a>
                                </div>
-                           </div>
+                    <!-- <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a> -->
+                             </div>
                        </div>
+                   </div>
 
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <?php endif; ?>

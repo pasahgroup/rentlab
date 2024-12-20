@@ -566,7 +566,7 @@ strong, b {
     background:transparent;
 }
 .form--control, .bg--section .rental__thumbnails, .bg--section .faq__item, .bg--section .plan__item, .bg--section .client__item, .bg--section .counter-item, .bg--section .post__item, .bg--section .how__item .how__icon, .bg--section .rent__item, .bg--section .form-control:disabled, .bg--section .form-control[readonly], .bg--section .reply-item, .bg--section .dashboard__item, .bg--section .custom--card, .bg--section .cmn--table, .bg--section .widget {
-    background: #fff;
+    background:#e3e6bd;
 }
 
 .bg--section .synced .rental__thumbnails, .bg--section .post__item .post__content .meta__date, .bg--section .rent__item .rent__thumb, .bg--section .rent__item .rent__content .car-info {
@@ -3299,7 +3299,7 @@ width: 40%;
 }
 
 .rent__item .rent__content {
-    padding: 1px 0 0;
+    padding: 0px 0 0;
 }
 
 .rent__item .rent__content .rent__title {
@@ -3316,7 +3316,9 @@ width: 40%;
 
 .rent__item .rent__content .car-info {
     background: #22313a;
-    padding: 6px 6px;
+    /* padding: 6px 6px;
+     */
+       padding:0px;
     margin-top: 10px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;

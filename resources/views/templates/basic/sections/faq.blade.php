@@ -34,7 +34,6 @@
             </div>
             <div class="col-lg-6">
                 <div class="faq__wrapper">
-
                     @forelse($faq_elements as $item)
                         @continue($loop->odd)
                         <div class="faq__item">

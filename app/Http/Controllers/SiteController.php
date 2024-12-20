@@ -60,10 +60,11 @@ $models = Vehicle::orderby('model')
 ->get();
 
 
- $vehicles = Vehicle::active()->latest()
- ->groupBy('model')
+ $vehicles = Vehicle::join('brands','brands.id','vehicles.brand_id')
+ ->select('vehicles.id','vehicles.model','vehicles.brand_id','vehicles.price','vehicles.images','vehicles.car_model_no','vehicles.transmission','vehicles.fuel_type','vehicles.doors','vehicles.specifications','brands.name')
+ ->groupBy('vehicles.model')
  ->paginate(getPaginate(4));
-
+//dd($vehicles);
 
  $metaFirstVehicle = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
       ->select('vehicles.*','cartypes.car_body_type')

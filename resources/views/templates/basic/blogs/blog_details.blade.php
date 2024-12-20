@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layoutm.frontendm')
+@extends($activeTemplate.'layouts.frontend')
 @section('content')
 <!-- Blog Section -->
 <section class="blog-section pt-120 pb-120 bg--section">
@@ -29,7 +29,6 @@
                     <div class="widget widget__post__area">
                         <h5 class="widget__title">@lang('Recent Post')</h5>
                         <ul>
-
                             @forelse($recent_blogs as $item)
                                 <li>
                                     <a href="{{ route('blog.details',[$item->id,slug($item->data_values->title)]) }}" class="widget__post">
