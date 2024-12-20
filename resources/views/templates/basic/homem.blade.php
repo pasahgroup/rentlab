@@ -176,8 +176,8 @@
                                         <span class="fa fa-road fa-2x"></span>
                                     </div>
                                     <div class="ms-4">
-                                      <h5 class="mb-3">{{$escort->title}}</h5>
-                                      <p class="mb-0">{{$escort->content}}</p>
+                                      <h5 class="mb-3">{{$escort->title?? 'No Title'}}</h5>
+                                      <p class="mb-0">{{$escort->content?? 'No content'}}</p>
 
                                     </div>
                                 </div>
