@@ -171,7 +171,7 @@
                                                <img src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size'])); ?>" class="hover-look" alt="rent-vehicle">
                                            </a>
                                        </div>
-                               <div class="categories-content rounded-bottom p-3 text-center" style="margin:-10px">
+                               <div class="categories-content rounded-bottom p-1 text-center" style="margin:-10px">
                                        <!-- <div class="blog-img">
                                            <img src="../../frontendp/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">
                                        </div> -->
