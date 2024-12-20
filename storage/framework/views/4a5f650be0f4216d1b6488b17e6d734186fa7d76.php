@@ -535,7 +535,7 @@
             ?>
 
             <!-- Book Section -->
-      
+
 
 
             <?php if($sections->secs != null): ?>

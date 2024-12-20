@@ -151,8 +151,8 @@
                     <strong class="mb-0">
                     </strong>
                     <div class="ms-4">
-                        <h5 class="mb-3">{{$main_service->title}}</h5>
-                        <p class="mb-0">{{$main_service->content}}</p>
+                        <h5 class="mb-3">{{$main_service->title?? 'No Title'}}</h5>
+                        <p class="mb-0">{{$main_service->content?? 'No Content'}}</p>
                     </div>
                 </div>
                 <div class="row g-4 align-items-center">
@@ -164,8 +164,8 @@
                                         <span class="fa fa-trophy fa-2x"></span>
                                     </div>
                                     <div class="ms-4">
-                                      <h5 class="mb-3">{{$wedding->title}}</h5>
-                                      <p class="mb-0">{{$wedding->content}}</p>
+                                      <h5 class="mb-3">{{$wedding->title ?? 'No Title'}}</h5>
+                                      <p class="mb-0">{{$wedding->content ?? 'No Content'}}</p>
 
                                     </div>
                                 </div>
