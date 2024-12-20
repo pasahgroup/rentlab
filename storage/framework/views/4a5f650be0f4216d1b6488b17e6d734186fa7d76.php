@@ -147,8 +147,8 @@
                     <strong class="mb-0">
                     </strong>
                     <div class="ms-4">
-                        <h5 class="mb-3"><?php echo e($main_service->title); ?></h5>
-                        <p class="mb-0"><?php echo e($main_service->content); ?></p>
+                        <h5 class="mb-3"><?php echo e($main_service->title?? 'No Title'); ?></h5>
+                        <p class="mb-0"><?php echo e($main_service->content?? 'No Content'); ?></p>
                     </div>
                 </div>
                 <div class="row g-4 align-items-center">
@@ -160,8 +160,8 @@
                                         <span class="fa fa-trophy fa-2x"></span>
                                     </div>
                                     <div class="ms-4">
-                                      <h5 class="mb-3"><?php echo e($wedding->title); ?></h5>
-                                      <p class="mb-0"><?php echo e($wedding->content); ?></p>
+                                      <h5 class="mb-3"><?php echo e($wedding->title ?? 'No Title'); ?></h5>
+                                      <p class="mb-0"><?php echo e($wedding->content ?? 'No Content'); ?></p>
 
                                     </div>
                                 </div>
@@ -172,8 +172,8 @@
                                         <span class="fa fa-road fa-2x"></span>
                                     </div>
                                     <div class="ms-4">
-                                      <h5 class="mb-3"><?php echo e($escort->title); ?></h5>
-                                      <p class="mb-0"><?php echo e($escort->content); ?></p>
+                                      <h5 class="mb-3"><?php echo e($escort->title?? 'No Title'); ?></h5>
+                                      <p class="mb-0"><?php echo e($escort->content?? 'No Content'); ?></p>
 
                                     </div>
                                 </div>
@@ -188,8 +188,8 @@
                             <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
                                 <div class="feature-item justify-content-end">
                                     <div class="text-end me-4">
-                                      <h5 class="mb-3"><?php echo e($car_hiring->title); ?></h5>
-                                      <p class="mb-0"><?php echo e($car_hiring->content); ?></p>
+                                      <h5 class="mb-3"><?php echo e($car_hiring->title?? 'No Title'); ?></h5>
+                                      <p class="mb-0"><?php echo e($car_hiring->content?? 'No Content'); ?></p>
                                     </div>
                                     <div class="feature-icon">
                                         <span class="fa fa-tag fa-2x"></span>
