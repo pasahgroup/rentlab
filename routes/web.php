@@ -23,7 +23,6 @@ Route::get('/clear', function(){
 // Route::get('/Employeed/{id}', [ComboboxController::class, 'getEmployees']);
 // Route::get('/getEmpld/{id}', [ComboboxController::class, 'getEmp']);
 
-
 Route::namespace('Gateway')->prefix('ipn')->name('ipn.')->group(function () {
     Route::post('paypal', 'Paypal\ProcessController@ipn')->name('Paypal');
     Route::get('paypal-sdk', 'PaypalSdk\ProcessController@ipn')->name('PaypalSdk');

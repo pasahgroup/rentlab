@@ -128,12 +128,6 @@
 
 
 
-
-
-
-
-
-
                 <!-- Menu -->
                 <div class="classy-menu">                        <!-- close btn -->
                     <div class="classycloseIcon">
@@ -211,16 +205,21 @@
 <li>||</li>
 
 
-<li><a href="#">Opportunities</a>
-    <ul class="dropdown">
-        <li><a href="/New-Agent">Agent-Register</a></li>
-<li><a href="/New-tourGuide">Tour Guide -Register</a></li>
-<li><a href="/New-Partner">Partner-Register</a></li>
+<li><a href="#" class="las Plan-booking float-right"><strong style="color:yellow;">Language</strong></a>
+          <ul class="dropdown">
 
-    </ul>
-</li>
+<select class="langSel language-select ms-3">
+<?php $__currentLoopData = $language; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  <option value="<?php echo e($item->code); ?>"
+          <?php if(session('lang') == $item->code): ?> selected <?php endif; ?>><?php echo e(__($item->name)); ?></option>
+<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+</select>
 
-<li><a href="#" class="las la-user float-right">Account</a>
+
+          </ul>
+      </li>
+
+<li><a href="#" class="las la-user float-right">Account:  <b class="text-white"><?php if(auth()->guard()->check()): ?> Logged in  <?php else: ?> Login <?php endif; ?></b></a>
     <ul class="dropdown">
       <?php if(auth()->guard()->check()): ?>
 
@@ -398,6 +397,7 @@
 
                                                       </ul>
                                                   </li>
+
                                                   
                       </ul>
                   </div>

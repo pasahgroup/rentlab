@@ -128,12 +128,6 @@
 
 
 
-
-
-
-
-
-
                 <!-- Menu -->
                 <div class="classy-menu">                        <!-- close btn -->
                     <div class="classycloseIcon">
@@ -211,16 +205,21 @@
 <li>||</li>
 
 
-<li><a href="#">Opportunities</a>
-    <ul class="dropdown">
-        <li><a href="/New-Agent">Agent-Register</a></li>
-<li><a href="/New-tourGuide">Tour Guide -Register</a></li>
-<li><a href="/New-Partner">Partner-Register</a></li>
+<li><a href="#" class="las Plan-booking float-right"><strong style="color:yellow;">Language</strong></a>
+          <ul class="dropdown">
 
-    </ul>
-</li>
+<select class="langSel language-select ms-3">
+@foreach($language as $item)
+  <option value="{{$item->code}}"
+          @if(session('lang') == $item->code) selected @endif>{{ __($item->name) }}</option>
+@endforeach
+</select>
 
-<li><a href="#" class="las la-user float-right">Account</a>
+
+          </ul>
+      </li>
+
+<li><a href="#" class="las la-user float-right">Account:  <b class="text-white">@auth Logged in  @else Login @endauth</b></a>
     <ul class="dropdown">
       @auth
 
@@ -398,6 +397,7 @@
 
                                                       </ul>
                                                   </li>
+
                                                   {{--
                   <a href="#" class="btn btn-primary rounded-pill py-2 px-4">View</a>
                   --}}

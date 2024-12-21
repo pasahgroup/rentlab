@@ -47,6 +47,7 @@
 
 @yield('content')
 
+@include($activeTemplate.'partials.footer')
 <script src="{{asset($activeTemplateTrue.'js/jquery-3.6.0.min.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/jquery-ui.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/bootstrap.min.js')}}"></script>

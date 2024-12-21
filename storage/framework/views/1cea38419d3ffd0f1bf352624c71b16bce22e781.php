@@ -6,7 +6,7 @@
                 <div class="col-lg-10">
                     <div class="account__wrapper bg--section">
                         <div class="logo">
-                                  <a href="<?php echo e(route('home')); ?>" class="d-block"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'] .'/logo.png')); ?>" alt="logo" style="width:100%; height:100%;"></a>
+                                  <a href="<?php echo e(route('home')); ?>" class="d-block"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'] .'/logo.png')); ?>" alt="logo" style="width:; height:;"></a>
                         </div>
                         <form class="account-form row g-4" action="<?php echo e(route('user.register')); ?>" method="POST" onsubmit="return submitUserForm();">
                             <?php echo csrf_field(); ?>
@@ -28,8 +28,8 @@
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label class="form--label"><?php echo app('translator')->get('Mobile'); ?></label>
                                 <div class="form-group">
+                                  <label class="form--label"><?php echo app('translator')->get('Mobile'); ?></label>
                                     <div class="input-group ">
                                         <input type="hidden" name="mobile_code">
                                         <input type="hidden" name="country_code">
@@ -281,4 +281,4 @@
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make($activeTemplate.'layouts.auth', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/user/auth/register.blade.php ENDPATH**/ ?>
+<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/user/auth/register.blade.php ENDPATH**/ ?>

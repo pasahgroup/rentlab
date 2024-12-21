@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.auth')
+@extends($activeTemplate.'layouts.frontend')
 @section('content')
     <!-- Account Section Starts Here -->
     <div class="account-section pt-120 pb-120">
@@ -7,7 +7,7 @@
                 <div class="col-lg-10">
                     <div class="account__wrapper bg--section">
                         <div class="logo">
-                                  <a href="{{ route('home') }}" class="d-block"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo" style="width:100%; height:100%;"></a>
+                                  <a href="{{ route('home') }}" class="d-block"><img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo" style="width:; height:;"></a>
                         </div>
                         <form class="account-form row g-4" action="{{ route('user.register') }}" method="POST" onsubmit="return submitUserForm();">
                             @csrf
@@ -29,8 +29,8 @@
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label class="form--label">@lang('Mobile')</label>
                                 <div class="form-group">
+                                  <label class="form--label">@lang('Mobile')</label>
                                     <div class="input-group ">
                                         <input type="hidden" name="mobile_code">
                                         <input type="hidden" name="country_code">

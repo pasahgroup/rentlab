@@ -1884,7 +1884,7 @@ select.form--control {
 .account__wrapper {
     margin: 0 auto;
     max-width: 920px;
-    padding: 50px;
+    padding: 10px;
     border: 1px dashed rgba(0, 174, 235, 0.3);
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;

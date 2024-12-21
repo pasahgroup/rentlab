@@ -31,6 +31,7 @@
 
 <?php echo $__env->yieldContent('content'); ?>
 
+<?php echo $__env->make($activeTemplate.'partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <script src="<?php echo e(asset($activeTemplateTrue.'js/jquery-3.6.0.min.js')); ?>"></script>
 <script src="<?php echo e(asset($activeTemplateTrue.'js/jquery-ui.js')); ?>"></script>
 <script src="<?php echo e(asset($activeTemplateTrue.'js/bootstrap.min.js')); ?>"></script>
