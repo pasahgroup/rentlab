@@ -374,9 +374,7 @@
                     <?php $__currentLoopData = $pages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <li><a href="<?php echo e(route('pages',[$data->slug])); ?>"><?php echo e(__($data->name)); ?></a></li>
                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    <li><a href="<?php echo e(route('contact')); ?>">Contactc</a>
-                                  </li>
-
+                                  
                       </ul>
                   </div>
 
