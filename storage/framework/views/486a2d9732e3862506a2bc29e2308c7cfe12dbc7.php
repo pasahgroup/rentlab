@@ -207,59 +207,18 @@
                                      <li><a href="/aboutus">Contact</a></li>
                                 </ul> -->
                             </li>
-                                 <li><a href="#"> <i class="fa fa-search" style="color:#f90678;"></i></a>
-                                <div class="megamenu">
-                                    <ul class="single-mega cn-col-12">
-                                        <li class="title">Search by selecting program</li>
 
-
-<div class="south-search-area">
-        <div class="row wppadding">
-            <div class="col-12">
-                <div class="advanced-search-form">
-
-                    <!-- Search Form -->
-                         <form  method="post"  action="#" enctype="multipart/form-data">
-                              <?php echo csrf_field(); ?>
-                        <div class="row wpadding">
-                            <input type="hidden" name="_method" value="POST">
-                             <div class="col-12 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="search" placeholder="any keyword">
-                                </div>
-                            </div>
-
-                            <div class="col-12 search-form-second-steps">
-                                   <div class="row">                                          <div class="col-12 col-md-6 col-lg-6">
-                                <div class="form-group">
-                                    <input type="number" class="form-control" name="price" placeholder="maximum price">
-                                </div>
-                            </div>
-
-                                </div>
-                            </div>
-
-                            <div class="col-12 d-flex justify-content-between align-items-end">
-                                <!-- More Filter -->
-                                <div class="more-filter">
-                                    <a href="#" id="moreFilter">+ More filters</a>
-                                </div>
-
-                                <div class="form-group mb-0" target="_blank">
-                                    <button type="submit" class="btn btn-success" target="_blank" name="search2" value="search2">Search</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-    </div>
-</div>
- </div>
-
-
-</li>
 <li>||</li>
+
+
+<li><a href="#">Opportunities</a>
+    <ul class="dropdown">
+        <li><a href="/New-Agent">Agent-Register</a></li>
+<li><a href="/New-tourGuide">Tour Guide -Register</a></li>
+<li><a href="/New-Partner">Partner-Register</a></li>
+
+    </ul>
+</li>
 
 <li><a href="#" class="las la-user float-right">Account</a>
     <ul class="dropdown">
@@ -284,17 +243,9 @@
                         </li>
                     <?php endif; ?>
 
+
     </ul>
 </li>
-
-
-                             <li><a href="#" class="btn btn-outline btn-primary" style="color:#000">Bookings</a>
-                                <ul class="dropdown">
-                                     <li><a href="/tailorForm" class="btn-outline">Create New Safari(Tailor Maide)</a></li>
-            <li><a href="/bookingTrip" class="btn-outline">My Existing Safari</a></li>
-
-                                </ul>
-                            </li>
 </ul>
 
   </div>
