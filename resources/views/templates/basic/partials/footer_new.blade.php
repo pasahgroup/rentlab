@@ -11,14 +11,14 @@
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
-                            <div class="footer-item">                              
+                            <div class="footer-item">
                             <h4 class="widget__title">@lang('About') @lang($general->sitename)</h4>
                     <p>{{ __(@$footer_content->data_values->content) }}</p>
 
                             </div>
                         </div>
                     </div>
-                    
+
 
                       <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
@@ -33,14 +33,14 @@
 
                         </div>
                     </div>
-               
+
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item d-flex flex-column">
                             <h4 class="text-white mb-4">@lang('Policy Pages')</h4>
 
-                               @forelse($policy_pages as $policy)                              
+                               @forelse($policy_pages as $policy)
                             <li class="fas fa-angle-right me-2"><a href="{{ route('policy.pages', [$policy->id, slug($policy->data_values->title)]) }}">{{ __(@$policy->data_values->title) }}</a></li>
-                        
+
                         @empty
                         @endforelse
 
@@ -54,7 +54,7 @@
                             <a href="tel:+012 345 67890"><i class="fas fa-phone me-2"></i> +012 345 67890</a>
                             <a href="tel:+012 345 67890" class="mb-3"><i class="fas fa-print me-2"></i> +012 345 67890</a>
                             <div class="d-flex">
-                @forelse($social_icons as $item)                          
+                @forelse($social_icons as $item)
                                 <a href="{{ $item->data_values->url }}" class="btn btn-secondary btn-md-square rounded-circle me-3">
                                     @php echo @$item->data_values->social_icon @endphp
                                 </a>
@@ -70,7 +70,7 @@
 
         <!-- Copyright Start -->
         <div class="container-fluid copyright py-4">
-            <div class="container">            
+            <div class="container">
 
  <div class="newsletter-section">
             <div class="newsletter-wrapper">
@@ -99,6 +99,6 @@
 
             </div>
         </div>
-     
+
               <!-- Back to Top -->
         <a href="#" class="btn btn-secondary btn-lg-square rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>

@@ -51,10 +51,7 @@
 <!-- //New Added style -->
 <link rel="stylesheet" href="../../../styleMain.css">
 
-
-
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/line-awesome.min.css')); ?>">
-
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/magnific-popup.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/owl.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/jquery-ui.css')); ?>">
@@ -68,26 +65,250 @@
     <body>
 
         <!-- Spinner Start -->
-      <!--   <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+ <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
         </div> -->
         <!-- Spinner End -->
 
+        <header class="header-area" style="padding-left:3%;padding-right:3%;">
+      <?php echo $__env->make($activeTemplate.'layouts.header3', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+    <!-- Main Header Area -->
+    <div class="main-header-area" id="stickyHeader" style="background:#;margin-top:0px;">
+        <div class="classy-nav-container breakpoint-off"  style="border:1px solid rgba(193, 184, 46, 0.9)">
+            <nav class="classy-navbar justify-content-between" id="southNav">
+
+                <!-- Logo -->
+                <a class="nav-brand" href="/"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="" style="height:40px; width:120px;padding:1px;"></a>
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+
+
+
+
+                    <div class="col-md-2 d-none d-lg-block">
+                        <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical">
+                            <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>Vehicles</h6>
+
+                                          <i class="fa fa-angle-down text-dark"></i>
+                        </a>
+                        <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
+                            <div class="navbar-nav w-100">
+                                <?php $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <div class="nav-item dropdown dropright">
+                                          <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
+                                              <input type="hidden" name="brand" id="brand" value="<?php echo e($brand->id); ?>" class="form-control form--control" required>
+                                    <button  class="dropdown-item"> <a class="nav-link dropdown-toggle" data-toggle="dropdown"><?php echo e($brand->name); ?> <i class="fa fa-angle-right float-right mt-1"></i></a>
+
+                  </button>
+                  </form>
+
+                                                                         <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
+
+                                          <?php $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                          <?php if($vehicle->brand_id==$brand->id): ?>
+
+                                            <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
+                                      <input type="hidden" name="model" id="model" value="<?php echo e($vehicle->model); ?>" class="form-control form--control" required>
+                                        <button  class="dropdown-item"><?php echo e($vehicle->model); ?></button>
+                                                                                </form>
+                                        <?php endif; ?>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </div>
+                                </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </div>
+                        </nav>
+                    </div>
+
+
+
+
+
+
+
+
+
+                <!-- Menu -->
+                <div class="classy-menu">                        <!-- close btn -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul>
+
+<li><a href="/">Home</a>
+                            </li>
+
+                                <li><a href="#">Tour Packages</a>
+                                <div class="megamenu">
+                                    <ul class="single-mega cn-col-4">
+                                        <li class="title">Packages</li>
+                                        <li><a href="/safaris">Wildlife Safaris</a></li>
+                                        <li><a href="/trekking">Hiking & Trekking</a></li>
+                                        <li><a href="/holiday">Beach Holidays</a></li>
+                                        <li><a href="/dayTours">Day Tours</a></li>
+                                        <li><a href="/historical-sites">Historical Sites</a></li>
+                                    </ul>
+
+                                    <ul class="single-mega cn-col-4">
+                                        <li class="title">Special Packages</li>
+                                         <li><a href="/group">All Group Tours</a></li>
+                      <li><a href="/Group-scheduled">Scheduled Group Tours</a></li>
+            <li><a href="/offers">Special Offers</a></li>
+            <li><a href="/special-occasions">Special Occasions</a></li>
+               <li><a href="/cultural">Cultural Tours</a></li>
+                <li><a href="/addons">Addons</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li><a href="#">Services</a>
+                                <ul class="dropdown">
+                                     <li><a href="/whatWeOfferClient">Palatial Tour Services</a></li>
+            <li><a href="/drongo-attractions">Palatial Tour Attractios</a></li>
+            <li><a href="#">Palatial Crafts and Designing</a></li>
+
+                                </ul>
+                            </li>
+
+
+
+                             <li><a href="/safaris-gallery">Galleries</a>
+                                <!-- <ul class="dropdown">
+                                     <li><a href="/safaris-gallery">Gallery</a></li>
+                                </ul> -->
+                            </li>
+
+                            <li><a href="#">Opportunities</a>
+                                <ul class="dropdown">
+                                    <li><a href="/New-Agent">Agent-Register</a></li>
+                    <li><a href="/New-tourGuide">Tour Guide -Register</a></li>
+                    <li><a href="/New-Partner">Partner-Register</a></li>
+
+                                </ul>
+                            </li>
+
+
+                                <li><a href="/aboutus">About Us</a>
+                               <!--  <ul class="dropdown">
+                                     <li><a href="/safaris-gallery">About Us</a></li>
+                                </ul> -->
+                               </li>
+
+                              <li><a href="/mailing">Contact</a>
+                                <!-- <ul class="dropdown">
+                                     <li><a href="/aboutus">Contact</a></li>
+                                </ul> -->
+                            </li>
+                                 <li><a href="#"> <i class="fa fa-search" style="color:#f90678;"></i></a>
+                                <div class="megamenu">
+                                    <ul class="single-mega cn-col-12">
+                                        <li class="title">Search by selecting program</li>
+
+
+<div class="south-search-area">
+        <div class="row wppadding">
+            <div class="col-12">
+                <div class="advanced-search-form">
+
+                    <!-- Search Form -->
+                         <form  method="post"  action="#" enctype="multipart/form-data">
+                              <?php echo csrf_field(); ?>
+                        <div class="row wpadding">
+                            <input type="hidden" name="_method" value="POST">
+                             <div class="col-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="search" placeholder="any keyword">
+                                </div>
+                            </div>
+
+                            <div class="col-12 search-form-second-steps">
+                                   <div class="row">                                          <div class="col-12 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" name="price" placeholder="maximum price">
+                                </div>
+                            </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-12 d-flex justify-content-between align-items-end">
+                                <!-- More Filter -->
+                                <div class="more-filter">
+                                    <a href="#" id="moreFilter">+ More filters</a>
+                                </div>
+
+                                <div class="form-group mb-0" target="_blank">
+                                    <button type="submit" class="btn btn-success" target="_blank" name="search2" value="search2">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </div>
+</div>
+ </div>
+
+
+</li>
+<li>||</li>
+
+<li><a href="#" class="las la-user float-right">Account</a>
+    <ul class="dropdown">
+      <?php if(auth()->guard()->check()): ?>
+
+                      <li class="header-top-item meta-list">
+                    <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"><i class="lar la-envelope"></i><?php echo e(getContent('contact.content', true)->data_values->email); ?></a>
+                </li>
+                         <li class="header-top-item ml-sm-auto">
+                            <a href="<?php echo e(route('user.home')); ?>"><i class="las la-tachometer-alt"></i><?php echo app('translator')->get('Dashboard'); ?></a>
+                        </li>
+
+                        <li class="header-top-item">
+                            <a href="<?php echo e(route('user.logout')); ?>"><i class="las la-sign-out-alt"></i><?php echo app('translator')->get('Logout'); ?></a>
+                        </li>
+                    <?php else: ?>
+                        <li class="header-top-item ml-sm-auto">
+                            <a href="<?php echo e(route('user.login')); ?>"><i class="las la-user"></i><?php echo app('translator')->get('Login'); ?></a>
+                        </li>
+                        <li class="header-top-item">
+                            <a href="<?php echo e(route('user.register')); ?>"><i class="las la-user-plus"></i><?php echo app('translator')->get('Register'); ?></a>
+                        </li>
+                    <?php endif; ?>
+
+    </ul>
+</li>
+
+
+                             <li><a href="#" class="btn btn-outline btn-primary" style="color:#000">Bookings</a>
+                                <ul class="dropdown">
+                                     <li><a href="/tailorForm" class="btn-outline">Create New Safari(Tailor Maide)</a></li>
+            <li><a href="/bookingTrip" class="btn-outline">My Existing Safari</a></li>
+
+                                </ul>
+                            </li>
+</ul>
+
+  </div>
+ </div>
+</nav>
+       </div>
+    </div>
+</header>
+
+
         <div class="container-fluid">
               <div class="row bg-secondary py-1 px-xl-5">
-                  <div class="col-lg-6 d-none d-lg-block">
-                      <div class="d-inline-flex align-items-center h-100">
-                          <a class="text-body mr-3" href="">About</a>
-                          <a class="text-body mr-3" href="">Contact</a>
-                          <a class="text-body mr-3" href="">Help</a>
-                          <a class="text-body mr-3" href="">FAQs</a>
-                      </div>
-                  </div>
+
                   <div class="col-lg-6 text-center text-lg-right">
-
-
                       <div class="d-inline-flex align-items-center">
                               <div class="btn-group">
                               <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account2</button>
@@ -98,6 +319,14 @@
 
 
                           </div>
+                            <div class="btn-group mx-2">
+                          <select class="langSel language-select ms-3">
+                          <?php $__currentLoopData = $language; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                              <option value="<?php echo e($item->code); ?>"
+                                      <?php if(session('lang') == $item->code): ?> selected <?php endif; ?>><?php echo e(__($item->name)); ?></option>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                      </select>
+                    </div>
                           <div class="btn-group mx-2">
                               <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">USD</button>
                               <div class="dropdown-menu dropdown-menu-right">
@@ -127,90 +356,11 @@
                       </div>
                   </div>
               </div>
-              <div class="row align-items-center bg-light py-1 px-xl-5 d-none d-lg-flex">
-              <!-- <div class="row bg-secondary py-1 px-xl-5"> -->
-                  <div class="col-lg-4">
-
-                      <a href="" class="navbar-brand p-0">
-                                       <div class="logo gl">
-                  <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style="width:120px;"></a>
-              </div>
-
-                      </a>
-                  </div>
-                  <div class="col-lg-3 col-6 text-left">
-                      <form action="">
-                          <div class="input-group">
-                              <input type="text" class="form-control" placeholder="Search for products">
-                              <div class="input-group-append">
-                                  <span class="input-group-text bg-transparent text-primary">
-                                      <i class="fa fa-search"></i>
-                                  </span>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-                  <div class="col-lg-2 col-6 text-right">
-                    <div class="d-flex align-items-center justify-content-end float-right">
-            <?php $__empty_1 = true; $__currentLoopData = $social_icons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                            <a href="<?php echo e($item->data_values->url); ?>" class="btn btn-primary btn-square mr-2">
-                                <?php echo @$item->data_values->social_icon ?>
-                            </a>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                    <?php endif; ?>
-                  </div></div>
-
-                          <div class="col-lg-3 col-6 text-right">
-                      <div class="d-flex flex-wrap">
-                          <a href="tel:+01234567890" class="text-muted me-4"><i class="fas fa-phone-alt text-primary me-2"></i> (+255)655 633 302</a>
-                          <a href="mailto:mailto:info@rhonds.co.tz" class="text-muted me-0"><i class="fas fa-envelope text-primary me-2"></i>info@rhonds.co.tz</a>
-                      </div>
-
-                  </div>
-              </div>
           </div>
-          <!-- Topbar End -->
-
 
           <!-- Navbar Start -->
           <div class="container-fluid bg-dark mb-30">
               <div class="row px-xl-5">
-                  <div class="col-md-2 d-none d-lg-block">
-                      <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical">
-                          <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>Vehicles</h6>
-
-                                        <i class="fa fa-angle-down text-dark"></i>
-                      </a>
-                      <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
-                          <div class="navbar-nav w-100">
-                              <?php $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                              <div class="nav-item dropdown dropright">
-                                        <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
-                                            <input type="hidden" name="brand" id="brand" value="<?php echo e($brand->id); ?>" class="form-control form--control" required>
-                                  <button  class="dropdown-item"> <a class="nav-link dropdown-toggle" data-toggle="dropdown"><?php echo e($brand->name); ?> <i class="fa fa-angle-right float-right mt-1"></i></a>
-
-</button>
-</form>
-
-                                                                       <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-
-                                        <?php $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <?php if($vehicle->brand_id==$brand->id): ?>
-
-                                          <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
-                                    <input type="hidden" name="model" id="model" value="<?php echo e($vehicle->model); ?>" class="form-control form--control" required>
-                                      <button  class="dropdown-item"><?php echo e($vehicle->model); ?></button>
-                                                                              </form>
-                                      <?php endif; ?>
-                                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                  </div>
-                              </div>
-
-                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                              <!-- <a href="" class="nav-item nav-link">Shoes</a> -->
-                          </div>
-                      </nav>
-                  </div>
                   <div class="col-md-10">
                       <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
                           <a href="" class="text-decoration-none d-block d-lg-none">
@@ -234,15 +384,11 @@
 
                                   <!-- Classy Menu -->
                                   <nav class="classy-navbar justify-content-between" id="southNav">
-
                                       <div class="classy-menu">
                                           <div class="classynav">
                                               <ul>
                    <li class="active"><a href="<?php echo e(route('home')); ?>">Home</a>
                                   </li>
-
-
-
 
                                                                                   <li><a href="<?php echo e(route('vehicles')); ?>">Vehicles <i class="las la-angle"></i></a>
 
@@ -287,37 +433,7 @@
                                   </li>
 
 
-
-                    <li><a href="#" class="las la-user float-right">Account3</a>
-                                                      <ul class="dropdown">
-                   <?php if(auth()->guard()->check()): ?>
-
-                                      <li class="header-top-item meta-list">
-                                  <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"><i class="lar la-envelope"></i><?php echo e(getContent('contact.content', true)->data_values->email); ?></a>
-                              </li>
-                                       <li class="header-top-item ml-sm-auto">
-                                          <a href="<?php echo e(route('user.home')); ?>"><i class="las la-tachometer-alt"></i><?php echo app('translator')->get('Dashboard'); ?></a>
-                                      </li>
-
-                                      <li class="header-top-item">
-                                          <a href="<?php echo e(route('user.logout')); ?>"><i class="las la-sign-out-alt"></i><?php echo app('translator')->get('Logout'); ?></a>
-                                      </li>
-                                  <?php else: ?>
-                                      <li class="header-top-item ml-sm-auto">
-                                          <a href="<?php echo e(route('user.login')); ?>"><i class="las la-user"></i><?php echo app('translator')->get('Login'); ?></a>
-                                      </li>
-                                      <li class="header-top-item">
-                                          <a href="<?php echo e(route('user.register')); ?>"><i class="las la-user-plus"></i><?php echo app('translator')->get('Register'); ?></a>
-                                      </li>
-                                  <?php endif; ?>
-
-
-
-                                                      </ul>
-                                                  </li>
-
-
-                                              <li><a href="#" class="las Plan-booking float-right"><strong style="color:yellow;">Language</strong></a>
+                                            <li><a href="#" class="las Plan-booking float-right"><strong style="color:yellow;">Language</strong></a>
                                                       <ul class="dropdown">
 
                                           <select class="langSel language-select ms-3">

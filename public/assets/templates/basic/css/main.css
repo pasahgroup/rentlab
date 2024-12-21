@@ -1415,7 +1415,7 @@ strong, b {
 }
 
 .form--control, .form-control:disabled, .form-control[readonly] {
-    height: 32px;
+    height:30px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -3259,7 +3259,7 @@ width: 40%;
 
 .rent__item .rent__thumb {
     position: relative;
-    height: 240px;
+    height: 201px;
     display: flex;
     align-items: center;
     justify-content: center;
