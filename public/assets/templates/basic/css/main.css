@@ -8,7 +8,7 @@ html {
 body {
     padding: 0;
     margin: 0;
-    font-size: 16px;
+    font-size: 15px;
 /*    color: #031A04;*/
     color: #000;
     overflow-x: hidden;
@@ -1875,7 +1875,7 @@ select.form--control {
 
 /*Account Section*/
 .account-section {
-    min-height: 100vh;
+    min-height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
