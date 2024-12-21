@@ -15,7 +15,6 @@
          <title><?php echo e($general->sitename(__($pageTitle))); ?></title>
            <?php echo $__env->make('partials.seo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -31,7 +30,6 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 
         <!-- Libraries Stylesheet -->
-
   <link href="../../../frontendp/lib/animate/animate.min.css" rel="stylesheet" type="text/css" />
     <link href="../../../frontendp/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
 
@@ -196,10 +194,7 @@
                                 </ul> -->
                                </li>
 
-                              <li><a href="/mailing">Contact</a>
-                                <!-- <ul class="dropdown">
-                                     <li><a href="/aboutus">Contact</a></li>
-                                </ul> -->
+                              <li><a href="<?php echo e(route('contact')); ?>">Contact</a>
                             </li>
 
 <li>||</li>
@@ -379,42 +374,13 @@
                     <?php $__currentLoopData = $pages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $k => $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                       <li><a href="<?php echo e(route('pages',[$data->slug])); ?>"><?php echo e(__($data->name)); ?></a></li>
                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    <li><a href="<?php echo e(route('contact')); ?>">Contact</a>
+                                    <li><a href="<?php echo e(route('contact')); ?>">Contactc</a>
                                   </li>
 
-
-                                            <li><a href="#" class="las Plan-booking float-right"><strong style="color:yellow;">Language</strong></a>
-                                                      <ul class="dropdown">
-
-                                          <select class="langSel language-select ms-3">
-                                          <?php $__currentLoopData = $language; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                              <option value="<?php echo e($item->code); ?>"
-                                                      <?php if(session('lang') == $item->code): ?> selected <?php endif; ?>><?php echo e(__($item->name)); ?></option>
-                                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                      </select>
-
-
-
-                                                      </ul>
-                                                  </li>
-
-                                                  
                       </ul>
                   </div>
 
                        </div>
-
-
-                                                     <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                                                         <a href="" class="btn px-0">
-                                                             <i class="fas fa-heart text-primary"></i>
-                                                             <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
-                                                         </a>
-                                                         <a href="" class="btn px-0 ml-3">
-                                                             <i class="fas fa-shopping-cart text-primary"></i>
-                                                             <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
-                                                         </a>
-                                                     </div>
 
                    </nav>
 

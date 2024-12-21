@@ -15,7 +15,6 @@
          <title>{{ $general->sitename(__($pageTitle)) }}</title>
            @include('partials.seo')
 
-
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -31,7 +30,6 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 
         <!-- Libraries Stylesheet -->
-
   <link href="../../../frontendp/lib/animate/animate.min.css" rel="stylesheet" type="text/css" />
     <link href="../../../frontendp/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
 
@@ -196,10 +194,7 @@
                                 </ul> -->
                                </li>
 
-                              <li><a href="/mailing">Contact</a>
-                                <!-- <ul class="dropdown">
-                                     <li><a href="/aboutus">Contact</a></li>
-                                </ul> -->
+                              <li><a href="{{ route('contact') }}">Contact</a>
                             </li>
 
 <li>||</li>
@@ -379,44 +374,11 @@
                     @foreach($pages as $k => $data)
                                       <li><a href="{{route('pages',[$data->slug])}}">{{__($data->name)}}</a></li>
                                   @endforeach
-                                    <li><a href="{{ route('contact') }}">Contact</a>
-                                  </li>
-
-
-                                            <li><a href="#" class="las Plan-booking float-right"><strong style="color:yellow;">Language</strong></a>
-                                                      <ul class="dropdown">
-
-                                          <select class="langSel language-select ms-3">
-                                          @foreach($language as $item)
-                                              <option value="{{$item->code}}"
-                                                      @if(session('lang') == $item->code) selected @endif>{{ __($item->name) }}</option>
-                                          @endforeach
-                                      </select>
-
-
-
-                                                      </ul>
-                                                  </li>
-
-                                                  {{--
-                  <a href="#" class="btn btn-primary rounded-pill py-2 px-4">View</a>
-                  --}}
+                                  
                       </ul>
                   </div>
 
                        </div>
-
-
-                                                     <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                                                         <a href="" class="btn px-0">
-                                                             <i class="fas fa-heart text-primary"></i>
-                                                             <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
-                                                         </a>
-                                                         <a href="" class="btn px-0 ml-3">
-                                                             <i class="fas fa-shopping-cart text-primary"></i>
-                                                             <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
-                                                         </a>
-                                                     </div>
 
                    </nav>
 
