@@ -13,140 +13,149 @@
 </style>
 <br>
 <!-- Carousel Start -->
-  <div class="container-fluid">
-          <div class="row">
-              <div class="col-md-8">
-              <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
-                  <ol class="carousel-indicators">
-                      <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
-                      @for($i=1;$i<10;$i++)
-                    <li data-target="#header-carousel" data-slide-to="{{$i}}"></li>
-                  @endfor
-                  </ol>
-                  <div class="carousel-inner">
-                      <div class="carousel-item position-relative active" style="height: 430px;">
 
-                          <img class="position-absolute w-100 h-100" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
-                          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                              <div class="p-3" style="max-width: 700px;">
-                                  <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</h1>
-                                  <p class="mx-md-5 px-5 animate__animated animate__bounceIn text-white">{{$metaFirstVehicle->details}}</p>
-                                  <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="#">View More</a>
-                              </div>
-                          </div>
-                      </div>
-     @foreach ($metaVehicles as $indexKey => $vehicle)
-                      <div class="carousel-item position-relative" style="height: 430px;">
-                          <img class="position-absolute w-100 h-100" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
-                          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                              <div class="p-3" style="max-width: 700px;">
-                                  <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{$vehicle->model}}({{$vehicle->car_body_type}})</h1>
-                                  <p class="mx-md-5 px-5 animate__animated animate__bounceIn text-white">{{$vehicle->details}}</p>
-                                  <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}">View More</a>
-                                                          </div>
-                          </div>
-                      </div>
-   @endforeach
 
+<div class="container categories blog pb-5" id="section3">
+<div class="row">
+  <div class="col-md-8">
+  <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
+      <ol class="carousel-indicators">
+          <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
+          @for($i=1;$i<10;$i++)
+        <li data-target="#header-carousel" data-slide-to="{{$i}}"></li>
+      @endfor
+      </ol>
+      <div class="carousel-inner">
+          <div class="carousel-item position-relative active" style="height: 430px;">
+
+              <img class="position-absolute w-100 h-100" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
+              <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                  <div class="p-3" style="max-width: 700px;">
+                      <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</h1>
+                      <p class="mx-md-5 px-5 animate__animated animate__bounceIn text-white">{{$metaFirstVehicle->details}}</p>
+                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="#">View More</a>
                   </div>
               </div>
-            </div>
-
-              <div class="col-md-4">
-              <div class="product-offer mb-30" style="height: 200px;">
-                  <img class="img-fluid" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size']) }}" alt="">
-                  <div class="offer-text">
-                    <div class="text-start">
-                    <div class="rounded">
-                          <strong class="text-white">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</strong>
-                          <ul class="#">
-                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$metaFirstVehicle->transmission}}</strong></li>
-                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$metaFirstVehicle->doors}}</strong></li>
-                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$metaFirstVehicle->fuel_type}}</strong></li>
-                          </ul>
-                          </div>
-                          <div class="mb-2">
-                          </div>
-                            <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="">Read More  <i class="fa fa-arrow-right"></i></a>
-                            {{--
-                             <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a>
-                               --}}
-                            </div>
-                  </div>
+          </div>
+@foreach ($metaVehicles as $indexKey => $vehicle)
+          <div class="carousel-item position-relative" style="height: 430px;">
+              <img class="position-absolute w-100 h-100" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size']) }}" style="object-fit: cover;">
+              <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                  <div class="p-3" style="max-width: 700px;">
+                      <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{$vehicle->model}}({{$vehicle->car_body_type}})</h1>
+                      <p class="mx-md-5 px-5 animate__animated animate__bounceIn text-white">{{$vehicle->details}}</p>
+                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}">View More</a>
+                                              </div>
               </div>
+          </div>
+@endforeach
 
-              <div class="product-offer mb-30" style="height: 215px;">
-                  <img class="img-fluid" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size']) }}" alt="">
-                  <div class="offer-text">
-                    <div class="text-start">
-                    <div class="rounded">
-                          <strong class="text-white">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</strong>
-                          <ul class="#">
-                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$metaFirstVehicle->transmission}}</strong></li>
-                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$metaFirstVehicle->doors}}</strong></li>
-                              <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$metaFirstVehicle->fuel_type}}</strong></li>
-                          </ul>
-                          </div>
-                          <div class="mb-2">
-                          </div>
-                            <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="">Read More  <i class="fa fa-arrow-right"></i></a>
-                           {{--
-                             <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a>
-                              --}}
-                              </div>
-                  </div>
+      </div>
+  </div>
+</div>
+
+  <div class="col-md-4">
+  <div class="product-offer mb-30" style="height: 200px;">
+      <img class="img-fluid" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size']) }}" alt="">
+      <div class="offer-text">
+        <div class="text-start">
+        <div class="rounded">
+              <strong class="text-white">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</strong>
+              <ul class="#">
+                  <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$metaFirstVehicle->transmission}}</strong></li>
+                  <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$metaFirstVehicle->doors}}</strong></li>
+                  <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$metaFirstVehicle->fuel_type}}</strong></li>
+              </ul>
               </div>
-            </div>
-
-                  </div>
+              <div class="mb-2">
+              </div>
+                <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="">Read More  <i class="fa fa-arrow-right"></i></a>
+                {{--
+                 <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a>
+                   --}}
                 </div>
-  <!-- Carousel End -->
+      </div>
+  </div>
+
+  <div class="product-offer mb-30" style="height: 215px;">
+      <img class="img-fluid" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size']) }}" alt="">
+      <div class="offer-text">
+        <div class="text-start">
+        <div class="rounded">
+              <strong class="text-white">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</strong>
+              <ul class="#">
+                  <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong>{{$metaFirstVehicle->transmission}}</strong></li>
+                  <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong>{{$metaFirstVehicle->doors}}</strong></li>
+                  <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong>{{$metaFirstVehicle->fuel_type}}</strong></li>
+              </ul>
+              </div>
+              <div class="mb-2">
+              </div>
+                <a href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}" class="">Read More  <i class="fa fa-arrow-right"></i></a>
+               {{--
+                 <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a>
+                  --}}
+                  </div>
+      </div>
+  </div>
+</div>
+
+            </div>
+</div>
 
 
 
   <!-- Car Steps Start -->
-  <div class="container-fluid">
+  <div class="section">
           <div class="row">
-  <div class="container-fluid steps py-1" id="section7">
-      <div class="container-fluid py-4">
+  <div class="container steps py-1" id="section7">
+      <div class="container py-4">
           <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
               <h1 class="display-5 text-capitalize text-white mb-3">Rhonds<span class="text-primary"> Services</span></h1>
-              <p class="mb-0 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+              <p class="mb-0 text-white demo-1">{{$main_service->content?? 'No Content'}}
               </p>
           </div>
           <div class="row g-4">
               <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                   <div class="steps-item p-4 mb-4">
-                      <h4>Come In Contact</h4>
-                      <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
-                      <div class="setps-number">01.</div>
+                      <h4 class="mb-3">{{$wedding->title?? 'No Title'}}</h4>
+                      <p class="mb-0 demo-1">{{$wedding->content?? 'No Content'}}</p>
+
+                      <div class="setps-number text-primary">Explore More
+ <!-- <a href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}" class="btn btn-primary rounded-pill d-flex justify-content-center py-1 px-4" style="margin-bottom:0px;">Book</a> -->
+                      </div>
                   </div>
               </div>
               <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                   <div class="steps-item p-4 mb-4">
-                      <h4>Choose A Car</h4>
-                      <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
-                      <div class="setps-number">02.</div>
+                      <h4 class="mb-3">{{$escort->title?? 'No Title'}}</h4>
+                      <p class="mb-0 demo-1">{{$escort->content?? 'No Content'}}</p>
+                      <div class="setps-number text-primary">Explore More
+
+                      </div>
                   </div>
               </div>
               <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                   <div class="steps-item p-4 mb-4">
-                      <h4>Enjoy Driving</h4>
-                      <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!</p>
-                      <div class="setps-number">03.</div>
+                      <h4 class="mb-3">{{$car_hiring->title?? 'No Title'}}</h4>
+                      <p class="mb-0 demo-1">{{$car_hiring->content?? 'No Content'}}</p>
+                      <div class="setps-number text-primary">Explore More
+
+                      </div>
                   </div>
               </div>
           </div>
       </div>
   </div>
 </div>
-</div>
+</section>
 
+{{--
         <!-- Features Start -->
-        <div class="container-fluid feature py-5" id="section2">
+    <div class="container categories blog pb-5" id="section2">
             <div class="container py-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Rhonds <span class="text-primary">Services</span></h1>
+                    <h1 class="display-5 text-capitalize mb-3">Rhonds <span class="text-primary">Servicesx</span></h1>
 
                     <strong class="mb-0">
                     </strong>
@@ -217,9 +226,10 @@
             </div>
         </div>
         <!-- Features End -->
+        --}}
 
  <!-- Car categories Start -->
-        <div class="container-fluid categories blog pb-5" id="section3">
+        <div class="container categories blog pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
                     <h1 class="display-5 text-capitalize mb-3">Car <span class="text-primary">List</span></h1>
                     <p class="mb-0">Book your appropriate Car Type
@@ -305,234 +315,9 @@
 
         </div>
 
-        <!-- Fact Counter -->
-        <div class="container-fluid counter bg-secondary py-5" id="section6">
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="counter-item text-center">
-                            <div class="counter-item-icon mx-auto">
-                                <i class="fas fa-thumbs-up fa-2x"></i>
-                            </div>
-                            <div class="counter-counting my-3">
-                                <span class="text-white fs-2 fw-bold" data-toggle="counter-up">829</span>
-                                <span class="h1 fw-bold text-white">+</span>
-                            </div>
-                            <h4 class="text-white mb-0">Happy Clients</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="counter-item text-center">
-                            <div class="counter-item-icon mx-auto">
-                                <i class="fas fa-car-alt fa-2x"></i>
-                            </div>
-                            <div class="counter-counting my-3">
-                                <span class="text-white fs-2 fw-bold" data-toggle="counter-up">56</span>
-                                <span class="h1 fw-bold text-white">+</span>
-                            </div>
-                            <h4 class="text-white mb-0">Number of Cars</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="counter-item text-center">
-                            <div class="counter-item-icon mx-auto">
-                                <i class="fas fa-building fa-2x"></i>
-                            </div>
-                            <div class="counter-counting my-3">
-                                <span class="text-white fs-2 fw-bold" data-toggle="counter-up">127</span>
-                                <span class="h1 fw-bold text-white">+</span>
-                            </div>
-                            <h4 class="text-white mb-0">Car Center</h4>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="counter-item text-center">
-                            <div class="counter-item-icon mx-auto">
-                                <i class="fas fa-clock fa-2x"></i>
-                            </div>
-                            <div class="counter-counting my-3">
-                                <span class="text-white fs-2 fw-bold" data-toggle="counter-up">589</span>
-                                <span class="h1 fw-bold text-white">+</span>
-                            </div>
-                            <h4 class="text-white mb-0">Total kilometers</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Fact Counter -->
 
 
-        <!-- Blog Start -->
-        <div class="container-fluid blog py-5" id="section8">
-            <div class="container py-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Cental<span class="text-primary"> Blog & News</span></h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
-                    </p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="../../frontendp/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                            </div>
-                            <div class="blog-content rounded-bottom p-4">
-                                <div class="blog-date">30 Dec 2025</div>
-                                <div class="blog-comment my-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">Martin.C</span></div>
-                                    <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
-                                </div>
-                                <a href="#" class="h4 d-block mb-3">Rental Cars how to check driving fines?</a>
-                                <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                                <a href="#" class="">Read More  <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="../../frontendp/img/blog-2.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                            </div>
-                            <div class="blog-content rounded-bottom p-4">
-                                <div class="blog-date">25 Dec 2025</div>
-                                <div class="blog-comment my-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">Martin.C</span></div>
-                                    <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
-                                </div>
-                                <a href="#" class="h4 d-block mb-3">Rental cost of sport and other cars</a>
-                                <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                                <a href="#" class="">Read More  <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="../../frontendp/img/blog-3.jpg" class="img-fluid rounded-top w-100" alt="Image">
-                            </div>
-                            <div class="blog-content rounded-bottom p-4">
-                                <div class="blog-date">27 Dec 2025</div>
-                                <div class="blog-comment my-3">
-                                    <div class="small"><span class="fa fa-user text-primary"></span><span class="ms-2">Martin.C</span></div>
-                                    <div class="small"><span class="fa fa-comment-alt text-primary"></span><span class="ms-2">6 Comments</span></div>
-                                </div>
-                                <a href="#" class="h4 d-block mb-3">Document required for car rental</a>
-                                <p class="mb-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.</p>
-                                <a href="#" class="">Read More  <i class="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Blog End -->
-
-        <!-- Banner Start -->
-        <div class="container-fluid banner pb-5 wow zoomInDown" data-wow-delay="0.1s" id="section8">
-            <div class="container pb-5">
-                <div class="banner-item rounded">
-                    <img src="../../frontendp/img/banner-1.jpg" class="img-fluid rounded w-100" alt="">
-                    <div class="banner-content">
-                        <h2 class="text-primary">Rent Your Car</h2>
-                        <h1 class="text-white">Interested in Renting?</h1>
-                        <p class="text-white">Don't hesitate and send us a message.</p>
-                        <div class="banner-btn">
-                            <a href="#" class="btn btn-secondary rounded-pill py-3 px-4 px-md-5 me-2">WhatchApp</a>
-                            <a href="#" class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Banner End -->
-
-
-        <!-- Team Start -->
-        <div class="container-fluid team pb-5" id="section9">
-            <div class="container pb-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Customer<span class="text-primary"> Suport</span> Center</h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
-                    </p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="team-item p-4 pt-0">
-                            <div class="team-img">
-                                <img src="../../frontendp/img/team-1.jpg" class="img-fluid rounded w-100" alt="Image">
-                            </div>
-                            <div class="team-content pt-4">
-                                <h4>MARTIN DOE</h4>
-                                <p>Profession</p>
-                                <div class="team-icon d-flex justify-content-center">
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item p-4 pt-0">
-                            <div class="team-img">
-                                <img src="../../frontendp/img/team-2.jpg" class="img-fluid rounded w-100" alt="Image">
-                            </div>
-                            <div class="team-content pt-4">
-                                <h4>MARTIN DOE</h4>
-                                <p>Profession</p>
-                                <div class="team-icon d-flex justify-content-center">
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="team-item p-4 pt-0">
-                            <div class="team-img">
-                                <img src="../../frontendp/img/team-3.jpg" class="img-fluid rounded w-100" alt="Image">
-                            </div>
-                            <div class="team-content pt-4">
-                                <h4>MARTIN DOE</h4>
-                                <p>Profession</p>
-                                <div class="team-icon d-flex justify-content-center">
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="team-item p-4 pt-0">
-                            <div class="team-img">
-                                <img src="../../frontendp/img/team-4.jpg" class="img-fluid rounded w-100" alt="Image">
-                            </div>
-                            <div class="team-content pt-4">
-                                <h4>MARTIN DOE</h4>
-                                <p>Profession</p>
-                                <div class="team-icon d-flex justify-content-center">
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                                    <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Team End -->
-
-
-
-        <section class="showcase" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
+              <section class="showcase" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
             @php
                 $banners = getContent('banner.element');
 
@@ -561,14 +346,13 @@
         </section>
 
 
-
-
-
+<hr>
+  <section class="showcase" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
         <!-- Testimonial Start -->
-        <div class="container-fluid testimonial pb-5" id="section10">
+        <div class="container testimonial pb-5" id="section10">
             <div class="container pb-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Our Clients<span class="text-primary"> Riviews</span></h1>
+                    <h1 class="display-5 text-capitalize mb-3">customers<span class="text-primary"> happines reviews</span></h1>
                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
                     </p>
                 </div>
@@ -640,6 +424,7 @@
                 </div>
             </div>
         </div>
+        </section>
 
     <script type="text/javascript">
 function scrollToNextSection() {

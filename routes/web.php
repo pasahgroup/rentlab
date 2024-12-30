@@ -553,6 +553,7 @@ Route::get('/cartag-page/{id}', 'SiteController@carTag')->name('cartag-page.show
 
 Route::get('/{slug}', 'SiteController@pages')->name('pages');
 Route::get('/', 'SiteController@index')->name('home');
+Route::get('web-servise/{s}', 'SiteController@webservice')->name('web-service');
 
 // AzamPay
  // Route::get('azam', DepartController::class)->name('azam.index');

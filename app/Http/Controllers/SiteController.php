@@ -93,6 +93,7 @@ $car_hiring=service::where('service_name','car_hiring')->where('status','1')->fi
 //dd($wedding);
  $services=service::get();
 
+
         // $services=collect($services);
 
 //dd($services->where('category','Main')->where('status','1')->category);
@@ -114,6 +115,32 @@ $car_hiring=service::where('service_name','car_hiring')->where('status','1')->fi
         return view($this->activeTemplate . 'pages', compact('pageTitle','sections'));
     }
 
+
+    public function webservice($s)
+    {
+     //dd($s);
+        // $page = Page::where('tempname',$this->activeTemplate)->where('slug',$slug)->firstOrFail();
+        // $pageTitle = $page->name;
+        // $sections = $page->secs;
+
+
+        $service_service=service::where('service_name',$s)->where('status','1')->first();
+       //dd($service_service);
+         $pageTitle=$service_service->title;
+
+        $main_service=service::where('category','Main')->where('status','1')->first();
+        $escort=service::where('service_name','Escort')->where('status','1')->first();
+        $wedding=service::where('service_name','Wedding')->where('status','1')->first();
+
+        $car_hiring=service::where('service_name','car_hiring')->where('status','1')->first();
+
+
+        $vehicles = Vehicle::join('brands','brands.id','vehicles.brand_id')
+        ->select('vehicles.id','vehicles.model','vehicles.brand_id','vehicles.price','vehicles.images','vehicles.car_model_no','vehicles.transmission','vehicles.fuel_type','vehicles.doors','vehicles.specifications','brands.name')
+        ->groupBy('vehicles.model')
+        ->paginate(getPaginate(4));
+        return view($this->activeTemplate . 'services.service', compact('main_service','escort','service_service','wedding','car_hiring','vehicles','pageTitle'));
+    }
 
 
 

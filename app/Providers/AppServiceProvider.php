@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Models\cartype;
 use App\Models\Brand;
 use App\Models\Vehicle;
+use App\Models\service;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
@@ -58,8 +59,11 @@ if ($this->app->isLocal()) {
 
         $viewShare['cartypes'] = cartype::orderBy('car_body_type')->get();
        $viewShare['brands'] = brand::orderBy('name')->get();
-       $viewShare['vehicles'] = Vehicle::orderBy('model')->get();
-          // dd();
+       $viewShare['view_vehicles'] = Vehicle::orderBy('model')->get();
+          $viewShare['view_services'] = service::where('service_name','!=','Main')
+          ->orderBy('title','asc')->get();
+         //dd($viewShare['view_services']);
+
         view()->share($viewShare);
 
 

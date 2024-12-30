@@ -567,11 +567,11 @@
 
 .steps .steps-item .setps-number {
     position: absolute;
-    width: 64px;
-    height: 64px;
+    width: 145px;
+    height: 30px;
     bottom: 0;
-    right: 40px;
-    font-weight: 900;
+    right: 0px;
+    font-weight: 700;
     border: 1px solid var(--bs-white);
     border-radius: 64px;
     transform: translateY(50%);
