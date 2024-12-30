@@ -38,7 +38,7 @@
                                                                       <option>Main</option>
                                                                    <option>Normal</option>
                                                                      <option>Transportation</option>
-                                                                    <option>Wedding_sendoff</option>
+                                                                    <option>Wedding & sendoff</option>
                                                           </select>
 
                                                           </div>
