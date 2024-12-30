@@ -34,8 +34,11 @@
                                                                  value="{{ $service->category }}">
 
                                                                  <option value="{{ $service->category }}">{{ $service->category }}</option>
-                                                                 <option>Normal</option>
-                                                                   <option>Section</option>
+                                                                 <ption>Escourt</option>
+                                                                      <option>Main</option>
+                                                                   <ption>Normal</option>
+                                                                     <ption>Transportation</option>
+                                                                    <option>Wedding_sendoff</option>
                                                           </select>
 
                                                           </div>
