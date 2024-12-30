@@ -118,12 +118,6 @@ $car_hiring=service::where('service_name','car_hiring')->where('status','1')->fi
 
     public function webservice($s)
     {
-     //dd($s);
-        // $page = Page::where('tempname',$this->activeTemplate)->where('slug',$slug)->firstOrFail();
-        // $pageTitle = $page->name;
-        // $sections = $page->secs;
-
-
         $service_service=service::where('service_name',$s)->where('status','1')->first();
        //dd($service_service);
          $pageTitle=$service_service->title;
@@ -246,10 +240,6 @@ public function show(Request $request,$id)
 
 
 
-
-
-
-
     public function contact()
     {
         $pageTitle = "Contact Us";
@@ -330,6 +320,12 @@ public function show(Request $request,$id)
         $policy = Frontend::where('id',$id)->where('data_keys','policy_pages.element')->firstOrFail();
         $pageTitle = $policy->data_values->title;
         return view($this->activeTemplate.'policy_details',compact('policy','pageTitle'));
+    }
+
+    public function faqs(){
+       $pageTitle="Faqs";
+        $sections = Page::where('tempname',$this->activeTemplate)->where('slug','home')->first();
+        return view($this->activeTemplate.'faqs.faqs',compact('pageTitle','sections'));
     }
 
     public function cookieAccept(){

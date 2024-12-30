@@ -130,7 +130,6 @@
   <li>
 
     <?php if($vehicle->brand_id==$brand->id): ?>
-
       <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
 <input type="hidden" name="model" id="model" value="<?php echo e($vehicle->model); ?>" class="form-control form--control" required>
   <button  class="dropdown-item"><?php echo e($vehicle->model); ?></button>

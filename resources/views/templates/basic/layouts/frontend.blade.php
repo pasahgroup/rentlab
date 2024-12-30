@@ -130,7 +130,6 @@
   <li>
 
     @if($vehicle->brand_id==$brand->id)
-
       <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
 <input type="hidden" name="model" id="model" value="{{$vehicle->model}}" class="form-control form--control" required>
   <button  class="dropdown-item">{{$vehicle->model}}</button>

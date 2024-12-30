@@ -541,6 +541,8 @@ Route::post('plan/{id}', 'SiteController@planBooking')->name('plan.booking');
 Route::get('blogs', 'SiteController@blogs')->name('blogs');
 Route::get('blog/{id}/{slug}', 'SiteController@blogDetails')->name('blog.details');
 Route::get('policy/{id}/{slug}', 'SiteController@policyPages')->name('policy.pages');
+Route::get('faqs', 'SiteController@faqs')->name('policy.faqs');
+
 
 Route::get('placeholder-image/{size}', 'SiteController@placeholderImage')->name('placeholder.image');
 

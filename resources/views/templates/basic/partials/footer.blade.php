@@ -38,8 +38,8 @@
                     <h4 class="widget__title">@lang('About') @lang($general->sitename)</h4>
                     <p>{{ __(@$footer_content->data_values->content) }}</p>
                     <ul class="social-icons">
-                   
-                          @forelse($social_icons as $item)                          
+
+                          @forelse($social_icons as $item)
                                 <a href="{{ $item->data_values->url }}" class="btn btn-secondary btn-md-square rounded-circle me-3">
                                     @php echo @$item->data_values->social_icon @endphp
                                 </a>
@@ -69,6 +69,7 @@
                             <li><a href="{{ route('policy.pages', [$policy->id, slug($policy->data_values->title)]) }}">{{ __(@$policy->data_values->title) }}</a></li>
                         @empty
                         @endforelse
+                          <li><a href="{{ route('policy.faqs') }}">Faqs</a></li>
 
                     </ul>
                 </div>

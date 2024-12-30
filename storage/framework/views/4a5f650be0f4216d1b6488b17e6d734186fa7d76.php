@@ -183,7 +183,6 @@
                                        </div>
 
                                         <strong><?php echo e($vehicle->name); ?></strong>
-
                                            <div class="rent__content mt-n1">
                                                 <ul class="d-flex car-info center">
                                                      <!-- <li class="pr-3 text-center"> -->
