@@ -1,19 +1,19 @@
-@php
+<?php
     $subscribe_content = getContent('subscribe.content', true);
     $footer_content = getContent('footer.content', true);
     $contact = getContent('contact.content', true);
     $social_icons = getContent('social_icon.element', false, null, true);
     $policy_pages = getContent('policy_pages.element', false, null, true);
-@endphp
+?>
  <script type="text/javascript" src="../js/jquery360.min.js"></script>
-<link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/bootstrap.min.css')); ?>">
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-         <title>{{ $general->sitename(__($pageTitle)) }}</title>
-           @include('partials.seo')
+         <title><?php echo e($general->sitename(__($pageTitle))); ?></title>
+           <?php echo $__env->make('partials.seo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
@@ -78,22 +78,22 @@
 <!-- //New Added style -->
 <link rel="stylesheet" href="../../../styleMain.css">
 
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/line-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/magnific-popup.min.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/owl.min.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/jquery-ui.css')}}">
-    <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/main.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/line-awesome.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/magnific-popup.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/owl.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/jquery-ui.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/main.css')); ?>">
 
            <!-- end of Custom library -->
 
-    @stack('style-lib')
-    @stack('style')
+    <?php echo $__env->yieldPushContent('style-lib'); ?>
+    <?php echo $__env->yieldPushContent('style'); ?>
     </head>
     <body>
 
 
         <header class="header-area" style="padding-left:3%;padding-right:3%;">
-      @include($activeTemplate.'layouts.header3')
+      <?php echo $__env->make($activeTemplate.'layouts.header3', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <!-- Main Header Area -->
     <div class="main-header-area" id="stickyHeader" style="background:">
@@ -101,7 +101,7 @@
             <nav class="classy-navbar justify-content-between" id="southNav">
 
                 <!-- Logo -->
-                <a class="nav-brand" href="/"><img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="" style="height:40px; width:120px;padding:1px;"></a>
+                <a class="nav-brand" href="/"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="" style="height:40px; width:120px;padding:1px;"></a>
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
                         <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -125,32 +125,32 @@
                                                         <li><a href="#">Vehicles</a>
 
 <ul class="dropdown">
-  @foreach($brands as $brand)
+  <?php $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                                        <li><a href="#">{{$brand->name}}</a>
+                                        <li><a href="#"><?php echo e($brand->name); ?></a>
 
                                             <ul class="dropdown">
 
-                                              @foreach($view_vehicles as $vehicle)
+                                              <?php $__currentLoopData = $view_vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
   <li>
 
-    @if($vehicle->brand_id==$brand->id)
-      <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
-<input type="hidden" name="model" id="model" value="{{$vehicle->model}}" class="form-control form--control" required>
-  <button  class="dropdown-item">{{$vehicle->model}}</button>
+    <?php if($vehicle->brand_id==$brand->id): ?>
+      <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
+<input type="hidden" name="model" id="model" value="<?php echo e($vehicle->model); ?>" class="form-control form--control" required>
+  <button  class="dropdown-item"><?php echo e($vehicle->model); ?></button>
                                           </form>
-  @endif
+  <?php endif; ?>
 
 
   </li>
 
 
-                                              @endforeach
+                                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                             </ul>
                                             </li>
-                                                    @endforeach
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </ul>
 
 
@@ -160,16 +160,14 @@
 
                             <li><a href="#">Services</a>
                                 <ul class="dropdown">
-              @foreach($view_services as $view_service)
-              {{--
-            <li><a href="web-servise/{{$view_service->service_name}}">{{$view_service->title}}</a>
-              --}}
+              <?php $__currentLoopData = $view_services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $view_service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              
 
-              <form action="{{ route('web-service',$view_service->service_name) }}" method="get" class="priceForm">
-            <button  class="dropdown-item">{{$view_service->title}}</button>
+              <form action="<?php echo e(route('web-service',$view_service->service_name)); ?>" method="get" class="priceForm">
+            <button  class="dropdown-item"><?php echo e($view_service->title); ?></button>
                                                   </form>
             </li>
-  @endforeach
+  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 
                                 </ul>
@@ -179,26 +177,17 @@
 
                                                                                 <li><a href="#">Booking</a>
                                                                                   <ul class="dropdown">
-                                                                                       <li><a href="{{ route('user.multibooking.index') }}">Multi-booking</a></li>
-                                                                                        <li><a href="{{ route('plans') }}">Plan-booking</a></li>
+                                                                                       <li><a href="<?php echo e(route('user.multibooking.index')); ?>">Multi-booking</a></li>
+                                                                                        <li><a href="<?php echo e(route('plans')); ?>">Plan-booking</a></li>
 
                                                                                   </ul>
                                                                               </li>
 
-{{--
-                            <li><a href="#">Opportunities</a>
-                                <ul class="dropdown">
-                                    <li><a href="/New-Agent">Agent-Register</a></li>
-                    <li><a href="/New-tourGuide">Tour Guide -Register</a></li>
-                    <li><a href="/New-Partner">Partner-Register</a></li>
 
-                                </ul>
-                            </li>
-                            --}}
 
                             <li><a href="#">Miscellaneous</a>
                                 <ul class="dropdown">
-                                    <li><a href="{{ route('blogs') }}">Blog</a></li>
+                                    <li><a href="<?php echo e(route('blogs')); ?>">Blog</a></li>
                                     <li><a href="#">Galleries (Comming soon---)</a></li>
                                     <li><a href="#">Opportunities (Comming soon---)</a></li>
                                 </ul>
@@ -207,50 +196,36 @@
                                 <li><a href="/about">About Us</a>
                                </li>
 
-                              <li><a href="{{ route('contact') }}">Contact</a>
+                              <li><a href="<?php echo e(route('contact')); ?>">Contact</a>
                             </li>
 
 <li>||</li>
 
-{{--
-<li><a href="#" class="las Plan-booking float-right"><strong style="color:yellow;">Language</strong></a>
-          <ul class="dropdown">
-
-<select class="langSel language-select ms-3">
-@foreach($language as $item)
-  <option value="{{$item->code}}"
-          @if(session('lang') == $item->code) selected @endif>{{ __($item->name) }}</option>
-@endforeach
-</select>
 
 
-          </ul>
-      </li>
---}}
 
-
-<li><a href="#" class="las la-user float-right">Account:  <b class="text-white">@auth Logged in  @else Login @endauth</b></a>
+<li><a href="#" class="las la-user float-right">Account:  <b class="text-white"><?php if(auth()->guard()->check()): ?> Logged in  <?php else: ?> Login <?php endif; ?></b></a>
     <ul class="dropdown">
-      @auth
+      <?php if(auth()->guard()->check()): ?>
 
                       <li class="header-top-item meta-list">
-                    <a href="Mailto:{{ getContent('contact.content', true)->data_values->email }}"><i class="lar la-envelope"></i>{{ getContent('contact.content', true)->data_values->email }}</a>
+                    <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"><i class="lar la-envelope"></i><?php echo e(getContent('contact.content', true)->data_values->email); ?></a>
                 </li>
                          <li class="header-top-item ml-sm-auto">
-                            <a href="{{ route('user.home') }}"><i class="las la-tachometer-alt"></i>@lang('Dashboard')</a>
+                            <a href="<?php echo e(route('user.home')); ?>"><i class="las la-tachometer-alt"></i><?php echo app('translator')->get('Dashboard'); ?></a>
                         </li>
 
                         <li class="header-top-item">
-                            <a href="{{ route('user.logout') }}"><i class="las la-sign-out-alt"></i>@lang('Logout')</a>
+                            <a href="<?php echo e(route('user.logout')); ?>"><i class="las la-sign-out-alt"></i><?php echo app('translator')->get('Logout'); ?></a>
                         </li>
-                    @else
+                    <?php else: ?>
                         <li class="header-top-item ml-sm-auto">
-                            <a href="{{ route('user.login') }}"><i class="las la-user"></i>@lang('Login')</a>
+                            <a href="<?php echo e(route('user.login')); ?>"><i class="las la-user"></i><?php echo app('translator')->get('Login'); ?></a>
                         </li>
                         <li class="header-top-item">
-                            <a href="{{ route('user.register') }}"><i class="las la-user-plus"></i>@lang('Register')</a>
+                            <a href="<?php echo e(route('user.register')); ?>"><i class="las la-user-plus"></i><?php echo app('translator')->get('Register'); ?></a>
                         </li>
-                    @endauth
+                    <?php endif; ?>
 
 
     </ul>
@@ -263,19 +238,19 @@
        </div>
     </div>
 </header>
-        @stack('fbComment')
-   @if(!request()->routeIs('home'))
-    @include($activeTemplate.'partials.breadcrumb')
-@endif
-   @yield('content')
+        <?php echo $__env->yieldPushContent('fbComment'); ?>
+   <?php if(!request()->routeIs('home')): ?>
+    <?php echo $__env->make($activeTemplate.'partials.breadcrumb', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php endif; ?>
+   <?php echo $__env->yieldContent('content'); ?>
 
 <!-- footer section start -->
-@include($activeTemplate.'partials.footer')
+<?php echo $__env->make($activeTemplate.'partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-@stack('script-lib')
-@stack('script')
-@include('partials.plugins')
-@include('partials.notify')
+<?php echo $__env->yieldPushContent('script-lib'); ?>
+<?php echo $__env->yieldPushContent('script'); ?>
+<?php echo $__env->make('partials.plugins', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('partials.notify', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -294,13 +269,13 @@
     (function ($) {
         "use strict";
         $(".langSel").on("change", function() {
-            window.location.href = "{{route('home')}}/change/"+$(this).val() ;
+            window.location.href = "<?php echo e(route('home')); ?>/change/"+$(this).val() ;
         });
 
         //Cookie
         $(document).on('click', '.acceptPolicy', function () {
             $.ajax({
-                url: "{{ route('cookie.accept') }}",
+                url: "<?php echo e(route('cookie.accept')); ?>",
                 method:'GET',
                 success:function(data){
                     if (data.success){
@@ -318,7 +293,7 @@
             var data = $('#subscribeForm').serialize();
 
             $.ajax({
-                url:'{{ route('subscribe') }}',
+                url:'<?php echo e(route('subscribe')); ?>',
                 method:'post',
                 data:data,
                 success:function(response){
@@ -340,35 +315,35 @@
 </script>
 
 <!-- ?Custom Javascript -->
-<script src="{{asset($activeTemplateTrue.'js/jquery-3.6.0.min.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/jquery-ui.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/bootstrap.min.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/rafcounter.min.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/magnific-popup.min.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/owl.min.js')}}"></script>
-<script src="{{asset($activeTemplateTrue.'js/main.js')}}"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/jquery-3.6.0.min.js')); ?>"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/jquery-ui.js')); ?>"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/bootstrap.min.js')); ?>"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/rafcounter.min.js')); ?>"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/magnific-popup.min.js')); ?>"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/owl.min.js')); ?>"></script>
+<script src="<?php echo e(asset($activeTemplateTrue.'js/main.js')); ?>"></script>
 
 
 <!-- custo jss -->
-  <script src="{{asset($activeTemplateTrue.'custom/js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{asset($activeTemplateTrue.'custom/js/bootstrap.min.js')}}"></script>
+  <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/jquery-3.3.1.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/bootstrap.min.js')); ?>"></script>
 
-    <script src="{{asset($activeTemplateTrue.'custom/js/jquery.nice-select.min.js')}}"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/jquery.nice-select.min.js')); ?>"></script>
 
 
-    <script src="{{asset($activeTemplateTrue.'custom/js/jquery.magnific-popup.min.js')}}"></script>
-    <script src="{{asset($activeTemplateTrue.'custom/js/mixitup.min.js')}}"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/jquery.magnific-popup.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/mixitup.min.js')); ?>"></script>
 
-    <script src="{{asset($activeTemplateTrue.'custom/js/jquery.slicknav.js')}}"></script>
-    <script src="{{asset($activeTemplateTrue.'custom/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset($activeTemplateTrue.'custom/js/main.js')}}"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/jquery.slicknav.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/owl.carousel.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/js/main.js')); ?>"></script>
 
 <!-- custom2 -->
   <!-- JavaScript Libraries -->
-  <script src="{{asset($activeTemplateTrue.'custom/lib/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset($activeTemplateTrue.'custom/lib/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.js')}}"></script>
-  <script src="{{asset($activeTemplateTrue.'custom/cjs/main.js')}}"></script>
+  <script src="<?php echo e(asset($activeTemplateTrue.'custom/lib/jquery/jquery.min.js')); ?>"></script>
+  <script src="<?php echo e(asset($activeTemplateTrue.'custom/lib/bootstrap/js/bootstrap.min.js')); ?>"></script>
+    <script src="<?php echo e(asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.js')); ?>"></script>
+  <script src="<?php echo e(asset($activeTemplateTrue.'custom/cjs/main.js')); ?>"></script>
 
 <script>
     $( function() {
@@ -380,13 +355,13 @@
     (function ($) {
         "use strict";
         $(".langSel").on("change", function() {
-            window.location.href = "{{route('home')}}/change/"+$(this).val() ;
+            window.location.href = "<?php echo e(route('home')); ?>/change/"+$(this).val() ;
         });
 
         //Cookie
         $(document).on('click', '.acceptPolicy', function () {
             $.ajax({
-                url: "{{ route('cookie.accept') }}",
+                url: "<?php echo e(route('cookie.accept')); ?>",
                 method:'GET',
                 success:function(data){
                     if (data.success){
@@ -404,7 +379,7 @@
             var data = $('#subscribeForm').serialize();
 
             $.ajax({
-                url:'{{ route('subscribe') }}',
+                url:'<?php echo e(route('subscribe')); ?>',
                 method:'post',
                 data:data,
                 success:function(response){
@@ -473,3 +448,4 @@
  <!-- End of custom Javascript -->
     </body>
 </html>
+<?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/layouts/frontend.blade.php ENDPATH**/ ?>

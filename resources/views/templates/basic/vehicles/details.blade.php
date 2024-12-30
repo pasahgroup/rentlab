@@ -25,7 +25,6 @@
                         @endforelse
                     </div>
                 </div>
-                <!-- <div class="col-lg-7 align-self-center border--dashed " style="background-color:#fff">  -->
                       <div class="col-lg-8">
                     <div class="rent__single border--dashed">
                       <br>
