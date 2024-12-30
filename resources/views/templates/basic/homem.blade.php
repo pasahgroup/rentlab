@@ -38,7 +38,7 @@
                       <div class="mx-md-5 px-5 content demo-3 pp" style="color:#fff !important">
           @php echo @$metaFirstVehicle->details @endphp
       </div>
-                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="#">View More</a>
+                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}">View More</a>
                   </div>
               </div>
           </div>
@@ -51,7 +51,7 @@
                                       <div class="mx-md-5 px-5 content demo-3 pp" style="color:#fff !important">
                           @php echo @$vehicle->details @endphp
                       </div>
-                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)]) }}">View More</a>
+                      <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="{{ route('vehicle.details', [$vehicle->id, slug($vehicle->name)]) }}">View More</a>
                                               </div>
               </div>
           </div>
