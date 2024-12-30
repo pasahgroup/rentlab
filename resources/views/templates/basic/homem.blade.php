@@ -36,7 +36,7 @@
                   <div class="p-3" style="max-width: 700px;">
                       <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">{{$metaFirstVehicle->model}}({{$metaFirstVehicle->car_body_type}})</h1>
                       <div class="mx-md-5 px-5 content demo-3 pp" style="color:#fff !important">
-          @php echo @$vehicle->details @endphp
+          @php echo @$metaFirstVehicle->details @endphp
       </div>
                       <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="#">View More</a>
                   </div>
