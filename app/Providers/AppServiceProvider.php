@@ -60,7 +60,7 @@ if ($this->app->isLocal()) {
         $viewShare['cartypes'] = cartype::orderBy('car_body_type')->get();
        $viewShare['brands'] = brand::orderBy('name')->get();
        $viewShare['view_vehicles'] = Vehicle::orderBy('model')->get();
-          $viewShare['view_services'] = service::where('service_name','!=','Main')
+          $viewShare['view_services'] = service::where('category','!=','Main')
           ->orderBy('title','asc')->get();
          //dd($viewShare['view_services']);
 
