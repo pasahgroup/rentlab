@@ -30,11 +30,11 @@
                                                                 <label for="name">@lang('Category')</label>
                                                             <select type="text" id="category" name="category" class="form-control"
                                                                    value="{{ old('category') }}">
-                                                                   <ption>Escourt</option>
+                                                                   <option>Escourt</option>
                                                                         <option>Main</option>
-                                                                     <ption>Normal</option>
-                                                                          <ption>Transportation</option>
-                                                                      <option>Wedding_sendoff</option>
+                                                                     <option>Normal</option>
+                                                                          <option>Transportation</option>
+                                                                      <option>Wedding & sendoff</option>
 
                                                             </select>
 

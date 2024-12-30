@@ -3,58 +3,56 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <form action="<?php echo e(route('admin.service.update', $service->id)); ?>" method="post"
-                      enctype="multipart/form-data">
+                <form action="<?php echo e(route('admin.service.store')); ?>" method="post" enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
 
                     <div class="card-body">
                         <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="name"><?php echo app('translator')->get('Service name'); ?></label>
+                                    <input type="text" id="service_name" name="service_name" class="form-control"
+                                           value="<?php echo e(old('service_name')); ?>">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="name"><?php echo app('translator')->get('Title'); ?></label>
+                                    <input type="text" id="title" name="title" class="form-control"
+                                           value="<?php echo e(old('title')); ?>">
+                                </div>
+                            </div>
 
 
-                          <div class="col-md-4">
-                              <div class="form-group">
-                                  <label for="name"><?php echo app('translator')->get('Service name'); ?></label>
-                                  <input type="text" id="service_name" name="service_name" class="form-control"
-                                         value="<?php echo e($service->service_name); ?>">
-                              </div>
-                          </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="name"><?php echo app('translator')->get('Category'); ?></label>
+                                                            <select type="text" id="category" name="category" class="form-control"
+                                                                   value="<?php echo e(old('category')); ?>">
+                                                                   <option>Escourt</option>
+                                                                        <option>Main</option>
+                                                                     <option>Normal</option>
+                                                                          <option>Transportation</option>
+                                                                      <option>Wedding & sendoff</option>
 
-                          <div class="col-md-4">
-                              <div class="form-group">
-                                  <label for="name"><?php echo app('translator')->get('Title'); ?></label>
-                                  <input type="text" id="title" name="title" class="form-control"
-                                         value="<?php echo e($service->title); ?>">
-                              </div>
-                          </div>
+                                                            </select>
 
-                                                      <div class="col-md-4">
-                                                          <div class="form-group">
-                                                              <label for="name"><?php echo app('translator')->get('Category'); ?></label>
-                                                          <select type="text" id="category" name="category" class="form-control"
-                                                                 value="<?php echo e($service->category); ?>">
-
-                                                                 <option value="<?php echo e($service->category); ?>"><?php echo e($service->category); ?></option>
-                                                                 <ption value="aaa">Escourt</option>
-                                                                      <option>Main</option>
-                                                                   <ption>Normal</option>
-                                                                     <ption>Transportation</option>
-                                                                    <option>Wedding_sendoff</option>
-                                                          </select>
-
-                                                          </div>
-                                                      </div>
+                                                            </div>
+                                                        </div>
 
 
-                                                      <div class="col-md-12">
-                                                          <div class="form-group">
-                                                              <label for="name"><?php echo app('translator')->get('Content'); ?></label>
-                                                                     <textarea id="content" name="content"><?php echo e($service->content); ?></textarea>
-                                                          </div>
-                                                      </div>
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <label for="name"><?php echo app('translator')->get('Content'); ?></label>
+                                                                       <textarea id="content" name="content"></textarea>
+                                                            </div>
+                                                        </div>
 
 
 
-                            <div class="col-md-8">
+
+                            <div class="col-md-10">
                                 <div class="card border--dark mb-4">
                                     <div class="card-header bg--dark d-flex justify-content-between">
                                         <h5 class="text-white"><?php echo app('translator')->get('Images'); ?></h5>
@@ -62,43 +60,46 @@
                                                 class="fa fa-fw fa-plus"></i><?php echo app('translator')->get('Add New'); ?>
                                         </button>
                                     </div>
+
+
                                     <div class="card-body">
                                         <p><small class="text-facebook"><?php echo app('translator')->get('Images will be resize into'); ?>
-                                                </small></p>
+                                                <?php echo e(imagePath()['vehicles']['size']); ?>px</small></p>
                                         <div class="row element">
-                                                <div class="col-md-2 imageItem" id="ddd">
-                                                    <div class="payment-method-item">
-                                                        <div class="payment-method-header d-flex flex-wrap">
-                                                            <div class="thumb" style="position: relative;">
-                                                                <div class="avatar-preview">
-                                                                    <div class="profilePicPreview"
-                                                                         style="background-image: url('<?php echo e(URL::asset('/storage/services/'.$service->images)); ?>')">
 
-                                                                    </div>
+                                            <div class="col-md-2 imageItem">
+                                                <div class="payment-method-item">
+                                                    <div class="payment-method-header d-flex flex-wrap">
+                                                        <div class="thumb" style="position: relative;">
+                                                            <div class="avatar-preview">
+                                                                <div class="profilePicPreview"
+                                                                     style="background-image: url('<?php echo e(asset('assets/images/default.png')); ?>')">
+
                                                                 </div>
-
-                                                                 <div class="avatar-remove">
-                                                                        <i class="la la-close">
-                                                                            <a href="<?php echo e(route('admin.service.image.delete',$service->id)); ?>" class="btn btn--danger btn-lg removeInfoBtn w-100" type="button">ccc</a>
-                                                                        </i>
-                                                                </div>
-
                                                             </div>
+                                                            <div class="avatar-edit">
+                                                                <input type="file" name="images[]"
+                                                                       class="profilePicUpload" id="0"
+                                                                       accept=".png, .jpg, .jpeg" required>
+                                                                <label for="0" class="bg-primary">
+                                                                    <i class="la la-pencil"></i>
+                                                                </label>
+                                                            </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-
                             <div class="col-md-2">
                                <div class="form-group">
-                          <label for="name"><?php echo app('translator')->get('Status'); ?></label>
+         <label for="name"><?php echo app('translator')->get('Status'); ?></label>
                                <select type="text" id="status" name="status" class="form-control">
-                                        <option value="<?php echo e($service->status); ?>" selected><?php echo e($service->status); ?></option>
                                       <option>0</option>
                                         <option>1</option>
                                </select>
@@ -108,20 +109,27 @@
 
                         </div>
                     </div>
-
-                    <div class="card-footer">
-                        <button class="btn btn--primary w-100"><?php echo app('translator')->get('Update'); ?></button>
+                    <div class="row">
+<div class="col-md-10">
+</div>
+<div class="col-md-2">
+                          <div class="card-footer">
+                              <button class="btn btn--primary w-100"><?php echo app('translator')->get('Create'); ?></button>
                     </div>
+                  </div>
+                </div>
                 </form>
             </div><!-- card end -->
         </div>
     </div>
 <?php $__env->stopSection(); ?>
 
+
 <?php $__env->startPush('breadcrumb-plugins'); ?>
     <a href="<?php echo e(route('admin.service.index')); ?>" class="btn btn-sm btn--primary box--shadow1 text-white text--small"><i
             class="fa fa-fw fa-backward"></i><?php echo app('translator')->get('Go Back'); ?></a>
 <?php $__env->stopPush(); ?>
+
 <?php $__env->startPush('style'); ?>
     <style>
         .avatar-remove {
@@ -139,17 +147,6 @@
             font-size: 15px;
             cursor: pointer;
         }
-
-        .avatar-remove button {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 15px;
-            font-size: 15px;
-            cursor: pointer;
-            padding-left: 6px;
-        }
     </style>
 <?php $__env->stopPush(); ?>
 
@@ -165,40 +162,6 @@
         (function ($) {
             "use strict";
 
-            $(document).ready(function () {
-                $(window).keydown(function (event) {
-                    if (event.keyCode == 13) {
-                        event.preventDefault();
-                        return false;
-                    }
-                });
-            });
-
-            //Delete Old Image
-            $('.deleteOldImage').on('click', function () {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-
-                var url = $(this).data('deletelink');
-                var removeindex = $(this).data('removeindex');
-
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    success: function (data) {
-                        if (data.success) {
-                            $('#' + removeindex).remove();
-                            notify('success', data.message);
-                        } else {
-                            notify('error', 'Failed to delete the image!')
-                        }
-                    }
-                });
-            });
-
             var counter = 0;
             $('.addBtn').click(function () {
                 counter++;
@@ -212,6 +175,13 @@
                 remove()
                 upload()
             });
+
+            function scrol() {
+                var bottom = $(document).height() - $(window).height();
+                $('html, body').animate({
+                    scrollTop: bottom
+                }, 200);
+            }
 
             function remove() {
                 $('.removeBtn').on('click', function () {
@@ -236,6 +206,12 @@
 
                 $(".profilePicUpload").on('change', function () {
                     proPicURL(this);
+                });
+
+                $(".remove-image").on('click', function () {
+                    $(this).parents(".profilePicPreview").css('background-image', 'none');
+                    $(this).parents(".profilePicPreview").removeClass('has-image');
+                    $(this).parents(".thumb").find('input[type=file]').val('');
                 });
             }
 
@@ -287,12 +263,9 @@
                 $(this).closest('.other-info-data').remove();
             });
 
-            function scrol() {
-                var bottom = $(document).height() - $(window).height();
-                $('html, body').animate({
-                    scrollTop: bottom
-                }, 200);
-            }
+
+            $('select[name=brand]').val('<?php echo e(old('brand')); ?>');
+            $('select[name=seater]').val('<?php echo e(old('seater')); ?>');
 
             // Icon picker
             $('.iconPicker').iconpicker({
@@ -320,4 +293,4 @@
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/services/edit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/admin/services/add.blade.php ENDPATH**/ ?>
