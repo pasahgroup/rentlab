@@ -92,7 +92,6 @@
     <body>
 
 
-
       @include($activeTemplate.'layouts.header3')
   <header class="container header-area" style="padding-left:1.4%;padding-right:1.4%;">
     <!-- Main Header Area -->
