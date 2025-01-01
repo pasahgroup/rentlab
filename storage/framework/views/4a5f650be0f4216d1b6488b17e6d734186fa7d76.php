@@ -30,8 +30,7 @@
       </ol>
       <div class="carousel-inner">
           <div class="carousel-item position-relative active" style="height: 430px;">
-
-              <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
+            <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
               <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
                       <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</h1>
@@ -142,8 +141,8 @@
                                         <span class="fa fa-road fa-2x"></span>
                                     </div>
                                     <div class="ms-4">
-                                      <h5 class="mb-3"><?php echo e($escort->title?? 'No Title'); ?></h5>
-                                      <p class="mb-0 demo-1"><?php echo e($escort->content?? 'No Content'); ?></p>
+                                      <h5 class="mb-3"><?php echo e($escourt->title?? 'No Title'); ?></h5>
+                                      <p class="mb-0 demo-1"><?php echo e($escourt->content?? 'No Content'); ?></p>
 
                                     </div>
                                 </div>
@@ -172,8 +171,8 @@
                                       <span class="fa fa-road fa-2x"></span>
                                   </div>
                                     <div class="text-end me-4">
-                                      <h5 class="mb-3"><?php echo e($car_hiring->title?? 'No Title'); ?></h5>
-                                      <p class="mb-0 demo-1"><?php echo e($car_hiring->content?? 'No Content'); ?></p>
+                                      <h5 class="mb-3"><?php echo e($transportation->title?? 'No Title'); ?></h5>
+                                      <p class="mb-0 demo-1"><?php echo e($transportation->content?? 'No Content'); ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -185,7 +184,7 @@
 
         <!-- Features End -->
 
-
+<hr>
  <!-- Car categories Start -->
         <div class="container categories blog pb-5" id="section3">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
@@ -229,7 +228,6 @@
                                                 </ul>
                                         </div>
 
-
                                         <div class="rent__content text-center mt-n1">
                                              <ul class="d-flex_org car-info text-center">
                                                   <li class="pr-1 text-center">
@@ -267,7 +265,6 @@
                          </a>
   </span>
 </div>
-
         </div>
 
 

@@ -46,7 +46,7 @@
           -webkit-box-orient: vertical;
         }
         .demo-3 {
-          overflow: hidden;
+          /* overflow: hidden; */
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;

@@ -24,12 +24,12 @@
                                 </div>
                             </div>
 
-
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label for="name"><?php echo app('translator')->get('Category'); ?></label>
                                                             <select type="text" id="category" name="category" class="form-control"
                                                                    value="<?php echo e(old('category')); ?>">
+                                                                      <option>Car hiring</option>
                                                                    <option>Escourt</option>
                                                                         <option>Main</option>
                                                                      <option>Normal</option>

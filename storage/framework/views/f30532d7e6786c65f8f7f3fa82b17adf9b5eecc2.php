@@ -34,11 +34,12 @@
                                                                  value="<?php echo e($service->category); ?>">
 
                                                                  <option value="<?php echo e($service->category); ?>"><?php echo e($service->category); ?></option>
-                                                                 <ption value="aaa">Escourt</option>
+                                                                    <option>Car hiring</option>
+                                                                 <option>Escourt</option>
                                                                       <option>Main</option>
-                                                                   <ption>Normal</option>
-                                                                     <ption>Transportation</option>
-                                                                    <option>Wedding_sendoff</option>
+                                                                   <option>Normal</option>
+                                                                     <option>Transportation</option>
+                                                                    <option>Wedding & sendoff</option>
                                                           </select>
 
                                                           </div>

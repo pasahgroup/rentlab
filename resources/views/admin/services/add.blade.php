@@ -29,6 +29,7 @@
                                                                 <label for="name">@lang('Category')</label>
                                                             <select type="text" id="category" name="category" class="form-control"
                                                                    value="{{ old('category') }}">
+                                                                      <option>Car hiring</option>
                                                                    <option>Escourt</option>
                                                                         <option>Main</option>
                                                                      <option>Normal</option>
