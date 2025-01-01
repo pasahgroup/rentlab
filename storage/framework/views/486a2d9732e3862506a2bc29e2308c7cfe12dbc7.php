@@ -92,7 +92,6 @@
     <body>
 
 
-
       <?php echo $__env->make($activeTemplate.'layouts.header3', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
   <header class="container header-area" style="padding-left:1.4%;padding-right:1.4%;">
     <!-- Main Header Area -->
