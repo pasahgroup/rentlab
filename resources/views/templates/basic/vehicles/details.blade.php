@@ -67,6 +67,7 @@
                         <div class="content">
                             @php echo @$vehicle->details @endphp
                         </div>
+
                       <!--   <div class="btn__grp">
                             @auth
                                  <a href="{{ route('vehicle.booking', [$vehicle->id, slug($vehicle->name)]) }}" class="cmn--btn">@lang('Book Now')</a>
@@ -116,7 +117,7 @@
                             <div class="row g-4">
 
                                 @forelse($vehicle->images as $image)
-                                    <div class="col-lg-4 col-md-6">
+                                    <div class="col-lg-3 col-md-6">
                                         <div class="gallery__item">
                                             <a href="{{ getImage(imagePath()['vehicles']['path'].'/'. @$image, imagePath()['vehicles']['size']) }}" class="img-pop">
                                                 <i class="las la-plus"></i>
