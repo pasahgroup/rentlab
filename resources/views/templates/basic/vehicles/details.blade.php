@@ -7,7 +7,7 @@
              <div class="widget border--dashed" style="background-color:#f0f0f">
             <div class="row gy-3">
                 <!-- 6d846c -->
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     <div class="slider-top owl-theme owl-carousel border--dashed">
                         @forelse($vehicle->images as $image)
                             <div class="car__rental-thumb w-100 bg--body p-0" style="border-radius:2px 1px 2px;">
@@ -25,7 +25,7 @@
                         @endforelse
                     </div>
                 </div>
-                      <div class="col-lg-8">
+                      <div class="col-md-8">
                     <div class="rent__single border--dashed">
                       <br>
                             <h4><span class="text--body">Vehicle details</span></h4>
