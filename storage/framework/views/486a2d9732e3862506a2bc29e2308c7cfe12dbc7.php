@@ -52,7 +52,7 @@
           -webkit-box-orient: vertical;
         }
         .demo-6 {
-          overflow: hidden;
+          /* overflow: hidden; */
           display: -webkit-box;
           -webkit-line-clamp: 6;
           -webkit-box-orient: vertical;
@@ -105,7 +105,6 @@
                     <div class="classy-navbar-toggler">
                         <span class="navbarToggler"><span></span><span></span><span></span></span>
                     </div>
-
 
                 <!-- Menu -->
                 <div class="classy-menu">                        <!-- close btn -->

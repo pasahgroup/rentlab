@@ -399,8 +399,6 @@ else{
         //$answerPerc=DB::select('select sum(total_cost)toc,sum(discount)disc from rent_logs');
         //dd($totals);
 
-
-
         $pageTitle = 'Payment Preview';
           return view($this->activeTemplate . 'user.pesapal.pesapal', compact('datas', 'pageTitle','times','vehicle','locations','totals'));
     }

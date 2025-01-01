@@ -34,7 +34,7 @@
               <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
                       <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</h1>
-                      <div class="mx-md-5 px-5 content demo-3 pp" style="color:#fff !important">
+                      <div class="mx-md-5 px-5 content demo-1 pp" style="color:#fff !important">
           <?php echo @$metaFirstVehicle->details ?>
       </div>
                       <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>">View More</a>
@@ -46,7 +46,7 @@
               <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
               <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
-                      <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"><?php echo e($vehicle->model); ?>(<?php echo e($vehicle->car_body_type); ?>)</h1>
+                      <h1 class="display-4 text-white mb-1 animate__animated animate__fadeInDown"><?php echo e($vehicle->model); ?>(<?php echo e($vehicle->car_body_type); ?>)</h1>
                                       <div class="mx-md-5 px-5 content demo-3 pp" style="color:#fff !important">
                           <?php echo @$vehicle->details ?>
                       </div>
