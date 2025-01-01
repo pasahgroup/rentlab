@@ -96,8 +96,8 @@
       @include($activeTemplate.'layouts.header3')
   <header class="container header-area" style="padding-left:1.4%;padding-right:1.4%;">
     <!-- Main Header Area -->
-    <div class="main-header-area" id="stickyHeader" style="background:">
-        <div class="classy-nav-container breakpoint-off"  style="border:1px solid rgba(193, 184, 46, 0.9)">
+    <div class="main-header-area" id="stickyHeader">
+        <div class="classy-nav-container breakpoint-off"  style="border:1px solid rgba(255,255,255, 0.1)">
             <nav class="classy-navbar justify-content-between" id="southNav">
 
                 <!-- Logo -->
