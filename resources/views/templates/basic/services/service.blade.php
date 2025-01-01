@@ -30,6 +30,9 @@
                       @if($service_service!=Null)
                         <img src="{{URL::asset('/storage/services/'.$service_service->images)?? 'No'}}" class="img-fluid w-100" style="object-fit: cover;" alt="Img">
   @endif
+  @if($service_service==Null)
+    <img src="{{URL::asset('/storage/services/'.$service_service->images)?? 'No'}}" class="img-fluid w-100" style="object-fit: cover;" alt="Img">
+@endif
                     </div>
 
                     <div class="col-xl-8">
