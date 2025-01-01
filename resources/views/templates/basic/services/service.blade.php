@@ -27,9 +27,9 @@
                 </div>
                 <div class="row align-items-center">
                     <div class="col-lg-12 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-
+                      @if($service_service!=Null)
                         <img src="{{URL::asset('/storage/services/'.$service_service->images)?? 'No'}}" class="img-fluid w-100" style="object-fit: cover;" alt="Img">
-
+  @endif
                     </div>
 
                     <div class="col-xl-8">
