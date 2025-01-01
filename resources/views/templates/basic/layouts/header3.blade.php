@@ -1,4 +1,4 @@
-  <div class="container top-header-area" style="background:#;padding:2px;">
+  <div class="container top-header-area" style="padding-left:1.4%;padding-right:1.4%;">
          <div class="align-items-center py-0 px-xl-1 d-lg-flex" style="border:1px solid rgba(0,0,0,.9);background:#a6a876;">
               <div class="col-lg-3 col-md-4">
                 <a href="" class="text-decoration-none">
