@@ -120,7 +120,13 @@ $models = Vehicle::orderby('model')
     {
         $service_service=service::where('category',$s)->where('status','1')->first();
        //dd($service_service);
+
+       if($service_service !=null)
+       {
          $pageTitle=$service_service->title;
+       }else {
+         $pageTitle="No Title Set";
+       }
 
         $main_service=service::where('category','Main')->where('status','1')->first();
         $escourt=service::where('category','Escourt')->where('status','1')->first();
