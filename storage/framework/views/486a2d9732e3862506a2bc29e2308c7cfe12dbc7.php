@@ -92,12 +92,12 @@
     <body>
 
 
-        <header class="header-area" style="padding-left:3%;padding-right:3%;">
+        <header class="container header-area" style="padding-left:3%;padding-right:3%;">
       <?php echo $__env->make($activeTemplate.'layouts.header3', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
     <!-- Main Header Area -->
     <div class="main-header-area" id="stickyHeader" style="background:">
-        <div class="classy-nav-container breakpoint-off"  style="border:0px solid rgba(193, 184, 46, 0.9)">
+        <div class="classy-nav-container breakpoint-off"  style="border:1px solid rgba(193, 184, 46, 0.9)">
             <nav class="classy-navbar justify-content-between" id="southNav">
 
                 <!-- Logo -->
