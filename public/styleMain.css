@@ -8940,7 +8940,7 @@ button.bg-dark:focus {
   }
   .pl-xl-1,
   .px-xl-1 {
-    padding-left: 0.25rem !important;
+    padding-left: 0rem !important;
   }
   .p-xl-2 {
     padding: 0.5rem !important;
