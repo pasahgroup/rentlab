@@ -11,6 +11,7 @@ use App\Models\color;
 
 use App\Models\multibooking;
 use App\Models\Deposit;
+use App\Models\Gateway;
 
 use App\Models\Tag;
 use App\Models\cartype;
@@ -367,7 +368,13 @@ else{
         // $data = Deposit::where('trx', $track)->where('status',0)->orderBy('id', 'DESC')->firstOrFail();
     //$data = Deposit::get();
         //dd($data);
-         $locations = Location::active()->orderBy('name')->get();
+
+        $gateways= Gateway::where('status',1)
+        ->orderBy('name')->get();
+
+        //dd($gateway);
+
+        $locations = Location::active()->orderBy('name')->get();
         $times=RentLog::findOrFail($id);
             //dd($times);
         $vehicle = Vehicle::active()->where('id', $times->vehicle_id)->firstOrFail();
@@ -395,7 +402,7 @@ else{
         //dd($totals);
 
         $pageTitle = 'Payment Preview';
-          return view($this->activeTemplate . 'user.pesapal.pesapal', compact('datas', 'pageTitle','times','vehicle','locations','totals'));
+          return view($this->activeTemplate . 'user.pesapal.pesapal', compact('datas', 'pageTitle','times','vehicle','locations','totals','gateways'));
     }
 
 

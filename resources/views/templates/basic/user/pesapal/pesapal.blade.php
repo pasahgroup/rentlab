@@ -155,24 +155,42 @@
                 <td>Down Payment must not below 30% of total booking costs. {{$data->total_cost}}
                 </td>
               </tr>
+              <tr class="total">
+
+                                      <td> <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                         <label class="fieldlabels">Payment Gateway:*</label>
+
+                                          <select id="gateway" name="gateway" required>
+@foreach($gateways as $gateway)
+                                                                         <option value="RWF">{{$gateway->name}}</option>
+                                                                         @endforeach
+                                          </select>
+                                                              </div>
+
+                                                            </td>
+
+                                      <td> <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                         <label class="fieldlabels">Select Currency: *
+
+                                          <select id="currency" name="currency" required>
+                                               <option value="" selected></option>
+                                                              <option value="KES">KES</option>
+                                                                <option value="USD">USD</option>
+                                                                  <option value="EUR">EUR</option>
+                                                                    <option value="GBP">GBP</option>
+                                                                      <option value="UGX">UGX</option>
+
+                                                                       <option value="TZS" selected>TZS</option>
+                                                                        <option value="ZMW">ZMW</option>
+                                                                         <option value="RWF">RWF</option>
+                                          </select>
+                                                              </div></label>
+
+                                                            </td>
+              </tr>
+
+
             </table>
- <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-   <label class="fieldlabels">Select Currency: *</label>
-
-    <select id="currency" name="currency" required>
-         <option value="" selected></option>
-                        <option value="KES">KES</option>
-                          <option value="USD">USD</option>
-                            <option value="EUR">EUR</option>
-                              <option value="GBP">GBP</option>
-                                <option value="UGX">UGX</option>
-
-                                 <option value="TZS" selected>TZS</option>
-                                  <option value="ZMW">ZMW</option>
-                                   <option value="RWF">RWF</option>
-    </select>
-                        </div>
-
           </div>
         </div>
 
@@ -259,8 +277,6 @@
         <input type="hidden" class="form-control" name="tour_name" value="#">
         <input type="hidden" class="form-control" name="currency" value="#">
         </div>
-
-
 
 
              <div class="form-group">

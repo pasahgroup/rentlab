@@ -1532,12 +1532,12 @@ pre code {
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #6C757D;
+  color: #2B5133;
 }
 
 .table th,
 .table td {
-  padding: 0.75rem;
+  padding: 0.5rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
 }
