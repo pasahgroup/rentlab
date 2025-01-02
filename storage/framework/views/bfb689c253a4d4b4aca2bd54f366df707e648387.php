@@ -5,7 +5,7 @@
       <div class="border-box">
            <div class="col-md-12">
              <p><strong></strong></p>
-           </div>        
+           </div>
 <div class="col-md-12">
     <?php if($message = Session::get('success')): ?>
   <div class="alert alert-success">
@@ -23,7 +23,7 @@
     <strong>Ops!: </strong> <?php echo e($message); ?>
 
   </div>
-  <?php endif; ?>   
+  <?php endif; ?>
 
  <?php if($message = Session::get('error')): ?>
   <div class="alert alert-danger">
@@ -40,23 +40,23 @@
           <div class="col-sm-10">
         <em>Booking Costs Summary</em>
           <em><b>(Please finish Payment to complete you are booking)</b></em>
-         
+
              <p><em>(From date <?php echo e(date("d-M-Y", strtotime($times->pick_time))); ?> to <?php echo e(date("d-M-Y", strtotime($times->drop_time))); ?>)</em></p>
 </div>
-<div class="col-sm-2">  
+<div class="col-sm-2">
         <form  method="get"  action="<?php echo e(route('user.pc',1)); ?>" enctype="multipart/form-data">
                              <?php echo csrf_field(); ?>
     <input type="hidden" name="_method" value="put">
     <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
-        <input type="hidden" name="bookingID" value="<?php echo e($times->booking_id); ?>">       
-             <button type="submit" class="btn btn-primary float-right">Add Car</button>         
-</form>   
+        <input type="hidden" name="bookingID" value="<?php echo e($times->booking_id); ?>">
+             <button type="submit" class="btn btn-primary float-right">Add Car</button>
+</form>
 
          </div>
      </div>
 
-        
+
         <div class="table-responsive-wrap">
           <table class="table table-responsive cart-checkout-table">
             <thead>
@@ -71,8 +71,8 @@
               </tr>
             </thead>
             <tbody>
-              
-            
+
+
 <?php $__currentLoopData = $datas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
   <tr>
                 <td>
@@ -84,7 +84,8 @@
 
                 </td>
                 <td>
- <?php echo e(number_format($data->discount,2)); ?>               
+ <?php echo e(number_format($data->discount,2)); ?>
+
                 </td>
                 <td>
                     <?php echo e($data->no_car); ?>
@@ -96,11 +97,11 @@
                 </td>
                 <td class="price"><?php echo e(number_format($data->price,2)); ?> </td>
                 </tr>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>           
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
           </table>
         </div>
-      
+
         <div class="row">
           <div class="col-sm-6">
 
@@ -128,7 +129,7 @@
                  <?php echo e(number_format($totals->total_cost,2)); ?>
 
                 </td>
-              </tr>              
+              </tr>
 
               <tr>
                 <td>
@@ -165,8 +166,8 @@
                 <td>Down Payment must not below 30% of total booking costs. <?php echo e($data->total_cost); ?>
 
                 </td>
-              </tr>       
-            </table>  
+              </tr>
+            </table>
  <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
    <label class="fieldlabels">Select Currency: *</label>
 
@@ -181,49 +182,49 @@
                                  <option value="TZS" selected>TZS</option>
                                   <option value="ZMW">ZMW</option>
                                    <option value="RWF">RWF</option>
-    </select> 
+    </select>
                         </div>
 
           </div>
         </div>
 
-  
+
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12"> <input type="hidden" name="first_name" value="" />
                         </div>
                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                        <input type="hidden" name="last_name" value="" /> 
-                        </div> 
-                        
+                        <input type="hidden" name="last_name" value="" />
+                        </div>
+
 
                           <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                        <input type="hidden" name="reference" value="" /> 
+                        <input type="hidden" name="reference" value="" />
                         </div>
                           <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                        <input type="hidden" name="type" value="MERCHANT" /> 
+                        <input type="hidden" name="type" value="MERCHANT" />
                         </div>
-               
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">   <input type="hidden" name="email" value="" /> 
+
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">   <input type="hidden" name="email" value="" />
                         </div>
 
                         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                       <input type="hidden" name="desc" value="" /> 
+                       <input type="hidden" name="desc" value="" />
                         </div>
                          <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                       <input type="hidden" name="percent_downpayment" value="" id="percent_downpayment" /> 
+                       <input type="hidden" name="percent_downpayment" value="" id="percent_downpayment" />
                         </div>
 
-                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">                      
-                            <input type="hidden" name="desc" value="" /> 
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            <input type="hidden" name="desc" value="" />
                         </div>
 
-        <div class="clearfix">          
-         <button class="btn btn-success pull-right hvr-sweep-to-right" type="submit">Proceed</button>        
+        <div class="clearfix">
+         <button class="btn btn-success pull-right hvr-sweep-to-right" type="submit">Proceed</button>
         </div>
       </form>
 
 
 <div class="modal fade modal-book-now" id="bookNow" tabindex="-1" role="dialog" style="margin-top:50px;">
- 
+
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -235,14 +236,14 @@
         <div class="modal-body">
 
           <div class="preview-wrap">
-           
+
             <div class="form-wrap">
                 <h4 id="heading">Booking Form:<span style="color:green">{#</span></h4>
-             
+
 
                 <form id="msform"  method="post"  action="#" class="registration-form">
                     <?php echo csrf_field(); ?>
-                   
+
                <!-- progressbar -->
                     <ul id="progressbar">
                       <li class="active" id="account"><strong>Step 1:</strong></li>
@@ -252,7 +253,7 @@
                     </ul>
                       <div class="alert alert-danger print-error-msg" style="display:none">
                         <ul></ul>
-                    </div> 
+                    </div>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                     </div> <br> <!-- fieldsets -->
@@ -261,37 +262,37 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h4 class="fs-title">Personal Details:| Step 1 - 4</h4>
-                                </div>                                
-                            </div> 
-                           
+                                </div>
+                            </div>
 
- <div class="form-group">             
-                            
+
+ <div class="form-group">
+
         <input type="hidden" class="form-control" name="tour_name" value="#">
         <input type="hidden" class="form-control" name="currency" value="#">
         </div>
 
 
-   
-           
+
+
              <div class="form-group">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <input type="text" name="first_name" placeholder="first name" /> 
+                                        <input type="text" name="first_name" placeholder="first name" />
                                 </div>
 
                                 <div class="col-lg-6 col-md-6 col-sm-6">
-                                           <input type="text" name="last_name" placeholder="last name" /> 
+                                           <input type="text" name="last_name" placeholder="last name" />
                                 </div>
   </div>
 
 
                               <!-- <label class="fieldlabels">Phone: *</label> -->
-                               <input type="text" name="phone" placeholder="Phone(+00 00 000 000)"/>                                 
-                            <input type="email" name="email" placeholder="email"/> 
+                               <input type="text" name="phone" placeholder="Phone(+00 00 000 000)"/>
+                            <input type="email" name="email" placeholder="email"/>
 
-                             <input type="text" name="country" placeholder="Nationality" /> 
+                             <input type="text" name="country" placeholder="Nationality" />
 
-                        </div> 
+                        </div>
                              <button type="button" class="close float-left" data-dismiss="modal" style="background-color:#b32121;padding: 8px 30px;">Close</button>
                         <input type="button" name="next" class="next action-button" value="Next" />
                     </fieldset>
@@ -304,13 +305,13 @@
                                 </div>
                              </div>
 
-                       
-          
+
+
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                    <label for="">Travel Date:</label>
                                     <div class="form-group">
                                         <input type="date" name="travel_date" id="travel_date" class="form-control" placeholder="From" value="">
-                    
+
                                     </div>
                                 </div>
 
@@ -337,34 +338,34 @@
 
 
 
-                                               
-            
 
-                        </div> 
+
+
+                        </div>
 
                              <button type="button" class="close float-left" data-dismiss="modal" style="background-color:#b32121;padding: 8px 30px;">Close</button>
 
                         <input type="button" name="previous" class="previous action-button-previous float-left" value="Previous" />
-                        <input type="button" name="next" class="next action-button float-right" value="Next" /> 
+                        <input type="button" name="next" class="next action-button float-right" value="Next" />
                     </fieldset>
                     <fieldset>
                         <div class="form-card">
                                 <div class="col-12">
-                                    <h4 class="fs-title">Other Information:|Step 3 - 4</h4>                               
+                                    <h4 class="fs-title">Other Information:|Step 3 - 4</h4>
                         </div>
 
 
-             
-              <div class="col-md-6">                  
+
+              <div class="col-md-6">
                     <label for="">Tour Addon:</label>
     <input class="form-control" list="addons" name="addon" id="addon">
     <datalist id="addons">
-            
+
     </datalist>
 
                                 </div>
 
-<div class="col-md-6">                           
+<div class="col-md-6">
     <label for="">Accommodation:</label>
     <input class="form-control" list="accomodations" name="accomodation" id="accomodation">
     <datalist id="accomodations">
@@ -374,8 +375,8 @@
                                               <option>Deluxe</option>
                                                <option>Mix</option>
                                                 <option>Not Sure</option>
-    </datalist>                                   
-    </div> 
+    </datalist>
+    </div>
 
 
 
@@ -414,10 +415,10 @@
         <label for=""> Other Media:</label>
            <input type="text" class="form-control" name="hear_about_us">
         </div>
-        </div> 
-                          </div> 
-                             
-                                           
+        </div>
+                          </div>
+
+
                         <button type="button" class="close float-left" data-dismiss="modal" style="background-color:#b32121;padding: 8px 30px;">Close</button>
                          <input type="button" name="previous" class="previous action-button-previous float-left" value="Previous" />
                            <button type="submit" class="btn btn-success float-right btn-submit" style="padding: 8px 30px;">Submit</button>
@@ -441,10 +442,10 @@
                         </div>
 
                     </fieldset>
-                        
+
                 </form>
             </div>
-        </div>   
+        </div>
       </div>
     </div>
   </div>
@@ -453,9 +454,9 @@
 
 
 
-      </div>                
+      </div>
   </section>
- 
+
 <?php $__env->stopSection(); ?>
 <?php $__env->startPush('style'); ?>
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/datepicker.min.css')); ?>">
@@ -465,7 +466,7 @@
     <script src="<?php echo e(asset($activeTemplateTrue.'js/datepicker.min.js')); ?>"></script>
     <script src="<?php echo e(asset($activeTemplateTrue.'js/datepicker.en.js')); ?>"></script>
      <script src="../../assetff/js/jquery/jquery-2.2.4.min.js"></script>
-     
+
     <script>
         // date and time picker
         $('#dateAndTimePicker').datepicker({
@@ -476,7 +477,7 @@
                 var price = parseFloat("<?php echo e($vehicle->price); ?>");
                  $('.total_days').text(1);
                  var no_car = $('#no_car').val();
-                 
+
 
                 if (pick_time){
                     $('#dateAndTimePicker2').removeAttr('disabled');
@@ -506,7 +507,7 @@
 
                     //alert(no_car);
 });
-                      
+
 
 if(no_car>0)
 {
@@ -525,7 +526,5 @@ if(no_car>0)
         })
     </script>
 <?php $__env->stopPush(); ?>
-
-
 
 <?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/user/pesapal/pesapal.blade.php ENDPATH**/ ?>

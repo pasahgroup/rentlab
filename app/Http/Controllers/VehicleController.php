@@ -401,7 +401,7 @@ else{
 
  public function payConfirmx(Request $request,$id)
     {
-         // dd($id);
+         //dd($id);
          //$track = session()->get('Track');
         // dd($track);
         // $data = Deposit::where('trx', $track)->where('status',0)->orderBy('id', 'DESC')->firstOrFail();
