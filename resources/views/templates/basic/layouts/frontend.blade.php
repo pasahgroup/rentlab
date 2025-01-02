@@ -102,8 +102,8 @@
                 <!-- Logo -->
                 <a class="nav-brand" href="/"><img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="" style="height:40px; width:120px;padding:1px;"></a>
                     <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    <div class="classy-navbar-toggler" style="margin-right:-220px">
+                        <span class="navbarToggler" style="margin-right:0px"><span></span><span></span><span></span></span>
                     </div>
 
                 <!-- Menu -->
@@ -123,23 +123,21 @@
                                                         <li><a href="#">Vehicles</a>
 
 <ul class="dropdown">
-  @foreach($brands as $brand)
+  @foreach($view_brands as $brand)
 
                                         <li><a href="#">{{$brand->name}}</a>
 
-                                            <ul class="dropdown">
+                                            <ul class="dropdown" style="padding:0px">
 
                                               @foreach($view_vehicles as $vehicle)
 
-  <li>
-
+  <li style="padding:0px">
     @if($vehicle->brand_id==$brand->id)
       <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
 <input type="hidden" name="model" id="model" value="{{$vehicle->model}}" class="form-control form--control" required>
   <button  class="dropdown-item">{{$vehicle->model}}</button>
                                           </form>
   @endif
-
 
   </li>
 

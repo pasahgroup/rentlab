@@ -98,14 +98,11 @@ $fullUrl = url()->full();
 
 
          $vehicles = Vehicle::groupby('model')->get();
-
-     //dd($vehicle);
+              //dd($vehicle);
         $locations = Location::active()->orderBy('name')->get();
         $pageTitle = 'Vehicle Booked by '.auth()->user()->firstname .' '.auth()->user()->lastname;
         return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations','bookingID','bookedID'));
     }
-
-
 
 
  public function addCar(Request $request,$id){
@@ -240,9 +237,7 @@ if(request('multi-booking'))
         $rent->save();
 
 }
-//dd($rent->id);
-
-         session(['rent_id' => $rent->id]);
+   session(['rent_id' => $rent->id]);
       // dd(session(['rent_id' =>18]));
 
         if (!session()->has('rent_id') && !session()->has('plan_id')){
@@ -355,16 +350,16 @@ else{
         //dd('print2');
 }
 
-
+//dd('print2');
  // return redirect()->route('user.pesapal',$data->id);
- return redirect()->route('user.pesapal',$rent->id);
+ return redirect()->route('user.payment',$rent->id);
 
         // return redirect()->route('user.deposit.manual.confirm');
     }
 
 
 
- public function pesapal(Request $request,$id)
+ public function payment(Request $request,$id)
     {
           //dd($id);
          //$track = session()->get('Track');
@@ -492,6 +487,9 @@ $base_price=($response_object->rates->TZS/$response_object->rates->$currency);
     catch(Exception $e) {
         // Handle JSON parse error...
     }
+}
+else {
+  return redirect()->back()->with('info','No Internet connection');
 }
 
     //dd('print');

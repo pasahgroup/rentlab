@@ -58,12 +58,20 @@ if ($this->app->isLocal()) {
         $viewShare['pages'] = Page::where('tempname',$activeTemplate)->where('slug','!=','home')->get();
 
         $viewShare['cartypes'] = cartype::orderBy('car_body_type')->get();
-       $viewShare['brands'] = brand::orderBy('name')->get();
-       $viewShare['view_vehicles'] = Vehicle::orderBy('model')->get();
+    //
+       $viewShare['view_brands'] = brand::join('vehicles','vehicles.brand_id','brands.id')
+       ->select('brands.id','brands.name')
+       ->groupby('vehicles.brand_id')
+       ->get();
+
+       $viewShare['view_vehicles'] = brand::join('vehicles','vehicles.brand_id','brands.id')
+       //->groupby('vehicles.brand_id')
+        ->orderBy('model')->get();
+
           $viewShare['view_services'] = service::where('category','!=','Main')
           ->orderBy('title','asc')->get();
-         //dd($viewShare['view_services']);
 
+         //dd($viewShare['view_brands']);
         view()->share($viewShare);
 
 

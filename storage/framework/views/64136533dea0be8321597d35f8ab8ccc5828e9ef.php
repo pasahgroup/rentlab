@@ -114,7 +114,7 @@
                             <div class="row g-4">
 
                                 <?php $__empty_1 = true; $__currentLoopData = $vehicle->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $image): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                    <div class="col-lg-3 col-md-6">
+                                    <div class="col-lg-2 col-md-6">
                                         <div class="gallery__item">
                                             <a href="<?php echo e(getImage(imagePath()['vehicles']['path'].'/'. @$image, imagePath()['vehicles']['size'])); ?>" class="img-pop">
                                                 <i class="las la-plus"></i>

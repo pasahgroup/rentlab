@@ -29,9 +29,6 @@
                                 </form>
                             </div>
                         </div>
-
-
-
                                                 <div class="widget border--dashed">
                                                   <label for="stat-dae" class="form--label">
                                                       <strong class="title">  <i class="las la-dollar-sign"></i> @lang('Filter by Seats')</strong>

@@ -1,3 +1,6 @@
+
+
+
 @php
     $app_content = getContent('app.content', true);
 @endphp

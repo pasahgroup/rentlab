@@ -79,6 +79,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('password/reset/change', 'ResetPasswordController@reset')->name('password.change');
     });
 
+
     Route::middleware('admin')->group(function () {
         Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
         Route::get('pending-customer', 'AdminController@pendingCustomer')->name('pending-customer');
@@ -375,18 +376,13 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
         // Frontend
         Route::name('frontend.')->prefix('frontend')->group(function () {
-
-
             Route::get('templates', 'FrontendController@templates')->name('templates');
             Route::post('templates', 'FrontendController@templatesActive')->name('templates.active');
 
-
             Route::get('frontend-sections/{key}', 'FrontendController@frontendSections')->name('sections');
-
             Route::post('frontend-content/{key}', 'FrontendController@frontendContent')->name('sections.content');
             Route::get('frontend-element/{key}/{id?}', 'FrontendController@frontendElement')->name('sections.element');
             Route::post('remove', 'FrontendController@remove')->name('remove');
-
             // Page Builder
             Route::get('manage-pages', 'PageBuilderController@managePages')->name('manage.pages');
             Route::post('manage-pages', 'PageBuilderController@managePagesSave')->name('manage.pages.save');
@@ -428,15 +424,14 @@ Route::name('user.')->group(function () {
 Route::name('user.')->prefix('user')->group(function () {
     Route::middleware('auth')->group(function () {
 //pesaPal Preview
-        Route::get('/pesapal/{x}', 'VehicleController@pesapal')->name('pesapal');
+  Route::get('/payment/{x}', 'VehicleController@payment')->name('payment');
+        // Route::get('/pesapal/{x}', 'VehicleController@pesapal')->name('pesapal');
          Route::get('/pg/{x}', [VehicleController::class, 'pesapal'])->name('pg');
          // Route::post('/payConfirm/{x}', [VehicleController::class, 'payConfirm'])->name('payConfirm');
           Route::post('/payConfirm/{x}', 'VehicleController@payConfirm')->name('payConfirm');
               Route::post('/addCar/{x}', 'VehicleController@addCar')->name('addCar');
               Route::get('/pc/{x}', 'VehicleController@addBooking')->name('pc');
                // Route::get('/pc/{x}', [VehicleController::class, 'addCar'])->name('pc');
-
-
 
         // Route::post('/payConfirm/{x}', 'VehicleController@payConfirm')->name('payConfirm');
 

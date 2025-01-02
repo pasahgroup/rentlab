@@ -102,8 +102,8 @@
                 <!-- Logo -->
                 <a class="nav-brand" href="/"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="" style="height:40px; width:120px;padding:1px;"></a>
                     <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    <div class="classy-navbar-toggler" style="margin-right:-220px">
+                        <span class="navbarToggler" style="margin-right:0px"><span></span><span></span><span></span></span>
                     </div>
 
                 <!-- Menu -->
@@ -123,23 +123,21 @@
                                                         <li><a href="#">Vehicles</a>
 
 <ul class="dropdown">
-  <?php $__currentLoopData = $brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  <?php $__currentLoopData = $view_brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                                         <li><a href="#"><?php echo e($brand->name); ?></a>
 
-                                            <ul class="dropdown">
+                                            <ul class="dropdown" style="padding:0px">
 
                                               <?php $__currentLoopData = $view_vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-  <li>
-
+  <li style="padding:0px">
     <?php if($vehicle->brand_id==$brand->id): ?>
       <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
 <input type="hidden" name="model" id="model" value="<?php echo e($vehicle->model); ?>" class="form-control form--control" required>
   <button  class="dropdown-item"><?php echo e($vehicle->model); ?></button>
                                           </form>
   <?php endif; ?>
-
 
   </li>
 

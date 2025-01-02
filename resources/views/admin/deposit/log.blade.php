@@ -2,6 +2,7 @@
 
 @section('panel')
 <div class="row justify-content-center">
+
     @if(request()->routeIs('admin.deposit.list') || request()->routeIs('admin.deposit.method') || request()->routeIs('admin.users.deposits') || request()->routeIs('admin.users.deposits.method'))
         <div class="col-md-4 col-sm-6 mb-30">
             <div class="widget-two box--shadow2 b-radius--5 bg--success">
@@ -47,6 +48,7 @@
                         </tr>
                         </thead>
                         <tbody>
+
                         @forelse($deposits as $deposit)
                             @php
                                 $details = $deposit->detail ? json_encode($deposit->detail) : null;
@@ -112,6 +114,7 @@
             </div>
         </div><!-- card end -->
     </div>
+
 </div>
 @endsection
 
@@ -119,14 +122,14 @@
 @push('breadcrumb-plugins')
     @if(!request()->routeIs('admin.users.deposits') && !request()->routeIs('admin.users.deposits.method'))
 
-          
-  
-            <div class="row">
-             <div class="col-md-12 col-sm-12">             
-        
-<!-- </div> 
 
-  
+
+            <div class="row">
+             <div class="col-md-12 col-sm-12">
+
+<!-- </div>
+
+
  <div class="col-md-9 col-sm-12"> -->
         <form action="{{route('admin.deposit.search', $scope ?? str_replace('admin.deposit.', '', request()->route()->getName()))}}" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
             <div class="input-group has_append  ">
@@ -147,7 +150,7 @@
             </div>
         </form>
 
- </div>  
+ </div>
         </div>
 
 

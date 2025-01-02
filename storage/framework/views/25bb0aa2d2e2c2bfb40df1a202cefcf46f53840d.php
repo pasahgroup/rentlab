@@ -1,5 +1,6 @@
 <?php $__env->startSection('panel'); ?>
 <div class="row justify-content-center">
+
     <?php if(request()->routeIs('admin.deposit.list') || request()->routeIs('admin.deposit.method') || request()->routeIs('admin.users.deposits') || request()->routeIs('admin.users.deposits.method')): ?>
         <div class="col-md-4 col-sm-6 mb-30">
             <div class="widget-two box--shadow2 b-radius--5 bg--success">
@@ -45,6 +46,7 @@
                         </tr>
                         </thead>
                         <tbody>
+
                         <?php $__empty_1 = true; $__currentLoopData = $deposits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $deposit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <?php
                                 $details = $deposit->detail ? json_encode($deposit->detail) : null;
@@ -116,6 +118,7 @@
             </div>
         </div><!-- card end -->
     </div>
+
 </div>
 <?php $__env->stopSection(); ?>
 
@@ -123,14 +126,14 @@
 <?php $__env->startPush('breadcrumb-plugins'); ?>
     <?php if(!request()->routeIs('admin.users.deposits') && !request()->routeIs('admin.users.deposits.method')): ?>
 
-          
-  
-            <div class="row">
-             <div class="col-md-12 col-sm-12">             
-        
-<!-- </div> 
 
-  
+
+            <div class="row">
+             <div class="col-md-12 col-sm-12">
+
+<!-- </div>
+
+
  <div class="col-md-9 col-sm-12"> -->
         <form action="<?php echo e(route('admin.deposit.search', $scope ?? str_replace('admin.deposit.', '', request()->route()->getName()))); ?>" method="GET" class="form-inline float-sm-right bg--white mb-2 ml-0 ml-xl-2 ml-lg-0">
             <div class="input-group has_append  ">
@@ -151,7 +154,7 @@
             </div>
         </form>
 
- </div>  
+ </div>
         </div>
 
 

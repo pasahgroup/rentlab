@@ -25,7 +25,7 @@ class DepositController extends Controller
 
  if(request('today')){
  $pageTitle = 'Today Pending Payments';
-  
+
     //        $depositsx = Deposit::where('created_at',Carbon::today())
     // ->where('method_code', '>=', 1000)
     //     ->where('status',2)
@@ -38,7 +38,7 @@ class DepositController extends Controller
      //              ->whereRaw('Date(created_at) = CURDATE()')
      //             ->where('method_code', '>=', 1000)
      //    ->where('status',2)
-                  
+
      //              ->orderBy('id','desc')
      //              ->paginate(getPaginate());
 
@@ -112,7 +112,7 @@ elseif(request('month')){
     {
           $pageTitle = 'Rejected Payments';
         $emptyMessage = 'No rejected payments.';
-       
+
           if(request('weekcancellation')){
   $pageTitle = 'Week Rejected Payments';
 
@@ -136,27 +136,27 @@ elseif(request('month')){
     ->paginate(getPaginate());
           }
 
-          else{ 
+          else{
 
-            $pageTitle = 'All Rejected Payments';           
+            $pageTitle = 'All Rejected Payments';
         $deposits = Deposit::where('method_code', '>=', 1000)->where('status', 3)->with(['user', 'gateway'])->orderBy('id','desc')->paginate(getPaginate());
 
           }
-     
+
         return view('admin.deposit.log_reject', compact('pageTitle', 'emptyMessage', 'deposits'));
     }
 
     public function deposit()
     {
-
         //dd('poopp');
-
         $pageTitle = 'Payment History';
         $emptyMessage = 'No payment history available.';
         $deposits = Deposit::with(['user', 'gateway'])->where('status','!=',0)->orderBy('id','desc')->paginate(getPaginate());
+
         $successful = Deposit::where('status',1)->sum('amount');
         $pending = Deposit::where('status',2)->sum('amount');
         $rejected = Deposit::where('status',3)->sum('amount');
+          //dd($rejected);
         return view('admin.deposit.log', compact('pageTitle', 'emptyMessage', 'deposits','successful','pending','rejected'));
     }
 
@@ -299,7 +299,7 @@ elseif(request('month')){
         $general = GeneralSetting::first();
      //dd($general);
         // Email lodge
-       
+
         // notify($user, 'PAYMENT_APPROVE', [
         //     'method_name' => $deposit->gatewayCurrency()->name,
         //     'method_currency' => $deposit->method_currency,
