@@ -162,7 +162,7 @@
 
                                           <select id="gateway" name="gateway" required>
 @foreach($gateways as $gateway)
-                                                                         <option value="RWF">{{$gateway->name}}</option>
+                                                                         <option value="{{$gateway->id}}">{{$gateway->name}}</option>
                                                                          @endforeach
                                           </select>
                                                               </div>

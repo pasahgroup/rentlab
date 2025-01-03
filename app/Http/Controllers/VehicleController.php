@@ -138,12 +138,6 @@ if(request('carModel')!=null)
         return view($this->activeTemplate.'user.pesapal.addcar',compact('vehicle','vehicles','pageTitle', 'locations','bookingID','bookID','bookedID'));
     }
 
-
-
-
-
-
-
     public function vehicleBookingConfirm(Request $request, $id)
     {
 //dd(request('bookingID'));
@@ -183,7 +177,6 @@ if(request('carModel')!=null)
     $pick_time = new Carbon($request->pick_time);
     $drop_time = new Carbon($request->drop_time);
 
-
 if(request('multi-booking'))
 {
     $total_days = $pick_time->diffInDays($drop_time) +1;
@@ -209,9 +202,7 @@ if(request('multi-booking'))
         $rent->save();
 
 }else
-
 {
-
  $vehicle = Vehicle::active()->where('id', $id)->firstOrFail();
         $total_days = $pick_time->diffInDays($drop_time) +1;
         $total_price = $vehicle->price*$total_days* request('no_car');
@@ -440,7 +431,6 @@ else{
     }
 
 
-
     public function payConfirm(Request $request,$id)
     {
 $amount = preg_replace("/[^0-9\.]/", "",request('amount'));
@@ -451,6 +441,7 @@ if($amount<$amount_percent)
  return redirect()->back()->with('error','Down Payment must not below 30% of total booking costs.');
 }
 
+//dd($id);
 // Fetching JSON
 $req_url = "https://api.exchangerate-api.com/v4/latest/USD";
 //dd($req_url);
@@ -483,12 +474,18 @@ $status=1;
     //$base_price =$amount; // Your price in USD
     $amount = (float)$amount;
 
-
 $base_price=($response_object->rates->TZS/$response_object->rates->$currency);
-
  // $defaultCurrency2=($response_object->rates->$currency);
     $to_bepaid = round(($amount * $base_price), 2);
      //dd($to_bepaid);
+
+//
+
+$gateways = Gateway::where('id',request('gateway'))->first();
+//dd($gateways->code);
+$toupdate = Deposit::where('rent_id',$id)->update([
+            'method_code'=>$gateways->code,
+        ]);
 
     }
     catch(Exception $e) {
@@ -499,6 +496,7 @@ else {
   return redirect()->back()->with('info','No Internet connection');
 }
 
+
     //dd('print');
  //return response()->json(['url' => redirect('https://payments.pesapal.com/palatialtours',compact(['first_name','status']));
 //return redirect('https://payments.pesapal.com/palatialtours',compact('status'));
@@ -506,6 +504,8 @@ $pageTitle="Payment";
 return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('first_name','last_name','currency','to_bepaid','desc','email','phone','reference','type','pageTitle'));
 
     }
+
+
 
     public function show(color $department)
   {
