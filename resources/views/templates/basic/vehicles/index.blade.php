@@ -154,7 +154,7 @@
                                             <option value="0">All</option>
                                               @if(!empty($brand_data))
                                             @forelse($model_datas as $m_data)
-                                                <option value="{{ $m_data->brand_id }}">{{ __(@$m_data->model) }}</option>
+                                                <option value="{{ $m_data->model }}">{{ __(@$m_data->model) }}</option>
                                             @empty
                                             @endforelse
                                             @endif

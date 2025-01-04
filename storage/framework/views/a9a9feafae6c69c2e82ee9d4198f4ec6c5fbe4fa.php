@@ -154,7 +154,7 @@
                                             <option value="0">All</option>
                                               <?php if(!empty($brand_data)): ?>
                                             <?php $__empty_1 = true; $__currentLoopData = $model_datas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $m_data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                                                <option value="<?php echo e($m_data->brand_id); ?>"><?php echo e(__(@$m_data->model)); ?></option>
+                                                <option value="<?php echo e($m_data->model); ?>"><?php echo e(__(@$m_data->model)); ?></option>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                             <?php endif; ?>
                                             <?php endif; ?>
