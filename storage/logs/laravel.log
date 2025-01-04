@@ -1,4 +1,4 @@
-[2025-01-04 12:08:23] local.ERROR: Attempt to read property "model" on string (View: C:\xampp\htdocs\rentlab\resources\views\templates\basic\vehicles\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\rentlab\\resources\\views/templates/basic/vehicles/index.blade.php","data":{"general":"<pre class=sf-dump id=sf-dump-257177821 data-indent-pad=\"  \"><span class=sf-dump-note>App\\Models\\GeneralSetting</span> {<a class=sf-dump-ref>#1226</a><samp data-depth=1 class=sf-dump-expanded>
+[2025-01-04 12:18:56] local.ERROR: Attempt to read property "model" on string (View: C:\xampp\htdocs\rentlab\resources\views\templates\basic\vehicles\index.blade.php) {"view":{"view":"C:\\xampp\\htdocs\\rentlab\\resources\\views/templates/basic/vehicles/index.blade.php","data":{"general":"<pre class=sf-dump id=sf-dump-1705878399 data-indent-pad=\"  \"><span class=sf-dump-note>App\\Models\\GeneralSetting</span> {<a class=sf-dump-ref>#1226</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">connection</span>: \"<span class=sf-dump-str title=\"5 characters\">mysql</span>\"
   #<span class=sf-dump-protected title=\"Protected property\">table</span>: \"<span class=sf-dump-str title=\"16 characters\">general_settings</span>\"
   #<span class=sf-dump-protected title=\"Protected property\">primaryKey</span>: \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
@@ -358,12 +358,12 @@
     <span class=sf-dump-index>0</span> => \"<span class=sf-dump-str title=\"2 characters\">id</span>\"
   </samp>]
 </samp>}
-</pre><script>Sfdump(\"sf-dump-257177821\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","activeTemplate":"<pre class=sf-dump id=sf-dump-1779273384 data-indent-pad=\"  \">\"<span class=sf-dump-str title=\"16 characters\">templates.basic.</span>\"
-</pre><script>Sfdump(\"sf-dump-1779273384\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","activeTemplateTrue":"<pre class=sf-dump id=sf-dump-813977584 data-indent-pad=\"  \">\"<span class=sf-dump-str title=\"23 characters\">assets/templates/basic/</span>\"
-</pre><script>Sfdump(\"sf-dump-813977584\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","language":"<pre class=sf-dump id=sf-dump-2116671249 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1231</a><samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-1705878399\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","activeTemplate":"<pre class=sf-dump id=sf-dump-1048967972 data-indent-pad=\"  \">\"<span class=sf-dump-str title=\"16 characters\">templates.basic.</span>\"
+</pre><script>Sfdump(\"sf-dump-1048967972\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","activeTemplateTrue":"<pre class=sf-dump id=sf-dump-1250862810 data-indent-pad=\"  \">\"<span class=sf-dump-str title=\"23 characters\">assets/templates/basic/</span>\"
+</pre><script>Sfdump(\"sf-dump-1250862810\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","language":"<pre class=sf-dump id=sf-dump-1376781716 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1231</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:3</span> [<samp data-depth=2 class=sf-dump-compact>
     <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\Language
 \"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Language</span> {<a class=sf-dump-ref>#1232</a><samp data-depth=3 class=sf-dump-compact>
@@ -467,8 +467,8 @@
   </samp>]
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-2116671249\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","pages":"<pre class=sf-dump id=sf-dump-1167382499 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1221</a><samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-1376781716\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","pages":"<pre class=sf-dump id=sf-dump-416912954 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1221</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
     <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\Page
 \"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Page</span> {<a class=sf-dump-ref>#1235</a><samp data-depth=3 class=sf-dump-compact>
@@ -506,8 +506,8 @@
   </samp>]
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-1167382499\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","cartypes":"<pre class=sf-dump id=sf-dump-639059000 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1251</a><samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-416912954\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","cartypes":"<pre class=sf-dump id=sf-dump-120519121 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1251</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:15</span> [<samp data-depth=2 class=sf-dump-compact>
     <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\cartype
 \"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>cartype</span> {<a class=sf-dump-ref>#1252</a><samp data-depth=3 class=sf-dump-compact>
@@ -1007,8 +1007,8 @@
   </samp>]
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-639059000\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","view_brands":"<pre class=sf-dump id=sf-dump-1888998640 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1238</a><samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-120519121\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","view_brands":"<pre class=sf-dump id=sf-dump-917638485 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1238</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:6</span> [<samp data-depth=2 class=sf-dump-compact>
     <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\Brand
 \"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Brand</span> {<a class=sf-dump-ref>#1237</a><samp data-depth=3 class=sf-dump-compact>
@@ -1211,8 +1211,8 @@
   </samp>]
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-1888998640\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","view_vehicles":"<pre class=sf-dump id=sf-dump-87889198 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1294</a><samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-917638485\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","view_vehicles":"<pre class=sf-dump id=sf-dump-573863389 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1294</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:32</span> [<samp data-depth=2 class=sf-dump-compact>
     <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\Brand
 \"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Brand</span> {<a class=sf-dump-ref>#1295</a><samp data-depth=3 class=sf-dump-compact>
@@ -2273,8 +2273,8 @@
   </samp>]
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-87889198\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","view_services":"<pre class=sf-dump id=sf-dump-313072472 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1285</a><samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-573863389\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","view_services":"<pre class=sf-dump id=sf-dump-952549014 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1285</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:4</span> [<samp data-depth=2 class=sf-dump-compact>
     <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\service
 \"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>service</span> {<a class=sf-dump-ref>#1284</a><samp data-depth=3 class=sf-dump-compact>
@@ -2411,12 +2411,12 @@
   </samp>]
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-313072472\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","errors":"<pre class=sf-dump id=sf-dump-2128400230 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1928</a><samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-952549014\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","errors":"<pre class=sf-dump id=sf-dump-1799888058 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Support\\ViewErrorBag</span> {<a class=sf-dump-ref>#1928</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">bags</span>: []
 </samp>}
-</pre><script>Sfdump(\"sf-dump-2128400230\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","departments":"<pre class=sf-dump id=sf-dump-86083316 data-indent-pad=\"  \"><span class=sf-dump-note>array:1</span> [<samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-1799888058\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","departments":"<pre class=sf-dump id=sf-dump-1559924219 data-indent-pad=\"  \"><span class=sf-dump-note>array:1</span> [<samp data-depth=1 class=sf-dump-expanded>
   \"<span class=sf-dump-key>data</span>\" => <span class=sf-dump-note title=\"Illuminate\\Database\\Eloquent\\Collection
 \"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Illuminate\\Database\\Eloquent</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Collection</span> {<a class=sf-dump-ref>#2040</a><samp data-depth=2 class=sf-dump-compact>
     #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:32</span> [<samp data-depth=3 class=sf-dump-compact>
@@ -2488,12 +2488,12 @@
     #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
   </samp>}
 </samp>]
-</pre><script>Sfdump(\"sf-dump-86083316\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","model_data":"<pre class=sf-dump id=sf-dump-320427596 data-indent-pad=\"  \">\"\"
-</pre><script>Sfdump(\"sf-dump-320427596\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","brand_data":"<pre class=sf-dump id=sf-dump-154487748 data-indent-pad=\"  \">\"\"
-</pre><script>Sfdump(\"sf-dump-154487748\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","vehicles":"<pre class=sf-dump id=sf-dump-1115950374 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Pagination\\LengthAwarePaginator</span> {<a class=sf-dump-ref>#1953</a><samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-1559924219\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","model_data":"<pre class=sf-dump id=sf-dump-1507712676 data-indent-pad=\"  \">\"\"
+</pre><script>Sfdump(\"sf-dump-1507712676\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","brand_data":"<pre class=sf-dump id=sf-dump-1875239581 data-indent-pad=\"  \">\"\"
+</pre><script>Sfdump(\"sf-dump-1875239581\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","vehicles":"<pre class=sf-dump id=sf-dump-1422293971 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Pagination\\LengthAwarePaginator</span> {<a class=sf-dump-ref>#1953</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note title=\"Illuminate\\Database\\Eloquent\\Collection
 \"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">Illuminate\\Database\\Eloquent</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Collection</span> {<a class=sf-dump-ref>#1957</a><samp data-depth=2 class=sf-dump-compact>
     #<span class=sf-dump-protected title=\"Protected property\">items</span>: []
@@ -2503,7 +2503,7 @@
   #<span class=sf-dump-protected title=\"Protected property\">currentPage</span>: <span class=sf-dump-num>1</span>
   #<span class=sf-dump-protected title=\"Protected property\">path</span>: \"<span class=sf-dump-str title=\"36 characters\">http://localhost:8000/vehicle-search</span>\"
   #<span class=sf-dump-protected title=\"Protected property\">query</span>: <span class=sf-dump-note>array:1</span> [<samp data-depth=2 class=sf-dump-compact>
-    \"<span class=sf-dump-key>seats</span>\" => \"<span class=sf-dump-str>2</span>\"
+    \"<span class=sf-dump-key>seats</span>\" => \"<span class=sf-dump-str>1</span>\"
   </samp>]
   #<span class=sf-dump-protected title=\"Protected property\">fragment</span>: <span class=sf-dump-const>null</span>
   #<span class=sf-dump-protected title=\"Protected property\">pageName</span>: \"<span class=sf-dump-str title=\"4 characters\">page</span>\"
@@ -2515,10 +2515,10 @@
   #<span class=sf-dump-protected title=\"Protected property\">total</span>: <span class=sf-dump-num>0</span>
   #<span class=sf-dump-protected title=\"Protected property\">lastPage</span>: <span class=sf-dump-num>1</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-1115950374\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","pageTitle":"<pre class=sf-dump id=sf-dump-1080503675 data-indent-pad=\"  \">\"<span class=sf-dump-str title=\"7 characters\">2 Seats</span>\"
-</pre><script>Sfdump(\"sf-dump-1080503675\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","brands":"<pre class=sf-dump id=sf-dump-347795615 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1967</a><samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-1422293971\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","pageTitle":"<pre class=sf-dump id=sf-dump-929731153 data-indent-pad=\"  \">\"<span class=sf-dump-str title=\"7 characters\">1 Seats</span>\"
+</pre><script>Sfdump(\"sf-dump-929731153\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","brands":"<pre class=sf-dump id=sf-dump-279272643 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1967</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:24</span> [<samp data-depth=2 class=sf-dump-compact>
     <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\Brand
 \"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Brand</span> {<a class=sf-dump-ref>#1968</a><samp data-depth=3 class=sf-dump-compact>
@@ -3315,8 +3315,8 @@
   </samp>]
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-347795615\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","brandss":"<pre class=sf-dump id=sf-dump-13466817 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1962</a><samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-279272643\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","brandss":"<pre class=sf-dump id=sf-dump-642507483 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1962</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:6</span> [<samp data-depth=2 class=sf-dump-compact>
     <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\Vehicle
 \"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Vehicle</span> {<a class=sf-dump-ref>#1959</a><samp data-depth=3 class=sf-dump-compact>
@@ -3519,10 +3519,10 @@
   </samp>]
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-13466817\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","models":"<pre class=sf-dump id=sf-dump-1810213814 data-indent-pad=\"  \">[]
-</pre><script>Sfdump(\"sf-dump-1810213814\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","seats":"<pre class=sf-dump id=sf-dump-735249425 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1949</a><samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-642507483\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","models":"<pre class=sf-dump id=sf-dump-28268975 data-indent-pad=\"  \">[]
+</pre><script>Sfdump(\"sf-dump-28268975\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","seats":"<pre class=sf-dump id=sf-dump-370055847 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1949</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:10</span> [<samp data-depth=2 class=sf-dump-compact>
     <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\Seater
 \"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Seater</span> {<a class=sf-dump-ref>#1948</a><samp data-depth=3 class=sf-dump-compact>
@@ -3857,8 +3857,8 @@
   </samp>]
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-735249425\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","carTags":"<pre class=sf-dump id=sf-dump-499602889 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#2007</a><samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-370055847\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","carTags":"<pre class=sf-dump id=sf-dump-738782901 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#2007</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:7</span> [<samp data-depth=2 class=sf-dump-compact>
     <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\Vehicle
 \"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Vehicle</span> {<a class=sf-dump-ref>#2008</a><samp data-depth=3 class=sf-dump-compact>
@@ -4094,8 +4094,8 @@
   </samp>]
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-499602889\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-","carBodies":"<pre class=sf-dump id=sf-dump-1579762440 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1998</a><samp data-depth=1 class=sf-dump-expanded>
+</pre><script>Sfdump(\"sf-dump-738782901\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+","carBodies":"<pre class=sf-dump id=sf-dump-1046067399 data-indent-pad=\"  \"><span class=sf-dump-note>Illuminate\\Database\\Eloquent\\Collection</span> {<a class=sf-dump-ref>#1998</a><samp data-depth=1 class=sf-dump-expanded>
   #<span class=sf-dump-protected title=\"Protected property\">items</span>: <span class=sf-dump-note>array:6</span> [<samp data-depth=2 class=sf-dump-compact>
     <span class=sf-dump-index>0</span> => <span class=sf-dump-note title=\"App\\Models\\Vehicle
 \"><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">App\\Models</span><span class=\"sf-dump-ellipsis sf-dump-ellipsis-note\">\\</span>Vehicle</span> {<a class=sf-dump-ref>#1999</a><samp data-depth=3 class=sf-dump-compact>
@@ -4298,10 +4298,10 @@
   </samp>]
   #<span class=sf-dump-protected title=\"Protected property\">escapeWhenCastingToString</span>: <span class=sf-dump-const>false</span>
 </samp>}
-</pre><script>Sfdump(\"sf-dump-1579762440\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
-"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Attempt to read property \"model\" on string (View: C:\\xampp\\htdocs\\rentlab\\resources\\views\\templates\\basic\\vehicles\\index.blade.php) at C:\\xampp\\htdocs\\rentlab\\resources\\views/templates/basic/vehicles/index.blade.php:144)
+</pre><script>Sfdump(\"sf-dump-1046067399\", {\"maxDepth\":3,\"maxStringLength\":160})</script>
+"}},"userId":1,"exception":"[object] (Facade\\Ignition\\Exceptions\\ViewException(code: 0): Attempt to read property \"model\" on string (View: C:\\xampp\\htdocs\\rentlab\\resources\\views\\templates\\basic\\vehicles\\index.blade.php) at C:\\xampp\\htdocs\\rentlab\\resources\\views/templates/basic/vehicles/index.blade.php:147)
 [stacktrace]
-#0 C:\\xampp\\htdocs\\rentlab\\resources\\views/templates/basic/vehicles/index.blade.php(144): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Attempt to read...', 'C:\\\\xampp\\\\htdocs...', 144)
+#0 C:\\xampp\\htdocs\\rentlab\\resources\\views/templates/basic/vehicles/index.blade.php(147): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Attempt to read...', 'C:\\\\xampp\\\\htdocs...', 147)
 #1 C:\\xampp\\htdocs\\rentlab\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #2 C:\\xampp\\htdocs\\rentlab\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\xampp\\htdocs\\rentlab\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)
@@ -4363,9 +4363,9 @@
 #59 C:\\xampp\\htdocs\\rentlab\\server.php(21): require_once('C:\\\\xampp\\\\htdocs...')
 #60 {main}
 
-[previous exception] [object] (ErrorException(code: 0): Attempt to read property \"model\" on string at C:\\xampp\\htdocs\\rentlab\\storage\\framework\\views\\a9a9feafae6c69c2e82ee9d4198f4ec6c5fbe4fa.php:144)
+[previous exception] [object] (ErrorException(code: 0): Attempt to read property \"model\" on string at C:\\xampp\\htdocs\\rentlab\\storage\\framework\\views\\a9a9feafae6c69c2e82ee9d4198f4ec6c5fbe4fa.php:147)
 [stacktrace]
-#0 C:\\xampp\\htdocs\\rentlab\\storage\\framework\\views\\a9a9feafae6c69c2e82ee9d4198f4ec6c5fbe4fa.php(144): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Attempt to read...', 'C:\\\\xampp\\\\htdocs...', 144)
+#0 C:\\xampp\\htdocs\\rentlab\\storage\\framework\\views\\a9a9feafae6c69c2e82ee9d4198f4ec6c5fbe4fa.php(147): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Attempt to read...', 'C:\\\\xampp\\\\htdocs...', 147)
 #1 C:\\xampp\\htdocs\\rentlab\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(107): require('C:\\\\xampp\\\\htdocs...')
 #2 C:\\xampp\\htdocs\\rentlab\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(108): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
 #3 C:\\xampp\\htdocs\\rentlab\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\xampp\\\\htdocs...', Array)

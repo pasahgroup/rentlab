@@ -39,6 +39,11 @@
 
                                                               <select name="seats" id="seats" class="form-control form--control" required="" style="background-color:#809f75">
                                                                   <option value="">@lang('--Select Seats--')</option>
+
+                                                                  @if(!empty($brand_data))
+                                                                    <option value="0" selected>{{$brand_data->name}}</option>
+                                                                    @endif
+                                                                    
                                                                   @forelse($seats as $seat)
                                                                       <option value="{{ $seat->id }}">{{ __(@$seat->number) }} Seats</option>
                                                                   @empty
@@ -124,9 +129,10 @@
                                     </label>
                                     <select name="brand" id="brand" class="form-control form--control">
                                         <option value="">@lang('--Select Brand--')</option>
-                                        @isset($brand_data)
+
+                                        @if(!empty($brand_data))
                                           <option value="0" selected>{{$brand_data->name}}</option>
-                                          @endisset
+                                          @endif
                                         <option value="0">All</option>
                                         @forelse($brandss as $brand)
                                             <option value="{{ $brand->brand_id }}">{{ __(@$brand->name) }}</option>
@@ -142,9 +148,9 @@
                                         <i class="las la-car-side"></i> @lang('--Select Model--')
                                     </label>
                                     <select name="modeldata" id="modeldata" class="form-control form--control">
-                                      @isset($model_data)
+                                                                            @if(!empty($model_data))
                                         <option value="{{$model_data->model}}" selected>{{$model_data->model}}</option>
-                                        @endisset
+                                        @endif
                                             <option value="0">All</option>
                                     </select>
                                 </div>
