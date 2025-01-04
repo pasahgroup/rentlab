@@ -548,6 +548,8 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
     {
       $vehicles=[];
   $models=[];
+  $brand_data="";
+    $model_data="";
 
         $pageTitle="";
         $brands = Brand::active()->withCount('vehicles')->orderBy('name')->get();
@@ -563,16 +565,27 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
  //         $brandss=DB::select('select a.property_id,a.metaname_id,m.metaname_name,a.indicator_id,a.asset_id, a.opt_answer_id,a.answer,o.answer_classification from answers a,optional_answers o,metanames m where a.indicator_id=o.indicator_id and a.metaname_id=m.id and a.opt_answer_id=o.id and a.datex="'.$current_date.'"');
  // $dataDaily = collect($reportDailyData);
 
-
-       //dd($brandss);
-
-        $vehicles = Vehicle::active();       //$pageTitle = 'Vehicle Search';
+  $vehicles = Vehicle::active();       //$pageTitle = 'Vehicle Search';
 
 if(request('search'))
 {
-  dd('request is');
-}else {
+  if ($request->brand) {
+      $vehicles->where('brand_id',"$request->brand");
+        $pageTitle=$request->name;
+  }
 
+  if ($request->modeldata) {
+      $vehicles->where('model',"$request->modeldata");
+        $pageTitle=$request->name;
+  }
+//dd($vehicles);
+  //$brand_data = brand::where('brand_id',$request->brand)->first();
+    $brand_data=brand::where('id',"$request->brand")->first();
+    $model_data=$vehicles->where('brand_id',"$request->brand")->first();
+  //dd($brand_data);
+
+  $vehicles = $vehicles->latest()->paginate(4)->withQueryString();
+}else {
 
 
 
@@ -610,6 +623,8 @@ if(request('search'))
               $pageTitle=$request->seats. ' Seats';
         }
 
+        //dd($request->seats);
+
         if ($request->min_price){
             $vehicles->where('price', '>=', $request->min_price);
               $pageTitle="Minimum Price ".$request->min_price;
@@ -637,38 +652,42 @@ if(request('search'))
           //dd($pageTitle);
         }
 
-//dd($request->carbody);
-
+//dd('jj');
 
         $vehicles = $vehicles->latest()->paginate(4)->withQueryString();
       //    $brandss = $brandss->latest()->paginate(4)->withQueryString();
 //dd($vehicles);
-
-        $carBodies = vehicle::join('cartypes','vehicles.car_body_type_id','cartypes.id')
-        ->select('vehicles.*','cartypes.car_body_type')
-        ->groupby('vehicles.car_body_type_id')
-             ->get();
-
-             $carTags = vehicle::join('tags','vehicles.tag_id','tags.id')
-             ->select('vehicles.*','tags.tag')
-             ->groupby('vehicles.tag_id')
-              ->get();
             }
+
+
+
       //  $carBodies = vehicle::join('vehicles.car_body_type_id','cartypes.id')->get();
 // dd($carBodies);
         //Filter by Car body or Car Tag
 
    //$vehicle = Vehicle::active()->where('model',request('carModel'))->first();
 
-      //dd($seats);
+      //dd('kll');
       //Combo textBox
+
+      $carBodies = vehicle::join('cartypes','vehicles.car_body_type_id','cartypes.id')
+      ->select('vehicles.*','cartypes.car_body_type')
+      ->groupby('vehicles.car_body_type_id')
+           ->get();
+
+           $carTags = vehicle::join('tags','vehicles.tag_id','tags.id')
+           ->select('vehicles.*','tags.tag')
+           ->groupby('vehicles.tag_id')
+            ->get();
 
       //  $pageTitle="Title";
         $departments['data'] = vehicle::orderby("name","asc")
              ->select('id','name')
              ->get();
 
-        return view($this->activeTemplate.'vehicles.index',compact('departments','vehicles','pageTitle', 'brands','brandss','models', 'seats','carTags','carBodies'));
+//dd('loo');
+
+        return view($this->activeTemplate.'vehicles.index',compact('departments','model_data','brand_data','vehicles','pageTitle', 'brands','brandss','models', 'seats','carTags','carBodies'));
     }
 
 

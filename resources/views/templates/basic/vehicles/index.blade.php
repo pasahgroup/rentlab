@@ -124,6 +124,9 @@
                                     </label>
                                     <select name="brand" id="brand" class="form-control form--control">
                                         <option value="">@lang('--Select Brand--')</option>
+                                        @isset($brand_data)
+                                          <option value="0" selected>{{$brand_data->name}}</option>
+                                          @endisset
                                         <option value="0">All</option>
                                         @forelse($brandss as $brand)
                                             <option value="{{ $brand->brand_id }}">{{ __(@$brand->name) }}</option>
@@ -138,15 +141,11 @@
                                     <label for="car-type" class="form--label">
                                         <i class="las la-car-side"></i> @lang('--Select Model--')
                                     </label>
-                                    <select name="model" id="model" class="form-control form--control">
-                                        <option value="">@lang('--Select Model--')</option>
-                                          <option value="0">All</option>
-                                          {{--
-                                     @forelse($models as $modeld)
-                                            <option value="{{ $modeld->id }}">{{ __(@$modeld->name) }}</option>
-                                        @empty
-                                        @endforelse
-                                        --}}
+                                    <select name="modeldata" id="modeldata" class="form-control form--control">
+                                      @isset($model_data)
+                                        <option value="{{$model_data->model}}" selected>{{$model_data->model}}</option>
+                                        @endisset
+                                            <option value="0">All</option>
                                     </select>
                                 </div>
                             </div>
@@ -249,7 +248,7 @@
                // Empty the dropdown
                $('#model').find('option').not(':first').remove();
               $('#seats').find('option').not(':first').remove();
-  // alert(id);
+   //alert(id);
                // AJAX request
                $.ajax({
                    url: 'getModel/'+id,
@@ -261,7 +260,7 @@
                             len = response['data'].length;
                        }
 
-  // alert(len);
+   //alert(len);
                        if(len > 0){
                             // Read data and create <option >
                             for(var i=0; i<len; i++){
@@ -271,7 +270,8 @@
 
                                  var option = "<option value='"+name+"'>"+name+"</option>";
 
-                                 $("#model").append(option);
+                                 $("#modeldata").append("All");
+                                  $("#modeldata").append(option);
                             }
                        }
 
@@ -282,7 +282,7 @@
       </script>
 
 
-
+<!--
       <script type='text/javascript'>
         $(document).ready(function(){
 
@@ -324,7 +324,7 @@
                  });
             });
         });
-        </script>
+        </script> -->
 
 
 
@@ -395,7 +395,7 @@
                        if(response['data'] != null){
                             len = response['data'].length;
                        }
-  alert(len);
+  //alert(len);
 
                        if(len > 0){
                             // Read data and create <option >

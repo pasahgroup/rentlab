@@ -124,6 +124,7 @@
                                     </label>
                                     <select name="brand" id="brand" class="form-control form--control">
                                         <option value=""><?php echo app('translator')->get('--Select Brand--'); ?></option>
+
                                         <option value="0">All</option>
                                         <?php $__empty_1 = true; $__currentLoopData = $brandss; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                             <option value="<?php echo e($brand->brand_id); ?>"><?php echo e(__(@$brand->name)); ?></option>
@@ -138,10 +139,9 @@
                                     <label for="car-type" class="form--label">
                                         <i class="las la-car-side"></i> <?php echo app('translator')->get('--Select Model--'); ?>
                                     </label>
-                                    <select name="model" id="model" class="form-control form--control">
-                                        <option value=""><?php echo app('translator')->get('--Select Model--'); ?></option>
-                                          <option value="0">All</option>
-                                          
+                                    <select name="modeldata" id="modeldata" class="form-control form--control">
+                                    
+                                            <option value="0">All</option>
                                     </select>
                                 </div>
                             </div>
@@ -245,7 +245,7 @@
                // Empty the dropdown
                $('#model').find('option').not(':first').remove();
               $('#seats').find('option').not(':first').remove();
-  // alert(id);
+   //alert(id);
                // AJAX request
                $.ajax({
                    url: 'getModel/'+id,
@@ -257,7 +257,7 @@
                             len = response['data'].length;
                        }
 
-  // alert(len);
+   //alert(len);
                        if(len > 0){
                             // Read data and create <option >
                             for(var i=0; i<len; i++){
@@ -267,7 +267,8 @@
 
                                  var option = "<option value='"+name+"'>"+name+"</option>";
 
-                                 $("#model").append(option);
+                                 $("#modeldata").append("All");
+                                  $("#modeldata").append(option);
                             }
                        }
 
@@ -278,7 +279,7 @@
       </script>
 
 
-
+<!--
       <script type='text/javascript'>
         $(document).ready(function(){
 
@@ -320,7 +321,7 @@
                  });
             });
         });
-        </script>
+        </script> -->
 
 
 
@@ -391,7 +392,7 @@
                        if(response['data'] != null){
                             len = response['data'].length;
                        }
-  alert(len);
+  //alert(len);
 
                        if(len > 0){
                             // Read data and create <option >
