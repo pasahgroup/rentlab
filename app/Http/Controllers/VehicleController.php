@@ -582,7 +582,8 @@ if(request('search'))
   //$brand_data = brand::where('brand_id',$request->brand)->first();
     $brand_data=brand::where('id',"$request->brand")->first();
     $model_data=$vehicles->where('brand_id',"$request->brand")->first();
-  //dd($brand_data);
+      $model_datas=Vehicle::where('brand_id',"$request->brand")->get();
+  //dd($model_datas);
 
   $vehicles = $vehicles->latest()->paginate(4)->withQueryString();
 }else {
@@ -687,7 +688,7 @@ if(request('search'))
 
 //dd('loo');
 
-        return view($this->activeTemplate.'vehicles.index',compact('departments','model_data','brand_data','vehicles','pageTitle', 'brands','brandss','models', 'seats','carTags','carBodies'));
+        return view($this->activeTemplate.'vehicles.index',compact('departments','model_data','model_datas','brand_data','vehicles','pageTitle', 'brands','brandss','models', 'seats','carTags','carBodies'));
     }
 
 

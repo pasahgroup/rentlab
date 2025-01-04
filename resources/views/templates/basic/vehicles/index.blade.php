@@ -131,7 +131,7 @@
                                         <option value="">@lang('--Select Brand--')</option>
 
                                         @if(!empty($brand_data))
-                                          <option value="0" selected>{{$brand_data->name}}</option>
+                                          <option value="{{$brand_data->id}}" selected>{{$brand_data->name}}</option>
                                           @endif
                                         <option value="0">All</option>
                                         @forelse($brandss as $brand)
@@ -153,8 +153,8 @@
                                         @endif
                                             <option value="0">All</option>
                                               @if(!empty($brand_data))
-                                            @forelse($brandss as $brand)
-                                                <option value="{{ $brand->brand_id }}">{{ __(@$brand->name) }}</option>
+                                            @forelse($model_datas as $m_data)
+                                                <option value="{{ $m_data->brand_id }}">{{ __(@$m_data->model) }}</option>
                                             @empty
                                             @endforelse
                                             @endif
