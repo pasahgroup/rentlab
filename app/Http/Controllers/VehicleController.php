@@ -550,6 +550,7 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
   $models=[];
   $brand_data="";
     $model_data="";
+      $model_datas="";
 
         $pageTitle="";
         $brands = Brand::active()->withCount('vehicles')->orderBy('name')->get();
