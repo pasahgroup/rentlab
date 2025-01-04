@@ -39,6 +39,11 @@
 
                                                               <select name="seats" id="seats" class="form-control form--control" required="" style="background-color:#809f75">
                                                                   <option value=""><?php echo app('translator')->get('--Select Seats--'); ?></option>
+
+                                                                  <?php if(!empty($brand_data)): ?>
+                                                                    <option value="0" selected><?php echo e($brand_data->name); ?></option>
+                                                                    <?php endif; ?>
+
                                                                   <?php $__empty_1 = true; $__currentLoopData = $seats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $seat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                                                       <option value="<?php echo e($seat->id); ?>"><?php echo e(__(@$seat->number)); ?> Seats</option>
                                                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -147,6 +152,12 @@
                                         <option value="<?php echo e($model_data->model); ?>" selected><?php echo e($model_data->model); ?></option>
                                         <?php endif; ?>
                                             <option value="0">All</option>
+                                              <?php if(!empty($brand_data)): ?>
+                                            <?php $__empty_1 = true; $__currentLoopData = $brandss; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                                <option value="<?php echo e($brand->brand_id); ?>"><?php echo e(__(@$brand->name)); ?></option>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                                            <?php endif; ?>
+                                            <?php endif; ?>
                                     </select>
                                 </div>
                             </div>

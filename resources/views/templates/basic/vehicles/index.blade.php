@@ -43,7 +43,7 @@
                                                                   @if(!empty($brand_data))
                                                                     <option value="0" selected>{{$brand_data->name}}</option>
                                                                     @endif
-                                                                    
+
                                                                   @forelse($seats as $seat)
                                                                       <option value="{{ $seat->id }}">{{ __(@$seat->number) }} Seats</option>
                                                                   @empty
@@ -152,6 +152,12 @@
                                         <option value="{{$model_data->model}}" selected>{{$model_data->model}}</option>
                                         @endif
                                             <option value="0">All</option>
+                                              @if(!empty($brand_data))
+                                            @forelse($brandss as $brand)
+                                                <option value="{{ $brand->brand_id }}">{{ __(@$brand->name) }}</option>
+                                            @empty
+                                            @endforelse
+                                            @endif
                                     </select>
                                 </div>
                             </div>
