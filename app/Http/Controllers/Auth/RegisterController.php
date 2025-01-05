@@ -215,12 +215,11 @@ class RegisterController extends Controller
            $userLogin->country =  @implode(',', $info['']);
              }
 
-
-            $userLogin->longitude =  @implode(',',$info['long']);
-            $userLogin->latitude =  @implode(',',$info['lat']);
-            $userLogin->city =  @implode(',',$info['city']);
-            $userLogin->country_code = @implode(',',$info['code']);
-            $userLogin->country =  @implode(',', $info['country']);
+            // $userLogin->longitude =  @implode(',',$info['long']);
+            // $userLogin->latitude =  @implode(',',$info['lat']);
+            // $userLogin->city =  @implode(',',$info['city']);
+            // $userLogin->country_code = @implode(',',$info['code']);
+            // $userLogin->country =  @implode(',', $info['country']);
 
         }
 
