@@ -61,7 +61,7 @@ $fullUrl=request('fullurl');
 
     public function login(Request $request)
     {
-       //dd(request('fullurl')); 
+       //dd(request('fullurl'));
 
         $this->validateLogin($request);
 
@@ -80,11 +80,11 @@ $fullUrl=request('fullurl');
 
             return $this->sendLockoutResponse($request);
         }
-        
+
            $fullUrl=request('fullurl');
            //dd($fullUrl);
 
-        
+
         if ($this->attemptLogin($request)) {
 
 //dd('uyuyu');
@@ -96,10 +96,10 @@ $fullUrl=request('fullurl');
             //dd(url()->previous());
 
 //session(['url.intended' => url()->previous()]);
-    //return view('auth.login');   
+    //return view('auth.login');
         if(!is_null($fullUrl))
         {
-           return redirect()->intended($fullUrl);  
+           return redirect()->intended($fullUrl);
         }
             return $this->sendLoginResponse($request);
         }
@@ -170,7 +170,7 @@ $fullUrl=request('fullurl');
         $ip = $_SERVER["REMOTE_ADDR"];
         $exist = UserLogin::where('user_ip',$ip)->first();
         $userLogin = new UserLogin();
-        
+
 
         if ($exist) {
             $userLogin->longitude =  $exist->longitude;
@@ -180,7 +180,7 @@ $fullUrl=request('fullurl');
             $userLogin->country =  $exist->country;
         }else{
             $info = json_decode(json_encode(getIpInfo()), true);
-          
+
             if($info["long"]!==null) {
             $userLogin->longitude =  @implode(",",$info["long"]);
              }
@@ -196,19 +196,17 @@ $fullUrl=request('fullurl');
              }
            if($info["country"]!==null) {
          $userLogin->country =  @implode(',', $info['']);
-             }               
+             }
         }
 
         $userAgent = osBrowser();
         $userLogin->user_id = $user->id;
         $userLogin->user_ip =  $ip;
-        
+
         $userLogin->browser = @$userAgent['browser'];
         $userLogin->os = @$userAgent['os_platform'];
         $userLogin->save();
 
         return redirect()->route('user.home');
     }
-
-
 }

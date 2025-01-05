@@ -55,8 +55,8 @@ class RegisterController extends Controller
              else{
                 $mobile_code=000;
              }
-             
-       
+
+
         $countries = json_decode(file_get_contents(resource_path('views/partials/country.json')));
         return view($this->activeTemplate . 'user.auth.register', compact('pageTitle','mobile_code','countries'));
     }
@@ -71,7 +71,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         $general = GeneralSetting::first();
-        $password_validation = Password::min(6);
+        $password_validation = Password::min(4);
         if ($general->secure_password) {
             $password_validation = $password_validation->mixedCase()->numbers()->symbols()->uncompromised();
         }
@@ -83,7 +83,7 @@ class RegisterController extends Controller
         $countryCodes = implode(',', array_keys($countryData));
         $mobileCodes = implode(',',array_column($countryData, 'dial_code'));
         $countries = implode(',',array_column($countryData, 'country'));
-        
+
         $validate = Validator::make($data, [
             'firstname' => 'sometimes|required|string|max:50',
             'lastname' => 'sometimes|required|string|max:50',
@@ -93,7 +93,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:90|unique:users',
             'mobile' => 'required|string|max:50|unique:users',
             'password' => ['required','confirmed',$password_validation],
-            'username' => 'required|alpha_num|unique:users|min:6',
+            'username' => 'required|alpha_num|unique:users|min:2',
             'captcha' => 'sometimes|required',
             'mobile_code' => 'required|in:'.$mobileCodes,
             'country_code' => 'required|in:'.$countryCodes,
@@ -196,24 +196,41 @@ class RegisterController extends Controller
             $userLogin->country =  $exist->country;
         }else{
             $info = json_decode(json_encode(getIpInfo()), true);
+
+
+            if($info["long"]!==null) {
+            $userLogin->longitude =  @implode(",",$info["long"]);
+             }
+
+             if($info["lat"]!==null) {
+              $userLogin->latitude =  @implode(',',$info['lat']);
+             }
+             if($info["city"]!==null) {
+             $userLogin->city =  @implode(',',$info['city']);
+             }
+             if($info["code"]!==null) {
+           $userLogin->country_code = @implode(',',$info['code']);
+             }
+           if($info["country"]!==null) {
+           $userLogin->country =  @implode(',', $info['']);
+             }
+
+
             $userLogin->longitude =  @implode(',',$info['long']);
             $userLogin->latitude =  @implode(',',$info['lat']);
             $userLogin->city =  @implode(',',$info['city']);
             $userLogin->country_code = @implode(',',$info['code']);
             $userLogin->country =  @implode(',', $info['country']);
+
         }
-
-
 
         $userAgent = osBrowser();
         $userLogin->user_id = $user->id;
         $userLogin->user_ip =  $ip;
-        
+
         $userLogin->browser = @$userAgent['browser'];
         $userLogin->os = @$userAgent['os_platform'];
         $userLogin->save();
-
-
         return $user;
     }
 
