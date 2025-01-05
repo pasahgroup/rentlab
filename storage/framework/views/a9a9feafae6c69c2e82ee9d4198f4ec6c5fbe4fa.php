@@ -40,8 +40,8 @@
                                                               <select name="seats" id="seats" class="form-control form--control" required="" style="background-color:#809f75">
                                                                   <option value=""><?php echo app('translator')->get('--Select Seats--'); ?></option>
 
-                                                                  <?php if(!empty($brand_data)): ?>
-                                                                    <option value="0" selected><?php echo e($brand_data->name); ?></option>
+                                                                  <?php if(!empty($seat_data)): ?>
+                                                                    <option value="<?php echo e($seat_data->id); ?>" selected><?php echo e($seat_data->number); ?> Seats</option>
                                                                     <?php endif; ?>
 
                                                                   <?php $__empty_1 = true; $__currentLoopData = $seats; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $seat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>

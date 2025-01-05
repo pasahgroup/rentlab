@@ -40,8 +40,8 @@
                                                               <select name="seats" id="seats" class="form-control form--control" required="" style="background-color:#809f75">
                                                                   <option value="">@lang('--Select Seats--')</option>
 
-                                                                  @if(!empty($brand_data))
-                                                                    <option value="0" selected>{{$brand_data->name}}</option>
+                                                                  @if(!empty($seat_data))
+                                                                    <option value="{{$seat_data->id}}" selected>{{$seat_data->number}} Seats</option>
                                                                     @endif
 
                                                                   @forelse($seats as $seat)

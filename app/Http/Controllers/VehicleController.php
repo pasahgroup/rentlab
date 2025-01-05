@@ -551,6 +551,7 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
   $brand_data="";
     $model_data="";
       $model_datas="";
+      $seat_data="";
 
         $pageTitle="";
         $brands = Brand::active()->withCount('vehicles')->orderBy('name')->get();
@@ -592,7 +593,7 @@ if(request('search'))
 
 
  // if(request('save')){
- //   dd('ddd');
+ //  dd('ddd');
  // }
 
 
@@ -618,14 +619,14 @@ if(request('search'))
              //dd($request->mode);
         }
 
-
-
         if ($request->seats){
             $vehicles = $vehicles->Where('seater_id', $request->seats);
               $pageTitle=$request->seats. ' Seats';
+              $seat_data=seater::where('id',"$request->seats")->first();
+
         }
 
-        //dd($request->seats);
+        //dd($seat_data);
 
         if ($request->min_price){
             $vehicles->where('price', '>=', $request->min_price);
@@ -689,7 +690,7 @@ if(request('search'))
 
 //dd('loo');
 
-        return view($this->activeTemplate.'vehicles.index',compact('departments','model_data','model_datas','brand_data','vehicles','pageTitle', 'brands','brandss','models', 'seats','carTags','carBodies'));
+        return view($this->activeTemplate.'vehicles.index',compact('departments','seat_data','model_data','model_datas','brand_data','vehicles','pageTitle', 'brands','brandss','models', 'seats','carTags','carBodies'));
     }
 
 
