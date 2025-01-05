@@ -33,7 +33,7 @@
                                     <div class="input-group ">
                                         <input type="hidden" name="mobile_code">
                                         <input type="hidden" name="country_code">
-                                        <span class="input-group-text mobile-code"></span>
+                                        <span class="input-group-text mobile-code" style="background-color:#998035;padding:1px"></span>
                                         <input type="text" name="mobile" id="mobile" value="<?php echo e(old('mobile')); ?>" class="form-control checkUser" placeholder="<?php echo app('translator')->get('Your Phone Number'); ?>">
                                     </div>
                                     <small class="text-danger mobileExist"></small>
