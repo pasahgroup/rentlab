@@ -75,16 +75,18 @@
                                 <label for="select" class="form--label"><?php echo app('translator')->get('Confirm Password'); ?></label>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="<?php echo app('translator')->get('Confirm Password'); ?>" required autocomplete="new-password">
                             </div>
+<br><br>
 
-                            <?php echo $__env->make($activeTemplate.'partials.custom_captcha', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                             <div class="col-md-12 d-flex justify-content-center">
+                                  <?php echo $__env->make($activeTemplate.'partials.custom_captcha', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                                 <?php echo loadReCaptcha() ?>
                             </div>
-
+<br><br>
                             <div class="col-md-12">
                                 <button type="submit" id="recaptcha" class="cmn--btn btn--lg"><?php echo app('translator')->get('Sign Up'); ?></button>
                             </div>
 
+  <div>
                             <div class="col-md-12">
                                 <div class="d-flex flex-wrap justify-content-between">
                                     <?php if($general->agree): ?>
@@ -105,6 +107,7 @@
                                     </div>
                                 </div>
                             </div>
+                          </div>
                         </form>
                     </div>
                 </div>

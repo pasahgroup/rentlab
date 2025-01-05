@@ -76,16 +76,18 @@
                                 <label for="select" class="form--label">@lang('Confirm Password')</label>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="@lang('Confirm Password')" required autocomplete="new-password">
                             </div>
+<br><br>
 
-                            @include($activeTemplate.'partials.custom_captcha')
                             <div class="col-md-12 d-flex justify-content-center">
+                                  @include($activeTemplate.'partials.custom_captcha')
                                 @php echo loadReCaptcha() @endphp
                             </div>
-
+<br><br>
                             <div class="col-md-12">
                                 <button type="submit" id="recaptcha" class="cmn--btn btn--lg">@lang('Sign Up')</button>
                             </div>
 
+  <div>
                             <div class="col-md-12">
                                 <div class="d-flex flex-wrap justify-content-between">
                                     @if($general->agree)
@@ -105,6 +107,7 @@
                                     </div>
                                 </div>
                             </div>
+                          </div>
                         </form>
                     </div>
                 </div>
