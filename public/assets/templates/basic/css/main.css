@@ -2070,13 +2070,13 @@ select.form--control {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    background: #26353e;
+    background: #d0cf84;
     border: 1px solid rgba(255, 255, 255, 0.15);
     height: 100%;
 }
 
 .dashboard__item .dashboard__thumb {
-    width: 90px;
+    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
