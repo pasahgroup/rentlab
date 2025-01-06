@@ -894,7 +894,7 @@ strong, b {
     .menu li .submenu li a {
         display: flex;
         justify-content: space-between;
-        padding: 5px 20px;
+        padding: 5px 8px;
         border-bottom: 1px solid rgba(220, 243, 255, 0.1);
         font-weight: 700;
         color: rgba(220, 243, 255, 0.9);

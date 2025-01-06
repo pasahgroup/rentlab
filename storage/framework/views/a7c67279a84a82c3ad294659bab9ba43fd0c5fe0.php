@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/custom.css')); ?>">
 
     <?php echo $__env->yieldPushContent('style-lib'); ?>
-
     <?php echo $__env->yieldPushContent('style'); ?>
 </head>
 <body>
@@ -39,28 +38,6 @@
 <!-- Preloader -->
 
 <!-- Preloader -->
-
-<!-- Header Section -->
-<div class="header-top py-2">
-    <div class="container">
-        <div class="d-flex flex-wrap justify-content-between mx--10">
-            <div class="header-top-item meta-list">
-                <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"><i
-                        class="lar la-envelope"></i><?php echo e(getContent('contact.content', true)->data_values->email); ?></a>
-            </div>
-            <div class="d-flex flex-wrap meta-list">
-                <?php if(auth()->guard()->check()): ?>
-                    <div class="header-top-item ml-sm-auto">
-                        <a href="<?php echo e(route('user.home')); ?>"><i class="las la-tachometer-alt"></i><?php echo app('translator')->get('Dashboard'); ?></a>
-                    </div>
-                    <div class="header-top-item">
-                        <a href="<?php echo e(route('user.logout')); ?>"><i class="las la-sign-out-alt"></i><?php echo app('translator')->get('Logout'); ?></a>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="header-bottom" style="background-color:#5e8059;">
     <div class="container">
         <div class="header-wrapper">
@@ -109,6 +86,13 @@
                         <a href="#0"><?php echo app('translator')->get('Account'); ?></a>
                         <ul class="submenu">
                             <li>
+
+                              <a href="#"></i>Name: <?php echo e($userff->firstname); ?> <?php echo e($userff->lastname); ?>
+
+                              <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"></i>Email: <?php echo e($userff->email); ?></a>
+                            </li>
+
+                            <li>
                                 <a href="<?php echo e(route('user.deposit.history')); ?>"><?php echo app('translator')->get('Payment History'); ?></a>
                             </li>
                             <li>
@@ -153,8 +137,7 @@
 <!-- Dashboard Section Starts Here -->
 <main class="dashboard-section pt-60 pb-60" style="background-color:#f0f0f0;">
     <div class="container">
-                <?php echo $__env->yieldContent('content'); ?>
-
+      <?php echo $__env->yieldContent('content'); ?>
     </div>
 </main>
 <!-- Dashboard Section Ends Here -->

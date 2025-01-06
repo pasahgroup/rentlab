@@ -14,9 +14,11 @@ use App\Models\cartype;
 use App\Models\Brand;
 use App\Models\Vehicle;
 use App\Models\service;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Config;
+
 
 
 class AppServiceProvider extends ServiceProvider
@@ -29,8 +31,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         // $this->app['request']->server->set('HTTPS', true);
-
-
 //check that app is local
 if ($this->app->isLocal()) {
 //if local register your services you require for development
@@ -49,6 +49,7 @@ if ($this->app->isLocal()) {
      */
     public function boot()
     {
+
         $activeTemplate = activeTemplate();
         $general = GeneralSetting::first();
         $viewShare['general'] = $general;
@@ -73,6 +74,8 @@ if ($this->app->isLocal()) {
 
          //dd($viewShare['view_brands']);
         view()->share($viewShare);
+
+
 
 
         view()->composer('admin.partials.sidenav', function ($view) {
@@ -103,6 +106,11 @@ if ($this->app->isLocal()) {
             \URL::forceScheme('https');
         }
 
+  view()->composer('*', function ($view) {
+  $view->with('userff', Auth::user());
+
+//dd($view->userff);
+});
         Paginator::useBootstrap();
     }
 }

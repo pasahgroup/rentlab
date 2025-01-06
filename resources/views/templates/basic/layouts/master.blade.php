@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/custom.css')}}">
 
     @stack('style-lib')
-
     @stack('style')
 </head>
 <body>
@@ -54,28 +53,6 @@
     </figure>
 </div> --}}
 <!-- Preloader -->
-
-<!-- Header Section -->
-<div class="header-top py-2">
-    <div class="container">
-        <div class="d-flex flex-wrap justify-content-between mx--10">
-            <div class="header-top-item meta-list">
-                <a href="Mailto:{{ getContent('contact.content', true)->data_values->email }}"><i
-                        class="lar la-envelope"></i>{{ getContent('contact.content', true)->data_values->email }}</a>
-            </div>
-            <div class="d-flex flex-wrap meta-list">
-                @auth
-                    <div class="header-top-item ml-sm-auto">
-                        <a href="{{ route('user.home') }}"><i class="las la-tachometer-alt"></i>@lang('Dashboard')</a>
-                    </div>
-                    <div class="header-top-item">
-                        <a href="{{ route('user.logout') }}"><i class="las la-sign-out-alt"></i>@lang('Logout')</a>
-                    </div>
-                @endauth
-            </div>
-        </div>
-    </div>
-</div>
 <div class="header-bottom" style="background-color:#5e8059;">
     <div class="container">
         <div class="header-wrapper">
@@ -124,6 +101,12 @@
                         <a href="#0">@lang('Account')</a>
                         <ul class="submenu">
                             <li>
+
+                              <a href="#"></i>Name: {{$userff->firstname}} {{$userff->lastname}}
+                              <a href="Mailto:{{ getContent('contact.content', true)->data_values->email }}"></i>Email: {{$userff->email}}</a>
+                            </li>
+
+                            <li>
                                 <a href="{{route('user.deposit.history')}}">@lang('Payment History')</a>
                             </li>
                             <li>
@@ -168,8 +151,7 @@
 <!-- Dashboard Section Starts Here -->
 <main class="dashboard-section pt-60 pb-60" style="background-color:#f0f0f0;">
     <div class="container">
-                @yield('content')
-
+      @yield('content')
     </div>
 </main>
 <!-- Dashboard Section Ends Here -->
