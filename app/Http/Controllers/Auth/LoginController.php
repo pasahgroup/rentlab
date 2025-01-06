@@ -87,7 +87,7 @@ $fullUrl=request('fullurl');
 
         if ($this->attemptLogin($request)) {
 
-//dd('uyuyu');
+//dd($fullUrl);
 
     // if(!session()->has('url.intended'))
     // {
@@ -99,12 +99,13 @@ $fullUrl=request('fullurl');
     //return view('auth.login');
         if(!is_null($fullUrl))
         {
+          //dd($fullUrl);
            return redirect()->intended($fullUrl);
         }
             return $this->sendLoginResponse($request);
         }
 
-
+//dd($fullUrl);
 
         // If the login attempt was unsuccessful we will increment the number of attempts
         // to login and redirect the user back to the login form. Of course, when this
@@ -171,8 +172,10 @@ $fullUrl=request('fullurl');
         $exist = UserLogin::where('user_ip',$ip)->first();
         $userLogin = new UserLogin();
 
+//dd($userLogin);
 
         if ($exist) {
+        //  dd('dd1');
             $userLogin->longitude =  $exist->longitude;
             $userLogin->latitude =  $exist->latitude;
             $userLogin->city =  $exist->city;
@@ -180,7 +183,7 @@ $fullUrl=request('fullurl');
             $userLogin->country =  $exist->country;
         }else{
             $info = json_decode(json_encode(getIpInfo()), true);
-
+  //dd('dd2');
             if($info["long"]!==null) {
             $userLogin->longitude =  @implode(",",$info["long"]);
              }

@@ -41,7 +41,7 @@ class UserController extends Controller
         $data['completed_plan_booking'] = PlanLog::active()->where('user_id', \auth()->id())->completed()->count();
 
         $logs = auth()->user()->deposits()->with(['gateway', 'rent', 'planlog'])->orderBy('id','desc')->take(10)->get();
-        //dd('ddd');
+      //dd($logs);
         return view($this->activeTemplate . 'user.dashboard', compact('pageTitle', 'logs', 'data'));
     }
 
