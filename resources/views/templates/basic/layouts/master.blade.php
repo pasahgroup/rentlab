@@ -53,7 +53,7 @@
     </figure>
 </div> --}}
 <!-- Preloader -->
-<div class="header-bottom" style="background-color:#5e8059;">
+<div class="header-bottom" style="background-color:#9f9f6b;">
     <div class="container">
         <div class="header-wrapper">
             <div class="logo">
