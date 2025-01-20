@@ -11,7 +11,6 @@
                         <br>
 
                         <div class="widget border--dashed" style="margin-top:70px">
-
                               <div class="d-flex justify-content-between">
                                   <strong class="title border-0 pb-0 mb-0"><?php echo app('translator')->get('---Filter Vehicles---'); ?></strong>
                                   <div class="close-sidebar"><i class="las la-times"></i></div>
@@ -23,7 +22,7 @@
                             <div class="widget-body">
                                 <form action="<?php echo e(route('vehicle.search')); ?>" method="get">
                                     <div class="input-group">
-                                        <input type="text" name="name" value="<?php echo e(@request()->name); ?>" class="form-control form--control" placeholder="<?php echo app('translator')->get('Vehicle Name'); ?>" id="search" required>
+                                        <input type="text" name="name" value="<?php echo e($car_name); ?>" class="form-control" placeholder="<?php echo app('translator')->get('Vehicle Name'); ?>" id="search" required>
                                         <button class="input-group-text cmn--btn" type="submit">Search</button>
                                     </div>
                                 </form>
@@ -63,7 +62,7 @@
                               <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
                                   <input type="hidden" value="<?php echo e(@request()->min_price); ?>" class="min_price" name="min_price" required>
                                     <div class="input-group">
-  <input type="text" value="<?php echo e(@request()->max_price); ?>" class="form-control max_price" name="max_price" placeholder="<?php echo app('translator')->get('price'); ?>" required>
+  <input type="number" value="<?php echo e($max_price); ?>" class="form-control max_price" name="max_price" placeholder="<?php echo app('translator')->get('price'); ?>" required>
                                         <button class="input-group-text cmn--btn" type="submit">Search</button>
                                     </div>
                                 </form>
@@ -80,6 +79,11 @@
                                     <div class="input-group">
                                       <select name="carbody" id="carbody" class="form-control form--control" required="" style="background-color:#809f75">
                                           <option value=""><?php echo app('translator')->get('--Select Car Body--'); ?></option>
+
+                                          <?php if(!empty($cartype_datas)): ?>
+                                            <option value="<?php echo e($cartype_datas->id); ?>" selected><?php echo e($cartype_datas->car_body_type); ?></option>
+                                            <?php endif; ?>
+
                                           <?php $__empty_1 = true; $__currentLoopData = $carBodies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $carbody): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                               <option value="<?php echo e($carbody->car_body_type_id); ?>"><?php echo e(__(@$carbody->car_body_type)); ?></option>
                                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -102,7 +106,12 @@
 
                                       <select name="cartag" id="cartag" class="form-control form--control" required="" style="background-color:#809f75">
                                           <option value=""><?php echo app('translator')->get('--Select Car Tag--'); ?></option>
-                                          <?php $__empty_1 = true; $__currentLoopData = $carTags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cartag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+
+                                          <?php if(!empty($cartag_datas)): ?>
+                                            <option value="<?php echo e($cartag_datas->id); ?>" selected><?php echo e($cartag_datas->tag); ?></option>
+                                            <?php endif; ?>
+
+                                          <?php $__empty_1 = true; $__currentLoopData = $cartags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cartag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                               <option value="<?php echo e($cartag->tag_id); ?>"><?php echo e(__(@$cartag->tag)); ?></option>
                                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                           <?php endif; ?>

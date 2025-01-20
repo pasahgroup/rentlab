@@ -108,8 +108,6 @@ if ($this->app->isLocal()) {
 
   view()->composer('*', function ($view) {
   $view->with('userff', Auth::user());
-
-//dd($view->userff);
 });
         Paginator::useBootstrap();
     }

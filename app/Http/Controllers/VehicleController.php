@@ -553,6 +553,13 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
       $model_datas="";
       $seat_data="";
 
+        $carbody_data="";
+          $cartag_data="";
+          $cartag_datas="";
+          $cartype_datas="";
+              $car_name="";
+              $max_price="";
+
         $pageTitle="";
         $brands = Brand::active()->withCount('vehicles')->orderBy('name')->get();
         $seats = Seater::active()->withCount('vehicles')->orderBy('number')->get();
@@ -583,6 +590,7 @@ if(request('search'))
 //dd($vehicles);
   //$brand_data = brand::where('brand_id',$request->brand)->first();
     $brand_data=brand::where('id',"$request->brand")->first();
+
     $model_data=$vehicles->where('brand_id',"$request->brand")->first();
       $model_datas=Vehicle::where('brand_id',"$request->brand")->get();
   //dd($model_datas);
@@ -590,16 +598,14 @@ if(request('search'))
   $vehicles = $vehicles->latest()->paginate(4)->withQueryString();
 }else {
 
-
-
  // if(request('save')){
  //  dd('ddd');
  // }
 
-
         if ($request->name) {
             $vehicles->where('name', 'LIKE', "%{$request->name}%");
               $pageTitle=$request->name;
+              $car_name=$request->name;
         }
 
         if ($request->brand !=null) {
@@ -636,49 +642,36 @@ if(request('search'))
         if ($request->max_price){
             $vehicles->where('price', '<=', $request->max_price);
               $pageTitle="Maximum Price ".$request->max_price;
+                $max_price=$request->max_price;
         }
 
         //Get vehicles
 
         if ($request->carbody!=null){
             $vehicles->Where('car_body_type_id', '=', "$request->carbody");
-            $cartypes=cartype::where('id',$request->carbody)->first();
-            $pageTitle=$cartypes->car_body_type;
-           //dd($cartypes);
-
+            $cartype_datas=cartype::where('id',$request->carbody)->first();
+            $pageTitle=$cartype_datas->car_body_type;
+          //dd($cartypes->car_body_type);
         }
 
         if ($request->cartag!=null){
             $vehicles->Where('tag_id', '=', "$request->cartag");
-            $cartags=Tag::where('id',$request->cartag)->first();
-            $pageTitle=$cartags->tag;
+            $cartag_datas=Tag::where('id',$request->cartag)->first();
+            $pageTitle=$cartag_datas->tag;
           //dd($pageTitle);
         }
-
-//dd('jj');
 
         $vehicles = $vehicles->latest()->paginate(4)->withQueryString();
       //    $brandss = $brandss->latest()->paginate(4)->withQueryString();
 //dd($vehicles);
             }
 
-
-
-      //  $carBodies = vehicle::join('vehicles.car_body_type_id','cartypes.id')->get();
-// dd($carBodies);
-        //Filter by Car body or Car Tag
-
-   //$vehicle = Vehicle::active()->where('model',request('carModel'))->first();
-
-      //dd('kll');
-      //Combo textBox
-
       $carBodies = vehicle::join('cartypes','vehicles.car_body_type_id','cartypes.id')
       ->select('vehicles.*','cartypes.car_body_type')
       ->groupby('vehicles.car_body_type_id')
            ->get();
 
-           $carTags = vehicle::join('tags','vehicles.tag_id','tags.id')
+           $cartags = vehicle::join('tags','vehicles.tag_id','tags.id')
            ->select('vehicles.*','tags.tag')
            ->groupby('vehicles.tag_id')
             ->get();
@@ -690,7 +683,7 @@ if(request('search'))
 
 //dd('loo');
 
-        return view($this->activeTemplate.'vehicles.index',compact('departments','seat_data','model_data','model_datas','brand_data','vehicles','pageTitle', 'brands','brandss','models', 'seats','carTags','carBodies'));
+        return view($this->activeTemplate.'vehicles.index',compact('departments','max_price','car_name','cartags','cartype_datas','cartag_datas','seat_data','model_data','model_datas','brand_data','vehicles','pageTitle', 'brands','brandss','models', 'seats','carBodies'));
     }
 
 

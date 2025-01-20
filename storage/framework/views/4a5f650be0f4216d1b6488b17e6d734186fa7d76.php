@@ -1,23 +1,6 @@
 
 <?php $__env->startSection('content'); ?>
-<style type="text/css">
-    pp {
-    color:#fff; /* Sets the text color of paragraphs to blue */
-}
-</style>
-
-<style>
-.center{
-  text-align: center;
-}
-.pp{
-  color:#fff;
-}
-</style>
 <br>
-<!-- Carousel Start -->
-
-
 <div class="container categories blog pb-5" id="section3">
 <div class="row">
   <div class="col-md-8">
@@ -33,10 +16,14 @@
             <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
               <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
-                      <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</h1>
-                      <div class="mx-md-5 px-5 content demo-1 pp" style="color:#fff !important">
-          <?php echo @$metaFirstVehicle->details ?>
-      </div>
+                      <h2 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</h2>
+                      <ul class="#">
+                          <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission: <strong><?php echo e($metaFirstVehicle->transmission); ?></strong>|Fuel: <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                      </ul>
+
+
+
+
                       <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$metaFirstVehicle->id, slug($metaFirstVehicle->name)])); ?>">View More</a>
                   </div>
               </div>
@@ -48,7 +35,12 @@
                   <div class="p-3" style="max-width: 700px;">
                       <h1 class="display-4 text-white mb-1 animate__animated animate__fadeInDown"><?php echo e($vehicle->model); ?>(<?php echo e($vehicle->car_body_type); ?>)</h1>
                                       <div class="mx-md-5 px-5 content demo-3 pp" style="color:#fff !important">
-                          <?php echo @$vehicle->details ?>
+
+                                        <ul class="#">
+                                            <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission: <strong><?php echo e($metaFirstVehicle->transmission); ?></strong>|Fuel: <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                                        </ul>
+
+
                       </div>
                       <a class="btn btn-outline-light py-1 px-4 mt-3 animate__animated animate__fadeInUp" href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>">View More</a>
                                               </div>
@@ -68,9 +60,9 @@
         <div class="rounded">
               <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
               <ul class="#">
-                  <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
-                  <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
-                  <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
+                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
+                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
               </ul>
               </div>
               <div class="mb-2">
@@ -88,14 +80,14 @@
         <div class="rounded">
               <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
               <ul class="#">
-                  <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
-                  <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
-                  <li class="mb-2"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
+                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
+                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
               </ul>
               </div>
               <div class="mb-2">
               </div>
-                <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="">Read More  <i class="fa fa-arrow-right"></i></a>
+                <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="">Read More<i class="fa fa-arrow-right"></i></a>
                
                   </div>
       </div>
@@ -293,6 +285,8 @@
 
 
 <hr>
+
+
   <section class="showcase" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
         <!-- Testimonial Start -->
         <div class="container testimonial pb-5" id="section10">

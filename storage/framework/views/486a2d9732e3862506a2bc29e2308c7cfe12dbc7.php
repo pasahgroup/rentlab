@@ -25,10 +25,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
         <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-
+        
         <!-- Libraries Stylesheet -->
 
         <style type="text/css">
@@ -63,12 +60,14 @@
     <link href="../../../frontendp/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
 
         <!-- Template Stylesheet -->
-        <link href="../../../frontendp/css/style.css" rel="stylesheet" type="text/css" />
+
+
            <link href="../../../frontendp/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
            <!-- Custom library  -->
    <link rel="icon" type="image/png" href="../../../mold/assets/img/favicon.png" />
- <!-- <link rel="stylesheet" href="../../../mold/assets/css/min/bootstrap.min.css" media="all"> -->
+ <link rel="stylesheet" href="../../../mold/assets/css/min/bootstrap.min.css" media="all">
+
   <link rel="stylesheet" href="../../../mold/assets/css/jqueryui.css" media="all">
   <link rel="stylesheet" href="../../../mold/vendor/animate-css/animate.css" media="all">
   <link rel="stylesheet" href="../../../mold/assets/font/iconfont/iconstyle.css" media="all">
@@ -85,7 +84,6 @@
     <link rel="stylesheet" href="<?php echo e(asset($activeTemplateTrue.'css/main.css')); ?>">
 
            <!-- end of Custom library -->
-
     <?php echo $__env->yieldPushContent('style-lib'); ?>
     <?php echo $__env->yieldPushContent('style'); ?>
     </head>

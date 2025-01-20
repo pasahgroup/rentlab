@@ -11,7 +11,6 @@
                         <br>
 
                         <div class="widget border--dashed" style="margin-top:70px">
-
                               <div class="d-flex justify-content-between">
                                   <strong class="title border-0 pb-0 mb-0">@lang('---Filter Vehicles---')</strong>
                                   <div class="close-sidebar"><i class="las la-times"></i></div>
@@ -23,7 +22,7 @@
                             <div class="widget-body">
                                 <form action="{{ route('vehicle.search') }}" method="get">
                                     <div class="input-group">
-                                        <input type="text" name="name" value="{{ @request()->name }}" class="form-control form--control" placeholder="@lang('Vehicle Name')" id="search" required>
+                                        <input type="text" name="name" value="{{$car_name}}" class="form-control" placeholder="@lang('Vehicle Name')" id="search" required>
                                         <button class="input-group-text cmn--btn" type="submit">Search</button>
                                     </div>
                                 </form>
@@ -63,7 +62,7 @@
                               <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
                                   <input type="hidden" value="{{ @request()->min_price }}" class="min_price" name="min_price" required>
                                     <div class="input-group">
-  <input type="text" value="{{ @request()->max_price }}" class="form-control max_price" name="max_price" placeholder="@lang('price')" required>
+  <input type="number" value="{{$max_price}}" class="form-control max_price" name="max_price" placeholder="@lang('price')" required>
                                         <button class="input-group-text cmn--btn" type="submit">Search</button>
                                     </div>
                                 </form>
@@ -80,6 +79,11 @@
                                     <div class="input-group">
                                       <select name="carbody" id="carbody" class="form-control form--control" required="" style="background-color:#809f75">
                                           <option value="">@lang('--Select Car Body--')</option>
+
+                                          @if(!empty($cartype_datas))
+                                            <option value="{{$cartype_datas->id}}" selected>{{$cartype_datas->car_body_type}}</option>
+                                            @endif
+
                                           @forelse($carBodies as $carbody)
                                               <option value="{{ $carbody->car_body_type_id }}">{{ __(@$carbody->car_body_type) }}</option>
                                           @empty
@@ -102,7 +106,12 @@
 
                                       <select name="cartag" id="cartag" class="form-control form--control" required="" style="background-color:#809f75">
                                           <option value="">@lang('--Select Car Tag--')</option>
-                                          @forelse($carTags as $cartag)
+
+                                          @if(!empty($cartag_datas))
+                                            <option value="{{$cartag_datas->id}}" selected>{{$cartag_datas->tag}}</option>
+                                            @endif
+
+                                          @forelse($cartags as $cartag)
                                               <option value="{{ $cartag->tag_id }}">{{ __(@$cartag->tag) }}</option>
                                           @empty
                                           @endforelse
