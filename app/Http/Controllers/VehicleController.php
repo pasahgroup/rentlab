@@ -52,8 +52,6 @@ $fullUrl = url()->full();
         return view($this->activeTemplate.'vehicles.details',compact('vehicle','pageTitle', 'rental_terms','fullUrl'));
     }
 
-
-
     public function vehicleBooking($id, $slug){
         if (!auth()->check()){
             $notify[] = ['error', 'Please login to continue!'];
@@ -732,6 +730,4 @@ if(request('search'))
 
         return view($this->activeTemplate.'vehicles.index',compact('vehicles','pageTitle', 'brands', 'seats'));
     }
-
-
 }

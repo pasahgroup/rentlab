@@ -101,7 +101,7 @@ $models = Vehicle::orderby('model')
 // $services = $services->Where('id', $model_key)->Where('status',1);
 
 //$services=$services->where('category','Main')->where('status','1');
-
+//dd('ddd');
         return view($this->activeTemplate . 'homem', compact('pageTitle','services','main_service','sections','wedding','escourt','car_hiring','transportation','vehicles','carbodytypes','carTags','models','metaVehicles','metaVehicleCount','metaFirstVehicle'));
     }
 
