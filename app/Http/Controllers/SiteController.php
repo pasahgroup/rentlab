@@ -69,6 +69,17 @@ $models = Vehicle::orderby('model')
  $metaFirstVehicle = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
       ->select('vehicles.*','cartypes.car_body_type')
      ->first();
+
+     $metaFirstVehicle2 = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+          ->select('vehicles.*','cartypes.car_body_type')
+          ->offset(1)
+         ->first();
+
+         $metaFirstVehicle3 = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
+              ->select('vehicles.*','cartypes.car_body_type')
+              ->offset(2)
+             ->first();
+
      //dd($metaFirstVehicles)
 
   $metaVehicles = Vehicle::join('cartypes','cartypes.id','vehicles.car_body_type_id')
@@ -102,7 +113,8 @@ $models = Vehicle::orderby('model')
 
 //$services=$services->where('category','Main')->where('status','1');
 //dd('ddd');
-        return view($this->activeTemplate . 'homem', compact('pageTitle','services','main_service','sections','wedding','escourt','car_hiring','transportation','vehicles','carbodytypes','carTags','models','metaVehicles','metaVehicleCount','metaFirstVehicle'));
+
+        return view($this->activeTemplate . 'homem', compact('pageTitle','services','main_service','sections','wedding','escourt','car_hiring','transportation','vehicles','carbodytypes','carTags','models','metaVehicles','metaVehicleCount','metaFirstVehicle','metaFirstVehicle2','metaFirstVehicle3'));
     }
 
 

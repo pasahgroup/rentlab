@@ -54,15 +54,15 @@
 
   <div class="col-md-4">
   <div class="product-offer mb-30" style="height: 200px;">
-      <img class="img-fluid" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size'])); ?>" alt="">
+      <img class="img-fluid" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle2->images[0], imagePath()['vehicles']['size'])); ?>" alt="">
       <div class="offer-text">
         <div class="text-start">
         <div class="rounded">
-              <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
+              <strong class="text-white"><?php echo e($metaFirstVehicle2->model); ?>(<?php echo e($metaFirstVehicle2->car_body_type); ?>)</strong>
               <ul class="#">
-                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
-                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
-                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle2->transmission); ?></strong></li>
+                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle2->doors); ?></strong></li>
+                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle2->fuel_type); ?></strong></li>
               </ul>
               </div>
               <div class="mb-2">
@@ -74,15 +74,15 @@
   </div>
 
   <div class="product-offer mb-30" style="height: 215px;">
-      <img class="img-fluid" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size'])); ?>" alt="">
+      <img class="img-fluid" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle3->images[0], imagePath()['vehicles']['size'])); ?>" alt="">
       <div class="offer-text">
         <div class="text-start">
         <div class="rounded">
-              <strong class="text-white"><?php echo e($metaFirstVehicle->model); ?>(<?php echo e($metaFirstVehicle->car_body_type); ?>)</strong>
+              <strong class="text-white"><?php echo e($metaFirstVehicle3->model); ?>(<?php echo e($metaFirstVehicle3->car_body_type); ?>)</strong>
               <ul class="#">
-                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle->transmission); ?></strong></li>
-                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle->doors); ?></strong></li>
-                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle->fuel_type); ?></strong></li>
+                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle3->transmission); ?></strong></li>
+                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle3->doors); ?></strong></li>
+                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle3->fuel_type); ?></strong></li>
               </ul>
               </div>
               <div class="mb-2">
