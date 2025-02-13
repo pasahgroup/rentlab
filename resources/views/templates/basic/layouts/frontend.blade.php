@@ -125,7 +125,6 @@
 
 
                                                         <li><a href="#">Vehicles</a>
-
 <ul class="dropdown">
   @foreach($view_brands as $brand)
 
@@ -158,7 +157,9 @@
 
 
 
+
                             <li><a href="#">Services</a>
+
                                 <ul class="dropdown">
               @foreach($view_services as $view_service)
               {{--

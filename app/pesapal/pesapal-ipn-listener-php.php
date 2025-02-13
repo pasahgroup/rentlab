@@ -7,8 +7,9 @@ $consumer_key="TsVRVlvOyz1EJrpgGzwkrwHC6+LpOeKY";//Register a merchant account o
 $consumer_secret="pUTTzCd7kR4hCmpaTYi3shymlhE=";// Use the secret from your test
                    //account on demo.pesapal.com. When you are ready to go live make sure you
                    //change the secret to the live account registered on www.pesapal.com!
-$statusrequestAPI = 'https://demo.pesapal.com/api/querypaymentstatus';//change to
+// $statusrequestAPI = 'https://demo.pesapal.com/api/querypaymentstatus';//change to
                    //https://www.pesapal.com/api/querypaymentstatus' when you are ready to go live!
+                      $statusrequestAPI = 'https://www.pesapal.com/api/querypaymentstatus';
 
 // Parameters sent to you by PesaPal IPN
 $pesapalNotification=$_GET['pesapal_notification_type'];

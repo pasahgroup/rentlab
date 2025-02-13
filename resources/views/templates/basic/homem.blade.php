@@ -357,7 +357,7 @@
 
 <hr>
 
-
+{{--
   <section class="showcase" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
         <!-- Testimonial Start -->
         <div class="container testimonial pb-5" id="section10">
@@ -436,6 +436,7 @@
             </div>
         </div>
         </section>
+        --}}
 
     <script type="text/javascript">
 function scrollToNextSection() {

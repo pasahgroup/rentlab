@@ -119,7 +119,6 @@
 
 
                                                         <li><a href="#">Vehicles</a>
-
 <ul class="dropdown">
   <?php $__currentLoopData = $view_brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
@@ -152,7 +151,9 @@
 
 
 
+
                             <li><a href="#">Services</a>
+
                                 <ul class="dropdown">
               <?php $__currentLoopData = $view_services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $view_service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               
