@@ -106,7 +106,7 @@
                                                                 <div class="col-8">
                                                                                                               </div>
                                                                 <div class="col-4">
-                                                <button class="btn btn-primary rounded-pill d-flex justify-content-center btn-light w-100 py-2 float-right" type="submit" style="margin-bottom:0px;">Book Now</button>
+                                                <button class="btn btn-primary rounded-pill d-flex justify-content-center btn-light py-1 float-right" type="submit" style="margin-bottom:0px;">Book Now</button>
                                                                 </div>
                                                             </div>
 

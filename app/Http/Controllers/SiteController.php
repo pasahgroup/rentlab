@@ -102,8 +102,9 @@ $models = Vehicle::orderby('model')
         $car_hiring=service::where('category','Car hiring')->where('status','1')->first();
         $transportation=service::where('category','Transportation')->where('status','1')->first();
 //dd($escourt);
- $services=service::get();
-
+ $services=service::where('status',1)
+ ->get();
+//dd($services);
 
         // $services=collect($services);
 

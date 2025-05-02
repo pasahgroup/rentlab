@@ -6,7 +6,7 @@
     $policy_pages = getContent('policy_pages.element', false, null, true);
 @endphp
 <!-- Footer Section -->
-<footer class="footer-section" style="background-color:#918765">
+<footer class="footer-section" style="background-color:#fff">
     <div class="container-fluid">
         <div class="newsletter-section">
             <div class="newsletter-wrapper">
@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer__top" style="background-color:#476847;">
+        <div class="footer__top" style="background-color:#3c6f5e;">
             <div class="footer-wrapper">
                 <div class="footer__widget widget__about">
                     <h4 class="widget__title">@lang('About') @lang($general->sitename)</h4>

@@ -2,7 +2,7 @@
     <div class="single-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape"><?php echo app('translator')->get('Book Now'); ?></div>
         <div class="container">
-             <div class="widget border--dashed" style="background-color:#f0f0f">
+             <div class="widget border--dashed" style="background-color:#fff">
             <div class="row gy-3">
                 <!-- 6d846c -->
                 <div class="col-md-4">
@@ -23,8 +23,9 @@
                         <?php endif; ?>
                     </div>
                 </div>
+              
                       <div class="col-md-8">
-                    <div class="rent__single border--dashed">
+                    <div class="rent__single border--dashed" style="padding:35px">
                       <br>
                             <h4><span class="text--body">Vehicle details</span></h4>
 <div class="row">
@@ -48,6 +49,8 @@
 
                 <button type="submit" class="cmn--btn"><?php echo app('translator')->get('Login to Book'); ?></button>
                                 </form>
+
+                                <a href="<?php echo e(route('user.register')); ?>" class="cmn--btn"><?php echo app('translator')->get('Sign Up'); ?></a>
                             <?php endif; ?>
                         </div>
                          </div>

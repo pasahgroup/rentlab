@@ -4,7 +4,7 @@
     <div class="single-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape">@lang('Book Now')</div>
         <div class="container">
-             <div class="widget border--dashed" style="background-color:#f0f0f">
+             <div class="widget border--dashed" style="background-color:#fff">
             <div class="row gy-3">
                 <!-- 6d846c -->
                 <div class="col-md-4">
@@ -25,8 +25,9 @@
                         @endforelse
                     </div>
                 </div>
+              
                       <div class="col-md-8">
-                    <div class="rent__single border--dashed">
+                    <div class="rent__single border--dashed" style="padding:35px">
                       <br>
                             <h4><span class="text--body">Vehicle details</span></h4>
 <div class="row">
@@ -51,6 +52,8 @@
 
                 <button type="submit" class="cmn--btn">@lang('Login to Book')</button>
                                 </form>
+
+                                <a href="{{ route('user.register') }}" class="cmn--btn">@lang('Sign Up')</a>
                             @endauth
                         </div>
                          </div>

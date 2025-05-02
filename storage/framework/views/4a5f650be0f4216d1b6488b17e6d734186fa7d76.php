@@ -3,7 +3,7 @@
 <br>
 <div class="container categories blog pb-5" id="section3">
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-9">
   <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
       <ol class="carousel-indicators">
           <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
@@ -12,7 +12,7 @@
       <?php endfor; ?>
       </ol>
       <div class="carousel-inner">
-          <div class="carousel-item position-relative active" style="height: 430px;">
+          <div class="carousel-item position-relative active" style="height: 556px;">
             <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
               <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
@@ -29,7 +29,7 @@
               </div>
           </div>
 <?php $__currentLoopData = $metaVehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $indexKey => $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-          <div class="carousel-item position-relative" style="height: 430px;">
+          <div class="carousel-item position-relative" style="height: 556px;">
               <img class="position-absolute w-100 h-100" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[0], imagePath()['vehicles']['size'])); ?>" style="object-fit: cover;">
               <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                   <div class="p-3" style="max-width: 700px;">
@@ -52,28 +52,66 @@
   </div>
 </div>
 
-  <div class="col-md-4">
-  <div class="product-offer mb-30" style="height: 200px;">
-      <img class="img-fluid" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle2->images[0], imagePath()['vehicles']['size'])); ?>" alt="">
-      <div class="offer-text">
-        <div class="text-start">
-        <div class="rounded">
-              <strong class="text-white"><?php echo e($metaFirstVehicle2->model); ?>(<?php echo e($metaFirstVehicle2->car_body_type); ?>)</strong>
-              <ul class="#">
-                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Transmission:   <strong><?php echo e($metaFirstVehicle2->transmission); ?></strong></li>
-                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i> Number of Doors:  <strong><?php echo e($metaFirstVehicle2->doors); ?></strong></li>
-                  <li class="mb-2 text-white"><i class="fa fa-check-circle text-primary me-1"></i>Fuel:  <strong><?php echo e($metaFirstVehicle2->fuel_type); ?></strong></li>
-              </ul>
-              </div>
-              <div class="mb-2">
-              </div>
-                <a href="<?php echo e(route('vehicle.details', [$vehicle->id, slug($vehicle->name)])); ?>" class="">Read More  <i class="fa fa-arrow-right"></i></a>
-                
-                </div>
-      </div>
+  <div class="col-md-3">
+ <h5> Rhonds<span class="text-primary"> Services</span></h5>
+  <div class="product-offer mb-30" style="height: 282px;">     
+ <div class="rowx">
+
+                        <div class="rent__item">
+                            <div class="blog-item">
+                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-22px">
+                                                                        <?php $__currentLoopData = $view_services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $view_service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                                           <div class="rent__content mt-n1">
+                                                <ul class="d-flex car-info center">
+                                                      <li class="text-center center">
+                                                
+ <form action="<?php echo e(route('web-service',$view_service->service_name)); ?>" method="get" class="priceForm">
+            <button  class="dropdown-item">
+  <span class="text-dark">
+              <?php echo e($view_service->title); ?>
+
+            </span>
+            </button>
+                                                  </form>
+
+                                                        
+                                                    </li>
+                                                </ul>
+                                        </div>
+                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>   
+
+                                     <div class="rent__content text-center mt-n1">
+                                             <ul class="d-flex_org car-info text-center">
+                                                  <li class="pr-1 text-center">
+                                                      <div class="row gy-2 gx-0 text-center mb-2">
+                                                           <div class="col-4 border-end border-white">
+                                                               <i class="fa fa-users text-dark"></i> <span class="text-body ms-1">Seats</span>
+                                                           </div>
+                                                           <div class="col-4 border-end border-white">
+                                                               <i class="fa fa-car text-dark"></i> <span class="text-body ms-1">AT/Manual</span>
+                                                           </div>
+                                                           <div class="col-4">
+                                                               <i class="las la-gas-pump"></i> <span class="text-body ms-1">Fuel</span>
+                                                           </div>
+                                                       </div>
+
+                                                 </li>
+                                             </ul>
+                                       </div> 
+                                    
+                                </div>
+                            </div>
+                          </div>
+                   
+                                           
+                        <marquee style="color:#03153e;float: right">Welcome to book with Rhonds Company</marquee>
+                    </div>
+
+
   </div>
 
-  <div class="product-offer mb-30" style="height: 215px;">
+  <div class="product-offer mb-30" style="height: 240px;">
       <img class="img-fluid" src="<?php echo e(getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle3->images[0], imagePath()['vehicles']['size'])); ?>" alt="">
       <div class="offer-text">
         <div class="text-start">
@@ -98,83 +136,27 @@
 </div>
 
 
+<section class="showcase container" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
+    <?php
+        $banners = getContent('banner.element');
 
-        <!-- Features Start -->
-        <div class="container categories blog pb-5" id="section2">
-            <div class="container py-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
-                    <h1 class="display-5 text-capitalize mb-3">Rhonds <span class="text-primary">Services</span></h1>
+        $brands = \App\Models\Brand::active()->orderBy('name')->get();
+        $seats = \App\Models\Seater::active()->orderBy('number')->get();
+    ?>
 
-                    <strong class="mb-0">
-                    </strong>
-                    <div class="ms-4">
-                        <h5 class="mb-3"><?php echo e($main_service->title?? 'No Title'); ?></h5>
-                        <p class="mb-0 demo-1"><?php echo e($main_service->content?? 'No Content'); ?></p>
-                    </div>
-                </div>
-                <div class="row g-4 align-items-center">
-                    <div class="col-xl-4">
-                        <div class="row gy-4 gx-0">
-                            <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="feature-item">
-                                    <div class="feature-icon">
-                                        <span class="fa fa-trophy fa-2x"></span>
-                                    </div>
-                                    <div class="ms-4">
-                                      <h5 class="mb-3"><?php echo e($wedding->title ?? 'No Title'); ?></h5>
-                                      <p class="mb-0 demo-1"><?php echo e($wedding->content ?? 'No Content'); ?></p>
+    <!-- Book Section -->
+    
+    <?php if($sections->secs != null): ?>
+        <?php $__currentLoopData = json_decode($sections->secs); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sec): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      
+            <?php if($sec =="plan"): ?>
+            <?php echo $__env->make($activeTemplate.'sections.'.$sec, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+          <?php endif; ?>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    <?php endif; ?>
+</section>
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="feature-item">
-                                    <div class="feature-icon">
-                                        <span class="fa fa-road fa-2x"></span>
-                                    </div>
-                                    <div class="ms-4">
-                                      <h5 class="mb-3"><?php echo e($escourt->title?? 'No Title'); ?></h5>
-                                      <p class="mb-0 demo-1"><?php echo e($escourt->content?? 'No Content'); ?></p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-xl-4 wow fadeInUp" data-wow-delay="0.2s">
-                        <img src="<?php echo e(URL::asset('/storage/services/'.$main_service->images)); ?>" class="img-fluid w-100" style="object-fit: cover;" alt="Img">
-                    </div>
-                    <div class="col-xl-4">
-                        <div class="row gy-4 gx-0">
-                            <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="feature-item justify-content-end">
-                                  <div class="feature-icon">
-                                      <span class="fa fa-road fa-2x"></span>
-                                  </div>
-                                    <div class="text-end me-4">
-                                      <h5 class="mb-3"><?php echo e($car_hiring->title?? 'No Title'); ?></h5>
-                                      <p class="mb-0 demo-1"><?php echo e($car_hiring->content?? 'No Content'); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="feature-item justify-content-end">
-                                  <div class="feature-icon">
-                                      <span class="fa fa-road fa-2x"></span>
-                                  </div>
-                                    <div class="text-end me-4">
-                                      <h5 class="mb-3"><?php echo e($transportation->title?? 'No Title'); ?></h5>
-                                      <p class="mb-0 demo-1"><?php echo e($transportation->content?? 'No Content'); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Features End -->
+      
 
 <hr>
  <!-- Car categories Start -->
@@ -184,6 +166,7 @@
                     <p class="mb-0">Book your appropriate Car Type
                     </p>
                 </div>
+
       <div class="row">
 <?php $__empty_1 = true; $__currentLoopData = $vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                      <div class="col-md-3">

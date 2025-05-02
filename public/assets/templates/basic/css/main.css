@@ -566,7 +566,7 @@ strong, b {
     background:transparent;
 }
 .form--control, .bg--section .rental__thumbnails, .bg--section .faq__item, .bg--section .plan__item, .bg--section .client__item, .bg--section .counter-item, .bg--section .post__item, .bg--section .how__item .how__icon, .bg--section .rent__item, .bg--section .form-control:disabled, .bg--section .form-control[readonly], .bg--section .reply-item, .bg--section .dashboard__item, .bg--section .custom--card, .bg--section .cmn--table, .bg--section .widget {
-    background:#e3e6bd;
+    background:#fff;
 }
 
 .bg--section .synced .rental__thumbnails, .bg--section .post__item .post__content .meta__date, .bg--section .rent__item .rent__thumb, .bg--section .rent__item .rent__content .car-info {
@@ -800,7 +800,7 @@ strong, b {
 .widget__links li a {
     padding: 4px 0 4px 20px;
     font-family: "Josefin Sans", sans-serif;
-    color: #dcf3ff;
+    color: #fff;
     font-size: 14px;
     position: relative;
 }
@@ -837,9 +837,9 @@ strong, b {
 }
 
 .footer__contact li .icon {
-    font-size: 50px;
+    font-size: 28px;
     line-height: 1;
-    width: 50px;
+    width: 25px;
     color: rgba(0, 174, 235, 0.7);
 }
 
@@ -855,7 +855,7 @@ strong, b {
 .footer__contact li .cont .info {
     font-weight: 600;
     font-family: "Josefin Sans", sans-serif;
-    font-size: 18px;
+    font-size: 15px;
     color: #dcf3ff;
 }
 
@@ -3259,7 +3259,7 @@ width: 40%;
 
 .rent__item .rent__thumb {
     position: relative;
-    height: 201px;
+    height: 205px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3451,7 +3451,7 @@ width: 40%;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    background: #22313a;
+    background: #fff;
 }
 
 .single__details-content .specification-item {
@@ -5042,7 +5042,9 @@ width: 40%;
     align-items: center;
     font-family: "Josefin Sans", sans-serif;
     color: #fff;
-    background: #00aeeb;
+/*    */
+/*    background: #00aeeb;*/
+     background: #6d846c;
 }
 
 .cmn--btn:hover, .cmn--btn:focus {
