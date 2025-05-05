@@ -111,4 +111,4 @@
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make($activeTemplate.'layoutm.frontendm', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/plans/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make($activeTemplate.'layouts.admin_master_panel', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/plans/index.blade.php ENDPATH**/ ?>

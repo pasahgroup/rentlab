@@ -104,6 +104,8 @@ $fullUrl = url()->full();
     }
 
 
+
+
  public function addCar(Request $request,$id){
         if (!auth()->check()){
             $notify[] = ['error', 'Please login to continue!'];
@@ -373,8 +375,10 @@ else{
 
          $datas=RentLog::join('vehicles','vehicles.id','rent_logs.vehicle_id')
          ->where('rent_logs.booking_id',$times->booking_id)
-         ->select('vehicles.name','rent_logs.pick_time','rent_logs.drop_time','rent_logs.model_name','rent_logs.price','rent_logs.discount','rent_logs.no_car','rent_logs.no_day','rent_logs.price')
+         ->select('vehicles.name','rent_logs.pick_time','rent_logs.drop_time','rent_logs.model_name','rent_logs.unit_price','rent_logs.discount','rent_logs.no_car','rent_logs.no_day','rent_logs.price')
          ->get();
+
+         //dd($datas);
 
 
  // $totals = RentLog::select(['rent_logs.*',

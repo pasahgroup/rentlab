@@ -12,7 +12,7 @@
             <div class="newsletter-wrapper">
                 <div class="footer-logo">
                     <a href="<?php echo e(route('home')); ?>">
-                        <img src="<?php echo e(getImage(imagePath()['logoIcon']['path'] .'/logo.png')); ?>" alt="logo">
+                        <img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style="width:100px;">
                     </a>
                 </div>
                 <div class="newsletter-title">

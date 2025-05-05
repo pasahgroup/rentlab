@@ -39,7 +39,7 @@
 </div>
 </div>
 
-     <div class="row">
+     <div class="container">
           <div class="col-sm-10">
         <em>Booking Costs Summary</em>
           <em><b>(Please finish Payment to complete you are booking)</b></em>

@@ -4540,7 +4540,7 @@ input[type="button"].btn-block {
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   list-style: none;
-  background-color: #3c6f5e;
+  background-color: #838383;
 }
 
 .breadcrumb-item {
@@ -6109,7 +6109,8 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-  background-color: #F5F5F5 !important;
+/*  background-color: #F5F5F5 !important;*/
+   background-color: #A8A6A6 !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,

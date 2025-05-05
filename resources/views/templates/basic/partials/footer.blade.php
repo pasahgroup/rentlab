@@ -12,7 +12,7 @@
             <div class="newsletter-wrapper">
                 <div class="footer-logo">
                     <a href="{{ route('home') }}">
-                        <img src="{{getImage(imagePath()['logoIcon']['path'] .'/logo.png')}}" alt="logo">
+                        <img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="logo" style="width:100px;">
                     </a>
                 </div>
                 <div class="newsletter-title">

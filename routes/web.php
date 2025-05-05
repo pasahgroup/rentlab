@@ -66,7 +66,6 @@ Route::prefix('ticket')->group(function () {
 */
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
-
     Route::namespace('Auth')->group(function () {
         Route::get('/', 'LoginController@showLoginForm')->name('login');
         Route::post('/', 'LoginController@login')->name('login');
@@ -234,7 +233,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
          Route::get('/getA/{p}', [VehicleController::class,'getModel']);
 
         // Plans
-        Route::get('plans', 'PlanController@index')->name('plans.index');
+        Route::get('planss', 'PlanController@index')->name('plans.index');
         Route::get('plans/add', 'PlanController@add')->name('plans.add');
         Route::post('plans/store', 'PlanController@store')->name('plans.store');
         Route::get('plans/{id}', 'PlanController@edit')->name('plans.edit');
@@ -429,7 +428,7 @@ Route::name('user.')->prefix('user')->group(function () {
          // Route::post('/payConfirm/{x}', [VehicleController::class, 'payConfirm'])->name('payConfirm');
           Route::post('/payConfirm/{x}', 'VehicleController@payConfirm')->name('payConfirm');
               Route::post('/addCar/{x}', 'VehicleController@addCar')->name('addCar');
-              Route::get('/pc/{x}', 'VehicleController@addBooking')->name('pc');
+          Route::get('/pc/{x}', 'VehicleController@addBooking')->name('pc');
                // Route::get('/pc/{x}', [VehicleController::class, 'addCar'])->name('pc');
 
         // Route::post('/payConfirm/{x}', 'VehicleController@payConfirm')->name('payConfirm');

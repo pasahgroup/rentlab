@@ -40,6 +40,7 @@ class TicketController extends Controller
         $user = Auth::user();
         return view($this->activeTemplate . 'user.support.create', compact('pageTitle', 'user'));
     }
+    
 
     public function storeSupportTicket(Request $request)
     {

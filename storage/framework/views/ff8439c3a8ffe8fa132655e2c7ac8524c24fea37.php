@@ -1,4 +1,4 @@
-<div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0" >          
+<div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0"  style="border:1px solid #dee2e6;background-color:#f5f5f5;">          
         
         <nav class="navbar navbar-expand-lg navbar-light float-left">  
           <a href="" class="navbar-brand p-0">

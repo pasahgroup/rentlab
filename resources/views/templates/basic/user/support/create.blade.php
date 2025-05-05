@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.master')
+@extends($activeTemplate.'layouts.admin_master_panel')
 @section('content')
     <!-- New Ticket -->
     <div class="pb-60 pt-60">

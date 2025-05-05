@@ -1,7 +1,7 @@
 @extends($activeTemplate.'layouts.frontend')
 @section('content')
 
-     <section class="cart-page" style="padding:5px">
+     <section class="cart-pagex" style="margin:5px">
     <div class="container">
       <div class="border-box">
            <div class="col-md-12">
@@ -34,14 +34,14 @@
 </div>
 
 
-     <div class="row">
-          <div class="col-sm-10">
+     <div class="container" style="background-color:aliceblue;">
+         <div class="col-md-10">
         <em>Booking Costs Summary</em>
           <em><b>(Please finish Payment to complete you are booking)</b></em>
 
              <p><em>(From date {{date("d-M-Y", strtotime($times->pick_time)) }} to {{date("d-M-Y", strtotime($times->drop_time)) }})</em></p>
 </div>
-<div class="col-sm-2">
+<div class="col-md-2">
         <form  method="get"  action="{{ route('user.pc',1) }}" enctype="multipart/form-data">
                              @csrf
     <input type="hidden" name="_method" value="put">
@@ -77,7 +77,7 @@
               {{$data->model_name}}
                 </td>
                 <td>
-               {{number_format($data->price,2)}}
+               {{number_format($data->unit_price,2)}}
                 </td>
                 <td>
  {{number_format($data->discount,2)}}

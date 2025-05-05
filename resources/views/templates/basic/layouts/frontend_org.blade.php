@@ -96,179 +96,10 @@
     <body>
 
 
-      @include($activeTemplate.'layouts.header3')
         @include($activeTemplate.'layouts.header2')
             @include($activeTemplate.'layouts.topmenu')
 
-  <header class="container-fluid header-area" style="padding-left:1.4%;padding-right:1.4%; background-color:#3c6f5e;">
-    <!-- Main Header Area -->
-    <div class="main-header-area" id="stickyHeader">
-        <div class="classy-nav-container breakpoint-off"  style="background-color:#3c6f5e;">
-            <nav class="classy-navbar justify-content-between" id="southNav">
 
-                <!-- Logo -->
-              
-                    <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler" style="margin-right:-220px">
-                        <span class="navbarToggler" style="margin-right:0px"><span></span><span></span><span></span></span>
-                    </div>
-                        
-                <!-- Menu -->
-                <div class="classy-menu"> 
-                                     <!-- close btn -->
-                    <div class="classycloseIcon">
-                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                    </div>
-                    <!-- Nav Start -->
-                    <div class="classynav">
-                        <ul>
-                                 <a class="nav-brand" href="/"><img src="{{getImage(imagePath()['logoIcon']['path'].'/logo.png')}}" alt="" style="height:40px; width:120px;padding:1px;"></a>
-
-<li><a href="/">Home</a>
-                            </li>
-
-
-
-                                                        <li><a href="#">Vehicles</a>
-<ul class="dropdown">
-  @foreach($view_brands as $brand)
-
-                                        <li><a href="#">{{$brand->name}}</a>
-
-                                            <ul class="dropdown" style="padding:0px">
-
-                                              @foreach($view_vehicles as $vehicle)
-
-  <li style="padding:0px">
-    @if($vehicle->brand_id==$brand->id)
-      <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
-<input type="hidden" name="model" id="model" value="{{$vehicle->model}}" class="form-control form--control" required>
-  <button  class="dropdown-item">{{$vehicle->model}}</button>
-                                          </form>
-  @endif
-
-  </li>
-
-
-                                              @endforeach
-
-                                            </ul>
-                                            </li>
-                                                    @endforeach
-                                                    </ul>
-
-
-</li>
-
-
-
-
-                            <li><a href="#">Services</a>
-
-                                <ul class="dropdown">
-              @foreach($view_services as $view_service)
-              {{--
-            <li><a href="web-servise/{{$view_service->service_name}}">{{$view_service->title}}</a>
-              --}}
-
-              <form action="{{ route('web-service',$view_service->service_name) }}" method="get" class="priceForm">
-            <button  class="dropdown-item">{{$view_service->title}}</button>
-                                                  </form>
-            </li>
-  @endforeach
-
-
-                                </ul>
-                            </li>
-
-
-
-                                                                                <li><a href="#">Booking</a>
-                                                                                  <ul class="dropdown">
-                                                                                       <li><a href="{{ route('user.multibooking.index') }}">Multi-booking</a></li>
-                                                                                        <li><a href="{{ route('plans') }}">Plan-booking</a></li>
-
-                                                                                  </ul>
-                                                                              </li>
-
-{{--
-                            <li><a href="#">Opportunities</a>
-                                <ul class="dropdown">
-                                    <li><a href="/New-Agent">Agent-Register</a></li>
-                    <li><a href="/New-tourGuide">Tour Guide -Register</a></li>
-                    <li><a href="/New-Partner">Partner-Register</a></li>
-
-                                </ul>
-                            </li>
-                            --}}
-
-                            <li><a href="#">Miscellaneous</a>
-                                <ul class="dropdown">
-                                    <li><a href="{{ route('blogs') }}">Blog</a></li>
-                                    <li><a href="#">Galleries (Comming soon---)</a></li>
-                                    <li><a href="#">Opportunities (Comming soon---)</a></li>
-                                </ul>
-                            </li>
-
-                                <li><a href="/about">About Us</a>
-                               </li>
-
-                              <li><a href="{{ route('contact') }}">Contact</a>
-                            </li>
-
-<li>||</li>
-
-{{--
-<li><a href="#" class="las Plan-booking float-right"><strong style="color:yellow;">Language</strong></a>
-          <ul class="dropdown">
-
-<select class="langSel language-select ms-3">
-@foreach($language as $item)
-  <option value="{{$item->code}}"
-          @if(session('lang') == $item->code) selected @endif>{{ __($item->name) }}</option>
-@endforeach
-</select>
-
-
-          </ul>
-      </li>
---}}
-
-
-<li><a href="#" class="las la-user float-right">Account:  <b class="text-white">@auth Logged in  @else Login @endauth</b></a>
-    <ul class="dropdown">
-      @auth
-
-                      <li class="header-top-item meta-list">
-                    <a href="Mailto:{{ getContent('contact.content', true)->data_values->email }}"><i class="lar la-envelope"></i>{{ getContent('contact.content', true)->data_values->email }}</a>
-                </li>
-                         <li class="header-top-item ml-sm-auto">
-                            <a href="{{ route('user.home') }}"><i class="las la-tachometer-alt"></i>@lang('Dashboard')</a>
-                        </li>
-
-                        <li class="header-top-item">
-                            <a href="{{ route('user.logout') }}"><i class="las la-sign-out-alt"></i>@lang('Logout')</a>
-                        </li>
-                    @else
-                        <li class="header-top-item ml-sm-auto">
-                            <a href="{{ route('user.login') }}"><i class="las la-user"></i>@lang('Login')</a>
-                        </li>
-                        <li class="header-top-item">
-                            <a href="{{ route('user.register') }}"><i class="las la-user-plus"></i>@lang('Register')</a>
-                        </li>
-                    @endauth
-
-
-    </ul>
-</li>
-</ul>
-
-  </div>
- </div>
-</nav>
-       </div>
-    </div>
-</header>
         @stack('fbComment')
    @if(!request()->routeIs('home'))
     @include($activeTemplate.'partials.breadcrumb')
@@ -473,6 +304,14 @@
 
     <script src="../../../assetf/js/active.js"></script>
      <script src="../../../assets2/js/main.js"></script>
+
+
+//Custom new js libray
+
+//End of Custom new js libray
+
+
+
 
 <!-- Custom Javascript -->
  <script src="../../../img_library/scripts.js" type="text/javascript"></script>
