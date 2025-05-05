@@ -7,15 +7,19 @@
             </div> 
                       
                     </a>
+
+                        <?php if(auth()->guard()->check()): ?>
+<a href="<?php echo e(route('user.home')); ?>">Dashboard</a> 
+                             <?php endif; ?>
                 
         </nav>   
 
        <nav class="navbar navbar-expand-lg navbar-light float-right">             
  <div class="classy-nav-container breakpoint-off">
 
+
                 <!-- Classy Menu -->
                 <nav class="classy-navbar justify-content-between" id="southNav"> 
-
 
  <div class="classy-menu">                        <!-- close btn -->
                     <div class="classycloseIcon">
@@ -24,6 +28,7 @@
                     <!-- Nav Start -->
                     <div class="classynav">
                         <ul>
+
 
 <li><a href="/">Home</a>
                             </li>
