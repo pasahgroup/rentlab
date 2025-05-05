@@ -7,12 +7,26 @@
             </div> 
                       
                     </a>
+            
+        </nav>  
 
-                        <?php if(auth()->guard()->check()): ?>
-<a href="<?php echo e(route('user.home')); ?>">Dashboard</a> 
+        <nav class="navbar navbar-expand-lg navbar-light float-left">  
+
+
+
+                                 <?php if(auth()->guard()->check()): ?>
+   <a href="" class="navbar-brand p-0">
+                                     <div class="logo gl float-right">
+                <a href="<?php echo e(route('user.home')); ?>">Dashboard</a>
+            </div> 
+                      
+                    </a>
+
                              <?php endif; ?>
                 
-        </nav>   
+        </nav>  
+
+
 
        <nav class="navbar navbar-expand-lg navbar-light float-right">             
  <div class="classy-nav-container breakpoint-off">
