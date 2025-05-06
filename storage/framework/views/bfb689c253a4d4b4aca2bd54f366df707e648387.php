@@ -36,7 +36,7 @@
 </div>
 
 
-     <div class="container" style="background-color:aliceblue;">
+     <div class="container row" style="background-color:aliceblue;">
          <div class="col-md-10">
         <em>Booking Costs Summary</em>
           <em><b>(Please finish Payment to complete you are booking)</b></em>
@@ -543,4 +543,4 @@ if(no_car>0)
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/user/pesapal/pesapal.blade.php ENDPATH**/ ?>
+<?php echo $__env->make($activeTemplate.'layouts.admin_master_panel', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/user/pesapal/pesapal.blade.php ENDPATH**/ ?>

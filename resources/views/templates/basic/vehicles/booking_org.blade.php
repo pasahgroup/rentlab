@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.master')
+@extends($activeTemplate.'layouts.admin_master_panel')
 @section('content')
 <div class="search-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape right-side">@lang('Rent')</div>

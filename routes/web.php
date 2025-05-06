@@ -233,7 +233,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
          Route::get('/getA/{p}', [VehicleController::class,'getModel']);
 
         // Plans
-        Route::get('planss', 'PlanController@index')->name('plans.index');
+        Route::get('plans', 'PlanController@index')->name('plans.index');
         Route::get('plans/add', 'PlanController@add')->name('plans.add');
         Route::post('plans/store', 'PlanController@store')->name('plans.store');
         Route::get('plans/{id}', 'PlanController@edit')->name('plans.edit');

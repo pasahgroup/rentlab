@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.frontend')
+@extends($activeTemplate.'layouts.admin_master_panel')
 @section('content')
 
      <section class="cart-pagex" style="margin:5px">
@@ -34,7 +34,7 @@
 </div>
 
 
-     <div class="container" style="background-color:aliceblue;">
+     <div class="container row" style="background-color:aliceblue;">
          <div class="col-md-10">
         <em>Booking Costs Summary</em>
           <em><b>(Please finish Payment to complete you are booking)</b></em>

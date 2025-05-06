@@ -285,6 +285,22 @@
             </div>
           </li>
 
+
+  <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#vehicles" aria-expanded="false" aria-controls="vehicles">
+           <i class="typcn typcn-film menu-icon"></i>
+              <span class="menu-title"><?php echo app('translator')->get('All Vehicles'); ?></span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="vehicles">
+              <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('vehicles')); ?>"><?php echo app('translator')->get('Vehicles'); ?></a></li>
+                  <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('user.vehicle.booking.log')); ?>"><?php echo app('translator')->get('Vehicle Booking Logs'); ?></a></li>
+              </ul>
+            </div>
+          </li>  
+
+
             <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#plans" aria-expanded="false" aria-controls="plans">
            <i class="typcn typcn-film menu-icon"></i>
@@ -294,7 +310,7 @@
             <div class="collapse" id="plans">
               <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('plans')); ?>"><?php echo app('translator')->get('All Plans'); ?></a></li>
-                  <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('user.vehicle.booking.log')); ?>"><?php echo app('translator')->get('All Booking Logs'); ?></a></li>
+                  <li class="nav-item"> <a class="nav-link" href="<?php echo e(route('user.vehicle.booking.log')); ?>"><?php echo app('translator')->get('Plan Booking Logs'); ?></a></li>
               </ul>
             </div>
           </li>  

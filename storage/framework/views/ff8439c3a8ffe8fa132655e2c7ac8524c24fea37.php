@@ -15,12 +15,11 @@
 
 
                                  <?php if(auth()->guard()->check()): ?>
-   <a href="" class="navbar-brand p-0">
-                                     <div class="logo gl float-right">
-                <a href="<?php echo e(route('user.home')); ?>">Dashboard</a>
-            </div> 
-                      
-                    </a>
+
+                     <a class="nav-link" href="<?php echo e(route('user.home')); ?>">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <div class="badge badge-primary"><span class="menu-title">Dashboard</span></div>
+            </a>
 
                              <?php endif; ?>
                 
