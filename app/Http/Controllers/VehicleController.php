@@ -363,7 +363,7 @@ else{
         $gateways= Gateway::where('status',1)
         ->orderBy('name')->get();
 
-        //dd($gateway);
+       // dd($gateway);
 
         $locations = Location::active()->orderBy('name')->get();
         $times=RentLog::findOrFail($id);

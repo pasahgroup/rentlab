@@ -1,7 +1,6 @@
 @extends($activeTemplate.'layouts.admin_master_panel')
 @section('content')
 
-     <section class="cart-pagex" style="margin:5px">
     <div class="container">
       <div class="border-box">
            <div class="col-md-12">
@@ -33,8 +32,17 @@
   @endif
 </div>
 
-
-     <div class="container row" style="background-color:aliceblue;">
+    <!-- partial:../../partials/_navbar.html -->
+        <!-- partial -->    
+      <!-- partial:../../partials/_sidebar.html -->
+         <div class="content-wrapper">
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Booked Car List</h4>
+                 
+  <div class="container row" style="background-color:aliceblue;">
          <div class="col-md-10">
         <em>Booking Costs Summary</em>
           <em><b>(Please finish Payment to complete you are booking)</b></em>
@@ -48,28 +56,30 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <input type="hidden" name="bookingID" value="{{$times->booking_id}}">
-             <button type="submit" class="btn btn-primary float-right">Add Car</button>
+             <button type="submit" class="btn btn-primary pull-right hvr-sweep-to-right">Add Car</button>
 </form>
 
          </div>
      </div>
 
-
-        <div class="table-responsive-wrap">
-          <table class="table table-responsive cart-checkout-table">
-            <thead>
-              <tr>
-                <th>Car model</th>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                        
+                          <th>Car model</th>
                      <th>Price</th>
                      <th>Discount</th>
                 <th>No of Car</th>
                  <th>No of Day</th>
                 <th class="price">Total Costs</th>
                 <th>&nbsp;</th>
-              </tr>
-            </thead>
-            <tbody>
+                        
+                        </tr>
+                      </thead>
 
+                      <tbody>
+                       
 
 @foreach($datas as $data)
   <tr>
@@ -91,64 +101,112 @@
                 <td class="price">{{number_format($data->price,2)}} </td>
                 </tr>
                 @endforeach
-            </tbody>
-          </table>
-        </div>
 
-        <div class="row">
-          <div class="col-sm-6">
 
-          <!--   <div class="form-group col-md-8 col-sm-10">
-              <label>Have a Promotional Code</label>
-              <div class="input-group">
-                <div class="input-group-addon icon-tag">
-                </div>
-                <input type="text" class="form-control" placeholder="Code">
-                <div class="input-group-btn">
-                  <button class="btn btn-primary">Submit</button>
-                </div>
-              </div>
-              <br>
-              <button class="btn btn-primary hvr-sweep-to-right">Update Cart</button>
-            </div> -->
-          </div>
-          <div class="col-sm-6">
-            <table class="table table-responsive cart-checkout-table">
-              <tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+
+
+
+
+ <div class="table-responsive">
+                    <table class="table">
+                    
+                      <tbody>
+                       
+
+
+  <tr>
+                <td>            
+                </td>
+                  <td>            
+                </td>
+                <td>              
+                </td>
                 <td>
-                  Sub total
-                </td>
-                <td class="price">
-                 {{number_format($totals->total_cost,2)}}
-                </td>
-              </tr>
 
-              <tr>
+                </td>
                 <td>
-                  Discount
+                    
                 </td>
                 <td class="price">
-             {{number_format($totals->discount,2)}}
+                    Sub total
                 </td>
-              </tr>
+                <td> {{number_format($totals->total_cost,2)}} </td>
+                </tr>
 
-               <tr>
+  <tr>
+      <td>            
+                </td>
+                <td>            
+                </td>
                 <td>
-                  VAT total
+              
                 </td>
-                <td class="price">
-                 {{number_format($totals->VAT,2)}}
-                </td>
-              </tr>
-              <tr>
+                <td>
 
-                <td class="price">Grand Total</td>
-                <td class="price">
-                {{number_format($totals->Grant_total,2)}}
                 </td>
-              </tr>
+                <td>
+                    
+                </td>
+                <td>
+                   Discount
+                </td>
+                <td>
+                 {{number_format($totals->discount,2)}}</td>
+                </tr>
 
- <form  method="post"  action="{{ route('user.payConfirm',$times->booking_id) }}" enctype="multipart/form-data">
+                  <tr>
+      <td>            
+                </td>
+                <td>            
+                </td>
+                <td>
+              
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                   VAT Total
+                </td>
+                 <td>
+                   {{number_format($totals->VAT,2)}} </td>
+                </tr>
+
+                      <tr>
+      <td>            
+                </td>
+                <td>            
+                </td>
+                <td>
+              
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    
+                </td>
+                <td>
+                   Grand Total
+                </td>
+                 <td class="price">
+                  {{number_format($totals->Grant_total,2)}} </td>
+                </tr>           
+
+
+                      </tbody>
+                    </table>
+
+
+
+                     <form  method="post"  action="{{ route('user.payConfirm',$times->booking_id) }}" enctype="multipart/form-data">
           @csrf
               <tr class="total">
                 <td class="price"> <input type="text" name="amount" value=" {{number_format($totals->Grant_total,2)}}"></td>
@@ -227,16 +285,23 @@
          <button class="btn btn-success pull-right hvr-sweep-to-right" type="submit">Proceed</button>
         </div>
       </form>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+         </div>
+        </div>
+      </form>
 
 
 <div class="modal fade modal-book-now" id="bookNow" tabindex="-1" role="dialog" style="margin-top:50px;">
-
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
           </button>
-
 
         </div>
         <div class="modal-body">
@@ -339,9 +404,6 @@
                                         <input type="number" class="zt-control" name="children" min="0" value="0">
                                     </div>
                                  </div>
-
-
-
 
 
 
@@ -455,11 +517,8 @@
   </div>
 </div>
 
-
-
-
       </div>
-  </section>
+
 
 @endsection
 @push('style')

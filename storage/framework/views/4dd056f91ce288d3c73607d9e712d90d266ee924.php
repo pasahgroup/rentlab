@@ -29,8 +29,8 @@
 
 <!-- Custom style Libray -->
 
- <link rel="stylesheet" href="assets/vendors/typicons/typicons.css">
-  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+ <link rel="stylesheet" href="../../../admin_panel/assets/vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="../../../admin_panel/assets/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -97,45 +97,36 @@
               <span class="count"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-              <p class="mb-0 fw-normal float-start dropdown-header">Messages</p>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="../../../assets/images/faces/face4.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis fw-normal">David Grey
-                  </h6>
-                  <p class="fw-light small-text text-muted mb-0">
-                    The meeting is cancelled
-                  </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="../../../assets/images/faces/face2.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis fw-normal">Tim Cook
-                  </h6>
-                  <p class="fw-light small-text text-muted mb-0">
-                    New product launch
-                  </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="../../../assets/images/faces/face3.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis fw-normal"> Johnson
-                  </h6>
-                  <p class="fw-light small-text text-muted mb-0">
-                    Upcoming board meeting
-                  </p>
-                </div>
-              </a>
-            </div>
+             
+<ul class="submenu">
+                            <li>
+
+                             </i>Name: <?php echo e($userff->firstname); ?> <?php echo e($userff->lastname); ?>
+
+                              Email: <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"></i><?php echo e($userff->email); ?></a>
+                            </li>
+
+                            <li>
+                                <a href="<?php echo e(route('user.deposit.history')); ?>"><?php echo app('translator')->get('Payment History'); ?></a>
+                            </li>
+                            <li>
+                                <a href="<?php echo e(route('user.change.password')); ?>"><?php echo app('translator')->get('Change Password'); ?></a>
+                            </li>
+                            <li>
+                                <a href="<?php echo e(route('user.profile.setting')); ?>"><?php echo app('translator')->get('Profile Setting'); ?></a>
+                            </li>
+                            <li>
+                                <a href="<?php echo e(route('user.twofactor')); ?>"><?php echo app('translator')->get('2FA Security'); ?></a>
+                            </li>
+                            <li>
+                                <a href="<?php echo e(route('user.logout')); ?>"><?php echo app('translator')->get('Logout'); ?></a>
+                            </li>
+                        </ul>
+
+                      </div>
+ 
           </li>
+
           <li class="nav-item dropdown me-0">
             <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
               <i class="typcn typcn-bell mx-0"></i>
@@ -184,6 +175,7 @@
               </a>
             </div>
           </li>
+
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="typcn typcn-th-menu"></span>

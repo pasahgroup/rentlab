@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.master')
+@extends($activeTemplate.'layouts.admin_master_panel')
 @section('content')
 
 

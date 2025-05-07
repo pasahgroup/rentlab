@@ -29,8 +29,8 @@
 
 <!-- Custom style Libray -->
 
- <link rel="stylesheet" href="assets/vendors/typicons/typicons.css">
-  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+ <link rel="stylesheet" href="../../../admin_panel/assets/vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="../../../admin_panel/assets/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -97,45 +97,35 @@
               <span class="count"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-              <p class="mb-0 fw-normal float-start dropdown-header">Messages</p>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="../../../assets/images/faces/face4.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis fw-normal">David Grey
-                  </h6>
-                  <p class="fw-light small-text text-muted mb-0">
-                    The meeting is cancelled
-                  </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="../../../assets/images/faces/face2.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis fw-normal">Tim Cook
-                  </h6>
-                  <p class="fw-light small-text text-muted mb-0">
-                    New product launch
-                  </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="../../../assets/images/faces/face3.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis fw-normal"> Johnson
-                  </h6>
-                  <p class="fw-light small-text text-muted mb-0">
-                    Upcoming board meeting
-                  </p>
-                </div>
-              </a>
-            </div>
+             
+<ul class="submenu">
+                            <li>
+
+                             </i>Name: {{$userff->firstname}} {{$userff->lastname}}
+                              Email: <a href="Mailto:{{ getContent('contact.content', true)->data_values->email }}"></i>{{$userff->email}}</a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('user.deposit.history')}}">@lang('Payment History')</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('user.change.password') }}">@lang('Change Password')</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('user.profile.setting') }}">@lang('Profile Setting')</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('user.twofactor') }}">@lang('2FA Security')</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('user.logout') }}">@lang('Logout')</a>
+                            </li>
+                        </ul>
+
+                      </div>
+ 
           </li>
+
           <li class="nav-item dropdown me-0">
             <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
               <i class="typcn typcn-bell mx-0"></i>
@@ -184,6 +174,7 @@
               </a>
             </div>
           </li>
+
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="typcn typcn-th-menu"></span>
