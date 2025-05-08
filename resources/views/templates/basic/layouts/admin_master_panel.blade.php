@@ -247,36 +247,6 @@
           </li> 
 
 
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="typcn typcn-document-text menu-icon"></i>
-              <span class="menu-title">UI Elements</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>              
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-              </ul>
-            </div>
-          </li> 
-
-        
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-              <i class="typcn typcn-chart-pie-outline menu-icon"></i>
-              <span class="menu-title">Charts</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="charts">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
-              </ul>
-            </div>
-          </li>
-
-
   <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#vehicles" aria-expanded="false" aria-controls="vehicles">
            <i class="typcn typcn-film menu-icon"></i>
@@ -320,18 +290,7 @@
             </div>
           </li>  
 
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-              <i class="typcn typcn-compass menu-icon"></i>
-              <span class="menu-title">Icons</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="icons">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/icons/font-awesome.html">Font Awesome</a></li>
-              </ul>
-            </div>
-          </li>         
+         
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <i class="typcn typcn-user-add-outline menu-icon"></i>
@@ -347,13 +306,7 @@
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>                                
               </ul>
             </div>
-          </li>                            
-          <li class="nav-item">
-            <a class="nav-link" href="../../../docs/documentation.html">
-              <i class="typcn typcn-mortar-board menu-icon"></i>
-              <span class="menu-title">Documentation</span>
-            </a>
-          </li>
+          </li>    
                 @endauth
         </ul>
       </nav>
