@@ -436,14 +436,18 @@ else{
     public function payConfirm(Request $request,$id)
     {
 $amount = preg_replace("/[^0-9\.]/", "",request('amount'));
-$amount_percent=request('percent_downpayment')*request('total_cost');
+$amount_percent=preg_replace("/[^0-9\.]/", "",request('total_cost'));
+//dd($amount_percent);
+
+$amount_percent=request('percent_downpayment')*$amount;
 
 if($amount<$amount_percent)
 {
  return redirect()->back()->with('error','Down Payment must not below 30% of total booking costs.');
 }
 
-//dd($id);
+
+
 // Fetching JSON
 $req_url = "https://api.exchangerate-api.com/v4/latest/USD";
 //dd($req_url);
@@ -469,7 +473,7 @@ $amount=$amount;
 $currency=request('currency');
 $status=1;
 
- // dd($amount);
+  //dd($amount);
 
 // dd(number_format($amount, 2));
     // YOUR APPLICATION CODE HERE, e.g.
@@ -478,10 +482,11 @@ $status=1;
 
 $base_price=($response_object->rates->TZS/$response_object->rates->$currency);
  // $defaultCurrency2=($response_object->rates->$currency);
-    $to_bepaid = round(($amount * $base_price), 2);
-     //dd($to_bepaid);
+    
 
-//
+    $to_bepaid = round(($amount * $base_price), 2);
+    // dd($base_price);
+
 
 $gateways = Gateway::where('id',request('gateway'))->first();
 //dd($gateways->code);
@@ -498,6 +503,7 @@ else {
   return redirect()->back()->with('info','No Internet connection');
 }
 
+//dd($amount);
 
     //dd('print');
  //return response()->json(['url' => redirect('https://payments.pesapal.com/palatialtours',compact(['first_name','status']));

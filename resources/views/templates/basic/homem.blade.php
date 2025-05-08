@@ -141,25 +141,6 @@
 </div>
 
 
-<section class="showcase container" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
-    @php
-        $banners = getContent('banner.element');
-
-        $brands = \App\Models\Brand::active()->orderBy('name')->get();
-        $seats = \App\Models\Seater::active()->orderBy('number')->get();
-    @endphp
-
-    <!-- Book Section -->
-    
-    @if($sections->secs != null)
-        @foreach(json_decode($sections->secs) as $sec)
-      
-            @if($sec =="plan")
-            @include($activeTemplate.'sections.'.$sec)
-          @endif
-        @endforeach
-    @endif
-</section>
 
       
 
@@ -249,6 +230,28 @@
 </div>
         </div>
 
+
+
+
+<section class="showcase container" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
+    @php
+        $banners = getContent('banner.element');
+
+        $brands = \App\Models\Brand::active()->orderBy('name')->get();
+        $seats = \App\Models\Seater::active()->orderBy('number')->get();
+    @endphp
+
+    <!-- Book Section -->
+    
+    @if($sections->secs != null)
+        @foreach(json_decode($sections->secs) as $sec)
+      
+            @if($sec =="plan")
+            @include($activeTemplate.'sections.'.$sec)
+          @endif
+        @endforeach
+    @endif
+</section>
 
 
               <section class="showcase" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">

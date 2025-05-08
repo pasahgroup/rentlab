@@ -136,25 +136,6 @@
 </div>
 
 
-<section class="showcase container" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
-    <?php
-        $banners = getContent('banner.element');
-
-        $brands = \App\Models\Brand::active()->orderBy('name')->get();
-        $seats = \App\Models\Seater::active()->orderBy('number')->get();
-    ?>
-
-    <!-- Book Section -->
-    
-    <?php if($sections->secs != null): ?>
-        <?php $__currentLoopData = json_decode($sections->secs); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sec): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-      
-            <?php if($sec =="plan"): ?>
-            <?php echo $__env->make($activeTemplate.'sections.'.$sec, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-          <?php endif; ?>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    <?php endif; ?>
-</section>
 
       
 
@@ -242,6 +223,28 @@
 </div>
         </div>
 
+
+
+
+<section class="showcase container" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
+    <?php
+        $banners = getContent('banner.element');
+
+        $brands = \App\Models\Brand::active()->orderBy('name')->get();
+        $seats = \App\Models\Seater::active()->orderBy('number')->get();
+    ?>
+
+    <!-- Book Section -->
+    
+    <?php if($sections->secs != null): ?>
+        <?php $__currentLoopData = json_decode($sections->secs); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sec): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+      
+            <?php if($sec =="plan"): ?>
+            <?php echo $__env->make($activeTemplate.'sections.'.$sec, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+          <?php endif; ?>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    <?php endif; ?>
+</section>
 
 
               <section class="showcase" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">
