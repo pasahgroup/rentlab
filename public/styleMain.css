@@ -2401,7 +2401,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-secondary {
-  color: #212529;
+  color: #f6dc0d;
 /*  background-color: #F5F5F5;*/
   border-color: #F5F5F5;
 }
@@ -6296,7 +6296,7 @@ button.bg-dark:focus {
 }
 
 .rounded-circle {
-  border-radius: 50% !important;
+  border-radius: 20% !important;
 }
 
 .rounded-pill {
