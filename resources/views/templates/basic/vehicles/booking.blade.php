@@ -34,13 +34,13 @@
 
 
                       <div class="col-lg-11 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
-                                                    <div class="bg-secondary rounded p-5">
+                                                    <div class="bg-secondary rounded p-2">
 
                                       <form class="book--form row gx-3 gy-4 g-md-4" method="post" action="{{ route('vehicle.booking.confirm', $vehicle->id) }}">
                                         @csrf
                                                             <div class="row g-3">
 
-                                            <div class="col-6">
+                                            <div class="col-md-6 col-sm-12">
                                         <div class="input-group">
                             <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                             <span class="fas fa-map-marker-alt"></span>
@@ -58,7 +58,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                  <div class="col-6">
+                                                                     <div class="col-md-6 col-sm-12">
                                         <div class="input-group">
                             <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                             <span class="fas fa-map-marker-alt"></span>
@@ -85,7 +85,7 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-6">
+                                                               <div class="col-md-6 col-sm-12">
                                                                     <div class="input-group">
                                      <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                  <span class="las fa-calendar"></span><span class="ms-1">From Date</span>
@@ -94,7 +94,7 @@
 
                                 </div>
                                                                 </div>
-                                                                <div class="col-6">
+                                                               <div class="col-md-6 col-sm-12">
                                                         <div class="input-group">
                                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                                     <span class="las fa-calendar"></span><span class="ms-1">To Date</span>

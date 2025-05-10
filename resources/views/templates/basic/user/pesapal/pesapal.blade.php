@@ -37,11 +37,8 @@
       <!-- partial:../../partials/_sidebar.html -->
          <div class="content-wrapper">
           <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Booked Car List</h4>
-                 
+          
+                  <h4 class="card-title">Booked Car List</h4>                 
   <div class="container row" style="background-color:aliceblue;">
          <div class="col-md-10">
         <em>Booking Costs Summary</em>
@@ -65,8 +62,7 @@
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
-                        <tr>
-                        
+                        <tr>                        
                           <th>Car model</th>
                      <th>Price</th>
                      <th>Discount</th>
@@ -213,24 +209,32 @@
                 <td>Down Payment must not below 30% of total booking costs. {{$data->total_cost}}
                 </td>
               </tr>
+               <tr>
+                  <td> 
+                    <br>
+                  </td>
+               </tr>
               <tr class="total">
 
-                                      <td> <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                      <td> 
+                                         <div class="row">
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
                                          <label class="fieldlabels">Payment Gateway:*</label>
-
+                                       
                                           <select id="gateway" name="gateway" required>
 @foreach($gateways as $gateway)
                                                                          <option value="{{$gateway->id}}">{{$gateway->name}}</option>
                                                                          @endforeach
                                           </select>
-                                                              </div>
+                                </div>
 
-                                                            </td>
 
-                                      <td> <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                                         <label class="fieldlabels">Select Currency: *
 
-                                          <select id="currency" name="currency" required>
+   <div class="col-md-6 col-sm-12 col-xs-12">
+                                         <label class="fieldlabels">Select Currency: *</label>
+
+                                       
+                                        <select id="currency" name="currency" required>
                                                <option value="" selected></option>
                                                               <option value="KES">KES</option>
                                                                 <option value="USD">USD</option>
@@ -242,15 +246,16 @@
                                                                         <option value="ZMW">ZMW</option>
                                                                          <option value="RWF">RWF</option>
                                           </select>
-                                                              </div></label>
+                                                            
 
+                                                              </div>
+                                                              </div>
                                                             </td>
               </tr>
 
 
             </table>
-          </div>
-        </div>
+           
 
 
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12"> <input type="hidden" name="first_name" value="" />
@@ -293,8 +298,7 @@
 
          </div>
         </div>
-      </form>
-
+     
       </div>
 
 
