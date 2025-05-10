@@ -95,6 +95,6 @@
             </div>
         </div>
     </div>
-    <div class="footer__bottom py-3 text-center" style="color:yellow">{{ __(@$footer_content->data_values->copyright) }}</div>
+    <div class="footer__bottom py-3 text-center" style="color:#000">{{ __(@$footer_content->data_values->copyright) }}</div>
 </footer>
 <!-- Footer Section -->

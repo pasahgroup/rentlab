@@ -95,7 +95,7 @@
             </div>
         </div>
     </div>
-    <div class="footer__bottom py-3 text-center" style="color:yellow"><?php echo e(__(@$footer_content->data_values->copyright)); ?></div>
+    <div class="footer__bottom py-3 text-center" style="color:#000"><?php echo e(__(@$footer_content->data_values->copyright)); ?></div>
 </footer>
 <!-- Footer Section -->
 <?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/partials/footer.blade.php ENDPATH**/ ?>
