@@ -1,5 +1,4 @@
 @extends('admin.layouts.app')
-
 @section('panel')
     <div class="row mb-none-30">
         <div class="col-lg-3 col-md-3 mb-30">
