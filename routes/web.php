@@ -151,7 +151,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('seaters/status/{seater}', 'SeaterController@status')->name('seater.status');
 //Get model
 
-
         // Vehicles
         Route::get('vehicles', 'VehicleController@index')->name('vehicles.index');
         Route::get('vehicles/add', 'VehicleController@add')->name('vehicles.add');
@@ -194,11 +193,11 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('modelb/image/remove/{id}', 'ModelbController@deleteImage')->name('modelb.image.delete');
         Route::post('modelb/{id}/status', 'ModelbController@status')->name('modelb.status');
 
-            Route::post('modelb/{id}/recovery', 'ModelbController@recovery')->name('modelb.recovery');
+         Route::post('modelb/{id}/recovery', 'ModelbController@recovery')->name('modelb.recovery');
          Route::get('modelb/{id}/delete', 'ModelbController@delete')->name('modelb.delete');
 
 
-           //Tag
+        //Tag
         Route::get('tag', 'TagController@index')->name('tag.index');
         Route::get('tag/add', 'TagController@add')->name('tag.add');
         Route::post('tag/store', 'TagController@store')->name('tag.store');
@@ -207,10 +206,14 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('tag/image/remove/{id}', 'TagController@deleteImage')->name('tag.image.delete');
         Route::post('tag/{id}/status', 'TagController@status')->name('tag.status');
 
-          Route::post('tag/{id}/recovery', 'TagController@recovery')->name('tag.recovery');
+         Route::post('tag/{id}/recovery', 'TagController@recovery')->name('tag.recovery');
          Route::get('tag/{id}/delete', 'TagController@delete')->name('tag.delete');
 
-  //Tag
+  //Offer
+        Route::get('offer', 'OfferController@index')->name('offer.index');
+         Route::get('offer/add', 'OfferController@add')->name('offer.add');
+         Route::post('offer/store', 'OfferController@store')->name('offer.store');
+  //Color
         Route::get('color', 'ColorController@index')->name('color.index');
         Route::get('color/add', 'ColorController@add')->name('color.add');
         Route::post('color/store', 'ColorController@store')->name('color.store');

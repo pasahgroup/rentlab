@@ -1,5 +1,4 @@
 @extends($activeTemplate.'layouts.admin_master_panel')
-
 @section('content')
     <div class="faq-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape">@lang('pricing')</div>

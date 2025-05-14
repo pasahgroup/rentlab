@@ -41,9 +41,6 @@
 
 
 
-
-
-
                <!--  <li class="sidebar-menu-item {{menuActive('admin.seater.index')}}">
                     <a href="{{route('admin.seater.index')}}" class="nav-link ">
                         <i class="menu-icon las la-couch"></i>
@@ -83,12 +80,23 @@
                                     <span class="menu-title">@lang('Running Log')</span>
                                 </a>
                             </li>
+
                             <li class="sidebar-menu-item {{menuActive('admin.vehicles.booking.log.completed')}}">
                                 <a href="{{route('admin.vehicles.booking.log.completed')}}" class="nav-link">
                                     <i class="menu-icon las la-dot-circle"></i>
                                     <span class="menu-title">@lang('Completed Log')</span>
                                 </a>
                             </li>
+
+                          
+                              <li class="sidebar-menu-item {{menuActive('admin.vehicles.booking.log.completed')}}">
+                                <a href="{{route('admin.offer.index')}}" class="nav-link">
+                                    <i class="menu-icon las la-dot-circle"></i>
+                                    <span class="menu-title">@lang('Offer')</span>
+                                </a>
+                            </li>
+
+
 
                         </ul>
                     </div>

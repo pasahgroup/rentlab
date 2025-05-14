@@ -12,7 +12,6 @@
                 @include('admin.partials.breadcrumb')
                 @yield('panel')
 
-
             </div><!-- bodywrapper__inner end -->
         </div><!-- body-wrapper end -->
     </div>
