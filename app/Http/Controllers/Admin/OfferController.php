@@ -87,8 +87,8 @@ class OfferController extends Controller
             // 'price' => 'required|numeric|gt:0',
             // 'details' => 'required|string',
             'model' => 'required|string',
-               'start_date' => 'required|date_format:Y-m-d |after_or_equal:today',
-             'end_date' => 'required|date_format:Y-m-d |after_or_equal:'. $request->end_date,
+               'start_date' => 'required|date_format:m/d/Y h:i a|after_or_equal:today',
+             'end_date' => 'required|date_format:m/d/Y h:i a|after_or_equal:'. $request->end_date,
          // 'percent' => 'required|numeric',
 
             // 'doors' => 'required|integer|gt:0',
