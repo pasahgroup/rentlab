@@ -100,12 +100,24 @@ class OfferController extends Controller
             //  'location' => 'required|string',
         ]);
 
-//dd($request->model);
+
+
+$start_date = $request->start_date; //we got DD/MM/YYYY format date from form post data
+$start_date = date('Y-m-d', strtotime($start_date)); 
+
+$end_date = $request->end_date; //we got DD/MM/YYYY format date from form post data
+$end_date = date('Y-m-d', strtotime($end_date)); 
+
+//dd($end_date);
 
 
         $offers = new Offer();
         $offers->car_model = $request->model;
            $offers->percent = $request->percent;
+            $offers->start_date = $start_date;
+             $offers->end_date = $end_date;
+
+              $offers->status = $request->status;
 
         // $offers->brand_id = $request->brand;
         // $offers->seater_id = $request->seater;
