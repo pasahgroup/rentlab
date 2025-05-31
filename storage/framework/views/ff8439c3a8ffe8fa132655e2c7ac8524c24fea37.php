@@ -5,9 +5,37 @@
         <!-- Top Header Area -->
         <div class="top-header-area">
             <div class="h-100 d-md-flex justify-content-between align-items-center">
-                <div class="email-address">
+               <!--  <div class="email-address">
                     <a href="mailto:contact@southtemplate.com">contact@southtemplate.com</a>
+                </div> -->
+
+                  <div class="phone-number d-flex">
+                    <div class="icon">
+                        <img src="img/icons/phone-call.png" alt="">
+                    </div>
+                    <div class="number">
+                        <a href="tel:+45 677 8993000 223">+45 677 8993000 223</a>
+                    </div>
                 </div>
+                <div class="phone-number d-flex">  
+                <div class="icon">
+                        <img src="img/icons/phone-call.png" alt="">
+                    </div>                 
+                    <div class="number">
+                      <form  method="post"  action="#" enctype="multipart/form-data">
+                                  <?php echo csrf_field(); ?>
+                    <div class="input-group">
+                        <input type="text" class="form-control form--control" name="search" placeholder="search any keyword" required="">
+                        <div class="input-group-append">
+                            <button class="input-group-text bg-transparent" style="color:#048023 !important">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>            
+                    </div>
+                </div>
+
                 <div class="phone-number d-flex">
                     <div class="icon">
                         <img src="img/icons/phone-call.png" alt="">
@@ -18,6 +46,9 @@
                 </div>
             </div>
         </div>
+
+
+
 
         <!-- Main Header Area -->
         <div class="main-header-area" id="stickyHeader">
@@ -35,7 +66,6 @@
 
                     <!-- Menu -->
                     <div class="classy-menu">
-
                         <!-- close btn -->
                         <div class="classycloseIcon">
                             <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
@@ -55,7 +85,7 @@
                                                 <li><a href="single-listings.html">Single Listings</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="#">Blog</a>
+                                        <li><a href="#">Blog2</a>
                                             <ul class="dropdown">
                                                 <li><a href="blog.html">Blog</a></li>
                                                 <li><a href="single-blog.html">Single Blog</a></li>

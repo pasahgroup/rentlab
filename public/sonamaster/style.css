@@ -446,15 +446,15 @@ img {
   .top-header-area .phone-number {
     line-height: 1;
     background-color: #947054;
-    height: 45px;
+    height: 30px;
     margin-bottom: 0; }
     .top-header-area .phone-number .icon {
       background-color: #ffffff;
-      width: 45px;
-      height: 45px;
+      width: 30px;
+      height: 30px;
       text-align: center; }
       .top-header-area .phone-number .icon img {
-        padding: 16px 0;
+        padding: 8px 0;
         max-width: 15px; }
     .top-header-area .phone-number .number a {
       padding: 0 60px;
@@ -490,7 +490,7 @@ img {
         padding: 0.5em 30px; } }
   .main-header-area .classynav ul li a {
     color: #ffffff;
-    text-transform: uppercase;
+    text-transform:#;
     font-weight: 600; }
   .main-header-area .nav-brand {
     line-height: 1; }

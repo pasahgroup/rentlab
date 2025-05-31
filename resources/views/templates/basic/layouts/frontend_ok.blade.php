@@ -1074,8 +1074,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
  <!-- End of custom Javascript -->  
 
 
-
-
    <!-- Start of assetstaxio js -->
     <script src="../../../assetstaxio/js/jquery-3.6.0.min.js"></script>
     <script src="../../../assetstaxio/js/modernizr.min.js"></script>
