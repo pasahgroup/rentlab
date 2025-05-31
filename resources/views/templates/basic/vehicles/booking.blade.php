@@ -46,6 +46,7 @@
                             <span class="fas fa-map-marker-alt"></span>
                             <span class="ms-1"><i class="las la-street-view"></i>@lang('Pick Up Point')</span>
                                                             </div>
+                                                           
                                                             <select name="pick_location" id="pick-point" class="form-select" aria-label="Default select example" required>
 
                                                                     <option value="">@lang('--Pick up point--')</option>

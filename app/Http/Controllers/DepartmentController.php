@@ -29,7 +29,7 @@ class DepartmentController extends Controller
 // Fetch records
     public function getEmployees($departmentid=0){
 
-dd('print');
+//dd('print');
          // Fetch Employees by Departmentid
          $empData['data'] = employee::orderby("name","asc")
               ->select('id','name')
@@ -44,8 +44,7 @@ dd('print');
 
 
      public function getEmp($departmentid=0){
-        dd('print');
-
+        //dd('print');
          // Fetch Employees by Departmentid
          $empData['data'] = employee::orderby("name","asc")
               ->select('id','name')
@@ -79,7 +78,7 @@ dd('print');
      */
     public function show($id)
     {
-        dd('print');
+        //dd('print');
        // Fetch departments
          $departments['data'] = department::orderby("name","asc")
               ->select('id','name')

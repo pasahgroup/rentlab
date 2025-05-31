@@ -1,181 +1,126 @@
-<div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0"  style="border:1px solid #dee2e6;background-color:#f5f5f5;">          
-        
-        <nav class="navbar navbar-expand-lg navbar-light float-left">  
-          <a href="" class="navbar-brand p-0">
-                                     <div class="logo gl">
-                <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style="width:120px;"></a>
-            </div> 
-                      
-                    </a>
-            
-        </nav>  
 
-        <nav class="navbar navbar-expand-lg navbar-light float-left">  
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
 
-
-
-                                 <?php if(auth()->guard()->check()): ?>
-
-                     <a class="nav-link" href="<?php echo e(route('user.home')); ?>">
-              <i class="typcn typcn-device-desktop menu-icon"></i>
-              <div class="badge badge-primary"><span class="menu-title">Dashboard</span></div>
-            </a>
-
-                             <?php endif; ?>
-                
-        </nav>  
-
-
-
-       <nav class="navbar navbar-expand-lg navbar-light float-right">             
- <div class="classy-nav-container breakpoint-off">
-
-
-                <!-- Classy Menu -->
-                <nav class="classy-navbar justify-content-between" id="southNav"> 
-
- <div class="classy-menu">                        <!-- close btn -->
-                    <div class="classycloseIcon">
-                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="h-100 d-md-flex justify-content-between align-items-center">
+                <div class="email-address">
+                    <a href="mailto:contact@southtemplate.com">contact@southtemplate.com</a>
+                </div>
+                <div class="phone-number d-flex">
+                    <div class="icon">
+                        <img src="img/icons/phone-call.png" alt="">
                     </div>
-                    <!-- Nav Start -->
-                    <div class="classynav">
-                        <ul>
+                    <div class="number">
+                        <a href="tel:+45 677 8993000 223">+45 677 8993000 223</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Main Header Area -->
+        <div class="main-header-area" id="stickyHeader">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="southNav">
 
-<li><a href="/">Home</a>
-                            </li>
+                    <!-- Logo -->
+                    <a class="nav-brand" href="index.html"><img src="img/core-img/logo.png" alt=""></a>
 
-
-
-                                                        <li><a href="#">Vehicles</a>
-<ul class="dropdown">
-  <?php $__currentLoopData = $view_brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-                                        <li><a href="#"><?php echo e($brand->name); ?></a>
-
-                                            <ul class="dropdown" style="padding:0px">
-
-                                              <?php $__currentLoopData = $view_vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-  <li style="padding:0px">
-    <?php if($vehicle->brand_id==$brand->id): ?>
-      <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
-<input type="hidden" name="model" id="model" value="<?php echo e($vehicle->model); ?>" class="form-control form--control" required>
-  <button  class="dropdown-item"><?php echo e($vehicle->model); ?></button>
-                                          </form>
-  <?php endif; ?>
-
-  </li>
-
-
-                                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                                            </ul>
-                                            </li>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                    </ul>
-
-
-</li>
-
-
-
-
-                            <li><a href="#">Services</a>
-
-                                <ul class="dropdown">
-              <?php $__currentLoopData = $view_services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $view_service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-              
-
-              <form action="<?php echo e(route('web-service',$view_service->service_name)); ?>" method="get" class="priceForm">
-            <button  class="dropdown-item"><?php echo e($view_service->title); ?></button>
-                                                  </form>
-            </li>
-  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-
-                                </ul>
-                            </li>
-
-
-
-                                                                                <li><a href="#">Booking</a>
-                                                                                  <ul class="dropdown">
-                                                                                       <li><a href="<?php echo e(route('user.multibooking.index')); ?>">Multi-booking</a></li>
-                                                                                        <li><a href="<?php echo e(route('plans')); ?>">Plan-booking</a></li>
-
-                                                                                  </ul>
-                                                                              </li>
-
-
-
-                            <li><a href="#">Miscellaneous</a>
-                                <ul class="dropdown">
-                                    <li><a href="<?php echo e(route('blogs')); ?>">Blog</a></li>
-                                    <li><a href="#">Galleries (Comming soon---)</a></li>
-                                    <li><a href="#">Opportunities (Comming soon---)</a></li>
-                                </ul>
-                            </li>
-
-                                <li><a href="/about">About Us</a>
-                               </li>
-
-                              <li><a href="<?php echo e(route('contact')); ?>">Contact</a>
-                            </li>
-
-<li>||</li>
-
-
-
-
-<li><a href="#" class="las la-user float-right">Account:  <b class="text-white"><?php if(auth()->guard()->check()): ?> Logged in  <?php else: ?> Login <?php endif; ?></b></a>
-    <ul class="dropdown">
-      <?php if(auth()->guard()->check()): ?>
-
-                      <li class="header-top-item meta-list">
-                    <a href="Mailto:<?php echo e(getContent('contact.content', true)->data_values->email); ?>"><i class="lar la-envelope"></i><?php echo e(getContent('contact.content', true)->data_values->email); ?></a>
-                </li>
-                         <li class="header-top-item ml-sm-auto">
-                            <a href="<?php echo e(route('user.home')); ?>"><i class="las la-tachometer-alt"></i><?php echo app('translator')->get('Dashboard'); ?></a>
-                        </li>
-
-                        <li class="header-top-item">
-                            <a href="<?php echo e(route('user.logout')); ?>"><i class="las la-sign-out-alt"></i><?php echo app('translator')->get('Logout'); ?></a>
-                        </li>
-                    <?php else: ?>
-                        <li class="header-top-item ml-sm-auto">
-                            <a href="<?php echo e(route('user.login')); ?>"><i class="las la-user"></i><?php echo app('translator')->get('Login'); ?></a>
-                        </li>
-                        <li class="header-top-item">
-                            <a href="<?php echo e(route('user.register')); ?>"><i class="las la-user-plus"></i><?php echo app('translator')->get('Register'); ?></a>
-                        </li>
-                    <?php endif; ?>
-
-
-    </ul>
-</li>
-</ul>
-
-  </div>
- </div>
-
-
-       <div class="classy-navbar-toggler" style="">
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
                         <span class="navbarToggler"><span></span><span></span><span></span></span>
                     </div>
 
- </nav>        
+                    <!-- Menu -->
+                    <div class="classy-menu">
 
-                    
+                        <!-- close btn -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
 
-                        
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="#">Pages</a>
+                                    <ul class="dropdown">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="about-us.html">About Us</a></li>
+                                        <li><a href="#">Listings</a>
+                                            <ul class="dropdown">
+                                                <li><a href="listings.html">Listings</a></li>
+                                                <li><a href="single-listings.html">Single Listings</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Blog</a>
+                                            <ul class="dropdown">
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="single-blog.html">Single Blog</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="elements.html">Elements</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="about-us.html">About Us</a></li>
+                                <li><a href="listings.html">Properties</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="#">Mega Menu</a>
+                                    <div class="megamenu">
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Headline 1</li>
+                                            <li><a href="#">Mega Menu Item 1</a></li>
+                                            <li><a href="#">Mega Menu Item 2</a></li>
+                                            <li><a href="#">Mega Menu Item 3</a></li>
+                                            <li><a href="#">Mega Menu Item 4</a></li>
+                                            <li><a href="#">Mega Menu Item 5</a></li>
+                                        </ul>
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Headline 2</li>
+                                            <li><a href="#">Mega Menu Item 1</a></li>
+                                            <li><a href="#">Mega Menu Item 2</a></li>
+                                            <li><a href="#">Mega Menu Item 3</a></li>
+                                            <li><a href="#">Mega Menu Item 4</a></li>
+                                            <li><a href="#">Mega Menu Item 5</a></li>
+                                        </ul>
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Headline 3</li>
+                                            <li><a href="#">Mega Menu Item 1</a></li>
+                                            <li><a href="#">Mega Menu Item 2</a></li>
+                                            <li><a href="#">Mega Menu Item 3</a></li>
+                                            <li><a href="#">Mega Menu Item 4</a></li>
+                                            <li><a href="#">Mega Menu Item 5</a></li>
+                                        </ul>
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Headline 4</li>
+                                            <li><a href="#">Mega Menu Item 1</a></li>
+                                            <li><a href="#">Mega Menu Item 2</a></li>
+                                            <li><a href="#">Mega Menu Item 3</a></li>
+                                            <li><a href="#">Mega Menu Item 4</a></li>
+                                            <li><a href="#">Mega Menu Item 5</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+
+                            <!-- Search Form -->
+                            <div class="south-search-form">
+                                <form action="#" method="post">
+                                    <input type="search" name="search" id="search" placeholder="Search Anything ...">
+                                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                </form>
+                            </div>
+
+                            <!-- Search Button -->
+                            <a href="#" class="searchbtn"><i class="fa" aria-hidden="true"></i></a>
+                        </div>
+                        <!-- Nav End -->
                     </div>
                 </nav>
-
-           <!--  <div class="classy-navbar-toggler" style="float-right">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                    </div> -->
-
             </div>
-    <?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/layouts/topmenu.blade.php ENDPATH**/ ?>
+        </div>
+    </header><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/layouts/topmenu.blade.php ENDPATH**/ ?>

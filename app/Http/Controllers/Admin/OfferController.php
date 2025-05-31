@@ -11,9 +11,9 @@ use App\Models\Cartype;
 use App\Models\modelb;
  use App\Models\Color;
 
+  use App\Models\Vehicle;
+
   use App\Models\Location;
-
-
 use App\Models\Tag;
 
 use App\Http\Requests\StoreOfferRequest;
@@ -29,14 +29,21 @@ class OfferController extends Controller
      */
     public function index()
     {
-      //   $vehicles = Vehicle::with(['brand', 'seater'])->latest()->paginate(getPaginate());
+       $vehicles = Vehicle::with(['brand', 'seater'])->latest()->paginate(getPaginate());
 
-        $tags = Tag::latest()->paginate(getPaginate());
-        //dd($Tags);
+        // $offersx = Offer::where('status',1)->orderBy('id')
+        // ->latest()->paginate(getPaginate());
+       
 
+        $offers = Offer::join('vehicles','vehicles.model','offers.car_model')
+             ->select('offers.*','vehicles.images')
+             ->orderBy('offers.id')
+            ->latest()->paginate(getPaginate());
+
+ //dd($offers);
         $pageTitle = 'Discount';
         $empty_message = 'No Offer has been added.';
-        return view('admin.offer.index', compact('pageTitle', 'empty_message', 'tags'));
+        return view('admin.offer.index', compact('pageTitle', 'empty_message', 'offers'));
     }
 
 
@@ -49,9 +56,16 @@ class OfferController extends Controller
         ->orderBy('car_body_type')->get();
          $colors = Color::where('status','1')
          ->orderBy('color')->get();
-          $modelbs = modelb::where('status','1')
+        
+          $modelbsx = modelb::where('status','1')
           ->orderBy('car_model')->get();
- //dd($modelbs);
+
+$modelbs = Vehicle::where('status','1')
+          ->select('vehicles.model')
+          ->distinct()
+          ->orderBy('model')->get();
+
+//dd($modelbs);
 
           $tags = Tag::where('status',1)->get(); 
            $locations = Location::where('status',1)->get();   
@@ -110,7 +124,6 @@ $end_date = date('Y-m-d', strtotime($end_date));
 
 //dd($end_date);
 
-
         $offers = new Offer();
         $offers->car_model = $request->model;
            $offers->percent = $request->percent;
@@ -119,38 +132,10 @@ $end_date = date('Y-m-d', strtotime($end_date));
 
               $offers->status = $request->status;
 
-        // $offers->brand_id = $request->brand;
-        // $offers->seater_id = $request->seater;
-        // $vehicle->price = $request->price;
-        // $vehicle->details = $request->details;
-        // $vehicle->model = $request->model;
-        // $vehicle->car_model_no = $request->car_model_no;
-
-        // $vehicle->doors = $request->doors;
-        // $vehicle->transmission = $request->transmission;
-        // $vehicle->fuel_type = $request->fuel_type;
-        //  $vehicle->car_body_type_id = $request->car_body_type;
-        //   $vehicle->tag_id = $request->tag;
-        //    $vehicle->color_id = $request->color;
-        //     $vehicle->location_id = $request->location;
-
-
-        // foreach ($request->label as $key => $item) {
-        //     $specifications[$item] = [
-        //         $request->icon[$key],
-        //         $request->label[$key],
-        //         $request->value[$key]
-        //     ];
-        // }
-        // $vehicle->specifications = $specifications;
-
-       
+           
        $offers->save();
         $notify[] = ['success', 'Offer Added Successfully!'];
         return back()->withNotify($notify);
-
-
-
     }
 
     /**

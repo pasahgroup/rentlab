@@ -117,8 +117,6 @@ class AdminController extends Controller
 
    public function pendingCustomer()
     {
-        //dd('dddd');
-
         $pageTitle = 'Pending cash customer dashboard';
         // User Info
         $widget['total_users'] = User::count();

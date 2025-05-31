@@ -142,7 +142,7 @@ if(request('carModel')!=null)
 //dd(request('bookingID'));
 
  if(request('multi-booking')){
-    //dd('popo');
+     //dd('popo');
 
             $request->validate([
             'pick_location' => 'required|integer|in:'.join(',', Location::active()->orderBy('name')->pluck('id')->toArray()),

@@ -19,14 +19,52 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse ($tags as $item)
+                            @forelse ($offers as $item)
                                 <tr>
-                                    <td data-label="@lang('Car body type')"><strong>{{ __($item->tag) }}</strong></td>                                  
-                                    <td data-label="@lang('Images')">{{ __($item->images) }}</td>
-                                     <td data-label="@lang('Images')">{{ __($item->images) }}</td>
-                                      <td data-label="@lang('Images')">{{ __($item->images) }}</td>
-                                       <td data-label="@lang('Images')">{{ __($item->images) }}</td>
-                                        <td data-label="@lang('Images')">{{ __($item->images) }}</td>
+                                    <td data-label="@lang('Car body type')"><strong>{{ __($item->id) }}</strong></td>                                  
+                                    <td data-label="@lang('car_model')">{{ __($item->car_model) }}</td>
+                                     <td data-label="@lang('percent')">{{ __($item->percent) }}</td>
+                                      <td data-label="@lang('Images')">
+                                     
+
+                                       <div class="row element">                                        
+                                                <div class="col-md-2 imageItem" id="ddd">
+                                                    <div class="payment-method-item">
+                                                        <div class="payment-method-header d-flex flex-wrap">
+                                                            <div class="thumb" style="position: relative;">
+                                                                <div class="avatar-preview">
+                                                                    <div class="profilePicPreview"
+                                                                         style="background-image: url('{{ URL::asset('/storage/cartypes/'.$item->images) }}')">
+
+                                                                    </div>
+
+  <div class="rent__thumb" style="background-color:#9ca494">
+                                        <a href="{{ route('vehicle.details', [$item->id, slug($item->name)]) }}">
+                                            <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$item->images[0], imagePath()['vehicles']['size']) }}" class="first-look" alt="rent-vehicle">
+                                        </a>
+                                    </div>
+
+
+
+                                                                </div>
+
+                                                                 <div class="avatar-remove">
+                                                                        <i class="la la-close">
+                                                                            <a href="{{ route('admin.cartype.image.delete',$item->id) }}" class="btn btn--danger btn-lg removeInfoBtn w-100" type="button">x</a>
+                                                                        </i>
+                                                                        
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                 
+                                        </div>
+
+                                      </td>
+                                       <td data-label="@lang('start_date')">{{ __($item->start_date) }}</td>
+                                        <td data-label="@lang('end_date')">{{ __($item->end_date) }}</td>
 
                                     <td data-label="@lang('Status')">
                                         @if($item->status === 1)
@@ -40,11 +78,9 @@
                                         <a href="{{ route('admin.tag.edit', $item->id) }}" class="icon-btn ml-1" data-original-title="@lang('Edit')">
                                             <i class="la la-edit"></i>
                                         </a>
-
                                         <a href="javascript:void(0)" class="icon-btn {{ $item->status ? 'btn--primary' : 'btn--success' }} ml-1 statusBtn" data-original-title="@lang('Status')" data-toggle="tooltip" data-url="{{ route('admin.tag.status', $item->id) }}">
                                             <i class="la la-eye{{ $item->status ? '-slash' : null }}"></i>
                                         </a>
-
                                       
                                          <a href="{{ route('admin.tag.delete',$item->id) }}" id="click-edit1" onclick="return confirm(id='Are you sure you want to delete this  {{$item->id}}')"><i class="la la-eye{{ $item->status ? '-slash' : null }}"></i></a>
                                     </td>
@@ -60,7 +96,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    {{ $tags->links('admin.partials.paginate') }}
+                    {{ $offers->links('admin.partials.paginate') }}
                 </div>
             </div><!-- card end -->
         </div>

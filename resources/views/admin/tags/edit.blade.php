@@ -42,7 +42,7 @@
 
                                                                  <div class="avatar-remove">
                                                                         <i class="la la-close">
-                                                                            <a href="{{ route('admin.cartype.image.delete',$vehicle->id) }}" class="btn btn--danger btn-lg removeInfoBtn w-100" type="button">nnn</a>
+                                                                            <a href="{{ route('admin.cartype.image.delete',$vehicle->id) }}" class="btn btn--danger btn-lg removeInfoBtn w-100" type="button">x</a>
                                                                         </i>
                                                                         
                                                                 </div>

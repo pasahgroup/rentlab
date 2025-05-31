@@ -7,7 +7,6 @@
 
 
 
-
    <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -25,7 +24,7 @@
                                     <select class="form-control" id="model" name="model" required="">
                                       <option value="">-- @lang('Select car model') --</option>
                                         @forelse($modelbs as $modelb)
-                                            <option value="{{ $modelb->car_model }}">{{ __(@$modelb->car_model) }}</option>
+                                            <option value="{{ $modelb->model }}">{{ __(@$modelb->model) }}</option>
                                         @empty
                                         @endforelse
                                     </select>
@@ -46,9 +45,8 @@
 
                                 </div>
                             </div>
-
-
                         </div>
+                        <br>
 
   <div class="row">
 
