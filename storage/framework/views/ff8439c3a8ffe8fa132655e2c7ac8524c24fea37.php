@@ -14,13 +14,20 @@
                         <img src="img/icons/phone-call.png" alt="">
                     </div>
                     <div class="number">
-                        <a href="tel:+45 677 8993000 223">+45 677 8993000 223</a>
+                        <a href="tel:+45 677 8993000 223">(+255)655 633 302</a>
                     </div>
+
+                     <div class="email-address_no">
+                    <a href="mailto:info@rhonds.co.tz">
+                      <i class="fa fa-envelope" style="color:#F2C107;"></i><b style="color:#F2C107;"> info@rhonds.co.tz</b></a>
+                       <a href="https://wa.me/+255655633302" style="padding-left:10px">
+                            </a>
+                </div>
                 </div>
                 <div class="phone-number d-flex">  
                 <div class="icon">
-                        <img src="img/icons/phone-call.png" alt="">
-                    </div>                 
+                        <img src="img/icons/phone-call.png" alt="" style="color:#048023 !important">
+                </div>                 
                     <div class="number">
                       <form  method="post"  action="#" enctype="multipart/form-data">
                                   <?php echo csrf_field(); ?>
@@ -36,13 +43,19 @@
                     </div>
                 </div>
 
-                <div class="phone-number d-flex">
-                    <div class="icon">
-                        <img src="img/icons/phone-call.png" alt="">
-                    </div>
-                    <div class="number">
-                        <a href="tel:+45 677 8993000 223">+45 677 8993000 223</a>
-                    </div>
+                <div class="phone-numberx d-flexx">
+                           <div class="d-flex align-items-center justify-content-end float-right">
+                                <ul class="footer-social">
+                           <li>
+                           <?php $__empty_1 = true; $__currentLoopData = $social_icons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                          <a href="<?php echo e($item->data_values->url); ?>"><i class="fab fa-facebook-f"></i></a>
+                             <?php echo @$item->data_values->social_icon ?>
+                               </li>
+
+                        </ul>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+              <?php endif; ?>
+            </div>
                 </div>
             </div>
         </div>
@@ -55,9 +68,7 @@
             <div class="classy-nav-container breakpoint-off">
                 <!-- Classy Menu -->
                 <nav class="classy-navbar justify-content-between" id="southNav">
-
-                    <!-- Logo -->
-                    <a class="nav-brand" href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                      <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(getImage(imagePath()['logoIcon']['path'].'/logo.png')); ?>" alt="logo" style="width:120px;"></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -74,17 +85,45 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="#">Pages</a>
+
+                                 <li><a href="/">
+       <?php if(auth()->guard()->check()): ?>
+                     <a class="nav-link" href="<?php echo e(route('user.home')); ?>">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <div class="badge badge-primary"><span class="menu-title">Dashboard</span></div>
+            </a>
+                             <?php endif; ?>
+
+                                 </a></li>
+
+                                <li><a href="/">Home</a></li>
+                                <li><a href="#">Vehicles</a>
                                     <ul class="dropdown">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="about-us.html">About Us</a></li>
-                                        <li><a href="#">Listings</a>
+
+                                          <?php $__currentLoopData = $view_brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <li><a href="#"><?php echo e($brand->name); ?></a>
+                                            
+                                         
                                             <ul class="dropdown">
-                                                <li><a href="listings.html">Listings</a></li>
-                                                <li><a href="single-listings.html">Single Listings</a></li>
+                                                   <?php $__currentLoopData = $view_vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                <li style="padding-left:10px;">
+
+                                                     <?php if($vehicle->brand_id==$brand->id): ?>
+      <form action="<?php echo e(route('vehicle.search')); ?>" method="get" class="priceForm">
+<input type="hidden" name="model" id="model" value="<?php echo e($vehicle->model); ?>" class="form-control form--control" required>
+  <button  class="dropdown-item"><?php echo e($vehicle->model); ?></button>
+                                          </form>
+  <?php endif; ?>
+
+                                                </li>
+                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </ul>
+                                            
+
                                         </li>
+                                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                                                   
                                         <li><a href="#">Blog2</a>
                                             <ul class="dropdown">
                                                 <li><a href="blog.html">Blog</a></li>
@@ -136,17 +175,6 @@
                                 </li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
-
-                            <!-- Search Form -->
-                            <div class="south-search-form">
-                                <form action="#" method="post">
-                                    <input type="search" name="search" id="search" placeholder="Search Anything ...">
-                                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                </form>
-                            </div>
-
-                            <!-- Search Button -->
-                            <a href="#" class="searchbtn"><i class="fa" aria-hidden="true"></i></a>
                         </div>
                         <!-- Nav End -->
                     </div>

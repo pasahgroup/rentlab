@@ -5135,7 +5135,7 @@ body.rtl-mode .price-wrapper {
 
 .copyright {
   position: relative;
-  padding: 20px 0;
+  /*padding: 20px 0;*/
   background: var(--footer-bg2);
   border-bottom: 5px solid var(--theme-color);
   z-index: 1;
@@ -5246,7 +5246,7 @@ body.rtl-mode .price-wrapper {
 
 .footer-social {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   justify-content: end;
 }
 
