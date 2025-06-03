@@ -45,16 +45,21 @@
 
                 <div class="phone-numberx d-flexx">
                            <div class="d-flex align-items-center justify-content-end float-right">
-                                <ul class="footer-social">
-                           <li>
-                           @forelse($social_icons as $item)
-                          <a href="{{ $item->data_values->url }}"><i class="fab fa-facebook-f"></i></a>
-                             @php echo @$item->data_values->social_icon @endphp
-                               </li>
+                                      <ul class="footer-social">
+                         
+                         <div class="footer__widget widget__about">
+                                       <ul class="social-icons">
 
-                        </ul>
-              @empty
-              @endforelse
+                          @forelse($social_icons as $item)
+                                <a href="{{ $item->data_values->url }}" class="btn btn-secondary btn-md-square rounded-circle me-3">
+                                    @php echo @$item->data_values->social_icon @endphp
+                                </a>
+                       @empty
+                        @endforelse
+
+                    </ul>
+                </div>
+                 </ul>
             </div>
                 </div>
             </div>
@@ -95,14 +100,13 @@
                              @endauth
 
                                  </a></li>
-
                                 <li><a href="/">Home</a></li>
+
                                 <li><a href="#">Vehicles</a>
                                     <ul class="dropdown">
 
                                           @foreach($view_brands as $brand)
-                                        <li><a href="#">{{$brand->name}}</a>
-                                            
+                                        <li><a href="#">{{$brand->name}}</a>                                           
                                          
                                             <ul class="dropdown">
                                                    @foreach($view_vehicles as $vehicle)
@@ -117,63 +121,34 @@
 
                                                 </li>
                                                  @endforeach
-                                            </ul>
-                                            
+                                            </ul>                                            
 
                                         </li>
                                            @endforeach
-
-                                                   
-                                        <li><a href="#">Blog2</a>
-                                            <ul class="dropdown">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single-blog.html">Single Blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="elements.html">Elements</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="listings.html">Properties</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="#">Mega Menu</a>
-                                    <div class="megamenu">
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 1</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 2</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 3</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 4</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a href="contact.html">Contact</a></li>
+
+
+
+  <li><a href="#">Services</a>
+                                            <ul class="dropdown">
+                                             @foreach($view_services as $view_service)
+              <form action="{{ route('web-service',$view_service->service_name) }}" method="get" class="priceForm">
+            <button  class="dropdown-item">{{$view_service->title}}</button>
+                                                  </form>
+           
+
+
+  @endforeach
+  </ul>
+  </li>
+                                            
+                                     
+
+                            <li><a href="{{route('plans')}}">Plans</a></li>
+                            <li><a href="{{ route('blogs') }}">Blog</a></li>
+                            <li><a href="/about">About Us</a></li>
+                                <li><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>
                         </div>
                         <!-- Nav End -->

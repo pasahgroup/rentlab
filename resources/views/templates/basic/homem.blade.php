@@ -4,7 +4,7 @@
 <div class="container categories blog pb-5" id="section3">
 <div class="row">
   <div class="col-md-9">
-  <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
+  <div id="header-carousel" class="carousel slide carousel-fade mb-lg-0" data-ride="carousel">
       <ol class="carousel-indicators">
           <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
           @for($i=1;$i<10;$i++)
@@ -58,12 +58,12 @@
 
   <div class="col-md-3">
  <h5> Rhonds<span class="text-primary"> Services</span></h5>
-  <div class="product-offer mb-30" style="height: 282px;">     
+  <div class="product-offer" style="height: 295px;">     
  <div class="rowx">
 
                         <div class="rent__item">
                             <div class="blog-item">
-                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-22px">
+                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
                                                                         @foreach($view_services as $view_service)
 
                                            <div class="rent__content mt-n1">
@@ -114,7 +114,7 @@
 
   </div>
 
-  <div class="product-offer mb-30" style="height: 240px;">
+  <div class="product-offer" style="height: 240px;">
       <img class="img-fluid" src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$metaFirstVehicle3->images[0], imagePath()['vehicles']['size']) }}" alt="">
       <div class="offer-text">
         <div class="text-start">
@@ -165,7 +165,7 @@
                                             <img src="{{ getImage(imagePath()['vehicles']['path']. '/'. @$vehicle->images[1], imagePath()['vehicles']['size']) }}" class="hover-look" alt="rent-vehicle">
                                         </a>
                                     </div>
-                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-22px">
+                            <div class="categories-content rounded-bottom p-4 text-center" style="margin:-42px">
                                     <!-- <div class="blog-img">
                                         <img src="../../frontendp/img/blog-1.jpg" class="img-fluid rounded-top w-100" alt="Image">
                                     </div> -->

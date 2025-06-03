@@ -45,16 +45,21 @@
 
                 <div class="phone-numberx d-flexx">
                            <div class="d-flex align-items-center justify-content-end float-right">
-                                <ul class="footer-social">
-                           <li>
-                           <?php $__empty_1 = true; $__currentLoopData = $social_icons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                          <a href="<?php echo e($item->data_values->url); ?>"><i class="fab fa-facebook-f"></i></a>
-                             <?php echo @$item->data_values->social_icon ?>
-                               </li>
+                                      <ul class="footer-social">
+                         
+                         <div class="footer__widget widget__about">
+                                       <ul class="social-icons">
 
-                        </ul>
-              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-              <?php endif; ?>
+                          <?php $__empty_1 = true; $__currentLoopData = $social_icons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                <a href="<?php echo e($item->data_values->url); ?>" class="btn btn-secondary btn-md-square rounded-circle me-3">
+                                    <?php echo @$item->data_values->social_icon ?>
+                                </a>
+                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                        <?php endif; ?>
+
+                    </ul>
+                </div>
+                 </ul>
             </div>
                 </div>
             </div>
@@ -95,14 +100,13 @@
                              <?php endif; ?>
 
                                  </a></li>
-
                                 <li><a href="/">Home</a></li>
+
                                 <li><a href="#">Vehicles</a>
                                     <ul class="dropdown">
 
                                           <?php $__currentLoopData = $view_brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <li><a href="#"><?php echo e($brand->name); ?></a>
-                                            
+                                        <li><a href="#"><?php echo e($brand->name); ?></a>                                           
                                          
                                             <ul class="dropdown">
                                                    <?php $__currentLoopData = $view_vehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -117,63 +121,34 @@
 
                                                 </li>
                                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            </ul>
-                                            
+                                            </ul>                                            
 
                                         </li>
                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                                                   
-                                        <li><a href="#">Blog2</a>
-                                            <ul class="dropdown">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single-blog.html">Single Blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                        <li><a href="elements.html">Elements</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="listings.html">Properties</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="#">Mega Menu</a>
-                                    <div class="megamenu">
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 1</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 2</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 3</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li class="title">Headline 4</li>
-                                            <li><a href="#">Mega Menu Item 1</a></li>
-                                            <li><a href="#">Mega Menu Item 2</a></li>
-                                            <li><a href="#">Mega Menu Item 3</a></li>
-                                            <li><a href="#">Mega Menu Item 4</a></li>
-                                            <li><a href="#">Mega Menu Item 5</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a href="contact.html">Contact</a></li>
+
+
+
+  <li><a href="#">Services</a>
+                                            <ul class="dropdown">
+                                             <?php $__currentLoopData = $view_services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $view_service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <form action="<?php echo e(route('web-service',$view_service->service_name)); ?>" method="get" class="priceForm">
+            <button  class="dropdown-item"><?php echo e($view_service->title); ?></button>
+                                                  </form>
+           
+
+
+  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+  </ul>
+  </li>
+                                            
+                                     
+
+                            <li><a href="<?php echo e(route('plans')); ?>">Plans</a></li>
+                            <li><a href="<?php echo e(route('blogs')); ?>">Blog</a></li>
+                            <li><a href="/about">About Us</a></li>
+                                <li><a href="<?php echo e(route('contact')); ?>">Contact</a></li>
                             </ul>
                         </div>
                         <!-- Nav End -->

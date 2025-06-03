@@ -381,7 +381,7 @@ label {
 }
 
 .pt-120 {
-  padding-top: 120px;
+  padding-top: 70px;
 }
 
 .pb-120 {
@@ -756,13 +756,13 @@ label {
 9. Container
 ======================*/
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .container,
   .container-sm,
   .container-md,
   .container-lg,
   .container-xl {
-    max-width: 1200px;
+    max-width: 1400px;
   }
 }
 
@@ -2712,8 +2712,8 @@ a.ui-button:active,
 }
 
 .blog-item{
-  padding: 20px;
-  margin-bottom: 25px;
+  padding: 2px;
+  margin-bottom: 15px;
   background: var(--color-white);
   border-radius: 15px;
   box-shadow: var(--box-shadow);
@@ -5190,7 +5190,7 @@ body.rtl-mode .price-wrapper {
   position: relative;
   padding-bottom: 20px;
   margin-bottom: 30px;
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 600;
   z-index: 1;
 }

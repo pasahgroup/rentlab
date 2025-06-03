@@ -14,7 +14,7 @@
                       <i class="fa fa-envelope" style="color:#f90678;"></i><b style="color:#6C5603;">  info@palatialtours.com</b></a>
                        <a href="https://wa.me/+255655633302" style="padding-left:10px">
                             <img src="../../../images/whatsapp.png" alt="" style="width:20px; height:20px;">
-                               <b style="color:#6C5603;">(+255)753 216 263</b>
+                               <b style="color:#6C5603;">(+255)753 216 263 k</b>
                             </a>
                 </div>
             </div>
@@ -41,6 +41,7 @@
                       </a>
               @empty
               @endforelse
-            </div></div>
+            </div>
+        </div>
         </div>
     </div>

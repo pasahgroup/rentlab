@@ -15,12 +15,10 @@
 
 
                                  @auth
-
                      <a class="nav-link" href="{{ route('user.home') }}">
               <i class="typcn typcn-device-desktop menu-icon"></i>
               <div class="badge badge-primary"><span class="menu-title">Dashboard</span></div>
             </a>
-
                              @endauth
                 
         </nav>  
@@ -104,7 +102,7 @@
                                                                                 <li><a href="#">Booking</a>
                                                                                   <ul class="dropdown">
                                                                                        <li><a href="{{ route('user.multibooking.index') }}">Multi-booking</a></li>
-                                                                                        <li><a href="{{ route('plans') }}">Plan-booking</a></li>
+                                                                                        <li><a href="{{route('plans')}}">Plan-booking</a></li>
 
                                                                                   </ul>
                                                                               </li>
@@ -115,7 +113,6 @@
                                     <li><a href="/New-Agent">Agent-Register</a></li>
                     <li><a href="/New-tourGuide">Tour Guide -Register</a></li>
                     <li><a href="/New-Partner">Partner-Register</a></li>
-
                                 </ul>
                             </li>
                             --}}
