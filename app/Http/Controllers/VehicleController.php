@@ -59,6 +59,7 @@ $fullUrl = url()->full();
         }
 
 //dd($this->activeTemplate);
+
         $vehicle = Vehicle::active()->where('id', $id)->firstOrFail();
         $locations = Location::active()->orderBy('name')->get();
         $pageTitle = 'Vehicle Booked by '.auth()->user()->firstname .' '.auth()->user()->lastname;
