@@ -7,7 +7,6 @@
 @endphp
 <!-- Footer Section -->
 
-
   <div class="newsletter-section">
             <div class="newsletter-wrapper">
                 <div class="footer-logo">
