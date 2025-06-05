@@ -381,7 +381,6 @@
     <script src="../../sonamaster/js/bootstrap.bundle.min.js"></script>
 
 
-
 <script src="../../frontendp/lib/wow/wow.min.js" type="text/javascript"></script>
 <script src="../../frontendp/lib/easing/easing.min.js" type="text/javascript"></script>
 <script src="../../frontendp/lib/waypoints/waypoints.min.js" type="text/javascript"></script>
