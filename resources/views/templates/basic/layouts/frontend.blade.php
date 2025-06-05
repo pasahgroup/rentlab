@@ -358,18 +358,6 @@
         </div>
     </section>
 
-   <div class="select-option">
-                                <label for="guest">Guests:</label>
-                                <select id="guest">
-                                    <option value="">3 Adults</option>
-                                </select>
-                            </div>
-                            <div class="select-option">
-                                <label for="room">Room:</label>
-                                <select id="room">
-                                    <option value="">1 Room</option>
-                                </select>
-                            </div>
 
     <!-- ##### Call To Action Area End ##### -->
 
@@ -392,9 +380,7 @@
     <script src="../../sonamaster/js/jquery364.min.js"></script>
     <script src="../../sonamaster/js/bootstrap.bundle.min.js"></script>
 
- <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
- -->
+
 
 <script src="../../frontendp/lib/wow/wow.min.js" type="text/javascript"></script>
 <script src="../../frontendp/lib/easing/easing.min.js" type="text/javascript"></script>
@@ -456,8 +442,6 @@
 </script>
 
 <!-- ?Custom Javascript -->
-<!-- <script src="{{asset($activeTemplateTrue.'js/jquery-3.6.0.min.js')}}"></script> -->
-
 
 <script src="{{asset($activeTemplateTrue.'js/jquery-ui.js')}}"></script>
 <script src="{{asset($activeTemplateTrue.'js/bootstrap.min.js')}}"></script>
@@ -468,7 +452,6 @@
 <script src="{{asset($activeTemplateTrue.'js/main.js')}}"></script>
 
 
-    <!-- <script src="{{asset($activeTemplateTrue.'custom/js/jquery-3.3.1.min.js')}}"></script> -->
     <script src="{{asset($activeTemplateTrue.'custom/js/bootstrap.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'custom/js/jquery.nice-select.min.js')}}"></script>
 
@@ -483,7 +466,6 @@
 
 <!-- custom2 -->
   <!-- JavaScript Libraries -->
-  <!-- <script src="{{asset($activeTemplateTrue.'custom/lib/jquery/jquery.min.js')}}"></script> -->
 
   <script src="{{asset($activeTemplateTrue.'custom/lib/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset($activeTemplateTrue.'custom/lib/jetmenu/jetmenu.js')}}"></script>
