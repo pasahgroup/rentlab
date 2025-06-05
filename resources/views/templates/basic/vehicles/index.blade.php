@@ -36,7 +36,7 @@
                                                       <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
                                                             <div class="input-group">
 
-                                                              <select name="seats" id="seats" class="form-control form--control" required="" style="background-color:#809f75">
+                                                              <select name="seats" id="seats" class="form-control" required="" style="background-color:#809f75">
                                                                   <option value="">@lang('--Select Seats--')</option>
 
                                                                   @if(!empty($seat_data))
@@ -77,7 +77,7 @@
                             <div class="widget-body">
                               <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
                                     <div class="input-group">
-                                      <select name="carbody" id="carbody" class="form-control form--control" required="" style="background-color:#809f75">
+                                      <select name="carbody" id="carbody" class="form-control" required="" style="background-color:#809f75">
                                           <option value="">@lang('--Select Car Body--')</option>
 
                                           @if(!empty($cartype_datas))
@@ -104,7 +104,7 @@
                               <form action="{{ route('vehicle.search') }}" method="get" class="priceForm">
                                     <div class="input-group">
 
-                                      <select name="cartag" id="cartag" class="form-control form--control" required="" style="background-color:#809f75">
+                                      <select name="cartag" id="cartag" class="form-control" required="" style="background-color:#809f75">
                                           <option value="">@lang('--Select Car Tag--')</option>
 
                                           @if(!empty($cartag_datas))
@@ -136,7 +136,7 @@
                                     <label for="car-type" class="form--label">
                                         <i class="las la-car-side"></i> @lang('--Select Brand--')
                                     </label>
-                                    <select name="brand" id="brand" class="form-control form--control">
+                                    <select name="brand" id="brand" class="form-control">
                                         <option value="">@lang('--Select Brand--')</option>
 
                                         @if(!empty($brand_data))
@@ -156,7 +156,7 @@
                                     <label for="car-type" class="form--label">
                                         <i class="las la-car-side"></i> @lang('--Select Model--')
                                     </label>
-                                    <select name="modeldata" id="modeldata" class="form-control form--control">
+                                    <select name="modeldata" id="modeldata" class="form-control">
                                                                             @if(!empty($model_data))
                                         <option value="{{$model_data->model}}" selected>{{$model_data->model}}</option>
                                         @endif

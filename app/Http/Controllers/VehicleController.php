@@ -554,6 +554,9 @@ return view($this->activeTemplate . 'user.pesapal.pesapal_payment',compact('firs
 
     public function vehicleSearch(Request $request)
     {
+
+//awsdd('ddsds');
+
       $vehicles=[];
   $models=[];
   $brand_data="";
@@ -607,7 +610,7 @@ if(request('search'))
 }else {
 
  // if(request('save')){
- //  dd('ddd');
+//  dd('ddd');
  // }
 
         if ($request->name) {
