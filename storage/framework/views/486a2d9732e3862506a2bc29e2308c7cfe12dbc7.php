@@ -22,9 +22,9 @@
    <title><?php echo e($general->sitename(__($pageTitle))); ?></title>
            <?php echo $__env->make('partials.seo', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+
     <!-- Favicon  -->
     <link rel="icon" href="../../../img/core-img/favicon.ico">
-
     <!-- Style CSS -->
     <link rel="stylesheet" href="../../../sonamaster/style.css">
 
@@ -57,7 +57,7 @@
         </style>
 
   <link href="../../../frontendp/lib/animate/animate.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../../frontendp/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
+  <link href="../../../frontendp/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
 
 
 <!-- Start from here -->
@@ -357,10 +357,23 @@
             </div>
         </div>
     </section>
+
+   <div class="select-option">
+                                <label for="guest">Guests:</label>
+                                <select id="guest">
+                                    <option value="">3 Adults</option>
+                                </select>
+                            </div>
+                            <div class="select-option">
+                                <label for="room">Room:</label>
+                                <select id="room">
+                                    <option value="">1 Room</option>
+                                </select>
+                            </div>
+
     <!-- ##### Call To Action Area End ##### -->
 
-  <?php echo $__env->make($activeTemplate.'partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-  
+     <?php echo $__env->make($activeTemplate.'partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>  
     <!-- jQuery (Necessary for All JavaScript Plugins) -->
     <script src="../../sonamaster/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
@@ -375,14 +388,19 @@
     <script src="../../sonamaster/js/active.js"></script>
 
     <!-- Orinal libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="../../frontendp/lib/wow/wow.min.js" type="text/javascript"></script>
+    <script src="../../sonamaster/js/jquery364.min.js"></script>
+    <script src="../../sonamaster/js/bootstrap.bundle.min.js"></script>
+
+ <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+ -->
+
+<script src="../../frontendp/lib/wow/wow.min.js" type="text/javascript"></script>
 <script src="../../frontendp/lib/easing/easing.min.js" type="text/javascript"></script>
 <script src="../../frontendp/lib/waypoints/waypoints.min.js" type="text/javascript"></script>
 <script src="../../frontendp/lib/counterup/counterup.min.js" type="text/javascript"></script>
-          <script src="../../frontendp/lib/owlcarousel/owl.carousel.min.js" type="text/javascript"></script>
+<script src="../../frontendp/lib/owlcarousel/owl.carousel.min.js" type="text/javascript"></script>
 
     <!-- Template Javascript -->
     <!-- <script src="../../frontendp/js/main.js" type="text/javascript"></script> -->
@@ -439,6 +457,8 @@
 
 <!-- ?Custom Javascript -->
 <!-- <script src="<?php echo e(asset($activeTemplateTrue.'js/jquery-3.6.0.min.js')); ?>"></script> -->
+
+
 <script src="<?php echo e(asset($activeTemplateTrue.'js/jquery-ui.js')); ?>"></script>
 <script src="<?php echo e(asset($activeTemplateTrue.'js/bootstrap.min.js')); ?>"></script>
 
@@ -530,7 +550,7 @@
   <script src="../../../mold/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
   <script src="../../../mold/vendor/owlcarousel/owl.carousel.min.js"></script>
 
-  <script src="../../../../mold/vendor/retina.min.js"></script>
+  <!-- <script src="../../../../mold/vendor/retina.min.js"></script> -->
 
   <script src="../../../mold/vendor/jquery.imageScroll.min.js"></script>
   <script src="../../../mold/assets/js/min/responsivetable.min.js"></script>
