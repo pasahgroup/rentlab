@@ -1724,7 +1724,7 @@ label {
 .nice-select{
   width: 100%;
   /*height: 55px;*/
-  line-height: 30px;
+  line-height: 22px;
   border-radius: 10px;
   font-size: 16px;
   border-color: #CED4DA;
@@ -3092,7 +3092,7 @@ a.ui-button:active,
 
 .widget {
   background: var(--theme-bg-light);
-  padding: 30px;
+  padding: 2px;
   margin-bottom: 30px;
   border-radius: 10px;
 }
