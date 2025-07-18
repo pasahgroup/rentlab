@@ -1,6 +1,6 @@
 <?php $__env->startSection('content'); ?>
     <!-- Account Section Starts Here -->
-    <div class="account-section pt-120 pb-120" style="border:1px solid rgba(0,0,0,.9)">
+    <div class="account-section pt-120 pb-120" style="#">
             <div style="border:1px solid rgba(1,0,0,.9);">
             <div class="row justify-content-center" style="background-color:#a6a876">
                 <div class="col-xxl-6 col-lg-8" >
