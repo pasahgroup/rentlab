@@ -4,7 +4,7 @@
 ?>
 
 <!-- Pricing Section -->
-<section class="pricing-section pt-120 pb-120 position-relative overflow-hidden" style="background-color:#5c7763b0;">
+<section class="pricing-section position-relative overflow-hidden" style="background-color:#fff;">
     <div class="shape right-side"><?php echo e(__(@$plan_content->data_values->stylish_text_right)); ?></div>
     <div class="shape"><?php echo e(__(@$plan_content->data_values->stylish_text_left)); ?></div>
     <div class="container-fluid">
@@ -26,9 +26,9 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="plan__body">
                             <ul>
-
                                 <?php $__empty_2 = true; $__currentLoopData = $plan->included; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_2 = false; ?>
                                     <li><i class="las la-check"></i> <?php echo e(__(@$item)); ?></li>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_2): ?>
@@ -38,9 +38,8 @@
                                     <li><i class="las la-times"></i> <?php echo e(__(@$item)); ?></li>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_2): ?>
                                 <?php endif; ?>
-
                             </ul>
-                            <a href="#0" class="cmn--btn"><?php echo app('translator')->get('book now'); ?></a>
+                            <a href="/plans" class="cmn--btn"><?php echo app('translator')->get('book now'); ?></a>
                         </div>
                     </div>
                 </div>

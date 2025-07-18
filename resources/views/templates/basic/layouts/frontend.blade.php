@@ -56,17 +56,17 @@
         }
         </style>
 
+
+  
+
   <link href="../../../frontendp/lib/animate/animate.min.css" rel="stylesheet" type="text/css" />
   <link href="../../../frontendp/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" />
 
-
 <!-- Start from here -->
-
     <link href="../../../frontendp/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
            <!-- Custom library  -->
    <link rel="icon" type="image/png" href="../../../mold/assets/img/favicon.png" />
- <link rel="stylesheet" href="../../../mold/assets/css/min/bootstrap.min.css" media="all">
 
 
   <link rel="stylesheet" href="../../../mold/assets/css/jqueryui.css" media="all">
@@ -78,7 +78,7 @@
   <!-- Original custom css -->
 <!-- //New Added style -->
 
-<link rel="stylesheet" href="../../../styleMain.css">
+     <link rel="stylesheet" href="../../../styleMain.css">
 
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/line-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/magnific-popup.min.css')}}">
@@ -86,11 +86,7 @@
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/main.css')}}">
 
-
-
  <!-- css -->
-
-
    <link rel="stylesheet" href="../../../assetstaxio/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../assetstaxio/css/all-fontawesome.min.css">
     <link rel="stylesheet" href="../../../assetstaxio/css/animate.min.css">
@@ -114,14 +110,13 @@
    @if(!request()->routeIs('home'))
     @include($activeTemplate.'partials.breadcrumb')
 @endif
-   @yield('content')
+@yield('content')
 
 <!-- footer section start -->
 @stack('script-lib')
 @stack('script')
 @include('partials.plugins')
 @include('partials.notify')
-
 
 
         <div class="hero-slides owl-carousel">
@@ -166,192 +161,15 @@
     </section>
     <!-- ##### Hero Area End ##### -->
 
-     <!-- ##### Featured Properties Area Start ##### -->
-    <section class="featured-properties-area section-padding-100-50">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading wow fadeInUp">
-                        <h2>Featured Properties</h2>
-                        <p>Suspendisse dictum enim sit amet libero malesuada feugiat.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- Single Featured Property -->
-                <div class="col-12 col-md-6 col-xl-3">
-                    <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="100ms">
-                        <!-- Property Thumbnail -->
-                        <div class="property-thumb">
-                            <img src="img/bg-img/feature1.jpg" alt="">
-
-                            <div class="tag">
-                                <span>For Sale</span>
-                            </div>
-                            <div class="list-price">
-                                <p>$945 679</p>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                        <div class="property-content">
-                            <h5>Villa in Los Angeles</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">Upper Road 3411, no.34 CA</p>
-                            <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada.</p>
-                            <div class="property-meta-data d-flex align-items-end justify-content-between">
-                                <div class="new-tag">
-                                    <img src="img/icons/new.png" alt="">
-                                </div>
-                                <div class="bathroom">
-                                    <img src="img/icons/bathtub.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="garage">
-                                    <img src="img/icons/garage.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="space">
-                                    <img src="img/icons/space.png" alt="">
-                                    <span>120 sq ft</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Featured Property -->
-                <div class="col-12 col-md-6 col-xl-3">
-                    <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="200ms">
-                        <!-- Property Thumbnail -->
-                        <div class="property-thumb">
-                            <img src="img/bg-img/feature2.jpg" alt="">
-
-                            <div class="tag">
-                                <span>For Sale</span>
-                            </div>
-                            <div class="list-price">
-                                <p>$945 679</p>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                        <div class="property-content">
-                            <h5>Town House in Los Angeles</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">Upper Road 3411, no.34 CA</p>
-                            <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada.</p>
-                            <div class="property-meta-data d-flex align-items-end justify-content-between">
-                                <div class="new-tag">
-                                    <img src="img/icons/new.png" alt="">
-                                </div>
-                                <div class="bathroom">
-                                    <img src="img/icons/bathtub.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="garage">
-                                    <img src="img/icons/garage.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="space">
-                                    <img src="img/icons/space.png" alt="">
-                                    <span>120 sq ft</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Featured Property -->
-                <div class="col-12 col-md-6 col-xl-3">
-                    <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Property Thumbnail -->
-                        <div class="property-thumb">
-                            <img src="img/bg-img/feature3.jpg" alt="">
-
-                            <div class="tag">
-                                <span>For Sale</span>
-                            </div>
-                            <div class="list-price">
-                                <p>$945 679</p>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                        <div class="property-content">
-                            <h5>Town House in Los Angeles</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">Upper Road 3411, no.34 CA</p>
-                            <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada.</p>
-                            <div class="property-meta-data d-flex align-items-end justify-content-between">
-                                <div class="new-tag">
-                                    <img src="img/icons/new.png" alt="">
-                                </div>
-                                <div class="bathroom">
-                                    <img src="img/icons/bathtub.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="garage">
-                                    <img src="img/icons/garage.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="space">
-                                    <img src="img/icons/space.png" alt="">
-                                    <span>120 sq ft</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Featured Property -->
-                <div class="col-12 col-md-6 col-xl-3">
-                    <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="400ms">
-                        <!-- Property Thumbnail -->
-                        <div class="property-thumb">
-                            <img src="img/bg-img/feature4.jpg" alt="">
-
-                            <div class="tag">
-                                <span>For Sale</span>
-                            </div>
-                            <div class="list-price">
-                                <p>$945 679</p>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                        <div class="property-content">
-                            <h5>Villa in Los Angeles</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">Upper Road 3411, no.34 CA</p>
-                            <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada.</p>
-                            <div class="property-meta-data d-flex align-items-end justify-content-between">
-                                <div class="new-tag">
-                                    <img src="img/icons/new.png" alt="">
-                                </div>
-                                <div class="bathroom">
-                                    <img src="img/icons/bathtub.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="garage">
-                                    <img src="img/icons/garage.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="space">
-                                    <img src="img/icons/space.png" alt="">
-                                    <span>120 sq ft</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Featured Properties Area End ##### -->
-
+ 
     <!-- ##### Call To Action Area Start ##### -->
-    <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/cta.jpg)">
+    <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/p2.jpeg)">
         <div class="container h-100">
             <div class="row align-items-center h-100">
                 <div class="col-12">
                     <div class="cta-content text-center">
-                        <h2 class="wow fadeInUp" data-wow-delay="300ms">Are you looking for a place to rent?</h2>
-                        <h6 class="wow fadeInUp" data-wow-delay="400ms">Suspendisse dictum enim sit amet libero malesuada feugiat.</h6>
-                        <a href="#" class="btn south-btn mt-50 wow fadeInUp" data-wow-delay="500ms">Search</a>
+                        <h5 class="wow fadeInUp" data-wow-delay="300ms" style="color:fff"><span>The Rhonds Company Ltd</span></h5>
+                        <h6 class="wow fadeInUp" data-wow-delay="400ms">The best Car Rental Deals in Tanzania</h6>
                     </div>
                 </div>
             </div>
@@ -583,5 +401,6 @@
     <script src="../../../assetstaxio/js/jquery.nice-select.min.js"></script>
     <script src="../../../assetstaxio/js/wow.min.js"></script>
     <script src="../../../assetstaxio/js/main.js"></script>
+
 </body>
 </html>

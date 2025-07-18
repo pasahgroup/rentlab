@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.admin_master_panel')
+@extends($activeTemplate.'layouts.frontend')
 @section('content')
     <div class="faq-section pt-120 pb-120 bg--section position-relative overflow-hidden">
         <div class="shape">@lang('pricing')</div>
@@ -71,6 +71,18 @@
                                 @endforelse
                             </select>
                         </div>
+                        <br>
+
+                              <div class="form--group">
+                                        <div class="input-group">
+                            <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                            <span class="las la-car"></span>
+                            <span class="ms-1">@lang('Number of Car')</span>
+                                                            </div>
+            <input class="form-control" type="number" aria-label="#" name="no_car" id="no_car" value="1" min="1" required>
+                                                                    </div>
+                                                                </div>
+ <br>
                         <div class="form--group">
                             <label for="priority" class="form--label">@lang('Pick Up Date & Time')</label>
                             <input type="text" name="pick_time" placeholder="@lang('Pick Up Date & Time')" id="planDateAndTimePicker" autocomplete="off" data-position='top right' class="form-control form--control"  required>
@@ -105,8 +117,11 @@
             language: 'en'
         })
 
+
+
         $(document).on('click', '.plan_modal', function () {
             var url = $(this).data('url');
+            alert(url);
             $('.planForm').attr('action', url);
         });
     </script>

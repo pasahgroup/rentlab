@@ -70,6 +70,18 @@
                                 <?php endif; ?>
                             </select>
                         </div>
+                        <br>
+
+                              <div class="form--group">
+                                        <div class="input-group">
+                            <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
+                            <span class="las la-car"></span>
+                            <span class="ms-1"><?php echo app('translator')->get('Number of Car'); ?></span>
+                                                            </div>
+            <input class="form-control" type="number" aria-label="#" name="no_car" id="no_car" value="1" min="1" required>
+                                                                    </div>
+                                                                </div>
+ <br>
                         <div class="form--group">
                             <label for="priority" class="form--label"><?php echo app('translator')->get('Pick Up Date & Time'); ?></label>
                             <input type="text" name="pick_time" placeholder="<?php echo app('translator')->get('Pick Up Date & Time'); ?>" id="planDateAndTimePicker" autocomplete="off" data-position='top right' class="form-control form--control"  required>
@@ -104,11 +116,14 @@
             language: 'en'
         })
 
+
+
         $(document).on('click', '.plan_modal', function () {
             var url = $(this).data('url');
+            alert(url);
             $('.planForm').attr('action', url);
         });
     </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make($activeTemplate.'layouts.admin_master_panel', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/plans/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make($activeTemplate.'layouts.frontend', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\rentlab\resources\views/templates/basic/plans/index.blade.php ENDPATH**/ ?>

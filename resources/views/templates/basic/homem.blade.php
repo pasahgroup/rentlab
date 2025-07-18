@@ -56,7 +56,7 @@
   </div>
 </div>
 
-  <div class="col-md-3">
+<div class="col-md-3">
  <h5> Rhonds<span class="text-primary"> Services</span></h5>
   <div class="product-offer" style="height: 295px;">     
  <div class="rowx">
@@ -105,9 +105,7 @@
                                     
                                 </div>
                             </div>
-                          </div>
-                   
-                                           
+                          </div>                                                             
                         <marquee style="color:#03153e;float: right">Welcome to book with Rhonds Company</marquee>
                     </div>
 
@@ -251,7 +249,7 @@
           @endif
         @endforeach
     @endif
-</section>
+ </section>
 
 
               <section class="showcase" style="background: url('assets/img/worldmap.png') no-repeat center; background-size: cover;padding-top: 30px;padding-bottom: 20px;">

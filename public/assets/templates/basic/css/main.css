@@ -2987,7 +2987,8 @@ width: 40%;
 
 /*Pricing Plan Section Starts Here*/
 .plan__item {
-    background: #26353e;
+    /*background: #26353e;*/
+    background: #fff;
     overflow: hidden;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;

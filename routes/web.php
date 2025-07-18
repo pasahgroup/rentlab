@@ -531,7 +531,7 @@ Route::get('getEmp/{id}', 'VehicleController@getEmp')->name('vehicle.getEmp');
 Route::get('/getEmpl/{id}', [VehiclesController::class, 'getEmp']);
 
 
-Route::get('plans', 'SiteController@plans')->name('plans');
+ Route::get('plans', 'SiteController@plans')->name('plans');
 Route::post('plan/{id}', 'SiteController@planBooking')->name('plan.booking');
 
 Route::get('blogs', 'SiteController@blogs')->name('blogs');

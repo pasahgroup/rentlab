@@ -4,7 +4,7 @@
 @endphp
 
 <!-- Pricing Section -->
-<section class="pricing-section pt-120 pb-120 position-relative overflow-hidden" style="background-color:#5c7763b0;">
+<section class="pricing-section position-relative overflow-hidden" style="background-color:#fff;">
     <div class="shape right-side">{{ __(@$plan_content->data_values->stylish_text_right) }}</div>
     <div class="shape">{{ __(@$plan_content->data_values->stylish_text_left) }}</div>
     <div class="container-fluid">
@@ -26,9 +26,9 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="plan__body">
                             <ul>
-
                                 @forelse($plan->included as $item)
                                     <li><i class="las la-check"></i> {{ __(@$item) }}</li>
                                 @empty
@@ -38,9 +38,8 @@
                                     <li><i class="las la-times"></i> {{ __(@$item) }}</li>
                                 @empty
                                 @endforelse
-
                             </ul>
-                            <a href="#0" class="cmn--btn">@lang('book now')</a>
+                            <a href="/plans" class="cmn--btn">@lang('book now')</a>
                         </div>
                     </div>
                 </div>
