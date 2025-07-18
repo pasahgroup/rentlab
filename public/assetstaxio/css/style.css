@@ -81,6 +81,7 @@ Table of contents
 ======================*/
 
 :root {
+  
   --body-font: 'Roboto', sans-serif;
   --heading-font: 'Inter', sans-serif;
   --theme-color: #FFB300;
@@ -88,6 +89,8 @@ Table of contents
   --body-text-color: #000;
   --color-white: #ffffff;
   --color-dark: #111111;
+  --wawa-color: #72716f;
+
   --color-green: #11B76B;
   --color-blue: #0049D0;
   --color-yellow: #FBA707;
@@ -5101,7 +5104,7 @@ body.rtl-mode .price-wrapper {
 ======================*/
 
 .footer-area {
-  background: var(--color-dark);
+  background: var(--wawa-color);
   position: relative;
   z-index: 1;
 }
