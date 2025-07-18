@@ -1544,7 +1544,7 @@ select.form--control {
 }
 
 .hero-content .hero-title {
-    margin: 0;
+    margin:20px;
     display: inline-block;
     position: relative;
 }
@@ -1884,7 +1884,7 @@ select.form--control {
 .account__wrapper {
     margin: 0 auto;
     max-width: 920px;
-    padding: 10px;
+    padding: 1px;
     border: 1px dashed rgba(0, 174, 235, 0.3);
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -5287,8 +5287,8 @@ button.cmn--btn:hover {
     font-size: 16px;
 }
 .account__wrapper .logo {
-    margin: 0 auto 30px;
-    max-width: 240px;
+    margin: 0 auto 1px;
+    max-width: 200px;
 }
 @media screen and (min-width:992px) {
     .ticket-name-id {

@@ -169,7 +169,7 @@
                 <div class="col-12">
                     <div class="cta-content text-center">
                         <h5 class="wow fadeInUp" data-wow-delay="300ms" style="color:fff"><span>The Rhonds Company Ltd</span></h5>
-                        <h6 class="wow fadeInUp" data-wow-delay="400ms">The best Car Rental Deals in Tanzania</h6>
+                        <h6 class="wow fadeInUp" data-wow-delay="400ms">The best Car Rental Dealers in Tanzania</h6>
                     </div>
                 </div>
             </div>
