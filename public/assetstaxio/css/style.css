@@ -225,7 +225,7 @@ img {
 }
 
 label {
-  color: #999;
+  color: #000;
   cursor: pointer;
   font-weight: 400;
 }
@@ -381,11 +381,11 @@ label {
 }
 
 .pt-120 {
-  padding-top: 70px;
+  padding-top: 30px;
 }
 
 .pb-120 {
-  padding-bottom: 120px;
+  padding-bottom: 60px;
 }
 
 .pt-0 {
